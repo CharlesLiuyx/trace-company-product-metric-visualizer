@@ -129,47 +129,92 @@ export async function recordDatasetBuildCommand(buildId, command, options = {}) 
   });
 }
 
+function reviewedBuild(build, outcome, options) {
+  if (!Number.isInteger(outcome?.expectedRevision) || outcome.expectedRevision !== build.revision) {
+    throw buildError('STALE_REVISION', 'Dataset Build revision changed before the review outcome could be recorded');
+  }
+  for (const field of ['authoredDigest', 'verificationPlanDigest']) {
+    if (!/^sha256:[a-f0-9]{64}$/.test(String(outcome[field] || ''))) {
+      throw buildError('REVIEW_OUTCOME_INVALID', `${field} must be a sha256 digest`);
+    }
+  }
+  const authored = latestReceipt(build, 'AUTHORED')?.payload;
+  if (build.state !== 'AUTHORED' || authored?.snapshotDigest !== outcome.authoredDigest) {
+    throw buildError('REVIEW_OUTCOME_STALE', 'Review outcome does not match the current AUTHORED snapshot');
+  }
+  if (authored.verificationPlanDigest !== outcome.verificationPlanDigest) {
+    throw buildError('REVIEW_OUTCOME_STALE', 'Review outcome does not match the current VerificationPlan');
+  }
+  // Only an explicit acceptance is a review outcome; problems are feedback.
+  if (outcome.status !== 'accepted') {
+    throw buildError('REVIEW_OUTCOME_INVALID', `Unsupported review status: ${outcome.status || '<missing>'}`);
+  }
+  const reference = outcome.fidelityResult;
+  if (reference?.kind !== 'fidelity-result' || !/^sha256:[a-f0-9]{64}$/.test(String(reference.digest || ''))) {
+    throw buildError('REVIEW_OUTCOME_INVALID', 'fidelityResult must reference a fidelity-result object');
+  }
+  const references = { fidelityResult: reference };
+  const review = {
+    reviewRevision: (build.review?.reviewRevision ?? -1) + 1,
+    buildRevision: build.revision,
+    recordedAt: (options.now || (() => new Date().toISOString()))(),
+    status: String(outcome.status || ''),
+    authoredDigest: outcome.authoredDigest,
+    verificationPlanDigest: outcome.verificationPlanDigest,
+    references,
+  };
+  return { ...build, review };
+}
+
 export async function recordDatasetBuildReviewOutcome(buildId, outcome, options = {}) {
   return withBuildLock(buildId, options, async ({ buildDir, buildRoot }) => {
     const build = await readDatasetBuild(buildId, options);
-    if (!Number.isInteger(outcome?.expectedRevision) || outcome.expectedRevision !== build.revision) {
-      throw buildError('STALE_REVISION', 'Dataset Build revision changed before the review outcome could be recorded');
-    }
-    for (const field of ['authoredDigest', 'verificationPlanDigest']) {
-      if (!/^sha256:[a-f0-9]{64}$/.test(String(outcome[field] || ''))) {
-        throw buildError('REVIEW_OUTCOME_INVALID', `${field} must be a sha256 digest`);
-      }
-    }
-    const authored = latestReceipt(build, 'AUTHORED')?.payload;
-    if (build.state !== 'AUTHORED' || authored?.snapshotDigest !== outcome.authoredDigest) {
-      throw buildError('REVIEW_OUTCOME_STALE', 'Review outcome does not match the current AUTHORED snapshot');
-    }
-    if (authored.verificationPlanDigest !== outcome.verificationPlanDigest) {
-      throw buildError('REVIEW_OUTCOME_STALE', 'Review outcome does not match the current VerificationPlan');
-    }
+    const next = reviewedBuild(build, outcome, options);
     const freshness = await inspectDatasetBuild(buildId, { ...options, buildRoot });
     if (!freshness.fresh) {
       throw buildError('REVIEW_OUTCOME_STALE', `Authored inputs are stale: ${freshness.reasons.join(', ')}`);
     }
-    // Only an explicit acceptance is a review outcome; problems are feedback.
-    if (outcome.status !== 'accepted') {
-      throw buildError('REVIEW_OUTCOME_INVALID', `Unsupported review status: ${outcome.status || '<missing>'}`);
+    await writeJsonAtomic(path.join(buildDir, 'manifest.json'), next);
+    return next;
+  });
+}
+
+// Review, baseline and seal share one freshness check and one manifest write.
+// State-machine transitions still create the same auditable receipts. A failure
+// before the atomic rename leaves the Build entirely at its previous revision.
+export async function recordDatasetBuildReviewClosure(buildId, { outcome, closure, seal }, options = {}) {
+  return withBuildLock(buildId, options, async ({ buildDir, buildRoot }) => {
+    const build = await readDatasetBuild(buildId, options);
+    let next = reviewedBuild(build, outcome, options);
+    const result = await readBuildObject(buildId, outcome.fidelityResult, { buildRoot });
+    if (digestValue(result) !== digestValue(closure.fidelityResult)) throw buildError('REVIEW_OUTCOME_INVALID', 'Closure differs from the recorded acceptance');
+    const freshness = await inspectDatasetBuild(buildId, { ...options, buildRoot });
+    if (!freshness.fresh) throw buildError('REVIEW_OUTCOME_STALE', `Authored inputs are stale: ${freshness.reasons.join(', ')}`);
+    next = advanceDatasetBuild(next, closure, { now: options.now });
+    if (seal) {
+      const closurePayload = latestReceipt(next, 'CLOSED').payload;
+      const metrics = result.evidence?.find((item) => item.locale === 'en')?.metrics;
+      if (next.adapter === 'income-statement' && (!Number.isFinite(metrics?.similarity)
+        || !Number.isFinite(metrics?.mae) || !Number.isInteger(metrics?.width) || metrics.width <= 0
+        || !Number.isInteger(metrics?.height) || metrics.height <= 0)) {
+        throw buildError('BASELINE_INVALID', 'Accepted English baseline needs similarity, mae, width and height');
+      }
+      next = advanceDatasetBuild(next, {
+        type: 'stage-baseline', expectedRevision: next.revision,
+        closureDigest: closurePayload.closureDigest,
+        ...(next.adapter === 'income-statement'
+          ? { disposition: 'recorded', use: 'future-regression-only', metrics }
+          : { disposition: 'not-applicable', reason: `${next.adapter}-data-only` }),
+      }, { now: options.now });
+      next = advanceDatasetBuild(next, {
+        type: 'seal', expectedRevision: next.revision, status: 'passed',
+        snapshotDigest: outcome.authoredDigest, closureDigest: closurePayload.closureDigest,
+        baseCanonicalDigest: next.baseCanonicalDigest,
+        acceptedAt: (options.now || (() => new Date().toISOString()))(),
+        verdictInputDigests: Object.values(closurePayload.evidence).map((item) => item.digest),
+        finalProfiles: seal.finalProfiles,
+      }, { now: options.now });
     }
-    const reference = outcome.fidelityResult;
-    if (reference?.kind !== 'fidelity-result' || !/^sha256:[a-f0-9]{64}$/.test(String(reference.digest || ''))) {
-      throw buildError('REVIEW_OUTCOME_INVALID', 'fidelityResult must reference a fidelity-result object');
-    }
-    const references = { fidelityResult: reference };
-    const review = {
-      reviewRevision: (build.review?.reviewRevision ?? -1) + 1,
-      buildRevision: build.revision,
-      recordedAt: (options.now || (() => new Date().toISOString()))(),
-      status: String(outcome.status || ''),
-      authoredDigest: outcome.authoredDigest,
-      verificationPlanDigest: outcome.verificationPlanDigest,
-      references,
-    };
-    const next = { ...build, review };
     await writeJsonAtomic(path.join(buildDir, 'manifest.json'), next);
     return next;
   });
@@ -256,6 +301,8 @@ export async function inspectDatasetBuild(buildId, options = {}) {
   const sealReceipt = latestReceipt(build, 'SEALED');
   const staleArtifacts = [];
   const staleSources = [];
+  // Invocation-local bytes already read below; never a cache across checks.
+  const knownDigests = new Map();
 
   for (const source of build.sources || []) {
     // Legacy manifests recorded only the intake URI. New manifests add a
@@ -320,6 +367,7 @@ export async function inspectDatasetBuild(buildId, options = {}) {
       continue;
     }
     const actualDigest = await digestFile(absolute);
+    knownDigests.set(artifact.path, actualDigest);
     if (actualDigest !== artifact.digest) {
       staleArtifacts.push({ path: artifact.path, reason: 'digest-mismatch', expected: artifact.digest, actual: actualDigest });
     }
@@ -328,7 +376,7 @@ export async function inspectDatasetBuild(buildId, options = {}) {
   if (authoredReceipt?.payload?.artifacts.some((item) => item.role === 'semantic-inputs')) {
     try {
       const { inspectDerivedArtifacts } = await import('./workflow-dependencies.mjs');
-      staleArtifacts.push(...await inspectDerivedArtifacts(build, projectRoot, authoredReceipt.payload.artifacts));
+      staleArtifacts.push(...await inspectDerivedArtifacts(build, projectRoot, authoredReceipt.payload.artifacts, knownDigests));
     } catch (error) { staleArtifacts.push({ path: 'derived-dependencies', reason: error.message }); }
   }
 

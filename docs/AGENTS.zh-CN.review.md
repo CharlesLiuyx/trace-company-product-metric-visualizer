@@ -74,7 +74,7 @@ ChangeImpact 检查，不创建 Build。检查失败只阻断依赖它的步骤�
 
 | 命令 | 作用 |
 | --- | --- |
-| `pnpm record:workflow -- <action>` | 数据集处理流程：`start`、`continue`、`show`、`review`、`seal`、`feedback`、`refresh`、`archive-list`、`archive` 等（见 `docs/asset-workflow.md`） |
+| `pnpm record:workflow -- <action>` | 数据集处理流程：`start`、`continue`、`show`、`accept`、`review`、`seal`、`feedback`、`refresh`、`archive-list`、`archive` 等（见 `docs/asset-workflow.md`） |
 | `pnpm publish:datasets -- plan\|commit` | 检查整批候选并原子切换本机正式版本 |
 | `pnpm release:git -- prepare\|inspect\|commit\|push` | 已发布贡献的 Git 交接（`prepare --full` 追加本机浏览器检查） |
 | `pnpm record:transport-review -- <id> --input <json>` | 记录对 Git 交接候选的接受 |
@@ -103,7 +103,7 @@ CI 总是先跑 `pnpm check`，再按 ChangeImpact 选择 app、Pages、渲染�
 
 - `record:workflow continue` 跑完全部自动步骤，停在「待人工审阅」；不开浏览器，直接交付
   审阅链接。
-- 单份材料任务不跑 `pnpm check` 或浏览器套件；seal 复用已接受的渲染证据；Git 交接把
+- 单份材料任务不跑 `pnpm check` 或浏览器套件；`accept` 一次接受并封存，复用已接受的数据一致性与渲染证据；Git 交接把
   浏览器检查交给 CI。
 - 操作员的明确通过覆盖审阅、seal 与本机发布；推送指令覆盖继承 Build 接受的 Git 候选。
 - 只有操作员的完成信号能在其所指范围内搬移来源；`input/processed/` 只留本机。

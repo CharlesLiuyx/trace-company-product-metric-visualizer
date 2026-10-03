@@ -30,16 +30,33 @@ export async function filesUnder(root, roots) {
     const stat = await lstat(file);
     if (stat.isSymbolicLink()) throw new Error(`Snapshot may not follow symlinks: ${relative}`);
     if (stat.isDirectory()) {
-      for (const name of (await readdir(file)).sort()) await visit(`${relative}/${name}`);
+      await directory(relative);
     } else if (stat.isFile()) files.push(relative);
+  }
+  async function directory(relative) {
+    for (const item of await readdir(inside(root, relative), { withFileTypes: true })) {
+      const name = `${relative}/${item.name}`;
+      if (isSnapshotCachePath(name)) continue;
+      if (item.isSymbolicLink()) throw new Error(`Snapshot may not follow symlinks: ${name}`);
+      if (item.isDirectory()) await directory(name);
+      else if (item.isFile()) files.push(name);
+    }
   }
   for (const entry of roots) await visit(entry);
   return [...new Set(files)].sort();
 }
 export async function fileManifest(root, roots = CANONICAL_ROOTS) {
   const files = await filesUnder(root, roots);
-  const entries = [];
-  for (const file of files) entries.push({ path: file, digest: bytesDigest(await readFile(inside(root, file))) });
+  const entries = new Array(files.length);
+  let cursor = 0;
+  const reads = await Promise.allSettled(Array.from({ length: Math.min(16, files.length) }, async () => {
+    while (cursor < files.length) {
+      const index = cursor++, file = files[index];
+      entries[index] = { path: file, digest: bytesDigest(await readFile(inside(root, file))) };
+    }
+  }));
+  const failed = reads.find((result) => result.status === 'rejected');
+  if (failed) throw failed.reason;
   return { entries, digest: digestValue(entries) };
 }
 export async function copyFiles(from, to, files) {

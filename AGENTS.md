@@ -82,7 +82,7 @@ Install once (render verifiers use Chromium):
 
 | command | purpose |
 | --- | --- |
-| `pnpm record:workflow -- <action>` | the dataset process: `start`, `continue`, `show`, `review`, `seal`, `feedback`, `refresh`, `archive-list`, `archive`, … (see `docs/asset-workflow.md`) |
+| `pnpm record:workflow -- <action>` | the dataset process: `start`, `continue`, `show`, `accept`, `review`, `seal`, `feedback`, `refresh`, `archive-list`, `archive`, … (see `docs/asset-workflow.md`) |
 | `pnpm publish:datasets -- plan\|commit` | validate a combined candidate and atomically switch the local published tree |
 | `pnpm release:git -- prepare\|inspect\|commit\|push` | Git hand-off of published contributions (`prepare --full` adds local browser checks) |
 | `pnpm record:transport-review -- <id> --input <json>` | record acceptance of a Git hand-off candidate |
@@ -112,8 +112,8 @@ elsewhere. Its load-bearing points, for orientation only:
 
 - `record:workflow continue` runs every automatic step and stops at "waiting
   for human review"; deliver the review link without opening a browser.
-- Single-Source tasks do not run `pnpm check` or browser suites; seal reuses
-  the accepted render evidence; Git hand-off leaves browser checks to CI.
+- Single-Source tasks do not run `pnpm check` or browser suites; `accept` atomically closes and seals using
+  the accepted consistency and render evidence; Git hand-off leaves browser checks to CI.
 - The operator's explicit approval covers review, seal and local publication;
   a push instruction covers a Git candidate that inherits Build acceptance.
 - Only the operator's completion signal relocates Sources, within the scope it

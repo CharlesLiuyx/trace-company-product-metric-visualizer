@@ -19,7 +19,8 @@
 | `pnpm record:workflow -- report` | 按需生成 HTML 处理单（非必需） |
 | `pnpm record:workflow -- checkpoint` | 仅历史 fidelity-checkpoints/v1 Build：记录阶段冻结或重开 |
 | `pnpm record:workflow -- review` | 记录操作员接受（reviewToken、previewId、reviewer、decision、note）并关闭 Build |
-| `pnpm record:workflow -- seal` | 暂存基线、重跑数据一致性；渲染复用已接受证据（--fresh-render 强制重渲染） |
+| `pnpm record:workflow -- accept` | 人工通过后一次记录接受、暂存基线并封存；支持 --input 批量清单与 --concurrency 2 |
+| `pnpm record:workflow -- seal` | 暂存基线、核对字节并复用已接受的检查证据（--fresh-checks 重跑全部检查；--fresh-render 只重渲染） |
 | `pnpm record:workflow -- batch` | 记录成员并以独立进程继续多个 Build |
 | `pnpm record:workflow -- refresh` | 核对冲突后更新工作目录、准备新计划 |
 | `pnpm record:workflow -- assets` | 只读查找资产版本、来源与使用位置 |
@@ -29,7 +30,7 @@
 | `pnpm record:workflow -- archive` | 消费操作员确认的精确清单并归档 |
 
 `start` 需要 `--source <pending-file> --key <key> --facts <facts.json>`；
-其他单项操作使用 `<build-id>`。`review`、`checkpoint`、`feedback`、`asset-version`、`archive`
+其他单项操作使用 `<build-id>`。`accept`、`review`、`checkpoint`、`feedback`、`asset-version`、`archive`
 使用 `--input <json>`。`batch` 使用 `--input <json> --concurrency 2`。
 
 ## 项目入口

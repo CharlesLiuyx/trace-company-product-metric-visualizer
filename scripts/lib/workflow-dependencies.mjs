@@ -49,11 +49,11 @@ export async function readSemanticContribution(build, root, loaded = null) {
   const displayTime = loaded.context.DATASET_FILE_METADATA?.files?.[build.adapter === 'revenue-metric' ? 'data/revenue-metrics.js' : build.key] || null;
   return { key: build.key, adapter: build.adapter, record, company, dataset, displayTime };
 }
-export async function deriveArtifactManifest(build, root, { writeProjection = true } = {}) {
+export async function deriveArtifactManifest(build, root, { writeProjection = true, knownDigests = new Map() } = {}) {
   const artifacts = [];
   const add = async (file, role) => {
     if (!existsSync(inside(root, file))) throw new Error(`Required dependency missing: ${file}`);
-    if (!artifacts.some((item) => item.path === file)) artifacts.push({ path: file, role, digest: bytesDigest(await readFile(inside(root, file))) });
+    if (!artifacts.some((item) => item.path === file)) artifacts.push({ path: file, role, digest: knownDigests.get(file) || bytesDigest(await readFile(inside(root, file))) });
   };
   const loaded = await loadWorkspaceData(root);
   const contribution = await readSemanticContribution(build, root, loaded);
@@ -105,9 +105,9 @@ export function nextCheckpoint(manifest, checkpoints = []) {
   return null;
 }
 
-export async function inspectDerivedArtifacts(build, root, artifacts) {
+export async function inspectDerivedArtifacts(build, root, artifacts, knownDigests) {
   if (!artifacts.some((item) => item.role === 'semantic-inputs')) return [];
-  const current = await deriveArtifactManifest(build, root, { writeProjection: false });
+  const current = await deriveArtifactManifest(build, root, { writeProjection: false, knownDigests });
   const old = new Map(artifacts.map((item) => [item.path, item.digest]));
   return current.manifest.artifacts.filter((item) => old.get(item.path) !== item.digest).map((item) => ({ path: item.path, reason: 'dependency-changed', expected: old.get(item.path) || null, actual: item.digest }));
 }

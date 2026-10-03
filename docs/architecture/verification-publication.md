@@ -71,7 +71,11 @@ This lane is the primary Build close-out workflow; canonical publication
 itself is implemented by the isolated Publication module. For new isolated
 Builds `record:workflow` drives the same Interfaces: `continue` prepares, records
 consistency, and records one fidelity run per required locale (the review
-candidate); `review` finishes; `seal` stages the baseline and seals.
+candidate); `accept` records acceptance, closure, baseline and seal in one
+locked manifest transaction, using those existing checks. The older `review`
+and `seal` commands retain their separate entry points. The atomic operation
+preserves every state-machine receipt and leaves no partial acceptance if any
+transition fails. Each Build in a batch commits independently.
 
 The intake Type Gate is a current M3 guard, not a target command: explicit
 whole-Source signals must derive exactly one Adapter and agree with
@@ -205,11 +209,14 @@ input differs, it returns a stale-input result; the Build reopens at the
 recovery point defined in the lifecycle document.
 
 The implemented `sealReviewedBuild` takes no caller pass JSON: it internally
-inspects and re-hashes the authored files, reruns the read-only non-render
-dataset consistency profile, requires the Build to be `BASELINE_STAGED` with an
-accepted closure, and only then records `SEALED`. For Income Statement the d3
+re-hashes the authored files under the write lock, requires the Build to be
+`BASELINE_STAGED` with an accepted closure, and only then records `SEALED`. The
+non-render consistency proof is reused from that closure on the same authored
+and Plan digests; its profile row records `reusedEvidence: true` and the accepted
+consistency object digest. Missing historical proof falls back to a fresh check;
+`--fresh-checks` explicitly reruns consistency and rendering. For Income Statement the d3
 render hard gates for every required Plan locale were already proven by the
-accepted FidelityResult on the exact authored snapshot; because freshness pins
+accepted FidelityResult on the exact authored snapshot; because the final locked freshness check pins
 the renderer, fonts, Adapter and semantic data, seal reuses that proof
 (`reusedEvidence: true`, output digest = accepted locale evidence digest) and
 renders again only when that proof does not cover every locale or the caller
@@ -339,8 +346,8 @@ compatibility rule is replace, not layer indefinitely:
   sealing without changing canonical output (implemented; now the primary
   close-out path);
 - replace the freshness-only seal check with the complete Adapter
-  final-verification profile (implemented: non-render consistency rerun plus
-  per-locale render hard gates, reused from the accepted evidence when the
+  final-verification profile (implemented: non-render consistency and
+  per-locale render hard gates, both reused from the accepted evidence when the
   authored snapshot is unchanged);
 - turn manifest, registration, baseline, and metadata writers into pure
   projectors;

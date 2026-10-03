@@ -46,12 +46,12 @@ export function runWorkspace(root, script, args = []) {
   if (run.status !== 0) throw Object.assign(new Error(`${script} failed:\n${run.stderr || run.stdout}`), { code: 'WORKFLOW_STEP_FAILED', status: run.status });
   return run;
 }
-async function operation(buildId, name, root, work) {
+async function operation(buildId, name, root, work, credentials = {}) {
   const started = Date.now();
   const initial = await buildContext(buildId, root);
   return withFileLock(path.join(initial.buildRoot, initial.build.buildId, '.workflow-operation.lock'), async () => {
-    const options = await buildContext(buildId, root);
-    await assertBuildSession(root, buildId);
+    const options = { ...await buildContext(buildId, root), ...credentials };
+    await assertBuildSession(root, buildId, credentials);
     try {
       const result = await work(options);
       await recordBuildObject(buildId, 'operation-report', { operation: name, status: 'completed', startedAt: new Date(started).toISOString(), elapsedMs: Date.now() - started }, options);
@@ -250,24 +250,83 @@ export async function checkpointAsset(buildId, input, root = rootDir) {
     return showAsset(buildId, root);
   });
 }
-export async function reviewAsset(buildId, input, root = rootDir) {
-  return operation(buildId, 'review', root, async (options) => {
-    const current = await showAsset(buildId, root);
+// The mutation path loads only review inputs. showAsset also projects facts,
+// timing and status for people and is deliberately outside this hot path.
+async function reviewState(options, root) {
+  const { build, projectRoot: workspace } = options;
+  const authored = build.receipts.filter((receipt) => receipt.state === 'AUTHORED').at(-1)?.payload;
+  const matches = ({ value }) => (value.identity || value).authoredDigest === authored?.snapshotDigest
+    && (value.identity || value).verificationPlanDigest === authored?.verificationPlanDigest;
+  const packet = (await buildObjects(build.buildId, 'review-packet', options)).find(matches);
+  const verification = (await buildObjects(build.buildId, 'dataset-verification', options)).find(matches);
+  return { buildId: build.buildId, key: build.key, adapter: build.adapter, workspace,
+    session: await readBuildSession(root, build.buildId), authoredDigest: authored?.snapshotDigest,
+    reviewToken: packet?.reference.digest, verificationReference: verification?.reference,
+    plan: authored ? await readAuthoredObject(build.buildId, authored.verificationPlan, options) : null,
+    checkpoints: (await buildObjects(build.buildId, 'fidelity-checkpoint', options)).map(({ reference }) => reference),
+  };
+}
+async function reviewedPreview(current, review, options, root, verifiedPreviews) {
+  if (!current.session && !review.previewId) return;
+  if (!/^[a-f0-9-]+$/.test(review.previewId || '')) throw new Error('Review must cite the displayed production previewId from the workbench');
+  const { directory, preview, member } = await readReviewPreview(root, current.buildId, review.previewId);
+  // The displayed immutable preview pins its own tools. Later root tool/doc
+  // changes do not change what the person reviewed in this Build workspace.
+  if (member.reviewToken !== current.reviewToken || member.sourceDigest !== (await fileManifest(options.projectRoot)).digest) throw new Error('Displayed production preview is stale; prepare and inspect a fresh candidate');
+  const cacheKey = `${directory}:${digestValue(preview)}`;
+  if (!verifiedPreviews.has(cacheKey)) verifiedPreviews.set(cacheKey, verifySiteIdentity(path.join(directory, 'site'), preview));
+  await verifiedPreviews.get(cacheKey);
+  await recordBuildObject(current.buildId, 'production-preview-review', { previewId: review.previewId, previewSource: preview.source, reviewToken: current.reviewToken, contentDigest: preview.contentDigest, version: preview.version, sourceDigest: member.sourceDigest }, options);
+}
+async function applyAcceptance(buildId, input, root, { seal = false, verifiedPreviews = new Map(), ...credentials } = {}) {
+  return operation(buildId, seal ? 'accept' : 'review', root, async (options) => {
+    const current = await reviewState(options, root);
     const { expandHumanReview } = await import('./workflow-review.mjs');
     const review = await expandHumanReview(current, input);
-    if (review.reviewToken !== current.reviewToken) throw new Error('Review must cite the exact processing-sheet token; refresh the sheet before reviewing changed data');
-    if (current.session || review.previewId) {
-      if (!/^[a-f0-9-]+$/.test(review.previewId || '')) throw new Error('Review must cite the displayed production previewId from the workbench');
-      const { directory, preview, member } = await readReviewPreview(root, buildId, review.previewId);
-      if (member.reviewToken !== current.reviewToken || member.sourceDigest !== (await fileManifest(options.projectRoot)).digest || preview.toolDigest !== (await fileManifest(root, ['scripts', 'package.json', 'pnpm-lock.yaml'])).digest) throw new Error('Displayed production preview is stale; prepare and inspect a fresh candidate');
-      await verifySiteIdentity(path.join(directory, 'site'), preview);
-      await recordBuildObject(buildId, 'production-preview-review', { previewId: review.previewId, previewSource: preview.source, reviewToken: current.reviewToken, contentDigest: preview.contentDigest, version: preview.version, sourceDigest: member.sourceDigest }, options);
+    if (!current.reviewToken || review.reviewToken !== current.reviewToken) throw new Error('Review must cite the exact processing-sheet token; refresh the sheet before reviewing changed data');
+    await reviewedPreview(current, review, options, root, verifiedPreviews);
+    if (seal && options.build.state === 'SEALED') {
+      const closure = options.build.receipts.filter((receipt) => receipt.state === 'CLOSED').at(-1).payload;
+      const result = await readBuildObject(buildId, closure.reviewObjects.fidelityResult, options);
+      const sameAcceptance = Object.entries(review.acceptance).every(([key, value]) => result.acceptance?.[key] === value);
+      if (!sameAcceptance || !(await inspectDatasetBuild(buildId, options)).fresh) throw new Error('Sealed Build does not match this acceptance or its inputs changed');
+      return { buildId, key: current.key, state: 'SEALED', next: 'publish', alreadySealed: true };
     }
-    await finishReviewedBuild({ ...review, buildId, reviewToken: current.reviewToken, verificationReference: current.verificationReference, checkpoints: current.checkpoints }, options);
-    return showAsset(buildId, root);
-  });
+    const result = await finishReviewedBuild({ ...review, buildId, reviewToken: current.reviewToken, verificationReference: current.verificationReference, checkpoints: current.checkpoints }, { ...options, seal });
+    return seal ? { buildId, key: current.key, state: result.build.state, next: 'publish', sealDigest: result.build.receipts.at(-1).payload.sealDigest } : showAsset(buildId, root);
+  }, credentials);
 }
-export async function sealAsset(buildId, root = rootDir, { freshRender = false } = {}) {
+export async function reviewAsset(buildId, input, root = rootDir) {
+  return applyAcceptance(buildId, input, root);
+}
+export async function acceptAsset(buildId, input, root = rootDir, options = {}) {
+  return applyAcceptance(buildId, input, root, { ...options, seal: true });
+}
+// Each Build commits independently; retries preserve successful seals. The
+// session identity is common, generations are member-specific and never put
+// into process.env while concurrent operations run.
+export async function acceptAssets(input, root = rootDir, { concurrency = 2, ...credentials } = {}) {
+  const { builds, ...review } = input || {};
+  if (!Array.isArray(builds) || !builds.length) throw new Error('accept requires a nonempty builds list');
+  if (!Number.isInteger(concurrency) || concurrency < 1 || concurrency > 8) throw new Error('accept concurrency must be between 1 and 8');
+  const seen = new Set();
+  for (const entry of builds) {
+    if (!entry || !/^build-[a-z0-9-]+$/i.test(entry.buildId || '') || !entry.reviewToken || seen.has(entry.buildId)) throw new Error('Each acceptance needs a unique buildId and exact reviewToken');
+    if (Object.keys(entry).some((key) => !['buildId', 'reviewToken', 'generation', 'previewId'].includes(key))) throw new Error('Acceptance member supports buildId, reviewToken, generation and previewId only');
+    seen.add(entry.buildId);
+  }
+  const started = Date.now(), results = new Array(builds.length), verifiedPreviews = new Map();
+  let cursor = 0;
+  await Promise.all(Array.from({ length: Math.min(concurrency, builds.length) }, async () => {
+    while (cursor < builds.length) {
+      const index = cursor++, { buildId, generation, ...binding } = builds[index];
+      try { results[index] = await acceptAsset(buildId, { ...review, ...binding }, root, { ...credentials, generation: generation ?? credentials.generation, verifiedPreviews }); }
+      catch (error) { results[index] = { buildId, status: 'failed', code: error.code || 'ACCEPT_FAILED', error: error.message }; }
+    }
+  }));
+  return { status: results.some((item) => item.status === 'failed') ? 'partial-failure' : 'sealed', elapsedMs: Date.now() - started, results };
+}
+export async function sealAsset(buildId, root = rootDir, { freshRender = false, freshChecks = false } = {}) {
   return operation(buildId, 'seal', root, async (options) => {
     const current = await showAsset(buildId, root);
     if (!current.fresh) throw new Error('Inputs changed; prepare and review the changed result first');
@@ -290,7 +349,7 @@ export async function sealAsset(buildId, root = rootDir, { freshRender = false }
       }
       await stageReviewedBaseline({ buildId, metrics }, options);
     }
-    await sealReviewedBuild({ buildId }, { ...options, freshRender });
+    await sealReviewedBuild({ buildId }, { ...options, freshRender, freshChecks });
     return showAsset(buildId, root);
   });
 }
