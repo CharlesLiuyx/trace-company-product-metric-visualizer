@@ -1,6 +1,17 @@
 // Narrow exceptions need complete, validated before/after content. Missing
 // facts deliberately leave the path on ci-plan's conservative full route.
 import { isDeepStrictEqual } from 'node:util';
+import { parseSsotRecords } from './workflow-merge.mjs';
+
+export function changedIncomeStatementKeys(before, after, file) {
+  if (typeof before !== 'string' || typeof after !== 'string') return null;
+  try {
+    const maps = [before, after].map((source) => new Map(parseSsotRecords(source, file).map((record) => [record.key, record])));
+    const keys = [...new Set([...maps[0].keys(), ...maps[1].keys()])];
+    if (keys.some((key) => !/^[a-z0-9-]+$/.test(key))) return null;
+    return keys.filter((key) => !isDeepStrictEqual(maps[0].get(key), maps[1].get(key))).sort();
+  } catch { return null; }
+}
 
 export function dataRegistrationOnly(before, after) {
   if (typeof before !== 'string' || typeof after !== 'string') return false;

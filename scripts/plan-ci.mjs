@@ -10,7 +10,7 @@ import {
   planCiChecks,
 } from './lib/ci-plan.mjs';
 import { projectPath, rootDir } from './lib/project.mjs';
-import { dataRegistrationOnly, changedBaselineKeys, assetConsumers, lastSuccessfulMain } from './lib/ci-diff-facts.mjs';
+import { dataRegistrationOnly, changedBaselineKeys, changedIncomeStatementKeys, assetConsumers, lastSuccessfulMain } from './lib/ci-diff-facts.mjs';
 
 const ZERO_SHA = /^0+$/;
 
@@ -87,9 +87,16 @@ function sourceAt(revision, file) {
 }
 
 function contentFacts(entries, base, head) {
+  // Match the three-dot path diff on PRs whose target branch moved ahead.
+  const ancestor = spawnSync('git', ['merge-base', base, head], { cwd: rootDir, encoding: 'utf8' });
+  if (ancestor.status !== 0) throw new Error('Cannot resolve content comparison ancestor');
+  base = ancestor.stdout.trim();
   const changed = new Set(entries.flatMap((entry) => [entry.path, entry.oldPath].filter(Boolean)));
   const sources = (file) => [sourceAt(base, file), sourceAt(head, file)];
   const facts = {};
+  facts.changedIncomeStatementKeysByPath = new Map([...changed]
+    .filter((file) => /^data\/income-statements\/[^/]+\.js$/.test(file))
+    .map((file) => [file, changedIncomeStatementKeys(...sources(file), file)]));
   if (changed.has('index.html')) facts.registrationOnly = dataRegistrationOnly(...sources('index.html'));
   if (changed.has('data/render-baselines.json')) facts.baselineKeys = changedBaselineKeys(...sources('data/render-baselines.json'));
   if ([...changed].some((file) => file.startsWith('data/assets/'))) {

@@ -6,7 +6,44 @@ import {
   parseNameStatusZ,
   planCiChecks,
 } from '../scripts/lib/ci-plan.mjs';
-import { dataRegistrationOnly, changedBaselineKeys, assetConsumers, lastSuccessfulMain } from '../scripts/lib/ci-diff-facts.mjs';
+import { dataRegistrationOnly, changedBaselineKeys, changedIncomeStatementKeys, assetConsumers, lastSuccessfulMain } from '../scripts/lib/ci-diff-facts.mjs';
+
+const ssot = (records) => `(function(global) { global.INCOME_STATEMENT_SSOT = {schemaVersion: 1, records: ${JSON.stringify(records)}}; })(window);`;
+
+test('record diff renders the edited quarter and leaves unchanged history out', () => {
+  const file = 'data/income-statements/acme.js';
+  const before = [{key: 'alpha-q1-fy26', revenue: 10}, {key: 'beta-q2-fy26', revenue: 20}];
+  const after = [before[0], {...before[1], revenue: 21}];
+  const keys = changedIncomeStatementKeys(ssot(before), ssot(after), file);
+  assert.deepEqual(keys, ['beta-q2-fy26']);
+  const plan = planCiChecks([{status: 'M', path: file}], {
+    existingDatasetKeys: new Set(before.map((record) => record.key)),
+    incomeStatementKeysByPath: new Map([[file, before.map((record) => record.key)]]),
+    changedIncomeStatementKeysByPath: new Map([[file, keys]]),
+  });
+  assert.deepEqual(plan.renderKeys, ['beta-q2-fy26']);
+  assert.equal(plan.buildSite, true);
+  assert.equal(plan.verifyStandalone, true);
+  assert.deepEqual(changedIncomeStatementKeys(ssot(before), ssot([before[1]]), file), ['alpha-q1-fy26']);
+  assert.deepEqual(changedIncomeStatementKeys(ssot([before[0]]), ssot(before), file), ['beta-q2-fy26']);
+  assert.deepEqual(changedIncomeStatementKeys(ssot(before), `/* format */\n${ssot(before)}`, file), []);
+});
+
+test('unavailable or unsupported record diffs preserve whole-company coverage', () => {
+  const file = 'data/income-statements/acme.js';
+  const before = ssot([{key: 'alpha-q1-fy26'}]);
+  for (const after of [null, 'invalid', `${before}\nwindow.extra = 1;`, ssot([{key: 'alpha-q1-fy26'}, {key: 'alpha-q1-fy26'}])]) {
+    const keys = changedIncomeStatementKeys(before, after, file);
+    assert.equal(keys, null);
+    const plan = planCiChecks([{status: 'M', path: file}], {
+      existingDatasetKeys: new Set(['alpha-q1-fy26']),
+      incomeStatementKeysByPath: new Map([[file, ['alpha-q1-fy26']]]),
+      changedIncomeStatementKeysByPath: new Map([[file, keys]]),
+    });
+    assert.deepEqual(plan.renderKeys, ['alpha-q1-fy26']);
+  }
+  assert.equal(changedIncomeStatementKeys(null, before, file), null);
+});
 
 const existing = new Set(['alpha-q1-fy26', 'beta-q2-fy26']);
 

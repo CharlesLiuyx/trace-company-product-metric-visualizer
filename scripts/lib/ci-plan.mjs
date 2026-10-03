@@ -124,7 +124,9 @@ function classifyPath(plan, file, status, options) {
   if (file.startsWith('data/income-statements/')) {
     addImpact(plan, 'financial-data-only');
     requireSiteProjection(plan, `income-statement catalog changed: ${file}`);
-    const keys = incomeStatementKeysByPath.get(file) || [];
+    // A validated record diff narrows quarter coverage; unavailable facts keep
+    // the whole-company route, including unfamiliar SSOT syntax.
+    const keys = options.changedIncomeStatementKeysByPath?.get(file) ?? incomeStatementKeysByPath.get(file) ?? [];
     for (const key of keys) {
       requireChangedRender(plan, key, `income-statement SSOT changed: ${key}`, existingDatasetKeys);
     }

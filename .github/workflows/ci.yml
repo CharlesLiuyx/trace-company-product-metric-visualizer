@@ -38,6 +38,9 @@ jobs:
           cache: pip
           cache-dependency-path: scripts/requirements.txt
 
+      - name: Install JavaScript dependencies
+        run: pnpm install --frozen-lockfile
+
       - name: Plan checks from ChangeImpact
         id: plan
         env:
@@ -51,9 +54,6 @@ jobs:
             pnpm plan:ci -- --base "$BASE_SHA" --head "$HEAD_SHA" --github-output "$GITHUB_OUTPUT"
           fi
 
-      - name: Install JavaScript dependencies
-        run: pnpm install --frozen-lockfile
-
       - name: Install icon crop dependencies
         run: python -m pip install -r scripts/requirements.txt
 
@@ -63,6 +63,18 @@ jobs:
       - name: Fast deterministic checks
         run: pnpm check
 
+      - name: Restore Chromium downloads
+        id: chromium-cache
+        if: >-
+          steps.plan.outputs.needs_browser == 'true' ||
+          (github.event_name != 'pull_request' && github.ref == 'refs/heads/main' &&
+          steps.plan.outputs.site_projection == 'true')
+        uses: actions/cache/restore@v5
+        with:
+          path: ~/.cache/ms-playwright
+          key: chromium-v1-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('pnpm-lock.yaml') }}
+
+      # Keep OS libraries calibrated even on a browser-download cache hit.
       - name: Install Chromium and OS dependencies
         if: >-
           steps.plan.outputs.needs_browser == 'true' ||
@@ -140,6 +152,15 @@ jobs:
         with:
           path: output/site-releases
           key: pages-runtimes-v1-${{ github.sha }}
+
+      - name: Retain Chromium downloads
+        if: >-
+          github.event_name != 'pull_request' && github.ref == 'refs/heads/main' &&
+          steps.chromium-cache.outcome == 'success' && steps.chromium-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v5
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ steps.chromium-cache.outputs.cache-primary-key }}
 
   deploy:
     name: Deploy Pages
