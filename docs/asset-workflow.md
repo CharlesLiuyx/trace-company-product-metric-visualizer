@@ -124,6 +124,10 @@ locale 最新的渲染证据与数据一致性证据。缺少某语言证据、�
 
 ## 8. 收尾清理
 
+`publish:datasets commit`、`archive`、`recover-intake` 与 `release:git push` 结束时自动
+清理已不再被读取的产物，并在结果的 `retention` 中列出；范围见
+[artifact-retention.md](artifact-retention.md)。已清理的 Build 不能再修改，变更请新建 Build。
+
 所需审阅、发布、归档与交付都完成，且没有其他 Session 使用工作台与产物目录后，
 停止 `pnpm dev`，执行 `pnpm clean:artifacts -- --completed`。保留范围见
 [artifact-retention.md](artifact-retention.md)。

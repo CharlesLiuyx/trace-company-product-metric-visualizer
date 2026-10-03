@@ -113,7 +113,8 @@ pnpm release:git -- push <transport-id>
 与 `verify:site`。既有数据处理单的历史不会被重写。
 
 prepare 要求应用、数据与执行工具已进入 Git，以 HEAD 作为可复现起点，沿发布收据链
-只整合已接受贡献；应用代码采用 HEAD。同路径先比较基线，必要时走上述类型化合并。
+只整合已接受贡献；已推送发布的贡献已在 HEAD 中，不再重放，其 Build 只贡献 Source
+队列变化（如归档删除）。应用代码采用 HEAD。同路径先比较基线，必要时走上述类型化合并。
 baseline 仅按相关 Build key 纳入；注册与目录投影在候选内重新生成。
 新数据的显示时间在审阅前写入 `data/workflow-timestamps.json`，绑定具体文件字节，
 Git hook 和 CI 据此复现时间，避免提交时钟使审阅产物漂移。历史直接编辑仍沿用 Git 时间。
@@ -124,6 +125,8 @@ commit 与 Publication 共用一个等待式写锁，使用独立临时 Git inde
 根目录多文件应用有日志，可在中断后重入恢复；它不声称是文件系统原子替换。
 未知提交结果先核对 HEAD 的 transport trailer，恢复收据，不重复创建提交。
 push 限制 main 位于这个已审阅提交，普通推送，不使用 force；远端变化则停止重整。
+候选 workspace 在 push 成功后删除；prepare 失败时删除整个候选目录，新的 prepare 删除
+基线 HEAD 已过期且尚未开始提交的候选 workspace。plan、approval 与 receipt 保留。
 
 CI 的 `verify:release` 重新计算实际文件摘要。带 `Trace-Transport` 的提交还必须匹配
 `docs/releases/current.json` 中的输入、人工确认和产物映射；普通历史/代码提交明确报告无此映射。

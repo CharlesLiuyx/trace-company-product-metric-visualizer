@@ -298,7 +298,7 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
         const receipt = await readJson(inside(root, `output/git-transports/${id}/receipt.json`)).catch(() => null);
         const approval = await readJson(inside(root, `output/git-transports/${id}/approval.json`)).catch(() => null);
         const status = receipt?.state === 'PUSHED' ? '已推送，等待线上核对' : receipt?.state === 'COMMITTED' ? '已提交，尚未推送' : approval?.accepted ? '已审阅，待提交' : '集成候选待审阅';
-        result.unshift({ buildId: id, key: '发布 · ' + plan.builds.map((item) => item.key).join(', '), historicalState: status, selectable: true });
+        result.unshift({ buildId: id, key: '发布 · ' + plan.builds.map((item) => item.key).join(', '), historicalState: status, selectable: existsSync(inside(root, `output/git-transports/${id}/workspace/index.html`)) });
       }
     }
     return result.filter(Boolean);

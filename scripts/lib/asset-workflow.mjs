@@ -27,6 +27,7 @@ export function workflowOptions(root = rootDir) { return { projectRoot: root, bu
 export async function buildContext(buildId, root = rootDir) {
   const options = workflowOptions(root);
   const build = await readDatasetBuild(buildId, options);
+  if (existsSync(path.join(options.buildRoot, build.buildId, 'cleaned.json'))) throw Object.assign(new Error(`Build ${build.buildId} was published and archived; its workspace was cleaned. Start a new Build to change ${build.key}`), { code: 'BUILD_CLEANED' });
   return { build, ...options, repositoryRoot: root, projectRoot: build.authoringRoot ? inside(root, build.authoringRoot) : root };
 }
 export async function canonicalSnapshot(root = rootDir) {

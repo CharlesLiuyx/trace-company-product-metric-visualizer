@@ -19,6 +19,9 @@ import { recordAssetBatch } from '../scripts/lib/workflow-batch.mjs';
 import { recordWorkflowFeedback } from '../scripts/lib/workflow-feedback.mjs';
 import { recordAssetVersion } from '../scripts/lib/workflow-assets.mjs';
 import { readBuildObject } from '../scripts/lib/dataset-build-store.mjs';
+import { runRetention } from '../scripts/lib/workflow-retention.mjs';
+import { randomUUID } from 'node:crypto';
+import { atomicJson } from '../scripts/lib/workflow-files.mjs';
 
 const literal = '示例公司 A，2026 年第一季度收入 100 亿元，净利润 20 亿元。';
 function facts(text = literal, id = 'example-a') {
@@ -90,6 +93,20 @@ test('two actual CLI Sessions intake independently, fence wrong writers, and arc
   await archiveProcessingSources({ kind: 'review-completed', confirmed: true, operator: 'synthetic test operator', sourceListDigest: selected.digest, entries: selected.entries }, root);
   assert.ok(!existsSync(path.join(root, 'input/processing/session-a.txt')));
   assert.ok(existsSync(path.join(root, 'input/processing/session-b.txt')));
+});
+test('record:workflow refuses to run from a Build workspace and leaves root registrations to the project root', async (t) => {
+  const root = await fixture(t), started = await intake(root, 'workspace-cwd');
+  const run = await new Promise((resolve, reject) => {
+    const child = spawn(process.execPath, [path.join(started.workspace, 'scripts/record-workflow.mjs'), 'continue', started.buildId, '--json'], { cwd: started.workspace });
+    let stderr = '';
+    child.stderr.on('data', (chunk) => { stderr += chunk; });
+    child.on('error', reject); child.on('close', (code) => resolve({ code, stderr }));
+  });
+  assert.notEqual(run.code, 0); assert.match(run.stderr, /must run from the project root, not a Build workspace/);
+  assert.ok(!existsSync(path.join(started.workspace, 'output/local-view')));
+  const current = await continueAsset(started.buildId, root);
+  assert.equal(current.next, 'review');
+  assert.equal(JSON.parse(await readFile(path.join(root, `output/local-view/builds/${started.buildId}.json`), 'utf8')).revision, current.reviewToken);
 });
 function reviewFor(current, decision = 'accepted') {
   return { reviewToken: current.reviewToken, reviewer: 'synthetic-test-reviewer', decision, note: 'Synthetic fixture; not a real dataset acceptance' };
@@ -354,4 +371,50 @@ test('a short operator review records only the acceptance and only acceptance cl
   const result = await readBuildObject(started.buildId, manifest.review.references.fidelityResult, { buildRoot: path.join(root, 'output/builds') });
   assert.deepEqual([result.protocol, result.acceptance.reviewer, result.acceptance.note], ['fidelity-result/v3', short.reviewer, short.note]);
   assert.equal((await sealAsset(started.buildId, root)).state, 'SEALED');
+});
+
+test('retention removes finished Builds and snapshots no unpushed publication or open Build needs', async (t) => {
+  const root = await fixture(t);
+  const trees = () => readdir(path.join(root, 'output/publications/trees')).catch(() => []);
+  const bases = () => readdir(path.join(root, 'output/workflow-bases')).catch(() => []);
+  const archive = async (buildId) => {
+    const list = await processingSourceList(root, [buildId]);
+    await archiveProcessingSources({ kind: 'review-completed', confirmed: true, operator: 'synthetic test operator', sourceListDigest: list.digest, entries: list.entries }, root);
+  };
+  const push = (publishedDigest) => atomicJson(path.join(root, `output/git-transports/transport-${randomUUID()}/receipt.json`), { state: 'PUSHED', publishedDigest });
+  const buildFiles = (buildId) => readdir(path.join(root, 'output/builds', buildId)).then((names) => names.filter((name) => !name.startsWith('.')).sort());
+
+  const a = await completed(root, 'first-source');
+  const first = await publishAssetPlan((await planAssetPublication([a.buildId], root)).planDigest, root);
+  const [rootBase] = await bases();
+  assert.ok(rootBase, 'the first Build froze the working tree as its base');
+  // Published but not archived: the Build may still be pushed and archived later.
+  assert.deepEqual((await runRetention(root)).builds.removed, []);
+  await archive(a.buildId);
+  const afterArchive = await runRetention(root);
+  assert.deepEqual(afterArchive.builds.removed, [{ buildId: a.buildId, reason: 'published-and-archived' }]);
+  assert.deepEqual(await buildFiles(a.buildId), ['cleaned.json', 'manifest.json']);
+  await assert.rejects(showAsset(a.buildId, root), (error) => error.code === 'BUILD_CLEANED');
+  // Unpushed: Git hand-off still merges against the publication's base.
+  assert.deepEqual(afterArchive.snapshots.removed, []);
+  assert.deepEqual(await bases(), [rootBase]);
+
+  await push(first.publishedDigest);
+  assert.deepEqual((await runRetention(root)).snapshots.removed, [`output/workflow-bases/${rootBase}`]);
+  assert.deepEqual(await trees(), [first.publishedDigest.slice(7)]);
+
+  const text = literal + '\n';
+  await writeFile(path.join(root, 'input/pending/other-source.md'), text);
+  const b = await startAsset({ source: 'input/pending/other-source.md', key: 'other-source', facts: facts(text, 'other-subject') }, root);
+  const next = await continueAsset(b.buildId, root); await reviewAsset(b.buildId, reviewFor(next), root); await sealAsset(b.buildId, root);
+  const second = await publishAssetPlan((await planAssetPublication([b.buildId], root)).planDigest, root);
+  await push(second.publishedDigest);
+  // The open Build still references the first tree as its base.
+  assert.deepEqual((await runRetention(root)).snapshots.removed, []);
+  assert.deepEqual((await trees()).sort(), [first.publishedDigest.slice(7), second.publishedDigest.slice(7)].sort());
+  await archive(b.buildId);
+  const final = await runRetention(root);
+  assert.deepEqual(final.builds.removed.map((item) => item.buildId), [b.buildId]);
+  assert.deepEqual(final.snapshots.removed, [`output/publications/trees/${first.publishedDigest.slice(7)}`]);
+  assert.deepEqual(await trees(), [second.publishedDigest.slice(7)]);
 });
