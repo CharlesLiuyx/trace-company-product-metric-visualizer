@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Lowe's home-decor business icon cluster",
+  "artifact": {
+    "path": "data/assets/raster-annotations/lowes/home-decor.png",
+    "digest": "sha256:1d3c72178c144d47327fc1bef674c30f8d7236241772d631f7fd347a9f13f729"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/lowes-business-icons.json",
+    "digest": "sha256:bd63988eb827e1c89717e8bac8fc33805ce85f1da9840d9c1363dd4f40cc741f"
+  },
+  "source": {
+    "path": "input/processed/lowes-q1-fy26.png",
+    "digest": "sha256:d0c047310b6b6fab126384a85528cce3c3e18b9015df32ec89512ad9534b608b"
+  },
+  "review": {
+    "reviewer": "Codex visual crop validation",
+    "decision": "accepted",
+    "artifactDigest": "sha256:1d3c72178c144d47327fc1bef674c30f8d7236241772d631f7fd347a9f13f729",
+    "note": "Inspected the generated validation sheet against the complete original: subject is complete, centered, and contains no adjacent label, amount, connector or publisher mark. This records crop validation; dataset acceptance awaits the operator."
+  },
+  "versionDigest": "sha256:6605b1cfd2065aee2b8b5147a8e064d895c0d44a209e8db4e184e8e9ed6a6d77"
+}

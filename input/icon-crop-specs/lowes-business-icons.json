@@ -1,0 +1,108 @@
+{
+  "source": "input/processed/lowes-q1-fy26.png",
+  "outputDir": "data/assets/icon-references/lowes",
+  "runtimeOutputDir": "data/assets/raster-annotations/lowes",
+  "validationSheetDir": "data/assets/icon-references/lowes/validation-sheets",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [
+      242,
+      242,
+      242
+    ],
+    "tolerance": 8
+  },
+  "skipped": [
+    {
+      "key": "company-logo",
+      "reason": "This correction is scoped to the three business icon clusters highlighted by the operator."
+    },
+    {
+      "key": "publisher-marks",
+      "reason": "Publisher attribution is not business content."
+    }
+  ],
+  "crops": [
+    {
+      "key": "lowes-home-decor-icons",
+      "output": "crops/home-decor.png",
+      "runtimeOutput": "home-decor.png",
+      "searchBox": {
+        "x": 79,
+        "y": 349,
+        "width": 283,
+        "height": 96
+      },
+      "cropBox": {
+        "x": 79,
+        "y": 349,
+        "width": 283,
+        "height": 96
+      },
+      "threshold": 24,
+      "minComponentArea": 2,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete original business icon cluster only; excludes labels, amounts, flows and publisher attribution."
+    },
+    {
+      "key": "lowes-building-products-icons",
+      "output": "crops/building-products.png",
+      "runtimeOutput": "building-products.png",
+      "searchBox": {
+        "x": 30,
+        "y": 608,
+        "width": 360,
+        "height": 105
+      },
+      "cropBox": {
+        "x": 30,
+        "y": 608,
+        "width": 360,
+        "height": 105
+      },
+      "threshold": 24,
+      "minComponentArea": 2,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete original business icon cluster only; excludes labels, amounts, flows and publisher attribution."
+    },
+    {
+      "key": "lowes-hardlines-icons",
+      "output": "crops/hardlines.png",
+      "runtimeOutput": "hardlines.png",
+      "searchBox": {
+        "x": 116,
+        "y": 857,
+        "width": 224,
+        "height": 97
+      },
+      "cropBox": {
+        "x": 116,
+        "y": 857,
+        "width": 224,
+        "height": 97
+      },
+      "threshold": 24,
+      "minComponentArea": 2,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete original business icon cluster only; excludes labels, amounts, flows and publisher attribution."
+    }
+  ]
+}

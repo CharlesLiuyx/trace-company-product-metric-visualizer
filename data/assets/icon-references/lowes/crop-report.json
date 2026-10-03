@@ -1,0 +1,323 @@
+{
+  "source": "input/processed/lowes-q1-fy26.png",
+  "spec": "input/icon-crop-specs/lowes-business-icons.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-03T06:38:41.348837+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/lowes",
+  "crops": [
+    {
+      "key": "lowes-home-decor-icons",
+      "output": "data/assets/icon-references/lowes/crops/home-decor.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2780,
+        "losslessBytes": 11969,
+        "savingsVsLossless": 0.7677,
+        "metrics": {
+          "meanAbsoluteError": 1.1278,
+          "rootMeanSquareError": 2.3069,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 11,
+          "changedPixelRatio": 0.5528
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 11940,
+        "transparentPixelRatio": 0.4395
+      },
+      "searchBox": {
+        "x": 79,
+        "y": 349,
+        "width": 283,
+        "height": 96
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 83,
+        "y0": 353,
+        "x1": 358,
+        "y1": 441
+      },
+      "cropBox": {
+        "x0": 79,
+        "y0": 349,
+        "x1": 362,
+        "y1": 445
+      },
+      "validation": {
+        "width": 283,
+        "height": 96,
+        "foregroundPixels": 7833,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 4,
+          "right": 4,
+          "top": 4,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Complete original business icon cluster only; excludes labels, amounts, flows and publisher attribution.",
+      "runtimeOutput": "data/assets/raster-annotations/lowes/home-decor.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2780,
+        "losslessBytes": 11969,
+        "savingsVsLossless": 0.7677,
+        "metrics": {
+          "meanAbsoluteError": 1.1278,
+          "rootMeanSquareError": 2.3069,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 11,
+          "changedPixelRatio": 0.5528
+        }
+      },
+      "validationSheet": "data/assets/icon-references/lowes/validation-sheets/lowes-home-decor-icons.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 262900,
+        "losslessBytes": 262900,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "lowes-building-products-icons",
+      "output": "data/assets/icon-references/lowes/crops/building-products.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2803,
+        "losslessBytes": 11997,
+        "savingsVsLossless": 0.7664,
+        "metrics": {
+          "meanAbsoluteError": 0.4875,
+          "rootMeanSquareError": 1.5347,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 11,
+          "changedPixelRatio": 0.2188
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 29532,
+        "transparentPixelRatio": 0.7813
+      },
+      "searchBox": {
+        "x": 30,
+        "y": 608,
+        "width": 360,
+        "height": 105
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 34,
+        "y0": 612,
+        "x1": 386,
+        "y1": 709
+      },
+      "cropBox": {
+        "x0": 30,
+        "y0": 608,
+        "x1": 390,
+        "y1": 713
+      },
+      "validation": {
+        "width": 360,
+        "height": 105,
+        "foregroundPixels": 4441,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 4,
+          "right": 4,
+          "top": 4,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Complete original business icon cluster only; excludes labels, amounts, flows and publisher attribution.",
+      "runtimeOutput": "data/assets/raster-annotations/lowes/building-products.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2803,
+        "losslessBytes": 11997,
+        "savingsVsLossless": 0.7664,
+        "metrics": {
+          "meanAbsoluteError": 0.4875,
+          "rootMeanSquareError": 1.5347,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 11,
+          "changedPixelRatio": 0.2188
+        }
+      },
+      "validationSheet": "data/assets/icon-references/lowes/validation-sheets/lowes-building-products-icons.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 257123,
+        "losslessBytes": 257123,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "lowes-hardlines-icons",
+      "output": "data/assets/icon-references/lowes/crops/hardlines.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2005,
+        "losslessBytes": 8895,
+        "savingsVsLossless": 0.7746,
+        "metrics": {
+          "meanAbsoluteError": 0.5067,
+          "rootMeanSquareError": 1.5393,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 13,
+          "changedPixelRatio": 0.2437
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 16343,
+        "transparentPixelRatio": 0.7522
+      },
+      "searchBox": {
+        "x": 116,
+        "y": 857,
+        "width": 224,
+        "height": 97
+      },
+      "componentCount": 7,
+      "subjectBox": {
+        "x0": 120,
+        "y0": 861,
+        "x1": 336,
+        "y1": 950
+      },
+      "cropBox": {
+        "x0": 116,
+        "y0": 857,
+        "x1": 340,
+        "y1": 954
+      },
+      "validation": {
+        "width": 224,
+        "height": 97,
+        "foregroundPixels": 2920,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 4,
+          "right": 4,
+          "top": 4,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Complete original business icon cluster only; excludes labels, amounts, flows and publisher attribution.",
+      "runtimeOutput": "data/assets/raster-annotations/lowes/hardlines.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2005,
+        "losslessBytes": 8895,
+        "savingsVsLossless": 0.7746,
+        "metrics": {
+          "meanAbsoluteError": 0.5067,
+          "rootMeanSquareError": 1.5393,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 13,
+          "changedPixelRatio": 0.2437
+        }
+      },
+      "validationSheet": "data/assets/icon-references/lowes/validation-sheets/lowes-hardlines-icons.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 266622,
+        "losslessBytes": 266622,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

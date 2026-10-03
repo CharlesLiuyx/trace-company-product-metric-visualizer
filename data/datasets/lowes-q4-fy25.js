@@ -34,27 +34,7 @@
     <text x="423" y="105" font-family="Montserrat,Arial,sans-serif" font-size="17" font-weight="700" fill="#ffffff">®</text>`;
 
   const iconClusters = () => `
-    <g fill="none" stroke="#151515" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-      <g class="sankey-interactive-annotation" data-node="home_decor" transform="translate(82 351)">
-        <path d="M2 76H188M17 76V35H55V76M19 35H53V10H21Z"/>
-        <path d="M93 76V45H172V76M91 45Q92 25 113 25H151Q172 25 174 45M107 25V16H156V25"/>
-        <path d="M183 76V45H214V76M192 45V10H210V45M193 10H209"/>
-        <path d="M245 76V44H280V76M252 44V16H275V44M258 16V4H269V16"/>
-        <path d="M300 76H340M320 76V39M306 58Q320 47 334 58M304 42Q320 30 336 42M320 39V24"/>
-      </g>
-      <g class="sankey-interactive-annotation" data-node="building_products" transform="translate(35 612)">
-        <path d="M4 56H142M72 56V30M20 56L8 62M123 56L138 62M35 56V72M103 56V72"/>
-        <path d="M72 30V10M60 10H84M59 18H85"/>
-        <path d="M171 76V31H215V76M165 31H221M182 31V9M204 31V9M178 9H186M200 9H208"/>
-        <path d="M257 76V25M257 25Q281 24 281 47V58Q281 72 296 72H309"/>
-        <path d="M302 76V58H332V76M316 58V21M304 21H328M316 21V10"/>
-      </g>
-      <g class="sankey-interactive-annotation" data-node="hardlines" transform="translate(104 861)">
-        <path d="M7 76H104M20 76V58Q35 39 61 43L84 53L76 67H40L29 76M48 43L65 12M65 12L60 5M65 12L72 8"/>
-        <circle cx="31" cy="76" r="9"/><circle cx="75" cy="76" r="9"/>
-        <path d="M129 43H180V66H129Z M180 48H203V61H180 M144 43V27H164V43 M149 27V16H160V27"/>
-        <path d="M137 66V76M177 66V76"/>
-      </g>
+    <g>
       <g data-typography-role="brand" transform="translate(168 1077)">
         <rect x="0" y="0" width="124" height="36" fill="#ffffff" stroke="#8b4d58" stroke-width="1.5"/>
         <rect x="39" y="4" width="80" height="28" fill="#155077"/>
@@ -189,6 +169,7 @@
       height: 1500,
       background: BG,
       nodeRadius: 0,
+      allowRasterAnnotations: true,
       interfaceAudit: { mode: 'error' },
       titleColor: TITLE,
       subtitleColor: NOTE,
@@ -204,6 +185,11 @@
       type: { name: 40, value: 39, note: 29, lineGap: 8 },
     },
     annotationsSvg: annotations(false),
+    rasterAnnotations: [
+      { key: 'lowes-home-decor-icons', href: 'data/assets/raster-annotations/lowes/home-decor.png', x: 79, y: 371, width: 283, height: 96 },
+      { key: 'lowes-building-products-icons', href: 'data/assets/raster-annotations/lowes/building-products.png', x: 30, y: 608, width: 360, height: 105 },
+      { key: 'lowes-hardlines-icons', href: 'data/assets/raster-annotations/lowes/hardlines.png', x: 116, y: 841, width: 224, height: 97 },
+    ],
     layout: {
       scale: 13.25,
       nodes: {
