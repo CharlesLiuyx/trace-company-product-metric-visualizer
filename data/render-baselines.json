@@ -6494,6 +6494,90 @@
       "mae": 5.735942923801192,
       "width": 2667,
       "height": 1500
+    },
+    "alibaba-q1-fy27": {
+      "similarity": 0.9701002969400067,
+      "mae": 7.624424280298296,
+      "width": 2667,
+      "height": 1500
+    },
+    "disney-q3-fy26-by-segment": {
+      "similarity": 0.9602583016992157,
+      "mae": 10.134133066699995,
+      "width": 2667,
+      "height": 1500
+    },
+    "duolingo-q2-fy26": {
+      "similarity": 0.9770593486271733,
+      "mae": 5.849866100070824,
+      "width": 2667,
+      "height": 1500
+    },
+    "jd-com-q2-fy26": {
+      "similarity": 0.9708230415642489,
+      "mae": 7.4401244011165275,
+      "width": 2667,
+      "height": 1500
+    },
+    "match-group-q2-fy26": {
+      "similarity": 0.9677307751563734,
+      "mae": 8.228652335124776,
+      "width": 2667,
+      "height": 1500
+    },
+    "netease-q2-fy26": {
+      "similarity": 0.9704227935560342,
+      "mae": 7.542187643211265,
+      "width": 2667,
+      "height": 1500
+    },
+    "nintendo-q1-fy27": {
+      "similarity": 0.9635869441156457,
+      "mae": 9.285329250510353,
+      "width": 2667,
+      "height": 1500
+    },
+    "pdd-holdings-q2-fy26": {
+      "similarity": 0.9655083725645406,
+      "mae": 8.795364996042162,
+      "width": 2667,
+      "height": 1500
+    },
+    "pinterest-q2-fy26": {
+      "similarity": 0.9584358177450041,
+      "mae": 10.598866475023955,
+      "width": 2667,
+      "height": 1500
+    },
+    "snap-q2-fy26": {
+      "similarity": 0.9628685718206793,
+      "mae": 9.468514185726784,
+      "width": 2667,
+      "height": 1500
+    },
+    "sony-q1-fy26": {
+      "similarity": 0.9709129567954332,
+      "mae": 7.417196017164521,
+      "width": 2667,
+      "height": 1500
+    },
+    "spotify-q2-fy26": {
+      "similarity": 0.9598712040079957,
+      "mae": 10.232842977961088,
+      "width": 2667,
+      "height": 1500
+    },
+    "take-two-q1-fy27": {
+      "similarity": 0.9584627006591496,
+      "mae": 10.592011331916844,
+      "width": 2667,
+      "height": 1500
+    },
+    "tencent-q2-fy26": {
+      "similarity": 0.9718691173407246,
+      "mae": 7.173375078115235,
+      "width": 2667,
+      "height": 1500
     }
   }
 }

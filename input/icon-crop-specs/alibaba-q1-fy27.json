@@ -1,0 +1,171 @@
+{
+  "source": "input/processed/alibaba-q1-fy27.png",
+  "outputDir": "data/assets/icon-references/alibaba-q1-fy27",
+  "runtimeOutputDir": "data/assets/raster-annotations/alibaba-q1-fy27",
+  "validationSheetDir": "data/assets/icon-references/alibaba-q1-fy27/validation-sheets",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "crops": [
+    {
+      "key": "company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": {
+        "x": 676,
+        "y": 313,
+        "width": 677,
+        "height": 100
+      },
+      "cropBox": {
+        "x": 676,
+        "y": 313,
+        "width": 677,
+        "height": 100
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete company or business brand cluster, excluding financial labels, amounts and flows."
+    },
+    {
+      "key": "china-brands",
+      "output": "crops/china-brands.png",
+      "searchBox": {
+        "x": 7,
+        "y": 482,
+        "width": 138,
+        "height": 186
+      },
+      "cropBox": {
+        "x": 7,
+        "y": 482,
+        "width": 138,
+        "height": 186
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete company or business brand cluster, excluding financial labels, amounts and flows."
+    },
+    {
+      "key": "international-brands",
+      "output": "crops/international-brands.png",
+      "searchBox": {
+        "x": 4,
+        "y": 815,
+        "width": 156,
+        "height": 121
+      },
+      "cropBox": {
+        "x": 4,
+        "y": 815,
+        "width": 156,
+        "height": 121
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete company or business brand cluster, excluding financial labels, amounts and flows."
+    },
+    {
+      "key": "cloud-logo",
+      "output": "crops/cloud-logo.png",
+      "searchBox": {
+        "x": 5,
+        "y": 1061,
+        "width": 146,
+        "height": 33
+      },
+      "cropBox": {
+        "x": 5,
+        "y": 1061,
+        "width": 146,
+        "height": 33
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete company or business brand cluster, excluding financial labels, amounts and flows."
+    },
+    {
+      "key": "ai-apps-brands",
+      "output": "crops/ai-apps-brands.png",
+      "searchBox": {
+        "x": 8,
+        "y": 1208,
+        "width": 191,
+        "height": 89
+      },
+      "cropBox": {
+        "x": 8,
+        "y": 1208,
+        "width": 191,
+        "height": 89
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete company or business brand cluster, excluding financial labels, amounts and flows."
+    },
+    {
+      "key": "amap-logo",
+      "output": "crops/amap-logo.png",
+      "searchBox": {
+        "x": 30,
+        "y": 1296,
+        "width": 48,
+        "height": 48
+      },
+      "cropBox": {
+        "x": 30,
+        "y": 1296,
+        "width": 48,
+        "height": 48
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Amap product icon without adjacent adjusted margin."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "publisher",
+      "reason": "Publisher attribution"
+    },
+    {
+      "key": "url",
+      "reason": "Publisher attribution"
+    },
+    {
+      "key": "creator",
+      "reason": "Publisher attribution"
+    }
+  ]
+}

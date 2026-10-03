@@ -1148,6 +1148,247 @@
           },
         },
       },
+    },
+{
+  "key": "sony-q1-fy26",
+  "company": "Sony",
+  "period": "Q1 FY26",
+  "periodNote": "Ending June 2026",
+  "currency": "¥",
+  "unit": "B",
+  "decimals": 0,
+  "sourceImage": "input/processing/sony-q1-fy26.png",
+  "roundingTolerance": 1.5,
+  "revenue": {
+    "total": 2838,
+    "notes": [
+      "+8% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "game_network",
+        "label": "Game & Network",
+        "value": 937,
+        "notes": [
+          "+0% Y/Y",
+          "22% operating margin"
+        ]
+      },
+      {
+        "id": "music",
+        "label": "Music",
+        "value": 562,
+        "notes": [
+          "+21% Y/Y",
+          "19% operating margin"
+        ]
+      },
+      {
+        "id": "pictures",
+        "label": "Pictures",
+        "value": 315,
+        "notes": [
+          "(4%) Y/Y",
+          "8% operating margin"
+        ]
+      },
+      {
+        "id": "technology",
+        "label": "Technology",
+        "value": 544,
+        "notes": [
+          "+2% Y/Y",
+          "8% operating margin"
+        ]
+      },
+      {
+        "id": "imaging_sensing",
+        "label": "Imaging & Sensing",
+        "value": 513,
+        "notes": [
+          "+26% Y/Y",
+          "24% operating margin"
+        ]
+      },
+      {
+        "id": "other_revenue",
+        "label": "Other",
+        "value": 22,
+        "notes": [
+          "+15% Y/Y"
+        ]
+      },
+      {
+        "id": "eliminations",
+        "label": "Elimination",
+        "value": -55,
+        "notes": []
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_sales",
+      "label": "Cost of sales",
+      "value": 1796
+    },
+    "operatingExpenses": {
+      "total": 565,
+      "items": [
+        {
+          "id": "sga",
+          "label": "SG&A & Other",
+          "value": 565
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax & Other",
+      "value": 127
     }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 1042,
+      "notes": [
+        "37% margin",
+        "+4pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 477,
+      "notes": [
+        "17% margin",
+        "+4pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 350,
+      "notes": [
+        "12% margin",
+        "+2pp Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第一季度",
+      "periodNote": "截至 2026 年 6 月",
+      "revenue": {
+        "notes": [
+          "同比 +8%"
+        ],
+        "items": [
+          {
+            "id": "game_network",
+            "label": "游戏与网络",
+            "notes": [
+              "同比 +0%",
+              "营业利润率 22%"
+            ]
+          },
+          {
+            "id": "music",
+            "label": "音乐",
+            "notes": [
+              "同比 +21%",
+              "营业利润率 19%"
+            ]
+          },
+          {
+            "id": "pictures",
+            "label": "影视",
+            "notes": [
+              "同比 (4%)",
+              "营业利润率 8%"
+            ]
+          },
+          {
+            "id": "technology",
+            "label": "技术",
+            "notes": [
+              "同比 +2%",
+              "营业利润率 8%"
+            ]
+          },
+          {
+            "id": "imaging_sensing",
+            "label": "成像与传感",
+            "notes": [
+              "同比 +26%",
+              "营业利润率 24%"
+            ]
+          },
+          {
+            "id": "other_revenue",
+            "label": "其他",
+            "notes": [
+              "同比 +15%"
+            ]
+          },
+          {
+            "id": "eliminations",
+            "label": "抵销",
+            "notes": []
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "销售成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sga",
+              "label": "销管费用（SG&A）及其他"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费及其他"
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 37%",
+            "同比 +4 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 17%",
+            "同比 +4 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 12%",
+            "同比 +2 个百分点"
+          ]
+        }
+      }
+    }
+  }
+}
   );
 })(window);
