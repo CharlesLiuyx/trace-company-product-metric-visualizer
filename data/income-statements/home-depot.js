@@ -257,3 +257,235 @@
     }
   );
 })(window);
+
+window.INCOME_STATEMENT_SSOT.records.push({
+  "key": "home-depot-q2-fy26",
+  "company": "Home Depot",
+  "period": "Q2 FY26",
+  "periodNote": "Q2 FY26",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processing/home-depot-q2-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 47.9,
+    "notes": [
+      "+6% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "building_materials",
+        "label": "Building Materials",
+        "value": 14.4,
+        "notes": [
+          "+1% Y/Y",
+          "Electrical/Lighting, Lumber, Millwork, and Plumbing"
+        ]
+      },
+      {
+        "id": "decor",
+        "label": "Décor",
+        "value": 13.9,
+        "notes": [
+          "+1% Y/Y",
+          "Appliances, Storage, Flooring, Kitchen and Bath, and Paint"
+        ]
+      },
+      {
+        "id": "hardlines",
+        "label": "Hardlines",
+        "value": 14.4,
+        "notes": [
+          "+2% Y/Y",
+          "Hardware, Indoor Garden, Outdoor Garden, and Tools"
+        ]
+      },
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 5.1,
+        "notes": [
+          "+62% Y/Y",
+          "SRS Distribution and GMS"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_sales",
+      "label": "Cost of sales",
+      "value": 31.7,
+      "notes": []
+    },
+    "operatingExpenses": {
+      "total": 9.3,
+      "items": [
+        {
+          "id": "sga",
+          "label": "SG&A",
+          "value": 8.4,
+          "notes": []
+        },
+        {
+          "id": "da",
+          "label": "Depreciation & amortization",
+          "value": 0.9,
+          "notes": []
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 1.5,
+      "notes": []
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0.5,
+    "items": [
+      {
+        "id": "interest",
+        "label": "Interest",
+        "value": 0.5,
+        "notes": []
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 16.1,
+      "notes": [
+        "34% margin",
+        "+0pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 6.8,
+      "notes": [
+        "14% margin",
+        "(0pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 4.8,
+      "notes": [
+        "10% margin",
+        "(0pp) Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "periodNote": "2026 财年第二季度",
+      "revenue": {
+        "notes": [
+          "同比 +6%"
+        ],
+        "items": [
+          {
+            "id": "building_materials",
+            "label": "建筑材料",
+            "notes": [
+              "同比 +1%",
+              "电气／照明、木材、木制品和管道"
+            ]
+          },
+          {
+            "id": "decor",
+            "label": "家居装饰",
+            "notes": [
+              "同比 +1%",
+              "电器、收纳、地板、厨房与卫浴及涂料"
+            ]
+          },
+          {
+            "id": "hardlines",
+            "label": "五金硬货",
+            "notes": [
+              "同比 +2%",
+              "五金、室内园艺、户外园艺和工具"
+            ]
+          },
+          {
+            "id": "other",
+            "label": "其他",
+            "notes": [
+              "同比 +62%",
+              "SRS Distribution 和 GMS"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "销售成本",
+          "notes": []
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sga",
+              "label": "销售、一般及行政费用",
+              "notes": []
+            },
+            {
+              "id": "da",
+              "label": "折旧及摊销",
+              "notes": []
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费",
+          "notes": []
+        }
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "interest",
+            "label": "利息",
+            "notes": []
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 34%",
+            "同比 +0 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 14%",
+            "同比 (0 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 10%",
+            "同比 (0 个百分点)"
+          ]
+        }
+      }
+    }
+  }
+});

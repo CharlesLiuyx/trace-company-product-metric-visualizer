@@ -415,6 +415,36 @@
       "digest": "sha256:1e6874fb196abddccbfe5e866c3a1b8faa715b1755edb8a67c5047aff32f1762",
       "updatedAt": "2026-10-03T05:44:42.322Z",
       "publishedDigest": "sha256:1855e760c17a13fbc54db9b3416547a4a763f975d8ed9f23fede5ada5728ed15"
+    },
+    "data/datasets/best-buy-q2-fy27.js": {
+      "digest": "sha256:c696d552ffeadb7d50f1d00bd4c0506c7592fe8e4584542a31fd4d67b31b395e",
+      "updatedAt": "2026-10-03T06:15:53.154Z",
+      "publishedDigest": "sha256:171baa855011465498797fd45ecf7181ed8f1610d54480b731794d00fbd404d7"
+    },
+    "data/datasets/home-depot-q2-fy26.js": {
+      "digest": "sha256:3893e55fd85ac623bd8bb06c44fd1de39ce40c63e75d9daf81ac177a3098724a",
+      "updatedAt": "2026-10-03T06:15:55.100Z",
+      "publishedDigest": "sha256:171baa855011465498797fd45ecf7181ed8f1610d54480b731794d00fbd404d7"
+    },
+    "data/datasets/instacart-q2-fy26.js": {
+      "digest": "sha256:c7991903f7242a2d06a9ee780dfc418ef28d672a8bbbd8150fcfcb08aa32301d",
+      "updatedAt": "2026-10-03T06:15:57.351Z",
+      "publishedDigest": "sha256:171baa855011465498797fd45ecf7181ed8f1610d54480b731794d00fbd404d7"
+    },
+    "data/datasets/lowes-q2-fy26.js": {
+      "digest": "sha256:bc5f5c16cd50ee2439fbd9799a85ca13c6e6c1ea05656b307e1009a0ac256c5e",
+      "updatedAt": "2026-10-03T06:16:06.941Z",
+      "publishedDigest": "sha256:171baa855011465498797fd45ecf7181ed8f1610d54480b731794d00fbd404d7"
+    },
+    "data/datasets/target-q2-fy27.js": {
+      "digest": "sha256:4b8974bc0bf2a0e5826f27c0a250853f4f0788fb3cfc48235ff2104973f42064",
+      "updatedAt": "2026-10-03T06:16:02.034Z",
+      "publishedDigest": "sha256:171baa855011465498797fd45ecf7181ed8f1610d54480b731794d00fbd404d7"
+    },
+    "data/datasets/walmart-q2-fy27.js": {
+      "digest": "sha256:f74d7877f0a739b6621b5971ca3b6ef8e9306c00f6b8a4dd8d3620399cc45a1e",
+      "updatedAt": "2026-10-03T06:15:58.221Z",
+      "publishedDigest": "sha256:171baa855011465498797fd45ecf7181ed8f1610d54480b731794d00fbd404d7"
     }
   }
 }

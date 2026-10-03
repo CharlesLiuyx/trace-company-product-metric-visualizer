@@ -24487,6 +24487,142 @@
             }
           }
         }
+      },
+      {
+        "key": "best-buy-q2-fy27",
+        "src": "data/datasets/best-buy-q2-fy27.js",
+        "data": {
+          "name": "Best Buy · Q2 FY27",
+          "company": "Best Buy",
+          "meta": {
+            "title": "Best Buy Q2 FY27 Income Statement",
+            "period": "Q2 FY27",
+            "periodNote": "Ending July 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "百思买 · 2027 财年第二季度",
+              "meta": {
+                "title": "百思买 2027 财年第二季度利润表",
+                "period": "2027 财年第二季度",
+                "periodNote": "截至 2026 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "home-depot-q2-fy26",
+        "src": "data/datasets/home-depot-q2-fy26.js",
+        "data": {
+          "name": "Home Depot · Q2 FY26",
+          "company": "Home Depot",
+          "meta": {
+            "title": "Home Depot Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "家得宝 · 2026 财年第二季度",
+              "meta": {
+                "title": "家得宝 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "2026 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "instacart-q2-fy26",
+        "src": "data/datasets/instacart-q2-fy26.js",
+        "data": {
+          "name": "Instacart · Q2 FY26",
+          "company": "Instacart",
+          "meta": {
+            "title": "Instacart Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Jun. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Instacart · 2026 财年第二季度",
+              "meta": {
+                "title": "Instacart 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lowes-q2-fy26",
+        "src": "data/datasets/lowes-q2-fy26.js",
+        "data": {
+          "name": "Lowe's · Q2 FY26",
+          "company": "Lowe's",
+          "meta": {
+            "title": "Lowe’s Q2 FY26 Income Statement",
+            "period": "Q2 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "劳氏 · 2026 财年第二季度",
+              "meta": {
+                "title": "劳氏 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "target-q2-fy27",
+        "src": "data/datasets/target-q2-fy27.js",
+        "data": {
+          "name": "Target · Q2 FY27",
+          "company": "Target",
+          "meta": {
+            "title": "Target Q2 FY27 Income Statement",
+            "period": "Q2 FY27",
+            "periodNote": "Ending Aug. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "塔吉特 · 2027 财年第二季度",
+              "meta": {
+                "title": "塔吉特 2027 财年第二季度利润表",
+                "period": "2027 财年第二季度",
+                "periodNote": "截至 2026 年 8 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "walmart-q2-fy27",
+        "src": "data/datasets/walmart-q2-fy27.js",
+        "data": {
+          "name": "Walmart - Q2 FY27",
+          "company": "Walmart",
+          "meta": {
+            "title": "Walmart Q2 FY27 Income Statement",
+            "period": "Q2 FY27",
+            "periodNote": "Ending July 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "沃尔玛 · 2027 财年第二季度",
+              "meta": {
+                "title": "沃尔玛 2027 财年第二季度利润表",
+                "period": "2027 财年第二季度",
+                "periodNote": "截至 2026 年 7 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

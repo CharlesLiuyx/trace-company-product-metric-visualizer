@@ -6583,6 +6583,42 @@
       "updatedAt": "2026-10-03T05:44:42.322Z",
       "timeSource": "publication"
     },
+    "best-buy-q2-fy27": {
+      "path": "data/datasets/best-buy-q2-fy27.js",
+      "updatedAtMs": 1791008153154,
+      "updatedAt": "2026-10-03T06:15:53.154Z",
+      "timeSource": "publication"
+    },
+    "home-depot-q2-fy26": {
+      "path": "data/datasets/home-depot-q2-fy26.js",
+      "updatedAtMs": 1791008155100,
+      "updatedAt": "2026-10-03T06:15:55.100Z",
+      "timeSource": "publication"
+    },
+    "instacart-q2-fy26": {
+      "path": "data/datasets/instacart-q2-fy26.js",
+      "updatedAtMs": 1791008157351,
+      "updatedAt": "2026-10-03T06:15:57.351Z",
+      "timeSource": "publication"
+    },
+    "lowes-q2-fy26": {
+      "path": "data/datasets/lowes-q2-fy26.js",
+      "updatedAtMs": 1791008166941,
+      "updatedAt": "2026-10-03T06:16:06.941Z",
+      "timeSource": "publication"
+    },
+    "target-q2-fy27": {
+      "path": "data/datasets/target-q2-fy27.js",
+      "updatedAtMs": 1791008162034,
+      "updatedAt": "2026-10-03T06:16:02.034Z",
+      "timeSource": "publication"
+    },
+    "walmart-q2-fy27": {
+      "path": "data/datasets/walmart-q2-fy27.js",
+      "updatedAtMs": 1791008158221,
+      "updatedAt": "2026-10-03T06:15:58.221Z",
+      "timeSource": "publication"
+    },
     "data/revenue-metrics.js": {
       "path": "data/revenue-metrics.js",
       "updatedAtMs": 1783251957000,
