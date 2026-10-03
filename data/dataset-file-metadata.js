@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-10-03T05:44:42.322Z",
+  "generatedAt": "2026-10-03T06:50:33.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -1971,8 +1971,8 @@
     },
     "lowes-q1-fy26": {
       "path": "data/datasets/lowes-q1-fy26.js",
-      "updatedAtMs": 1783881211000,
-      "updatedAt": "2026-07-12T18:33:31.000Z",
+      "updatedAtMs": 1791010233000,
+      "updatedAt": "2026-10-03T06:50:33.000Z",
       "timeSource": "git"
     },
     "sentinelone-q1-fy27": {
@@ -3345,8 +3345,8 @@
     },
     "lowes-q4-fy25": {
       "path": "data/datasets/lowes-q4-fy25.js",
-      "updatedAtMs": 1785075480000,
-      "updatedAt": "2026-07-26T14:18:00.000Z",
+      "updatedAtMs": 1791010233000,
+      "updatedAt": "2026-10-03T06:50:33.000Z",
       "timeSource": "git"
     },
     "oracle-q3-fy26": {
