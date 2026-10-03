@@ -18,6 +18,18 @@ import { applicationManifest } from './workflow-application.mjs';
 
 const trackedReceipt = 'docs/releases/current.json';
 const runtimeRoots = [...CANONICAL_ROOTS, 'scripts', 'package.json', 'pnpm-lock.yaml'];
+export function humanReviewCommitSummary(items) {
+  const reviewed = new Map();
+  for (const item of items) {
+    if (!item.key || typeof item.intervention !== 'boolean') throw new Error('Human review statistics require known object outcomes');
+    reviewed.set(item.key, reviewed.get(item.key) === true || item.intervention);
+  }
+  const total = reviewed.size;
+  if (!total) throw new Error('Human review statistics require reviewed objects');
+  const intervention = [...reviewed.values()].filter(Boolean).length;
+  const zero = total - intervention;
+  return `Human review:\n- Total items: ${total}\n- No-intervention items: ${zero}\n- Intervention items: ${intervention}\n- Human zero-intervention rate: ${zero}/${total} = ${(zero / total * 100).toFixed(1)}%\n- Human intervention rate: ${intervention}/${total} = ${(intervention / total * 100).toFixed(1)}%`;
+}
 function git(root, args, options = {}) { return execFileSync('git', args, { cwd: root, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, ...options }); }
 function folder(root, id) { if (!/^transport-[a-f0-9-]+$/.test(id)) throw new Error('Invalid transport id'); return inside(root, `output/git-transports/${id}`); }
 async function readPlan(root, id) {
@@ -273,7 +285,16 @@ export async function commitGitTransport(id, root, options = {}) {
       git(root, ['read-tree', plan.baseHead], { env });
       git(root, ['add', '--', ...plan.paths.map((item) => item.path), trackedReceipt], { env });
       if (git(root, ['rev-parse', 'HEAD']).trim() !== plan.baseHead) throw new Error('Git HEAD changed immediately before commit');
-      git(root, ['commit', '-m', `data(publication): transport reviewed datasets\n\n${trailer}`], { env });
+      const reviewed = [];
+      for (const build of plan.builds) {
+        // Retention removes draft objects after archive; the durable authored
+        // receipt still records operator feedback/reopened-review context.
+        const manifest = await readJson(inside(root, `output/builds/${build.buildId}/manifest.json`));
+        const authored = manifest.receipts.filter((receipt) => receipt.state === 'AUTHORED').at(-1);
+        if (!authored?.payload?.artifacts) throw new Error(`Human review outcome history is missing: ${build.key}`);
+        reviewed.push({ key: build.key, intervention: authored.payload.artifacts.some((artifact) => artifact.role === 'review-context') });
+      }
+      git(root, ['commit', '-m', `data(publication): transport reviewed datasets\n\n${humanReviewCommitSummary(reviewed)}\n\n${trailer}`], { env });
       await options.afterCommit?.();
     }
     const committed = git(root, ['rev-parse', 'HEAD']).trim();

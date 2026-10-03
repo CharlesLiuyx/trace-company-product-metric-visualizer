@@ -5,7 +5,7 @@ import os from 'node:os';
 import { mkdtemp, mkdir, writeFile, readFile, readdir, rm } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
-import { prepareGitTransport, reviewGitTransport, commitGitTransport, pushGitTransport } from '../scripts/lib/git-transport.mjs';
+import { humanReviewCommitSummary, prepareGitTransport, reviewGitTransport, commitGitTransport, pushGitTransport } from '../scripts/lib/git-transport.mjs';
 import { atomicJson, fileManifest, copyFiles, bytesDigest, CANONICAL_ROOTS } from '../scripts/lib/workflow-files.mjs';
 import { createPreviewManifest } from '../scripts/lib/workbench-manifest.mjs';
 import { digestValue } from '../scripts/lib/dataset-build.mjs';
@@ -28,7 +28,7 @@ async function fixture(t, { reviewedApplication = false } = {}) {
   await copyFiles(candidate, tree, published.entries.map((item) => item.path));
   let planDigest;
   const buildId = 'build-aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee';
-  await atomicJson(path.join(root, `output/builds/${buildId}/manifest.json`), { sources: [] });
+  await atomicJson(path.join(root, `output/builds/${buildId}/manifest.json`), { sources: [], receipts: [{ state: 'AUTHORED', payload: { artifacts: [] } }] });
   const publication = { ...(reviewedApplication ? { applicationDigest: (await applicationManifest(root)).digest } : {}), projectedTreeDigest: published.digest, baseCanonicalDigest: base.digest, builds: [{ buildId, key: 'example', sealDigest: 'fixture' }], contributions: [{ path: file, digest: bytesDigest(value), baseDigest: null, buildId }] };
   planDigest = digestValue(publication);
   await atomicJson(path.join(root, `output/publications/plans/${planDigest.slice(7)}/plan.json`), { ...publication, planDigest });
@@ -156,4 +156,15 @@ test('Build acceptance carries over to the transport only under the reviewed app
   const approval = await reviewGitTransport(bound.id, { operator: 'test fixture', accepted: true, candidateDigest: bound.candidateDigest, basis: 'inherited-build-acceptance' }, reviewed.root);
   assert.equal(approval.basis, 'inherited-build-acceptance');
   await commitGitTransport(bound.id, reviewed.root);
+});
+
+
+test('transport review statistics count objects once and preserve known intervention outcomes', () => {
+  const summary = humanReviewCommitSummary([
+    { key: 'a', intervention: false }, { key: 'b', intervention: true }, { key: 'b', intervention: true },
+  ]);
+  assert.match(summary, /Total items: 2/);
+  assert.match(summary, /No-intervention items: 1/);
+  assert.match(summary, /Human intervention rate: 1\/2 = 50.0%/);
+  assert.throws(() => humanReviewCommitSummary([{ key: 'a' }]), /known object outcomes/);
 });
