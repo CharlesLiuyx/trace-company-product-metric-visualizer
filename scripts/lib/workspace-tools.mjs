@@ -1,11 +1,11 @@
 import path from 'node:path';
 import { existsSync } from 'node:fs';
 import { readFile, writeFile, mkdir, lstat, rm, symlink } from 'node:fs/promises';
-import { filesUnder, TOOL_ROOTS, copyFiles, atomicJson } from './workflow-files.mjs';
+import { filesUnder, TOOL_ROOTS, cloneFiles, atomicJson } from './workflow-files.mjs';
 
 // Ordinary Build folders must never inherit a writable parent Git index.
 export async function prepareWorkspaceTools(root, workspace) {
-  await copyFiles(root, workspace, await filesUnder(root, TOOL_ROOTS));
+  await cloneFiles(root, workspace, await filesUnder(root, TOOL_ROOTS));
   const git = path.join(workspace, '.git');
   const stat = await lstat(git).catch((error) => { if (error.code !== 'ENOENT') throw error; });
   if (stat?.isSymbolicLink()) await rm(git);

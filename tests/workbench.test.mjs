@@ -86,13 +86,32 @@ test('workbench publishes complete immutable generations, reports failed builds,
   const previewRoot = path.join(root, 'output/workbench/previews/project');
   await until(() => readdir(previewRoot), (names) => names.length === 3);
   assert.deepEqual((await readdir(previewRoot)).sort(), [first.id, updated.preview.candidate.id, 'current.json'].sort(), 'failed site is removed; both pinned successful sites survive');
+  fail = false; await writeFile(path.join(root, 'src/app.js'), 'third');
+  const third = await until(() => status(), (state) => state.preview.status === 'ready' && state.preview.candidate.id !== updated.preview.candidate.id);
+  assert.deepEqual((await readdir(previewRoot)).sort(), [updated.preview.candidate.id, third.preview.candidate.id, 'current.json'].sort(), 'only the current and the replaced site are retained');
+  assert.equal((await fetch(server.url + first.url.slice(1))).status, 404);
   assert.equal((await fetch(server.url + '__trace/status', { method: 'POST' })).status, 405);
   assert.equal((await fetch(server.url + '.git/config')).status, 403);
   assert.equal((await fetch(server.url + '__trace/status?source=../../private')).status, 400);
   await server.close();
-  for (const id of [first.id, updated.preview.candidate.id]) {
+  for (const id of [updated.preview.candidate.id, third.preview.candidate.id]) {
     assert.deepEqual(await readdir(path.join(previewRoot, id)), ['candidate.json'], 'shutdown retains only candidate metadata');
   }
+});
+
+test('a new workbench removes previews and server records left by exited processes', async (t) => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'trace-workbench-sweep-'));
+  t.after(() => rm(root, { recursive: true, force: true }));
+  await writeFile(path.join(root, 'index.html'), '<html>fixture</html>');
+  const stale = path.join(root, 'output/workbench/previews/project/old-id/site');
+  await mkdir(stale, { recursive: true }); await writeFile(path.join(stale, 'index.html'), 'old');
+  const dead = path.join(root, 'output/workbench/servers/dead.json');
+  await atomicJson(dead, { pid: 2 ** 22 + 12345, url: 'http://127.0.0.1:1/' });
+  const server = await startWorkbench({ root, port: 0, readCi: async () => [], productionFetch: async () => { throw new Error('offline'); }, build: async () => { throw new Error('fixture'); } });
+  t.after(() => server.close());
+  await assert.rejects(readdir(path.join(root, 'output/workbench/previews/project')), { code: 'ENOENT' });
+  const records = await readdir(path.join(root, 'output/workbench/servers'));
+  assert.equal(records.length, 1); assert.ok(!records.includes('dead.json'));
 });
 
 test('slow production checks never block local status and concurrent requests share the query', async (t) => {

@@ -2,7 +2,11 @@ import { createHash, randomUUID } from 'node:crypto';
 import { mkdir, readdir, readFile, writeFile, rename, rm, copyFile, lstat, open } from 'node:fs/promises';
 import { existsSync, constants } from 'node:fs';
 import path from 'node:path';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
 import { digestValue } from './dataset-build.mjs';
+
+const execFileAsync = promisify(execFile);
 
 export const CANONICAL_ROOTS = Object.freeze(['index.html', 'src', 'data', 'vendor', 'input/icon-crop-specs']);
 export const TOOL_ROOTS = Object.freeze(['scripts', 'tests', 'docs', 'AGENTS.md', 'CONTEXT.md', 'README.md', 'input/README.md', 'package.json', 'pnpm-lock.yaml', '.gitignore', '.githooks', '.node-version', '.nvmrc']);
@@ -44,6 +48,32 @@ export async function copyFiles(from, to, files) {
     await mkdir(path.dirname(destination), { recursive: true });
     await copyFile(inside(from, file), destination, constants.COPYFILE_FICLONE);
   }
+}
+// Node's COPYFILE_FICLONE does not clone on macOS (a full byte copy was
+// measured), so whole-tree copies use APFS clonefile(2) through `cp -c`: a
+// clone costs no data blocks until one side changes. Other platforms, or a
+// batch that cannot be cloned, fall back to the ordinary byte copy.
+export async function cloneFiles(from, to, files) {
+  if (process.platform !== 'darwin') return copyFiles(from, to, files);
+  const groups = new Map();
+  for (const file of files) {
+    const directory = path.dirname(inside(to, file));
+    if (!groups.has(directory)) groups.set(directory, []);
+    groups.get(directory).push(file);
+  }
+  const batches = [];
+  for (const [directory, group] of groups) {
+    for (let index = 0; index < group.length; index += 200) batches.push([directory, group.slice(index, index + 200)]);
+  }
+  let cursor = 0;
+  await Promise.all(Array.from({ length: Math.min(8, batches.length) }, async () => {
+    while (cursor < batches.length) {
+      const [directory, batch] = batches[cursor++];
+      await mkdir(directory, { recursive: true });
+      try { await execFileAsync('/bin/cp', ['-c', ...batch.map((file) => inside(from, file)), `${directory}/`]); }
+      catch { await copyFiles(from, to, batch); }
+    }
+  }));
 }
 export async function syncTree(root, files) {
   const directories = new Set([root]);
@@ -115,12 +145,15 @@ export async function recoverFileLock(file, expectedToken) {
 }
 
 export async function freezeSnapshot(snapshot, root) {
+  // A published tree is already immutable and digest-verified by
+  // canonicalSnapshot; only the mutable working tree needs a frozen copy.
+  if (snapshot.published) return snapshot;
   const destination = inside(root, `output/workflow-bases/${snapshot.digest.slice(7)}`);
   if (!existsSync(destination)) {
     const temporary = `${destination}.${randomUUID()}.tmp`;
     try {
       await mkdir(temporary, { recursive: true });
-      await copyFiles(snapshot.root, temporary, snapshot.entries.map((entry) => entry.path));
+      await cloneFiles(snapshot.root, temporary, snapshot.entries.map((entry) => entry.path));
       if ((await fileManifest(temporary)).digest !== snapshot.digest) throw new Error('Base changed during snapshot copy; retry with a stable base');
       try { await rename(temporary, destination); }
       catch (error) { if (!['EEXIST', 'ENOTEMPTY'].includes(error.code)) throw error; }

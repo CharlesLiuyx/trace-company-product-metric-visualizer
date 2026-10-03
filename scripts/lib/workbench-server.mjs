@@ -6,7 +6,7 @@ import { promisify } from 'node:util';
 import { randomUUID } from 'node:crypto';
 import { startStaticServer } from '../dev-server.mjs';
 import { rootDir } from './project.mjs';
-import { atomicJson, readJson, inside, copyFiles, fileManifest, bytesDigest } from './workflow-files.mjs';
+import { atomicJson, readJson, inside, cloneFiles, fileManifest, bytesDigest } from './workflow-files.mjs';
 import { verifySiteIdentity, PRODUCTION_URL } from './site-release-identity.mjs';
 import { prepareWorkspaceTools } from './workspace-tools.mjs';
 import { showAsset } from './asset-workflow.mjs';
@@ -27,7 +27,24 @@ function run(file, args, root) {
     child.on('error', reject); child.on('close', (code) => code === 0 ? resolve(output) : reject(new Error(output || `Build exited ${code}`)));
   });
 }
+// Server records of exited processes are stale, and so is every preview when
+// no live server remains: sites are served only by the process that built them.
+async function sweepStalePreviews(root) {
+  const folder = path.join(root, 'output/workbench/servers');
+  let live = 0;
+  for (const name of await readdir(folder).catch(() => [])) {
+    const record = await readJson(path.join(folder, name)).catch(() => null);
+    let alive = false;
+    if (Number.isInteger(record?.pid) && record.pid > 0) {
+      try { process.kill(record.pid, 0); alive = true; } catch (error) { alive = error.code !== 'ESRCH'; }
+    }
+    if (alive) live++;
+    else await rm(path.join(folder, name), { force: true });
+  }
+  if (!live) await rm(path.join(root, 'output/workbench/previews'), { recursive: true, force: true });
+}
 export async function startWorkbench({ root = rootDir, port = 8000, build = run, productionFetch = fetch, readCi = null, maxBuilds = 2, scheduleDebounce = setTimeout } = {}) {
+  await sweepStalePreviews(root);
   const previews = new Map(), events = new Set(), watchers = [], timers = new Set();
   const ownedPreviews = new Set();
   const serverRecord = path.join(root, `output/workbench/servers/${randomUUID()}.json`);
@@ -130,7 +147,7 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
       if (state.candidate && state.inputSignature === inputSignature) { state.status = 'ready'; return; }
       await mkdir(path.dirname(target), { recursive: true });
       const snapshot = path.join(path.dirname(target), 'source');
-      await copyFiles(state.workspace, snapshot, before.entries.map((entry) => entry.path));
+      await cloneFiles(state.workspace, snapshot, before.entries.map((entry) => entry.path));
       if ((await fileManifest(snapshot)).digest !== before.digest) throw new Error('Files changed while the preview snapshot was copied');
       let members = [], memberSignature = null;
       if (state.source === 'review') {
@@ -179,6 +196,15 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
       }
       if (state.revision === validatedRevision) state.dirty = false;
       await atomicJson(inside(root, `output/workbench/previews/${state.source}/current.json`), candidate);
+      // Keep the new site and the one it replaces (a tab may still show it);
+      // older sites this process built for the same source are superseded.
+      const kept = new Set([path.dirname(target), state.candidate && inside(root, `output/workbench/previews/${state.source}/${state.candidate.id}`)]);
+      const sourceFolder = inside(root, `output/workbench/previews/${state.source}`);
+      for (const directory of [...ownedPreviews]) {
+        if (kept.has(directory) || path.dirname(directory) !== sourceFolder) continue;
+        ownedPreviews.delete(directory);
+        await rm(directory, { recursive: true, force: true }).catch(() => {});
+      }
       state.inputSignature = inputSignature;
       state.candidate = candidate;
       state.durationMs = Math.round(performance.now() - started);
@@ -190,7 +216,10 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
       // candidate receipts remain available to pinned review tabs.
       for (const name of ['source', 'cache']) await rm(path.join(path.dirname(target), name), { recursive: true, force: true }).catch(() => {});
       // An unsuccessful candidate has no immutable URL to preserve.
-      if (!activated) await rm(path.dirname(target), { recursive: true, force: true }).catch(() => {});
+      if (!activated) {
+        ownedPreviews.delete(path.dirname(target));
+        await rm(path.dirname(target), { recursive: true, force: true }).catch(() => {});
+      }
       state.busy = false; activeBuilds--; notify(); for (const waiting of previews.values()) if (waiting.dirty) rebuild(waiting);
     }
   }

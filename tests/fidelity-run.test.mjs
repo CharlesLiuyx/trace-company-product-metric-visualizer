@@ -106,8 +106,6 @@ test('parallel fidelity runs keep private scratch and finalize without cross-arc
     'example-fy25-d3.png',
     'example-fy25-interface-audit.json',
     'example-fy25-metrics.json',
-    'example-fy25-pixel-diff-x4.png',
-    'example-fy25-reference.png',
     'fidelity-run.json',
   ];
   assert.deepEqual((await readdir(leftArchiveDir)).sort(), expectedFiles);
@@ -123,15 +121,17 @@ test('parallel fidelity runs keep private scratch and finalize without cross-arc
   assert.equal(rightManifest.status, 'accepted');
   assert.equal(leftManifest.runId, left.runId);
   assert.equal(rightManifest.runId, right.runId);
-  assert.equal(
-    leftManifest.artifacts.reference,
-    `${leftArchive.dir}/example-fy25-reference.png`
-  );
+  assert.deepEqual(Object.keys(leftManifest.artifacts).sort(), ['candidate', 'interfaceAudit', 'metrics']);
   const leftMetrics = JSON.parse(
     await readFile(path.join(leftArchiveDir, 'example-fy25-metrics.json'), 'utf8')
   );
   assert.equal(leftMetrics.candidate, `${leftArchive.dir}/example-fy25-d3.png`);
-  assert.equal(leftMetrics.diff, `${leftArchive.dir}/example-fy25-pixel-diff-x4.png`);
+  assert.equal(leftMetrics.diff, null);
+  assert.deepEqual(
+    (await readdir(path.join(root, 'output', 'compare', 'example-fy25'))).sort(),
+    ['01-baseline-parallel-safety', leftArchive.name, rightArchive.name].sort(),
+    'no shared reference mirror is written beside the archives'
+  );
   assert.equal(leftMetrics.fontStatus.allLoaded, true);
   assert.equal(leftMetrics.typographyAudit.status, 'passed');
   assert.deepEqual(leftMetrics.typographyAudit.violations, []);
@@ -245,4 +245,34 @@ test('review evidence uses fidelity-run/2 identity and remains automation-only e
     buildId: 'build-other',
   });
   assert.equal(await findPreviousAcceptedRun(changedBuild), null);
+});
+
+test('a newer Build evidence run removes older runs of the same Build, locale and focus only', async (t) => {
+  const root = await testRoot(t);
+  const identity = {
+    protocolVersion: FIDELITY_PROTOCOL_VERSION,
+    runKind: 'fidelity-review',
+    buildId: 'build-example',
+    authoredDigest: 'sha256:authored',
+    verificationPlanDigest: 'sha256:plan',
+  };
+  const finalize = async (overrides, focus, similarity) => {
+    const run = await createRun(root, { ...identity, ...overrides });
+    await seedArtifacts(run, focus);
+    const archived = await finalizeFidelityRun(run, { ...finalizationOptions(similarity), focus, status: 'evidence-ready' });
+    await new Promise((resolve) => setTimeout(resolve, 5));
+    return archived;
+  };
+  const first = await finalize({}, 'review-candidate', 0.9);
+  const zh = await finalize({ language: 'zh' }, 'review-candidate', 0.9);
+  const otherFocus = await finalize({}, 'closeout-refresh', 0.9);
+  const otherBuild = await finalize({ buildId: 'build-other' }, 'review-candidate', 0.9);
+  const second = await finalize({}, 'review-candidate', 0.91);
+  const third = await finalize({}, 'review-candidate', 0.92);
+
+  const remaining = (await readdir(path.join(root, 'output', 'compare', 'example-fy25'))).sort();
+  assert.deepEqual(remaining, [zh.name, otherFocus.name, otherBuild.name, third.name].sort());
+  assert.ok(!remaining.includes(first.name) && !remaining.includes(second.name));
+  assert.equal(third.previousArchive, second.dir, 'comparison still uses the immediately preceding run');
+  assert.ok(Number(third.sequence) > Number(second.sequence), 'sequence keeps increasing after pruning');
 });

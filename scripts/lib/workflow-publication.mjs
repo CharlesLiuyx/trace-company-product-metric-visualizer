@@ -3,7 +3,7 @@ import { prepareWorkspaceTools } from './workspace-tools.mjs';
 import { applicationManifest, adoptApplication, isApplicationPath } from './workflow-application.mjs';
 import { selectPublishedView } from './workflow-local-view.mjs';
 import path from 'node:path';
-import { mkdir, readFile, writeFile, rename, rm, symlink } from 'node:fs/promises';
+import { mkdir, readFile, readdir, writeFile, rename, rm, symlink } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { randomUUID } from 'node:crypto';
 import vm from 'node:vm';
@@ -11,7 +11,7 @@ import { rootDir } from './project.mjs';
 import { planPublicationBatch, digestValue } from './dataset-build.mjs';
 import { inspectDatasetBuild } from './dataset-build-store.mjs';
 import { buildContext, canonicalSnapshot, runWorkspace } from './asset-workflow.mjs';
-import { fileManifest, filesUnder, TOOL_ROOTS, copyFiles, syncTree, inside, atomicJson, readJson, withFileLock, bytesDigest } from './workflow-files.mjs';
+import { fileManifest, filesUnder, TOOL_ROOTS, copyFiles, cloneFiles, syncTree, inside, atomicJson, readJson, withFileLock, bytesDigest } from './workflow-files.mjs';
 import { updateMetricCatalog } from './metric-catalog.mjs';
 import { updateAssetCatalog } from './workflow-assets.mjs';
 
@@ -22,6 +22,23 @@ const planDirectory = (root, digest) => {
   return inside(root, `output/publications/plans/${digest.slice(7)}`);
 };
 const prepareTools = prepareWorkspaceTools;
+// A plan keeps only its identity once it can no longer be committed: after its
+// own commit, or when another publication moved the canonical pointer past its
+// base. The projected tree it carried is then dead weight.
+const PLAN_RECORDS = new Set(['plan.json', 'conflict.json']);
+async function prunePublicationPlans(root) {
+  const plans = path.join(root, 'output/publications/plans');
+  const pointer = await readJson(path.join(root, 'output/publications/current.json')).catch(() => null);
+  for (const name of await readdir(plans).catch(() => [])) {
+    if (!/^[a-f0-9]{64}$/.test(name)) continue;
+    const directory = path.join(plans, name);
+    const plan = await readJson(path.join(directory, 'plan.json')).catch(() => null);
+    if (!plan) continue;
+    const committed = pointer?.planDigest === `sha256:${name}` || existsSync(path.join(root, 'output/publications/receipts', `${name}.json`));
+    if (!committed && (!pointer || plan.baseCanonicalDigest === pointer.publishedDigest)) continue;
+    for (const entry of await readdir(directory)) if (!PLAN_RECORDS.has(entry)) await rm(path.join(directory, entry), { recursive: true, force: true });
+  }
+}
 export async function planAssetPublication(buildIds, root = rootDir, options = {}) {
   const snapshot = await canonicalSnapshot(root);
   const application = await applicationManifest(root);
@@ -56,7 +73,7 @@ export async function planAssetPublication(buildIds, root = rootDir, options = {
   const temporary = inside(root, `output/publications/.planning-${randomUUID()}`);
   await mkdir(temporary, { recursive: true });
   try {
-    await copyFiles(snapshot.root, temporary, snapshot.entries.map((entry) => entry.path));
+    await cloneFiles(snapshot.root, temporary, snapshot.entries.map((entry) => entry.path));
     await adoptApplication(root, temporary);
     await prepareTools(root, temporary);
     const applied = new Map();
@@ -134,6 +151,12 @@ export async function planAssetPublication(buildIds, root = rootDir, options = {
     } else {
       const existing = await readJson(path.join(destination, 'plan.json'));
       if (digestValue(existing) !== digestValue(plan)) throw new Error('Publication identity collision');
+      // A pruned, never-committed plan regains its verified candidate tree.
+      if ((await fileManifest(destination)).digest !== plan.projectedTreeDigest && !existsSync(path.join(root, 'output/publications/receipts', `${plan.planDigest.slice(7)}.json`))) {
+        await atomicJson(path.join(temporary, 'plan.json'), plan);
+        await rm(destination, { recursive: true, force: true });
+        await rename(temporary, destination);
+      }
     }
     return plan;
   } finally { await rm(temporary, { recursive: true, force: true }); }
@@ -146,6 +169,13 @@ export async function publishAssetPlan(planDigest, root = rootDir, options = {})
   const publicationRoot = path.join(root, 'output/publications');
   const receiptPath = path.join(publicationRoot, 'receipts', `${planDigest.slice(7)}.json`);
   return withFileLock(path.join(publicationRoot, '.publish.lock'), async () => {
+    try { return await commitPlan(); }
+    finally { await prunePublicationPlans(root).catch(() => {}); }
+  }).then(async (receipt) => {
+    await selectPublishedView(root, plan);
+    return receipt;
+  });
+  async function commitPlan() {
     if (existsSync(receiptPath)) return readJson(receiptPath);
     const pointerPath = path.join(publicationRoot, 'current.json');
     const pointer = existsSync(pointerPath) ? await readJson(pointerPath) : null;
@@ -174,7 +204,7 @@ export async function publishAssetPlan(planDigest, root = rootDir, options = {})
       const temporary = `${tree}.${randomUUID()}.tmp`;
       await mkdir(temporary, { recursive: true });
       try {
-        await copyFiles(directory, temporary, candidate.entries.map((entry) => entry.path));
+        await cloneFiles(directory, temporary, candidate.entries.map((entry) => entry.path));
         if ((await fileManifest(temporary)).digest !== candidate.digest) throw new Error('Snapshot copy changed');
         await syncTree(temporary, candidate.entries.map((entry) => entry.path));
         await options.beforeTreeCommit?.();
@@ -191,10 +221,7 @@ export async function publishAssetPlan(planDigest, root = rootDir, options = {})
     const receipt = { protocol: PUBLICATION_PROTOCOL, state: 'PUBLISHED', ...commit };
     await atomicJson(receiptPath, receipt);
     return receipt;
-  }).then(async (receipt) => {
-    await selectPublishedView(root, plan);
-    return receipt;
-  });
+  }
 }
 
 export async function releasePublished(input, root = rootDir, options = {}) {
@@ -220,7 +247,7 @@ export async function releasePublished(input, root = rootDir, options = {}) {
     const manifest = await fileManifest(source);
     if (manifest.digest !== input.publishedDigest) throw new Error('Published snapshot changed');
     const candidate = path.join(attemptDir, 'workspace');
-    await copyFiles(source, candidate, manifest.entries.map((entry) => entry.path));
+    await cloneFiles(source, candidate, manifest.entries.map((entry) => entry.path));
     await prepareTools(root, candidate);
     if (options.runRelease) await options.runRelease({ candidate, input });
     else {

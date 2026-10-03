@@ -9,7 +9,7 @@ import { acquireBuildSession, assertBuildSession } from '../scripts/lib/workflow
 import { mergeSource, mergeValue, parseSsotRecords } from '../scripts/lib/workflow-merge.mjs';
 import { selectBuildPreview, readLocalView } from '../scripts/lib/workflow-local-view.mjs';
 import { prepareWorkspaceTools } from '../scripts/lib/workspace-tools.mjs';
-import { recoverFileLock, atomicJson } from '../scripts/lib/workflow-files.mjs';
+import { recoverFileLock, atomicJson, cloneFiles, fileManifest } from '../scripts/lib/workflow-files.mjs';
 import { deriveArtifactManifest } from '../scripts/lib/workflow-dependencies.mjs';
 const id = 'build-aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee';
 async function fixture(t) { const root = await mkdtemp(path.join(os.tmpdir(), 'trace-concurrency-')); t.after(() => rm(root, { recursive: true, force: true })); return root; }
@@ -88,4 +88,17 @@ test('review freshness binds the selected display time without coupling unrelate
   await save(); assert.equal(await derive(), reviewed);
   metadata.files['data/revenue-metrics.js'].updatedAt = '2026-09-03T00:00:00.000Z';
   await save(); assert.notEqual(await derive(), reviewed);
+});
+
+test('tree clones reproduce exactly the listed files and replace existing copies', async (t) => {
+  const root = await fixture(t), from = path.join(root, 'from'), to = path.join(root, 'to');
+  const files = Array.from({ length: 450 }, (_, i) => `data/${i % 3 ? 'datasets' : 'deep/nested'}/file-${i}.js`);
+  for (const file of files) { await mkdir(path.dirname(path.join(from, file)), { recursive: true }); await writeFile(path.join(from, file), `value ${file}`); }
+  await writeFile(path.join(from, 'data/unlisted.js'), 'not part of the snapshot');
+  await mkdir(path.join(to, 'data/datasets'), { recursive: true }); await writeFile(path.join(to, 'data/datasets/file-1.js'), 'stale');
+  await cloneFiles(from, to, files);
+  assert.equal((await fileManifest(to, ['data'])).digest, (await fileManifest(from, files)).digest);
+  await assert.rejects(readFile(path.join(to, 'data/unlisted.js')), { code: 'ENOENT' });
+  await writeFile(path.join(to, 'data/datasets/file-1.js'), 'edited clone');
+  assert.equal(await readFile(path.join(from, 'data/datasets/file-1.js'), 'utf8'), 'value data/datasets/file-1.js', 'a clone is independent of its source');
 });

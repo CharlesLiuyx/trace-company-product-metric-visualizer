@@ -12,7 +12,7 @@ import { workflowOptions, canonicalSnapshot } from './asset-workflow.mjs';
 import { adoptApplication } from './workflow-application.mjs';
 import { prepareWorkspaceTools } from './workspace-tools.mjs';
 import { retireBuildPreview } from './workflow-local-view.mjs';
-import { inside, atomicJson, readJson, withFileLock, freezeSnapshot, copyFiles, bytesDigest } from './workflow-files.mjs';
+import { inside, atomicJson, readJson, withFileLock, freezeSnapshot, copyFiles, cloneFiles, bytesDigest } from './workflow-files.mjs';
 
 export function successorClassification(build, facts) {
   const restartable = new Set(['INTAKED', 'AUTHORED']);
@@ -58,7 +58,7 @@ export async function recoverIntakeSuccessor(buildId, facts, root) {
     const authoringRoot = `output/builds/${nextId}/workspace`, workspace = inside(root, authoringRoot);
     if (!next.authoringRoot) {
       await mkdir(workspace, { recursive: true });
-      await copyFiles(snapshot.root, workspace, snapshot.entries.map(e => e.path));
+      await cloneFiles(snapshot.root, workspace, snapshot.entries.map(e => e.path));
       await adoptApplication(root, workspace);
       await prepareWorkspaceTools(root, workspace);
       await copyFiles(root, workspace, [source.processingUri]);

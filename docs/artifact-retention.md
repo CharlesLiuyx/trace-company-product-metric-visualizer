@@ -44,13 +44,23 @@ SSOT 或执行 Git 推送。
 
 ## 处理中减少输出
 
+- 整树副本（Build workspace、冻结基线、发布 plan 与快照树、release 与 Git 交接候选、
+  工作台预览快照、工具目录）在 macOS 上用 APFS 克隆（`cp -c`），未修改的文件不占
+  数据块；其他平台或无法克隆时退回普通复制。`du` 仍按表观大小统计，以 `df` 判断实占。
+- 基线已是不可变发布树时，草稿直接引用该树，不再冻结到 `output/workflow-bases/`。
+- `publish:datasets commit` 结束后，已提交的 plan，以及基线已被正式指针越过、永远无法
+  提交的 plan，只保留 `plan.json`（与 `conflict.json`）；候选树随即删除。
 - `verify:d3` 默认在 `finally` 清除私有 scratch；只有实际排错时使用 `--keep`。
-  `record:fidelity` 在人工审阅与封存前保留规则要求的证据，流程完成后统一清除。
+  `record:fidelity` 的证据归档只含候选图、metrics、interface audit 与 `fidelity-run.json`；
+  原图留在 Source 位置，diff 只在 `--keep` 的 scratch 中。同一 Build、语言与 focus 的
+  新证据落地后删除更早的归档，审阅只绑定每语言最新一份。流程完成后统一清除其余证据。
 - 优先复用当前摘要对应的检查结果；按 [输入流程](asset-workflow.md) §3 的检查边界选择必要检查，避免为写报告
   再渲染一遍。临时截图与调试记录放在命令拥有的私有目录，成功和失败路径都负责清理。
 - 工作台构建后立即删除 source/cache；失败候选连同半成品 site 删除。服务运行期间
-  保留成功站点以支持固定候选的标签页；正常退出时等待在途构建完成，删除本进程生成的
-  site，仅保留 candidate meta。重启重新构建候选，不将旧预览 URL 当成永久交付地址。
+  每个来源只保留当前与上一版成功站点（供仍停在旧版的标签页），更早的站点删除；
+  正常退出时等待在途构建完成，删除本进程生成的 site，仅保留 candidate meta。启动时
+  删除已退出进程的服务记录；没有存活服务时清空 `output/workbench/previews/`。
+  重启重新构建候选，不将旧预览 URL 当成永久交付地址。
 - standalone 与 HTML 处理单按交付/审阅需要生成，不再提交生成的 standalone 到 Git。
   需要时运行 `pnpm build:standalone` 重建；完成后仍由统一清理删除。
 - 最终检查也可能生成缓存或截图，清理必须放在检查和交付之后。最后统计
