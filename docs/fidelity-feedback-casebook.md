@@ -10,3 +10,4 @@ Git 历史中。
 
 | 案例 | 日期与数据集 | 现象 | 根因 | 落地的门槛或测试 |
 | --- | --- | --- | --- | --- |
+| CB-043 | 2026-10-03 · instacart-q2-fy26 | logo 字样与 Gross profit 标签交叠 | 品牌 SVG 字样过宽，且未声明 annotation 净空检查 | logo 组缩至 88%，中英文草稿均声明 `data-annotation-clearance`，启用 A6；`tests/layout-audit.test.mjs` 用原候选 bbox 验证旧布局失败、缩放后通过 |

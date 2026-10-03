@@ -3,12 +3,39 @@ import assert from 'node:assert/strict';
 import {
   auditTextAndAnnotationLayout,
   classifyTextAndAnnotationLayout,
+  assertRenderAudits,
 } from '../scripts/lib/render-harness.mjs';
 
 const item = (identity, text, x, y, width, height) => ({
   identity,
   text,
   bbox: { x, y, width, height },
+});
+
+test('Instacart Q2 FY26 logo clearance rejects the reported gross-profit overlap', () => {
+  // Rendered English bounds from the candidate reported by the operator.
+  const label = item('label:gross_profit#13', 'Gross profit', 1219.09375, 308.2418212890625, 228.8125, 55);
+  const logo = item('annotation-graphic:instacart-logo#0', '[graphic annotation]', 608.1906, 242.0476, 629.2031, 177.99999);
+  const audit = (graphic) => classifyTextAndAnnotationLayout({
+    width: 2667,
+    height: 1500,
+    texts: [label],
+    annotations: [],
+    annotationGraphics: [graphic],
+    protectedTexts: [label],
+  });
+  const overlapping = audit(logo);
+  assert.equal(overlapping.annotationLayoutAudit.overlapViolations.length, 1);
+  assert.throws(() => assertRenderAudits(overlapping), /A6=overlap:annotation-graphic:instacart-logo#0\/label:gross_profit#13/);
+
+  // The logo keeps its origin and shrinks as a group, including its text.
+  const origin = { x: 514.126, y: 286.035 };
+  const cleared = item(logo.identity, logo.text,
+    origin.x + (logo.bbox.x - origin.x) * 0.88,
+    origin.y + (logo.bbox.y - origin.y) * 0.88,
+    logo.bbox.width * 0.88, logo.bbox.height * 0.88);
+  assert.deepEqual(audit(cleared).annotationLayoutAudit.overlapViolations, []);
+  assert.doesNotThrow(() => assertRenderAudits(audit(cleared)));
 });
 
 test('localization-bbox regression catches rendered text beyond the 0.5px canvas tolerance', () => {
