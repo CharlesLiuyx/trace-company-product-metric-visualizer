@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-10-03T13:47:51.471Z",
+  "generatedAt": "2026-10-04T13:00:37.415Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -7139,6 +7139,192 @@
       "path": "data/datasets/walmart-q4-fy25.js",
       "updatedAtMs": 1791035141806,
       "updatedAt": "2026-10-03T13:45:41.806Z",
+      "timeSource": "publication"
+    },
+    "aramco-fy23": {
+      "path": "data/datasets/aramco-fy23.js",
+      "updatedAtMs": 1791116233356,
+      "updatedAt": "2026-10-04T12:17:13.356Z",
+      "timeSource": "publication"
+    },
+    "aramco-q1-fy24": {
+      "path": "data/datasets/aramco-q1-fy24.js",
+      "updatedAtMs": 1791116229986,
+      "updatedAt": "2026-10-04T12:17:09.986Z",
+      "timeSource": "publication"
+    },
+    "aramco-q2-fy24": {
+      "path": "data/datasets/aramco-q2-fy24.js",
+      "updatedAtMs": 1791116268018,
+      "updatedAt": "2026-10-04T12:17:48.018Z",
+      "timeSource": "publication"
+    },
+    "aramco-q3-fy23": {
+      "path": "data/datasets/aramco-q3-fy23.js",
+      "updatedAtMs": 1791116272218,
+      "updatedAt": "2026-10-04T12:17:52.218Z",
+      "timeSource": "publication"
+    },
+    "aramco-q3-fy24": {
+      "path": "data/datasets/aramco-q3-fy24.js",
+      "updatedAtMs": 1791116302266,
+      "updatedAt": "2026-10-04T12:18:22.266Z",
+      "timeSource": "publication"
+    },
+    "chevron-fy23": {
+      "path": "data/datasets/chevron-fy23.js",
+      "updatedAtMs": 1791116267537,
+      "updatedAt": "2026-10-04T12:17:47.537Z",
+      "timeSource": "publication"
+    },
+    "chevron-q1-fy24": {
+      "path": "data/datasets/chevron-q1-fy24.js",
+      "updatedAtMs": 1791116274382,
+      "updatedAt": "2026-10-04T12:17:54.382Z",
+      "timeSource": "publication"
+    },
+    "chevron-q2-fy24": {
+      "path": "data/datasets/chevron-q2-fy24.js",
+      "updatedAtMs": 1791116220774,
+      "updatedAt": "2026-10-04T12:17:00.774Z",
+      "timeSource": "publication"
+    },
+    "chevron-q2-fy25": {
+      "path": "data/datasets/chevron-q2-fy25.js",
+      "updatedAtMs": 1791116231949,
+      "updatedAt": "2026-10-04T12:17:11.949Z",
+      "timeSource": "publication"
+    },
+    "chevron-q3-fy23": {
+      "path": "data/datasets/chevron-q3-fy23.js",
+      "updatedAtMs": 1791116278489,
+      "updatedAt": "2026-10-04T12:17:58.489Z",
+      "timeSource": "publication"
+    },
+    "chevron-q3-fy24": {
+      "path": "data/datasets/chevron-q3-fy24.js",
+      "updatedAtMs": 1791116284697,
+      "updatedAt": "2026-10-04T12:18:04.697Z",
+      "timeSource": "publication"
+    },
+    "starbucks-fy24": {
+      "path": "data/datasets/starbucks-fy24.js",
+      "updatedAtMs": 1791116276207,
+      "updatedAt": "2026-10-04T12:17:56.207Z",
+      "timeSource": "publication"
+    },
+    "starbucks-q1-fy23": {
+      "path": "data/datasets/starbucks-q1-fy23.js",
+      "updatedAtMs": 1791116294784,
+      "updatedAt": "2026-10-04T12:18:14.784Z",
+      "timeSource": "publication"
+    },
+    "starbucks-q1-fy24": {
+      "path": "data/datasets/starbucks-q1-fy24.js",
+      "updatedAtMs": 1791116261337,
+      "updatedAt": "2026-10-04T12:17:41.337Z",
+      "timeSource": "publication"
+    },
+    "starbucks-q2-fy23": {
+      "path": "data/datasets/starbucks-q2-fy23.js",
+      "updatedAtMs": 1791116238158,
+      "updatedAt": "2026-10-04T12:17:18.158Z",
+      "timeSource": "publication"
+    },
+    "starbucks-q2-fy24": {
+      "path": "data/datasets/starbucks-q2-fy24.js",
+      "updatedAtMs": 1791116271583,
+      "updatedAt": "2026-10-04T12:17:51.583Z",
+      "timeSource": "publication"
+    },
+    "starbucks-q3-fy23": {
+      "path": "data/datasets/starbucks-q3-fy23.js",
+      "updatedAtMs": 1791116225249,
+      "updatedAt": "2026-10-04T12:17:05.249Z",
+      "timeSource": "publication"
+    },
+    "starbucks-q3-fy24": {
+      "path": "data/datasets/starbucks-q3-fy24.js",
+      "updatedAtMs": 1791116258900,
+      "updatedAt": "2026-10-04T12:17:38.900Z",
+      "timeSource": "publication"
+    },
+    "starbucks-q3-fy25": {
+      "path": "data/datasets/starbucks-q3-fy25.js",
+      "updatedAtMs": 1791116272645,
+      "updatedAt": "2026-10-04T12:17:52.645Z",
+      "timeSource": "publication"
+    },
+    "starbucks-q4-fy22": {
+      "path": "data/datasets/starbucks-q4-fy22.js",
+      "updatedAtMs": 1791116228242,
+      "updatedAt": "2026-10-04T12:17:08.242Z",
+      "timeSource": "publication"
+    },
+    "starbucks-q4-fy23": {
+      "path": "data/datasets/starbucks-q4-fy23.js",
+      "updatedAtMs": 1791118837415,
+      "updatedAt": "2026-10-04T13:00:37.415Z",
+      "timeSource": "publication"
+    },
+    "walmart-q1-fy24": {
+      "path": "data/datasets/walmart-q1-fy24.js",
+      "updatedAtMs": 1791116225578,
+      "updatedAt": "2026-10-04T12:17:05.578Z",
+      "timeSource": "publication"
+    },
+    "walmart-q1-fy25": {
+      "path": "data/datasets/walmart-q1-fy25.js",
+      "updatedAtMs": 1791116224783,
+      "updatedAt": "2026-10-04T12:17:04.783Z",
+      "timeSource": "publication"
+    },
+    "walmart-q2-fy24": {
+      "path": "data/datasets/walmart-q2-fy24.js",
+      "updatedAtMs": 1791116218763,
+      "updatedAt": "2026-10-04T12:16:58.763Z",
+      "timeSource": "publication"
+    },
+    "walmart-q2-fy25": {
+      "path": "data/datasets/walmart-q2-fy25.js",
+      "updatedAtMs": 1791116223654,
+      "updatedAt": "2026-10-04T12:17:03.654Z",
+      "timeSource": "publication"
+    },
+    "walmart-q2-fy26": {
+      "path": "data/datasets/walmart-q2-fy26.js",
+      "updatedAtMs": 1791116234294,
+      "updatedAt": "2026-10-04T12:17:14.294Z",
+      "timeSource": "publication"
+    },
+    "walmart-q3-fy23": {
+      "path": "data/datasets/walmart-q3-fy23.js",
+      "updatedAtMs": 1791116230851,
+      "updatedAt": "2026-10-04T12:17:10.851Z",
+      "timeSource": "publication"
+    },
+    "walmart-q3-fy24": {
+      "path": "data/datasets/walmart-q3-fy24.js",
+      "updatedAtMs": 1791116224202,
+      "updatedAt": "2026-10-04T12:17:04.202Z",
+      "timeSource": "publication"
+    },
+    "walmart-q3-fy25": {
+      "path": "data/datasets/walmart-q3-fy25.js",
+      "updatedAtMs": 1791116246252,
+      "updatedAt": "2026-10-04T12:17:26.252Z",
+      "timeSource": "publication"
+    },
+    "walmart-q4-fy23": {
+      "path": "data/datasets/walmart-q4-fy23.js",
+      "updatedAtMs": 1791116222908,
+      "updatedAt": "2026-10-04T12:17:02.908Z",
+      "timeSource": "publication"
+    },
+    "walmart-q4-fy24": {
+      "path": "data/datasets/walmart-q4-fy24.js",
+      "updatedAtMs": 1791116270388,
+      "updatedAt": "2026-10-04T12:17:50.388Z",
       "timeSource": "publication"
     },
     "data/revenue-metrics.js": {

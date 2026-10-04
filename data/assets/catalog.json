@@ -1229,6 +1229,19 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/aramco/company-lockup-fy23.png",
+      "digest": "sha256:660b348d2ae10c70828867a6fef13b886164cf9060580406769abf089e23701a",
+      "provenance": [],
+      "directConsumers": [
+        "aramco-fy23"
+      ],
+      "consumers": [
+        "aramco-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/aramco/company-lockup-q2-fy26.png",
       "digest": "sha256:f60a3ddd60340c5fdb45e2b47aba567475e48dd706e2133038f7bb218745b2e2",
       "provenance": [],
@@ -1242,13 +1255,50 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/aramco/company-lockup-q3-fy23.png",
+      "digest": "sha256:0bbac49b23c0e0ac141b33e0bf5fa14ebd574d3a5123a50893aaffd79f9f2d32",
+      "provenance": [],
+      "directConsumers": [
+        "aramco-q3-fy23"
+      ],
+      "consumers": [
+        "aramco-q3-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/aramco/company-lockup-q3-fy24.png",
+      "digest": "sha256:4a15c4b337f7fb85121fe904704d4b7b0691c60809060a9c72472d3548b4bd6d",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/aramco-q3-fy24.json",
+          "recipeDigest": "sha256:7762ebf2727eb19bb32c2c5eb8995c6512f70c921118542d7084bdf3940307bb",
+          "source": "input/processing/aramco-q3-fy24.png",
+          "cropKey": "aramco-company-lockup-q3-fy24"
+        }
+      ],
+      "directConsumers": [
+        "aramco-q3-fy24"
+      ],
+      "consumers": [
+        "aramco-q3-fy24"
+      ],
+      "acceptedVersions": [
+        "sha256:59146b18d3fa42ecb9fca447345880beafb56a74d2fd453289d442fa12296d52"
+      ],
+      "reusable": true
+    },
+    {
       "path": "data/assets/raster-annotations/aramco/company-lockup.png",
       "digest": "sha256:b8f0c48cccfd31841e4602a2df98ceb085d18318d978f8ad3760bcef2a568ca8",
       "provenance": [],
       "directConsumers": [
+        "aramco-q1-fy24",
         "aramco-q1-fy26"
       ],
       "consumers": [
+        "aramco-q1-fy24",
         "aramco-q1-fy26"
       ],
       "acceptedVersions": [],
@@ -1263,6 +1313,32 @@
       ],
       "consumers": [
         "aramco-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/aramco/mark-q2-fy24.png",
+      "digest": "sha256:ab79799028f0e36cc97bcd8d1d9ae9057295d4112d299af53fea0e620a285aeb",
+      "provenance": [],
+      "directConsumers": [
+        "aramco-q2-fy24"
+      ],
+      "consumers": [
+        "aramco-q2-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/aramco/wordmark-q2-fy24.png",
+      "digest": "sha256:0dac3092318126a98a8f480268fc60304b128c373157d2385c55eaed34b973cb",
+      "provenance": [],
+      "directConsumers": [
+        "aramco-q2-fy24"
+      ],
+      "consumers": [
+        "aramco-q2-fy24"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -11420,14 +11496,34 @@
         }
       ],
       "directConsumers": [
+        "starbucks-fy24",
+        "starbucks-q1-fy23",
+        "starbucks-q1-fy24",
         "starbucks-q1-fy25",
         "starbucks-q1-fy26",
-        "starbucks-q2-fy25"
+        "starbucks-q2-fy23",
+        "starbucks-q2-fy24",
+        "starbucks-q2-fy25",
+        "starbucks-q3-fy23",
+        "starbucks-q3-fy24",
+        "starbucks-q3-fy25",
+        "starbucks-q4-fy22",
+        "starbucks-q4-fy23"
       ],
       "consumers": [
+        "starbucks-fy24",
+        "starbucks-q1-fy23",
+        "starbucks-q1-fy24",
         "starbucks-q1-fy25",
         "starbucks-q1-fy26",
-        "starbucks-q2-fy25"
+        "starbucks-q2-fy23",
+        "starbucks-q2-fy24",
+        "starbucks-q2-fy25",
+        "starbucks-q3-fy23",
+        "starbucks-q3-fy24",
+        "starbucks-q3-fy25",
+        "starbucks-q4-fy22",
+        "starbucks-q4-fy23"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -11444,14 +11540,34 @@
         }
       ],
       "directConsumers": [
+        "starbucks-fy24",
+        "starbucks-q1-fy23",
+        "starbucks-q1-fy24",
         "starbucks-q1-fy25",
         "starbucks-q1-fy26",
-        "starbucks-q2-fy25"
+        "starbucks-q2-fy23",
+        "starbucks-q2-fy24",
+        "starbucks-q2-fy25",
+        "starbucks-q3-fy23",
+        "starbucks-q3-fy24",
+        "starbucks-q3-fy25",
+        "starbucks-q4-fy22",
+        "starbucks-q4-fy23"
       ],
       "consumers": [
+        "starbucks-fy24",
+        "starbucks-q1-fy23",
+        "starbucks-q1-fy24",
         "starbucks-q1-fy25",
         "starbucks-q1-fy26",
-        "starbucks-q2-fy25"
+        "starbucks-q2-fy23",
+        "starbucks-q2-fy24",
+        "starbucks-q2-fy25",
+        "starbucks-q3-fy23",
+        "starbucks-q3-fy24",
+        "starbucks-q3-fy25",
+        "starbucks-q4-fy22",
+        "starbucks-q4-fy23"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -11468,14 +11584,34 @@
         }
       ],
       "directConsumers": [
+        "starbucks-fy24",
+        "starbucks-q1-fy23",
+        "starbucks-q1-fy24",
         "starbucks-q1-fy25",
         "starbucks-q1-fy26",
-        "starbucks-q2-fy25"
+        "starbucks-q2-fy23",
+        "starbucks-q2-fy24",
+        "starbucks-q2-fy25",
+        "starbucks-q3-fy23",
+        "starbucks-q3-fy24",
+        "starbucks-q3-fy25",
+        "starbucks-q4-fy22",
+        "starbucks-q4-fy23"
       ],
       "consumers": [
+        "starbucks-fy24",
+        "starbucks-q1-fy23",
+        "starbucks-q1-fy24",
         "starbucks-q1-fy25",
         "starbucks-q1-fy26",
-        "starbucks-q2-fy25"
+        "starbucks-q2-fy23",
+        "starbucks-q2-fy24",
+        "starbucks-q2-fy25",
+        "starbucks-q3-fy23",
+        "starbucks-q3-fy24",
+        "starbucks-q3-fy25",
+        "starbucks-q4-fy22",
+        "starbucks-q4-fy23"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -11492,14 +11628,34 @@
         }
       ],
       "directConsumers": [
+        "starbucks-fy24",
+        "starbucks-q1-fy23",
+        "starbucks-q1-fy24",
         "starbucks-q1-fy25",
         "starbucks-q1-fy26",
-        "starbucks-q2-fy25"
+        "starbucks-q2-fy23",
+        "starbucks-q2-fy24",
+        "starbucks-q2-fy25",
+        "starbucks-q3-fy23",
+        "starbucks-q3-fy24",
+        "starbucks-q3-fy25",
+        "starbucks-q4-fy22",
+        "starbucks-q4-fy23"
       ],
       "consumers": [
+        "starbucks-fy24",
+        "starbucks-q1-fy23",
+        "starbucks-q1-fy24",
         "starbucks-q1-fy25",
         "starbucks-q1-fy26",
-        "starbucks-q2-fy25"
+        "starbucks-q2-fy23",
+        "starbucks-q2-fy24",
+        "starbucks-q2-fy25",
+        "starbucks-q3-fy23",
+        "starbucks-q3-fy24",
+        "starbucks-q3-fy25",
+        "starbucks-q4-fy22",
+        "starbucks-q4-fy23"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -12884,6 +13040,11 @@
       "source": "input/processed/apple-q2-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/aramco-fy23.json",
+      "digest": "sha256:ef57015e2ac43e3b24c3a5c0679393c1759b704890b7925ab11b6cd14353e6ad",
+      "source": "input/processing/aramco-fy23.png"
+    },
+    {
       "path": "input/icon-crop-specs/aramco-fy25.json",
       "digest": "sha256:da0cc44069ca8e40738d4de80e704c52f0b9ec4fd29d7112cba51c4b7fffdbdc",
       "source": "input/processing/aramco-fy25.png"
@@ -12894,9 +13055,24 @@
       "source": "input/processed/aramco-q1-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/aramco-q2-fy24.json",
+      "digest": "sha256:6eb95764cf573d7f40ef0342f01ff01d30b109d1cb3a39de3cafd6166bfda6e6",
+      "source": "input/processing/aramco-q2-fy24.png"
+    },
+    {
       "path": "input/icon-crop-specs/aramco-q2-fy26.json",
       "digest": "sha256:b945c62c25eca1adcf5462b3d285097ea4ab125ea38cdf05977a25a2fbd97725",
       "source": "input/processing/aramco-q2-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/aramco-q3-fy23.json",
+      "digest": "sha256:13f941f905c06f51d97525c5730043a1dd4c93e3d0dee8fc551d7c864fae0bb2",
+      "source": "input/processing/aramco-q3-fy23.png"
+    },
+    {
+      "path": "input/icon-crop-specs/aramco-q3-fy24.json",
+      "digest": "sha256:7762ebf2727eb19bb32c2c5eb8995c6512f70c921118542d7084bdf3940307bb",
+      "source": "input/processing/aramco-q3-fy24.png"
     },
     {
       "path": "input/icon-crop-specs/arm-holdings-q2-fy26.json",

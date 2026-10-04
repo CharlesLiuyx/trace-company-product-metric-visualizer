@@ -1,0 +1,118 @@
+{
+  "source": "input/processing/aramco-q3-fy23.png",
+  "spec": "output/builds/build-59312231-e759-4554-ab6e-f4a96a219406/workspace/input/icon-crop-specs/aramco-q3-fy23.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-04T12:21:51.127764+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/aramco",
+  "crops": [
+    {
+      "key": "aramco-company-lockup-q3-fy23",
+      "output": "data/assets/icon-references/aramco/q3-fy23/company-lockup-q3-fy23.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 69712,
+        "losslessBytes": 69712,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 757,
+        "y": 216,
+        "width": 724,
+        "height": 199
+      },
+      "componentCount": 25,
+      "subjectBox": {
+        "x0": 764,
+        "y0": 217,
+        "x1": 1480,
+        "y1": 415
+      },
+      "cropBox": {
+        "x0": 757,
+        "y0": 216,
+        "x1": 1481,
+        "y1": 415
+      },
+      "validation": {
+        "width": 724,
+        "height": 199,
+        "foregroundPixels": 58434,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 1,
+          "top": 1,
+          "bottom": 0
+        },
+        "centerOffset": {
+          "x": 0.0041,
+          "y": 0.0025
+        },
+        "passes": true
+      },
+      "note": "Bilingual Saudi Aramco logo and square brand mark; excludes title, financial text, chart and publisher residue.",
+      "excludedPixels": 1000,
+      "runtimeOutput": "data/assets/raster-annotations/aramco/company-lockup-q3-fy23.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 69712,
+        "losslessBytes": 69712,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/aramco/q3-fy23/validation-sheets/aramco-company-lockup-q3-fy23.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 98036,
+        "losslessBytes": 294654,
+        "savingsVsLossless": 0.6673,
+        "metrics": {
+          "meanAbsoluteError": 0.3339,
+          "rootMeanSquareError": 1.8357,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 49,
+          "changedPixelRatio": 0.0957
+        }
+      }
+    }
+  ]
+}

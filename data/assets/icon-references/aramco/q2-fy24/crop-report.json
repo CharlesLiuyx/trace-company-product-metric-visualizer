@@ -1,0 +1,203 @@
+{
+  "source": "input/processing/aramco-q2-fy24.png",
+  "spec": "input/icon-crop-specs/aramco-q2-fy24.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-04T12:23:53.705505+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/aramco",
+  "crops": [
+    {
+      "key": "aramco-wordmark-q2-fy24",
+      "output": "data/assets/icon-references/aramco/q2-fy24/wordmark-q2-fy24.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 5619,
+        "losslessBytes": 21682,
+        "savingsVsLossless": 0.7408,
+        "metrics": {
+          "meanAbsoluteError": 0.4099,
+          "rootMeanSquareError": 1.7107,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 20,
+          "changedPixelRatio": 0.1149
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 756,
+        "y": 270,
+        "width": 500,
+        "height": 144
+      },
+      "componentCount": 24,
+      "subjectBox": {
+        "x0": 764,
+        "y0": 275,
+        "x1": 1246,
+        "y1": 414
+      },
+      "cropBox": {
+        "x0": 756,
+        "y0": 270,
+        "x1": 1256,
+        "y1": 414
+      },
+      "validation": {
+        "width": 500,
+        "height": 144,
+        "foregroundPixels": 22792,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 8,
+          "right": 10,
+          "top": 5,
+          "bottom": 0
+        },
+        "centerOffset": {
+          "x": -0.002,
+          "y": 0.0174
+        },
+        "passes": true
+      },
+      "note": "Complete company identity component without title or unrelated marks.",
+      "runtimeOutput": "data/assets/raster-annotations/aramco/wordmark-q2-fy24.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 5619,
+        "losslessBytes": 21682,
+        "savingsVsLossless": 0.7408,
+        "metrics": {
+          "meanAbsoluteError": 0.4099,
+          "rootMeanSquareError": 1.7107,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 20,
+          "changedPixelRatio": 0.1149
+        }
+      },
+      "validationSheet": "data/assets/icon-references/aramco/q2-fy24/validation-sheets/aramco-wordmark-q2-fy24.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 95855,
+        "losslessBytes": 275595,
+        "savingsVsLossless": 0.6522,
+        "metrics": {
+          "meanAbsoluteError": 0.3336,
+          "rootMeanSquareError": 2.0446,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 54,
+          "changedPixelRatio": 0.0855
+        }
+      }
+    },
+    {
+      "key": "aramco-mark-q2-fy24",
+      "output": "data/assets/icon-references/aramco/q2-fy24/mark-q2-fy24.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 36832,
+        "losslessBytes": 36832,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 1284,
+        "y": 217,
+        "width": 196,
+        "height": 197
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 1284,
+        "y0": 217,
+        "x1": 1480,
+        "y1": 414
+      },
+      "cropBox": {
+        "x0": 1284,
+        "y0": 217,
+        "x1": 1480,
+        "y1": 414
+      },
+      "validation": {
+        "width": 196,
+        "height": 197,
+        "foregroundPixels": 34999,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Complete company identity component without title or unrelated marks.",
+      "runtimeOutput": "data/assets/raster-annotations/aramco/mark-q2-fy24.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 36832,
+        "losslessBytes": 36832,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/aramco/q2-fy24/validation-sheets/aramco-mark-q2-fy24.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 394089,
+        "losslessBytes": 394089,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

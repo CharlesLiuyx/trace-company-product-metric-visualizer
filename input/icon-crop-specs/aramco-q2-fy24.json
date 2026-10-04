@@ -1,0 +1,58 @@
+{
+  "source": "input/processing/aramco-q2-fy24.png",
+  "outputDir": "data/assets/icon-references/aramco/q2-fy24",
+  "runtimeOutputDir": "data/assets/raster-annotations/aramco",
+  "validationSheetDir": "data/assets/icon-references/aramco/q2-fy24/validation-sheets",
+  "crops": [
+    {
+      "key": "aramco-wordmark-q2-fy24",
+      "output": "wordmark-q2-fy24.png",
+      "cropBox": {
+        "x": 756,
+        "y": 270,
+        "width": 500,
+        "height": 144
+      },
+      "searchBox": {
+        "x": 756,
+        "y": 270,
+        "width": 500,
+        "height": 144
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.25,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete company identity component without title or unrelated marks."
+    },
+    {
+      "key": "aramco-mark-q2-fy24",
+      "output": "mark-q2-fy24.png",
+      "cropBox": {
+        "x": 1284,
+        "y": 217,
+        "width": 196,
+        "height": 197
+      },
+      "searchBox": {
+        "x": 1284,
+        "y": 217,
+        "width": 196,
+        "height": 197
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.25,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete company identity component without title or unrelated marks."
+    }
+  ]
+}

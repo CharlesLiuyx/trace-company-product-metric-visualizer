@@ -1,0 +1,131 @@
+{
+  "source": "input/processing/aramco-fy23.png",
+  "spec": "input/icon-crop-specs/aramco-fy23.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-04T12:18:50.949393+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/aramco",
+  "crops": [
+    {
+      "key": "aramco-company-lockup-fy23",
+      "output": "data/assets/icon-references/aramco/fy23/company-lockup-fy23.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 20282,
+        "losslessBytes": 63573,
+        "savingsVsLossless": 0.681,
+        "metrics": {
+          "meanAbsoluteError": 0.4292,
+          "rootMeanSquareError": 2.1506,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 44,
+          "changedPixelRatio": 0.2018
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 755,
+        "y": 216,
+        "width": 725,
+        "height": 202
+      },
+      "componentCount": 25,
+      "subjectBox": {
+        "x0": 764,
+        "y0": 217,
+        "x1": 1480,
+        "y1": 415
+      },
+      "cropBox": {
+        "x0": 755,
+        "y0": 216,
+        "x1": 1480,
+        "y1": 418
+      },
+      "validation": {
+        "width": 725,
+        "height": 202,
+        "foregroundPixels": 58034,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 9,
+          "right": 0,
+          "top": 1,
+          "bottom": 3
+        },
+        "centerOffset": {
+          "x": 0.0062,
+          "y": -0.005
+        },
+        "passes": true
+      },
+      "note": "Complete Arabic/English wordmark and square logo; excludes all financial chart marks and title.",
+      "runtimeOutput": "data/assets/raster-annotations/aramco/company-lockup-fy23.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 20282,
+        "losslessBytes": 63573,
+        "savingsVsLossless": 0.681,
+        "metrics": {
+          "meanAbsoluteError": 0.4292,
+          "rootMeanSquareError": 2.1506,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 44,
+          "changedPixelRatio": 0.2018
+        }
+      },
+      "validationSheet": "data/assets/icon-references/aramco/fy23/validation-sheets/aramco-company-lockup-fy23.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 128,
+        "bytes": 88868,
+        "losslessBytes": 292648,
+        "savingsVsLossless": 0.6963,
+        "metrics": {
+          "meanAbsoluteError": 0.449,
+          "rootMeanSquareError": 2.3317,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 57,
+          "changedPixelRatio": 0.1049
+        }
+      }
+    }
+  ]
+}

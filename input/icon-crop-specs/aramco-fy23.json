@@ -1,0 +1,33 @@
+{
+  "source": "input/processing/aramco-fy23.png",
+  "outputDir": "data/assets/icon-references/aramco/fy23",
+  "runtimeOutputDir": "data/assets/raster-annotations/aramco",
+  "validationSheetDir": "data/assets/icon-references/aramco/fy23/validation-sheets",
+  "crops": [
+    {
+      "key": "aramco-company-lockup-fy23",
+      "output": "company-lockup-fy23.png",
+      "cropBox": {
+        "x": 755,
+        "y": 216,
+        "width": 725,
+        "height": 202
+      },
+      "searchBox": {
+        "x": 755,
+        "y": 216,
+        "width": 725,
+        "height": 202
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.25,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete Arabic/English wordmark and square logo; excludes all financial chart marks and title."
+    }
+  ]
+}
