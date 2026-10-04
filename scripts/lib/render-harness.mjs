@@ -384,8 +384,7 @@ export function renderAuditFailures({
   else if ((textLayoutAudit.overflowViolations || []).length) {
     failures.push(`B6=overflow:${failureList(textLayoutAudit.overflowViolations, (item) => item.identity)}`);
   }
-  // A6 is opt-in: it runs once the DOM carries data-annotation-clearance
-  // (authored in annotationsSvg, or added by the renderer to paired rasters).
+  // A6 runs for rendered brand groups and explicit clearance graphics.
   if (Number(annotationLayoutAudit?.checkedAnnotationGraphics) > 0 && (annotationLayoutAudit.overlapViolations || []).length) {
     failures.push(`A6=overlap:${failureList(annotationLayoutAudit.overlapViolations, (item) => `${item.annotation?.identity}/${item.protectedText?.identity}`)}`);
   }
@@ -1014,10 +1013,10 @@ export async function auditTextAndAnnotationLayout(page) {
       if (!annotation && (label || title || period)) protectedTexts.push(item);
     });
 
-    Array.from(svg.querySelectorAll('.sankey-annotations [data-annotation-clearance]')).forEach((element, index) => {
+    Array.from(svg.querySelectorAll('.sankey-annotations [data-annotation-clearance], .sankey-annotations [data-typography-role="brand"]')).forEach((element, index) => {
       const bbox = bboxInRootSpace(element);
       if (!bbox) return;
-      const id = element.getAttribute('data-annotation-clearance') || index;
+      const id = element.getAttribute('data-annotation-clearance') || `brand-${index}`;
       annotationGraphics.push({
         identity: `annotation-graphic:${id}#${index}`,
         text: '[graphic annotation]',

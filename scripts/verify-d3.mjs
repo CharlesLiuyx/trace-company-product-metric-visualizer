@@ -550,7 +550,7 @@ async function renderLocaleRun({
       `text layout audit: checked=${textLayoutAudit.checkedTexts} overflow=${textLayoutAudit.overflowViolations.length} tolerance=${textLayoutAudit.tolerance}px`
     );
     console.log(
-      `annotation clearance audit: annotations=${annotationLayoutAudit.checkedAnnotations} (text=${annotationLayoutAudit.checkedAnnotationTexts}, graphic=${annotationLayoutAudit.checkedAnnotationGraphics}) protected=${annotationLayoutAudit.checkedProtectedTexts} overlaps=${annotationLayoutAudit.overlapViolations.length} tolerance=${annotationLayoutAudit.tolerance}px rule=A6 (${annotationLayoutAudit.checkedAnnotationGraphics > 0 ? 'enforced: data-annotation-clearance present' : 'not triggered'})`
+      `annotation clearance audit: annotations=${annotationLayoutAudit.checkedAnnotations} (text=${annotationLayoutAudit.checkedAnnotationTexts}, graphic=${annotationLayoutAudit.checkedAnnotationGraphics}) protected=${annotationLayoutAudit.checkedProtectedTexts} overlaps=${annotationLayoutAudit.overlapViolations.length} tolerance=${annotationLayoutAudit.tolerance}px rule=A6 (${annotationLayoutAudit.checkedAnnotationGraphics > 0 ? 'enforced: brand group or data-annotation-clearance present' : 'not triggered'})`
     );
     console.log(
       `annotation pairing audit: expected=${annotationPairingAudit.expectedPairs} measured=${annotationPairingAudit.measuredPairs} violations=${annotationPairingAudit.violations.length} tolerance=${annotationPairingAudit.tolerance}px rule=I12`

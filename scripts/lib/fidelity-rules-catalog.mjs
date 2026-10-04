@@ -154,8 +154,8 @@ export const FIDELITY_RULES = Object.freeze([
   rule('A6', 'conditional-gate', {
     title: 'annotation 净空',
     trigger:
-      '渲染结果含带 `data-annotation-clearance` 的 annotation 图形时（作者在 `annotationsSvg` 中声明，或 renderer ' +
-      '为 paired raster 图标添加）。',
+      '渲染结果含 `data-typography-role="brand"` 品牌组或带 `data-annotation-clearance` 的 annotation 图形时（作者在 `annotationsSvg` 中声明，或 renderer ' +
+      '为 paired raster 图标添加）；品牌组自动纳入净空检查，无需另行声明。',
     check: '该 View 的全部 annotation 文本与 annotation 图形，同 label、title、period 的渲染 bbox 比较。卡片背景声明 `data-annotation-clearance`，卡片内文字在同一 annotation 层的背景之后绘制，避免后绘制的背景遮住 label 层文字。',
     pass: 'overlap 为 0。',
     evidence: '逐 locale 的 `annotationLayoutAudit`。',

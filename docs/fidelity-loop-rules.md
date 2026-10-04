@@ -147,7 +147,7 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 
 #### <a id="rule-a6"></a>A6 · conditional-gate · annotation 净空
 
-- 触发：渲染结果含带 `data-annotation-clearance` 的 annotation 图形时（作者在 `annotationsSvg` 中声明，或 renderer 为 paired raster 图标添加）。
+- 触发：渲染结果含 `data-typography-role="brand"` 品牌组或带 `data-annotation-clearance` 的 annotation 图形时（作者在 `annotationsSvg` 中声明，或 renderer 为 paired raster 图标添加）；品牌组自动纳入净空检查，无需另行声明。
 - 检查：该 View 的全部 annotation 文本与 annotation 图形，同 label、title、period 的渲染 bbox 比较。卡片背景声明 `data-annotation-clearance`，卡片内文字在同一 annotation 层的背景之后绘制，避免后绘制的背景遮住 label 层文字。
 - 通过：overlap 为 0。
 - 证据：逐 locale 的 `annotationLayoutAudit`。
