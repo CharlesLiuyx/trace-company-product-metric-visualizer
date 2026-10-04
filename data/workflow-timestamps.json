@@ -895,6 +895,161 @@
       "digest": "sha256:ff831f933b9f8a5f724cf7d780d458085bfbeef00caf02ef5f03fdcf73034d19",
       "updatedAt": "2026-10-03T13:45:41.806Z",
       "publishedDigest": "sha256:f84230768fd54b3248085eee67a0a47870302949ca0073cb5861068ade0898a6"
+    },
+    "data/datasets/aramco-fy23.js": {
+      "digest": "sha256:3f9a563bb95836509467022638a5f70a2642652542d76d1a5e01c657cb232c6b",
+      "updatedAt": "2026-10-04T12:17:13.356Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/aramco-q1-fy24.js": {
+      "digest": "sha256:1a454f558c8d3634faf927268644637599c296e238993873856644a165caef2d",
+      "updatedAt": "2026-10-04T12:17:09.986Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/aramco-q2-fy24.js": {
+      "digest": "sha256:92127f2fdc5c5c0567ed8755d05d6935110bf1835f167a17967a1709532aacca",
+      "updatedAt": "2026-10-04T12:17:48.018Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/aramco-q3-fy23.js": {
+      "digest": "sha256:525d64879c8c3c498587bacea1f72828374e77b9410e20739cdcf390521aeebe",
+      "updatedAt": "2026-10-04T12:17:52.218Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/aramco-q3-fy24.js": {
+      "digest": "sha256:981b94cb8a8e16dfa3ad2a8f96e95f412e5fc1b90ff180c5232033e68bd52ee7",
+      "updatedAt": "2026-10-04T12:18:22.266Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/chevron-fy23.js": {
+      "digest": "sha256:71f36df66f837935f80a4e23c84a5ef9e541e204bf11129778c9164d6b9b921f",
+      "updatedAt": "2026-10-04T12:17:47.537Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/chevron-q1-fy24.js": {
+      "digest": "sha256:6428056800ec29bf4322911e5804e433e702a9160c11587b088826fad4a3f08c",
+      "updatedAt": "2026-10-04T12:17:54.382Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/chevron-q2-fy24.js": {
+      "digest": "sha256:f7fe865658cff580e4c653338ed7aa91e20a5a85c6d98e4bfbf84598f959915c",
+      "updatedAt": "2026-10-04T12:17:00.774Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/chevron-q2-fy25.js": {
+      "digest": "sha256:307e672916e686de666c2b0e8eec5cdc8d866598cb0f9d2bea4f65982bd9f69d",
+      "updatedAt": "2026-10-04T12:17:11.949Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/chevron-q3-fy23.js": {
+      "digest": "sha256:6c0d7ac456ed20e1b30b3c0fb1097a4c0c23bd497eb2d619a65ce4c3ab23c9a8",
+      "updatedAt": "2026-10-04T12:17:58.489Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/chevron-q3-fy24.js": {
+      "digest": "sha256:91c85c10ab153d01f0ad1c71b77cf559957db9cb87a008c1b9419d2290e8174a",
+      "updatedAt": "2026-10-04T12:18:04.697Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/starbucks-fy24.js": {
+      "digest": "sha256:0ac858387e9856adcb28f8bb765926dec04d8b4442c84709100b4ce533bd3ffe",
+      "updatedAt": "2026-10-04T12:17:56.207Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/starbucks-q1-fy23.js": {
+      "digest": "sha256:5f484ae8652e5ea675974817b01b9139ef35b71c923bc81272680c09b29f9a66",
+      "updatedAt": "2026-10-04T12:18:14.784Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/starbucks-q1-fy24.js": {
+      "digest": "sha256:dcd5545f3f63471197c54d81bfa4f7036283345a0555ab8a950ae4907c8a3c4f",
+      "updatedAt": "2026-10-04T12:17:41.337Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/starbucks-q2-fy23.js": {
+      "digest": "sha256:2a9f1b3aa4c7fb5732e4b0868a017e6a71676647e45fc63cfeff01b2c5004ef8",
+      "updatedAt": "2026-10-04T12:17:18.158Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/starbucks-q2-fy24.js": {
+      "digest": "sha256:21c626b968d895971600f34066686251a2a791adfde34520e05e4795de09147a",
+      "updatedAt": "2026-10-04T12:17:51.583Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/starbucks-q3-fy23.js": {
+      "digest": "sha256:bb2b9d7d800e331f5f38d3894cb2bc6a335a801055bc2a8d595ad725bb1b3e08",
+      "updatedAt": "2026-10-04T12:17:05.249Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/starbucks-q3-fy24.js": {
+      "digest": "sha256:520cc62e42c5c6ab07d5db74a222b3e6966414c6b2cd3af113918e82993c937b",
+      "updatedAt": "2026-10-04T12:17:38.900Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/starbucks-q3-fy25.js": {
+      "digest": "sha256:32bd8c46366e34c00e5d4b76a88831ef9ae8fbff7da8e14bd99943e954b69edc",
+      "updatedAt": "2026-10-04T12:17:52.645Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/starbucks-q4-fy22.js": {
+      "digest": "sha256:2c4becbe255400e48bde301ae1dfbd3201be8a21aac3a705c2deb0ca3bfacfad",
+      "updatedAt": "2026-10-04T12:17:08.242Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/starbucks-q4-fy23.js": {
+      "digest": "sha256:b1eef673c1b14df7f5ba775302bfafbf10cdb2d37d51ea163ac6c6fe27ddde15",
+      "updatedAt": "2026-10-04T13:00:37.415Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/walmart-q1-fy24.js": {
+      "digest": "sha256:e8867801109cae828cd288399fa35c2edaaacdb1a368dad898c7ccbc8c7d707c",
+      "updatedAt": "2026-10-04T12:17:05.578Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/walmart-q1-fy25.js": {
+      "digest": "sha256:c5f2755cb3e7f1e4af4cb8f5f854ead5ae4d3e07663d6f60b285204f28419efd",
+      "updatedAt": "2026-10-04T12:17:04.783Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/walmart-q2-fy24.js": {
+      "digest": "sha256:40298c214d4335ff264d8abe42e2701b95a517b9dbd8456777857b95855deae8",
+      "updatedAt": "2026-10-04T12:16:58.763Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/walmart-q2-fy25.js": {
+      "digest": "sha256:a7ac8030a3fa44ab468b69a533c4834a4cfabd99d81d8714c161854c91f8d943",
+      "updatedAt": "2026-10-04T12:17:03.654Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/walmart-q2-fy26.js": {
+      "digest": "sha256:873a6a52c5a4301e4f5c11adf35e451d154a3c30e55c22cdf29b045000b03bb1",
+      "updatedAt": "2026-10-04T12:17:14.294Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/walmart-q3-fy23.js": {
+      "digest": "sha256:7871d3637a68386486ff990a0bf36d475e00c2b1555d3bc0413cff11a9dcc9d0",
+      "updatedAt": "2026-10-04T12:17:10.851Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/walmart-q3-fy24.js": {
+      "digest": "sha256:878acb245f4ad1b41aa8bfc2ffdece2f1edebf692443f7fda7e514423654664b",
+      "updatedAt": "2026-10-04T12:17:04.202Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/walmart-q3-fy25.js": {
+      "digest": "sha256:60b34660e80f4c238d4f8942bede7dc029634153d95b6517668c8d92c984076f",
+      "updatedAt": "2026-10-04T12:17:26.252Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/walmart-q4-fy23.js": {
+      "digest": "sha256:13f936a6b2128f5a0903e72e3cbf120f710e51c1b280b63de8dd066d0055b5f5",
+      "updatedAt": "2026-10-04T12:17:02.908Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/walmart-q4-fy24.js": {
+      "digest": "sha256:1844ad2d6c7f662e079d4c60e8217bb89642174dffbd99a3fc10e3b3ebdb2410",
+      "updatedAt": "2026-10-04T12:17:50.388Z",
+      "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
     }
   }
 }

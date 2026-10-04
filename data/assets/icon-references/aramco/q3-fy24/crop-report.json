@@ -1,0 +1,111 @@
+{
+  "source": "input/processing/aramco-q3-fy24.png",
+  "spec": "input/icon-crop-specs/aramco-q3-fy24.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-04T12:21:35.539865+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/aramco",
+  "crops": [
+    {
+      "key": "aramco-company-lockup-q3-fy24",
+      "output": "data/assets/icon-references/aramco/q3-fy24/company-lockup-q3-fy24.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 69665,
+        "losslessBytes": 69665,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 759,
+        "y": 217,
+        "width": 721,
+        "height": 198
+      },
+      "componentCount": 25,
+      "subjectBox": {
+        "x0": 764,
+        "y0": 217,
+        "x1": 1480,
+        "y1": 415
+      },
+      "cropBox": {
+        "x0": 759,
+        "y0": 217,
+        "x1": 1480,
+        "y1": 415
+      },
+      "validation": {
+        "width": 721,
+        "height": 198,
+        "foregroundPixels": 58034,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 5,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        },
+        "centerOffset": {
+          "x": 0.0035,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Only complete bilingual company logo and square mark; no title, labels or publisher marks.",
+      "excludedPixels": 12750,
+      "runtimeOutput": "data/assets/raster-annotations/aramco/company-lockup-q3-fy24.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 69665,
+        "losslessBytes": 69665,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/aramco/q3-fy24/validation-sheets/aramco-company-lockup-q3-fy24.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 282289,
+        "losslessBytes": 282289,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

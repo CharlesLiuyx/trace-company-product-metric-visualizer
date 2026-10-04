@@ -7136,6 +7136,192 @@
       "mae": 5.990064908553098,
       "width": 2667,
       "height": 1500
+    },
+    "aramco-fy23": {
+      "similarity": 0.9701299504228638,
+      "mae": 7.616862642169729,
+      "width": 2667,
+      "height": 1500
+    },
+    "aramco-q1-fy24": {
+      "similarity": 0.9673917100231753,
+      "mae": 8.315113944090323,
+      "width": 2667,
+      "height": 1500
+    },
+    "aramco-q2-fy24": {
+      "similarity": 0.9709953958369583,
+      "mae": 7.396174061575636,
+      "width": 2667,
+      "height": 1500
+    },
+    "aramco-q3-fy23": {
+      "similarity": 0.9672882474657988,
+      "mae": 8.341496896221306,
+      "width": 2667,
+      "height": 1500
+    },
+    "aramco-q3-fy24": {
+      "similarity": 0.9749552070697045,
+      "mae": 6.386422197225347,
+      "width": 2667,
+      "height": 1500
+    },
+    "chevron-fy23": {
+      "similarity": 0.969786502830937,
+      "mae": 7.704441778111069,
+      "width": 2667,
+      "height": 1500
+    },
+    "chevron-q1-fy24": {
+      "similarity": 0.9572481596663163,
+      "mae": 10.901719285089364,
+      "width": 2667,
+      "height": 1500
+    },
+    "chevron-q2-fy24": {
+      "similarity": 0.969069021601058,
+      "mae": 7.887399491730201,
+      "width": 2667,
+      "height": 1500
+    },
+    "chevron-q2-fy25": {
+      "similarity": 0.9741091879854887,
+      "mae": 6.60215706370037,
+      "width": 2667,
+      "height": 1500
+    },
+    "chevron-q3-fy23": {
+      "similarity": 0.9691604794498727,
+      "mae": 7.864077740282465,
+      "width": 2667,
+      "height": 1500
+    },
+    "chevron-q3-fy24": {
+      "similarity": 0.9680501849033577,
+      "mae": 8.147202849643795,
+      "width": 2667,
+      "height": 1500
+    },
+    "starbucks-fy24": {
+      "similarity": 0.9584188087600161,
+      "mae": 10.603203766195891,
+      "width": 2667,
+      "height": 1500
+    },
+    "starbucks-q1-fy23": {
+      "similarity": 0.9574483875790036,
+      "mae": 10.850661167354081,
+      "width": 2667,
+      "height": 1500
+    },
+    "starbucks-q1-fy24": {
+      "similarity": 0.9628124856941902,
+      "mae": 9.482816147981502,
+      "width": 2667,
+      "height": 1500
+    },
+    "starbucks-q2-fy23": {
+      "similarity": 0.9625121738867609,
+      "mae": 9.559395658875975,
+      "width": 2667,
+      "height": 1500
+    },
+    "starbucks-q2-fy24": {
+      "similarity": 0.9577298769026421,
+      "mae": 10.778881389826271,
+      "width": 2667,
+      "height": 1500
+    },
+    "starbucks-q3-fy23": {
+      "similarity": 0.9629184691782808,
+      "mae": 9.45579035953839,
+      "width": 2667,
+      "height": 1500
+    },
+    "starbucks-q3-fy24": {
+      "similarity": 0.964905946887358,
+      "mae": 8.9489835437237,
+      "width": 2667,
+      "height": 1500
+    },
+    "starbucks-q3-fy25": {
+      "similarity": 0.9663918287991778,
+      "mae": 8.57008365620964,
+      "width": 2667,
+      "height": 1500
+    },
+    "starbucks-q4-fy22": {
+      "similarity": 0.9604439451604497,
+      "mae": 10.086793984085322,
+      "width": 2667,
+      "height": 1500
+    },
+    "starbucks-q4-fy23": {
+      "similarity": 0.9638838338018205,
+      "mae": 9.209622380535766,
+      "width": 2667,
+      "height": 1500
+    },
+    "walmart-q1-fy24": {
+      "similarity": 0.9770244804366774,
+      "mae": 5.858757488647252,
+      "width": 2667,
+      "height": 1500
+    },
+    "walmart-q1-fy25": {
+      "similarity": 0.9750639558944021,
+      "mae": 6.358691246927467,
+      "width": 2667,
+      "height": 1500
+    },
+    "walmart-q2-fy24": {
+      "similarity": 0.9736782536169907,
+      "mae": 6.712045327667375,
+      "width": 2667,
+      "height": 1500
+    },
+    "walmart-q2-fy25": {
+      "similarity": 0.9704839408145878,
+      "mae": 7.5265950922801315,
+      "width": 2667,
+      "height": 1500
+    },
+    "walmart-q2-fy26": {
+      "similarity": 0.9750939779586375,
+      "mae": 6.351035620547432,
+      "width": 2667,
+      "height": 1500
+    },
+    "walmart-q3-fy23": {
+      "similarity": 0.9712608688619805,
+      "mae": 7.328478440194975,
+      "width": 2667,
+      "height": 1500
+    },
+    "walmart-q3-fy24": {
+      "similarity": 0.9768794230786512,
+      "mae": 5.8957471149439655,
+      "width": 2667,
+      "height": 1500
+    },
+    "walmart-q3-fy25": {
+      "similarity": 0.9762828999316262,
+      "mae": 6.04786051743532,
+      "width": 2667,
+      "height": 1500
+    },
+    "walmart-q4-fy23": {
+      "similarity": 0.9705644304265888,
+      "mae": 7.506070241219848,
+      "width": 2667,
+      "height": 1500
+    },
+    "walmart-q4-fy24": {
+      "similarity": 0.9764190871565891,
+      "mae": 6.013132775069783,
+      "width": 2667,
+      "height": 1500
     }
   }
 }

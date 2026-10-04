@@ -26516,6 +26516,710 @@
             }
           }
         }
+      },
+      {
+        "key": "aramco-fy23",
+        "src": "data/datasets/aramco-fy23.js",
+        "data": {
+          "name": "Saudi Aramco · FY23",
+          "company": "Saudi Aramco",
+          "meta": {
+            "title": "Aramco FY23 Income Statement",
+            "period": "FY23",
+            "periodNote": "Year ended Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "沙特阿美 · 2023 财年",
+              "meta": {
+                "title": "沙特阿美 2023 财年利润表",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "aramco-q1-fy24",
+        "src": "data/datasets/aramco-q1-fy24.js",
+        "data": {
+          "name": "Saudi Aramco · Q1 FY24",
+          "company": "Saudi Aramco",
+          "meta": {
+            "title": "Aramco Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "沙特阿美 · 2024 财年第一季度",
+              "meta": {
+                "title": "沙特阿美 2024 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "aramco-q2-fy24",
+        "src": "data/datasets/aramco-q2-fy24.js",
+        "data": {
+          "name": "Saudi Aramco · Q2 FY24",
+          "company": "Saudi Aramco",
+          "meta": {
+            "title": "Aramco Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "沙特阿美 · 2024 财年第二季度",
+              "meta": {
+                "title": "沙特阿美 2024 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "aramco-q3-fy23",
+        "src": "data/datasets/aramco-q3-fy23.js",
+        "data": {
+          "name": "Saudi Aramco · Q3 FY23",
+          "company": "Saudi Aramco",
+          "meta": {
+            "title": "Aramco Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Sep. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "沙特阿美 · 2023 财年第三季度",
+              "meta": {
+                "title": "沙特阿美 2023 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "aramco-q3-fy24",
+        "src": "data/datasets/aramco-q3-fy24.js",
+        "data": {
+          "name": "Saudi Aramco · Q3 FY24",
+          "company": "Saudi Aramco",
+          "meta": {
+            "title": "Aramco Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "沙特阿美 · 2024 财年第三季度",
+              "meta": {
+                "title": "沙特阿美 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "chevron-fy23",
+        "src": "data/datasets/chevron-fy23.js",
+        "data": {
+          "name": "Chevron · FY23",
+          "company": "Chevron",
+          "meta": {
+            "title": "Chevron FY23 Income Statement",
+            "period": "FY23"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Chevron · 2023 财年",
+              "meta": {
+                "title": "Chevron 2023 财年利润表",
+                "period": "2023 财年"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "chevron-q1-fy24",
+        "src": "data/datasets/chevron-q1-fy24.js",
+        "data": {
+          "name": "Chevron · Q1 FY24",
+          "company": "Chevron",
+          "meta": {
+            "title": "Chevron Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "雪佛龙 · 2024 财年第一季度",
+              "meta": {
+                "title": "雪佛龙 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "chevron-q2-fy24",
+        "src": "data/datasets/chevron-q2-fy24.js",
+        "data": {
+          "name": "Chevron · Q2 FY24",
+          "company": "Chevron",
+          "meta": {
+            "title": "Chevron Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "雪佛龙 · 2024 财年第二季度",
+              "meta": {
+                "title": "雪佛龙 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "chevron-q2-fy25",
+        "src": "data/datasets/chevron-q2-fy25.js",
+        "data": {
+          "name": "Chevron · Q2 FY25",
+          "company": "Chevron",
+          "meta": {
+            "title": "Chevron Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Jun. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "雪佛龙 · 2025 财年第二季度",
+              "meta": {
+                "title": "雪佛龙 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "chevron-q3-fy23",
+        "src": "data/datasets/chevron-q3-fy23.js",
+        "data": {
+          "name": "Chevron · Q3 FY23",
+          "company": "Chevron",
+          "meta": {
+            "title": "Chevron Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Sep. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "雪佛龙 · 2023 财年第三季度",
+              "meta": {
+                "title": "雪佛龙 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "chevron-q3-fy24",
+        "src": "data/datasets/chevron-q3-fy24.js",
+        "data": {
+          "name": "Chevron · Q3 FY24",
+          "company": "Chevron",
+          "meta": {
+            "title": "Chevron Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "雪佛龙 · 2024 财年第三季度",
+              "meta": {
+                "title": "雪佛龙 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "starbucks-fy24",
+        "src": "data/datasets/starbucks-fy24.js",
+        "data": {
+          "name": "Starbucks · FY24",
+          "company": "Starbucks",
+          "meta": {
+            "title": "Starbucks FY24 Income Statement",
+            "period": "FY24",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Starbucks · 2024 财年",
+              "meta": {
+                "title": "Starbucks 2024 财年利润表",
+                "period": "2024 财年",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "starbucks-q1-fy23",
+        "src": "data/datasets/starbucks-q1-fy23.js",
+        "data": {
+          "name": "Starbucks · Q1 FY23",
+          "company": "Starbucks",
+          "meta": {
+            "title": "Starbucks Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending Dec. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Starbucks · 2023 财年第一季度",
+              "meta": {
+                "title": "Starbucks 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2022 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "starbucks-q1-fy24",
+        "src": "data/datasets/starbucks-q1-fy24.js",
+        "data": {
+          "name": "Starbucks · Q1 FY24",
+          "company": "Starbucks",
+          "meta": {
+            "title": "Starbucks Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Starbucks · 2024 财年第一季度",
+              "meta": {
+                "title": "Starbucks 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "starbucks-q2-fy23",
+        "src": "data/datasets/starbucks-q2-fy23.js",
+        "data": {
+          "name": "Starbucks · Q2 FY23",
+          "company": "Starbucks",
+          "meta": {
+            "title": "Starbucks Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Mar. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Starbucks · 2023 财年第二季度",
+              "meta": {
+                "title": "Starbucks 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "starbucks-q2-fy24",
+        "src": "data/datasets/starbucks-q2-fy24.js",
+        "data": {
+          "name": "Starbucks · Q2 FY24",
+          "company": "Starbucks",
+          "meta": {
+            "title": "Starbucks Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "星巴克 · 2024 财年第二季度",
+              "meta": {
+                "title": "星巴克 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "starbucks-q3-fy23",
+        "src": "data/datasets/starbucks-q3-fy23.js",
+        "data": {
+          "name": "Starbucks · Q3 FY23",
+          "company": "Starbucks",
+          "meta": {
+            "title": "Starbucks Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending June 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Starbucks · 2023 财年第三季度",
+              "meta": {
+                "title": "Starbucks 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "starbucks-q3-fy24",
+        "src": "data/datasets/starbucks-q3-fy24.js",
+        "data": {
+          "name": "Starbucks · Q3 FY24",
+          "company": "Starbucks",
+          "meta": {
+            "title": "Starbucks Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Starbucks · 2024 财年第三季度",
+              "meta": {
+                "title": "Starbucks 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "starbucks-q3-fy25",
+        "src": "data/datasets/starbucks-q3-fy25.js",
+        "data": {
+          "name": "Starbucks · Q3 FY25",
+          "company": "Starbucks",
+          "meta": {
+            "title": "Starbucks Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending June 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "星巴克 · 2025 财年第三季度",
+              "meta": {
+                "title": "星巴克 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "starbucks-q4-fy22",
+        "src": "data/datasets/starbucks-q4-fy22.js",
+        "data": {
+          "name": "Starbucks · Q4 FY22",
+          "company": "Starbucks",
+          "meta": {
+            "title": "Starbucks Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Ending Sept, 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "星巴克 · 2022 财年第四季度",
+              "meta": {
+                "title": "星巴克 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2022 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "starbucks-q4-fy23",
+        "src": "data/datasets/starbucks-q4-fy23.js",
+        "data": {
+          "name": "Starbucks · Q4 FY23",
+          "company": "Starbucks",
+          "meta": {
+            "title": "Starbucks Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Sept. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "星巴克 · 2023 财年第四季度",
+              "meta": {
+                "title": "星巴克 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "walmart-q1-fy24",
+        "src": "data/datasets/walmart-q1-fy24.js",
+        "data": {
+          "name": "Walmart · Q1 FY24",
+          "company": "Walmart",
+          "meta": {
+            "title": "Walmart Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Apr. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "沃尔玛 · 2024 财年第一季度",
+              "meta": {
+                "title": "沃尔玛 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2023 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "walmart-q1-fy25",
+        "src": "data/datasets/walmart-q1-fy25.js",
+        "data": {
+          "name": "Walmart · Q1 FY25",
+          "company": "Walmart",
+          "meta": {
+            "title": "Walmart Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Apr. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "沃尔玛 · 2025 财年第一季度",
+              "meta": {
+                "title": "沃尔玛 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2024 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "walmart-q2-fy24",
+        "src": "data/datasets/walmart-q2-fy24.js",
+        "data": {
+          "name": "Walmart · Q2 FY24",
+          "company": "Walmart",
+          "meta": {
+            "title": "Walmart Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending July 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "沃尔玛 · 2024 财年第二季度",
+              "meta": {
+                "title": "沃尔玛 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2023 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "walmart-q2-fy25",
+        "src": "data/datasets/walmart-q2-fy25.js",
+        "data": {
+          "name": "Walmart · Q2 FY25",
+          "company": "Walmart",
+          "meta": {
+            "title": "Walmart Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Jul. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "沃尔玛 · 2025 财年第二季度",
+              "meta": {
+                "title": "沃尔玛 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2024 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "walmart-q2-fy26",
+        "src": "data/datasets/walmart-q2-fy26.js",
+        "data": {
+          "name": "Walmart · Q2 FY26",
+          "company": "Walmart",
+          "meta": {
+            "title": "Walmart Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending July 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "沃尔玛 · 2026 财年第二季度",
+              "meta": {
+                "title": "沃尔玛 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2025 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "walmart-q3-fy23",
+        "src": "data/datasets/walmart-q3-fy23.js",
+        "data": {
+          "name": "Walmart - Q3 FY23",
+          "company": "Walmart",
+          "meta": {
+            "title": "Walmart Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending October 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "沃尔玛 · 2023 财年第三季度",
+              "meta": {
+                "title": "沃尔玛 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2022 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "walmart-q3-fy24",
+        "src": "data/datasets/walmart-q3-fy24.js",
+        "data": {
+          "name": "Walmart · Q3 FY24",
+          "company": "Walmart",
+          "meta": {
+            "title": "Walmart Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Oct. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "沃尔玛 · 2024 财年第三季度",
+              "meta": {
+                "title": "沃尔玛 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2023 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "walmart-q3-fy25",
+        "src": "data/datasets/walmart-q3-fy25.js",
+        "data": {
+          "name": "Walmart · Q3 FY25",
+          "company": "Walmart",
+          "meta": {
+            "title": "Walmart Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Oct. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "沃尔玛 · 2025 财年第三季度",
+              "meta": {
+                "title": "沃尔玛 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2024 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "walmart-q4-fy23",
+        "src": "data/datasets/walmart-q4-fy23.js",
+        "data": {
+          "name": "Walmart · Q4 FY23",
+          "company": "Walmart",
+          "meta": {
+            "title": "Walmart Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Jan. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "沃尔玛 · 2023 财年第四季度",
+              "meta": {
+                "title": "沃尔玛 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "walmart-q4-fy24",
+        "src": "data/datasets/walmart-q4-fy24.js",
+        "data": {
+          "name": "Walmart · Q4 FY24",
+          "company": "Walmart",
+          "meta": {
+            "title": "Walmart Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Jan. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "沃尔玛 · 2024 财年第四季度",
+              "meta": {
+                "title": "沃尔玛 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2023 年 1 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

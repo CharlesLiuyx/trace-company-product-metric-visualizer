@@ -1,0 +1,53 @@
+{
+  "source": "input/processing/aramco-q3-fy23.png",
+  "outputDir": "data/assets/icon-references/aramco/q3-fy23",
+  "runtimeOutputDir": "data/assets/raster-annotations/aramco",
+  "validationSheetDir": "data/assets/icon-references/aramco/q3-fy23/validation-sheets",
+  "report": "crop-report.json",
+  "backgroundSampleBlocks": [
+    [
+      0,
+      0,
+      50,
+      50
+    ]
+  ],
+  "crops": [
+    {
+      "key": "aramco-company-lockup-q3-fy23",
+      "output": "company-lockup-q3-fy23.png",
+      "cropBox": {
+        "x": 757,
+        "y": 216,
+        "width": 724,
+        "height": 199
+      },
+      "searchBox": {
+        "x": 757,
+        "y": 216,
+        "width": 724,
+        "height": 199
+      },
+      "threshold": 18,
+      "minComponentArea": 40,
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Bilingual Saudi Aramco logo and square brand mark; excludes title, financial text, chart and publisher residue.",
+      "excludeBoxes": [
+        {
+          "relativeTo": "crop",
+          "x": 0,
+          "y": 0,
+          "width": 100,
+          "height": 10
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Saudi Aramco bilingual company lockup, Q3 FY24",
+  "artifact": {
+    "path": "data/assets/raster-annotations/aramco/company-lockup-q3-fy24.png",
+    "digest": "sha256:4a15c4b337f7fb85121fe904704d4b7b0691c60809060a9c72472d3548b4bd6d"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/aramco-q3-fy24.json",
+    "digest": "sha256:7762ebf2727eb19bb32c2c5eb8995c6512f70c921118542d7084bdf3940307bb"
+  },
+  "source": {
+    "path": "input/processing/aramco-q3-fy24.png",
+    "digest": "sha256:d474e8f2b831b3e5e274fc252f296dc4f3ab4c4152ad7b90db5c537b986f1fb5"
+  },
+  "review": {
+    "reviewer": "Codex visual/model validation",
+    "decision": "accepted",
+    "artifactDigest": "sha256:4a15c4b337f7fb85121fe904704d4b7b0691c60809060a9c72472d3548b4bd6d",
+    "note": "2026-10-04: full Source and final crop inspected; complete Arabic/English wordmark and square mark; title descender excluded, no financial marks or publisher residue. Crop and compression validation pass."
+  },
+  "versionDigest": "sha256:59146b18d3fa42ecb9fca447345880beafb56a74d2fd453289d442fa12296d52"
+}

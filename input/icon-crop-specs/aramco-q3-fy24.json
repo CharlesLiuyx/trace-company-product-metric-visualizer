@@ -1,0 +1,42 @@
+{
+  "source": "input/processing/aramco-q3-fy24.png",
+  "outputDir": "data/assets/icon-references/aramco/q3-fy24",
+  "runtimeOutputDir": "data/assets/raster-annotations/aramco",
+  "validationSheetDir": "data/assets/icon-references/aramco/q3-fy24/validation-sheets",
+  "crops": [
+    {
+      "key": "aramco-company-lockup-q3-fy24",
+      "output": "company-lockup-q3-fy24.png",
+      "cropBox": {
+        "x": 759,
+        "y": 217,
+        "width": 721,
+        "height": 198
+      },
+      "searchBox": {
+        "x": 759,
+        "y": 217,
+        "width": 721,
+        "height": 198
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.25,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Only complete bilingual company logo and square mark; no title, labels or publisher marks.",
+      "excludeBoxes": [
+        {
+          "x": 759,
+          "y": 217,
+          "width": 510,
+          "height": 25
+        }
+      ],
+      "runtimeOutput": "company-lockup-q3-fy24.png"
+    }
+  ]
+}
