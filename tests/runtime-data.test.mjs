@@ -29,6 +29,14 @@ function viewer(fetchOverride) {
   return { context, catalog, loader: context.TraceRuntimeData, requests: () => requests };
 }
 
+test('bootstrap fits the catalog budget and restores every versioned adapter manifest entry', () => {
+  assert.ok(Buffer.byteLength(projection.source) <= 1024 * 1024, 'catalog must fit the Pages raw-byte budget');
+  const { context } = viewer();
+  const expected = plain(full.__DATASET_MANIFEST__);
+  for (const entry of expected.datasets) entry.src = `releases/${version}/${entry.src}`;
+  assert.deepEqual(plain(context.__DATASET_MANIFEST__), expected);
+});
+
 test('bootstrap retains all navigation identities, sorting values and full revenue search inputs', () => {
   const { catalog, context } = viewer();
   assert.equal(catalog.records.length, full.__DATASET_MANIFEST__.datasets.length);

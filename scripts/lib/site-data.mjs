@@ -66,7 +66,6 @@ export function buildSiteData({ root, sources, version, assetPrefix }) {
   // observation/source search and avoiding an unnecessary extra request.
   manifest.families.revenue = null;
   manifest.families.metrics = chunk('family:metrics', 'metrics', { metricObservations: context.METRIC_OBSERVATIONS || [] });
-  datasetManifest.datasets.forEach((entry) => { entry.src = `${assetPrefix}/${entry.src}`; });
   const globals = {
     INCOME_STATEMENT_SSOT: { schemaVersion: 1, records: financial.map(financialSummary) },
     COMPANY_METADATA: { schemaVersion: 1, companies: companies.map(companySummary) },
@@ -82,6 +81,9 @@ export function buildSiteData({ root, sources, version, assetPrefix }) {
   const source = [
     '/* Generated Pages data projection; edit the authored SSOTs. */',
     ...Object.entries(globals).map(([key, value]) => `window.${key}=${JSON.stringify(value)};`),
+    // Store the shared version path once, then restore complete loader URLs
+    // before the registry consumes the manifest.
+    `window.__DATASET_MANIFEST__.datasets.forEach(function(entry){entry.src=${JSON.stringify(`${assetPrefix}/`)}+entry.src;});`,
     'window.TraceDatasetRegistry.installManifest(window.__DATASET_MANIFEST__);',
     `window.TraceRuntimeData.install(${JSON.stringify(manifest)});`,
   ].join('\n');
