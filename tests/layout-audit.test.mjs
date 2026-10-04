@@ -12,6 +12,48 @@ const item = (identity, text, x, y, width, height) => ({
   bbox: { x, y, width, height },
 });
 
+test('Walmart Sam’s Club brand automatically rejects the reported margin overlap', async () => {
+  // Candidate geometry in outer SVG units. The brand has no clearance marker.
+  let brandBox = { x: 94, y: 1087.28, width: 349.9008, height: 75 };
+  const marginBox = { x: 103.5751953125, y: 1139.2080078125, width: 246.03125, height: 32 };
+  const brand = {
+    getBBox: () => brandBox,
+    getScreenCTM: () => null,
+    getAttribute: (name) => name === 'data-typography-role' ? 'brand' : null,
+  };
+  const label = { getAttribute: (name) => name === 'data-node' ? 'sams_club' : 'sankey-label' };
+  const margin = {
+    textContent: '2% operating margin',
+    parentElement: label,
+    getBBox: () => marginBox,
+    getScreenCTM: () => null,
+    closest: (selector) => selector === '.sankey-label' ? label : null,
+    matches: () => false,
+  };
+  const svg = {
+    viewBox: { baseVal: { width: 2667, height: 1500 } },
+    getBoundingClientRect: () => ({}),
+    getScreenCTM: () => null,
+    querySelectorAll: (selector) => selector === 'text' ? [margin]
+      : selector.includes('[data-typography-role="brand"]') ? [brand] : [],
+  };
+  const priorDocument = globalThis.document;
+  globalThis.document = { querySelector: () => svg };
+  try {
+    const page = { evaluate: async (collect) => collect() };
+    const overlapping = await auditTextAndAnnotationLayout(page);
+    assert.equal(overlapping.annotationLayoutAudit.checkedAnnotationGraphics, 1);
+    assert.throws(() => assertRenderAudits(overlapping), /A6=overlap:annotation-graphic:brand-0#0\/label:sams_club#0/);
+    brandBox = { x: 94, y: 1070.34375, width: 273.36, height: 58.59375 };
+    const corrected = await auditTextAndAnnotationLayout(page);
+    assert.deepEqual(corrected.annotationLayoutAudit.overlapViolations, []);
+    assert.doesNotThrow(() => assertRenderAudits(corrected));
+  } finally {
+    if (priorDocument === undefined) delete globalThis.document;
+    else globalThis.document = priorDocument;
+  }
+});
+
 test('Instacart Q2 FY26 logo clearance rejects the reported gross-profit overlap', () => {
   // Rendered English bounds from the candidate reported by the operator.
   const label = item('label:gross_profit#13', 'Gross profit', 1219.09375, 308.2418212890625, 228.8125, 55);

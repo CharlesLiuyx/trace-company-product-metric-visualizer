@@ -389,7 +389,7 @@ test('T7 inferred side-name centering respects explicit fixed-block semantic rol
   assert.deepEqual(audit.inferredCenteredSideLabelViolations, []);
 });
 
-test('B6 text overflow fails every render; A6 overlap fails only once data-annotation-clearance renders', () => {
+test('B6 text overflow fails every render; A6 overlap fails once a clearance graphic or brand group renders', () => {
   const clean = {
     textLayoutAudit: { checkedTexts: 1, overflowViolations: [] },
     annotationLayoutAudit: { checkedAnnotations: 0, overlapViolations: [] },

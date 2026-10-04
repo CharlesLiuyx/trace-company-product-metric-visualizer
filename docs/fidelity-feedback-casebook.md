@@ -19,3 +19,4 @@ Git 历史中。
 | CB-049 | 2026-10-03 · ferrari-q4-fy24 | Finance 标注 Hover 没有 Link 百分比 | 独立 annotation 指标缺少语义连接两端，悬停回退到没有连接的指标上下文 | 中英文补齐 Finance → Net profit 和引导线锚点；A10 拒绝带引导线的 annotation-only 指标缺失或无效的连接两端，`tests/render-harness-audit.test.mjs` 覆盖拒绝与通过 |
 | CB-050 | 2026-10-03 · pfizer-q4-fy24 | Pretax loss 标注和引导线 Hover 没有 Link 百分比 | 独立亏损指标缺少连接两端，且细引导线位于交互组之外 | 中英文补齐 Pretax loss → Operating expenses、引导线锚点，并将细线纳入交互组；A10 同时识别组内和紧邻前置的未闭合引导线，复用连接两端检查和回归测试 |
 | CB-051 | 2026-10-03 · spotify-q4-fy24 | Interest 出现两次且 Hover 无 Link 百分比 | 路由点自动标签与 annotation 重复，标注缺少连接两端且引导线在交互组外 | 关闭路由点自动标签、中英文补齐 Interest → Net profit 并纳入引导线；A10 检查独立引导指标连接，新增路由指标跨层同文重复检查，回归测试覆盖不交叠时也拒绝重复 |
+| CB-052 | 2026-10-04 · walmart-q2-fy26，同批 walmart-q3-fy23、walmart-q1-fy24、walmart-q3-fy25 | Sam’s Club 标识压住营业利润率文字 | 品牌组未声明净空属性，已有交叠诊断未触发硬门槛 | 调整中英文标识位置，Q2 FY26 标识等比缩小；A6 自动纳入品牌 SVG 组，`tests/layout-audit.test.mjs` 验证未声明净空的原布局拒绝、修复布局通过 |
