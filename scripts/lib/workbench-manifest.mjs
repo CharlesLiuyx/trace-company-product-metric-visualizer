@@ -1,14 +1,16 @@
+import { workspaceOverlay } from './workspace-storage.mjs';
 // Preview-only digest cache. Every pass enumerates files and checks filesystem
 // identity; lifecycle verification continues to use uncached byte manifests.
 import path from 'node:path';
 import { readdir, lstat, readFile } from 'node:fs/promises';
-import { CANONICAL_ROOTS, inside, bytesDigest, isSnapshotCachePath } from './workflow-files.mjs';
+import { fileManifest, CANONICAL_ROOTS, inside, bytesDigest, isSnapshotCachePath } from './workflow-files.mjs';
 import { digestValue } from './dataset-build.mjs';
 
 export function createPreviewManifest() {
   const cache = new Map();
   const identity = (s) => `${s.dev}:${s.ino}:${s.size}:${s.mtimeNs}:${s.ctimeNs}`;
   return async function manifest(root, roots = CANONICAL_ROOTS) {
+    if (workspaceOverlay(root)) return fileManifest(root, roots);
     const files = new Set();
     async function visit(relative) {
       if (isSnapshotCachePath(relative)) return;

@@ -1,3 +1,4 @@
+import { materializeWorkspace } from './workspace-storage.mjs';
 import { mergeSource } from './workflow-merge.mjs';
 import { prepareWorkspaceTools } from './workspace-tools.mjs';
 import { assertBuildSession } from './workflow-session.mjs';
@@ -16,6 +17,7 @@ export async function refreshAssetWorkspace(buildId, root = rootDir) {
   await withFileLock(path.join(initial.buildRoot, initial.build.buildId, '.workflow-operation.lock'), async () => {
     const context = await buildContext(buildId, root);
     await assertBuildSession(root, buildId);
+    await materializeWorkspace(context.projectRoot);
     if (!context.build.authoringRoot) throw new Error('Refresh requires an isolated Build');
     const oldBase = await readJson(inside(context.projectRoot, 'output/workflow/base.json'));
     const current = await freezeSnapshot(await canonicalSnapshot(root), root);

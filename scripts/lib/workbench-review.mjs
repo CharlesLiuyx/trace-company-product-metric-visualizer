@@ -1,3 +1,4 @@
+import { readInside } from './workspace-storage.mjs';
 // A disposable review projection. It never publishes data or writes a Build.
 import path from 'node:path';
 import vm from 'node:vm';
@@ -13,7 +14,7 @@ const GENERATED = new Set(['data/dataset-manifest.js', 'data/metric-observations
 // is never loaded by the viewer, so another draft's note cannot change a render.
 const isAssetDocumentation = (file) => file.startsWith('data/assets/') && file.endsWith('.md');
 const dataPath = (file) => (file.startsWith('data/') || /^input\/icon-crop-specs\/[^/]+\.json$/.test(file)) && !GENERATED.has(file);
-const read = (root, file) => readFile(inside(root, file)).catch((error) => { if (error.code !== 'ENOENT') throw error; return null; });
+const read = (root, file) => readFile(readInside(root, file)).catch((error) => { if (error.code !== 'ENOENT') throw error; return null; });
 async function metadata(root) {
   const source = await read(root, 'data/dataset-file-metadata.js');
   if (!source) return null;
@@ -25,7 +26,7 @@ async function metadata(root) {
 export const reviewTasks = (tasks) => tasks.filter((task) => task.buildId.startsWith('build-') && task.selectable && task.revision)
   .sort((a, b) => a.key.localeCompare(b.key) || a.buildId.localeCompare(b.buildId));
 
-export async function composeReviewData(root, snapshot, tasks, manifest = fileManifest) {
+export async function composeReviewData(root, snapshot, tasks, manifest = fileManifest, { referenceRoot = null } = {}) {
   const members = [], keys = new Set(), times = await metadata(snapshot), ownedTimes = new Map();
   for (const task of reviewTasks(tasks)) {
     if (keys.has(task.key)) throw new Error(`统一验收存在重复数据：${task.key}；请先解决两个草稿的归属。`);
@@ -42,7 +43,7 @@ export async function composeReviewData(root, snapshot, tasks, manifest = fileMa
       for (const file of new Set([...before.keys(), ...incoming.keys()])) {
         if (!dataPath(file) || before.get(file) === incoming.get(file)) continue;
         if (!incoming.has(file)) throw new Error(`草稿删除了 ${file}，需要先明确处理删除`);
-        const [original, current, next] = await Promise.all([read(baseRoot, file), read(snapshot, file), read(workspace, file)]);
+        const [original, current, next] = await Promise.all([read(baseRoot, file), read(snapshot, file).then((value) => value || (referenceRoot && file.startsWith('data/assets/icon-references/') ? read(referenceRoot, file) : null)), read(workspace, file)]);
         if ((original ? bytesDigest(original) : undefined) !== before.get(file) || !next || bytesDigest(next) !== incoming.get(file)) throw new Error(`复制时文件已变化：${file}`);
         let merged;
         if (current?.equals(next)) continue;
@@ -64,9 +65,9 @@ export async function composeReviewData(root, snapshot, tasks, manifest = fileMa
   return members;
 }
 
-export async function bindReviewMembers(root, snapshot, members, inspect) {
+export async function bindReviewMembers(root, snapshot, members, inspect, sharedReferences = []) {
   const application = await applicationManifest(snapshot);
-  const projected = new Map((await fileManifest(snapshot)).entries.map((entry) => [entry.path, entry.digest]));
+  const projected = new Map([...sharedReferences, ...(await fileManifest(snapshot)).entries].map((entry) => [entry.path, entry.digest]));
   const result = new Array(members.length);
   let cursor = 0;
   // Binding is read-only. Bound concurrency avoids serializing every Build's

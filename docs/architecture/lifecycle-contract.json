@@ -23,7 +23,9 @@
     "gitTransport": "git-transport/v1",
     "workbench": "trace-workbench/v1",
     "workflowTimestamps": "workflow-timestamps/v1",
-    "application": "workflow-application/v1"
+    "application": "workflow-application/v1",
+    "recordStorage": "trace-record-list/v1",
+    "workspaceStorage": "workspace-storage/v1"
   },
   "operationClasses": {
     "verify": "canonical-read-only",

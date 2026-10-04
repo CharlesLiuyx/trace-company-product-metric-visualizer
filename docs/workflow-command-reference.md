@@ -7,6 +7,9 @@
 
 | 命令 | 作用 |
 | --- | --- |
+| `pnpm record:workflow -- compact` | 按原 Session 权限将草稿保存为共享基线与自有改动，不改变生命周期状态 |
+| `pnpm record:workflow -- share-assets` | 按原 Session 权限共享未改动的图标参考资产 |
+| `pnpm record:workflow -- materialize` | 外部脚本或编辑器修改前，恢复独立可写的完整工作目录 |
 | `pnpm record:workflow -- recover-intake` | 为从未验收的利润表草稿补登记经营指标信号，建立后继 Build 并保留原记录 |
 | `pnpm record:workflow -- recover-lock` | 核对锁 token 与已退出 PID 后恢复操作锁 |
 | `pnpm record:workflow -- recover-session` | 核对当前 generation 后恢复并更换执行代次 |
@@ -61,6 +64,8 @@
 
 | 对象 | 协议 |
 | --- | --- |
+| recordStorage | `trace-record-list/v1` |
+| workspaceStorage | `workspace-storage/v1` |
 | sourceFacts | `source-facts/v1` |
 | sourceObjects | `source-objects/v1` |
 | textSourceClassification | `source-classification/v2` |

@@ -1,3 +1,5 @@
+import { digestValue } from './dataset-build.mjs';
+import { readInside } from './workspace-storage.mjs';
 import path from 'node:path';
 import { watch, existsSync, createReadStream } from 'node:fs';
 import { readFile, readdir, stat, mkdir, writeFile, rm } from 'node:fs/promises';
@@ -100,7 +102,7 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
           state.watched.add(file);
           watchers.push(watch(file, { recursive: true }, (_event, name) => {
             if (String(name).split('/').includes('.DS_Store')) return;
-            if (item === 'output/workflow' && String(name) !== 'base.json') return;
+            if (item === 'output/workflow' && !['base.json', 'storage.json'].includes(String(name))) return;
             if (item === 'input' && !/^(icon-crop-specs|processing|processed)(\/|$)/.test(String(name))) return;
             changed();
           }));
@@ -147,15 +149,16 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
       if (state.candidate && state.inputSignature === inputSignature) { state.status = 'ready'; return; }
       await mkdir(path.dirname(target), { recursive: true });
       const snapshot = path.join(path.dirname(target), 'source');
-      await cloneFiles(state.workspace, snapshot, before.entries.map((entry) => entry.path));
-      if ((await fileManifest(snapshot)).digest !== before.digest) throw new Error('Files changed while the preview snapshot was copied');
+      const runtimeEntries = before.entries.filter((entry) => !entry.path.startsWith('data/assets/icon-references/'));
+      await cloneFiles(state.workspace, snapshot, runtimeEntries.map((entry) => entry.path));
+      if ((await fileManifest(snapshot)).digest !== digestValue(runtimeEntries)) throw new Error('Files changed while the preview snapshot was copied');
       let members = [], memberSignature = null;
       if (state.source === 'review') {
         memberSignature = JSON.stringify(reviewTasks(selectedTasks));
-        members = await composeReviewData(root, snapshot, selectedTasks, (folder) => draftManifests.get(folder) || manifest(folder));
+        members = await composeReviewData(root, snapshot, selectedTasks, (folder) => draftManifests.get(folder) || manifest(folder), { referenceRoot: state.workspace });
         for (const member of members) state.watchWorkspace(member.workspace);
       }
-      await prepareWorkspaceTools(root, snapshot);
+      await prepareWorkspaceTools(root, snapshot, { runtimeOnly: true });
       if (members.length) {
         await updateMetricCatalog(snapshot);
         await run(path.join(snapshot, 'scripts/sync-index-datasets.mjs'), [], snapshot);
@@ -169,7 +172,7 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
       candidate.sourceDigest = before.digest;
       candidate.toolDigest = (await fileManifest(snapshot, ['scripts', 'package.json', 'pnpm-lock.yaml'])).digest;
       if (state.source === 'review') {
-        candidate.members = await bindReviewMembers(root, snapshot, members, (buildId) => showAsset(buildId, root));
+        candidate.members = await bindReviewMembers(root, snapshot, members, (buildId) => showAsset(buildId, root), before.entries.filter((entry) => entry.path.startsWith('data/assets/icon-references/')));
       }
       if (selection) {
         const inspection = await showAsset(state.source, root).catch(() => null);
@@ -348,7 +351,7 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
       const folder = preview ? inside(root, `output/workbench/previews/${preview[1]}/${preview[2]}/site`) : sourceRoot(dev[1]);
       const relative = decodeURIComponent((preview ? preview[3] : dev[2]) || 'index.html');
       if (relative.split('/').some((part) => part.startsWith('.')) || relative.includes('\\')) { sendJson(response, { error: 'Invalid viewer path' }, 400); return true; }
-      const file = inside(folder, relative);
+      const file = readInside(folder, relative);
       if (!existsSync(file) || !(await stat(file)).isFile()) { response.writeHead(404); response.end('Not found'); return true; }
       response.writeHead(200, { 'Content-Type': types[path.extname(file)] || 'application/octet-stream', 'Cache-Control': preview ? 'public,max-age=31536000,immutable' : 'no-store' });
       createReadStream(file).pipe(response); return true;

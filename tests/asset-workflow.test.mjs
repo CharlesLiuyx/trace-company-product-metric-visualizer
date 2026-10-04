@@ -1,3 +1,4 @@
+import { materializeWorkspace } from '../scripts/lib/workspace-storage.mjs';
 import { readLocalView } from '../scripts/lib/workflow-local-view.mjs';
 import assert from 'node:assert/strict';
 import test from 'node:test';
@@ -480,6 +481,7 @@ test('accept binds the displayed immutable preview and fences changed bytes and 
   await writeFile(path.join(site, 'index.html'), 'tampered preview');
   await assert.rejects(acceptAsset(started.buildId, acceptance, root, credentials), /Site bytes/);
   await writeFile(path.join(site, 'index.html'), '<h1>Synthetic reviewed candidate</h1>');
+  await materializeWorkspace(started.workspace); // External authoring checks out independent writable files.
   const runtime = path.join(started.workspace, 'src/runtime.js'), bytes = await readFile(runtime);
   await writeFile(runtime, 'changed after review');
   await assert.rejects(acceptAsset(started.buildId, acceptance, root, credentials), /preview is stale/);

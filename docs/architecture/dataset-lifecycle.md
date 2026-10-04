@@ -1,5 +1,24 @@
 # Dataset Lifecycle Architecture
 
+## Logical objects and local storage
+
+`trace-record-list/v1` is a local storage encoding for large file-entry and
+artifact arrays. The store resolves digest-addressed chunks and verifies the
+reconstructed array before exposing a Build or object. The logical JSON,
+receipt chain, object digests and lifecycle protocols are unchanged. Plain
+historical JSON remains readable; frozen toolchains without the codec keep
+writing plain JSON until explicitly refreshed.
+
+`workspace-storage/v1` represents a complete canonical workspace using its
+immutable base plus ordinary, independently writable local changes. Inherited
+paths are explicit indices into the digest-verified base manifest. Enumeration
+and verification use the complete logical tree and hash actual bytes. External
+authoring materializes independent files first, including before deletion;
+workflow operations use the existing owner/generation and operation lock.
+Storage compaction does not accept, close, seal, publish or relocate a Source.
+The operational and retention owners remain `docs/local-environments.md` and
+`docs/artifact-retention.md`.
+
 This document owns the target lifecycle model for turning one Source into a
 validated dataset contribution. It defines the three state scopes, the
 build-local `FidelityRun`, the durable objects shared between Modules, and the

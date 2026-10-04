@@ -1,3 +1,4 @@
+import { readInside } from './workspace-storage.mjs';
 // A Build uses the current application's code with its canonical data base.
 // Registration lines are generated from each workspace's own SSOT files.
 import path from 'node:path';
@@ -8,7 +9,7 @@ import { digestValue } from './dataset-build.mjs';
 export const isApplicationPath = (file) => file.startsWith('src/') || file.startsWith('vendor/');
 export async function applicationManifest(root) {
   const { entries } = await fileManifest(root, ['src', 'vendor']);
-  const html = (await readFile(path.join(root, 'index.html'), 'utf8'))
+  const html = (await readFile(readInside(root, 'index.html'), 'utf8'))
     .replace(/<script\s+src=(["'])data\/(?:income-statements|company-metadata)\/[^"']+\.js\1\s*>\s*<\/script>/g, '')
     .replace(/^[ \t]*\r?\n/gm, '');
   entries.push({ path: 'index.html', digest: bytesDigest(html) });

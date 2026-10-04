@@ -1,3 +1,4 @@
+import { readInside } from './workspace-storage.mjs';
 import path from 'node:path';
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
@@ -32,7 +33,7 @@ export async function projectAssetCatalog(root = rootDir) {
   const recipes = [];
   for (const file of await filesUnder(root, ['input/icon-crop-specs'])) {
     if (!file.endsWith('.json')) continue;
-    const bytes = await readFile(inside(root, file));
+    const bytes = await readFile(readInside(root, file));
     const spec = JSON.parse(bytes);
     recipes.push({ path: file, digest: bytesDigest(bytes), source: spec.source, runtimeOutputDir: spec.runtimeOutputDir, crops: spec.crops || [] });
   }
@@ -41,12 +42,12 @@ export async function projectAssetCatalog(root = rootDir) {
     if (file.endsWith('.json')) versions.push(await readJson(inside(root, file)));
   }
   const adapters = [];
-  for (const file of await filesUnder(root, ['data/datasets'])) if (file.endsWith('.js')) adapters.push({ path: file, key: path.basename(file, '.js'), code: await readFile(inside(root, file), 'utf8') });
+  for (const file of await filesUnder(root, ['data/datasets'])) if (file.endsWith('.js')) adapters.push({ path: file, key: path.basename(file, '.js'), code: await readFile(readInside(root, file), 'utf8') });
   const consumersOf = assetConsumerIndex(adapters);
   const entries = [];
   for (const file of await filesUnder(root, ['data/assets/raster-annotations'])) {
     if (!/\.(png|jpe?g|webp|svg)$/i.test(file)) continue;
-    const digest = bytesDigest(await readFile(inside(root, file)));
+    const digest = bytesDigest(await readFile(readInside(root, file)));
     const provenance = recipes.flatMap((recipe) => recipe.crops.filter((crop) => recipe.runtimeOutputDir && crop.runtimeOutput && path.posix.join(recipe.runtimeOutputDir, crop.runtimeOutput) === file).map((crop) => ({ recipe: recipe.path, recipeDigest: recipe.digest, source: recipe.source, cropKey: crop.key })));
     const direct = adapters.filter((adapter) => adapter.code.includes(file)).map((adapter) => adapter.key);
     const consumers = consumersOf(direct);
@@ -70,9 +71,9 @@ export async function updateAssetCatalog(root = rootDir, { check = false } = {})
 export async function recordAssetVersion(input, root) {
   if (!input?.subject?.trim() || !input.review?.reviewer?.trim() || !input.review?.note?.trim() || input.review.decision !== 'accepted') throw new Error('Asset acceptance needs subject, reviewer and a concrete source comparison');
   if (!input.artifact?.startsWith('data/assets/raster-annotations/') || !input.recipe?.startsWith('input/icon-crop-specs/')) throw new Error('Asset version must name a runtime asset and its durable crop recipe');
-  const artifactDigest = bytesDigest(await readFile(inside(root, input.artifact)));
+  const artifactDigest = bytesDigest(await readFile(readInside(root, input.artifact)));
   if (input.review.artifactDigest !== artifactDigest) throw new Error('Asset review does not bind these exact bytes');
-  const recipeBytes = await readFile(inside(root, input.recipe));
+  const recipeBytes = await readFile(readInside(root, input.recipe));
   const recipe = JSON.parse(recipeBytes);
   const source = resolveSourcePath(recipe.source, { projectRoot: root });
   if (!existsSync(source)) throw new Error('Restore the original Source locally before recording an asset version');

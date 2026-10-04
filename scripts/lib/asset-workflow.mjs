@@ -1,3 +1,4 @@
+import { compactWorkspace, materializeWorkspace, workspaceOverlay } from './workspace-storage.mjs';
 import { prepareWorkspaceTools } from './workspace-tools.mjs';
 import { adoptApplication } from './workflow-application.mjs';
 import { acquireBuildSession, assertBuildSession, readBuildSession } from './workflow-session.mjs';
@@ -52,6 +53,8 @@ async function operation(buildId, name, root, work, credentials = {}) {
   return withFileLock(path.join(initial.buildRoot, initial.build.buildId, '.workflow-operation.lock'), async () => {
     const options = { ...await buildContext(buildId, root), ...credentials };
     await assertBuildSession(root, buildId, credentials);
+    const sparse = workspaceOverlay(options.projectRoot);
+    await materializeWorkspace(options.projectRoot);
     try {
       const result = await work(options);
       await recordBuildObject(buildId, 'operation-report', { operation: name, status: 'completed', startedAt: new Date(started).toISOString(), elapsedMs: Date.now() - started }, options);
@@ -59,6 +62,8 @@ async function operation(buildId, name, root, work, credentials = {}) {
     } catch (error) {
       await recordBuildObject(buildId, 'operation-report', { operation: name, status: 'failed', startedAt: new Date(started).toISOString(), elapsedMs: Date.now() - started, error: error.message }, options).catch(() => {});
       throw error;
+    } finally {
+      if (sparse) await compactWorkspace(options.projectRoot);
     }
   });
 }
@@ -107,7 +112,8 @@ export async function startAsset(input, root = rootDir) {
     await atomicJson(path.join(workspace, 'output/workflow/base.json'), snapshot);
     await atomicJson(path.join(workspace, 'output/workflow/source-facts.json'), facts);
     build = await recordDatasetBuildCommand(build.buildId, { type: 'isolate-workspace', expectedRevision: build.revision, authoringRoot }, { ...workflowOptions(root), session: lease?.owner, generation: lease?.generation });
-    return { buildId: build.buildId, workspace, adapter, session: lease, next: 'prepare' };
+    const storage = await compactWorkspace(workspace, { assetsOnly: true });
+    return { buildId: build.buildId, workspace, adapter, session: lease, storage, next: 'prepare' };
   });
 }
 
@@ -237,7 +243,10 @@ export async function continueAsset(buildId, root = rootDir) {
       });
     }
     if (current.next === 'seal') return sealAsset(buildId, root);
-    if (current.next === 'review') return { ...current, actionRequired: `Waiting for human review: ${current.reviewUrl}` };
+    if (current.next === 'review') {
+      const storage = await storeAssetWorkspace(buildId, 'compact', root);
+      return { ...current, storage, actionRequired: `Waiting for human review: ${current.reviewUrl}` };
+    }
     return current;
   }
   throw new Error('continue did not converge; inspect record:workflow show');
@@ -351,5 +360,20 @@ export async function sealAsset(buildId, root = rootDir, { freshRender = false, 
     }
     await sealReviewedBuild({ buildId }, { ...options, freshRender, freshChecks });
     return showAsset(buildId, root);
+  });
+}
+
+export async function storeAssetWorkspace(buildId, action, root = rootDir) {
+  const initial = await buildContext(buildId, root);
+  return withFileLock(path.join(initial.buildRoot, buildId, '.workflow-operation.lock'), async () => {
+    await assertBuildSession(root, buildId);
+    const context = await buildContext(buildId, root);
+    if (!context.build.authoringRoot) throw new Error('Storage requires an isolated Build');
+    // Frozen old toolchains cannot read sparse trees. Refresh explicitly first.
+    if (!existsSync(path.join(context.projectRoot, 'scripts/lib/workspace-storage.mjs'))) {
+      if (action === 'compact') return { mode: 'legacy', reason: 'refresh required before storage migration' };
+      throw new Error('Refresh this legacy workspace before using shared storage');
+    }
+    return { buildId, workspace: context.projectRoot, ...await (action === 'materialize' ? materializeWorkspace(context.projectRoot) : compactWorkspace(context.projectRoot, { assetsOnly: action === 'share-assets' })) };
   });
 }

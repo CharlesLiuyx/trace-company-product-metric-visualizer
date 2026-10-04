@@ -1,3 +1,5 @@
+import { workspaceOverlay, readInside, resolveWorkspaceRead } from './workspace-storage.mjs';
+import { encodeRecord, decodeRecord } from './record-storage.mjs';
 import { createHash, randomUUID } from 'node:crypto';
 import { mkdir, readdir, readFile, writeFile, rename, rm, copyFile, lstat, open } from 'node:fs/promises';
 import { existsSync, constants } from 'node:fs';
@@ -43,6 +45,7 @@ export async function filesUnder(root, roots) {
     }
   }
   for (const entry of roots) await visit(entry);
+  for (const file of workspaceOverlay(root)?.files.keys() || []) if (roots.some((entry) => file === entry || file.startsWith(entry + '/'))) files.push(file);
   return [...new Set(files)].sort();
 }
 export async function fileManifest(root, roots = CANONICAL_ROOTS) {
@@ -52,18 +55,20 @@ export async function fileManifest(root, roots = CANONICAL_ROOTS) {
   const reads = await Promise.allSettled(Array.from({ length: Math.min(16, files.length) }, async () => {
     while (cursor < files.length) {
       const index = cursor++, file = files[index];
-      entries[index] = { path: file, digest: bytesDigest(await readFile(inside(root, file))) };
+      entries[index] = { path: file, digest: bytesDigest(await readFile(readInside(root, file))) };
     }
   }));
   const failed = reads.find((result) => result.status === 'rejected');
   if (failed) throw failed.reason;
   return { entries, digest: digestValue(entries) };
 }
+const copyCounts = { clonedFiles: 0, fallbackFiles: 0 };
+export const copyStatistics = () => ({ ...copyCounts });
 export async function copyFiles(from, to, files) {
   for (const file of files) {
     const destination = inside(to, file);
     await mkdir(path.dirname(destination), { recursive: true });
-    await copyFile(inside(from, file), destination, constants.COPYFILE_FICLONE);
+    await copyFile(readInside(from, file), destination, constants.COPYFILE_FICLONE);
   }
 }
 // Node's COPYFILE_FICLONE does not clone on macOS (a full byte copy was
@@ -71,7 +76,7 @@ export async function copyFiles(from, to, files) {
 // clone costs no data blocks until one side changes. Other platforms, or a
 // batch that cannot be cloned, fall back to the ordinary byte copy.
 export async function cloneFiles(from, to, files) {
-  if (process.platform !== 'darwin') return copyFiles(from, to, files);
+  if (process.platform !== 'darwin') { copyCounts.fallbackFiles += files.length; return copyFiles(from, to, files); }
   const groups = new Map();
   for (const file of files) {
     const directory = path.dirname(inside(to, file));
@@ -87,8 +92,8 @@ export async function cloneFiles(from, to, files) {
     while (cursor < batches.length) {
       const [directory, batch] = batches[cursor++];
       await mkdir(directory, { recursive: true });
-      try { await execFileAsync('/bin/cp', ['-c', ...batch.map((file) => inside(from, file)), `${directory}/`]); }
-      catch { await copyFiles(from, to, batch); }
+      try { await execFileAsync('/bin/cp', ['-c', ...batch.map((file) => readInside(from, file)), `${directory}/`]); copyCounts.clonedFiles += batch.length; }
+      catch { copyCounts.fallbackFiles += batch.length; await copyFiles(from, to, batch); }
     }
   }));
 }
@@ -112,7 +117,7 @@ export async function atomicJson(file, value) {
   let handle;
   try {
     handle = await open(temporary, 'wx');
-    await handle.writeFile(`${JSON.stringify(value, null, 2)}\n`);
+    await handle.writeFile(`${JSON.stringify(await encodeRecord(file, value), null, 2)}\n`);
     await handle.sync();
     await handle.close(); handle = null;
     await rename(temporary, file);
@@ -124,7 +129,7 @@ export async function atomicJson(file, value) {
     await rm(temporary, { force: true });
   }
 }
-export async function readJson(file) { return JSON.parse(await readFile(file, 'utf8')); }
+export async function readJson(file) { return decodeRecord(file, JSON.parse(await readFile(resolveWorkspaceRead(file), 'utf8'))); }
 export async function withFileLock(file, work, { timeoutMs = 30000, pollMs = 40 } = {}) {
   await mkdir(path.dirname(file), { recursive: true });
   const started = Date.now();

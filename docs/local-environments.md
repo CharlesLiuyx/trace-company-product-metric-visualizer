@@ -57,6 +57,29 @@ Git 集成候选还执行 `check`、`build:site` 和 `verify:site`。
 
 ## Session 认领、转交与恢复
 
+### 草稿的共享存储与再次编辑
+
+新 Build 先共享未改动的图标参考文件，待审时进一步共享完整 canonical 基线。
+完整逻辑树由工作目录中的改动与 digest 绑定的不可变基线组成，不使用可写硬链接。
+工作台 HTTP 预览、工作流检查和发布支持该表示。人工接受、seal 与 Source 归档要求不变。
+
+外部脚本、编辑器、直接运行底层工具或 `file://` 打开工作目录前，先从项目根目录执行：
+
+```bash
+pnpm record:workflow -- materialize <build-id> --session <owner> --generation <generation>
+# 使用返回的 workspace 正常读写；删除文件也须在 materialize 之后进行。
+pnpm record:workflow -- continue <build-id> --session <owner> --generation <generation>
+```
+
+`prepare`、检查、接受和封存的工作流操作会在原有操作锁内恢复完整目录，结束后
+恢复共享存储。`compact` 可在不改变状态与审阅绑定的情况下压缩当前草稿；
+`share-assets` 只处理图标参考资产。这些命令都检查原 owner/generation，不能接管其他 Session。
+只有引用记录落盘后才移除相同字节的副本；中断留下的多余副本可重试，改动字节不会被覆盖。
+
+旧 Build 的冻结工具不支持新存储时继续保留原表示。原 owner 通过正常 `refresh`
+升级后才能使用新表示；刷新仍按原规则重新准备和检查，不能借存储升级绕过审阅。
+共享对象缺失、摘要变化或路径跳出本项目的不可变基线时操作失败，不回退到当前根目录数据。
+
 ```bash
 pnpm record:workflow -- start --source input/pending/example.png \
   --key example-q1 --facts output/example-facts.json --session session-a --json

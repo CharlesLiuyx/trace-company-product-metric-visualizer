@@ -3,6 +3,7 @@
 // smoke test. CLI: `node scripts/dev-server.mjs [--port 8000]` (pnpm dev).
 // Programmatic: `startStaticServer({ port: 0 })` returns { url, close }.
 import { createServer } from 'node:http';
+import { resolveWorkspaceRead } from './lib/workspace-storage.mjs';
 import { createReadStream, existsSync, statSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -36,9 +37,9 @@ function resolveRequestPath(root, requestUrl) {
     return path.join(resolved, 'index.html');
   }
   if (!existsSync(resolved) && path.resolve(root) === rootDir) {
-    return resolveSourcePath(resolved, { projectRoot: root });
+    return resolveWorkspaceRead(resolveSourcePath(resolved, { projectRoot: root }));
   }
-  return resolved;
+  return resolveWorkspaceRead(resolved);
 }
 
 export function startStaticServer({ root = rootDir, port = 0, published = false, handler } = {}) {
