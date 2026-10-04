@@ -1,3 +1,5 @@
+import { RECORD_STORAGE_PROTOCOL } from './record-storage.mjs';
+import { WORKSPACE_STORAGE_PROTOCOL } from './workspace-storage.mjs';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import assert from 'node:assert/strict';
@@ -10,6 +12,9 @@ import { VERIFICATION_PLAN_PROTOCOL } from './verification-plan.mjs';
 import { REVIEW_PACKET_PROTOCOL } from './dataset-build-closeout.mjs';
 
 export const WORKFLOW_ACTIONS = Object.freeze({
+  compact: '按原 Session 权限将草稿保存为共享基线与自有改动，不改变生命周期状态',
+  'share-assets': '按原 Session 权限共享未改动的图标参考资产',
+  materialize: '外部脚本或编辑器修改前，恢复独立可写的完整工作目录',
   'recover-intake': '为从未验收的利润表草稿补登记经营指标信号，建立后继 Build 并保留原记录',
   'recover-lock': '核对锁 token 与已退出 PID 后恢复操作锁',
   'recover-session': '核对当前 generation 后恢复并更换执行代次',
@@ -21,7 +26,7 @@ export const WORKFLOW_ACTIONS = Object.freeze({
   assets: '只读查找资产版本、来源与使用位置', 'asset-version': '在草稿中记录绑定字节的资产接受', feedback: '记录反馈说明（note、date，可选 locales、objectIds），使当前审阅候选失效，并列出同批 Build',
   'archive-list': '只读枚举完整的待归档来源', archive: '消费操作员确认的精确清单并归档',
 });
-export const WORKFLOW_PROTOCOLS = Object.freeze({ sourceFacts: SOURCE_FACTS_PROTOCOL, sourceObjects: SOURCE_OBJECTS_PROTOCOL, textSourceClassification: 'source-classification/v2', metricObservations: METRIC_RECORD_PROTOCOL, artifactManifest: ARTIFACT_MANIFEST_PROTOCOL, checkpoint: CHECKPOINT_PROTOCOL, reviewCandidate: REVIEW_CANDIDATE_PROTOCOL, publication: PUBLICATION_PROTOCOL, releaseAttempt: 'release-attempt/v1', session: 'workflow-session/v1', gitTransport: 'git-transport/v1', workbench: 'trace-workbench/v1', workflowTimestamps: 'workflow-timestamps/v1', application: 'workflow-application/v1' });
+export const WORKFLOW_PROTOCOLS = Object.freeze({ recordStorage: RECORD_STORAGE_PROTOCOL, workspaceStorage: WORKSPACE_STORAGE_PROTOCOL, sourceFacts: SOURCE_FACTS_PROTOCOL, sourceObjects: SOURCE_OBJECTS_PROTOCOL, textSourceClassification: 'source-classification/v2', metricObservations: METRIC_RECORD_PROTOCOL, artifactManifest: ARTIFACT_MANIFEST_PROTOCOL, checkpoint: CHECKPOINT_PROTOCOL, reviewCandidate: REVIEW_CANDIDATE_PROTOCOL, publication: PUBLICATION_PROTOCOL, releaseAttempt: 'release-attempt/v1', session: 'workflow-session/v1', gitTransport: 'git-transport/v1', workbench: 'trace-workbench/v1', workflowTimestamps: 'workflow-timestamps/v1', application: 'workflow-application/v1' });
 export async function workflowCommandReference(root = rootDir) {
   const pkg = JSON.parse(await readFile(path.join(root, 'package.json'), 'utf8'));
   const scripts = Object.entries(pkg.scripts).filter(([key]) => /^(clean:artifacts|record:workflow|record:transport-review|publish:datasets|release:dataset|release:git|verify:release|verify:workbench|view:published|(?:verify|update):(?:metric-catalog|metrics|asset-catalog|workflow|workflow-reference|workflow-graph))$/.test(key));

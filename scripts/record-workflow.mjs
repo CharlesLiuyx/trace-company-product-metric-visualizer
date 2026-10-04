@@ -7,7 +7,7 @@ import { acquireBuildSession, assertBuildSession, sessionIdentity } from './lib/
 import { WORKFLOW_ACTIONS } from './lib/workflow-contract.mjs';
 import { rootDir, isBuildWorkspace } from './lib/project.mjs';
 import { readJson, atomicJson, inside, recoverFileLock } from './lib/workflow-files.mjs';
-import { startAsset, prepareAsset, continueAsset, checkpointAsset, reviewAsset, acceptAsset, acceptAssets, sealAsset, showAsset } from './lib/asset-workflow.mjs';
+import { storeAssetWorkspace, startAsset, prepareAsset, continueAsset, checkpointAsset, reviewAsset, acceptAsset, acceptAssets, sealAsset, showAsset } from './lib/asset-workflow.mjs';
 import { renderAssetReview } from './lib/workflow-review.mjs';
 
 export function parseWorkflowArgs(args) {
@@ -32,7 +32,9 @@ export async function main(args = process.argv.slice(2)) {
   if (input.generation) process.env.TRACE_SESSION_GENERATION = input.generation;
   if (!Object.hasOwn(WORKFLOW_ACTIONS, input.command)) throw new Error(`Supported actions: ${Object.keys(WORKFLOW_ACTIONS).join(', ')}`);
   let result;
-  if (input.command === 'recover-intake') {
+  if (['compact', 'share-assets', 'materialize'].includes(input.command)) {
+    result = await storeAssetWorkspace(input.buildId, input.command);
+  } else if (input.command === 'recover-intake') {
     if (!input.facts) throw new Error('recover-intake requires --facts');
     const { recoverIntakeSuccessor } = await import('./lib/workflow-intake-successor.mjs');
     result = await recoverIntakeSuccessor(input.buildId, await readJson(path.resolve(input.facts)), rootDir);

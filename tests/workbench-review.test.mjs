@@ -6,15 +6,20 @@ import { mkdtemp, mkdir, readFile, writeFile, rm } from 'node:fs/promises';
 import { atomicJson, fileManifest, copyFiles, freezeSnapshot, bytesDigest } from '../scripts/lib/workflow-files.mjs';
 import { composeReviewData, bindReviewMembers, assertReviewMembersFresh, readReviewPreview } from '../scripts/lib/workbench-review.mjs';
 import { parseSsotRecords } from '../scripts/lib/workflow-merge.mjs';
+import { compactWorkspace } from '../scripts/lib/workspace-storage.mjs';
 
 const file = 'data/revenue-metrics.js';
 const ssot = (records) => `(function(global) { global.REVENUE_METRIC_SSOT = ${JSON.stringify({ schemaVersion: 1, records })}; })(window);`;
-async function fixture(t) {
+async function fixture(t, references = {}) {
   const root = await mkdtemp(path.join(os.tmpdir(), 'trace-combined-review-'));
   t.after(() => rm(root, { recursive: true, force: true }));
   await mkdir(path.join(root, 'data'), { recursive: true });
   await writeFile(path.join(root, 'index.html'), '<!doctype html><h1>Current app</h1>');
   await writeFile(path.join(root, file), ssot([{ key: 'original', value: 1 }]));
+  for (const [name, contents] of Object.entries(references)) {
+    await mkdir(path.dirname(path.join(root, name)), { recursive: true });
+    await writeFile(path.join(root, name), contents);
+  }
   const base = await freezeSnapshot({ root, ...await fileManifest(root) }, root);
   async function task(key, records, revision = key + '-token') {
     const buildId = 'build-' + key, workspace = path.join(root, `output/builds/${buildId}/workspace`);
@@ -103,4 +108,29 @@ test('CLI review resolves a displayed combined receipt only for its exact Build 
   await assert.rejects(readReviewPreview(root, 'build-beta', id), /no current review binding/);
   await atomicJson(location, { ...receipt, id: 'other' });
   await assert.rejects(readReviewPreview(root, 'build-alpha', id), /identity/);
+});
+
+test('minimal previews bind omitted references and changed assets from sparse drafts', async (t) => {
+  const changed = 'data/assets/icon-references/a/sheet.png';
+  const unchanged = 'data/assets/icon-references/b/sheet.png';
+  const { root, task, snapshot } = await fixture(t, { [changed]: 'old pixels', [unchanged]: 'shared pixels' });
+  const a = await task('alpha', [{ key: 'original', value: 1 }, { key: 'alpha', value: 2 }]);
+  await writeFile(path.join(a.workspace, changed), 'new pixels');
+  const artifacts = [{ path: changed, role: 'asset', digest: bytesDigest('new pixels') }, { path: unchanged, role: 'asset', digest: bytesDigest('shared pixels') }];
+  await atomicJson(path.join(root, `output/builds/${a.buildId}/manifest.json`), {
+    key: a.key, adapter: 'revenue-metric', receipts: [{ state: 'AUTHORED', payload: { artifacts } }],
+  });
+  await compactWorkspace(a.workspace);
+  const target = await snapshot('minimal-review');
+  const shared = (await fileManifest(root)).entries.filter((entry) => entry.path.startsWith('data/assets/icon-references/'));
+  await rm(path.join(target, 'data/assets/icon-references'), { recursive: true });
+  const members = await composeReviewData(root, target, [a], fileManifest, { referenceRoot: root });
+  assert.equal(await readFile(path.join(target, changed), 'utf8'), 'new pixels');
+  await assert.rejects(readFile(path.join(target, unchanged)), /ENOENT/);
+  const inspect = async () => ({ fresh: true, reviewToken: a.revision });
+  assert.equal((await bindReviewMembers(root, target, members, inspect, shared))[0].reviewToken, a.revision);
+  const corrupted = shared.map((entry) => entry.path === unchanged ? { ...entry, digest: bytesDigest('changed') } : entry);
+  assert.equal((await bindReviewMembers(root, target, members, inspect, corrupted))[0].reviewToken, null);
+  await writeFile(path.join(target, changed), 'wrong pixels');
+  assert.equal((await bindReviewMembers(root, target, members, inspect, shared))[0].reviewToken, null);
 });

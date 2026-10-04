@@ -35,7 +35,8 @@ function alive(pid) {
 async function inventory(root, relative) {
   const files = [];
   async function visit(name) {
-    const file = path.join(root, name), info = await lstat(file);
+    const file = path.join(root, name), info = await lstat(file).catch((e) => { if (e.code !== 'ENOENT') throw e; });
+    if (!info) return;
     // Unlink nested symlinks without following their targets (node_modules,
     // historical .git links, or an accidental link outside the workspace).
     if (info.isDirectory() && !info.isSymbolicLink()) {
@@ -97,14 +98,26 @@ export async function cleanupArtifacts(root, { completed = false, dryRun = !comp
     }
     const files = [...await inventory(root, 'output'), ...await inventory(root, 'compare')];
     const locks = files.filter(({ path: file }) => /(?:\.lock|\.recovery)$/.test(file));
-    if (locks.length) throw new Error(`Finish/recover operations before cleanup: ${locks.map((item) => item.path).join(', ')}`);
+    const blockers = locks.map((item) => ({ kind: 'operation-lock', path: item.path }));
+    if (!dryRun && locks.length) throw new Error(`Finish/recover operations before cleanup: ${locks.map((item) => item.path).join(', ')}`);
     for (const entry of await entries(path.join(root, 'output/workbench/servers'))) {
       const server = await optionalJson(path.join(root, 'output/workbench/servers', entry.name));
-      if (server && alive(server.pid)) throw new Error('Stop pnpm dev before completed-work cleanup');
+      if (server && alive(server.pid)) {
+        blockers.push({ kind: 'running-workbench', pid: server.pid });
+        if (!dryRun) throw new Error('Stop pnpm dev before completed-work cleanup');
+      }
     }
     const history = await collectHistory(root);
+    const groups = {};
+    for (const item of files) {
+      const parts = item.path.split('/');
+      const key = parts[0] === 'output' && parts.length > 2 ? parts.slice(0, 2).join('/') : parts[0];
+      const group = groups[key] ||= { files: 0, logicalBytes: 0 };
+      group.files++; group.logicalBytes += item.bytes;
+    }
     const removable = files.filter(({ path: file }) => ![HISTORY, 'output/meta/cleanup.json', 'compare/.gitkeep'].includes(file));
-    return { history, report: { protocol: 'artifact-cleanup/v1', completed, dryRun,
+    return { history, report: { protocol: 'artifact-cleanup/v1', completed, dryRun, blockers, groups, liveSnapshot: dryRun,
+      measurement: 'logical bytes; APFS shared extents are not exclusive physical usage',
       files: removable.length, bytes: removable.reduce((sum, item) => sum + item.bytes, 0),
       buildCount: history.builds.length, publicationCount: history.publications.length, transportCount: history.transports.length,
       retained: [HISTORY, 'output/meta/cleanup.json', 'compare/.gitkeep'] } };

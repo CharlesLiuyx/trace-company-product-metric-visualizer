@@ -59,6 +59,24 @@ SSOT 或执行 Git 推送。
 
 ## 处理中减少输出
 
+- 新工具链的 Build 采用两层存储。`start` 先共享与不可变基线相同的图标参考资产；
+  `continue` 到达待审状态时，将其余未改动的 canonical 文件也保存为基线引用。
+  `workspace/output/workflow/storage.json` 记录继承项，工作目录只保留自有改动；
+  读取、枚举、预览和发布看到的仍是完整逻辑树。检查仍核对真实文件字节。
+  编辑前使用 `record:workflow materialize` 恢复独立可写文件；相关命令与兼容规则由
+  [本地环境](local-environments.md#草稿的共享存储与再次编辑)定义。
+- 大型 `entries` / `artifacts` 数组以 `trace-record-list/v1` 按路径目录分块，
+  同一内容在 `output/storage/lists/` 只保存一份。读取时验证块摘要、长度与完整数组
+  摘要并还原原 JSON；receipt、Build object 与 Plan 的逻辑 digest 不变。
+  基线在自己的根目录保存一份 `.trace-snapshot.json`，不属于 canonical 数据。
+  尚未刷新工具的旧 Build 继续使用完整文件与普通 JSON，不就地改写旧证据。
+  共享记录块保留至全局完成清理；运行中不按时间删除，以保留历史 receipt 的引用。
+- `clean:artifacts` 的只读报告可在服务和工作锁存在时运行，列出 `groups` 的逻辑字节
+  与 `blockers`；这不是删除授权或可立即释放的物理空间。真正删除仍要求完整完成
+  确认、无操作锁、无存活服务。扫描会跳过并发消失的文件，报告注明非原子现场统计。
+- 工作台预览输入不复制 `data/assets/icon-references/`，工具只复制运行所需脚本
+  与配置；审阅绑定仍检查参考资产的完整逻辑摘要，并纳入草稿改变的资产。
+  `copyStatistics()` 区分进程内克隆成功与回退的文件数，不把逻辑字节称为物理节省。
 - 整树副本（Build workspace、冻结基线、发布 plan 与快照树、release 与 Git 交接候选、
   工作台预览快照、工具目录）在 macOS 上用 APFS 克隆（`cp -c`），未修改的文件不占
   数据块；其他平台或无法克隆时退回普通复制。`du` 仍按表观大小统计，以 `df` 判断实占。

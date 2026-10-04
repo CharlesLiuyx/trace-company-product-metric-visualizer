@@ -1,3 +1,5 @@
+import { resolveWorkspaceRead } from './workspace-storage.mjs';
+import { encodeRecord, decodeRecord } from './record-storage.mjs';
 import { withFileLock } from './workflow-files.mjs';
 import { assertBuildSession } from './workflow-session.mjs';
 import { realpath } from 'node:fs/promises';
@@ -38,7 +40,7 @@ export function datasetBuildManifestPath(buildId, options = {}) {
 async function writeJsonAtomic(filePath, value) {
   const temporaryPath = `${filePath}.tmp-${randomUUID()}`;
   try {
-    await writeFile(temporaryPath, canonicalJson(value), { flag: 'wx' });
+    await writeFile(temporaryPath, canonicalJson(await encodeRecord(filePath, value)), { flag: 'wx' });
     await rename(temporaryPath, filePath);
   } finally {
     await rm(temporaryPath, { force: true });
@@ -99,7 +101,7 @@ export async function readDatasetBuild(buildId, options = {}) {
     throw cause;
   }
   try {
-    return JSON.parse(source);
+    return await decodeRecord(manifestPath, JSON.parse(source));
   } catch (cause) {
     throw buildError('BUILD_MANIFEST_INVALID', `Invalid Dataset Build manifest ${manifestPath}: ${cause.message}`);
   }
@@ -235,14 +237,14 @@ export async function recordBuildObject(buildId, kind, value, options = {}) {
   const digest = digestValue(value);
   const objectDir = path.join(buildDir, 'objects', kind);
   const objectPath = path.join(objectDir, `${digest.slice('sha256:'.length)}.json`);
-  const contents = canonicalJson(value);
+  const contents = canonicalJson(await encodeRecord(objectPath, value));
   await mkdir(objectDir, { recursive: true });
   try {
     await writeFile(objectPath, contents, { flag: 'wx' });
   } catch (cause) {
     if (cause?.code !== 'EEXIST') throw cause;
     const existing = await readFile(objectPath, 'utf8');
-    if (existing !== contents) {
+    if (digestValue(await decodeRecord(objectPath, JSON.parse(existing))) !== digest) {
       throw buildError('OBJECT_DIGEST_COLLISION', `Build object digest collision: ${digest}`);
     }
   }
@@ -265,7 +267,7 @@ export async function readBuildObject(buildId, reference, options = {}) {
     reference.kind,
     `${String(reference.digest).replace(/^sha256:/, '')}.json`
   );
-  const value = JSON.parse(await readFile(objectPath, 'utf8'));
+  const value = await decodeRecord(objectPath, JSON.parse(await readFile(objectPath, 'utf8')));
   if (digestValue(value) !== reference.digest) {
     throw buildError('OBJECT_DIGEST_MISMATCH', `Build object no longer matches ${reference.digest}`);
   }
@@ -285,7 +287,7 @@ export async function readAuthoredObject(buildId, entry, options = {}) {
 }
 
 async function digestFile(filePath) {
-  return `sha256:${createHash('sha256').update(await readFile(filePath)).digest('hex')}`;
+  return `sha256:${createHash('sha256').update(await readFile(resolveWorkspaceRead(filePath))).digest('hex')}`;
 }
 
 function latestReceipt(build, state) {
@@ -342,7 +344,7 @@ export async function inspectDatasetBuild(buildId, options = {}) {
       staleArtifacts.push({ path: artifact.path, reason: 'outside-project-root' });
       continue;
     }
-    if (!existsSync(absolute)) {
+    if (!existsSync(resolveWorkspaceRead(absolute))) {
       // An operator completion signal may relocate a Source from its
       // build-local processing locator to its stable processed locator.
       // That relocation preserves Source identity, so an authored reference
