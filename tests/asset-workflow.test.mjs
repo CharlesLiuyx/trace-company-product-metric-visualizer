@@ -10,7 +10,7 @@ import { PNG } from 'pngjs';
 import { rootDir } from '../scripts/lib/project.mjs';
 import { compileMetricFacts, metricIdentity } from '../scripts/lib/metric-source.mjs';
 import { bytesDigest, fileManifest } from '../scripts/lib/workflow-files.mjs';
-import { startAsset, continueAsset, reviewAsset, acceptAsset, acceptAssets, sealAsset, showAsset, buildContext } from '../scripts/lib/asset-workflow.mjs';
+import { startAsset, continueAsset, reviewAsset, acceptAsset, acceptAssets, sealAsset, showAsset, buildContext, assertMergeableSsots } from '../scripts/lib/asset-workflow.mjs';
 import { planAssetPublication, publishAssetPlan, releasePublished } from '../scripts/lib/workflow-publication.mjs';
 import { refreshAssetWorkspace, processingSourceList, archiveProcessingSources } from '../scripts/lib/workflow-recovery.mjs';
 import { renderAssetReview } from '../scripts/lib/workflow-review.mjs';
@@ -491,4 +491,21 @@ test('accept binds the displayed immutable preview and fences changed bytes and 
   const result = await acceptAsset(started.buildId, acceptance, root, credentials);
   assert.equal(result.state, 'SEALED');
   assert.equal((await acceptAsset(started.buildId, acceptance, root, credentials)).alreadySealed, true);
+});
+
+test('prepare rejects a changed SSOT the draft merger cannot read, but not untouched legacy files', async (t) => {
+  const workspace = await mkdtemp(path.join(os.tmpdir(), 'trace-mergeable-ssot-'));
+  t.after(() => rm(workspace, { recursive: true, force: true }));
+  const canonical = (key) => `(function (global) {\n  const ssot = (global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || { schemaVersion: 1, records: [] });\n  ssot.records.push({ key: '${key}' });\n})(window);\n`;
+  const legacy = `window.INCOME_STATEMENT_SSOT = window.INCOME_STATEMENT_SSOT || { schemaVersion: 1, records: [] };\nwindow.INCOME_STATEMENT_SSOT.records.push({ key: 'legacy-q1' });\n`;
+  await mkdir(path.join(workspace, 'data/income-statements'), { recursive: true });
+  await writeFile(path.join(workspace, 'data/income-statements/acme.js'), canonical('acme-q1'));
+  await writeFile(path.join(workspace, 'data/income-statements/legacy.js'), legacy);
+  await mkdir(path.join(workspace, 'output/workflow'), { recursive: true });
+  await writeFile(path.join(workspace, 'output/workflow/base.json'), JSON.stringify((await fileManifest(workspace, ['data']))));
+  await assertMergeableSsots(workspace);
+  await writeFile(path.join(workspace, 'data/income-statements/acme.js'), canonical('acme-q1').replace("{ key: 'acme-q1' }", "{ key: 'acme-q1' }, { key: 'acme-q2' }"));
+  await assertMergeableSsots(workspace);
+  await writeFile(path.join(workspace, 'data/income-statements/acme.js'), legacy.replaceAll('legacy-q1', 'acme-q2'));
+  await assert.rejects(assertMergeableSsots(workspace), /Unsupported SSOT wrapper in data\/income-statements\/acme\.js/);
 });

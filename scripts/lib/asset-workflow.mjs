@@ -1,4 +1,5 @@
-import { compactWorkspace, materializeWorkspace, workspaceOverlay } from './workspace-storage.mjs';
+import { compactWorkspace, materializeWorkspace, workspaceOverlay, readInside } from './workspace-storage.mjs';
+import { parseSsotRecords } from './workflow-merge.mjs';
 import { prepareWorkspaceTools } from './workspace-tools.mjs';
 import { adoptApplication } from './workflow-application.mjs';
 import { acquireBuildSession, assertBuildSession, readBuildSession } from './workflow-session.mjs';
@@ -136,6 +137,21 @@ async function authoredFacts(build, root, input) {
   await updateMetricCatalog(root);
   return { record: compiled.record, sourceObjects: { objects: compiled.objects } };
 }
+// The review workbench and publication merge drafts with the typed, non-executing
+// SSOT parser. A rewritten SSOT it cannot read would only fail after review, so
+// every SSOT file the draft changed must parse here.
+export async function assertMergeableSsots(workspace) {
+  const baseFile = path.join(workspace, 'output/workflow/base.json');
+  if (!existsSync(baseFile)) return;
+  const base = new Map((await readJson(baseFile)).entries.map((entry) => [entry.path, entry.digest]));
+  for (const file of await filesUnder(workspace, ['data/income-statements', 'data/company-metadata', 'data/revenue-metrics.js'])) {
+    if (!file.endsWith('.js')) continue;
+    const bytes = await readFile(readInside(workspace, file));
+    if (base.get(file) === bytesDigest(bytes)) continue;
+    try { parseSsotRecords(bytes.toString('utf8'), file); }
+    catch (error) { throw new Error(`${error.message}. Keep the SSOT wrapper format from data/schema.md so drafts can be merged.`); }
+  }
+}
 export async function prepareAsset(buildId, facts = null, root = rootDir) {
   return operation(buildId, 'prepare', root, async (options) => {
     if (!options.build.authoringRoot) throw new Error('Use the legacy record:build path for non-isolated historical Builds');
@@ -143,6 +159,7 @@ export async function prepareAsset(buildId, facts = null, root = rootDir) {
     if (facts) await atomicJson(file, facts);
     const input = facts || await readJson(file);
     const compiled = await authoredFacts(options.build, options.projectRoot, input);
+    await assertMergeableSsots(options.projectRoot);
     if (options.build.adapter !== 'metric-observation') {
       runWorkspace(options.projectRoot, 'sync-index-datasets.mjs');
       runWorkspace(options.projectRoot, 'update-dataset-file-metadata.mjs');

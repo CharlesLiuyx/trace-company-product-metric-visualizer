@@ -185,6 +185,14 @@ is needed. Do not create parallel dataset files per language.
 
 ## Pure data SSOT
 
+Each `data/income-statements/<company>.js` file registers its records from one
+`(function (global) { … })(window);` wrapper that initializes
+`global.INCOME_STATEMENT_SSOT` and then calls `.records.push(…)` with literal records.
+Add a record inside the existing file's wrapper rather than regenerating the file in
+another shape: `record:workflow prepare` rejects a changed SSOT that the typed draft
+merger (`scripts/lib/workflow-merge.mjs`) cannot read, because the review workbench and
+publication merge drafts through it.
+
 ```js
 {
   key: 'nvidia-q1-fy27',
