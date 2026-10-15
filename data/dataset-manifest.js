@@ -25059,7 +25059,8 @@
           "meta": {
             "title": "Nintendo FY25 Income Statement",
             "period": "FY25",
-            "periodNote": "Ending Mar. 2025"
+            "periodNote": "Ending Mar. 2025",
+            "variant": "YTD"
           },
           "i18n": {
             "zh": {
@@ -28350,7 +28351,8 @@
           "meta": {
             "title": "Nintendo FY24 Income Statement",
             "period": "FY24",
-            "periodNote": "Ending Mar. 2024"
+            "periodNote": "Ending Mar. 2024",
+            "variant": "YTD"
           },
           "i18n": {
             "zh": {

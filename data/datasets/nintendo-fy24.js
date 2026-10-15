@@ -7,6 +7,7 @@ window.DATASETS=window.DATASETS||[];window.DATASETS.push({
     "title": "Nintendo FY24 Income Statement",
     "period": "FY24",
     "periodNote": "Ending Mar. 2024",
+    "variant": "YTD",
     "currency": "¥",
     "unit": "B",
     "decimals": 0,

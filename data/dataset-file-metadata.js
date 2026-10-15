@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-10-15T06:10:02.514Z",
+  "generatedAt": "2026-10-15T14:09:09.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -6741,9 +6741,9 @@
     },
     "nintendo-fy25": {
       "path": "data/datasets/nintendo-fy25.js",
-      "updatedAtMs": 1791013770373,
-      "updatedAt": "2026-10-03T07:49:30.373Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792073349000,
+      "updatedAt": "2026-10-15T14:09:09.000Z",
+      "timeSource": "git"
     },
     "salesforce-q2-fy27": {
       "path": "data/datasets/salesforce-q2-fy27.js",
@@ -7647,9 +7647,9 @@
     },
     "nintendo-fy24": {
       "path": "data/datasets/nintendo-fy24.js",
-      "updatedAtMs": 1792044521801,
-      "updatedAt": "2026-10-15T06:08:41.801Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792073349000,
+      "updatedAt": "2026-10-15T14:09:09.000Z",
+      "timeSource": "git"
     },
     "nintendo-h1-fy24": {
       "path": "data/datasets/nintendo-h1-fy24.js",

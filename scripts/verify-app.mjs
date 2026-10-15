@@ -595,6 +595,19 @@ await scenario('period: Nintendo FY26 variants render YTD, active 9M, then H1', 
   assert(labels.all.join('|') === 'YTD|9M|H1', `expected variant order YTD | 9M | H1, got ${labels.all.join(' | ')}`);
 });
 
+await scenario('period: Nintendo FY24/FY25 variants render YTD then H1', async (page) => {
+  for (const key of ['nintendo-h1-fy24', 'nintendo-h1-fy25']) {
+    await boot(page, `${url}#${key}`);
+    await page.waitForSelector('#periodList .variant-chip.active', { timeout: 15000 });
+    const labels = await page.evaluate(() => ({
+      active: document.querySelector('#periodList .variant-chip.active')?.textContent.trim(),
+      all: [...(document.querySelector('#periodList .variant-chip.active')?.closest('.variant-row')?.querySelectorAll('.variant-chip') || [])].map((chip) => chip.textContent.trim()),
+    }));
+    assert(labels.active === 'H1', `${key}: expected active interim variant label H1, got ${labels.active}`);
+    assert(labels.all.join('|') === 'YTD|H1', `${key}: expected variant order YTD | H1, got ${labels.all.join(' | ')}`);
+  }
+});
+
 await scenario('comparison: multi-select + zoom + metric trend', async (page) => {
   await boot(page);
   await page.evaluate(() => {
