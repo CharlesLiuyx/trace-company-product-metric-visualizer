@@ -45,6 +45,12 @@ async function sweepStalePreviews(root) {
   }
   if (!live) await rm(path.join(root, 'output/workbench/previews'), { recursive: true, force: true });
 }
+// A compacted Build keeps unchanged files, index.html included, in its shared
+// base; readiness is a property of the logical workspace, not its local files.
+function workspaceReady(workspace) {
+  try { return existsSync(readInside(workspace, 'index.html')); } catch { return false; }
+}
+
 export async function startWorkbench({ root = rootDir, port = 8000, build = run, productionFetch = fetch, readCi = null, maxBuilds = 2, scheduleDebounce = setTimeout } = {}) {
   await sweepStalePreviews(root);
   const previews = new Map(), events = new Set(), watchers = [], timers = new Set();
@@ -64,7 +70,7 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
     if (source === 'project' || source === 'review') return root;
     if (!/^(?:build|transport)-[a-z0-9-]+$/.test(source)) throw new Error('Invalid preview source');
     const workspace = inside(root, `output/${source.startsWith('transport-') ? 'git-transports' : 'builds'}/${source}/workspace`);
-    if (!existsSync(path.join(workspace, 'index.html'))) throw new Error('Build workspace not ready');
+    if (!workspaceReady(workspace)) throw new Error('Build workspace not ready');
     return workspace;
   }
   function ensurePreview(source) {
@@ -291,7 +297,7 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
         if (!manifest.authoringRoot) return null;
         const selected = await readJson(inside(root, `output/local-view/builds/${buildId}.json`)).catch(() => ({}));
         const session = await readJson(path.join(folder, buildId, 'session.json')).catch(() => null);
-        return { ...selected, buildId, key: manifest.key, historicalState: manifest.state, reviewPending: Boolean(selected.revision) && manifest.review?.status !== 'accepted', owner: session?.owner || '历史任务', selectable: existsSync(path.join(folder, buildId, 'workspace/index.html')) };
+        return { ...selected, buildId, key: manifest.key, historicalState: manifest.state, reviewPending: Boolean(selected.revision) && manifest.review?.status !== 'accepted', owner: session?.owner || '历史任务', selectable: workspaceReady(path.join(folder, buildId, 'workspace')) };
       } catch { return null; }
     }));
     for (const id of await readdir(path.join(root, 'output/git-transports')).catch(() => [])) {

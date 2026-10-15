@@ -5,7 +5,8 @@ import os from 'node:os';
 import { mkdtemp, mkdir, readFile, writeFile, copyFile, rm, readdir } from 'node:fs/promises';
 import { startOrReuseWorkbench, findWorkbench } from '../scripts/lib/workbench-discovery.mjs';
 import { startWorkbench } from '../scripts/lib/workbench-server.mjs';
-import { atomicJson } from '../scripts/lib/workflow-files.mjs';
+import { atomicJson, fileManifest, freezeSnapshot, cloneFiles } from '../scripts/lib/workflow-files.mjs';
+import { compactWorkspace } from '../scripts/lib/workspace-storage.mjs';
 import { siteContentDigest } from '../scripts/lib/site-release-identity.mjs';
 const version = 'd'.repeat(64);
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -112,6 +113,23 @@ test('a new workbench removes previews and server records left by exited process
   await assert.rejects(readdir(path.join(root, 'output/workbench/previews/project')), { code: 'ENOENT' });
   const records = await readdir(path.join(root, 'output/workbench/servers'));
   assert.equal(records.length, 1); assert.ok(!records.includes('dead.json'));
+});
+
+test('a compacted Build whose index.html lives in the shared base stays selectable for review', async (t) => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'trace-workbench-compact-'));
+  t.after(() => rm(root, { recursive: true, force: true }));
+  await writeFile(path.join(root, 'index.html'), '<html>fixture</html>');
+  const base = await freezeSnapshot({ root, ...await fileManifest(root), published: false }, root);
+  const workspace = path.join(root, 'output/builds/build-compact/workspace');
+  await cloneFiles(base.root, workspace, base.entries.map((e) => e.path));
+  await atomicJson(path.join(workspace, 'output/workflow/base.json'), base);
+  await compactWorkspace(workspace);
+  await assert.rejects(readFile(path.join(workspace, 'index.html')), { code: 'ENOENT' });
+  await atomicJson(path.join(root, 'output/builds/build-compact/manifest.json'), { key: 'compact', authoringRoot: 'output/builds/build-compact/workspace', state: 'AUTHORED' });
+  const server = await startWorkbench({ root, port: 0, readCi: async () => [], productionFetch: async () => { throw new Error('offline'); }, build: async () => { throw new Error('fixture'); } });
+  t.after(() => server.close());
+  const status = await fetch(server.url + '__trace/status?source=project').then((r) => r.json());
+  assert.equal(status.tasks.find((task) => task.buildId === 'build-compact')?.selectable, true);
 });
 
 test('slow production checks never block local status and concurrent requests share the query', async (t) => {
