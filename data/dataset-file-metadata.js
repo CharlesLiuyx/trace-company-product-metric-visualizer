@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-10-04T13:00:37.415Z",
+  "generatedAt": "2026-10-15T06:10:02.514Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -7325,6 +7325,492 @@
       "path": "data/datasets/walmart-q4-fy24.js",
       "updatedAtMs": 1791116270388,
       "updatedAt": "2026-10-04T12:17:50.388Z",
+      "timeSource": "publication"
+    },
+    "airbnb-fy23": {
+      "path": "data/datasets/airbnb-fy23.js",
+      "updatedAtMs": 1792044507722,
+      "updatedAt": "2026-10-15T06:08:27.722Z",
+      "timeSource": "publication"
+    },
+    "airbnb-q1-fy23": {
+      "path": "data/datasets/airbnb-q1-fy23.js",
+      "updatedAtMs": 1792044496010,
+      "updatedAt": "2026-10-15T06:08:16.010Z",
+      "timeSource": "publication"
+    },
+    "airbnb-q1-fy24": {
+      "path": "data/datasets/airbnb-q1-fy24.js",
+      "updatedAtMs": 1792044487128,
+      "updatedAt": "2026-10-15T06:08:07.128Z",
+      "timeSource": "publication"
+    },
+    "airbnb-q2-fy23": {
+      "path": "data/datasets/airbnb-q2-fy23.js",
+      "updatedAtMs": 1792044544850,
+      "updatedAt": "2026-10-15T06:09:04.850Z",
+      "timeSource": "publication"
+    },
+    "airbnb-q2-fy24": {
+      "path": "data/datasets/airbnb-q2-fy24.js",
+      "updatedAtMs": 1792044528190,
+      "updatedAt": "2026-10-15T06:08:48.190Z",
+      "timeSource": "publication"
+    },
+    "airbnb-q2-fy25": {
+      "path": "data/datasets/airbnb-q2-fy25.js",
+      "updatedAtMs": 1792044514477,
+      "updatedAt": "2026-10-15T06:08:34.477Z",
+      "timeSource": "publication"
+    },
+    "airbnb-q3-fy22": {
+      "path": "data/datasets/airbnb-q3-fy22.js",
+      "updatedAtMs": 1792044500896,
+      "updatedAt": "2026-10-15T06:08:20.896Z",
+      "timeSource": "publication"
+    },
+    "airbnb-q3-fy23": {
+      "path": "data/datasets/airbnb-q3-fy23.js",
+      "updatedAtMs": 1792044503080,
+      "updatedAt": "2026-10-15T06:08:23.080Z",
+      "timeSource": "publication"
+    },
+    "airbnb-q3-fy24": {
+      "path": "data/datasets/airbnb-q3-fy24.js",
+      "updatedAtMs": 1792044498244,
+      "updatedAt": "2026-10-15T06:08:18.244Z",
+      "timeSource": "publication"
+    },
+    "airbnb-q4-fy22": {
+      "path": "data/datasets/airbnb-q4-fy22.js",
+      "updatedAtMs": 1792044525712,
+      "updatedAt": "2026-10-15T06:08:45.712Z",
+      "timeSource": "publication"
+    },
+    "american-express-q1-fy23": {
+      "path": "data/datasets/american-express-q1-fy23.js",
+      "updatedAtMs": 1792040768636,
+      "updatedAt": "2026-10-15T05:06:08.636Z",
+      "timeSource": "publication"
+    },
+    "american-express-q1-fy24": {
+      "path": "data/datasets/american-express-q1-fy24.js",
+      "updatedAtMs": 1792040794033,
+      "updatedAt": "2026-10-15T05:06:34.033Z",
+      "timeSource": "publication"
+    },
+    "american-express-q2-fy23": {
+      "path": "data/datasets/american-express-q2-fy23.js",
+      "updatedAtMs": 1792040795403,
+      "updatedAt": "2026-10-15T05:06:35.403Z",
+      "timeSource": "publication"
+    },
+    "american-express-q2-fy24": {
+      "path": "data/datasets/american-express-q2-fy24.js",
+      "updatedAtMs": 1792040788293,
+      "updatedAt": "2026-10-15T05:06:28.293Z",
+      "timeSource": "publication"
+    },
+    "american-express-q2-fy25": {
+      "path": "data/datasets/american-express-q2-fy25.js",
+      "updatedAtMs": 1792040804595,
+      "updatedAt": "2026-10-15T05:06:44.595Z",
+      "timeSource": "publication"
+    },
+    "american-express-q3-fy23": {
+      "path": "data/datasets/american-express-q3-fy23.js",
+      "updatedAtMs": 1792040793304,
+      "updatedAt": "2026-10-15T05:06:33.304Z",
+      "timeSource": "publication"
+    },
+    "american-express-q3-fy24": {
+      "path": "data/datasets/american-express-q3-fy24.js",
+      "updatedAtMs": 1792040812666,
+      "updatedAt": "2026-10-15T05:06:52.666Z",
+      "timeSource": "publication"
+    },
+    "american-express-q3-fy25": {
+      "path": "data/datasets/american-express-q3-fy25.js",
+      "updatedAtMs": 1792040777385,
+      "updatedAt": "2026-10-15T05:06:17.385Z",
+      "timeSource": "publication"
+    },
+    "american-express-q4-fy23": {
+      "path": "data/datasets/american-express-q4-fy23.js",
+      "updatedAtMs": 1792040790980,
+      "updatedAt": "2026-10-15T05:06:30.980Z",
+      "timeSource": "publication"
+    },
+    "american-express-q4-fy24": {
+      "path": "data/datasets/american-express-q4-fy24.js",
+      "updatedAtMs": 1792040773297,
+      "updatedAt": "2026-10-15T05:06:13.297Z",
+      "timeSource": "publication"
+    },
+    "goldman-sachs-q1-fy23": {
+      "path": "data/datasets/goldman-sachs-q1-fy23.js",
+      "updatedAtMs": 1792040767752,
+      "updatedAt": "2026-10-15T05:06:07.752Z",
+      "timeSource": "publication"
+    },
+    "goldman-sachs-q1-fy24": {
+      "path": "data/datasets/goldman-sachs-q1-fy24.js",
+      "updatedAtMs": 1792040768385,
+      "updatedAt": "2026-10-15T05:06:08.385Z",
+      "timeSource": "publication"
+    },
+    "goldman-sachs-q2-fy23": {
+      "path": "data/datasets/goldman-sachs-q2-fy23.js",
+      "updatedAtMs": 1792040809371,
+      "updatedAt": "2026-10-15T05:06:49.371Z",
+      "timeSource": "publication"
+    },
+    "goldman-sachs-q2-fy24": {
+      "path": "data/datasets/goldman-sachs-q2-fy24.js",
+      "updatedAtMs": 1792040755746,
+      "updatedAt": "2026-10-15T05:05:55.746Z",
+      "timeSource": "publication"
+    },
+    "goldman-sachs-q2-fy25": {
+      "path": "data/datasets/goldman-sachs-q2-fy25.js",
+      "updatedAtMs": 1792040821111,
+      "updatedAt": "2026-10-15T05:07:01.111Z",
+      "timeSource": "publication"
+    },
+    "goldman-sachs-q3-fy23": {
+      "path": "data/datasets/goldman-sachs-q3-fy23.js",
+      "updatedAtMs": 1792040783509,
+      "updatedAt": "2026-10-15T05:06:23.509Z",
+      "timeSource": "publication"
+    },
+    "goldman-sachs-q3-fy24": {
+      "path": "data/datasets/goldman-sachs-q3-fy24.js",
+      "updatedAtMs": 1792040766484,
+      "updatedAt": "2026-10-15T05:06:06.484Z",
+      "timeSource": "publication"
+    },
+    "goldman-sachs-q3-fy25": {
+      "path": "data/datasets/goldman-sachs-q3-fy25.js",
+      "updatedAtMs": 1792040797862,
+      "updatedAt": "2026-10-15T05:06:37.862Z",
+      "timeSource": "publication"
+    },
+    "goldman-sachs-q4-fy22": {
+      "path": "data/datasets/goldman-sachs-q4-fy22.js",
+      "updatedAtMs": 1792040807955,
+      "updatedAt": "2026-10-15T05:06:47.955Z",
+      "timeSource": "publication"
+    },
+    "goldman-sachs-q4-fy23": {
+      "path": "data/datasets/goldman-sachs-q4-fy23.js",
+      "updatedAtMs": 1792040752560,
+      "updatedAt": "2026-10-15T05:05:52.560Z",
+      "timeSource": "publication"
+    },
+    "jpmorganchase-q1-fy23": {
+      "path": "data/datasets/jpmorganchase-q1-fy23.js",
+      "updatedAtMs": 1792040790073,
+      "updatedAt": "2026-10-15T05:06:30.073Z",
+      "timeSource": "publication"
+    },
+    "jpmorganchase-q1-fy24": {
+      "path": "data/datasets/jpmorganchase-q1-fy24.js",
+      "updatedAtMs": 1792040829326,
+      "updatedAt": "2026-10-15T05:07:09.326Z",
+      "timeSource": "publication"
+    },
+    "jpmorganchase-q2-fy23": {
+      "path": "data/datasets/jpmorganchase-q2-fy23.js",
+      "updatedAtMs": 1792040812294,
+      "updatedAt": "2026-10-15T05:06:52.294Z",
+      "timeSource": "publication"
+    },
+    "jpmorganchase-q2-fy24": {
+      "path": "data/datasets/jpmorganchase-q2-fy24.js",
+      "updatedAtMs": 1792040765021,
+      "updatedAt": "2026-10-15T05:06:05.021Z",
+      "timeSource": "publication"
+    },
+    "jpmorganchase-q2-fy25": {
+      "path": "data/datasets/jpmorganchase-q2-fy25.js",
+      "updatedAtMs": 1792040792447,
+      "updatedAt": "2026-10-15T05:06:32.447Z",
+      "timeSource": "publication"
+    },
+    "jpmorganchase-q3-fy23": {
+      "path": "data/datasets/jpmorganchase-q3-fy23.js",
+      "updatedAtMs": 1792040781781,
+      "updatedAt": "2026-10-15T05:06:21.781Z",
+      "timeSource": "publication"
+    },
+    "jpmorganchase-q3-fy24": {
+      "path": "data/datasets/jpmorganchase-q3-fy24.js",
+      "updatedAtMs": 1792040771100,
+      "updatedAt": "2026-10-15T05:06:11.100Z",
+      "timeSource": "publication"
+    },
+    "jpmorganchase-q3-fy25": {
+      "path": "data/datasets/jpmorganchase-q3-fy25.js",
+      "updatedAtMs": 1792040798576,
+      "updatedAt": "2026-10-15T05:06:38.576Z",
+      "timeSource": "publication"
+    },
+    "jpmorganchase-q4-fy22": {
+      "path": "data/datasets/jpmorganchase-q4-fy22.js",
+      "updatedAtMs": 1792040812453,
+      "updatedAt": "2026-10-15T05:06:52.453Z",
+      "timeSource": "publication"
+    },
+    "jpmorganchase-q4-fy23": {
+      "path": "data/datasets/jpmorganchase-q4-fy23.js",
+      "updatedAtMs": 1792040851813,
+      "updatedAt": "2026-10-15T05:07:31.813Z",
+      "timeSource": "publication"
+    },
+    "mastercard-q1-fy23": {
+      "path": "data/datasets/mastercard-q1-fy23.js",
+      "updatedAtMs": 1792040791389,
+      "updatedAt": "2026-10-15T05:06:31.389Z",
+      "timeSource": "publication"
+    },
+    "mastercard-q1-fy24": {
+      "path": "data/datasets/mastercard-q1-fy24.js",
+      "updatedAtMs": 1792040793769,
+      "updatedAt": "2026-10-15T05:06:33.769Z",
+      "timeSource": "publication"
+    },
+    "mastercard-q2-fy23": {
+      "path": "data/datasets/mastercard-q2-fy23.js",
+      "updatedAtMs": 1792040807165,
+      "updatedAt": "2026-10-15T05:06:47.165Z",
+      "timeSource": "publication"
+    },
+    "mastercard-q2-fy24": {
+      "path": "data/datasets/mastercard-q2-fy24.js",
+      "updatedAtMs": 1792040789258,
+      "updatedAt": "2026-10-15T05:06:29.258Z",
+      "timeSource": "publication"
+    },
+    "mastercard-q2-fy25": {
+      "path": "data/datasets/mastercard-q2-fy25.js",
+      "updatedAtMs": 1792040817473,
+      "updatedAt": "2026-10-15T05:06:57.473Z",
+      "timeSource": "publication"
+    },
+    "mastercard-q3-fy22": {
+      "path": "data/datasets/mastercard-q3-fy22.js",
+      "updatedAtMs": 1792040761695,
+      "updatedAt": "2026-10-15T05:06:01.695Z",
+      "timeSource": "publication"
+    },
+    "mastercard-q3-fy23": {
+      "path": "data/datasets/mastercard-q3-fy23.js",
+      "updatedAtMs": 1792040754669,
+      "updatedAt": "2026-10-15T05:05:54.669Z",
+      "timeSource": "publication"
+    },
+    "mastercard-q3-fy24": {
+      "path": "data/datasets/mastercard-q3-fy24.js",
+      "updatedAtMs": 1792040815497,
+      "updatedAt": "2026-10-15T05:06:55.497Z",
+      "timeSource": "publication"
+    },
+    "mastercard-q3-fy25": {
+      "path": "data/datasets/mastercard-q3-fy25.js",
+      "updatedAtMs": 1792040812402,
+      "updatedAt": "2026-10-15T05:06:52.402Z",
+      "timeSource": "publication"
+    },
+    "mastercard-q4-fy22": {
+      "path": "data/datasets/mastercard-q4-fy22.js",
+      "updatedAtMs": 1792040786962,
+      "updatedAt": "2026-10-15T05:06:26.962Z",
+      "timeSource": "publication"
+    },
+    "mastercard-q4-fy23": {
+      "path": "data/datasets/mastercard-q4-fy23.js",
+      "updatedAtMs": 1792040780291,
+      "updatedAt": "2026-10-15T05:06:20.291Z",
+      "timeSource": "publication"
+    },
+    "mastercard-q4-fy24": {
+      "path": "data/datasets/mastercard-q4-fy24.js",
+      "updatedAtMs": 1792040812565,
+      "updatedAt": "2026-10-15T05:06:52.565Z",
+      "timeSource": "publication"
+    },
+    "nintendo-fy23": {
+      "path": "data/datasets/nintendo-fy23.js",
+      "updatedAtMs": 1792044501737,
+      "updatedAt": "2026-10-15T06:08:21.737Z",
+      "timeSource": "publication"
+    },
+    "nintendo-fy24": {
+      "path": "data/datasets/nintendo-fy24.js",
+      "updatedAtMs": 1792044521801,
+      "updatedAt": "2026-10-15T06:08:41.801Z",
+      "timeSource": "publication"
+    },
+    "nintendo-h1-fy24": {
+      "path": "data/datasets/nintendo-h1-fy24.js",
+      "updatedAtMs": 1792044587610,
+      "updatedAt": "2026-10-15T06:09:47.610Z",
+      "timeSource": "publication"
+    },
+    "nintendo-h1-fy25": {
+      "path": "data/datasets/nintendo-h1-fy25.js",
+      "updatedAtMs": 1792044536749,
+      "updatedAt": "2026-10-15T06:08:56.749Z",
+      "timeSource": "publication"
+    },
+    "nintendo-q1-fy25": {
+      "path": "data/datasets/nintendo-q1-fy25.js",
+      "updatedAtMs": 1792044539471,
+      "updatedAt": "2026-10-15T06:08:59.471Z",
+      "timeSource": "publication"
+    },
+    "nintendo-q1-fy26": {
+      "path": "data/datasets/nintendo-q1-fy26.js",
+      "updatedAtMs": 1792044518072,
+      "updatedAt": "2026-10-15T06:08:38.072Z",
+      "timeSource": "publication"
+    },
+    "nintendo-q3-fy23": {
+      "path": "data/datasets/nintendo-q3-fy23.js",
+      "updatedAtMs": 1792044495474,
+      "updatedAt": "2026-10-15T06:08:15.474Z",
+      "timeSource": "publication"
+    },
+    "nintendo-q3-fy24": {
+      "path": "data/datasets/nintendo-q3-fy24.js",
+      "updatedAtMs": 1792044529753,
+      "updatedAt": "2026-10-15T06:08:49.753Z",
+      "timeSource": "publication"
+    },
+    "paypal-q1-fy23": {
+      "path": "data/datasets/paypal-q1-fy23.js",
+      "updatedAtMs": 1792044536235,
+      "updatedAt": "2026-10-15T06:08:56.235Z",
+      "timeSource": "publication"
+    },
+    "paypal-q1-fy24": {
+      "path": "data/datasets/paypal-q1-fy24.js",
+      "updatedAtMs": 1792044520629,
+      "updatedAt": "2026-10-15T06:08:40.629Z",
+      "timeSource": "publication"
+    },
+    "paypal-q2-fy23": {
+      "path": "data/datasets/paypal-q2-fy23.js",
+      "updatedAtMs": 1792044508658,
+      "updatedAt": "2026-10-15T06:08:28.658Z",
+      "timeSource": "publication"
+    },
+    "paypal-q2-fy24": {
+      "path": "data/datasets/paypal-q2-fy24.js",
+      "updatedAtMs": 1792044531162,
+      "updatedAt": "2026-10-15T06:08:51.162Z",
+      "timeSource": "publication"
+    },
+    "paypal-q2-fy25": {
+      "path": "data/datasets/paypal-q2-fy25.js",
+      "updatedAtMs": 1792044547400,
+      "updatedAt": "2026-10-15T06:09:07.400Z",
+      "timeSource": "publication"
+    },
+    "paypal-q3-fy22": {
+      "path": "data/datasets/paypal-q3-fy22.js",
+      "updatedAtMs": 1792044510628,
+      "updatedAt": "2026-10-15T06:08:30.628Z",
+      "timeSource": "publication"
+    },
+    "paypal-q3-fy23": {
+      "path": "data/datasets/paypal-q3-fy23.js",
+      "updatedAtMs": 1792044540050,
+      "updatedAt": "2026-10-15T06:09:00.050Z",
+      "timeSource": "publication"
+    },
+    "paypal-q3-fy24": {
+      "path": "data/datasets/paypal-q3-fy24.js",
+      "updatedAtMs": 1792044553634,
+      "updatedAt": "2026-10-15T06:09:13.634Z",
+      "timeSource": "publication"
+    },
+    "paypal-q3-fy25": {
+      "path": "data/datasets/paypal-q3-fy25.js",
+      "updatedAtMs": 1792044522943,
+      "updatedAt": "2026-10-15T06:08:42.943Z",
+      "timeSource": "publication"
+    },
+    "paypal-q4-fy22": {
+      "path": "data/datasets/paypal-q4-fy22.js",
+      "updatedAtMs": 1792044515364,
+      "updatedAt": "2026-10-15T06:08:35.364Z",
+      "timeSource": "publication"
+    },
+    "paypal-q4-fy23": {
+      "path": "data/datasets/paypal-q4-fy23.js",
+      "updatedAtMs": 1792044602514,
+      "updatedAt": "2026-10-15T06:10:02.514Z",
+      "timeSource": "publication"
+    },
+    "spotify-q1-fy23": {
+      "path": "data/datasets/spotify-q1-fy23.js",
+      "updatedAtMs": 1792044550559,
+      "updatedAt": "2026-10-15T06:09:10.559Z",
+      "timeSource": "publication"
+    },
+    "spotify-q1-fy24": {
+      "path": "data/datasets/spotify-q1-fy24.js",
+      "updatedAtMs": 1792044502355,
+      "updatedAt": "2026-10-15T06:08:22.355Z",
+      "timeSource": "publication"
+    },
+    "spotify-q2-fy23": {
+      "path": "data/datasets/spotify-q2-fy23.js",
+      "updatedAtMs": 1792044498977,
+      "updatedAt": "2026-10-15T06:08:18.977Z",
+      "timeSource": "publication"
+    },
+    "spotify-q2-fy24": {
+      "path": "data/datasets/spotify-q2-fy24.js",
+      "updatedAtMs": 1792044503965,
+      "updatedAt": "2026-10-15T06:08:23.965Z",
+      "timeSource": "publication"
+    },
+    "spotify-q2-fy25": {
+      "path": "data/datasets/spotify-q2-fy25.js",
+      "updatedAtMs": 1792044534060,
+      "updatedAt": "2026-10-15T06:08:54.060Z",
+      "timeSource": "publication"
+    },
+    "spotify-q3-fy22": {
+      "path": "data/datasets/spotify-q3-fy22.js",
+      "updatedAtMs": 1792044534686,
+      "updatedAt": "2026-10-15T06:08:54.686Z",
+      "timeSource": "publication"
+    },
+    "spotify-q3-fy23": {
+      "path": "data/datasets/spotify-q3-fy23.js",
+      "updatedAtMs": 1792044499966,
+      "updatedAt": "2026-10-15T06:08:19.966Z",
+      "timeSource": "publication"
+    },
+    "spotify-q3-fy24": {
+      "path": "data/datasets/spotify-q3-fy24.js",
+      "updatedAtMs": 1792044505883,
+      "updatedAt": "2026-10-15T06:08:25.883Z",
+      "timeSource": "publication"
+    },
+    "spotify-q4-fy22": {
+      "path": "data/datasets/spotify-q4-fy22.js",
+      "updatedAtMs": 1792044511922,
+      "updatedAt": "2026-10-15T06:08:31.922Z",
+      "timeSource": "publication"
+    },
+    "spotify-q4-fy23": {
+      "path": "data/datasets/spotify-q4-fy23.js",
+      "updatedAtMs": 1792044507003,
+      "updatedAt": "2026-10-15T06:08:27.003Z",
       "timeSource": "publication"
     },
     "data/revenue-metrics.js": {

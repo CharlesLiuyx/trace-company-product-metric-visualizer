@@ -7322,6 +7322,492 @@
       "mae": 6.013132775069783,
       "width": 2667,
       "height": 1500
+    },
+    "airbnb-fy23": {
+      "similarity": 0.9718249467182615,
+      "mae": 7.184638586843311,
+      "width": 2667,
+      "height": 1500
+    },
+    "airbnb-q1-fy23": {
+      "similarity": 0.9744101134417021,
+      "mae": 6.525421072365954,
+      "width": 2667,
+      "height": 1500
+    },
+    "airbnb-q1-fy24": {
+      "similarity": 0.9701873958565637,
+      "mae": 7.602214056576261,
+      "width": 2667,
+      "height": 1500
+    },
+    "airbnb-q2-fy23": {
+      "similarity": 0.9713320962330689,
+      "mae": 7.310315460567429,
+      "width": 2667,
+      "height": 1500
+    },
+    "airbnb-q2-fy24": {
+      "similarity": 0.973742122104018,
+      "mae": 6.695758863475399,
+      "width": 2667,
+      "height": 1500
+    },
+    "airbnb-q2-fy25": {
+      "similarity": 0.9726425304680052,
+      "mae": 6.976154730658668,
+      "width": 2667,
+      "height": 1500
+    },
+    "airbnb-q3-fy22": {
+      "similarity": 0.9731029111557133,
+      "mae": 6.858757655293088,
+      "width": 2667,
+      "height": 1500
+    },
+    "airbnb-q3-fy23": {
+      "similarity": 0.9675606810586586,
+      "mae": 8.272026330042078,
+      "width": 2667,
+      "height": 1500
+    },
+    "airbnb-q3-fy24": {
+      "similarity": 0.9715610960394656,
+      "mae": 7.251920509936258,
+      "width": 2667,
+      "height": 1500
+    },
+    "airbnb-q4-fy22": {
+      "similarity": 0.9698115095090238,
+      "mae": 7.698065075198934,
+      "width": 2667,
+      "height": 1500
+    },
+    "nintendo-fy23": {
+      "similarity": 0.9699550311113072,
+      "mae": 7.661467066616673,
+      "width": 2667,
+      "height": 1500
+    },
+    "nintendo-fy24": {
+      "similarity": 0.9591862853744589,
+      "mae": 10.407497229512977,
+      "width": 2667,
+      "height": 1500
+    },
+    "nintendo-h1-fy24": {
+      "similarity": 0.9528644671050106,
+      "mae": 12.019560888222305,
+      "width": 2667,
+      "height": 1500
+    },
+    "nintendo-h1-fy25": {
+      "similarity": 0.9574811491700792,
+      "mae": 10.842306961629797,
+      "width": 2667,
+      "height": 1500
+    },
+    "nintendo-q1-fy25": {
+      "similarity": 0.9577048097745952,
+      "mae": 10.785273507478232,
+      "width": 2667,
+      "height": 1500
+    },
+    "nintendo-q1-fy26": {
+      "similarity": 0.9605376909585648,
+      "mae": 10.06288880556597,
+      "width": 2667,
+      "height": 1500
+    },
+    "nintendo-q3-fy23": {
+      "similarity": 0.9599096521431553,
+      "mae": 10.223038703495396,
+      "width": 2667,
+      "height": 1500
+    },
+    "nintendo-q3-fy24": {
+      "similarity": 0.9578783188049206,
+      "mae": 10.74102870474524,
+      "width": 2667,
+      "height": 1500
+    },
+    "paypal-q1-fy23": {
+      "similarity": 0.9699949617408935,
+      "mae": 7.651284756072157,
+      "width": 2667,
+      "height": 1500
+    },
+    "paypal-q1-fy24": {
+      "similarity": 0.9680044775448821,
+      "mae": 8.158858226055077,
+      "width": 2667,
+      "height": 1500
+    },
+    "paypal-q2-fy23": {
+      "similarity": 0.9675671688097811,
+      "mae": 8.270371953505812,
+      "width": 2667,
+      "height": 1500
+    },
+    "paypal-q2-fy24": {
+      "similarity": 0.9677507501104845,
+      "mae": 8.22355872182644,
+      "width": 2667,
+      "height": 1500
+    },
+    "paypal-q2-fy25": {
+      "similarity": 0.9687706232799331,
+      "mae": 7.963491063617048,
+      "width": 2667,
+      "height": 1500
+    },
+    "paypal-q3-fy22": {
+      "similarity": 0.9707170734377157,
+      "mae": 7.467146273382494,
+      "width": 2667,
+      "height": 1500
+    },
+    "paypal-q3-fy23": {
+      "similarity": 0.9673708489053248,
+      "mae": 8.320433529142191,
+      "width": 2667,
+      "height": 1500
+    },
+    "paypal-q3-fy24": {
+      "similarity": 0.9670666395458738,
+      "mae": 8.398006915802192,
+      "width": 2667,
+      "height": 1500
+    },
+    "paypal-q3-fy25": {
+      "similarity": 0.9754036637577166,
+      "mae": 6.272065741782277,
+      "width": 2667,
+      "height": 1500
+    },
+    "paypal-q4-fy22": {
+      "similarity": 0.9697193991273967,
+      "mae": 7.721553222513853,
+      "width": 2667,
+      "height": 1500
+    },
+    "paypal-q4-fy23": {
+      "similarity": 0.9670689069095121,
+      "mae": 8.397428738074407,
+      "width": 2667,
+      "height": 1500
+    },
+    "spotify-q1-fy23": {
+      "similarity": 0.9778309949818365,
+      "mae": 5.653096279631713,
+      "width": 2667,
+      "height": 1500
+    },
+    "spotify-q1-fy24": {
+      "similarity": 0.9637547103997621,
+      "mae": 9.24254884806066,
+      "width": 2667,
+      "height": 1500
+    },
+    "spotify-q2-fy23": {
+      "similarity": 0.9760714855087559,
+      "mae": 6.101771195267259,
+      "width": 2667,
+      "height": 1500
+    },
+    "spotify-q2-fy24": {
+      "similarity": 0.9669985621078411,
+      "mae": 8.41536666250052,
+      "width": 2667,
+      "height": 1500
+    },
+    "spotify-q2-fy25": {
+      "similarity": 0.9698044982939225,
+      "mae": 7.699852935049785,
+      "width": 2667,
+      "height": 1500
+    },
+    "spotify-q3-fy22": {
+      "similarity": 0.9775096465882941,
+      "mae": 5.735040119985002,
+      "width": 2667,
+      "height": 1500
+    },
+    "spotify-q3-fy23": {
+      "similarity": 0.9713302154224186,
+      "mae": 7.310795067283256,
+      "width": 2667,
+      "height": 1500
+    },
+    "spotify-q3-fy24": {
+      "similarity": 0.9728757598110693,
+      "mae": 6.916681248177311,
+      "width": 2667,
+      "height": 1500
+    },
+    "spotify-q4-fy22": {
+      "similarity": 0.9735340023673511,
+      "mae": 6.748829396325459,
+      "width": 2667,
+      "height": 1500
+    },
+    "spotify-q4-fy23": {
+      "similarity": 0.9766347425526057,
+      "mae": 5.958140649085531,
+      "width": 2667,
+      "height": 1500
+    },
+    "american-express-q1-fy23": {
+      "similarity": 0.9659999869297383,
+      "mae": 8.67000333291672,
+      "width": 2667,
+      "height": 1500
+    },
+    "american-express-q1-fy24": {
+      "similarity": 0.9593963489857885,
+      "mae": 10.353931008623922,
+      "width": 2667,
+      "height": 1500
+    },
+    "american-express-q2-fy23": {
+      "similarity": 0.9656225471816023,
+      "mae": 8.766250468691414,
+      "width": 2667,
+      "height": 1500
+    },
+    "american-express-q2-fy24": {
+      "similarity": 0.967603462312309,
+      "mae": 8.261117110361205,
+      "width": 2667,
+      "height": 1500
+    },
+    "american-express-q2-fy25": {
+      "similarity": 0.9645137926386653,
+      "mae": 9.048982877140357,
+      "width": 2667,
+      "height": 1500
+    },
+    "american-express-q3-fy23": {
+      "similarity": 0.9623479829727166,
+      "mae": 9.601264341957256,
+      "width": 2667,
+      "height": 1500
+    },
+    "american-express-q3-fy24": {
+      "similarity": 0.9670676750373524,
+      "mae": 8.397742865475148,
+      "width": 2667,
+      "height": 1500
+    },
+    "american-express-q3-fy25": {
+      "similarity": 0.956817785031773,
+      "mae": 11.011464816897888,
+      "width": 2667,
+      "height": 1500
+    },
+    "american-express-q4-fy23": {
+      "similarity": 0.9565383421843512,
+      "mae": 11.082722742990459,
+      "width": 2667,
+      "height": 1500
+    },
+    "american-express-q4-fy24": {
+      "similarity": 0.9664907576095472,
+      "mae": 8.544856809565472,
+      "width": 2667,
+      "height": 1500
+    },
+    "goldman-sachs-q1-fy23": {
+      "similarity": 0.9619128193943077,
+      "mae": 9.712231054451527,
+      "width": 2667,
+      "height": 1500
+    },
+    "goldman-sachs-q1-fy24": {
+      "similarity": 0.9707200181676637,
+      "mae": 7.466395367245761,
+      "width": 2667,
+      "height": 1500
+    },
+    "goldman-sachs-q2-fy23": {
+      "similarity": 0.9670239706964734,
+      "mae": 8.408887472399284,
+      "width": 2667,
+      "height": 1500
+    },
+    "goldman-sachs-q2-fy24": {
+      "similarity": 0.9695525739021185,
+      "mae": 7.7640936549597965,
+      "width": 2667,
+      "height": 1500
+    },
+    "goldman-sachs-q2-fy25": {
+      "similarity": 0.9646927980407678,
+      "mae": 9.003336499604217,
+      "width": 2667,
+      "height": 1500
+    },
+    "goldman-sachs-q3-fy23": {
+      "similarity": 0.9718135916017033,
+      "mae": 7.187534141565638,
+      "width": 2667,
+      "height": 1500
+    },
+    "goldman-sachs-q3-fy24": {
+      "similarity": 0.9660716929991594,
+      "mae": 8.651718285214349,
+      "width": 2667,
+      "height": 1500
+    },
+    "goldman-sachs-q3-fy25": {
+      "similarity": 0.968144450244373,
+      "mae": 8.123165187684872,
+      "width": 2667,
+      "height": 1500
+    },
+    "goldman-sachs-q4-fy22": {
+      "similarity": 0.9632239238069098,
+      "mae": 9.377899429238012,
+      "width": 2667,
+      "height": 1500
+    },
+    "goldman-sachs-q4-fy23": {
+      "similarity": 0.9730226375297859,
+      "mae": 6.879227429904596,
+      "width": 2667,
+      "height": 1500
+    },
+    "jpmorganchase-q1-fy23": {
+      "similarity": 0.9465247412700863,
+      "mae": 13.636190976127985,
+      "width": 2667,
+      "height": 1500
+    },
+    "jpmorganchase-q1-fy24": {
+      "similarity": 0.9577196634734384,
+      "mae": 10.781485814273216,
+      "width": 2667,
+      "height": 1500
+    },
+    "jpmorganchase-q2-fy23": {
+      "similarity": 0.9502723185745573,
+      "mae": 12.680558763487898,
+      "width": 2667,
+      "height": 1500
+    },
+    "jpmorganchase-q2-fy24": {
+      "similarity": 0.9492928926367864,
+      "mae": 12.930312377619464,
+      "width": 2667,
+      "height": 1500
+    },
+    "jpmorganchase-q2-fy25": {
+      "similarity": 0.9588672134937382,
+      "mae": 10.48886055909678,
+      "width": 2667,
+      "height": 1500
+    },
+    "jpmorganchase-q3-fy23": {
+      "similarity": 0.9509364172615677,
+      "mae": 12.511213598300213,
+      "width": 2667,
+      "height": 1500
+    },
+    "jpmorganchase-q3-fy24": {
+      "similarity": 0.9524931226733914,
+      "mae": 12.114253718285214,
+      "width": 2667,
+      "height": 1500
+    },
+    "jpmorganchase-q3-fy25": {
+      "similarity": 0.9675263765231961,
+      "mae": 8.280773986585011,
+      "width": 2667,
+      "height": 1500
+    },
+    "jpmorganchase-q4-fy22": {
+      "similarity": 0.9600055251263526,
+      "mae": 10.198591092780068,
+      "width": 2667,
+      "height": 1500
+    },
+    "jpmorganchase-q4-fy23": {
+      "similarity": 0.9564755631036317,
+      "mae": 11.098731408573927,
+      "width": 2667,
+      "height": 1500
+    },
+    "mastercard-q1-fy23": {
+      "similarity": 0.9686170212383582,
+      "mae": 8.00265958421864,
+      "width": 2667,
+      "height": 1500
+    },
+    "mastercard-q1-fy24": {
+      "similarity": 0.968464092315258,
+      "mae": 8.041656459609216,
+      "width": 2667,
+      "height": 1500
+    },
+    "mastercard-q2-fy23": {
+      "similarity": 0.97440319960005,
+      "mae": 6.527184101987252,
+      "width": 2667,
+      "height": 1500
+    },
+    "mastercard-q2-fy24": {
+      "similarity": 0.9678830701717841,
+      "mae": 8.18981710619506,
+      "width": 2667,
+      "height": 1500
+    },
+    "mastercard-q2-fy25": {
+      "similarity": 0.9699122113003849,
+      "mae": 7.6723861184018665,
+      "width": 2667,
+      "height": 1500
+    },
+    "mastercard-q3-fy22": {
+      "similarity": 0.9788881651231505,
+      "mae": 5.3835178935966335,
+      "width": 2667,
+      "height": 1500
+    },
+    "mastercard-q3-fy23": {
+      "similarity": 0.9698762889932876,
+      "mae": 7.681546306711661,
+      "width": 2667,
+      "height": 1500
+    },
+    "mastercard-q3-fy24": {
+      "similarity": 0.9701674565189156,
+      "mae": 7.60729858767654,
+      "width": 2667,
+      "height": 1500
+    },
+    "mastercard-q3-fy25": {
+      "similarity": 0.9760790028697394,
+      "mae": 6.099854268216473,
+      "width": 2667,
+      "height": 1500
+    },
+    "mastercard-q4-fy22": {
+      "similarity": 0.9723114127073985,
+      "mae": 7.060589759613381,
+      "width": 2667,
+      "height": 1500
+    },
+    "mastercard-q4-fy23": {
+      "similarity": 0.9753787727514452,
+      "mae": 6.278412948381452,
+      "width": 2667,
+      "height": 1500
+    },
+    "mastercard-q4-fy24": {
+      "similarity": 0.9733087426163233,
+      "mae": 6.806270632837562,
+      "width": 2667,
+      "height": 1500
     }
   }
 }

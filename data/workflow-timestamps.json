@@ -1050,6 +1050,411 @@
       "digest": "sha256:1844ad2d6c7f662e079d4c60e8217bb89642174dffbd99a3fc10e3b3ebdb2410",
       "updatedAt": "2026-10-04T12:17:50.388Z",
       "publishedDigest": "sha256:abe6d61800fc2f6c842c267f558a43db52d7fe2d4cee25ceb474e82c8523cabb"
+    },
+    "data/datasets/airbnb-fy23.js": {
+      "digest": "sha256:69a3ee22d628e0c335a1bb284231de5e29c17e3afb985143fb78f52226af160c",
+      "updatedAt": "2026-10-15T06:08:27.722Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/airbnb-q1-fy23.js": {
+      "digest": "sha256:75a948ec6e1e596be7c6f80d80e4ccd549a69bb7a072751a79a80d916fae826b",
+      "updatedAt": "2026-10-15T06:08:16.010Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/airbnb-q1-fy24.js": {
+      "digest": "sha256:908f2c0f846aa21c2ae08de52a1fa274926f2d9fe51efa91617b146a953665c4",
+      "updatedAt": "2026-10-15T06:08:07.128Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/airbnb-q2-fy23.js": {
+      "digest": "sha256:b7a5237bb293006503c7550dccc667752ffc791c5140cc47fb4e8c747b0382c7",
+      "updatedAt": "2026-10-15T06:09:04.850Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/airbnb-q2-fy24.js": {
+      "digest": "sha256:e49a23de682c78f8aa0455cd7c046ff5d38bcf8a8d93726591c3f8fb7b7043fc",
+      "updatedAt": "2026-10-15T06:08:48.190Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/airbnb-q2-fy25.js": {
+      "digest": "sha256:1abf5cd695058e325face51a5210cc4dea3bf9f5bb7309286093562c35133f09",
+      "updatedAt": "2026-10-15T06:08:34.477Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/airbnb-q3-fy22.js": {
+      "digest": "sha256:71e982f12e6ee92250743ab0a0aa472f615d92119b987a7c1bb613b59220b198",
+      "updatedAt": "2026-10-15T06:08:20.896Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/airbnb-q3-fy23.js": {
+      "digest": "sha256:e8f2c285b86403789dd1dc77b75db36c46a8765d889d12be55ea0926a1ea6935",
+      "updatedAt": "2026-10-15T06:08:23.080Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/airbnb-q3-fy24.js": {
+      "digest": "sha256:1a7fb267ccdb8bf5987b7f32c7f100d35c0721664ac29bccefaf8825629fed41",
+      "updatedAt": "2026-10-15T06:08:18.244Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/airbnb-q4-fy22.js": {
+      "digest": "sha256:2970272b43f27fafb51f1842c4c5ff970b3d093ce712b068d7cba8718b4c2065",
+      "updatedAt": "2026-10-15T06:08:45.712Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/nintendo-fy23.js": {
+      "digest": "sha256:97fb577787c24e620e1ff536f825f66db34874154da9a36d5d45cba2b1c1f913",
+      "updatedAt": "2026-10-15T06:08:21.737Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/nintendo-fy24.js": {
+      "digest": "sha256:e58fdf96324d4301eaff136e823d6c7c6a805cc13dd25d008022affd460273bd",
+      "updatedAt": "2026-10-15T06:08:41.801Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/nintendo-h1-fy24.js": {
+      "digest": "sha256:604933eafcfa856c86d78956471f4056afc46af5f4d7eab8bcb8a87162f1040f",
+      "updatedAt": "2026-10-15T06:09:47.610Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/nintendo-h1-fy25.js": {
+      "digest": "sha256:5146017c3cf9fce3db44bdafbdef3d350f4a2c2144644f3f050fa7b71c5f4ebd",
+      "updatedAt": "2026-10-15T06:08:56.749Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/nintendo-q1-fy25.js": {
+      "digest": "sha256:436d5257f7a3f8372e5994bc25f7a4c70a12830f6b12d4337ed37f39b9f15f20",
+      "updatedAt": "2026-10-15T06:08:59.471Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/nintendo-q1-fy26.js": {
+      "digest": "sha256:69e23dfaaa6c3a3dfb1a2f3722ca0b2ab8a7b8b37227c1b83c4a0e3d014681d8",
+      "updatedAt": "2026-10-15T06:08:38.072Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/nintendo-q3-fy23.js": {
+      "digest": "sha256:8d888623cd5b75891506ed6931c47b1fe96653122228e6d5956e007825cfca9d",
+      "updatedAt": "2026-10-15T06:08:15.474Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/nintendo-q3-fy24.js": {
+      "digest": "sha256:5b47b33d36decb071fb4c1f079c50be4f65dda5bb7199cc20608dd132484eabf",
+      "updatedAt": "2026-10-15T06:08:49.753Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/paypal-q1-fy23.js": {
+      "digest": "sha256:a1a38a3f76be62350ba50b554d1b6296b2b522f7e98d453d749ea4c3f83a7529",
+      "updatedAt": "2026-10-15T06:08:56.235Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/paypal-q1-fy24.js": {
+      "digest": "sha256:5a7093cd6c97dd2133438d5d8c56ede08e1729c1d322cdb338f41cf4e2ce90b6",
+      "updatedAt": "2026-10-15T06:08:40.629Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/paypal-q2-fy23.js": {
+      "digest": "sha256:04952f740df321751f32fdf7a394a0ab6a4cd1ec4118874055aad3f1131094fc",
+      "updatedAt": "2026-10-15T06:08:28.658Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/paypal-q2-fy24.js": {
+      "digest": "sha256:49368f4d9e963774c67ccf76c2aaaed4e8e532f0fb133a5d5095df19e41f3830",
+      "updatedAt": "2026-10-15T06:08:51.162Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/paypal-q2-fy25.js": {
+      "digest": "sha256:12feafd238f3d15bd2e5a346f61ea0500c49739aa3b4e719a65f5416728c4b86",
+      "updatedAt": "2026-10-15T06:09:07.400Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/paypal-q3-fy22.js": {
+      "digest": "sha256:fc98dcedc879502aea4f765825096b7c88ac0c6b106657620a362848e5834f91",
+      "updatedAt": "2026-10-15T06:08:30.628Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/paypal-q3-fy23.js": {
+      "digest": "sha256:ec315940d215ff765c1ee56f31a8524f1516cb62fa15b38f01b3ec17e6853395",
+      "updatedAt": "2026-10-15T06:09:00.050Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/paypal-q3-fy24.js": {
+      "digest": "sha256:d56cce20a2ffbe1b58c632b801df6fa3885f8ad261179d1cbf6703fbbd14d2dd",
+      "updatedAt": "2026-10-15T06:09:13.634Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/paypal-q3-fy25.js": {
+      "digest": "sha256:6a902e8f24869f3d507c00af0aa002bd55362e49f3f0f2dcb445e4ac32803153",
+      "updatedAt": "2026-10-15T06:08:42.943Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/paypal-q4-fy22.js": {
+      "digest": "sha256:739830537a1e752a1e93b82a796329e0e83eb9227924528db9f94df111107e01",
+      "updatedAt": "2026-10-15T06:08:35.364Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/paypal-q4-fy23.js": {
+      "digest": "sha256:0b02acfaccc27a47f916568cbb6cb347bcb1dae347bec10338126e05c5ab9cbe",
+      "updatedAt": "2026-10-15T06:10:02.514Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/spotify-q1-fy23.js": {
+      "digest": "sha256:67f2d0524664acc389556179d19a41ab0b3c47a71eb0f0159ea5cdf3da92fd7a",
+      "updatedAt": "2026-10-15T06:09:10.559Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/spotify-q1-fy24.js": {
+      "digest": "sha256:3e628c8c590626a4f1395d56102b2c9e5dbaae1d6ad018a7e36381e226542a26",
+      "updatedAt": "2026-10-15T06:08:22.355Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/spotify-q2-fy23.js": {
+      "digest": "sha256:3a2118d089f736265b88943fdb3a9019bb67c8172333a3d41add18f966c9cd9b",
+      "updatedAt": "2026-10-15T06:08:18.977Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/spotify-q2-fy24.js": {
+      "digest": "sha256:65b37e70c0a9a705a60888e316d4e0fc0cdd9ecb6f7294f20ec6a1f2857a2f9f",
+      "updatedAt": "2026-10-15T06:08:23.965Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/spotify-q2-fy25.js": {
+      "digest": "sha256:eb5cac8ee06790e297cb4bee30e28634cb0eff7746c30e018e09ac3e0a5fc460",
+      "updatedAt": "2026-10-15T06:08:54.060Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/spotify-q3-fy22.js": {
+      "digest": "sha256:604632262d70ffbaf50490542c627d9b35c5c6b72d7b94b74c31d791b72703d9",
+      "updatedAt": "2026-10-15T06:08:54.686Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/spotify-q3-fy23.js": {
+      "digest": "sha256:9d0b3d532f3ef941a71de656f68c685fee6a66ecc8f3fb31e9d0ae15014259c9",
+      "updatedAt": "2026-10-15T06:08:19.966Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/spotify-q3-fy24.js": {
+      "digest": "sha256:2cdfd991eeb6c5d4bbbb1acc394d8f6ad2f41f752ce04f35160b93d9e293da0a",
+      "updatedAt": "2026-10-15T06:08:25.883Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/spotify-q4-fy22.js": {
+      "digest": "sha256:b577948e0f5202ec69febaa26528bd9d72ea03ce1dd08a98077b53e3ed4140e4",
+      "updatedAt": "2026-10-15T06:08:31.922Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/spotify-q4-fy23.js": {
+      "digest": "sha256:1d71751540e067fbe1994130c3ee04cfedb31b08301c16d0ed455c8b532a98f0",
+      "updatedAt": "2026-10-15T06:08:27.003Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/american-express-q1-fy23.js": {
+      "digest": "sha256:5588470e29adeba1e78648fcada1d9990a8237c6019644fcb5a3fb6b2f9b1180",
+      "updatedAt": "2026-10-15T05:06:08.636Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/american-express-q1-fy24.js": {
+      "digest": "sha256:5f4b25b57527bb388f17bf3ac3f1f5986718af1052fbff32ff8ea2472f7be84c",
+      "updatedAt": "2026-10-15T05:06:34.033Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/american-express-q2-fy23.js": {
+      "digest": "sha256:6e38088ea2019b4ca401c77a579079638beb9efc47dfcb1487e293e54e079139",
+      "updatedAt": "2026-10-15T05:06:35.403Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/american-express-q2-fy24.js": {
+      "digest": "sha256:5111189fc94ce43a78c163c3aff9f1e910111955fa583506d9b2cdadf21e068a",
+      "updatedAt": "2026-10-15T05:06:28.293Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/american-express-q2-fy25.js": {
+      "digest": "sha256:8a75b0d98b0e6edbad0fdfb6bb80a4ceb371175a390dd7daa9425530b63b29cf",
+      "updatedAt": "2026-10-15T05:06:44.595Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/american-express-q3-fy23.js": {
+      "digest": "sha256:089f22f83bea2db7f5a6ec6eb16ca3a3cddeaf58b0929c251fc3f562ec9f70b7",
+      "updatedAt": "2026-10-15T05:06:33.304Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/american-express-q3-fy24.js": {
+      "digest": "sha256:75d246992f83563be5a595a890b5c0d605be1637ccfadda0bb38e9ca32f70896",
+      "updatedAt": "2026-10-15T05:06:52.666Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/american-express-q3-fy25.js": {
+      "digest": "sha256:b9127d050b1333e217e4d0a2a1e431677ecf7c2894b3953865312f4086f32c83",
+      "updatedAt": "2026-10-15T05:06:17.385Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/american-express-q4-fy23.js": {
+      "digest": "sha256:929e0efb13f54f6d11c8d50ab9d1b0238023e3a8f2be6c2d00f68664340a5b58",
+      "updatedAt": "2026-10-15T05:06:30.980Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/american-express-q4-fy24.js": {
+      "digest": "sha256:419c4714c941bfc34acd3d021e419997468ecbac77209ed13d9b03ed027d2567",
+      "updatedAt": "2026-10-15T05:06:13.297Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/goldman-sachs-q1-fy23.js": {
+      "digest": "sha256:124a271b976cc97811a48d5c150a4ab675dc2a91e3c9518856f6317c5f28befc",
+      "updatedAt": "2026-10-15T05:06:07.752Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/goldman-sachs-q1-fy24.js": {
+      "digest": "sha256:21c8e29dfced5b87ddd66734693e062f2ee33de658e8e17da842cca19c05552d",
+      "updatedAt": "2026-10-15T05:06:08.385Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/goldman-sachs-q2-fy23.js": {
+      "digest": "sha256:1842ac671d308368e72c24a284d5c27d36e00c990caf1ef9635a7d0e12ef696c",
+      "updatedAt": "2026-10-15T05:06:49.371Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/goldman-sachs-q2-fy24.js": {
+      "digest": "sha256:a9d991862f670548160bda687d6317bc49cc01af1269adbebd462233f254be3b",
+      "updatedAt": "2026-10-15T05:05:55.746Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/goldman-sachs-q2-fy25.js": {
+      "digest": "sha256:03b37cd137c5d7b47582cbcbc66f4fb9f2a587f3cf51c9fc91d5e552009708ed",
+      "updatedAt": "2026-10-15T05:07:01.111Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/goldman-sachs-q3-fy23.js": {
+      "digest": "sha256:24cdcec599b8c4345660928731acc71cd89edac7e808e359e4cb17756478a04f",
+      "updatedAt": "2026-10-15T05:06:23.509Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/goldman-sachs-q3-fy24.js": {
+      "digest": "sha256:d1e0b014578521d9d9e8bd53648fa9418b1913faa468e321c5e7763821ebbdb3",
+      "updatedAt": "2026-10-15T05:06:06.484Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/goldman-sachs-q3-fy25.js": {
+      "digest": "sha256:c3906f7255875ab9b6035116e7de21369854a95d52b20148bfe82453174cce92",
+      "updatedAt": "2026-10-15T05:06:37.862Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/goldman-sachs-q4-fy22.js": {
+      "digest": "sha256:91786833af2d7a20a05b7c731248bb9a00e1ba873da0976d659338c3362a5fa0",
+      "updatedAt": "2026-10-15T05:06:47.955Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/goldman-sachs-q4-fy23.js": {
+      "digest": "sha256:b83dda092f0d75d1d38dc346b3341e23a55484764f8e254bd4e5bbcf90618a28",
+      "updatedAt": "2026-10-15T05:05:52.560Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/jpmorganchase-q1-fy23.js": {
+      "digest": "sha256:3c33dc8d363117b5dc34289f71b6b7812617f5d0a4a19e2b0457df1cc16d2987",
+      "updatedAt": "2026-10-15T05:06:30.073Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/jpmorganchase-q1-fy24.js": {
+      "digest": "sha256:29bfcce6083aed81dc824260eef90a5c56e36cc3da03f3c72e94e199b7f7d10b",
+      "updatedAt": "2026-10-15T05:07:09.326Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/jpmorganchase-q2-fy23.js": {
+      "digest": "sha256:b30add02a4dce4b002b4925e9aa90899671f67ad3585ad3e74c36e3036c6711a",
+      "updatedAt": "2026-10-15T05:06:52.294Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/jpmorganchase-q2-fy24.js": {
+      "digest": "sha256:a90d697e1ffdb5ab9e01896c032b3d543b6423a246c5c48fb2ff19a3438f7527",
+      "updatedAt": "2026-10-15T05:06:05.021Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/jpmorganchase-q2-fy25.js": {
+      "digest": "sha256:8cdce054e246d948f4f29ecd197e92b15f845868e7d072f26a3a338e5a1eee10",
+      "updatedAt": "2026-10-15T05:06:32.447Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/jpmorganchase-q3-fy23.js": {
+      "digest": "sha256:3aa2f42f0470d444e15e5f4987a65dda4e34f830f467baf215a97bb39c60d5d8",
+      "updatedAt": "2026-10-15T05:06:21.781Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/jpmorganchase-q3-fy24.js": {
+      "digest": "sha256:ebb3f741535f63a1131e7848a9e663fee0c472e49b894274534b7330c44b9533",
+      "updatedAt": "2026-10-15T05:06:11.100Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/jpmorganchase-q3-fy25.js": {
+      "digest": "sha256:c7f135c685680c3a3b45fb82472d35d5b2b985638acf8d2e17d11ba1f624d246",
+      "updatedAt": "2026-10-15T05:06:38.576Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/jpmorganchase-q4-fy22.js": {
+      "digest": "sha256:f37e0511b3b23f58d23b3bd43d5b0ea817f8011bec117176e87e72e97390a6ac",
+      "updatedAt": "2026-10-15T05:06:52.453Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/jpmorganchase-q4-fy23.js": {
+      "digest": "sha256:d5898ef518ea91a8f3e84485d7e1f1022e4738c86da3174e0621548b6c309547",
+      "updatedAt": "2026-10-15T05:07:31.813Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/mastercard-q1-fy23.js": {
+      "digest": "sha256:faca33821a2ff14e2f0042bb95442d82154552969fb73a7fe1cbfb56f9c8fc4a",
+      "updatedAt": "2026-10-15T05:06:31.389Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/mastercard-q1-fy24.js": {
+      "digest": "sha256:7e29dfaf0fdb52143b664982396386b947e3df40aa2493d08f1da8cba34a7847",
+      "updatedAt": "2026-10-15T05:06:33.769Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/mastercard-q2-fy23.js": {
+      "digest": "sha256:7d44b940a5c7a938966d12ca6a45c6e9ca63a08940a5e136a52d705a6225a09f",
+      "updatedAt": "2026-10-15T05:06:47.165Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/mastercard-q2-fy24.js": {
+      "digest": "sha256:969994884293ee251e001302ba9a31c5b5ab5f2fd0af5ebcfde767bb19bed410",
+      "updatedAt": "2026-10-15T05:06:29.258Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/mastercard-q2-fy25.js": {
+      "digest": "sha256:d9fecf95d3f7f7775a792b82338fa7faa322f249618572061b89850a9b1ffc6e",
+      "updatedAt": "2026-10-15T05:06:57.473Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/mastercard-q3-fy22.js": {
+      "digest": "sha256:6798947e08739eba05ba7d3c5feed0a6f075c8fe3e20bde5f0cef5759b2b1041",
+      "updatedAt": "2026-10-15T05:06:01.695Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/mastercard-q3-fy23.js": {
+      "digest": "sha256:27a6700df46a2c2f0a416e3e0f08b8e95f0990d0d38be99afebd2548c1f0ce49",
+      "updatedAt": "2026-10-15T05:05:54.669Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/mastercard-q3-fy24.js": {
+      "digest": "sha256:d95fe981459f80918d4644155e4506a9840d3e1a864164891cfb6ad7fe4654b0",
+      "updatedAt": "2026-10-15T05:06:55.497Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/mastercard-q3-fy25.js": {
+      "digest": "sha256:c87243bf94f246b385264d31ca6f923cd1ec59e2a5b666bfda814c6f72f440f9",
+      "updatedAt": "2026-10-15T05:06:52.402Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/mastercard-q4-fy22.js": {
+      "digest": "sha256:d009957b6b62d0ad51fb40e79552b21d1192317b95279a5365143932adc2be75",
+      "updatedAt": "2026-10-15T05:06:26.962Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/mastercard-q4-fy23.js": {
+      "digest": "sha256:a2caa1951ffa4b3291b150ebadab06953e8bb642c50458ba0e4377d39736c12a",
+      "updatedAt": "2026-10-15T05:06:20.291Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/mastercard-q4-fy24.js": {
+      "digest": "sha256:9f615e63b76e0c820dcf0c463a1c62f3ef70abb3615a9888915148e36b6cbb5f",
+      "updatedAt": "2026-10-15T05:06:52.565Z",
+      "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
     }
   }
 }

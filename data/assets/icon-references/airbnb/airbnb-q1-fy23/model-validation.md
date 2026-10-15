@@ -1,0 +1,1 @@
+Source icon clusters inspected against the complete Source. Both crops retain all icons and exclude adjacent labels, graph marks and publisher branding. Machine crop validation passed. Awaiting operator review.

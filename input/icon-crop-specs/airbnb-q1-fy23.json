@@ -1,0 +1,73 @@
+{
+  "source": "input/processing/airbnb-q1-fy23.png",
+  "outputDir": "data/assets/icon-references/airbnb/airbnb-q1-fy23",
+  "validationSheetDir": "data/assets/icon-references/airbnb/airbnb-q1-fy23/validation-sheets",
+  "runtimeOutputDir": "data/assets/raster-annotations/airbnb",
+  "report": "crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "crops": [
+    {
+      "key": "us-icons",
+      "output": "crops/us-icons.png",
+      "runtimeOutput": "airbnb-q1-fy23-us-icons.png",
+      "searchBox": {
+        "x": 82,
+        "y": 613,
+        "width": 305,
+        "height": 106
+      },
+      "cropBox": {
+        "x": 82,
+        "y": 613,
+        "width": 305,
+        "height": 106
+      },
+      "threshold": 16,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "international-icons",
+      "output": "crops/international-icons.png",
+      "runtimeOutput": "airbnb-q1-fy23-international-icons.png",
+      "searchBox": {
+        "x": 83,
+        "y": 1037,
+        "width": 302,
+        "height": 100
+      },
+      "cropBox": {
+        "x": 83,
+        "y": 1037,
+        "width": 302,
+        "height": 100
+      },
+      "threshold": 16,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ],
+  "skipped": [
+    {
+      "key": "publisher",
+      "reason": "Publisher and creator marks are non-semantic residuals."
+    }
+  ]
+}

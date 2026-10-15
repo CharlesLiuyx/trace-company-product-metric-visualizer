@@ -1,0 +1,242 @@
+{
+  "source": "input/processing/airbnb-q4-fy22.png",
+  "spec": "input/icon-crop-specs/airbnb-q4-fy22.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-15T06:10:52.722683+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/airbnb",
+  "crops": [
+    {
+      "key": "airbnb-q4-fy22-united-states",
+      "output": "data/assets/icon-references/airbnb/airbnb-q4-fy22/crops/airbnb-q4-fy22-united-states.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3235,
+        "losslessBytes": 15933,
+        "savingsVsLossless": 0.797,
+        "metrics": {
+          "meanAbsoluteError": 0.5174,
+          "rootMeanSquareError": 1.6958,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.2397
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 18174,
+        "transparentPixelRatio": 0.5533
+      },
+      "searchBox": {
+        "x": 78,
+        "y": 615,
+        "width": 307,
+        "height": 107
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 85,
+        "y0": 617,
+        "x1": 383,
+        "y1": 715
+      },
+      "cropBox": {
+        "x0": 78,
+        "y0": 615,
+        "x1": 385,
+        "y1": 722
+      },
+      "validation": {
+        "width": 307,
+        "height": 107,
+        "foregroundPixels": 10805,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 2,
+          "top": 2,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": 0.0081,
+          "y": -0.0234
+        },
+        "passes": true
+      },
+      "note": "Complete region pictogram cluster; no chart, text or publisher.",
+      "runtimeOutput": "data/assets/raster-annotations/airbnb/airbnb-q4-fy22-united-states.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3235,
+        "losslessBytes": 15933,
+        "savingsVsLossless": 0.797,
+        "metrics": {
+          "meanAbsoluteError": 0.5174,
+          "rootMeanSquareError": 1.6958,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.2397
+        }
+      },
+      "validationSheet": "data/assets/icon-references/airbnb/airbnb-q4-fy22/validation-sheets/airbnb-q4-fy22-united-states.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 98961,
+        "losslessBytes": 260306,
+        "savingsVsLossless": 0.6198,
+        "metrics": {
+          "meanAbsoluteError": 0.2291,
+          "rootMeanSquareError": 1.6767,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 61,
+          "changedPixelRatio": 0.067
+        }
+      }
+    },
+    {
+      "key": "airbnb-q4-fy22-international",
+      "output": "data/assets/icon-references/airbnb/airbnb-q4-fy22/crops/airbnb-q4-fy22-international.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3130,
+        "losslessBytes": 15593,
+        "savingsVsLossless": 0.7993,
+        "metrics": {
+          "meanAbsoluteError": 0.4327,
+          "rootMeanSquareError": 1.5626,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.1792
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 22765,
+        "transparentPixelRatio": 0.6848
+      },
+      "searchBox": {
+        "x": 82,
+        "y": 951,
+        "width": 305,
+        "height": 109
+      },
+      "componentCount": 7,
+      "subjectBox": {
+        "x0": 89,
+        "y0": 960,
+        "x1": 381,
+        "y1": 1050
+      },
+      "cropBox": {
+        "x0": 82,
+        "y0": 951,
+        "x1": 387,
+        "y1": 1060
+      },
+      "validation": {
+        "width": 305,
+        "height": 109,
+        "foregroundPixels": 8104,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 6,
+          "top": 9,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": 0.0016,
+          "y": -0.0046
+        },
+        "passes": true
+      },
+      "note": "Complete region pictogram cluster; no chart, text or publisher.",
+      "runtimeOutput": "data/assets/raster-annotations/airbnb/airbnb-q4-fy22-international.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3130,
+        "losslessBytes": 15593,
+        "savingsVsLossless": 0.7993,
+        "metrics": {
+          "meanAbsoluteError": 0.4327,
+          "rootMeanSquareError": 1.5626,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.1792
+        }
+      },
+      "validationSheet": "data/assets/icon-references/airbnb/airbnb-q4-fy22/validation-sheets/airbnb-q4-fy22-international.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 98404,
+        "losslessBytes": 258720,
+        "savingsVsLossless": 0.6197,
+        "metrics": {
+          "meanAbsoluteError": 0.2148,
+          "rootMeanSquareError": 1.6616,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 62,
+          "changedPixelRatio": 0.066
+        }
+      }
+    }
+  ]
+}

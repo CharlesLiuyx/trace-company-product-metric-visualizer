@@ -1,0 +1,69 @@
+{
+  "source": "input/processing/airbnb-q4-fy22.png",
+  "outputDir": "data/assets/icon-references/airbnb/airbnb-q4-fy22",
+  "validationSheetDir": "data/assets/icon-references/airbnb/airbnb-q4-fy22/validation-sheets",
+  "runtimeOutputDir": "data/assets/raster-annotations/airbnb",
+  "report": "crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "crops": [
+    {
+      "key": "airbnb-q4-fy22-united-states",
+      "output": "crops/airbnb-q4-fy22-united-states.png",
+      "runtimeOutput": "airbnb-q4-fy22-united-states.png",
+      "searchBox": {
+        "x": 78,
+        "y": 615,
+        "width": 307,
+        "height": 107
+      },
+      "cropBox": {
+        "x": 78,
+        "y": 615,
+        "width": 307,
+        "height": 107
+      },
+      "threshold": 16,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.25,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete region pictogram cluster; no chart, text or publisher."
+    },
+    {
+      "key": "airbnb-q4-fy22-international",
+      "output": "crops/airbnb-q4-fy22-international.png",
+      "runtimeOutput": "airbnb-q4-fy22-international.png",
+      "searchBox": {
+        "x": 82,
+        "y": 951,
+        "width": 305,
+        "height": 109
+      },
+      "cropBox": {
+        "x": 82,
+        "y": 951,
+        "width": 305,
+        "height": 109
+      },
+      "threshold": 16,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.25,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete region pictogram cluster; no chart, text or publisher."
+    }
+  ]
+}

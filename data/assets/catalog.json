@@ -497,6 +497,46 @@
       "reusable": true
     },
     {
+      "path": "data/assets/raster-annotations/airbnb/airbnb-q1-fy23-international-icons.png",
+      "digest": "sha256:77f58d570bf442059dec3d2bd03b7219ad9b4f483b79beb3bafe750231f57ba9",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/airbnb-q1-fy23.json",
+          "recipeDigest": "sha256:821b733d0e5abd0fe93f5c18be66644df1db794cafb1261ff4a744a1f9deac9b",
+          "source": "input/processing/airbnb-q1-fy23.png",
+          "cropKey": "international-icons"
+        }
+      ],
+      "directConsumers": [
+        "airbnb-q1-fy23"
+      ],
+      "consumers": [
+        "airbnb-q1-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/airbnb/airbnb-q1-fy23-us-icons.png",
+      "digest": "sha256:521fabb1bc3995c57fc608fd88cc186ba1c3886631fbb79a8a04de2a997cef50",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/airbnb-q1-fy23.json",
+          "recipeDigest": "sha256:821b733d0e5abd0fe93f5c18be66644df1db794cafb1261ff4a744a1f9deac9b",
+          "source": "input/processing/airbnb-q1-fy23.png",
+          "cropKey": "us-icons"
+        }
+      ],
+      "directConsumers": [
+        "airbnb-q1-fy23"
+      ],
+      "consumers": [
+        "airbnb-q1-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/airbnb/airbnb-q2-fy26-apac.png",
       "digest": "sha256:272f8f8ce048a8e184b69655036090ec0cf253fe370aea48ef73d06ca8cb2d26",
       "provenance": [
@@ -508,13 +548,25 @@
         }
       ],
       "directConsumers": [
+        "airbnb-fy23",
+        "airbnb-q1-fy24",
         "airbnb-q1-fy25",
+        "airbnb-q2-fy23",
+        "airbnb-q2-fy24",
+        "airbnb-q2-fy25",
         "airbnb-q2-fy26",
+        "airbnb-q3-fy24",
         "airbnb-q4-fy24"
       ],
       "consumers": [
+        "airbnb-fy23",
+        "airbnb-q1-fy24",
         "airbnb-q1-fy25",
+        "airbnb-q2-fy23",
+        "airbnb-q2-fy24",
+        "airbnb-q2-fy25",
         "airbnb-q2-fy26",
+        "airbnb-q3-fy24",
         "airbnb-q4-fy24"
       ],
       "acceptedVersions": [
@@ -534,13 +586,25 @@
         }
       ],
       "directConsumers": [
+        "airbnb-fy23",
+        "airbnb-q1-fy24",
         "airbnb-q1-fy25",
+        "airbnb-q2-fy23",
+        "airbnb-q2-fy24",
+        "airbnb-q2-fy25",
         "airbnb-q2-fy26",
+        "airbnb-q3-fy24",
         "airbnb-q4-fy24"
       ],
       "consumers": [
+        "airbnb-fy23",
+        "airbnb-q1-fy24",
         "airbnb-q1-fy25",
+        "airbnb-q2-fy23",
+        "airbnb-q2-fy24",
+        "airbnb-q2-fy25",
         "airbnb-q2-fy26",
+        "airbnb-q3-fy24",
         "airbnb-q4-fy24"
       ],
       "acceptedVersions": [
@@ -560,13 +624,25 @@
         }
       ],
       "directConsumers": [
+        "airbnb-fy23",
+        "airbnb-q1-fy24",
         "airbnb-q1-fy25",
+        "airbnb-q2-fy23",
+        "airbnb-q2-fy24",
+        "airbnb-q2-fy25",
         "airbnb-q2-fy26",
+        "airbnb-q3-fy24",
         "airbnb-q4-fy24"
       ],
       "consumers": [
+        "airbnb-fy23",
+        "airbnb-q1-fy24",
         "airbnb-q1-fy25",
+        "airbnb-q2-fy23",
+        "airbnb-q2-fy24",
+        "airbnb-q2-fy25",
         "airbnb-q2-fy26",
+        "airbnb-q3-fy24",
         "airbnb-q4-fy24"
       ],
       "acceptedVersions": [
@@ -586,13 +662,31 @@
         }
       ],
       "directConsumers": [
+        "airbnb-fy23",
+        "airbnb-q1-fy23",
+        "airbnb-q1-fy24",
         "airbnb-q1-fy25",
+        "airbnb-q2-fy23",
+        "airbnb-q2-fy24",
+        "airbnb-q2-fy25",
         "airbnb-q2-fy26",
+        "airbnb-q3-fy22",
+        "airbnb-q3-fy24",
+        "airbnb-q4-fy22",
         "airbnb-q4-fy24"
       ],
       "consumers": [
+        "airbnb-fy23",
+        "airbnb-q1-fy23",
+        "airbnb-q1-fy24",
         "airbnb-q1-fy25",
+        "airbnb-q2-fy23",
+        "airbnb-q2-fy24",
+        "airbnb-q2-fy25",
         "airbnb-q2-fy26",
+        "airbnb-q3-fy22",
+        "airbnb-q3-fy24",
+        "airbnb-q4-fy22",
         "airbnb-q4-fy24"
       ],
       "acceptedVersions": [
@@ -612,19 +706,71 @@
         }
       ],
       "directConsumers": [
+        "airbnb-fy23",
+        "airbnb-q1-fy24",
         "airbnb-q1-fy25",
+        "airbnb-q2-fy23",
+        "airbnb-q2-fy24",
+        "airbnb-q2-fy25",
         "airbnb-q2-fy26",
+        "airbnb-q3-fy24",
         "airbnb-q4-fy24"
       ],
       "consumers": [
+        "airbnb-fy23",
+        "airbnb-q1-fy24",
         "airbnb-q1-fy25",
+        "airbnb-q2-fy23",
+        "airbnb-q2-fy24",
+        "airbnb-q2-fy25",
         "airbnb-q2-fy26",
+        "airbnb-q3-fy24",
         "airbnb-q4-fy24"
       ],
       "acceptedVersions": [
         "sha256:d8bb983e194d5247de6dc08652279135bff87aa394aa92089659d884eaa18273"
       ],
       "reusable": true
+    },
+    {
+      "path": "data/assets/raster-annotations/airbnb/airbnb-q4-fy22-international.png",
+      "digest": "sha256:6d37176d9b9a998f129364522bf8bffeef0ddbd8bc903a2506357426b862da74",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/airbnb-q4-fy22.json",
+          "recipeDigest": "sha256:db716b767d234dce7eb75164e92e9ee719ebf63c325d87802a265e93f7864b56",
+          "source": "input/processing/airbnb-q4-fy22.png",
+          "cropKey": "airbnb-q4-fy22-international"
+        }
+      ],
+      "directConsumers": [
+        "airbnb-q4-fy22"
+      ],
+      "consumers": [
+        "airbnb-q4-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/airbnb/airbnb-q4-fy22-united-states.png",
+      "digest": "sha256:13c85f0d8fcb7aa9f206723fab326117851fbf6263d9cffc44a84f17c2549386",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/airbnb-q4-fy22.json",
+          "recipeDigest": "sha256:db716b767d234dce7eb75164e92e9ee719ebf63c325d87802a265e93f7864b56",
+          "source": "input/processing/airbnb-q4-fy22.png",
+          "cropKey": "airbnb-q4-fy22-united-states"
+        }
+      ],
+      "directConsumers": [
+        "airbnb-q4-fy22"
+      ],
+      "consumers": [
+        "airbnb-q4-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
     },
     {
       "path": "data/assets/raster-annotations/airbus/commercial-aircraft-a380-fy25.png",
@@ -7603,19 +7749,55 @@
       ],
       "directConsumers": [
         "nintendo-9m-fy26",
+        "nintendo-fy23",
+        "nintendo-fy24",
         "nintendo-fy25",
         "nintendo-fy26",
+        "nintendo-h1-fy24",
+        "nintendo-h1-fy25",
         "nintendo-h1-fy26",
+        "nintendo-q1-fy25",
+        "nintendo-q1-fy26",
         "nintendo-q1-fy27",
+        "nintendo-q3-fy23",
+        "nintendo-q3-fy24",
         "nintendo-q3-fy25"
       ],
       "consumers": [
         "nintendo-9m-fy26",
+        "nintendo-fy23",
+        "nintendo-fy24",
         "nintendo-fy25",
         "nintendo-fy26",
+        "nintendo-h1-fy24",
+        "nintendo-h1-fy25",
         "nintendo-h1-fy26",
+        "nintendo-q1-fy25",
+        "nintendo-q1-fy26",
         "nintendo-q1-fy27",
+        "nintendo-q3-fy23",
+        "nintendo-q3-fy24",
         "nintendo-q3-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/nintendo/game-covers-q3-fy23.png",
+      "digest": "sha256:60682d459719620a9dfab54dd15cb1d8988d188917c9b9610c5a6d1137fe2223",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/nintendo-q3-fy23.json",
+          "recipeDigest": "sha256:02fd70c1cd47b23951b99efb0ec42f6c80f569b80d921dd39b6532bb422f62b2",
+          "source": "input/processing/nintendo-q3-fy23.png",
+          "cropKey": "game-covers-q3-fy23"
+        }
+      ],
+      "directConsumers": [
+        "nintendo-q3-fy23"
+      ],
+      "consumers": [
+        "nintendo-q3-fy23"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -7632,11 +7814,23 @@
         }
       ],
       "directConsumers": [
+        "nintendo-fy24",
         "nintendo-fy25",
+        "nintendo-h1-fy24",
+        "nintendo-h1-fy25",
+        "nintendo-q1-fy25",
+        "nintendo-q1-fy26",
+        "nintendo-q3-fy24",
         "nintendo-q3-fy25"
       ],
       "consumers": [
+        "nintendo-fy24",
         "nintendo-fy25",
+        "nintendo-h1-fy24",
+        "nintendo-h1-fy25",
+        "nintendo-q1-fy25",
+        "nintendo-q1-fy26",
+        "nintendo-q3-fy24",
         "nintendo-q3-fy25"
       ],
       "acceptedVersions": [],
@@ -7655,11 +7849,13 @@
       ],
       "directConsumers": [
         "nintendo-9m-fy26",
-        "nintendo-h1-fy26"
+        "nintendo-h1-fy26",
+        "nintendo-q1-fy26"
       ],
       "consumers": [
         "nintendo-9m-fy26",
-        "nintendo-h1-fy26"
+        "nintendo-h1-fy26",
+        "nintendo-q1-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -7676,11 +7872,21 @@
         }
       ],
       "directConsumers": [
+        "nintendo-fy24",
         "nintendo-fy25",
+        "nintendo-h1-fy24",
+        "nintendo-h1-fy25",
+        "nintendo-q1-fy25",
+        "nintendo-q3-fy24",
         "nintendo-q3-fy25"
       ],
       "consumers": [
+        "nintendo-fy24",
         "nintendo-fy25",
+        "nintendo-h1-fy24",
+        "nintendo-h1-fy25",
+        "nintendo-q1-fy25",
+        "nintendo-q3-fy24",
         "nintendo-q3-fy25"
       ],
       "acceptedVersions": [],
@@ -7698,12 +7904,34 @@
         }
       ],
       "directConsumers": [
+        "nintendo-fy23",
         "nintendo-fy26",
         "nintendo-q1-fy27"
       ],
       "consumers": [
+        "nintendo-fy23",
         "nintendo-fy26",
         "nintendo-q1-fy27"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/nintendo/mobile-stores-q3-fy23.png",
+      "digest": "sha256:c2b17c7fe6e72a77e31ce12627a01b91c22ad43fba093225367f2f56e54fa428",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/nintendo-q3-fy23.json",
+          "recipeDigest": "sha256:02fd70c1cd47b23951b99efb0ec42f6c80f569b80d921dd39b6532bb422f62b2",
+          "source": "input/processing/nintendo-q3-fy23.png",
+          "cropKey": "mobile-stores-q3-fy23"
+        }
+      ],
+      "directConsumers": [
+        "nintendo-q3-fy23"
+      ],
+      "consumers": [
+        "nintendo-q3-fy23"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -7721,11 +7949,13 @@
       ],
       "directConsumers": [
         "nintendo-9m-fy26",
-        "nintendo-h1-fy26"
+        "nintendo-h1-fy26",
+        "nintendo-q1-fy26"
       ],
       "consumers": [
         "nintendo-9m-fy26",
-        "nintendo-h1-fy26"
+        "nintendo-h1-fy26",
+        "nintendo-q1-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -7742,15 +7972,29 @@
         }
       ],
       "directConsumers": [
+        "nintendo-fy23",
+        "nintendo-fy24",
         "nintendo-fy25",
         "nintendo-fy26",
+        "nintendo-h1-fy24",
+        "nintendo-h1-fy25",
+        "nintendo-q1-fy25",
         "nintendo-q1-fy27",
+        "nintendo-q3-fy23",
+        "nintendo-q3-fy24",
         "nintendo-q3-fy25"
       ],
       "consumers": [
+        "nintendo-fy23",
+        "nintendo-fy24",
         "nintendo-fy25",
         "nintendo-fy26",
+        "nintendo-h1-fy24",
+        "nintendo-h1-fy25",
+        "nintendo-q1-fy25",
         "nintendo-q1-fy27",
+        "nintendo-q3-fy23",
+        "nintendo-q3-fy24",
         "nintendo-q3-fy25"
       ],
       "acceptedVersions": [],
@@ -7769,14 +8013,24 @@
       ],
       "directConsumers": [
         "nintendo-9m-fy26",
+        "nintendo-fy24",
         "nintendo-fy25",
+        "nintendo-h1-fy24",
+        "nintendo-h1-fy25",
         "nintendo-h1-fy26",
+        "nintendo-q1-fy25",
+        "nintendo-q1-fy26",
         "nintendo-q3-fy25"
       ],
       "consumers": [
         "nintendo-9m-fy26",
+        "nintendo-fy24",
         "nintendo-fy25",
+        "nintendo-h1-fy24",
+        "nintendo-h1-fy25",
         "nintendo-h1-fy26",
+        "nintendo-q1-fy25",
+        "nintendo-q1-fy26",
         "nintendo-q3-fy25"
       ],
       "acceptedVersions": [],
@@ -7795,11 +8049,13 @@
       ],
       "directConsumers": [
         "nintendo-fy26",
-        "nintendo-q1-fy27"
+        "nintendo-q1-fy27",
+        "nintendo-q3-fy24"
       ],
       "consumers": [
         "nintendo-fy26",
-        "nintendo-q1-fy27"
+        "nintendo-q1-fy27",
+        "nintendo-q3-fy24"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -9010,10 +9266,12 @@
         }
       ],
       "directConsumers": [
+        "paypal-q1-fy23",
         "paypal-q1-fy26",
         "paypal-q2-fy26"
       ],
       "consumers": [
+        "paypal-q1-fy23",
         "paypal-q1-fy26",
         "paypal-q2-fy26"
       ],
@@ -9032,12 +9290,32 @@
         }
       ],
       "directConsumers": [
+        "paypal-q1-fy24",
         "paypal-q1-fy25",
+        "paypal-q2-fy23",
+        "paypal-q2-fy24",
+        "paypal-q2-fy25",
+        "paypal-q3-fy22",
+        "paypal-q3-fy23",
+        "paypal-q3-fy24",
+        "paypal-q3-fy25",
+        "paypal-q4-fy22",
+        "paypal-q4-fy23",
         "paypal-q4-fy24",
         "paypal-q4-fy25"
       ],
       "consumers": [
+        "paypal-q1-fy24",
         "paypal-q1-fy25",
+        "paypal-q2-fy23",
+        "paypal-q2-fy24",
+        "paypal-q2-fy25",
+        "paypal-q3-fy22",
+        "paypal-q3-fy23",
+        "paypal-q3-fy24",
+        "paypal-q3-fy25",
+        "paypal-q4-fy22",
+        "paypal-q4-fy23",
         "paypal-q4-fy24",
         "paypal-q4-fy25"
       ],
@@ -9056,10 +9334,12 @@
         }
       ],
       "directConsumers": [
+        "paypal-q1-fy23",
         "paypal-q1-fy26",
         "paypal-q2-fy26"
       ],
       "consumers": [
+        "paypal-q1-fy23",
         "paypal-q1-fy26",
         "paypal-q2-fy26"
       ],
@@ -9078,12 +9358,32 @@
         }
       ],
       "directConsumers": [
+        "paypal-q1-fy24",
         "paypal-q1-fy25",
+        "paypal-q2-fy23",
+        "paypal-q2-fy24",
+        "paypal-q2-fy25",
+        "paypal-q3-fy22",
+        "paypal-q3-fy23",
+        "paypal-q3-fy24",
+        "paypal-q3-fy25",
+        "paypal-q4-fy22",
+        "paypal-q4-fy23",
         "paypal-q4-fy24",
         "paypal-q4-fy25"
       ],
       "consumers": [
+        "paypal-q1-fy24",
         "paypal-q1-fy25",
+        "paypal-q2-fy23",
+        "paypal-q2-fy24",
+        "paypal-q2-fy25",
+        "paypal-q3-fy22",
+        "paypal-q3-fy23",
+        "paypal-q3-fy24",
+        "paypal-q3-fy25",
+        "paypal-q4-fy22",
+        "paypal-q4-fy23",
         "paypal-q4-fy24",
         "paypal-q4-fy25"
       ],
@@ -12960,6 +13260,11 @@
       "source": "input/processed/affirm-q4-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/airbnb-q1-fy23.json",
+      "digest": "sha256:821b733d0e5abd0fe93f5c18be66644df1db794cafb1261ff4a744a1f9deac9b",
+      "source": "input/processing/airbnb-q1-fy23.png"
+    },
+    {
       "path": "input/icon-crop-specs/airbnb-q1-fy26.json",
       "digest": "sha256:007f35c6cd5799ca060e9ad594a08ca749b01e1927ae3eda1d869174169a2c74",
       "source": "input/processed/airbnb-q1-fy26.png"
@@ -12968,6 +13273,11 @@
       "path": "input/icon-crop-specs/airbnb-q2-fy26.json",
       "digest": "sha256:b5a628092174e8fd7d18787a51335ed21f5b8d8a4990a1ab97ec6a280dfc52c4",
       "source": "input/processed/airbnb-q2-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/airbnb-q4-fy22.json",
+      "digest": "sha256:db716b767d234dce7eb75164e92e9ee719ebf63c325d87802a265e93f7864b56",
+      "source": "input/processing/airbnb-q4-fy22.png"
     },
     {
       "path": "input/icon-crop-specs/airbus-fy25.json",
@@ -13788,6 +14098,11 @@
       "path": "input/icon-crop-specs/nintendo-fy26.json",
       "digest": "sha256:759500e992896a19e6b5f105b1aa9f1cbcf39543e4d30a04c2dd4bf3f7010066",
       "source": "input/processed/nintendo-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/nintendo-q3-fy23.json",
+      "digest": "sha256:02fd70c1cd47b23951b99efb0ec42f6c80f569b80d921dd39b6532bb422f62b2",
+      "source": "input/processing/nintendo-q3-fy23.png"
     },
     {
       "path": "input/icon-crop-specs/nio-company-logo.json",

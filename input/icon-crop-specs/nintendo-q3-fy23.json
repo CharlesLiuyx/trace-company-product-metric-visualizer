@@ -1,0 +1,27 @@
+{
+  "source": "input/processing/nintendo-q3-fy23.png",
+  "outputDir": "data/assets/icon-references/nintendo-q3-fy23",
+  "runtimeOutputDir": "data/assets/raster-annotations/nintendo",
+  "crops": [
+    {
+      "key": "mobile-stores-q3-fy23",
+      "cropBox": {
+        "x": 107,
+        "y": 1124,
+        "width": 182,
+        "height": 84
+      },
+      "runtimeOutput": "mobile-stores-q3-fy23.png"
+    },
+    {
+      "key": "game-covers-q3-fy23",
+      "cropBox": {
+        "x": 699,
+        "y": 1220,
+        "width": 314,
+        "height": 164
+      },
+      "runtimeOutput": "game-covers-q3-fy23.png"
+    }
+  ]
+}

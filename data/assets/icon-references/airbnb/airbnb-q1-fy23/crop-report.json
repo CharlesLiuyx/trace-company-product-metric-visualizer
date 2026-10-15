@@ -1,0 +1,242 @@
+{
+  "source": "input/processing/airbnb-q1-fy23.png",
+  "spec": "input/icon-crop-specs/airbnb-q1-fy23.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-15T06:11:21.053792+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/airbnb",
+  "crops": [
+    {
+      "key": "us-icons",
+      "output": "data/assets/icon-references/airbnb/airbnb-q1-fy23/crops/us-icons.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3231,
+        "losslessBytes": 15918,
+        "savingsVsLossless": 0.797,
+        "metrics": {
+          "meanAbsoluteError": 0.5257,
+          "rootMeanSquareError": 1.7094,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.2436
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 17655,
+        "transparentPixelRatio": 0.5461
+      },
+      "searchBox": {
+        "x": 82,
+        "y": 613,
+        "width": 305,
+        "height": 106
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 85,
+        "y0": 617,
+        "x1": 383,
+        "y1": 715
+      },
+      "cropBox": {
+        "x0": 82,
+        "y0": 613,
+        "x1": 387,
+        "y1": 719
+      },
+      "validation": {
+        "width": 305,
+        "height": 106,
+        "foregroundPixels": 10805,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 3,
+          "right": 4,
+          "top": 4,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": -0.0016,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/airbnb/airbnb-q1-fy23-us-icons.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3231,
+        "losslessBytes": 15918,
+        "savingsVsLossless": 0.797,
+        "metrics": {
+          "meanAbsoluteError": 0.5257,
+          "rootMeanSquareError": 1.7094,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.2436
+        }
+      },
+      "validationSheet": "data/assets/icon-references/airbnb/airbnb-q1-fy23/validation-sheets/us-icons.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 128,
+        "bytes": 80391,
+        "losslessBytes": 241227,
+        "savingsVsLossless": 0.6667,
+        "metrics": {
+          "meanAbsoluteError": 0.3483,
+          "rootMeanSquareError": 2.2809,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 69,
+          "changedPixelRatio": 0.0775
+        }
+      }
+    },
+    {
+      "key": "international-icons",
+      "output": "data/assets/icon-references/airbnb/airbnb-q1-fy23/crops/international-icons.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3067,
+        "losslessBytes": 15329,
+        "savingsVsLossless": 0.7999,
+        "metrics": {
+          "meanAbsoluteError": 0.6082,
+          "rootMeanSquareError": 1.754,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 14,
+          "changedPixelRatio": 0.3462
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 19842,
+        "transparentPixelRatio": 0.657
+      },
+      "searchBox": {
+        "x": 83,
+        "y": 1037,
+        "width": 302,
+        "height": 100
+      },
+      "componentCount": 7,
+      "subjectBox": {
+        "x0": 89,
+        "y0": 1041,
+        "x1": 381,
+        "y1": 1131
+      },
+      "cropBox": {
+        "x0": 83,
+        "y0": 1037,
+        "x1": 385,
+        "y1": 1137
+      },
+      "validation": {
+        "width": 302,
+        "height": 100,
+        "foregroundPixels": 7979,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 4,
+          "top": 4,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": 0.0033,
+          "y": -0.01
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/airbnb/airbnb-q1-fy23-international-icons.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3067,
+        "losslessBytes": 15329,
+        "savingsVsLossless": 0.7999,
+        "metrics": {
+          "meanAbsoluteError": 0.6082,
+          "rootMeanSquareError": 1.754,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 14,
+          "changedPixelRatio": 0.3462
+        }
+      },
+      "validationSheet": "data/assets/icon-references/airbnb/airbnb-q1-fy23/validation-sheets/international-icons.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 128,
+        "bytes": 79664,
+        "losslessBytes": 240255,
+        "savingsVsLossless": 0.6684,
+        "metrics": {
+          "meanAbsoluteError": 0.3565,
+          "rootMeanSquareError": 2.3631,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 69,
+          "changedPixelRatio": 0.0772
+        }
+      }
+    }
+  ]
+}
