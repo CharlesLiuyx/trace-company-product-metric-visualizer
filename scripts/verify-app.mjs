@@ -588,7 +588,8 @@ await scenario('period: Nintendo FY26 variants render YTD, active 9M, then H1', 
   await page.waitForSelector('#periodList .variant-chip.active', { timeout: 15000 });
   const labels = await page.evaluate(() => ({
     active: document.querySelector('#periodList .variant-chip.active')?.textContent.trim(),
-    all: [...document.querySelectorAll('#periodList .variant-chip')].map((chip) => chip.textContent.trim()),
+    // Other fiscal years may carry their own variant rows; assert FY26's row only.
+    all: [...(document.querySelector('#periodList .variant-chip.active')?.closest('.variant-row')?.querySelectorAll('.variant-chip') || [])].map((chip) => chip.textContent.trim()),
   }));
   assert(labels.active === '9M', `expected active interim variant label 9M, got ${labels.active}`);
   assert(labels.all.join('|') === 'YTD|9M|H1', `expected variant order YTD | 9M | H1, got ${labels.all.join(' | ')}`);
