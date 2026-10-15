@@ -98,7 +98,7 @@ function financialLoadedData(key, { restructuringTarget = 'nonNodeMetric' } = {}
       meta: { unit: 'B', decimals: 3 },
       nodes: [{ id: 'revenue', value: 1, valueText: '$1B' }],
       nonNodeMetrics: restructuringTarget === 'nonNodeMetric'
-        ? [{ id: 'restructuring', representation: 'flow', value: 0.005 }]
+        ? [{ id: 'restructuring', representation: 'annotation', value: 0.005 }]
         : [],
     }],
   };

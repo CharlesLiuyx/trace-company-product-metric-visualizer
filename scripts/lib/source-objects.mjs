@@ -831,6 +831,11 @@ function reconcileIncomeStatement(sourceObjects, values, loaded) {
         `${entry.id} names ${entry.node ? 'node' : 'nonNodeMetric'} ${target}, which the View Adapter does not define in ${entry.node ? 'nodes[]' : 'nonNodeMetrics[]'}`
       );
     }
+    // T22/B15: a routed flow paints a link but no face, so the amount has no
+    // bar to hover and no link share. Only annotation/data-only metrics stay non-node.
+    if (!entry.node && (metric.representation || 'flow') === 'flow') {
+      throw sourceObjectsError('SOURCE_OBJECTS_VALUE_NODE_REQUIRED', `${entry.id} is routed as nonNodeMetric flow ${target}; map the Source amount to a painted node and declare a thin face in shortNodes`);
+    }
     const type = metric.type;
     if (!equalAmount(normalizeSankeyMetricValue(actualSsot, type), normalizeSankeyMetricValue(expected, type))) {
       throw sourceObjectsError('SOURCE_OBJECTS_SSOT_VALUE_MISMATCH', `${entry.id} Source amount ${entry.value}${entry.unit} does not match SSOT ${entry.ssotRef.path}/${entry.ssotRef.id}: ${actualSsot}`);

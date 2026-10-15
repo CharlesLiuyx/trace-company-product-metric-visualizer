@@ -129,7 +129,7 @@ export const FIDELITY_RULES = Object.freeze([
     trigger: 'prepare 校验 `source-objects/v1` 时，对象的 id、label 或 literal 命中 Other/All Other 语义。',
     check:
       '带值 Other 是数据指标而非标注：label 或 literal 含 K/M/B/T 金额而 class 不是 `value` 立即失败' +
-      '（`SOURCE_OBJECTS_OTHER_CLASS_INVALID`）；Other 对象不得记为 `residual`。收入构成中的 Other 必须绑定 node，不能用 nonNodeMetric 路由省略柱面（`SOURCE_OBJECTS_OTHER_REVENUE_NODE_REQUIRED`）。映射到 node 的 value 对象由 B15 ' +
+      '（`SOURCE_OBJECTS_OTHER_CLASS_INVALID`）；Other 对象不得记为 `residual`。收入构成中的 Other 必须绑定 node，不能用 nonNodeMetric 路由省略柱面（`SOURCE_OBJECTS_OTHER_REVENUE_NODE_REQUIRED`）；prepare 对账时，任何利润表金额绑定到 `flow`（或未声明 representation）的 nonNodeMetric 也失败（`SOURCE_OBJECTS_VALUE_NODE_REQUIRED`），因为路由只画连线、没有可 Hover 的柱面与 Link 百分比；只有 `annotation`/`data-only` 表示保留非节点。映射到 node 的 value 对象由 B15 ' +
       '在渲染时确认柱面已绘制。',
     pass: '把带值 Other 记成标签、流带、资产或残留一律失败；真实柱面低于 3px 时按 B15 的 `shortNodes` 声明处理，而不是隐藏。',
   }),

@@ -182,6 +182,22 @@ test('Other is never residual and a value-bearing Other must be a value entry (T
   assert.deepEqual(create([otherIncome()]).summary.otherIds, ['other-income']);
 });
 
+test('T22 rejects any Income Statement amount routed as a faceless flow, not only Other revenue', () => {
+  // paypal-q3-fy25 / spotify-q2-fy24: Other income and Tax benefit drew a link with no bar or link share.
+  for (const representation of [undefined, 'flow']) {
+    const loaded = loadedData();
+    loaded.datasets[0].nodes = [];
+    loaded.datasets[0].nonNodeMetrics = [{ id: 'other_income', value: 0.04, ...(representation ? { representation } : {}) }];
+    assert.throws(() => create([otherIncome({ node: undefined, nonNodeMetric: 'other_income' })], { loadedData: loaded }),
+      (error) => error.code === 'SOURCE_OBJECTS_VALUE_NODE_REQUIRED', String(representation));
+  }
+  const annotated = loadedData();
+  annotated.datasets[0].nodes = [];
+  annotated.datasets[0].nonNodeMetrics = [{ id: 'other_income', representation: 'annotation', value: 0.04 }];
+  assert.doesNotThrow(() => create([otherIncome({ node: undefined, nonNodeMetric: 'other_income' })], { loadedData: annotated }));
+  assert.doesNotThrow(() => create([otherIncome()], { loadedData: loadedData() }));
+});
+
 test('T22 rejects Other revenue routing without a face and preserves a declared short node', () => {
   const other = otherIncome({
     id: 'other-revenue', literal: '$0.2B', value: '0.2', unit: 'B',
