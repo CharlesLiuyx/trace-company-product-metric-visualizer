@@ -46,8 +46,11 @@ One rule takes precedence on node and node-label hover: when the link's target
 node also receives input from another source node, the card shows
 `|link value| / |hovered node authored value|` (for example, hovering Operating
 profit shows the Operating profit → Net profit link as its share of Operating
-profit when Net profit also receives Other). Direct link hover keeps the
-default formula.
+profit when Net profit also receives Other). If that ratio reads 100%, it adds
+no information, so the card shows `|link value| / |opposite node authored
+value|` instead. The denominator must be larger than the numerator: when
+neither node exceeds the link value, the default formula applies. Direct link
+hover keeps the default formula.
 
 On node or node-label hover, incoming and outgoing sides are still grouped
 independently by **distinct opposite semantic node**. That grouping controls

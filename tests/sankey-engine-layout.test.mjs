@@ -138,7 +138,7 @@ test('node hover shows link amount over the hovered node when the target has oth
   assert.equal(nodeShare(retained, netProfit, count), '87.7%', 'link 114 / hovered Net profit 130');
   assert.equal(nodeShare(other, netProfit, count), '12.3%', 'link 16 / hovered Net profit 130');
   assert.equal(nodeShare(retained, operatingProfit, 1), '96.6%', 'link 114 / hovered Operating profit 118');
-  assert.equal(nodeShare(other, otherIncome, 1), '100%');
+  assert.equal(nodeShare(other, otherIncome, 1), '12.3%', '16 / 16 would be 100%, so use the opposite end: 16 / 130');
   assert.equal(linkShare(retained), '90.8%', 'direct link hover keeps the endpoint ratio');
 });
 
@@ -160,6 +160,34 @@ test('ups-q4-fy22: hovering Operating profit splits it across Net profit, Tax an
   assert.equal(nodeShare(retained, operatingProfit, 3), '62.5%', 'was 91.4% (3.2 / 3.5)');
   assert.equal(nodeShare(taxFlow, operatingProfit, 3), '31.3%', 'single-input target keeps the endpoint ratio');
   assert.equal(nodeShare(interestFlow, operatingProfit, 3), '6.3%');
+});
+
+test('gm-q4-fy24: a 100% multi-input share falls back to the link over its opposite end', () => {
+  // Operating profit $1.5B flows entirely into Other ($4.4B), which also receives Net loss $2.9B.
+  const operatingProfit = { id: 'operating_profit', dv: 1.5 };
+  const netLoss = { id: 'net_loss', dv: 2.9 };
+  const other = { id: 'other_net', dv: 4.4 };
+  const fromProfit = { source: operatingProfit, target: other, value: 1.5, raw: { value: 1.5 } };
+  const fromLoss = { source: netLoss, target: other, value: 2.9, raw: { value: 2.9 } };
+  other.targetLinks = [fromProfit, fromLoss];
+
+  assert.equal(nodeShare(fromProfit, operatingProfit, 1), '34.1%', 'was 100% (1.5 / 1.5); now 1.5 / Other 4.4');
+  assert.equal(nodeShare(fromLoss, netLoss, 1), '65.9%');
+  assert.equal(nodeShare(fromProfit, other, 2), '34.1%', 'hovering the target is already below 100%');
+});
+
+test('hermes-fy23: a multi-input share never shows a numerator above its denominator', () => {
+  // The adapter authored Other -> Net profit as 4.3 although Other is 0.3; the card read 1433.3%.
+  const operatingProfit = { id: 'operating_profit', dv: 5.6 };
+  const other = { id: 'other', dv: 0.3 };
+  const netProfit = { id: 'net_profit', dv: 4.3 };
+  const retained = { source: operatingProfit, target: netProfit, value: 4, raw: { value: 4 } };
+  const otherFlow = { source: other, target: netProfit, value: 4.3, raw: { value: 4.3 } };
+  netProfit.targetLinks = [retained, otherFlow];
+
+  assert.equal(nodeShare(otherFlow, netProfit, 2), '7%', 'link >= both ends falls back to the endpoint ratio 0.3 / 4.3');
+  assert.equal(nodeShare(otherFlow, other, 1), '7%');
+  assert.equal(nodeShare(retained, netProfit, 2), '93%');
 });
 
 test('node hover counts distinct opposite bars rather than duplicate links', () => {

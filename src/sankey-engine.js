@@ -190,9 +190,16 @@
       }
       // A link into a node that also receives other inputs is only part of
       // that node, so the endpoint ratio overstates it; show the link's own
-      // amount against the hovered node instead.
+      // amount against the hovered node instead. When that reads 100% (the
+      // hovered node feeds only this link) it adds nothing, so measure the
+      // link against its opposite end. The denominator must exceed the
+      // numerator; otherwise fall back to the endpoint ratio.
       if (targetHasOtherInputs(link)) {
-        return format(linkAmount(link), nodeAmount(hoveredNode), decimals);
+        const amount = linkAmount(link);
+        for (const denominator of [nodeAmount(hoveredNode), nodeAmount(oppositeNode)]) {
+          const share = format(amount, denominator, decimals);
+          if (amount < denominator && share !== '100%') return share;
+        }
       }
       return forLink(link, decimals);
     }
