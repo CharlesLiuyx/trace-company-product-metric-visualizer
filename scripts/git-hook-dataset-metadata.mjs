@@ -67,14 +67,30 @@ function postCommit() {
   }
 }
 
-function prePush() {
+// Best-effort housekeeping after the metadata gate passed: removes only the
+// regenerable artifacts listed in sweepDerivedArtifacts. A failure (including a
+// checkout without the retention module) prints one line and never blocks the push.
+async function sweepDerivedBestEffort() {
+  try {
+    const { sweepDerivedArtifacts } = await import('./lib/workflow-retention.mjs');
+    const { removed, bytes } = await sweepDerivedArtifacts(rootDir);
+    if (removed.length) console.error(`pre-push: removed ${removed.length} derived artifact path(s), ${(bytes / 1024 ** 2).toFixed(1)} MiB (${removed.map((item) => item.path).join(', ')})`);
+  } catch (error) {
+    console.error(`pre-push: derived-artifact sweep skipped: ${error.message}`);
+  }
+}
+
+async function prePush() {
   const verification = runGenerator(['--check']);
   const committedDiffStatus = metadataDiffStatus();
   const decision = prePushMetadataDecision({
     verificationStatus: verification.status,
     committedDiffStatus,
   });
-  if (decision.ok) return;
+  if (decision.ok) {
+    await sweepDerivedBestEffort();
+    return;
+  }
 
   if (decision.reason === 'uncommitted') {
     throw new Error(
@@ -91,18 +107,16 @@ function prePush() {
   );
 }
 
-function main() {
+async function main() {
   const [mode, ...extra] = process.argv.slice(2);
   if (extra.length || !['post-commit', 'pre-push'].includes(mode)) {
     throw new Error('Usage: node scripts/git-hook-dataset-metadata.mjs <post-commit|pre-push>');
   }
   if (mode === 'post-commit') postCommit();
-  else prePush();
+  else await prePush();
 }
 
-try {
-  main();
-} catch (error) {
+main().catch((error) => {
   console.error(`Git hook blocked: ${error.message}`);
   process.exit(1);
-}
+});

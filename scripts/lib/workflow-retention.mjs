@@ -4,7 +4,7 @@
 // hand-off, history and the completed-work cleanup summary. Never evidence.
 import path from 'node:path';
 import { existsSync } from 'node:fs';
-import { readdir, rm } from 'node:fs/promises';
+import { lstat, readdir, readFile, rm } from 'node:fs/promises';
 import { atomicJson, readJson, withFileLock } from './workflow-files.mjs';
 import { retireBuildPreview } from './workflow-local-view.mjs';
 
@@ -134,4 +134,60 @@ export async function runRetention(root) {
   const snapshots = await withFileLock(path.join(root, 'output/publications/.publish.lock'), () => sweepSnapshots(root), { timeoutMs: 2000 })
     .catch((error) => ({ removed: [], skipped: error.message }));
   return { builds, snapshots };
+}
+
+// Regenerable build/tool output only. This fixed list is the whole contract
+// (docs/artifact-retention.md); Build, publication, transport, workbench,
+// storage, meta and render-regression state under output/ is never touched, so
+// the sweep is safe while another Session works. Symlinks are never followed:
+// a symlinked parent or target is skipped, nested links are unlinked as links.
+const DERIVED_PATHS = Object.freeze(['_site', 'output/trace-company-product-metric-visualizer.html', 'output/site-benchmark',
+  '.playwright-cli', 'scripts/__pycache__', '.DS_Store', 'output/.DS_Store']);
+const RELEASE = /^[a-f0-9]{64}$/;
+async function lstatOrNull(file) {
+  try { return await lstat(file); } catch (error) { if (error.code === 'ENOENT') return null; throw error; }
+}
+async function realParents(root, relative) {
+  const parts = relative.split('/').slice(0, -1);
+  for (let i = 1; i <= parts.length; i++) {
+    const info = await lstatOrNull(path.join(root, ...parts.slice(0, i)));
+    if (!info || !info.isDirectory() || info.isSymbolicLink()) return false;
+  }
+  return true;
+}
+async function logicalBytes(file, info) {
+  if (!info.isDirectory() || info.isSymbolicLink()) return info.size;
+  let total = 0;
+  for (const name of await readdir(file).catch((error) => { if (error.code === 'ENOENT') return []; throw error; })) {
+    const child = path.join(file, name), childInfo = await lstatOrNull(child);
+    if (childInfo) total += await logicalBytes(child, childInfo);
+  }
+  return total;
+}
+// build-site.mjs writes releases.json as [current, ...retained]; only the
+// first id is current. Without a readable list nothing there is removed.
+async function staleSiteReleases(root) {
+  const cache = 'output/site-releases';
+  if (!await realParents(root, `${cache}/releases.json`)) return [];
+  const info = await lstatOrNull(path.join(root, cache, 'releases.json'));
+  if (!info?.isFile()) return [];
+  let current;
+  try { current = JSON.parse(await readFile(path.join(root, cache, 'releases.json'), 'utf8'))?.[0]; } catch { return []; }
+  if (!RELEASE.test(current || '')) return [];
+  return (await names(path.join(root, cache))).filter((name) => RELEASE.test(name) && name !== current).map((name) => `${cache}/${name}`);
+}
+export async function sweepDerivedArtifacts(root, { dryRun = false } = {}) {
+  root = path.resolve(root);
+  const removed = [], skipped = [];
+  for (const relative of [...DERIVED_PATHS, ...await staleSiteReleases(root)]) {
+    const file = path.join(root, relative);
+    if (!await realParents(root, relative)) continue;
+    const info = await lstatOrNull(file);
+    if (!info) continue;
+    if (info.isSymbolicLink() || relative.endsWith('.DS_Store') && !info.isFile()) { skipped.push({ path: relative, reason: 'not a regular file or directory' }); continue; }
+    const bytes = await logicalBytes(file, info);
+    if (!dryRun) await rm(file, { recursive: true, force: true });
+    removed.push({ path: relative, bytes });
+  }
+  return { dryRun, removed, ...(skipped.length ? { skipped } : {}), bytes: removed.reduce((sum, item) => sum + item.bytes, 0) };
 }
