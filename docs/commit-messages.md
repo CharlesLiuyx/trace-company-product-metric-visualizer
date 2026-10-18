@@ -54,7 +54,7 @@ data(nvidia-q1-fy27): tune operating expense label placement
 
 - 数据集 key：`nvidia-q1-fy27`、`salesforce-q1-fy27`
 - 文件或模块：`engine`、`icons`、`verify-d3`、`schema`、`readme`
-- 工作流区域：`input`、`export`、`reference-mode`、`d3-mode`
+- 工作流区域：`input`、`export`、`workflow`、`retention`、`d3-mode`
 
 如果一次提交确实跨多个紧密相关区域，优先选择用户最关心的结果作为
 `scope`，并在正文说明其余影响。
@@ -65,7 +65,7 @@ data(nvidia-q1-fy27): tune operating expense label placement
 
 - 为什么需要这次改动；
 - 关键实现或取舍；
-- 是否影响 d3-sankey 输出、Reference 模式、导出结果或数据口径；
+- 是否影响 d3-sankey 输出、导出结果或数据口径；
 - 运行过哪些验证命令，以及关键指标。
 
 示例：
@@ -141,13 +141,8 @@ chore(deps): pin playwright 1.61.0
   `data/dataset-manifest.js` 注册（`pnpm sync:index-datasets` 生成）放在同一个
   `data(<dataset-key>)` 提交中。`input/pending/` 与 `input/processing/` 是
   Git-tracked 共享队列；提交属于该数据集的 queue/claim 变更，让其他项目能看到
-  当前归属。`input/processed/` 是整目录忽略的本机归档，不论 Source availability
-  为何都不得强制纳入 Git 或改写 availability。只有操作者完成信号（人工审阅完毕
-  或已推送并合入 `main`）在其所指范围内 no-clobber 移动 Source（细则见
-  `docs/asset-workflow.md` §7 Operator Review-Completion Signal）；
-  Build close-out 本身不移动文件。移动后提交 Git-tracked processing queue 中的
-  删除，但不要 force-add processed PNG。该 Source locator 变更
-  不是 M4 Publication；processed 图片永不改名或覆盖。
+  当前归属。`input/processed/` 是忽略的本机归档，永不 force-add。Source 何时、
+  按什么范围搬移只由 [`docs/asset-workflow.md`](asset-workflow.md) §7 定义；搬移后提交 processing 队列中的删除。
 - 渲染器支持提交：如果为了某个数据集新增通用渲染能力，单独用
   `render(engine)` 提交，再用 `data(<dataset-key>)` 提交应用调参。
 - 验证脚本提交：任何改变 d3 评分、纯度断言或截图流程的改动，用
@@ -155,6 +150,8 @@ chore(deps): pin playwright 1.61.0
 - 文档提交：不改变行为的说明更新，用 `docs(...)` 或 `schema(...)`。
 
 ## Dataset metadata 提交保护
+
+本节是 Dataset metadata Git hook 规则的唯一属主；其他文档只引用本节。
 
 `data/dataset-file-metadata.js` 依赖已经形成的 Git author time，所以提交前的
 `pnpm check` 无法预知新提交时间。`pnpm install` 会在当前仓库尚未配置
@@ -164,7 +161,8 @@ chore(deps): pin playwright 1.61.0
   `data/revenue-metrics.js` 时重新生成 metadata；若结果变化，会保留为工作区改动并
   提示把它 amend 到原提交或另行提交；
 - `pre-push` 重新执行只读新鲜度检查，并确认最新 metadata 已进入 `HEAD`；过期或只在
-  工作区/暂存区中的结果都会阻止 push，避免问题直到远端 CI 才暴露。
+  工作区/暂存区中的结果都会阻止 push，避免问题直到远端 CI 才暴露。判定通过后，它再
+  best-effort 清扫可再生派生物（清单见 [artifact-retention.md](artifact-retention.md)），失败只打印一行，不阻止 push。
 
 已有自定义 `core.hooksPath` 时安装过程不会覆盖它：可以把上述两个 hook 整合进自定义
 路径并保留原配置；若决定改用仓库 hooks，则先移除自定义配置，再运行
@@ -173,11 +171,10 @@ chore(deps): pin playwright 1.61.0
 
 ## 提交前检查
 
-本文档只拥有 commit 格式和原子提交边界，不拥有另一份验证矩阵。按
-[`docs/asset-workflow.md`](asset-workflow.md) §3 检查边界执行；架构迁移后的 `ChangeImpact → VerificationPlan`
+本文档拥有 commit 格式、原子提交边界与 Dataset metadata hook 规则，不拥有另一份验证矩阵。按
+[`docs/asset-workflow.md`](asset-workflow.md) §3 检查边界执行；`ChangeImpact → VerificationPlan`
 语义由 [`docs/architecture/`](architecture/README.md) 拥有。不得用本提交规范中
-较短的示例命令替代工作流要求的 fresh final verification、人工 closure 或
-per-key baseline 记录。
+较短的示例命令替代工作流要求的检查、人工接受或 per-key baseline 记录。
 
-提交信息里的验证结果应与实际运行命令一致。不要把 Reference 模式、
-源图 `<img>` 或源图裁剪覆盖层的结果写成 d3-sankey 验证结果。
+提交信息里的验证结果应与实际运行命令一致。不要把源图 `<img>` 或源图裁剪覆盖层的
+结果写成 d3-sankey 验证结果。

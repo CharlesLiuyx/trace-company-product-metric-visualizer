@@ -10,11 +10,12 @@
 pnpm clean:artifacts                         # 只统计，不删除
 pnpm clean:artifacts -- --completed          # 整个本机流程完成，执行清理
 pnpm clean:artifacts -- --completed --dry-run --json
+pnpm clean:artifacts -- --derived [--dry-run] [--json]   # 只删可再生派生物，见下表
 ```
 
 `--completed` 表达操作员已确认所有本机处理及所需交付完成。已有的完成确认即为授权，
 执行者不重复询问。它不从 `SEALED`、机器检查或单个 Build 的发布自动推断完成。
-先完成所需审阅、closeout 检查、Source 归档及 Git 交接，再停止本项目 `pnpm dev`
+先完成所需审阅与 `accept`、Source 归档及 Git 交接，再停止本项目 `pnpm dev`
 和其他正在运行的处理命令，执行清理。并发任务尚在使用这些目录时不能运行全局清理。
 命令遇到工作锁、存活的工作台进程或损坏的 metadata 会在删除前报错，不抢锁。
 旧版本工作台没有进程记录，执行者仍须先停止它。
@@ -33,8 +34,8 @@ pnpm clean:artifacts -- --completed --dry-run --json
 - `compare/.gitkeep`：空目录占位。
 
 历史摘要明确标记 `historicalOnly: true`、`evidenceRetained: false`。它不是可恢复的
-Build ledger，不是当前 Publication pointer，也不能代替原图证据、人工判断或 fresh seal。
-清理后的旧 Build 不能再执行 inspect/finish/seal/release 来证明当前有效性；重新处理时
+Build ledger，不是当前 Publication pointer，也不能代替原图证据、人工判断或新 Build 重新验证。
+清理后的旧 Build 不能再执行 `show`、`accept`、`seal` 或 `release:git` 来证明当前有效性；重新处理时
 建立新 Build 并重新验证，不补造旧证据。清理不会伪造接受状态、归档 Source、修改正式
 SSOT 或执行 Git 推送。
 
@@ -53,17 +54,14 @@ SSOT 或执行 Git 推送。
 | `release:git push` 成功 | 该候选的 `workspace/`（含 `_site`）与私有 index | plan、approval、journal、receipt |
 | `release:git prepare` | 失败的本次候选目录；基线 HEAD 已过期且未开始提交的旧候选 workspace | 同上 |
 | 上述四个命令之后（持发布锁） | 不再被引用的 `output/publications/trees/*` 与 `output/workflow-bases/*` | 当前指针树；尚未推送的发布的基线与结果树；未清理 Build 的 `base.json` 所指基线。尚无发布时不清扫 |
+| `release:git push` 成功后、`clean:artifacts -- --derived`、pre-push hook（metadata 判定通过后 best-effort，失败只打印一行） | 可再生派生物的固定清单：根 `_site/`、`output/trace-company-product-metric-visualizer.html`、`output/site-benchmark/`、`output/site-releases/` 中非当前版本（当前 = `releases.json` 第一项；无法读取则不删）、`.playwright-cli/`、`scripts/__pycache__/`、根目录与 `output/` 一级的 `.DS_Store` | 其余一切，包括 `releases.json`、`output/render-regression`、`output/storage`、Build / publication / transport / workbench / meta 记录、`input/`、`data/`、`compare/`；符号链接不跟随、不删除。允许在 `pnpm dev` 与其他 Session 运行时执行 |
 
-命令输出的 `retention` 列出删除与跳过的条目。全局 `clean:artifacts --completed` 仍是
+命令输出的 `retention`（派生物清扫为 `retention.derived`）列出删除与跳过的条目及逻辑字节。全局 `clean:artifacts --completed` 仍是
 最终复位入口。
 
 ## 处理中减少输出
 
-- 新工具链的 Build 采用两层存储。`start` 先共享与不可变基线相同的图标参考资产；
-  `continue` 到达待审状态时，将其余未改动的 canonical 文件也保存为基线引用。
-  `workspace/output/workflow/storage.json` 记录继承项，工作目录只保留自有改动；
-  读取、枚举、预览和发布看到的仍是完整逻辑树。检查仍核对真实文件字节。
-  编辑前使用 `record:workflow materialize` 恢复独立可写文件；相关命令与兼容规则由
+- 草稿两层存储（共享基线 + 自有改动，`compact` / `materialize` / `share-assets`）只由
   [本地环境](local-environments.md#草稿的共享存储与再次编辑)定义。
 - 大型 `entries` / `artifacts` 数组以 `trace-record-list/v1` 按路径目录分块，
   同一内容在 `output/storage/lists/` 只保存一份。读取时验证块摘要、长度与完整数组
@@ -84,7 +82,7 @@ SSOT 或执行 Git 推送。
 - `publish:datasets commit` 结束后，已提交的 plan，以及基线已被正式指针越过、永远无法
   提交的 plan，只保留 `plan.json`（与 `conflict.json`）；候选树随即删除。
 - `verify:d3` 默认在 `finally` 清除私有 scratch；只有实际排错时使用 `--keep`。
-  `record:fidelity` 的证据归档只含候选图、metrics、interface audit 与 `fidelity-run.json`；
+  渲染证据归档（`continue` 内部记录）只含候选图、metrics、interface audit 与 `fidelity-run.json`；
   原图留在 Source 位置，diff 只在 `--keep` 的 scratch 中。同一 Build、语言与 focus 的
   新证据落地后删除更早的归档，审阅只绑定每语言最新一份。流程完成后统一清除其余证据。
 - 优先复用当前摘要对应的检查结果；按 [输入流程](asset-workflow.md) §3 的检查边界选择必要检查，避免为写报告

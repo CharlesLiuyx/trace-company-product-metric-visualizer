@@ -225,7 +225,7 @@ After all local work and requested delivery finish, stop the workbench and run
 `pnpm clean:artifacts -- --completed`, using the existing operator completion signal.
 Only compact historical meta remains; inspect the root file entry against project
 data and report final output/compare sizes. Retention and audit limitations are
-owned by [artifact-retention.md](artifact-retention.md). Do this after checks that
+owned by [artifact-retention.md](../artifact-retention.md). Do this after checks that
 create artifacts, not before evidence is consumed.
 
 

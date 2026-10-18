@@ -1,8 +1,8 @@
 # Workflow implementation · 2026-09-05
 
 Implemented on `codex/workflow-ingestion` following the reviewed plain-language
-proposal. The operating entry is [asset-workflow.md](asset-workflow.md); the
-[current HTML graph](workflow-flowchart.zh-CN.html) describes actual behavior.
+proposal. The operating entry is [asset-workflow.md](../asset-workflow.md); the
+[current HTML graph](../workflow-flowchart.zh-CN.html) describes actual behavior.
 
 ## Delivered
 

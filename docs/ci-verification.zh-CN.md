@@ -12,19 +12,7 @@ main push 作为 base，覆盖上次失败或仍在运行的提交。历史查�
 不能只检查补救提交而漏掉前次未验证/未部署的改动。路径分类、受影响 Dataset key、严格回退和 GitHub Actions
 输出都保留在 Module 内，测试也通过同一个 Interface 验证。
 
-## 新输入流程的快速检查
-
-`pnpm check` 现在还运行 `verify:workflow`、`verify:metrics` 和
-`verify:asset-catalog`。它们分别防止命令/协议/文档漂移、通用指标值与来源及登记失配、
-资产版本和使用目录过期。
-这些检查从项目文件重新推导结果，不需要本机 Build 记录，不替人完成审阅。
-通用 Source 的原始文本存在时会逐段核验；本机私有原件缺失时只校验保存的结构与摘要，
-完整图片语义仍依赖实际人工核对。
-
-`tests/asset-workflow.test.mjs` 用临时来源验证隔离、拒绝、失效、并发冲突、发布中断、
-重试和明确归档信号；阶段检查点由 closeout 测试验证。`verify:app` 还验证指标资产
-入口的搜索、原文显示和精确数值导出。未登记的新增执行文件继续按 ChangeImpact 保守回退；已知检查入口及生成文件使用下面
-经过测试的精确路由，不把检查脚本的改动自动当作渲染器改动。
+本地处理一份材料时何时运行哪些检查只由 [输入流程](asset-workflow.md) §3 定义；本文只说明 CI。
 
 ## 一次 CI 怎么走
 
@@ -76,25 +64,29 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
 
 ### 4. Fast deterministic checks (`pnpm check`)
 
-这一项永远执行，不依赖 ChangeImpact。内部以最多两个子进程并发执行独立项，每项完成立即输出耗时，全部
-跑完后统一报失败和总墙钟耗时。失败不会跳过其余检查；没有引入跨版本结果缓存。
+这一项永远执行，不依赖 ChangeImpact。子项以 `scripts/check.mjs` 的 `steps` 为准（当前 14 项，按下表顺序）。
+内部以最多两个子进程并发执行独立项，每项完成立即输出耗时，全部跑完后统一报失败和总墙钟耗时。
+失败不会跳过其余检查；没有引入跨版本结果缓存。这些检查从项目文件重新推导结果，不需要本机 Build 记录，不替人完成审阅。
 
 | 子项 | 白话作用 | 实际原理 | 典型失败 | 不负责什么 |
 | --- | --- | --- | --- | --- |
 | `syntax` | 所有 JS 至少能被解析 | 单个 Node 进程中 `.js` 用 `vm.Script`、`.mjs` 用 `vm.SourceTextModule`（原生 V8 parser，只解析不执行；通过 grammar parity 测试） | 少括号、非法 import、语法残缺 | 不执行浏览器交互 |
 | `test` | 纯逻辑仍符合约定 | `node --test tests/*.test.mjs` | 布局数学、生命周期状态、i18n、Diff 等断言失败 | 不证明页面能启动 |
 | `check:pending` | 新图片不是重复上传或 key 冲突 | 比较 pending/processing/processed 的 SHA-256、候选 key 与已有注册 | 同内容重复、同 key 两张图、已被领取 | 不移动 Source |
-| `verify:architecture` | 文档、机器契约和实现没有各说各话 | 对 lifecycle protocol、状态、Adapter、ChangeImpact、命令语义及文档链接逐项对账；校验保真规则目录生成区与 catalog 一致（改规则后须跑 `pnpm update:fidelity-rules-doc`）及 AGENTS 中文镜像章节/命令表奇偶 | JSON 契约和代码常量漂移 | 不宣称未实现的 M4/M5 已完成 |
+| `verify:architecture` | 文档、机器契约和实现没有各说各话 | 对 lifecycle protocol、状态、Adapter、ChangeImpact、命令语义及文档链接逐项对账；校验保真规则目录生成区与 catalog 一致（改规则后须跑 `pnpm update:fidelity-rules-doc`）及 AGENTS 中文镜像章节/命令表奇偶 | JSON 契约和代码常量漂移 | 不执行生命周期命令 |
 | `verify:app-globals` | 经典 script 的共享顶层作用域安全 | 静态解析声明和加载期引用，按 `index.html` 顺序检查 | 重复 `const`、加载时引用后置脚本 | 运行时点击由 `verify:app` 负责 |
 | `verify:dataset-manifest` | Adapter 文件和生成清单一致 | 在内存中重建 manifest，与已提交文件逐字比较 | 新增 Adapter 忘记同步、清单手改 | 不渲染图 |
 | `verify:render-baselines` | 每个注册 Adapter 都有 baseline 账目，且没有孤儿 | 只读取 manifest 与 `render-baselines.json`，不启动 Chromium | baseline 缺项、已删除 Adapter 仍留 baseline | 不做像素评分 |
+| `verify:workflow` | 工作流命令表与协议没有漂移 | 由 `workflow-contract.mjs` 与 `package.json` 重新生成 `docs/workflow-command-reference.md` 并逐字比较 | 新增 action 或协议后忘记 `pnpm update:workflow-reference` | 不运行工作流 |
+| `verify:workflow-graph` | 流程图与工作流契约一致 | 重新生成 `docs/workflow-flowchart.zh-CN.html` 并逐字比较 | 改动流程后未更新流程图 | 不判断流程是否合理 |
+| `verify:asset-catalog` | 资产版本与使用目录是最新的 | 先建 Adapter 依赖反向图，再重新生成资产 catalog 并比较 | 新增/替换 raster 资产后 catalog 过期 | 不检查资产像素内容 |
+| `verify:metrics` | 通用指标值与来源、登记一致 | 加载 metric-observation SSOT 与 catalog；原始文本存在时逐段核验，本机原件缺失时只校验结构与摘要 | 指标值与来源段落不符、catalog 漏登记 | 不代替图片语义的人工核对 |
 | `verify:ssot` | 财务 SSOT、View Adapter、注册和币种互相对得上 | 在 VM 中加载所有数据，检查 key、金额、来源、单位、FX、注册奇偶，以及 render 画布声明与 `meta.referenceImage` 尺寸一致 | 图表值和财务记录不一致、漏公司 metadata、画布尺寸抄错 | 不判断像素位置是否像参考图 |
 | `verify:i18n` | 翻译只能改展示文案，不能改数据、几何或可见金额语义 | 加载 i18n 管线，按 deny-by-default 路径契约检查 overlay；独立比较本地化前后的 SSOT 拓扑、渲染几何、金额/通用数字/正负号/币种/单位/百分比及其 Y/Y、Q/Q、margin 等 basis、期间日期与 `$value` 绑定；SVG 保持同一元素树与非文本属性，`text/tspan` 仅可使用语料驱动、相对源受界的排版投影，raster 不可覆盖；单数据集流程可用 `--strict` | 中文 overlay 漏项、品牌词误译、翻译层新增金额、负号或 rate basis 丢失、SVG/CSS 伪造几何或隐藏文字、用字面金额替换 `$value` | 不代替中文页面人工检查 |
 | `verify:dataset-file-metadata` | “最近更新”时间可复现 | 根据完整 Git author history 重算生成文件 | 提交 Dataset 后忘记刷新 metadata | 首次未提交文件仍只能临时使用 mtime |
 
-仓库管理的 `post-commit` hook 会在 Dataset/revenue 提交形成、author time 稳定后自动
-刷新 metadata；`pre-push` hook 同时检查结果最新且已经提交，从而把这类确定性失败提前到
-本机。hook 只是反馈加速层；CI 仍在完整历史的 fresh checkout 中执行同一新鲜度门禁。
+本机 `post-commit` / `pre-push` hook 规则由 [commit-messages.md](commit-messages.md) 「Dataset metadata 提交保护」定义；
+hook 只是反馈加速层，CI 仍在完整历史的 fresh checkout 中执行同一新鲜度门禁。
 
 ### 5. Install Chromium and OS dependencies
 
@@ -225,92 +217,11 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
 | d3 验证工具 | 必跑 | 安装 | 全目录 | 按实际影响 | 按实际影响 | 按实际影响 |
 | 无法识别的可执行代码 | 必跑 | 安装 | 全目录 | 跑 | 跑 | 跑 |
 
-## 2026-09-05 合入验证提速
+## 耗时记录
 
-这次成功运行 `33972806962` 的主要耗时：基础检查 85 秒、app 54 秒、全量 render
-89 秒、site 18 秒、standalone 浏览器 34 秒；还包含安装和部署。此前本地收尾另遇到
-反馈摘要、工作台退出和隔离 Git 检查三处缺陷，修复后重新校验，加上失败 CI 再跑，
-所以整个任务耗时不能等同于一次 CI。
-
-本轮移除三类重复计算，而不放宽通过条件：
-
-- `check`：原生 parser 单进程解析全部 JS，独立检查最多 2 个并发；资产索引先建立
-  Adapter 依赖反向图，再遍历使用者，不为每张图重复扫描全目录。
-- Publication：`verify:dataset -- <key> [...] --skip-render` 一次接收全部成员，
-  全局 SSOT/注册/metadata 只检查一次；strict i18n 覆盖每个 key，其他 Adapter 检查保留。
-- CI：测试入口不再误触发全目录；baseline、生成注册和资产均按上述边界取受影响集合。
-  main 的上次成功祖先仍是覆盖边界，失败补救不能丢掉前次改动。
-
-初次本机观测（同一份 1,023 个 Dataset；非严格交替 A/B，负载和版本会影响绝对值）：
-
-| 项目 | 之前 | 之后 |
-| --- | ---: | ---: |
-| 完整 `check` | 旧日志各串行项累计约 74 秒 | 18 秒，702 项单测通过 |
-| 资产 catalog 检查 | 约 14 秒 | 约 2 秒，生成字节完全一致 |
-| 十个 key 的非渲染一致性检查 | 逐 key 15.1 秒 | 合并调用 1.8 秒（−88%） |
-| 真实十数据集提交的 render 范围 | 1,023 keys | 37 keys，含相关公司旧期次/资产复用 |
-
-这些是实测/计划对比，不是 GitHub runner 墙钟保证；共享 renderer、验证调度和依赖
-本身的改动仍须完整 CI。原有人工接受、来源对象对账、逐语言保真、seal、CAS 和
-实际部署产物检查均未移除。CI 仍冷跑，不复用本机证据作为远端通过结果。
-
-## 耗时基线与预期
-
-2026-09-05 的 Pages 数据拆分采用同机受控 A/B：同一份 1,011 个 Dataset、241 家
-公司目录，前后各 10 次、交替顺序，每次新浏览器 Context、禁用 HTTP 缓存，统一 gzip、
-4× CPU slowdown、100 ms 网络延迟、1.6 Mbps 下行。首图时间指第一个 Sankey node
-进入 DOM；它不是 LCP、完整可交互时间或线上用户 p75。基线为改动前保存的 `_site`；
-候选 runtime digest 为 `3b2f96f2339486d39fda7eb81ba052b9f0d58f70a16e7602f4c2ca37c3165450`。
-
-| 指标 | 拆分前 | 拆分后 | 变化 |
-| --- | ---: | ---: | ---: |
-| 首屏数据 gzip（catalog + 默认公司详情） | 503.6 KiB | 95.0 KiB | −81.1% |
-| 首图中位时间 | 5,715 ms | 3,482 ms | −39.1% |
-| 首图 p90 | 5,769 ms | 3,514 ms | −39.1% |
-| 首图前累计 long task 中位值 | 901 ms | 731 ms | −18.8% |
-| 首次切到 Abbott 中位时间 | 628 ms | 683 ms | +56 ms |
-| 再次切到 Abbott 中位时间 | 56.8 ms | 57.4 ms | 基本持平 |
-
-首次进入未加载公司增加一个详情 JSON 请求；本次冷切约增加 8.9%，并非所有交互都
-变快。访问完整财报和公司 Table 后，公司详情已被覆盖，不再重复请求。这里只说明
-静态拆分的本机结果，不把它归因为数据库性能，也不承诺生产网络有同一绝对耗时。
-原始样本由 `scripts/benchmark-site.mjs` 写入 `output/site-benchmark/results.json`。
-表中中位数与 p90 使用 `q × (n − 1)` 线性插值；这不是不稳定的 CI 时间门禁。
-
-下列历史数据衡量 CI 执行成本，与上述浏览器首图指标不同。
-
-2026-07-12 审计了最近 20 次 CI 状态，并读取其中 11 次成功运行的逐 step 时间。
-工作流在这期间有演进；最新包含 site gate 的 5 次成功运行总耗时中位数约 **122 秒**：
-
-| 项目 | 典型耗时 |
-| --- | ---: |
-| checkout + Node/pnpm setup + install | 约 11 秒 |
-| `pnpm check` | 约 7 秒 |
-| Playwright Chromium + 系统依赖 | 约 25 秒 |
-| `verify:app` | 约 13–16 秒 |
-| `verify:site` | 约 3–4 秒 |
-| 全量 render regression | 约 44–54 秒 |
-| standalone build + verify | 约 6–10 秒 |
-
-因此本次优化不在 1 秒的依赖安装上冒险，而是消除无意义的 Chromium 安装与 286 个
-Adapter × 2 种语言全渲染：
-
-- pending-only / 文档 PR：预计约 15–25 秒；
-- 纯 metadata / revenue PR：预计约 15–30 秒；
-- 单/批量 Adapter：固定安装成本 + 与 changed keys 数量近似线性；本机单 key render
-  实测 **0.6 秒**，同机全量为 **43.9 秒**；
-- 共享 renderer：仍保留原全量安全网，耗时不会伪装成数据级检查。
-
-2026-07-16 引入本机指纹缓存后（目录已增长到 427 个 Adapter），同机实测：
-
-| 场景 | 耗时 |
-| --- | ---: |
-| 全量冷跑（缓存为空或 runtime 指纹变化） | 约 72 秒 |
-| 全量暖跑、零变更（不启动浏览器） | **约 0.4 秒** |
-| 改 1 个 Adapter 后的全量校验 | **约 1 秒** |
-| 改 1 个 raster 资产（2 个引用 key 重渲染） | 约 1.3 秒 |
-
-CI 无缓存持久化，仍按 ChangeImpact 矩阵冷跑；上表只改变本机迭代成本。
+浏览器检查按 ChangeImpact 只跑受影响范围，共享 renderer 与未知影响仍全量；本机 render 指纹缓存只降低本机迭代成本，CI 永远冷跑。
+历次实测（2026-07 CI 审计与指纹缓存、2026-09-05 check / Publication / CI 去重与 Pages 数据拆分 A/B）是历史观测，不是时间门禁，
+见 [ci-timing-history.md](archive/ci-timing-history.md)。
 
 ## “不能误报”的约束
 
@@ -328,10 +239,6 @@ CI 无缓存持久化，仍按 ChangeImpact 矩阵冷跑；上表只改变本机
 
 ## 本地多环境与 Git 传输对齐
 
-Node 版本由 `.node-version` 固定，本地 `.nvmrc` 同值。`verify:workbench` 在 app gate
-路径运行，检查文件入口、标签页固定、自动刷新、构建失败与未上线状态。
-`build:site` 后运行 `verify:release`，核对实际文件与 `site-release.json`；带
-`Trace-Transport` 的提交必须匹配 `docs/releases/current.json` 的输入、人工接受与
-产物摘要。普通代码/历史直接编辑提交会明确报告没有 transport 映射，仍运行相应站点检查。
-生产清单记录实际 `GITHUB_SHA`。部署继续复用已经检查的同一份 `_site` artifact。
-完整本机操作见 [local-environments.md](local-environments.md)。
+Node 版本由 `.node-version` 固定，本地 `.nvmrc` 同值；`verify:workbench` 在 app gate 路径运行。
+`build:site` 后运行 `verify:release`，核对实际文件、`site-release.json` 与带 `Trace-Transport` 提交的
+`docs/releases/current.json` 映射；Git 交接机制见 [local-environments.md](local-environments.md)。

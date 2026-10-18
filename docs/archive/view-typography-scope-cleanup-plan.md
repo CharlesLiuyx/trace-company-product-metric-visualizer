@@ -2,8 +2,7 @@
 
 > 状态：已实施（2026-07-11）；standalone / 全量 render regression 待受限环境复验  
 > 编写日期：2026-07-11  
-> 适用范围：Trace Viewer、Sankey renderer、dataset View Adapter、站点与 standalone 构建、渲染校验  
-> 本文是实施计划，不表示下述改动已经完成。
+> 适用范围：Trace Viewer、Sankey renderer、dataset View Adapter、站点与 standalone 构建、渲染校验
 
 ## 1. 目标
 
