@@ -7,7 +7,6 @@ import { createDatasetBuild, digestValue } from '../scripts/lib/dataset-build.mj
 import { prepareBuildReview } from '../scripts/lib/dataset-build-closeout.mjs';
 import { initializeDatasetBuild, readBuildObject } from '../scripts/lib/dataset-build-store.mjs';
 import { recordDatasetVerification } from '../scripts/lib/dataset-verification.mjs';
-import { parseArgs, runRecordVerification } from '../scripts/record-verification.mjs';
 import { createHash } from 'node:crypto';
 import {
   SOURCE_CLASSIFICATION_REVIEW_METHOD,
@@ -76,7 +75,7 @@ async function fixture(t) {
   return { root, buildRoot, artifact, prepared };
 }
 
-test('record:verification stores Build-bound consistency evidence after a passing verifier', async (t) => {
+test('recordDatasetVerification stores Build-bound consistency evidence after a passing verifier', async (t) => {
   const { root, buildRoot, prepared } = await fixture(t);
   const result = await recordDatasetVerification(prepared.build.buildId, {
     buildRoot,
@@ -94,7 +93,7 @@ test('record:verification stores Build-bound consistency evidence after a passin
   );
 });
 
-test('record:verification records nothing when the consistency verifier fails', async (t) => {
+test('recordDatasetVerification records nothing when the consistency verifier fails', async (t) => {
   const { root, buildRoot, prepared } = await fixture(t);
   await assert.rejects(
     recordDatasetVerification(prepared.build.buildId, {
@@ -107,7 +106,7 @@ test('record:verification records nothing when the consistency verifier fails', 
   );
 });
 
-test('record:verification rejects a pass if authored bytes changed during the run', async (t) => {
+test('recordDatasetVerification rejects a pass if authored bytes changed during the run', async (t) => {
   const { root, buildRoot, artifact, prepared } = await fixture(t);
   await assert.rejects(
     recordDatasetVerification(prepared.build.buildId, {
@@ -121,21 +120,4 @@ test('record:verification rejects a pass if authored bytes changed during the ru
     }),
     (error) => error.code === 'VERIFICATION_INPUT_CHANGED'
   );
-});
-
-test('record:verification CLI accepts one Build and keeps routing injectable', async () => {
-  assert.deepEqual(
-    parseArgs(['node', 'record-verification.mjs', '--', 'build-example', '--json']),
-    { buildId: 'build-example', json: true }
-  );
-  const calls = [];
-  const result = await runRecordVerification(
-    { buildId: 'build-example', json: true },
-    { recordDatasetVerification: async (buildId) => {
-      calls.push(buildId);
-      return { reference: { digest: 'sha256:test' } };
-    } }
-  );
-  assert.deepEqual(calls, ['build-example']);
-  assert.equal(result.reference.digest, 'sha256:test');
 });

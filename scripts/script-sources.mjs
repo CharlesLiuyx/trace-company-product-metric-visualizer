@@ -1,6 +1,7 @@
 import { loadClassicScripts } from './lib/vm-browser.mjs';
-import { projectPath } from './lib/project.mjs';
+import { rootDir } from './lib/project.mjs';
 import { existsSync } from 'node:fs';
+import path from 'node:path';
 
 export function scriptSources(indexHtml) {
   const sources = [];
@@ -19,9 +20,9 @@ export const DATASET_MANIFEST_SCRIPT = 'data/dataset-manifest.js';
 
 // Dataset registration SSOT: the generated manifest (not index.html tags).
 // Returns registered dataset script paths in manifest (load) order.
-export function registeredDatasetScripts() {
-  if (!existsSync(projectPath(DATASET_MANIFEST_SCRIPT))) return [];
-  const context = loadClassicScripts([DATASET_MANIFEST_SCRIPT]);
+export function registeredDatasetScripts(root = rootDir) {
+  if (!existsSync(path.join(root, DATASET_MANIFEST_SCRIPT))) return [];
+  const context = loadClassicScripts([DATASET_MANIFEST_SCRIPT], root);
   return (context.__DATASET_MANIFEST__?.datasets || [])
     .map((entry) => entry.src)
     .filter(Boolean);

@@ -1,95 +1,49 @@
-#!/usr/bin/env node
+// Source intake for a new Dataset Build. It validates the identity the
+// operator chose, records `source-classification/v1` from the whole-Source
+// Type Gate, initializes the INTAKED Build and claims the Source from
+// input/pending/ into the Git-tracked input/processing/ lease. The only caller
+// is `record:workflow start` (scripts/lib/asset-workflow.mjs); it never writes
+// canonical data.
 import { createHash } from 'node:crypto';
 import { existsSync } from 'node:fs';
 import { readFile, readdir, stat } from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { spawnSync } from 'node:child_process';
 import { PNG } from 'pngjs';
-import {
-  DATASET_ADAPTERS,
-  SOURCE_AVAILABILITY,
-  createDatasetBuild,
-} from './lib/dataset-build.mjs';
-import {
-  discardInitializedDatasetBuild,
-  initializeDatasetBuild,
-} from './lib/dataset-build-store.mjs';
-import { projectPath, rootDir } from './lib/project.mjs';
-import {
-  claimPendingSource,
-  isRecoverablePendingClaim,
-  sourceDigest,
-  sourceLifecyclePaths,
-} from './lib/source-lifecycle.mjs';
-import {
-  SOURCE_CLASSIFICATION_REVIEW_METHOD,
-  classifySourceSignals,
-  createSourceClassification,
-} from './lib/source-objects.mjs';
+import { DATASET_ADAPTERS, SOURCE_AVAILABILITY, createDatasetBuild } from './dataset-build.mjs';
+import { discardInitializedDatasetBuild, initializeDatasetBuild } from './dataset-build-store.mjs';
+import { checkPendingQueue, pendingCheckReport } from './pending-queue.mjs';
+import { projectPath, rootDir } from './project.mjs';
+import { claimPendingSource, isRecoverablePendingClaim, sourceDigest, sourceLifecyclePaths } from './source-lifecycle.mjs';
+import { SOURCE_CLASSIFICATION_REVIEW_METHOD, classifySourceSignals, createSourceClassification } from './source-objects.mjs';
 
 const BUILD_ROOT = projectPath('output', 'builds');
 
-function usage() {
-  console.error(`Usage:
-  pnpm record:intake -- <input/pending/source.png> --key <dataset-key> \\
-    --adapter <income-statement|revenue-metric> \\
-    --signal <source-classification-signal> [--signal <signal> ...] \\
-    [--availability <public|local-only|restricted>] [--json]
-
-This records an INTAKED Dataset Build and immediately claims the Source at
-input/processing/<dataset-key>.png. It does not write canonical data.`);
-}
-
-function usageError(message) {
+function intakeError(message, code = 'INTAKE_OPTION_INVALID') {
   const error = new Error(message);
-  error.code = 'ERR_USAGE';
+  error.code = code;
   return error;
 }
 
-export function parseArgs(argv) {
-  const args = argv.slice(2).filter((arg) => arg !== '--');
-  const positional = [];
-  let key = '';
-  let adapter = '';
-  const signals = [];
-  let availability = 'local-only';
-  let json = false;
-  for (let index = 0; index < args.length; index += 1) {
-    const arg = args[index];
-    if (arg === '--json') {
-      json = true;
-      continue;
-    }
-    if (arg === '--key' || arg === '--adapter' || arg === '--signal' || arg === '--availability') {
-      const value = args[index + 1];
-      index += 1;
-      if (!value || value.startsWith('--')) throw usageError(`${arg} requires a value`);
-      if (arg === '--key') key = value;
-      if (arg === '--adapter') adapter = value;
-      if (arg === '--signal') signals.push(value);
-      if (arg === '--availability') {
-        // Legacy alias: the old value collided with the lifecycle state
-        // PUBLISHED and was renamed; normalize so stored manifests converge.
-        availability = value === 'published' ? 'public' : value;
-      }
-      continue;
-    }
-    if (arg.startsWith('--')) throw usageError(`Unknown option: ${arg}`);
-    positional.push(arg);
-  }
-  if (positional.length !== 1) throw usageError('Exactly one pending Source path is required');
-  if (!key) throw usageError('--key is required');
-  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(key)) throw usageError('--key must be lowercase kebab case');
-  if (!DATASET_ADAPTERS.includes(adapter)) throw usageError(`Unsupported --adapter: ${adapter}`);
-  if (!SOURCE_AVAILABILITY.includes(availability)) throw usageError(`Unsupported --availability: ${availability}`);
+/**
+ * Normalize and validate the intake identity: one pending Source, a kebab-case
+ * key, a supported Adapter, a supported availability, and Type Gate signals
+ * that select exactly that Adapter.
+ */
+export function validateIntakeOptions(options = {}) {
+  const { source, key, adapter } = options;
+  const availability = options.availability || 'local-only';
+  if (typeof source !== 'string' || !source) throw intakeError('Exactly one pending Source path is required');
+  if (!key) throw intakeError('A dataset key is required');
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(key)) throw intakeError(`Dataset key must be lowercase kebab case: ${key}`);
+  if (!DATASET_ADAPTERS.includes(adapter)) throw intakeError(`Unsupported Adapter: ${adapter}`);
+  if (!SOURCE_AVAILABILITY.includes(availability)) throw intakeError(`Unsupported Source availability: ${availability}`);
   let classification;
   try {
-    classification = classifySourceSignals(signals, adapter);
+    classification = classifySourceSignals(options.signals || [], adapter);
   } catch (error) {
-    throw usageError(error.message);
+    throw intakeError(error.message);
   }
-  return { source: positional[0], key, adapter, signals: classification.signals, availability, json };
+  return { source, key, adapter, signals: classification.signals, availability };
 }
 
 async function canonicalFiles(entryPath) {
@@ -105,6 +59,7 @@ async function canonicalFiles(entryPath) {
   return nested.flat();
 }
 
+/** Digest of the canonical data tree the Build starts from. */
 export async function canonicalDataDigest() {
   const roots = [projectPath('data'), projectPath('index.html')].filter(existsSync);
   const files = (await Promise.all(roots.map(canonicalFiles))).flat().sort();
@@ -118,13 +73,10 @@ export async function canonicalDataDigest() {
   return `sha256:${hash.digest('hex')}`;
 }
 
-function sourcePath(requested, projectRoot = rootDir, options = {}) {
+function sourcePath(requested, projectRoot = rootDir) {
   const absolute = path.resolve(projectRoot, requested);
   if (path.dirname(absolute) !== path.join(projectRoot, 'input', 'pending') || !/\.(png|txt|md)$/i.test(absolute)) {
-    throw usageError('Source must be PNG, TXT or Markdown directly under input/pending/');
-  }
-  if (options.requireExisting !== false && !existsSync(absolute)) {
-    throw usageError(`Source does not exist: ${requested}`);
+    throw intakeError('Source must be PNG, TXT or Markdown directly under input/pending/', 'INTAKE_SOURCE_INVALID');
   }
   return absolute;
 }
@@ -149,12 +101,17 @@ async function activeBuildForKey(key, buildRoot = BUILD_ROOT, projectRoot = root
   return null;
 }
 
+// In-process pending-queue guard with the process-like result shape the
+// intake logic (and its tests) consume: status 0 passes, 1 blocks.
 function runPendingGuard(relativeSource, key, projectRoot = rootDir) {
-  return spawnSync(
-    process.execPath,
-    [path.join(projectRoot, 'scripts', 'check-pending-processed.mjs'), '--file', relativeSource, '--key', key],
-    { cwd: projectRoot, encoding: 'utf8' }
-  );
+  try {
+    const report = pendingCheckReport(checkPendingQueue({ files: [relativeSource], key, projectRoot }));
+    return report.ok
+      ? { status: 0, stdout: report.lines.join('\n'), stderr: '' }
+      : { status: 1, stdout: '', stderr: report.lines.join('\n') };
+  } catch (error) {
+    return { status: 2, stdout: '', stderr: error.message };
+  }
 }
 
 const DEFAULT_DEPENDENCIES = Object.freeze({
@@ -268,20 +225,25 @@ async function resumeActiveIntake(active, options, relativeSource, deps) {
   return claimResult(build, active.manifestPath, claim, deps.projectRoot);
 }
 
-export async function recordIntake(options, dependencies = {}) {
+/**
+ * Record an INTAKED Dataset Build for one pending Source and claim it into
+ * input/processing/. Resumes an active same-identity Build after a crash.
+ */
+export async function recordIntake(rawOptions, dependencies = {}) {
+  const options = validateIntakeOptions(rawOptions);
   const deps = { ...DEFAULT_DEPENDENCIES, ...dependencies };
-  const absoluteSource = sourcePath(options.source, deps.projectRoot, { requireExisting: false });
+  const absoluteSource = sourcePath(options.source, deps.projectRoot);
   const relativeSource = path.relative(deps.projectRoot, absoluteSource).split(path.sep).join('/');
   const active = await deps.activeBuildForKey(options.key, deps.buildRoot, deps.projectRoot);
   if (active) {
     return resumeActiveIntake(active, options, relativeSource, deps);
   }
-  if (!existsSync(absoluteSource)) throw usageError(`Source does not exist: ${options.source}`);
+  if (!existsSync(absoluteSource)) throw intakeError(`Source does not exist: ${options.source}`, 'INTAKE_SOURCE_MISSING');
   const bytes = await deps.readFile(absoluteSource);
   const extension = path.extname(absoluteSource).toLowerCase();
   const isText = extension !== '.png';
   const text = isText ? new TextDecoder('utf-8', { fatal: true }).decode(bytes) : null;
-  if (isText && !text.trim()) throw usageError('Text Source is empty');
+  if (isText && !text.trim()) throw intakeError('Text Source is empty', 'INTAKE_SOURCE_EMPTY');
   const dimensions = isText ? { format: 'text', charLength: text.length } : (() => { const png = PNG.sync.read(bytes); return { width: png.width, height: png.height }; })();
   const digest = `sha256:${createHash('sha256').update(bytes).digest('hex')}`;
   const sourceClassification = createSourceClassification({
@@ -350,37 +312,4 @@ export async function recordIntake(options, dependencies = {}) {
     throw cause;
   }
   return claimResult(build, manifestPath, claim, deps.projectRoot);
-}
-
-async function main() {
-  const options = parseArgs(process.argv);
-  const result = await recordIntake(options);
-  if (options.json) {
-    console.log(JSON.stringify({ ...result.build, sourceClaim: result.claim, manifestPath: result.manifestPath }, null, 2));
-    return;
-  }
-  console.log(`recorded Dataset Build ${result.build.buildId}`);
-  console.log(`state: ${result.build.state}`);
-  console.log(`key: ${result.build.key}`);
-  if (result.build.sourceClassification) {
-    console.log(`source classification: ${result.build.sourceClassification.adapter} (${result.build.sourceClassification.signals.join(', ')})`);
-  } else {
-    console.log('source classification: legacy Build (not recorded)');
-  }
-  console.log(`source origin: ${result.build.sources[0].uri} (${result.build.sources[0].width}x${result.build.sources[0].height})`);
-  console.log(`source working: ${result.claim.processingUri}`);
-  console.log(`source final: ${result.claim.processedUri}`);
-  if (result.claim.recoveredDuplicate) console.log('source recovery: reconciled an interrupted same-digest claim');
-  console.log(`base canonical: ${result.build.baseCanonicalDigest}`);
-  console.log(`manifest: ${result.manifestPath}`);
-  console.log('Source claimed in input/processing/; it stays there until an explicit operator completion signal authorizes direct batch relocation.');
-}
-
-const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
-if (isDirectRun) {
-  main().catch((error) => {
-    if (error.code === 'ERR_USAGE') usage();
-    console.error(error.stack || error.message);
-    process.exit(error.code === 'ERR_USAGE' ? 2 : 1);
-  });
 }

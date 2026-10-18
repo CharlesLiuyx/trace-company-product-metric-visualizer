@@ -179,7 +179,7 @@ function bytesDigest(value) {
 }
 
 // One archived, evidence-ready render for one locale, shaped like the output
-// of record:fidelity (no contact sheet: it exists only for failed runs).
+// of the record fidelity operation (no contact sheet: it exists only for failed runs).
 async function writeEvidence(root, prepared, options = {}) {
   const language = options.language || 'en';
   const archive = path.join(root, 'output', 'compare', prepared.build.key, `01-baseline-review-candidate-${language}`);

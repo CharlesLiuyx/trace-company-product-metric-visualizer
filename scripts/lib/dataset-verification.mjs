@@ -36,7 +36,8 @@ function defaultVerifier({ key, projectRoot }) {
 
 /**
  * Run the Adapter-independent consistency profile and record immutable,
- * Build-bound evidence. Rendering remains owned by record:fidelity.
+ * Build-bound evidence. Rendering remains owned by the fidelity record
+ * operation (scripts/record-fidelity.mjs).
  */
 export async function recordDatasetVerification(buildId, options = {}) {
   const buildRoot = options.buildRoot || DEFAULT_BUILD_ROOT;

@@ -4,7 +4,7 @@ import { existsSync } from 'node:fs';
 import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
-import { buildClaimedSourceIndex } from '../scripts/check-pending-processed.mjs';
+import { buildClaimedSourceIndex } from '../scripts/lib/pending-queue.mjs';
 import {
   claimPendingSource,
   resolveSourcePath,

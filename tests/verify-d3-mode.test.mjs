@@ -72,7 +72,7 @@ test('plan-bound verify is accepted by the CLI before dataset resolution', async
   );
 });
 
-test('record:fidelity binds review evidence to a Build', () => {
+test('the record fidelity operation binds review evidence to a Build', () => {
   const options = parseArgs([
     'node',
     'verify-d3.mjs',
@@ -86,7 +86,7 @@ test('record:fidelity binds review evidence to a Build', () => {
   assert.equal(options.buildId, 'build-example');
 });
 
-test('record:fidelity accepts every canonical stage focus for Build evidence', () => {
+test('the record fidelity operation accepts every canonical stage focus for Build evidence', () => {
   for (const focus of ['review-candidate', 'structure-sweep', 'text-sweep', 'polish-l10n-sweep', 'closeout-refresh']) {
     const options = parseArgs([
       'node',
@@ -101,7 +101,7 @@ test('record:fidelity accepts every canonical stage focus for Build evidence', (
   }
 });
 
-test('record:fidelity rejects Build evidence with a free-form focus', () => {
+test('the record fidelity operation rejects Build evidence with a free-form focus', () => {
   const options = parseArgs([
     'node',
     'verify-d3.mjs',
@@ -117,7 +117,7 @@ test('record:fidelity rejects Build evidence with a free-form focus', () => {
   );
 });
 
-test('record:fidelity preserves an explicitly labelled legacy archive without a Build', () => {
+test('the record fidelity operation preserves an explicitly labelled legacy archive without a Build', () => {
   const options = parseArgs([
     'node',
     'record-fidelity.mjs',

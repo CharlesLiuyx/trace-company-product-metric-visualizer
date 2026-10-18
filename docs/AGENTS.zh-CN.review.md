@@ -121,13 +121,6 @@ workspace 中工作，携带 owner 与 generation（`docs/local-environments.md`
 | `pnpm update:fidelity-rules-doc` | 重新生成保真规则目录区 |
 | `pnpm plan:ci -- --base <sha> --head <sha>` | 把一段 diff 分类为 CI 验证计划 |
 
-仅历史 Build（`docs/archive/legacy-direct-edit-workflow.md`）：
-
-| 命令 | 作用 |
-| --- | --- |
-| `pnpm record:workflow -- review\|seal\|checkpoint` | 为旧调用保留的动作；当前 Build 使用 `accept` |
-| `pnpm record:build` / `record:intake` / `record:fidelity` / `record:verification` / `verify:closeout` | `record:workflow` 内部复用的低层 Build 命令；当前 Build 永不直接调用 |
-
 CI 总是先跑 `pnpm check`，再按 ChangeImpact 选择 app、Pages、渲染和 standalone 检查
 （影响未知时全跑）。
 

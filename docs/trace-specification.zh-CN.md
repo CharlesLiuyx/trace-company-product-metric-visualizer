@@ -208,7 +208,7 @@ InputFile {
 | Source Image | `input/processed/<dataset-key>.png` 与 `meta.referenceImage` |
 | Pending Input | `input/pending/` |
 | Processing Input | `input/processing/<dataset-key>.<png\|txt\|md>`；`record:workflow start` 通过 Type Gate 后 no-clobber 领取；何时移到 processed 只由操作员完成信号决定，见 [asset-workflow.md](asset-workflow.md) §7（close-out 不触发搬移） |
-| 处理插件雏形 | `scripts/check-pending-processed.mjs`、`scripts/extract_icon_crops.py`、验证脚本 |
+| 处理插件雏形 | `scripts/lib/pending-queue.mjs`、`scripts/extract_icon_crops.py`、验证脚本 |
 | 可复用资产 | `data/assets/` |
 
 当前阶段的边界：

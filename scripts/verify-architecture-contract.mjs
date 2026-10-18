@@ -150,7 +150,7 @@ async function main() {
   assert.equal(
     contract.sourceClassification.requiredBeforeFreshRecordIntake,
     true,
-    'fresh record:intake must require Source classification'
+    'fresh intake must require Source classification'
   );
   assert.equal(
     contract.sourceClassification.bindsWholeNativeSource,
@@ -323,7 +323,15 @@ async function main() {
   );
 
   const packageJson = JSON.parse(await readFile(projectPath('package.json'), 'utf8'));
-  assert.ok(packageJson.scripts['record:intake'], 'package.json must expose record:intake');
+  // The historical per-step Build commands were removed on 2026-10-18; their
+  // library operations live in scripts/lib/ and only record:workflow drives
+  // them. scripts/record-fidelity.mjs stays as the render worker it spawns.
+  for (const script of ['record:intake', 'record:build', 'record:fidelity', 'record:verification', 'verify:closeout', 'check:pending', 'audit:interface-risk', 'release:dataset']) {
+    assert.ok(!packageJson.scripts[script], `${script} must stay removed; record:workflow owns the dataset process`);
+  }
+  for (const file of ['record-intake.mjs', 'record-build.mjs', 'record-verification.mjs', 'verify-closeout.mjs', 'check-pending-processed.mjs', 'audit-interface-risk.mjs', 'release-dataset.mjs', 'benchmark-site.mjs', 'clean-compare.sh']) {
+    assert.ok(!existsSync(projectPath('scripts', file)), `scripts/${file} must stay removed`);
+  }
   assert.ok(!packageJson.scripts['complete:source'], 'formal complete:source command must remain removed');
   assert.ok(!existsSync(projectPath('scripts', 'complete-source.mjs')), 'formal complete-source script must remain removed');
   assert.ok(existsSync(projectPath('input', 'processing', '.gitkeep')), 'input/processing must be a stable workspace directory');
@@ -343,12 +351,8 @@ async function main() {
     true,
     'input/processed Source archives must remain local-only'
   );
-  assert.ok(packageJson.scripts['record:fidelity'], 'package.json must expose record:fidelity');
-  assert.ok(packageJson.scripts['record:verification'], 'package.json must expose record:verification');
-  assert.ok(packageJson.scripts['record:build'], 'package.json must expose record:build');
   assert.ok(packageJson.scripts['compat:baseline'], 'package.json must expose compat:baseline');
   assert.ok(!packageJson.scripts['record:baseline'], 'record:baseline must stay renamed to compat:baseline so record:* remains build-local');
-  assert.ok(packageJson.scripts['verify:closeout'], 'package.json must expose verify:closeout');
   assert.ok(!packageJson.scripts['build:standalone'].includes('update-dataset-file-metadata'), 'build:standalone must not mutate tracked metadata');
   assert.equal(
     packageJson.scripts.prepare,
@@ -374,17 +378,19 @@ async function main() {
     }
   }
 
-  const [verifyD3, recordFidelity, recordIntake, buildCloseout] = await Promise.all([
+  const [verifyD3, recordFidelity, sourceIntake, assetWorkflow, buildCloseout] = await Promise.all([
     readFile(projectPath('scripts/verify-d3.mjs'), 'utf8'),
     readFile(projectPath('scripts/record-fidelity.mjs'), 'utf8'),
-    readFile(projectPath('scripts/record-intake.mjs'), 'utf8'),
+    readFile(projectPath('scripts/lib/source-intake.mjs'), 'utf8'),
+    readFile(projectPath('scripts/lib/asset-workflow.mjs'), 'utf8'),
     readFile(projectPath('scripts/lib/dataset-build-closeout.mjs'), 'utf8'),
   ]);
   assert.match(verifyD3, /operation:\s*'verify'/, 'verify:d3 must enter the read-only operation class');
-  assert.match(recordFidelity, /operation:\s*'record'/, 'record:fidelity must own durable review evidence');
+  assert.match(recordFidelity, /operation:\s*'record'/, 'the fidelity record operation must own durable review evidence');
+  assert.match(assetWorkflow, /runWorkspace\(options\.projectRoot, 'record-fidelity\.mjs'/, 'record:workflow must render review evidence through the record operation class');
   assert.match(verifyD3, /automatic pass is not human acceptance/, 'verify:d3 must disclaim human acceptance');
-  assert.match(recordIntake, /--signal <source-classification-signal>/, 'record:intake must expose the pre-intake Type Gate');
-  assert.match(recordIntake, /createSourceClassification\(\{/, 'record:intake must persist SourceClassification before claim');
+  assert.match(sourceIntake, /classifySourceSignals\(/, 'intake must run the pre-intake Type Gate');
+  assert.match(sourceIntake, /createSourceClassification\(\{/, 'intake must persist SourceClassification before claim');
   assert.match(
     buildCloseout,
     /createSourceObjects\(input\.sourceObjects/,
@@ -437,10 +443,10 @@ async function main() {
   assert.match(processDoc, /outside the scope the signal names/, 'operator relocation must stop for Sources outside the signalled scope');
   assert.match(processDoc, /same-name destination/, 'operator relocation must keep the no-clobber failure step');
   assert.doesNotMatch(workflow, /Operator Review-Completion Signal\n/, 'modeling rules must not redefine the operator relocation rule');
-  // One process, one owner: the modeling rules and the process owner name
-  // only the record:workflow entry, never the historical low-level pipeline
-  // (kept in docs/archive/ and the AGENTS command table).
-  for (const [name, source] of [['docs/asset-workflow.md', processDoc], ['docs/dynamic-dataset-workflow.md', workflow]]) {
+  // One process, one owner: the routing files, the modeling rules and the
+  // process owner name only the record:workflow entry, never the historical
+  // low-level pipeline (removed 2026-10-18; recorded only in docs/archive/).
+  for (const [name, source] of [['AGENTS.md', agents], ['docs/AGENTS.zh-CN.review.md', mirror], ['CONTEXT.md', context], ['docs/asset-workflow.md', processDoc], ['docs/dynamic-dataset-workflow.md', workflow]]) {
     assert.doesNotMatch(source, /record:(?:intake|build|verification|fidelity)\b|verify:closeout/, `${name} must use record:workflow instead of the historical low-level pipeline`);
   }
   // The no-browser delivery rule is owned once by asset-workflow; no other

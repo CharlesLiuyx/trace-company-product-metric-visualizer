@@ -5,11 +5,11 @@ import { mkdir, mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promis
 import os from 'node:os';
 import path from 'node:path';
 import { PNG } from 'pngjs';
-import { parseArgs, recordIntake } from '../scripts/record-intake.mjs';
+import { recordIntake, validateIntakeOptions } from '../scripts/lib/source-intake.mjs';
 import { claimPendingSource as claimSource } from '../scripts/lib/source-lifecycle.mjs';
 
 async function intakeFixture(t) {
-  const projectRoot = await mkdtemp(path.join(os.tmpdir(), 'record-intake-test-'));
+  const projectRoot = await mkdtemp(path.join(os.tmpdir(), 'source-intake-test-'));
   t.after(() => rm(projectRoot, { recursive: true, force: true }));
   const buildRoot = path.join(projectRoot, 'output', 'builds');
   const pendingPath = path.join(projectRoot, 'input', 'pending', 'acme.png');
@@ -34,7 +34,6 @@ function intakeOptions() {
     adapter: 'income-statement',
     signals: ['income-statement-values', 'sankey-flow-topology'],
     availability: 'local-only',
-    json: false,
   };
 }
 
@@ -48,99 +47,69 @@ function intakeDependencies(fixture, overrides = {}) {
   };
 }
 
-test('record:intake parses one selected Source and explicit Adapter', () => {
+test('validateIntakeOptions normalizes signals and keeps the explicit Adapter', () => {
   assert.deepEqual(
-    parseArgs([
-      'node',
-      'record-intake.mjs',
-      'input/pending/acme.png',
-      '--key',
-      'acme-q4-fy25',
-      '--adapter',
-      'income-statement',
-      '--signal',
-      'sankey-flow-topology',
-      '--signal',
-      'income-statement-values',
-      '--availability',
-      'public',
-      '--json',
-    ]),
+    validateIntakeOptions({
+      source: 'input/pending/acme.png',
+      key: 'acme-q4-fy25',
+      adapter: 'income-statement',
+      signals: ['sankey-flow-topology', 'income-statement-values'],
+      availability: 'public',
+    }),
     {
       source: 'input/pending/acme.png',
       key: 'acme-q4-fy25',
       adapter: 'income-statement',
       signals: ['income-statement-values', 'sankey-flow-topology'],
       availability: 'public',
-      json: true,
     }
   );
 });
 
-test('record:intake normalizes the legacy published availability alias to public', () => {
-  const parsed = parseArgs([
-    'node',
-    'record-intake.mjs',
-    'input/pending/acme.png',
-    '--key',
-    'acme-q4-fy25',
-    '--adapter',
-    'income-statement',
-    '--signal',
-    'income-statement-values',
-    '--signal',
-    'sankey-flow-topology',
-    '--availability',
-    'published',
-  ]);
-  assert.equal(parsed.availability, 'public');
+test('validateIntakeOptions defaults Source availability to local-only', () => {
+  const validated = validateIntakeOptions({
+    source: 'input/pending/acme.png',
+    key: 'acme-arr-2026',
+    adapter: 'revenue-metric',
+    signals: ['revenue-metric-definition', 'time-series-observations'],
+  });
+  assert.equal(validated.availability, 'local-only');
 });
 
-test('record:intake defaults Source availability to local-only', () => {
-  const parsed = parseArgs([
-    'node',
-    'record-intake.mjs',
-    'input/pending/acme.png',
-    '--key',
-    'acme-arr-2026',
-    '--adapter',
-    'revenue-metric',
-    '--signal',
-    'revenue-metric-definition',
-    '--signal',
-    'time-series-observations',
-  ]);
-  assert.equal(parsed.availability, 'local-only');
-});
-
-test('record:intake rejects ambiguous or malformed identity', () => {
+test('validateIntakeOptions rejects ambiguous or malformed identity', () => {
+  const base = { source: 'input/pending/acme.png', adapter: 'income-statement', signals: ['income-statement-values', 'sankey-flow-topology'] };
   assert.throws(
-    () => parseArgs(['node', 'record-intake.mjs', 'input/pending/acme.png', '--key', 'Acme Q4', '--adapter', 'income-statement']),
-    /lowercase kebab case/
+    () => validateIntakeOptions({ ...base, key: 'Acme Q4' }),
+    (error) => error.code === 'INTAKE_OPTION_INVALID' && /lowercase kebab case/.test(error.message)
   );
   assert.throws(
-    () => parseArgs(['node', 'record-intake.mjs', 'input/pending/acme.png', '--key', 'acme-q4', '--adapter', 'unknown']),
-    /Unsupported --adapter/
+    () => validateIntakeOptions({ ...base, key: 'acme-q4', adapter: 'unknown' }),
+    /Unsupported Adapter/
   );
   assert.throws(
-    () => parseArgs([
-      'node',
-      'record-intake.mjs',
-      'input/pending/acme.png',
-      '--key',
-      'acme-q4',
-      '--adapter',
-      'revenue-metric',
-      '--signal',
-      'income-statement-values',
-      '--signal',
-      'sankey-flow-topology',
-    ]),
+    () => validateIntakeOptions({ ...base, key: 'acme-q4', availability: 'published' }),
+    /Unsupported Source availability/
+  );
+  assert.throws(
+    () => validateIntakeOptions({ ...base, key: 'acme-q4', adapter: 'revenue-metric' }),
     /select income-statement, not requested Adapter revenue-metric/
   );
+  assert.throws(
+    () => validateIntakeOptions({ ...base, key: 'acme-q4', signals: [] }),
+    /explicit positive signals/
+  );
 });
 
-test('record:intake records the Build and claims pending Source in processing', async (t) => {
+test('recordIntake refuses a Source outside input/pending/ before touching the Build store', async (t) => {
+  const fixture = await intakeFixture(t);
+  await assert.rejects(
+    recordIntake({ ...intakeOptions(), source: 'input/processing/acme.png' }, intakeDependencies(fixture)),
+    (error) => error.code === 'INTAKE_SOURCE_INVALID'
+  );
+  assert.equal(existsSync(fixture.buildRoot), false);
+});
+
+test('recordIntake records the Build and claims pending Source in processing', async (t) => {
   const fixture = await intakeFixture(t);
   const result = await recordIntake(intakeOptions(), intakeDependencies(fixture));
 
@@ -165,7 +134,26 @@ test('record:intake records the Build and claims pending Source in processing', 
   assert.equal(existsSync(path.join(fixture.projectRoot, result.manifestPath)), true);
 });
 
-test('record:intake leaves pending Source untouched when Build initialization fails', async (t) => {
+test('recordIntake runs the in-process pending guard against the fixture project root', async (t) => {
+  const fixture = await intakeFixture(t);
+  // No registered datasets, SSOTs or claims exist in the fixture, so the
+  // default guard (scripts/lib/pending-queue.mjs) passes for the selected key.
+  const { runPendingGuard: _injected, ...deps } = intakeDependencies(fixture);
+  const result = await recordIntake(intakeOptions(), deps);
+  assert.equal(result.build.state, 'INTAKED');
+  assert.deepEqual(await readFile(fixture.processingPath), fixture.bytes);
+
+  // A second pending file with the same bytes is now blocked by the claim.
+  const duplicate = path.join(fixture.projectRoot, 'input', 'pending', 'acme-copy.png');
+  await writeFile(duplicate, fixture.bytes);
+  await assert.rejects(
+    recordIntake({ ...intakeOptions(), source: 'input/pending/acme-copy.png', key: 'acme-copy' }, deps),
+    (error) => error.code === 'INTAKE_GUARD_FAILED' && /matches existing claimed Source file/.test(error.message)
+  );
+  assert.deepEqual(await readFile(duplicate), fixture.bytes);
+});
+
+test('recordIntake leaves pending Source untouched when Build initialization fails', async (t) => {
   const fixture = await intakeFixture(t);
   const initializationError = Object.assign(new Error('manifest write failed'), { code: 'MANIFEST_WRITE_FAILED' });
 
@@ -184,7 +172,7 @@ test('record:intake leaves pending Source untouched when Build initialization fa
   assert.equal(existsSync(fixture.processingPath), false);
 });
 
-test('record:intake discards its initialized Build when the Source claim fails', async (t) => {
+test('recordIntake discards its initialized Build when the Source claim fails', async (t) => {
   const fixture = await intakeFixture(t);
   const claimError = Object.assign(new Error('claim failed'), { code: 'SOURCE_CLAIM_FAILED' });
 
@@ -204,7 +192,7 @@ test('record:intake discards its initialized Build when the Source claim fails',
   assert.deepEqual(await readdir(fixture.buildRoot), []);
 });
 
-test('record:intake resumes an interrupted same-digest claim after the guard reports it', async (t) => {
+test('recordIntake resumes an interrupted same-digest claim after the guard reports it', async (t) => {
   const fixture = await intakeFixture(t);
   await mkdir(path.dirname(fixture.processingPath), { recursive: true });
   await writeFile(fixture.processingPath, fixture.bytes);
@@ -226,7 +214,7 @@ test('record:intake resumes an interrupted same-digest claim after the guard rep
   assert.equal(existsSync(path.join(fixture.projectRoot, result.manifestPath)), true);
 });
 
-test('record:intake reports claim plus Build rollback failure and can resume the active manifest', async (t) => {
+test('recordIntake reports claim plus Build rollback failure and can resume the active manifest', async (t) => {
   const fixture = await intakeFixture(t);
 
   await assert.rejects(
@@ -253,7 +241,7 @@ test('record:intake reports claim plus Build rollback failure and can resume the
   assert.deepEqual(await readFile(fixture.processingPath), fixture.bytes);
 });
 
-test('record:intake resumes an active manifest whose Source claim completed before a crash', async (t) => {
+test('recordIntake resumes an active manifest whose Source claim completed before a crash', async (t) => {
   const fixture = await intakeFixture(t);
   await assert.rejects(
     recordIntake(
@@ -279,7 +267,7 @@ test('record:intake resumes an active manifest whose Source claim completed befo
   assert.deepEqual(await readFile(fixture.processingPath), fixture.bytes);
 });
 
-test('record:intake reconciles an active manifest with duplicate pending and processing locators', async (t) => {
+test('recordIntake reconciles an active manifest with duplicate pending and processing locators', async (t) => {
   const fixture = await intakeFixture(t);
   await assert.rejects(
     recordIntake(

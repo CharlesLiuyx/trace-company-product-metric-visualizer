@@ -55,7 +55,7 @@ function usage() {
   console.error(
     'Usage:\n' +
       '  pnpm verify:d3 -- <dataset-key> [--build <build-id>] [--keep] [--language <code>] [--focus <diagnostic-direction>]\n' +
-      `  pnpm record:fidelity -- <dataset-key> --focus <${STAGE_FOCUS_VALUES.join('|')}> [--build <build-id>] [--keep] [--language <code> ...]`
+      `  node scripts/record-fidelity.mjs <dataset-key> --focus <${STAGE_FOCUS_VALUES.join('|')}> [--build <build-id>] [--keep] [--language <code> ...]  (spawned by record:workflow continue)`
   );
 }
 
@@ -135,7 +135,7 @@ export function fidelityExecutionModeForOperation({ buildId, focus }, operation)
     return 'review-evidence';
   }
   if (focus && focus !== 'unspecified') return 'legacy-manual';
-  throw new Error('record:fidelity requires an explicit --focus');
+  throw new Error('the fidelity record operation requires an explicit --focus');
 }
 
 function formatPx(value) {

@@ -9,6 +9,17 @@ the protocol they were created with. New Sources follow
 now live in [dynamic-dataset-workflow.md](../dynamic-dataset-workflow.md), and
 the Operator Review-Completion Signal is owned by asset-workflow.md.
 
+The commands quoted below (`check:pending`, `record:intake`, `record:build`,
+`record:verification`, `record:fidelity`, `verify:closeout`,
+`audit:interface-risk`) were removed from `package.json` on 2026-10-18
+(`refactor(scripts): remove historical low-level build commands`), together
+with their standalone scripts; only `scripts/record-fidelity.mjs` stays, as the
+render worker that `record:workflow continue` spawns, and the intake and
+pending-queue logic moved to `scripts/lib/source-intake.mjs` and
+`scripts/lib/pending-queue.mjs`. Every local historical Build is SEALED and
+cleaned. To operate one anyway, check out a commit before that change (for
+example `606a3bf6`) and run the commands there.
+
 Every step below is kept verbatim for auditing old Builds. Where it conflicts
 with the current process (per-stage checkpoints, final browser checks of the
 file entry, per-task `pnpm check`), the current process wins for new Builds.

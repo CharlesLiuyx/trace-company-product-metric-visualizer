@@ -96,5 +96,3 @@ SSOT 或执行 Git 推送。
   需要时运行 `pnpm build:standalone` 重建；完成后仍由统一清理删除。
 - 最终检查也可能生成缓存或截图，清理必须放在检查和交付之后。最后统计
   `du -sh output compare`，确认只剩上述 meta，再报告清理结果。
-
-`scripts/clean-compare.sh` 仅是历史顶层 scratch 工具，不能代替本收尾入口。

@@ -162,7 +162,7 @@ Dated record of the migration; status as of 2026-10-18:
 | milestone | implementation status | outcome |
 | --- | --- | --- |
 | M0 — record the decision | implemented | architecture owners, vocabulary, invariants, and ADR exist |
-| M1 — isolate FidelityRun | implemented with operation separation and `fidelity-run/2` review identity | `verify:d3` remains ephemeral/read-only; `record:fidelity` alone finalizes durable automatic evidence, with legacy v1 archives explicitly non-closure |
+| M1 — isolate FidelityRun | implemented with operation separation and `fidelity-run/2` review identity | `verify:d3` remains ephemeral/read-only; the fidelity `record` operation alone finalizes durable automatic evidence, with legacy v1 archives explicitly non-closure |
 | M2 — introduce DatasetBuild | implemented for the new workflow | isolated authoring workspace, existing ledger, PNG/text identity, facts compilation and derived dependencies; historical direct-edit Builds remain readable |
 | M3 — close and stage | implemented | source objects, consistency, one per-locale review candidate and operator acceptance (historical checkpoint Builds keep stage freezes); baseline and final seal remain separate |
 | M4 — publish atomically | implemented for local dataset publication | private combined candidate, pure-in-candidate shared projections, owned-path conflicts, fresh seal check, immutable tree and pointer CAS, digest-qualified reader, idempotent recovery |

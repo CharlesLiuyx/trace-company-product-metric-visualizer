@@ -158,15 +158,16 @@ catalog. New pages continue to request only their immutable runtime paths.
   on-demand script request against the new artifact, then requires a rendered
   Sankey and no metric-library toolbar entry after upgrading.
 
-`node scripts/benchmark-site.mjs --baseline <saved-site> --runs 10` compares
-two immutable site directories with identical gzip, a fresh context per run,
-disabled browser cache, 4× CPU slowdown, 100 ms network latency, and 1.6 Mbps
-download bandwidth. Runs alternate order. It records raw samples plus median
-and p90 for first Sankey node, cold/warm company switch, transfer size and
-long tasks in `output/site-benchmark/results.json`. This is a controlled local
-diagnostic, not a production percentile or a wall-clock CI gate. Measured
-results and check routing are recorded in
-[CI verification](../ci-verification.zh-CN.md).
+The site benchmark (`scripts/benchmark-site.mjs`, removed on 2026-10-18; check
+out an earlier commit to rerun it) compared two immutable site directories with
+identical gzip, a fresh context per run, disabled browser cache, 4× CPU
+slowdown, 100 ms network latency, and 1.6 Mbps download bandwidth, alternating
+run order, and recorded raw samples plus median and p90 for first Sankey node,
+cold/warm company switch, transfer size and long tasks in
+`output/site-benchmark/results.json`. It was a controlled local diagnostic, not
+a production percentile or a wall-clock CI gate. Its measured results are
+archived in [CI timing history](../archive/ci-timing-history.md); check routing
+is in [CI verification](../ci-verification.zh-CN.md).
 
 An uncached company switch adds one JSON request; a warmed one adds none.
 Global Tables still download the requested full family. Database adoption should be reconsidered for

@@ -110,9 +110,10 @@ or compatible accepted evidence set it consumes.
 
 The current review-evidence protocol is `fidelity-run/2`. Its durable
 automatic terminal is `EVIDENCE_READY`, not human acceptance. `verify:d3`
-uses only ephemeral diagnostic scratch; the `record:fidelity` operation (run by
-`record:workflow continue`) is the only one that may finalize a build-bound
-`evidence-ready` archive, and only after every gate of that run passed. The
+uses only ephemeral diagnostic scratch; the fidelity `record` operation
+(`scripts/record-fidelity.mjs`, run by `record:workflow continue`) is the only
+one that may finalize a build-bound `evidence-ready` archive, and only after
+every gate of that run passed. The
 operator acceptance is joined later by the Dataset Build Module rather than
 inferred from this run.
 
@@ -406,11 +407,10 @@ the per-Build store; `accept` records acceptance, closure, baseline staging and
 seal in one locked transaction. Inspection also produces `CloseoutReport`, Task
 information, and Loop Fidelity Summary as pure Views over the recorded
 `FidelityResult`. Closures recorded before `fidelity-result/v3` may still
-reference a feedback-ledger object; it is no longer read. The low-level
-`record:intake`, `record:build`, `record:verification`, `record:fidelity` and
-`verify:closeout` commands remain only for historical Builds
-([legacy workflow](../archive/legacy-direct-edit-workflow.md)), and
-`compat:baseline` is only the legacy baseline writer.
+reference a feedback-ledger object; it is no longer read. The historical
+per-step commands behind these Interfaces were removed on 2026-10-18 (the
+[legacy workflow](../archive/legacy-direct-edit-workflow.md) records them),
+and `compat:baseline` is only the legacy baseline writer.
 
 Sealing re-hashes authored files under the write lock and, by default, reuses
 the accepted non-render consistency evidence and, for Income Statement, the

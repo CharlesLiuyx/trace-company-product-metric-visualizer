@@ -6,6 +6,7 @@
 import path from 'node:path';
 import { rootDir } from './lib/project.mjs';
 import { runCheckProcess, runChecks } from './lib/check-runner.mjs';
+import { checkPendingQueue, pendingCheckReport } from './lib/pending-queue.mjs';
 
 async function runVerifier(script, args = [], nodeArgs = []) {
   const result = await runCheckProcess(process.execPath, [...nodeArgs, path.join(rootDir, 'scripts', script), ...args], {
@@ -40,10 +41,18 @@ async function runUnitTests() {
   return `${summary.pass ?? '?'} unit tests passed`;
 }
 
+// The shared input/pending/ queue is inspected in-process: duplicates, key
+// collisions and already-claimed Sources block before any Build starts.
+async function runPendingCheck() {
+  const report = pendingCheckReport(checkPendingQueue({ projectRoot: rootDir }));
+  if (!report.ok) throw new Error(`pending queue check failed:\n${report.lines.join('\n')}`);
+  return report.lines[0];
+}
+
 const steps = [
   ['syntax', () => runVerifier('check-syntax.mjs', [], ['--experimental-vm-modules'])],
   ['test', runUnitTests],
-  ['check:pending', () => runVerifier('check-pending-processed.mjs')],
+  ['check:pending', runPendingCheck],
   ['verify:architecture', () => runVerifier('verify-architecture-contract.mjs')],
   ['verify:app-globals', () => runVerifier('verify-app-globals.mjs')],
   ['verify:dataset-manifest', () => runVerifier('update-dataset-manifest.mjs', ['--check'])],

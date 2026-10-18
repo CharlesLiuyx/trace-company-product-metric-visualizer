@@ -9,7 +9,7 @@ import { existsSync } from 'node:fs';
 import { mkdir, readFile, writeFile, readdir, symlink, copyFile } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 import { rootDir } from './project.mjs';
-import { recordIntake } from '../record-intake.mjs';
+import { recordIntake } from './source-intake.mjs';
 import { classifySourceSignals } from './source-objects.mjs';
 import { VERIFICATION_PLAN_PROTOCOL } from './verification-plan.mjs';
 import { compileMetricFacts, SOURCE_FACTS_PROTOCOL } from './metric-source.mjs';
@@ -154,7 +154,7 @@ export async function assertMergeableSsots(workspace) {
 }
 export async function prepareAsset(buildId, facts = null, root = rootDir) {
   return operation(buildId, 'prepare', root, async (options) => {
-    if (!options.build.authoringRoot) throw new Error('Use the legacy record:build path for non-isolated historical Builds');
+    if (!options.build.authoringRoot) throw new Error('Non-isolated historical Builds have no authoring workspace and can no longer be prepared');
     const file = inside(options.projectRoot, 'output/workflow/source-facts.json');
     if (facts) await atomicJson(file, facts);
     const input = facts || await readJson(file);

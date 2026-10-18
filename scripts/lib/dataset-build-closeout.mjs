@@ -330,7 +330,7 @@ export async function finishReviewedBuild(input, options = {}) {
   );
   let evidence = [];
   if (build.adapter === 'income-statement') {
-    invariant(Array.isArray(input.evidenceManifests) && input.evidenceManifests.length > 0, 'AUTOMATIC_EVIDENCE_REQUIRED', 'Income Statement review needs record:fidelity evidence manifests');
+    invariant(Array.isArray(input.evidenceManifests) && input.evidenceManifests.length > 0, 'AUTOMATIC_EVIDENCE_REQUIRED', 'Income Statement review needs recorded fidelity evidence manifests');
     evidence = await Promise.all(input.evidenceManifests.map((locator) =>
       evidenceFromManifest(locator, {
         buildId: build.buildId,

@@ -29,7 +29,6 @@ const D3_PIPELINE_PATHS = new Set([
 const SITE_PIPELINE_PATHS = new Set([
   'scripts/build-site.mjs',
   'scripts/verify-site.mjs',
-  'scripts/benchmark-site.mjs',
   'scripts/lib/site-data.mjs',
   'scripts/lib/site-data-browser.mjs',
 ]);

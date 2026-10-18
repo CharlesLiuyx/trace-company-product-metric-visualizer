@@ -135,13 +135,6 @@ Code and documentation tasks:
 | `pnpm update:fidelity-rules-doc` | regenerate the fidelity rule catalog section |
 | `pnpm plan:ci -- --base <sha> --head <sha>` | classify a diff into the CI verification plan |
 
-Historical Builds only (`docs/archive/legacy-direct-edit-workflow.md`):
-
-| command | purpose |
-| --- | --- |
-| `pnpm record:workflow -- review\|seal\|checkpoint` | legacy actions kept for old callers; current Builds use `accept` |
-| `pnpm record:build` / `record:intake` / `record:fidelity` / `record:verification` / `verify:closeout` | low-level Build commands that `record:workflow` reuses internally; never call them for a current Build |
-
 CI always runs `pnpm check`, then selects app, Pages, render and standalone
 checks by ChangeImpact (unknown impact runs everything).
 

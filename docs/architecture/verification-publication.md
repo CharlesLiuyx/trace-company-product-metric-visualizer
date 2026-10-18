@@ -20,8 +20,10 @@ Interface, not a naming preference.
 Implemented `verify:*` and `record:*` commands satisfy this contract. The one
 remaining canonical compatibility mutation is deliberately named
 `compat:baseline`, outside these classes, for legacy direct-edit compatibility.
-`publish:datasets` and `release:dataset` implement the isolated workflow in
-[asset-workflow.md](../asset-workflow.md). `release:git` transports a published
+`publish:datasets` implements the isolated publication workflow in
+[asset-workflow.md](../asset-workflow.md); the ReleaseAttempt writer
+(`releasePublished` in `scripts/lib/workflow-publication.mjs`) has no command
+entry. `release:git` transports a published
 digest into a reviewed commit; `record:transport-review` records that integrated
 candidate’s explicit human acceptance. It does not alter Build acceptance or the
 Publication pointer. See [ADR-0003](../adr/0003-shared-checkout-sessions-and-git-transport.md).
@@ -68,9 +70,9 @@ ReviewPacket; a JSON document cannot redirect an operation to another Build.
 transaction using the existing checks; it preserves every state-machine
 receipt, leaves no partial acceptance if any transition fails, and commits each
 Build in a batch independently. Historically the same Interfaces were driven
-step by step through `record:intake`, `record:build`, `record:verification`,
-`record:fidelity` and `verify:closeout`; those commands remain only for
-historical Builds.
+step by step through low-level commands; those were removed on 2026-10-18 and
+survive only in the [legacy workflow](../archive/legacy-direct-edit-workflow.md)
+record.
 
 The intake Type Gate derives exactly one Adapter from the facts' top-level
 `signals` before Build initialization or the working-Source claim (rules:
@@ -129,9 +131,9 @@ files were written.
 Current review evidence uses `fidelity-run/2`. `verify:d3` is strictly
 read-only diagnostic execution: it may use ephemeral scratch but does not
 promote any archive, even when automatic page, purity, size, label, text,
-annotation, and Interface audits complete. The `record:fidelity` operation
-(run by `record:workflow continue`) is the only fidelity operation that may
-archive durable evidence. Bound to a Build, the archive is
+annotation, and Interface audits complete. The fidelity `record` operation
+(`scripts/record-fidelity.mjs`, run by `record:workflow continue`) is the only
+fidelity operation that may archive durable evidence. Bound to a Build, the archive is
 bound to Build, authored, and Verification Plan digests and is finalized as
 `evidence-ready (human review required)`. Unbound legacy manual archives retain
 the v1 compatibility identity and explicitly do not imply Build closure.

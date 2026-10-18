@@ -45,7 +45,6 @@
 | `pnpm verify:metrics` | `node scripts/verify-metrics.mjs` |
 | `pnpm record:workflow` | `node scripts/record-workflow.mjs` |
 | `pnpm publish:datasets` | `node scripts/publish-datasets.mjs` |
-| `pnpm release:dataset` | `node scripts/release-dataset.mjs` |
 | `pnpm view:published` | `node scripts/dev-server.mjs --published --port 8001` |
 | `pnpm update:asset-catalog` | `node scripts/update-asset-catalog.mjs` |
 | `pnpm verify:asset-catalog` | `node scripts/update-asset-catalog.mjs --check` |
@@ -58,7 +57,7 @@
 | `pnpm verify:workbench` | `node scripts/verify-workbench.mjs` |
 
 发布先 `publish:datasets -- plan <build-id> [...]`，再 `publish:datasets -- commit <plan-digest>`。
-输出使用 `release:dataset -- <published-digest> site|standalone [failed-attempt-id]`。
+推送经 `release:git -- prepare <published-digest>`、`commit`、`push` 交接，站点由 CI 构建与部署。
 
 ## 当前协议
 
