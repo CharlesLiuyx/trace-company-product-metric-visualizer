@@ -1,7 +1,7 @@
 import { digestValue } from './dataset-build.mjs';
 import { readInside } from './workspace-storage.mjs';
 import path from 'node:path';
-import { watch, existsSync, createReadStream } from 'node:fs';
+import { watch, existsSync, createReadStream, statSync } from 'node:fs';
 import { readFile, readdir, stat, mkdir, writeFile, rm } from 'node:fs/promises';
 import { spawn, execFile } from 'node:child_process';
 import { promisify } from 'node:util';
@@ -110,6 +110,9 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
             if (String(name).split('/').includes('.DS_Store')) return;
             if (item === 'output/workflow' && !['base.json', 'storage.json'].includes(String(name))) return;
             if (item === 'input' && !/^(icon-crop-specs|processing|processed)(\/|$)/.test(String(name))) return;
+            // Cloning a snapshot out of this tree reports a change for every
+            // source file; only a file whose identity moved is an edit.
+            if (manifest.unchanged(path.join(file, String(name)))) return;
             changed();
           }));
         }
@@ -117,7 +120,7 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
       if (!state.watched.has(folder)) {
         state.watched.add(folder);
         watchers.push(watch(folder, (_event, file) => {
-          if (['index.html', 'package.json', 'pnpm-lock.yaml'].includes(String(file))) changed();
+          if (['index.html', 'package.json', 'pnpm-lock.yaml'].includes(String(file)) && !manifest.unchanged(path.join(folder, String(file)))) changed();
           if (['src', 'data', 'vendor', 'scripts', 'input', 'output'].includes(String(file))) { state.watchWorkspace(folder); changed(); }
         }));
       }
@@ -128,10 +131,12 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
   async function rebuild(state) {
     if (closed || state.busy || !state.dirty || Date.now() < state.notBefore || activeBuilds >= maxBuilds) return;
     activeBuilds++;
-    state.busy = true; state.dirty = false; state.status = 'building'; state.error = null; notify();
+    // Keep the last error visible until a build succeeds; clearing it here hid
+    // a repeating failure behind "building" for every retry.
+    state.busy = true; state.dirty = false; state.status = 'building'; notify();
     const id = randomUUID(), target = inside(root, `output/workbench/previews/${state.source}/${id}/site`);
     ownedPreviews.add(path.dirname(target));
-    let activated = false;
+    let activated = false, inputSignature = null;
     const started = performance.now();
     try {
       const before = await manifest(state.workspace);
@@ -151,8 +156,11 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
       const auxiliary = state.source.startsWith('build-')
         ? (await manifest(root, [`output/builds/${state.source}/manifest.json`, `output/local-view/builds/${state.source}.json`])).digest
         : state.source.startsWith('transport-') ? (await manifest(root, [`output/git-transports/${state.source}/plan.json`])).digest : null;
-      const inputSignature = JSON.stringify([before.digest, toolsBefore.digest, selectedMembers, inputs, auxiliary]);
-      if (state.candidate && state.inputSignature === inputSignature) { state.status = 'ready'; return; }
+      inputSignature = JSON.stringify([before.digest, toolsBefore.digest, selectedMembers, inputs, auxiliary]);
+      if (state.candidate && state.inputSignature === inputSignature) { state.status = 'ready'; state.error = null; state.failedSignature = null; return; }
+      // A merge conflict or broken draft fails the same way on the same
+      // inputs. Stay failed, error shown, until one of those inputs changes.
+      if (state.failedSignature === inputSignature) { state.status = 'failed'; return; }
       await mkdir(path.dirname(target), { recursive: true });
       const snapshot = path.join(path.dirname(target), 'source');
       const runtimeEntries = before.entries.filter((entry) => !entry.path.startsWith('data/assets/icon-references/'));
@@ -216,10 +224,11 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
       }
       state.inputSignature = inputSignature;
       state.candidate = candidate;
+      state.error = null; state.failedSignature = null;
       state.durationMs = Math.round(performance.now() - started);
       state.status = 'ready';
       activated = true;
-    } catch (error) { state.status = 'failed'; state.error = error.message; }
+    } catch (error) { state.status = 'failed'; state.error = error.message; state.failedSignature = inputSignature; }
     finally {
       // These are build-owned scratch copies; immutable site URLs and their
       // candidate receipts remain available to pinned review tabs.
@@ -282,22 +291,41 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
     }
     return prior || { key, status: 'unknown' };
   }
-  let taskRead = null, taskAt = 0;
+  // One read at a time: a slow pass must never stack overlapping passes.
+  let taskRead = null, taskAt = 0, taskPending = null;
   function tasks() {
-    if (!taskRead || Date.now() - taskAt > 1000) { taskAt = Date.now(); taskRead = readTasks().catch((error) => { taskRead = null; throw error; }); }
-    return taskRead;
+    if (taskPending) return taskPending;
+    if (taskRead && Date.now() - taskAt <= 1000) return taskRead;
+    taskAt = Date.now();
+    taskPending = readTasks().then((value) => { taskRead = Promise.resolve(value); return value; }).finally(() => { taskPending = null; });
+    return taskPending;
   }
+  // A Build manifest can hold hundreds of KB of receipts. Parse its records
+  // only when one changes identity and keep just the fields the queue shows.
+  const taskSummaries = new Map();
+  const recordStamp = (file) => {
+    try { const s = statSync(file, { bigint: true }); return `${s.dev}:${s.ino}:${s.size}:${s.mtimeNs}:${s.ctimeNs}`; }
+    catch (error) { if (error.code !== 'ENOENT') throw error; return 'missing'; }
+  };
 
   async function readTasks() {
     const folder = path.join(root, 'output/builds');
     const files = await readdir(folder).catch(() => []);
-    const result = await Promise.all(files.filter((f) => /^build-[a-z0-9-]+$/.test(f)).map(async (buildId) => {
+    const builds = files.filter((f) => /^build-[a-z0-9-]+$/.test(f));
+    for (const buildId of taskSummaries.keys()) if (!builds.includes(buildId)) taskSummaries.delete(buildId);
+    const result = await Promise.all(builds.map(async (buildId) => {
       try {
-        const manifest = await readJson(path.join(folder, buildId, 'manifest.json'));
-        if (!manifest.authoringRoot) return null;
-        const selected = await readJson(inside(root, `output/local-view/builds/${buildId}.json`)).catch(() => ({}));
-        const session = await readJson(path.join(folder, buildId, 'session.json')).catch(() => null);
-        return { ...selected, buildId, key: manifest.key, historicalState: manifest.state, reviewPending: Boolean(selected.revision) && manifest.review?.status !== 'accepted', owner: session?.owner || '历史任务', selectable: workspaceReady(path.join(folder, buildId, 'workspace')) };
+        const records = [path.join(folder, buildId, 'manifest.json'), inside(root, `output/local-view/builds/${buildId}.json`), path.join(folder, buildId, 'session.json')];
+        const stamp = records.map(recordStamp).join('|');
+        let summary = taskSummaries.get(buildId);
+        if (summary?.stamp !== stamp) {
+          const manifest = await readJson(records[0]);
+          const selected = manifest.authoringRoot ? await readJson(records[1]).catch(() => ({})) : null;
+          const session = manifest.authoringRoot ? await readJson(records[2]).catch(() => null) : null;
+          summary = { stamp, task: manifest.authoringRoot ? { ...selected, buildId, key: manifest.key, historicalState: manifest.state, reviewPending: Boolean(selected.revision) && manifest.review?.status !== 'accepted', owner: session?.owner || '历史任务' } : null };
+          taskSummaries.set(buildId, summary);
+        }
+        return summary.task && { ...summary.task, selectable: workspaceReady(path.join(folder, buildId, 'workspace')) };
       } catch { return null; }
     }));
     for (const id of await readdir(path.join(root, 'output/git-transports')).catch(() => [])) {

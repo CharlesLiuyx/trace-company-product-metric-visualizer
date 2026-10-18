@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import path from 'node:path';
 import os from 'node:os';
-import { mkdtemp, mkdir, readFile, writeFile, copyFile, rm, readdir } from 'node:fs/promises';
+import { mkdtemp, mkdir, readFile, writeFile, copyFile, rm, readdir, rename } from 'node:fs/promises';
 import { startOrReuseWorkbench, findWorkbench } from '../scripts/lib/workbench-discovery.mjs';
 import { startWorkbench } from '../scripts/lib/workbench-server.mjs';
 import { atomicJson, fileManifest, freezeSnapshot, cloneFiles } from '../scripts/lib/workflow-files.mjs';
@@ -170,4 +170,67 @@ test('concurrent CLI starts reuse one checkout workbench even across requested p
   assert.match(await readFile(path.join(root, 'output/local-view/workbench.js'), 'utf8'), new RegExp(first.url.replaceAll('.', '\\.')));
   await server.close();
   assert.equal(await findWorkbench(root, 0), null);
+});
+
+test('cloning a snapshot out of a watched tree does not queue another preview', async (t) => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'trace-workbench-clone-'));
+  await mkdir(path.join(root, 'data'), { recursive: true });
+  await writeFile(path.join(root, 'index.html'), '<html>fixture</html>');
+  for (let i = 0; i < 40; i++) await writeFile(path.join(root, `data/f${i}.js`), String(i));
+  let builds = 0;
+  const server = await startWorkbench({ root, port: 0, readCi: async () => [], productionFetch: async () => { throw new Error('offline'); }, build: async () => { builds++; throw new Error('fixture'); } });
+  t.after(async () => { await server.close(); await rm(root, { recursive: true, force: true }); });
+  const status = () => fetch(server.url + '__trace/status?source=project').then((r) => r.json());
+  const failed = await until(status, (state) => state.preview.status === 'failed');
+  await sleep(700);
+  const settled = (await status()).preview.revision, settledBuilds = builds;
+  const files = (await fileManifest(root)).entries.map((e) => e.path);
+  await cloneFiles(root, path.join(root, 'output/scratch-clone'), files);
+  await sleep(700);
+  const after = await status();
+  assert.equal(after.preview.revision, settled, 'clone events on unchanged sources are ignored');
+  assert.equal(builds, settledBuilds);
+  assert.ok(failed.preview.revision <= settled);
+  await writeFile(path.join(root, 'data/f3.js'), 'edited');
+  await until(status, (state) => state.preview.revision > settled);
+});
+
+test('task summaries are re-read when a Build record changes', async (t) => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'trace-workbench-tasks-'));
+  await writeFile(path.join(root, 'index.html'), '<html>fixture</html>');
+  const manifest = path.join(root, 'output/builds/build-cccc/manifest.json');
+  await atomicJson(manifest, { key: 'cccc', authoringRoot: 'output/builds/build-cccc/workspace', state: 'INTAKED' });
+  const server = await startWorkbench({ root, port: 0, readCi: async () => [], productionFetch: async () => { throw new Error('offline'); }, build: async () => { throw new Error('fixture'); } });
+  t.after(async () => { await server.close(); await rm(root, { recursive: true, force: true }); });
+  const task = () => fetch(server.url + '__trace/status?source=project').then((r) => r.json()).then((state) => state.tasks.find((item) => item.buildId === 'build-cccc'));
+  assert.equal((await task()).historicalState, 'INTAKED');
+  await atomicJson(manifest, { key: 'cccc', authoringRoot: 'output/builds/build-cccc/workspace', state: 'AUTHORED' });
+  await atomicJson(path.join(root, 'output/local-view/builds/build-cccc.json'), { revision: 'r1' });
+  const updated = await until(async () => { await sleep(100); return task(); }, (item) => item.historicalState === 'AUTHORED' && item.revision === 'r1');
+  assert.equal(updated.reviewPending, true);
+});
+
+test('a failed preview stays failed with its error until an input really changes', async (t) => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'trace-workbench-sticky-'));
+  await mkdir(path.join(root, 'data'), { recursive: true });
+  await writeFile(path.join(root, 'index.html'), '<html>fixture</html>');
+  await writeFile(path.join(root, 'data/a.js'), 'first');
+  let builds = 0;
+  const server = await startWorkbench({ root, port: 0, readCi: async () => [], productionFetch: async () => { throw new Error('offline'); }, build: async () => { builds++; throw new Error(`deterministic failure ${builds}`); } });
+  t.after(async () => { await server.close(); await rm(root, { recursive: true, force: true }); });
+  const status = () => fetch(server.url + '__trace/status?source=project').then((r) => r.json());
+  await until(status, (state) => state.preview.status === 'failed');
+  assert.equal(builds, 1);
+  // A same-byte rewrite is a real file event with unchanged inputs.
+  await writeFile(path.join(root, 'data/a.tmp'), 'first'); await rename(path.join(root, 'data/a.tmp'), path.join(root, 'data/a.js'));
+  const revision = (await status()).preview.revision;
+  const retried = await until(status, (state) => state.preview.revision > revision || state.preview.status !== 'failed');
+  await until(status, (state) => state.preview.status === 'failed');
+  const settled = await status();
+  assert.equal(builds, 1, 'identical inputs are not rebuilt after a failure');
+  assert.equal(settled.preview.error, 'deterministic failure 1');
+  assert.ok(retried);
+  await writeFile(path.join(root, 'data/a.js'), 'second');
+  const next = await until(status, (state) => state.preview.error === 'deterministic failure 2');
+  assert.equal(next.preview.status, 'failed');
 });

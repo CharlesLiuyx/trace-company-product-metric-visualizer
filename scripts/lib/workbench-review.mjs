@@ -27,7 +27,7 @@ export const reviewTasks = (tasks) => tasks.filter((task) => task.buildId.starts
   .sort((a, b) => a.key.localeCompare(b.key) || a.buildId.localeCompare(b.buildId));
 
 export async function composeReviewData(root, snapshot, tasks, manifest = fileManifest, { referenceRoot = null } = {}) {
-  const members = [], keys = new Set(), times = await metadata(snapshot), ownedTimes = new Map();
+  const members = [], keys = new Set(), times = await metadata(snapshot), ownedTimes = new Map(), writers = new Map();
   for (const task of reviewTasks(tasks)) {
     if (keys.has(task.key)) throw new Error(`统一验收存在重复数据：${task.key}；请先解决两个草稿的归属。`);
     keys.add(task.key);
@@ -46,9 +46,19 @@ export async function composeReviewData(root, snapshot, tasks, manifest = fileMa
         const [original, current, next] = await Promise.all([read(baseRoot, file), read(snapshot, file).then((value) => value || (referenceRoot && file.startsWith('data/assets/icon-references/') ? read(referenceRoot, file) : null)), read(workspace, file)]);
         if ((original ? bytesDigest(original) : undefined) !== before.get(file) || !next || bytesDigest(next) !== incoming.get(file)) throw new Error(`复制时文件已变化：${file}`);
         let merged;
+        const prior = writers.get(file) || [];
+        writers.set(file, [...prior, `${task.key}（${task.buildId}）`]);
         if (current?.equals(next)) continue;
         if ((!current && !original) || current && original && current.equals(original)) merged = next;
-        else merged = mergeSource(file, original?.toString('utf8') ?? null, current?.toString('utf8') ?? null, next.toString('utf8'));
+        else {
+          try { merged = mergeSource(file, original?.toString('utf8') ?? null, current?.toString('utf8') ?? null, next.toString('utf8')); }
+          catch (error) {
+            if (error.code !== 'PUBLICATION_PATH_CONFLICT') throw error;
+            // Name every party, so the operator knows which drafts to reconcile.
+            const others = prior.length ? prior.join('、') : '草稿基线之后的已发布版本';
+            throw Object.assign(new Error(`${file} 无法自动合并：本草稿（${task.buildId}）与 ${others} 的修改冲突（${error.message}）`), { code: error.code, details: error.details, cause: error });
+          }
+        }
         await mkdir(path.dirname(inside(snapshot, file)), { recursive: true });
         await writeFile(inside(snapshot, file), merged);
       }

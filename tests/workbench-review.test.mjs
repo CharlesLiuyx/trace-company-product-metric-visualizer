@@ -64,6 +64,17 @@ test('overlapping fields, missing base bytes and deletions stop composition inst
   const a = await task('alpha', [{ key: 'original', value: 2 }]);
   const b = await task('beta', [{ key: 'original', value: 3 }]);
   await assert.rejects(composeReviewData(root, await snapshot('conflict'), [a, b]), /beta.*conflict.*value/);
+  await assert.rejects(composeReviewData(root, await snapshot('named'), [a, b]), /本草稿（build-beta）与 alpha（build-alpha）/, 'a conflict names every Build that wrote the file');
+  // Parallel drafts that each create the same new file (one icon folder) conflict with each other, by name.
+  const crop = 'data/assets/icon-references/shared/crop-report.json';
+  for (const [draft, value] of [[a, 1], [b, 2]]) {
+    await mkdir(path.dirname(path.join(draft.workspace, crop)), { recursive: true });
+    await writeFile(path.join(draft.workspace, crop), JSON.stringify({ crops: [{ id: 'logo', value }] }));
+  }
+  await writeFile(path.join(a.workspace, file), ssot([{ key: 'original', value: 1 }]));
+  await assert.rejects(composeReviewData(root, await snapshot('created'), [a, b]), /beta：data\/assets\/icon-references\/shared\/crop-report\.json 无法自动合并：本草稿（build-beta）与 alpha（build-alpha）/);
+  await writeFile(path.join(root, file), ssot([{ key: 'original', value: 5 }]));
+  await assert.rejects(composeReviewData(root, await snapshot('published'), [b]), /本草稿（build-beta）与 草稿基线之后的已发布版本/);
   await assert.rejects(composeReviewData(root, await snapshot('duplicate'), [a, { ...b, key: 'alpha' }]), /重复数据/);
   await rm(path.join(a.workspace, file));
   await assert.rejects(composeReviewData(root, await snapshot('deletion'), [a]), /删除/);
