@@ -221,9 +221,11 @@ test('a failed preview stays failed with its error until an input really changes
   const status = () => fetch(server.url + '__trace/status?source=project').then((r) => r.json());
   await until(status, (state) => state.preview.status === 'failed');
   assert.equal(builds, 1);
-  // A same-byte rewrite is a real file event with unchanged inputs.
-  await writeFile(path.join(root, 'data/a.tmp'), 'first'); await rename(path.join(root, 'data/a.tmp'), path.join(root, 'data/a.js'));
+  // A same-byte rewrite is a real file event with unchanged inputs. Read the
+  // revision first: inotify delivers the event before a slow status poll
+  // returns, and a sticky failure then never moves the revision again.
   const revision = (await status()).preview.revision;
+  await writeFile(path.join(root, 'data/a.tmp'), 'first'); await rename(path.join(root, 'data/a.tmp'), path.join(root, 'data/a.js'));
   const retried = await until(status, (state) => state.preview.revision > revision || state.preview.status !== 'failed');
   await until(status, (state) => state.preview.status === 'failed');
   const settled = await status();
