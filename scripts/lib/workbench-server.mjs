@@ -58,6 +58,16 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
   const serverRecord = path.join(root, `output/workbench/servers/${randomUUID()}.json`);
   let closing;
   let closed = false, remote = { status: 'unknown', checkedAt: null }, remoteAt = 0, remoteBusy = false;
+  // Snapshot copies read watched trees and macOS reports each copied file as a
+  // change, often a few hundred ms late. Only during that window (plus a grace
+  // period) is an event with unchanged file identity treated as copy noise;
+  // otherwise a concurrent manifest pass could hide a real edit.
+  let copying = 0, copyQuietUntil = 0;
+  const copyNoise = (file) => (copying > 0 || Date.now() < copyQuietUntil) && manifest.unchanged(file);
+  const copyPhase = async (work) => {
+    copying++;
+    try { return await work(); } finally { copying--; copyQuietUntil = Date.now() + 2000; }
+  };
   let git = {}, gitAt = 0, ci = { status: 'unknown' }, ciAt = 0, ciBusy = false, activeBuilds = 0;
   const availability = new Map(), availabilityBusy = new Map();
   const manifest = createPreviewManifest();
@@ -111,8 +121,8 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
             if (item === 'output/workflow' && !['base.json', 'storage.json'].includes(String(name))) return;
             if (item === 'input' && !/^(icon-crop-specs|processing|processed)(\/|$)/.test(String(name))) return;
             // Cloning a snapshot out of this tree reports a change for every
-            // source file; only a file whose identity moved is an edit.
-            if (manifest.unchanged(path.join(file, String(name)))) return;
+            // source file; during a copy only a file whose identity moved is an edit.
+            if (copyNoise(path.join(file, String(name)))) return;
             changed();
           }));
         }
@@ -120,7 +130,7 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
       if (!state.watched.has(folder)) {
         state.watched.add(folder);
         watchers.push(watch(folder, (_event, file) => {
-          if (['index.html', 'package.json', 'pnpm-lock.yaml'].includes(String(file)) && !manifest.unchanged(path.join(folder, String(file)))) changed();
+          if (['index.html', 'package.json', 'pnpm-lock.yaml'].includes(String(file)) && !copyNoise(path.join(folder, String(file)))) changed();
           if (['src', 'data', 'vendor', 'scripts', 'input', 'output'].includes(String(file))) { state.watchWorkspace(folder); changed(); }
         }));
       }
@@ -164,7 +174,7 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
       await mkdir(path.dirname(target), { recursive: true });
       const snapshot = path.join(path.dirname(target), 'source');
       const runtimeEntries = before.entries.filter((entry) => !entry.path.startsWith('data/assets/icon-references/'));
-      await cloneFiles(state.workspace, snapshot, runtimeEntries.map((entry) => entry.path));
+      await copyPhase(() => cloneFiles(state.workspace, snapshot, runtimeEntries.map((entry) => entry.path)));
       if ((await fileManifest(snapshot)).digest !== digestValue(runtimeEntries)) throw new Error('Files changed while the preview snapshot was copied');
       let members = [], memberSignature = null;
       if (state.source === 'review') {
@@ -172,7 +182,7 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
         members = await composeReviewData(root, snapshot, selectedTasks, (folder) => draftManifests.get(folder) || manifest(folder), { referenceRoot: state.workspace });
         for (const member of members) state.watchWorkspace(member.workspace);
       }
-      await prepareWorkspaceTools(root, snapshot, { runtimeOnly: true });
+      await copyPhase(() => prepareWorkspaceTools(root, snapshot, { runtimeOnly: true }));
       if (members.length) {
         await updateMetricCatalog(snapshot);
         await run(path.join(snapshot, 'scripts/sync-index-datasets.mjs'), [], snapshot);
