@@ -121,4 +121,11 @@
 - 脚本：`record:workflow` 省略 `--generation` 时按 `--session` 或环境身份读取 session.json（`tests/workflow-generation-default.test.mjs`）；`sweepDerivedArtifacts` 挂在 `release:git push`、pre-push hook（best-effort）与 `clean:artifacts -- --derived`（`tests/derived-artifact-sweep.test.mjs`）；`verify:standalone -- <path>` 可用；usage 从 `WORKFLOW_ACTIONS` 生成。
 - 验证：`pnpm check` 通过（495 单测）；`update:workflow-reference` / `update:fidelity-rules-doc` 无 diff。
 - 磁盘：项目目录 2.9G → 2.3G（删 `.playwright-cli` 157M、`_site` 168M、standalone 85M、旧 site-releases 96M、pycache）；`.git` 778M → 707M（`git gc`，10 pack → 2）。pack 归属：`input/` 队列历史 PNG 356MiB、validation-sheets 211MiB、standalone 21MiB。
-- 未做（§5.3、§7）与新发现：201 份利润表 SSOT 与 2 个 Adapter 的来源路径仍为 `input/processing/`（文件已在 `processed/`），需数据层决定统一方式。
+- 未做（§7）：低层命令脚本删除另开会话处理。
+
+### 8.1 操作员决定后的第二轮（同日）
+
+- 来源路径：407 处 `sourceImage` / `meta.referenceImage.src`（269 个文件）改为稳定的 `input/processed/<key>`；`verify:ssot` 新增门禁拒绝 `input/processing/` 定位符（`workingLocatorError`），`resolveSourcePath` 改为双向回退，规则记入 `dynamic-dataset-workflow.md`。digest 绑定的资产 provenance（crop spec、`versions/*.json`、`catalog.json`）保持原字节，由双向回退解析。
+- validation-sheets：830 张（211M）移出 Git 索引并加入 `.gitignore`，本地文件保留。
+- 完整清理：停 `pnpm dev` 后 `clean:artifacts -- --completed` 删除 0.41 GiB，`output/` 只剩 752K meta；stash 丢弃；已合入的 app worktree 回收。
+- Git 历史重写：`git filter-branch --index-filter` 两遍（第一遍漏掉了 `:(glob)` 目录 pathspec 与 `core.quotePath` 转义的重音文件名，第二遍用 `-c core.quotePath=false ls-files | grep` 修正），剔除 `output/`、validation-sheets 与 HEAD 中不存在的队列 PNG；500 个提交，HEAD 树哈希 `f7da69e3…` 前后一致；pack 692MiB → 74MiB；force-push 到 origin/main（0287489e）。旧 SHA 全部失效：`docs/releases/current.json` 的 `baseHead` 只在 HEAD 为 Trace-Transport 提交时核对，CI `plan:ci --last-successful-main` 找不到旧 SHA 时回退全量。仍基于旧 SHA 的本地分支需 `git rebase --onto origin/main <旧基>`。
