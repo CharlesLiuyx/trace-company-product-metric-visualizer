@@ -1,0 +1,130 @@
+{
+  "source": "input/processing/fedex-q2-fy23.png",
+  "outputDir": "data/assets/icon-references/fedex",
+  "runtimeOutputDir": "data/assets/raster-annotations/fedex",
+  "validationSheetDir": "data/assets/icon-references/fedex/validation-sheets",
+  "report": "crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [
+      242,
+      242,
+      242
+    ],
+    "tolerance": 10
+  },
+  "skipped": [
+    {
+      "key": "publisher",
+      "reason": "Publisher attribution and social badge are non-semantic."
+    }
+  ],
+  "crops": [
+    {
+      "key": "fedex-company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "runtimeOutput": "company-wordmark.png",
+      "searchBox": {
+        "x": 749,
+        "y": 266,
+        "width": 534,
+        "height": 155
+      },
+      "cropBox": {
+        "x": 749,
+        "y": 266,
+        "width": 534,
+        "height": 155
+      },
+      "threshold": 18,
+      "minComponentArea": 3,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete brand wordmark; no financial text or flows."
+    },
+    {
+      "key": "fedex-express",
+      "output": "crops/express.png",
+      "runtimeOutput": "express.png",
+      "searchBox": {
+        "x": 74,
+        "y": 413,
+        "width": 221,
+        "height": 103
+      },
+      "cropBox": {
+        "x": 74,
+        "y": 413,
+        "width": 221,
+        "height": 103
+      },
+      "threshold": 18,
+      "minComponentArea": 3,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete brand wordmark; no financial text or flows."
+    },
+    {
+      "key": "fedex-ground",
+      "output": "crops/ground.png",
+      "runtimeOutput": "ground.png",
+      "searchBox": {
+        "x": 70,
+        "y": 664,
+        "width": 241,
+        "height": 103
+      },
+      "cropBox": {
+        "x": 70,
+        "y": 664,
+        "width": 241,
+        "height": 103
+      },
+      "threshold": 18,
+      "minComponentArea": 3,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete brand wordmark; no financial text or flows."
+    },
+    {
+      "key": "fedex-freight",
+      "output": "crops/freight.png",
+      "runtimeOutput": "freight.png",
+      "searchBox": {
+        "x": 70,
+        "y": 832,
+        "width": 240,
+        "height": 109
+      },
+      "cropBox": {
+        "x": 70,
+        "y": 832,
+        "width": 240,
+        "height": 109
+      },
+      "threshold": 18,
+      "minComponentArea": 3,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete brand wordmark; no financial text or flows."
+    }
+  ]
+}

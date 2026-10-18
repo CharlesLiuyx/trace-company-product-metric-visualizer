@@ -1,0 +1,425 @@
+{
+  "source": "input/processing/fedex-q2-fy23.png",
+  "spec": "input/icon-crop-specs/fedex-q2-fy23.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-17T18:58:20.645439+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/fedex",
+  "crops": [
+    {
+      "key": "fedex-company-wordmark",
+      "output": "data/assets/icon-references/fedex/crops/company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3176,
+        "losslessBytes": 14694,
+        "savingsVsLossless": 0.7839,
+        "metrics": {
+          "meanAbsoluteError": 0.384,
+          "rootMeanSquareError": 1.5904,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.5597
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 36739,
+        "transparentPixelRatio": 0.4439
+      },
+      "searchBox": {
+        "x": 749,
+        "y": 266,
+        "width": 534,
+        "height": 155
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 761,
+        "y0": 272,
+        "x1": 1279,
+        "y1": 418
+      },
+      "cropBox": {
+        "x0": 749,
+        "y0": 266,
+        "x1": 1283,
+        "y1": 421
+      },
+      "validation": {
+        "width": 534,
+        "height": 155,
+        "foregroundPixels": 40387,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 12,
+          "right": 4,
+          "top": 6,
+          "bottom": 3
+        },
+        "centerOffset": {
+          "x": 0.0075,
+          "y": 0.0097
+        },
+        "passes": true
+      },
+      "note": "Complete brand wordmark; no financial text or flows.",
+      "runtimeOutput": "data/assets/raster-annotations/fedex/company-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3176,
+        "losslessBytes": 14694,
+        "savingsVsLossless": 0.7839,
+        "metrics": {
+          "meanAbsoluteError": 0.384,
+          "rootMeanSquareError": 1.5904,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.5597
+        }
+      },
+      "validationSheet": "data/assets/icon-references/fedex/validation-sheets/fedex-company-wordmark.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 90565,
+        "losslessBytes": 262320,
+        "savingsVsLossless": 0.6548,
+        "metrics": {
+          "meanAbsoluteError": 0.3339,
+          "rootMeanSquareError": 2.1467,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 70,
+          "changedPixelRatio": 0.0826
+        }
+      }
+    },
+    {
+      "key": "fedex-express",
+      "output": "data/assets/icon-references/fedex/crops/express.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2169,
+        "losslessBytes": 8688,
+        "savingsVsLossless": 0.7503,
+        "metrics": {
+          "meanAbsoluteError": 0.5009,
+          "rootMeanSquareError": 1.8344,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 46,
+          "changedPixelRatio": 0.4079
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 13899,
+        "transparentPixelRatio": 0.6106
+      },
+      "searchBox": {
+        "x": 74,
+        "y": 413,
+        "width": 221,
+        "height": 103
+      },
+      "componentCount": 7,
+      "subjectBox": {
+        "x0": 86,
+        "y0": 419,
+        "x1": 289,
+        "y1": 512
+      },
+      "cropBox": {
+        "x0": 74,
+        "y0": 413,
+        "x1": 295,
+        "y1": 516
+      },
+      "validation": {
+        "width": 221,
+        "height": 103,
+        "foregroundPixels": 7864,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 12,
+          "right": 6,
+          "top": 6,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": 0.0136,
+          "y": 0.0097
+        },
+        "passes": true
+      },
+      "note": "Complete brand wordmark; no financial text or flows.",
+      "runtimeOutput": "data/assets/raster-annotations/fedex/express.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2169,
+        "losslessBytes": 8688,
+        "savingsVsLossless": 0.7503,
+        "metrics": {
+          "meanAbsoluteError": 0.5009,
+          "rootMeanSquareError": 1.8344,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 46,
+          "changedPixelRatio": 0.4079
+        }
+      },
+      "validationSheet": "data/assets/icon-references/fedex/validation-sheets/fedex-express.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 280079,
+        "losslessBytes": 280079,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "fedex-ground",
+      "output": "data/assets/icon-references/fedex/crops/ground.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2207,
+        "losslessBytes": 9228,
+        "savingsVsLossless": 0.7608,
+        "metrics": {
+          "meanAbsoluteError": 0.5981,
+          "rootMeanSquareError": 2.1787,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 38,
+          "changedPixelRatio": 0.4345
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 14215,
+        "transparentPixelRatio": 0.5727
+      },
+      "searchBox": {
+        "x": 70,
+        "y": 664,
+        "width": 241,
+        "height": 103
+      },
+      "componentCount": 7,
+      "subjectBox": {
+        "x0": 81,
+        "y0": 671,
+        "x1": 305,
+        "y1": 764
+      },
+      "cropBox": {
+        "x0": 70,
+        "y0": 664,
+        "x1": 311,
+        "y1": 767
+      },
+      "validation": {
+        "width": 241,
+        "height": 103,
+        "foregroundPixels": 9466,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 11,
+          "right": 6,
+          "top": 7,
+          "bottom": 3
+        },
+        "centerOffset": {
+          "x": 0.0104,
+          "y": 0.0194
+        },
+        "passes": true
+      },
+      "note": "Complete brand wordmark; no financial text or flows.",
+      "runtimeOutput": "data/assets/raster-annotations/fedex/ground.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2207,
+        "losslessBytes": 9228,
+        "savingsVsLossless": 0.7608,
+        "metrics": {
+          "meanAbsoluteError": 0.5981,
+          "rootMeanSquareError": 2.1787,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 38,
+          "changedPixelRatio": 0.4345
+        }
+      },
+      "validationSheet": "data/assets/icon-references/fedex/validation-sheets/fedex-ground.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 277281,
+        "losslessBytes": 277281,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "fedex-freight",
+      "output": "data/assets/icon-references/fedex/crops/freight.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2235,
+        "losslessBytes": 9954,
+        "savingsVsLossless": 0.7755,
+        "metrics": {
+          "meanAbsoluteError": 0.5441,
+          "rootMeanSquareError": 2.2437,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 35,
+          "changedPixelRatio": 0.1774
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 15048,
+        "transparentPixelRatio": 0.5752
+      },
+      "searchBox": {
+        "x": 70,
+        "y": 832,
+        "width": 240,
+        "height": 109
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 79,
+        "y0": 837,
+        "x1": 307,
+        "y1": 938
+      },
+      "cropBox": {
+        "x0": 70,
+        "y0": 832,
+        "x1": 310,
+        "y1": 941
+      },
+      "validation": {
+        "width": 240,
+        "height": 109,
+        "foregroundPixels": 9953,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 9,
+          "right": 3,
+          "top": 5,
+          "bottom": 3
+        },
+        "centerOffset": {
+          "x": 0.0125,
+          "y": 0.0092
+        },
+        "passes": true
+      },
+      "note": "Complete brand wordmark; no financial text or flows.",
+      "runtimeOutput": "data/assets/raster-annotations/fedex/freight.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2235,
+        "losslessBytes": 9954,
+        "savingsVsLossless": 0.7755,
+        "metrics": {
+          "meanAbsoluteError": 0.5441,
+          "rootMeanSquareError": 2.2437,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 35,
+          "changedPixelRatio": 0.1774
+        }
+      },
+      "validationSheet": "data/assets/icon-references/fedex/validation-sheets/fedex-freight.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 278840,
+        "losslessBytes": 278840,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

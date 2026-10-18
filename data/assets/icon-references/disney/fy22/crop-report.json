@@ -1,0 +1,506 @@
+{
+  "source": "input/processing/disney-q4-fy22.png",
+  "spec": "input/icon-crop-specs/disney-q4-fy22.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-17T18:34:02.909120+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 7
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/disney",
+  "crops": [
+    {
+      "key": "disney-fy22-linear",
+      "output": "data/assets/icon-references/disney/fy22/crops/fy22-linear.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 5128,
+        "losslessBytes": 21208,
+        "savingsVsLossless": 0.7582,
+        "metrics": {
+          "meanAbsoluteError": 1.0916,
+          "rootMeanSquareError": 2.7256,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.4212
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 7,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 15901,
+        "transparentPixelRatio": 0.5909
+      },
+      "searchBox": {
+        "x": 100,
+        "y": 482,
+        "width": 234,
+        "height": 115
+      },
+      "componentCount": 14,
+      "subjectBox": {
+        "x0": 104,
+        "y0": 486,
+        "x1": 333,
+        "y1": 595
+      },
+      "cropBox": {
+        "x0": 100,
+        "y0": 482,
+        "x1": 334,
+        "y1": 597
+      },
+      "validation": {
+        "width": 234,
+        "height": 115,
+        "foregroundPixels": 9147,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 4,
+          "right": 1,
+          "top": 4,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": 0.0064,
+          "y": 0.0087
+        },
+        "passes": true
+      },
+      "note": "Original FY22 brand cluster; excludes financial labels, links and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/disney/fy22-linear.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 5128,
+        "losslessBytes": 21208,
+        "savingsVsLossless": 0.7582,
+        "metrics": {
+          "meanAbsoluteError": 1.0916,
+          "rootMeanSquareError": 2.7256,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.4212
+        }
+      },
+      "validationSheet": "data/assets/icon-references/disney/fy22/validation-sheets/disney-fy22-linear.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 323055,
+        "losslessBytes": 323055,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "disney-fy22-streaming",
+      "output": "data/assets/icon-references/disney/fy22/crops/fy22-streaming.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 3200,
+        "losslessBytes": 13269,
+        "savingsVsLossless": 0.7588,
+        "metrics": {
+          "meanAbsoluteError": 0.5401,
+          "rootMeanSquareError": 2.4176,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 53,
+          "changedPixelRatio": 0.1846
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 7,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 23665,
+        "transparentPixelRatio": 0.7369
+      },
+      "searchBox": {
+        "x": 70,
+        "y": 675,
+        "width": 259,
+        "height": 124
+      },
+      "componentCount": 14,
+      "subjectBox": {
+        "x0": 76,
+        "y0": 680,
+        "x1": 325,
+        "y1": 793
+      },
+      "cropBox": {
+        "x0": 70,
+        "y0": 675,
+        "x1": 329,
+        "y1": 799
+      },
+      "validation": {
+        "width": 259,
+        "height": 124,
+        "foregroundPixels": 8150,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 4,
+          "top": 5,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": 0.0039,
+          "y": -0.004
+        },
+        "passes": true
+      },
+      "note": "Original FY22 brand cluster; excludes financial labels, links and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/disney/fy22-streaming.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 3200,
+        "losslessBytes": 13269,
+        "savingsVsLossless": 0.7588,
+        "metrics": {
+          "meanAbsoluteError": 0.5401,
+          "rootMeanSquareError": 2.4176,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 53,
+          "changedPixelRatio": 0.1846
+        }
+      },
+      "validationSheet": "data/assets/icon-references/disney/fy22/validation-sheets/disney-fy22-streaming.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 109201,
+        "losslessBytes": 299051,
+        "savingsVsLossless": 0.6348,
+        "metrics": {
+          "meanAbsoluteError": 0.3528,
+          "rootMeanSquareError": 2.1046,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 68,
+          "changedPixelRatio": 0.0887
+        }
+      }
+    },
+    {
+      "key": "disney-fy22-content",
+      "output": "data/assets/icon-references/disney/fy22/crops/fy22-content.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2174,
+        "losslessBytes": 8839,
+        "savingsVsLossless": 0.754,
+        "metrics": {
+          "meanAbsoluteError": 1.1956,
+          "rootMeanSquareError": 2.8924,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 31,
+          "changedPixelRatio": 0.3828
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 7,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 7076,
+        "transparentPixelRatio": 0.5432
+      },
+      "searchBox": {
+        "x": 87,
+        "y": 909,
+        "width": 167,
+        "height": 78
+      },
+      "componentCount": 13,
+      "subjectBox": {
+        "x0": 91,
+        "y0": 914,
+        "x1": 252,
+        "y1": 982
+      },
+      "cropBox": {
+        "x0": 87,
+        "y0": 909,
+        "x1": 254,
+        "y1": 987
+      },
+      "validation": {
+        "width": 167,
+        "height": 78,
+        "foregroundPixels": 4447,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 4,
+          "right": 2,
+          "top": 5,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.006,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Original FY22 brand cluster; excludes financial labels, links and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/disney/fy22-content.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2174,
+        "losslessBytes": 8839,
+        "savingsVsLossless": 0.754,
+        "metrics": {
+          "meanAbsoluteError": 1.1956,
+          "rootMeanSquareError": 2.8924,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 31,
+          "changedPixelRatio": 0.3828
+        }
+      },
+      "validationSheet": "data/assets/icon-references/disney/fy22/validation-sheets/disney-fy22-content.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 307686,
+        "losslessBytes": 307686,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "disney-fy22-parks",
+      "output": "data/assets/icon-references/disney/fy22/crops/fy22-parks.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 6230,
+        "losslessBytes": 24713,
+        "savingsVsLossless": 0.7479,
+        "metrics": {
+          "meanAbsoluteError": 0.8084,
+          "rootMeanSquareError": 2.4259,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.2741
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 7,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 21746,
+        "transparentPixelRatio": 0.7424
+      },
+      "searchBox": {
+        "x": 145,
+        "y": 1047,
+        "width": 145,
+        "height": 202
+      },
+      "componentCount": 17,
+      "subjectBox": {
+        "x0": 148,
+        "y0": 1052,
+        "x1": 284,
+        "y1": 1244
+      },
+      "cropBox": {
+        "x0": 145,
+        "y0": 1047,
+        "x1": 290,
+        "y1": 1249
+      },
+      "validation": {
+        "width": 145,
+        "height": 202,
+        "foregroundPixels": 6969,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 3,
+          "right": 6,
+          "top": 5,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": -0.0103,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Original FY22 brand cluster; excludes financial labels, links and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/disney/fy22-parks.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 6230,
+        "losslessBytes": 24713,
+        "savingsVsLossless": 0.7479,
+        "metrics": {
+          "meanAbsoluteError": 0.8084,
+          "rootMeanSquareError": 2.4259,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.2741
+        }
+      },
+      "validationSheet": "data/assets/icon-references/disney/fy22/validation-sheets/disney-fy22-parks.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 354469,
+        "losslessBytes": 354469,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "disney-fy22-consumer",
+      "output": "data/assets/icon-references/disney/fy22/crops/fy22-consumer.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 19657,
+        "losslessBytes": 19657,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 7,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 5500,
+        "transparentPixelRatio": 0.4723
+      },
+      "searchBox": {
+        "x": 185,
+        "y": 1293,
+        "width": 137,
+        "height": 85
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 192,
+        "y0": 1298,
+        "x1": 317,
+        "y1": 1376
+      },
+      "cropBox": {
+        "x0": 185,
+        "y0": 1293,
+        "x1": 322,
+        "y1": 1378
+      },
+      "validation": {
+        "width": 137,
+        "height": 85,
+        "foregroundPixels": 5589,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 5,
+          "top": 5,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": 0.0073,
+          "y": 0.0176
+        },
+        "passes": true
+      },
+      "note": "Original FY22 brand cluster; excludes financial labels, links and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/disney/fy22-consumer.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 19657,
+        "losslessBytes": 19657,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/disney/fy22/validation-sheets/disney-fy22-consumer.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 388986,
+        "losslessBytes": 388986,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

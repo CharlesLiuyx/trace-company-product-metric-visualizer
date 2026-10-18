@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-10-15T14:09:09.000Z",
+  "generatedAt": "2026-10-17T18:57:57.407Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -7811,6 +7811,492 @@
       "path": "data/datasets/spotify-q4-fy23.js",
       "updatedAtMs": 1792044507003,
       "updatedAt": "2026-10-15T06:08:27.003Z",
+      "timeSource": "publication"
+    },
+    "airbus-fy23": {
+      "path": "data/datasets/airbus-fy23.js",
+      "updatedAtMs": 1792263446921,
+      "updatedAt": "2026-10-17T18:57:26.921Z",
+      "timeSource": "publication"
+    },
+    "airbus-h1-fy24": {
+      "path": "data/datasets/airbus-h1-fy24.js",
+      "updatedAtMs": 1792263416136,
+      "updatedAt": "2026-10-17T18:56:56.136Z",
+      "timeSource": "publication"
+    },
+    "boeing-9m-fy25": {
+      "path": "data/datasets/boeing-9m-fy25.js",
+      "updatedAtMs": 1792263445053,
+      "updatedAt": "2026-10-17T18:57:25.053Z",
+      "timeSource": "publication"
+    },
+    "boeing-fy23": {
+      "path": "data/datasets/boeing-fy23.js",
+      "updatedAtMs": 1792263474236,
+      "updatedAt": "2026-10-17T18:57:54.236Z",
+      "timeSource": "publication"
+    },
+    "boeing-q2-fy24": {
+      "path": "data/datasets/boeing-q2-fy24.js",
+      "updatedAtMs": 1792263421099,
+      "updatedAt": "2026-10-17T18:57:01.099Z",
+      "timeSource": "publication"
+    },
+    "boeing-q2-fy25": {
+      "path": "data/datasets/boeing-q2-fy25.js",
+      "updatedAtMs": 1792263462460,
+      "updatedAt": "2026-10-17T18:57:42.460Z",
+      "timeSource": "publication"
+    },
+    "boeing-q3-fy24": {
+      "path": "data/datasets/boeing-q3-fy24.js",
+      "updatedAtMs": 1792263420300,
+      "updatedAt": "2026-10-17T18:57:00.300Z",
+      "timeSource": "publication"
+    },
+    "disney-q4-fy22": {
+      "path": "data/datasets/disney-q4-fy22.js",
+      "updatedAtMs": 1792261828158,
+      "updatedAt": "2026-10-17T18:30:28.158Z",
+      "timeSource": "publication"
+    },
+    "fedex-q1-fy24": {
+      "path": "data/datasets/fedex-q1-fy24.js",
+      "updatedAtMs": 1792263387446,
+      "updatedAt": "2026-10-17T18:56:27.446Z",
+      "timeSource": "publication"
+    },
+    "fedex-q1-fy25": {
+      "path": "data/datasets/fedex-q1-fy25.js",
+      "updatedAtMs": 1792263351638,
+      "updatedAt": "2026-10-17T18:55:51.638Z",
+      "timeSource": "publication"
+    },
+    "fedex-q1-fy26": {
+      "path": "data/datasets/fedex-q1-fy26.js",
+      "updatedAtMs": 1792263326913,
+      "updatedAt": "2026-10-17T18:55:26.913Z",
+      "timeSource": "publication"
+    },
+    "fedex-q2-fy23": {
+      "path": "data/datasets/fedex-q2-fy23.js",
+      "updatedAtMs": 1792263305556,
+      "updatedAt": "2026-10-17T18:55:05.556Z",
+      "timeSource": "publication"
+    },
+    "fedex-q2-fy24": {
+      "path": "data/datasets/fedex-q2-fy24.js",
+      "updatedAtMs": 1792263389869,
+      "updatedAt": "2026-10-17T18:56:29.869Z",
+      "timeSource": "publication"
+    },
+    "fedex-q2-fy25": {
+      "path": "data/datasets/fedex-q2-fy25.js",
+      "updatedAtMs": 1792263359011,
+      "updatedAt": "2026-10-17T18:55:59.011Z",
+      "timeSource": "publication"
+    },
+    "fedex-q2-fy26": {
+      "path": "data/datasets/fedex-q2-fy26.js",
+      "updatedAtMs": 1792263369091,
+      "updatedAt": "2026-10-17T18:56:09.091Z",
+      "timeSource": "publication"
+    },
+    "fedex-q3-fy23": {
+      "path": "data/datasets/fedex-q3-fy23.js",
+      "updatedAtMs": 1792263309099,
+      "updatedAt": "2026-10-17T18:55:09.099Z",
+      "timeSource": "publication"
+    },
+    "fedex-q3-fy24": {
+      "path": "data/datasets/fedex-q3-fy24.js",
+      "updatedAtMs": 1792263352248,
+      "updatedAt": "2026-10-17T18:55:52.248Z",
+      "timeSource": "publication"
+    },
+    "fedex-q4-fy23": {
+      "path": "data/datasets/fedex-q4-fy23.js",
+      "updatedAtMs": 1792263382154,
+      "updatedAt": "2026-10-17T18:56:22.154Z",
+      "timeSource": "publication"
+    },
+    "fedex-q4-fy24": {
+      "path": "data/datasets/fedex-q4-fy24.js",
+      "updatedAtMs": 1792263403292,
+      "updatedAt": "2026-10-17T18:56:43.292Z",
+      "timeSource": "publication"
+    },
+    "fedex-q4-fy25": {
+      "path": "data/datasets/fedex-q4-fy25.js",
+      "updatedAtMs": 1792263312915,
+      "updatedAt": "2026-10-17T18:55:12.915Z",
+      "timeSource": "publication"
+    },
+    "ferrari-fy23": {
+      "path": "data/datasets/ferrari-fy23.js",
+      "updatedAtMs": 1792263328100,
+      "updatedAt": "2026-10-17T18:55:28.100Z",
+      "timeSource": "publication"
+    },
+    "ferrari-h1-fy24": {
+      "path": "data/datasets/ferrari-h1-fy24.js",
+      "updatedAtMs": 1792263451039,
+      "updatedAt": "2026-10-17T18:57:31.039Z",
+      "timeSource": "publication"
+    },
+    "ferrari-q2-fy25": {
+      "path": "data/datasets/ferrari-q2-fy25.js",
+      "updatedAtMs": 1792263433155,
+      "updatedAt": "2026-10-17T18:57:13.155Z",
+      "timeSource": "publication"
+    },
+    "ferrari-q3-fy24": {
+      "path": "data/datasets/ferrari-q3-fy24.js",
+      "updatedAtMs": 1792263413568,
+      "updatedAt": "2026-10-17T18:56:53.568Z",
+      "timeSource": "publication"
+    },
+    "ford-q2-fy24": {
+      "path": "data/datasets/ford-q2-fy24.js",
+      "updatedAtMs": 1792263338889,
+      "updatedAt": "2026-10-17T18:55:38.889Z",
+      "timeSource": "publication"
+    },
+    "ford-q2-fy25": {
+      "path": "data/datasets/ford-q2-fy25.js",
+      "updatedAtMs": 1792263388749,
+      "updatedAt": "2026-10-17T18:56:28.749Z",
+      "timeSource": "publication"
+    },
+    "ford-q3-fy24": {
+      "path": "data/datasets/ford-q3-fy24.js",
+      "updatedAtMs": 1792263372909,
+      "updatedAt": "2026-10-17T18:56:12.909Z",
+      "timeSource": "publication"
+    },
+    "ford-q3-fy25": {
+      "path": "data/datasets/ford-q3-fy25.js",
+      "updatedAtMs": 1792263384325,
+      "updatedAt": "2026-10-17T18:56:24.325Z",
+      "timeSource": "publication"
+    },
+    "gm-q1-fy23": {
+      "path": "data/datasets/gm-q1-fy23.js",
+      "updatedAtMs": 1792263340327,
+      "updatedAt": "2026-10-17T18:55:40.327Z",
+      "timeSource": "publication"
+    },
+    "gm-q1-fy24": {
+      "path": "data/datasets/gm-q1-fy24.js",
+      "updatedAtMs": 1792263289855,
+      "updatedAt": "2026-10-17T18:54:49.855Z",
+      "timeSource": "publication"
+    },
+    "gm-q2-fy23": {
+      "path": "data/datasets/gm-q2-fy23.js",
+      "updatedAtMs": 1792263334423,
+      "updatedAt": "2026-10-17T18:55:34.423Z",
+      "timeSource": "publication"
+    },
+    "gm-q2-fy24": {
+      "path": "data/datasets/gm-q2-fy24.js",
+      "updatedAtMs": 1792263347703,
+      "updatedAt": "2026-10-17T18:55:47.703Z",
+      "timeSource": "publication"
+    },
+    "gm-q3-fy23": {
+      "path": "data/datasets/gm-q3-fy23.js",
+      "updatedAtMs": 1792263343406,
+      "updatedAt": "2026-10-17T18:55:43.406Z",
+      "timeSource": "publication"
+    },
+    "gm-q3-fy24": {
+      "path": "data/datasets/gm-q3-fy24.js",
+      "updatedAtMs": 1792263398337,
+      "updatedAt": "2026-10-17T18:56:38.337Z",
+      "timeSource": "publication"
+    },
+    "gm-q3-fy25": {
+      "path": "data/datasets/gm-q3-fy25.js",
+      "updatedAtMs": 1792263344164,
+      "updatedAt": "2026-10-17T18:55:44.164Z",
+      "timeSource": "publication"
+    },
+    "gm-q4-fy22": {
+      "path": "data/datasets/gm-q4-fy22.js",
+      "updatedAtMs": 1792263323186,
+      "updatedAt": "2026-10-17T18:55:23.186Z",
+      "timeSource": "publication"
+    },
+    "gm-q4-fy23": {
+      "path": "data/datasets/gm-q4-fy23.js",
+      "updatedAtMs": 1792263293481,
+      "updatedAt": "2026-10-17T18:54:53.481Z",
+      "timeSource": "publication"
+    },
+    "gm-q4-fy24": {
+      "path": "data/datasets/gm-q4-fy24.js",
+      "updatedAtMs": 1792263338296,
+      "updatedAt": "2026-10-17T18:55:38.296Z",
+      "timeSource": "publication"
+    },
+    "hermes-fy22": {
+      "path": "data/datasets/hermes-fy22.js",
+      "updatedAtMs": 1792261838527,
+      "updatedAt": "2026-10-17T18:30:38.527Z",
+      "timeSource": "publication"
+    },
+    "hermes-fy23": {
+      "path": "data/datasets/hermes-fy23.js",
+      "updatedAtMs": 1792261799624,
+      "updatedAt": "2026-10-17T18:29:59.624Z",
+      "timeSource": "publication"
+    },
+    "hermes-h1-fy22": {
+      "path": "data/datasets/hermes-h1-fy22.js",
+      "updatedAtMs": 1792261636941,
+      "updatedAt": "2026-10-17T18:27:16.941Z",
+      "timeSource": "publication"
+    },
+    "hermes-h1-fy23": {
+      "path": "data/datasets/hermes-h1-fy23.js",
+      "updatedAtMs": 1792261786475,
+      "updatedAt": "2026-10-17T18:29:46.475Z",
+      "timeSource": "publication"
+    },
+    "hermes-h1-fy24": {
+      "path": "data/datasets/hermes-h1-fy24.js",
+      "updatedAtMs": 1792261643388,
+      "updatedAt": "2026-10-17T18:27:23.388Z",
+      "timeSource": "publication"
+    },
+    "hermes-h1-fy25": {
+      "path": "data/datasets/hermes-h1-fy25.js",
+      "updatedAtMs": 1792261769442,
+      "updatedAt": "2026-10-17T18:29:29.442Z",
+      "timeSource": "publication"
+    },
+    "loreal-fy22": {
+      "path": "data/datasets/loreal-fy22.js",
+      "updatedAtMs": 1792261689726,
+      "updatedAt": "2026-10-17T18:28:09.726Z",
+      "timeSource": "publication"
+    },
+    "loreal-fy23": {
+      "path": "data/datasets/loreal-fy23.js",
+      "updatedAtMs": 1792261875105,
+      "updatedAt": "2026-10-17T18:31:15.105Z",
+      "timeSource": "publication"
+    },
+    "loreal-h1-fy22": {
+      "path": "data/datasets/loreal-h1-fy22.js",
+      "updatedAtMs": 1792261804165,
+      "updatedAt": "2026-10-17T18:30:04.165Z",
+      "timeSource": "publication"
+    },
+    "loreal-h1-fy23": {
+      "path": "data/datasets/loreal-h1-fy23.js",
+      "updatedAtMs": 1792261781891,
+      "updatedAt": "2026-10-17T18:29:41.891Z",
+      "timeSource": "publication"
+    },
+    "loreal-h1-fy25": {
+      "path": "data/datasets/loreal-h1-fy25.js",
+      "updatedAtMs": 1792261871882,
+      "updatedAt": "2026-10-17T18:31:11.882Z",
+      "timeSource": "publication"
+    },
+    "lvmh-fy22": {
+      "path": "data/datasets/lvmh-fy22.js",
+      "updatedAtMs": 1792261752807,
+      "updatedAt": "2026-10-17T18:29:12.807Z",
+      "timeSource": "publication"
+    },
+    "lvmh-fy23": {
+      "path": "data/datasets/lvmh-fy23.js",
+      "updatedAtMs": 1792261848980,
+      "updatedAt": "2026-10-17T18:30:48.980Z",
+      "timeSource": "publication"
+    },
+    "lvmh-h1-fy22": {
+      "path": "data/datasets/lvmh-h1-fy22.js",
+      "updatedAtMs": 1792261524320,
+      "updatedAt": "2026-10-17T18:25:24.320Z",
+      "timeSource": "publication"
+    },
+    "lvmh-h1-fy23": {
+      "path": "data/datasets/lvmh-h1-fy23.js",
+      "updatedAtMs": 1792261784692,
+      "updatedAt": "2026-10-17T18:29:44.692Z",
+      "timeSource": "publication"
+    },
+    "lvmh-h1-fy24": {
+      "path": "data/datasets/lvmh-h1-fy24.js",
+      "updatedAtMs": 1792261650693,
+      "updatedAt": "2026-10-17T18:27:30.693Z",
+      "timeSource": "publication"
+    },
+    "lvmh-h1-fy25": {
+      "path": "data/datasets/lvmh-h1-fy25.js",
+      "updatedAtMs": 1792261680949,
+      "updatedAt": "2026-10-17T18:28:00.949Z",
+      "timeSource": "publication"
+    },
+    "netflix-q1-fy23": {
+      "path": "data/datasets/netflix-q1-fy23.js",
+      "updatedAtMs": 1792261843442,
+      "updatedAt": "2026-10-17T18:30:43.442Z",
+      "timeSource": "publication"
+    },
+    "netflix-q1-fy24": {
+      "path": "data/datasets/netflix-q1-fy24.js",
+      "updatedAtMs": 1792261787300,
+      "updatedAt": "2026-10-17T18:29:47.300Z",
+      "timeSource": "publication"
+    },
+    "netflix-q2-fy23": {
+      "path": "data/datasets/netflix-q2-fy23.js",
+      "updatedAtMs": 1792261810104,
+      "updatedAt": "2026-10-17T18:30:10.104Z",
+      "timeSource": "publication"
+    },
+    "netflix-q2-fy24": {
+      "path": "data/datasets/netflix-q2-fy24.js",
+      "updatedAtMs": 1792261638263,
+      "updatedAt": "2026-10-17T18:27:18.263Z",
+      "timeSource": "publication"
+    },
+    "netflix-q2-fy25": {
+      "path": "data/datasets/netflix-q2-fy25.js",
+      "updatedAtMs": 1792261620172,
+      "updatedAt": "2026-10-17T18:27:00.172Z",
+      "timeSource": "publication"
+    },
+    "netflix-q3-fy22": {
+      "path": "data/datasets/netflix-q3-fy22.js",
+      "updatedAtMs": 1792261527139,
+      "updatedAt": "2026-10-17T18:25:27.139Z",
+      "timeSource": "publication"
+    },
+    "netflix-q3-fy23": {
+      "path": "data/datasets/netflix-q3-fy23.js",
+      "updatedAtMs": 1792261774934,
+      "updatedAt": "2026-10-17T18:29:34.934Z",
+      "timeSource": "publication"
+    },
+    "netflix-q3-fy24": {
+      "path": "data/datasets/netflix-q3-fy24.js",
+      "updatedAtMs": 1792261813308,
+      "updatedAt": "2026-10-17T18:30:13.308Z",
+      "timeSource": "publication"
+    },
+    "netflix-q3-fy25": {
+      "path": "data/datasets/netflix-q3-fy25.js",
+      "updatedAtMs": 1792261829650,
+      "updatedAt": "2026-10-17T18:30:29.650Z",
+      "timeSource": "publication"
+    },
+    "netflix-q4-fy22": {
+      "path": "data/datasets/netflix-q4-fy22.js",
+      "updatedAtMs": 1792261615816,
+      "updatedAt": "2026-10-17T18:26:55.816Z",
+      "timeSource": "publication"
+    },
+    "netflix-q4-fy23": {
+      "path": "data/datasets/netflix-q4-fy23.js",
+      "updatedAtMs": 1792261811217,
+      "updatedAt": "2026-10-17T18:30:11.217Z",
+      "timeSource": "publication"
+    },
+    "netflix-q4-fy24": {
+      "path": "data/datasets/netflix-q4-fy24.js",
+      "updatedAtMs": 1792261818312,
+      "updatedAt": "2026-10-17T18:30:18.312Z",
+      "timeSource": "publication"
+    },
+    "pfizer-q1-fy24": {
+      "path": "data/datasets/pfizer-q1-fy24.js",
+      "updatedAtMs": 1792263455607,
+      "updatedAt": "2026-10-17T18:57:35.607Z",
+      "timeSource": "publication"
+    },
+    "pfizer-q2-fy24": {
+      "path": "data/datasets/pfizer-q2-fy24.js",
+      "updatedAtMs": 1792263477407,
+      "updatedAt": "2026-10-17T18:57:57.407Z",
+      "timeSource": "publication"
+    },
+    "pfizer-q2-fy25": {
+      "path": "data/datasets/pfizer-q2-fy25.js",
+      "updatedAtMs": 1792263400313,
+      "updatedAt": "2026-10-17T18:56:40.313Z",
+      "timeSource": "publication"
+    },
+    "pfizer-q3-fy24": {
+      "path": "data/datasets/pfizer-q3-fy24.js",
+      "updatedAtMs": 1792263439960,
+      "updatedAt": "2026-10-17T18:57:19.960Z",
+      "timeSource": "publication"
+    },
+    "ups-q1-fy23": {
+      "path": "data/datasets/ups-q1-fy23.js",
+      "updatedAtMs": 1792261806609,
+      "updatedAt": "2026-10-17T18:30:06.609Z",
+      "timeSource": "publication"
+    },
+    "ups-q1-fy24": {
+      "path": "data/datasets/ups-q1-fy24.js",
+      "updatedAtMs": 1792261691782,
+      "updatedAt": "2026-10-17T18:28:11.782Z",
+      "timeSource": "publication"
+    },
+    "ups-q2-fy23": {
+      "path": "data/datasets/ups-q2-fy23.js",
+      "updatedAtMs": 1792261788006,
+      "updatedAt": "2026-10-17T18:29:48.006Z",
+      "timeSource": "publication"
+    },
+    "ups-q2-fy24": {
+      "path": "data/datasets/ups-q2-fy24.js",
+      "updatedAtMs": 1792261751096,
+      "updatedAt": "2026-10-17T18:29:11.096Z",
+      "timeSource": "publication"
+    },
+    "ups-q2-fy25": {
+      "path": "data/datasets/ups-q2-fy25.js",
+      "updatedAtMs": 1792261847602,
+      "updatedAt": "2026-10-17T18:30:47.602Z",
+      "timeSource": "publication"
+    },
+    "ups-q3-fy23": {
+      "path": "data/datasets/ups-q3-fy23.js",
+      "updatedAtMs": 1792261694998,
+      "updatedAt": "2026-10-17T18:28:14.998Z",
+      "timeSource": "publication"
+    },
+    "ups-q3-fy24": {
+      "path": "data/datasets/ups-q3-fy24.js",
+      "updatedAtMs": 1792261840425,
+      "updatedAt": "2026-10-17T18:30:40.425Z",
+      "timeSource": "publication"
+    },
+    "ups-q3-fy25": {
+      "path": "data/datasets/ups-q3-fy25.js",
+      "updatedAtMs": 1792261751689,
+      "updatedAt": "2026-10-17T18:29:11.689Z",
+      "timeSource": "publication"
+    },
+    "ups-q4-fy22": {
+      "path": "data/datasets/ups-q4-fy22.js",
+      "updatedAtMs": 1792261837019,
+      "updatedAt": "2026-10-17T18:30:37.019Z",
+      "timeSource": "publication"
+    },
+    "ups-q4-fy23": {
+      "path": "data/datasets/ups-q4-fy23.js",
+      "updatedAtMs": 1792261748952,
+      "updatedAt": "2026-10-17T18:29:08.952Z",
       "timeSource": "publication"
     },
     "data/revenue-metrics.js": {

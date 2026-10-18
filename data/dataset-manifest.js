@@ -28941,6 +28941,1657 @@
             }
           }
         }
+      },
+      {
+        "key": "airbus-fy23",
+        "src": "data/datasets/airbus-fy23.js",
+        "data": {
+          "name": "Airbus · FY23",
+          "company": "Airbus",
+          "meta": {
+            "title": "Airbus FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "空中客车 · 2023 财年",
+              "meta": {
+                "title": "空中客车 2023 财年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "airbus-h1-fy24",
+        "src": "data/datasets/airbus-h1-fy24.js",
+        "data": {
+          "name": "Airbus · H1 FY24",
+          "company": "Airbus",
+          "meta": {
+            "title": "Airbus H1 FY24 Income Statement",
+            "period": "H1 FY24",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "空中客车 · 2024 财年上半年",
+              "meta": {
+                "title": "空中客车 2024 财年上半年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "boeing-9m-fy25",
+        "src": "data/datasets/boeing-9m-fy25.js",
+        "data": {
+          "name": "Boeing · 9M FY25",
+          "company": "Boeing",
+          "meta": {
+            "title": "Boeing 9M FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "波音 · 2025 财年前 9 个月",
+              "meta": {
+                "title": "波音 2025 财年前 9 个月利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "boeing-fy23",
+        "src": "data/datasets/boeing-fy23.js",
+        "data": {
+          "name": "Boeing · FY23",
+          "company": "Boeing",
+          "meta": {
+            "title": "Boeing FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "波音 · 2023 财年",
+              "meta": {
+                "title": "波音 2023 财年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "boeing-q2-fy24",
+        "src": "data/datasets/boeing-q2-fy24.js",
+        "data": {
+          "name": "Boeing · Q2 FY24",
+          "company": "Boeing",
+          "meta": {
+            "title": "Boeing Q2 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "波音 · 2024 财年第二季度",
+              "meta": {
+                "title": "波音 2024 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "boeing-q2-fy25",
+        "src": "data/datasets/boeing-q2-fy25.js",
+        "data": {
+          "name": "Boeing · Q2 FY25",
+          "company": "Boeing",
+          "meta": {
+            "title": "Boeing Q2 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "波音 · 2025 财年第二季度",
+              "meta": {
+                "title": "波音 2025 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "boeing-q3-fy24",
+        "src": "data/datasets/boeing-q3-fy24.js",
+        "data": {
+          "name": "Boeing · Q3 FY24",
+          "company": "Boeing",
+          "meta": {
+            "title": "Boeing Q3 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "波音 · 2024 财年第三季度",
+              "meta": {
+                "title": "波音 2024 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "disney-q4-fy22",
+        "src": "data/datasets/disney-q4-fy22.js",
+        "data": {
+          "name": "Disney · Q4 FY22",
+          "company": "Disney",
+          "meta": {
+            "title": "Disney Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Ending Sept. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Disney · 2022 财年第四季度",
+              "meta": {
+                "title": "Disney 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2022 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "fedex-q1-fy24",
+        "src": "data/datasets/fedex-q1-fy24.js",
+        "data": {
+          "name": "FedEx · Q1 FY24",
+          "company": "FedEx",
+          "meta": {
+            "title": "FedEx Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Aug. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "联邦快递 · 2024 财年第一季度",
+              "meta": {
+                "title": "联邦快递 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2023 年 8 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "fedex-q1-fy25",
+        "src": "data/datasets/fedex-q1-fy25.js",
+        "data": {
+          "name": "FedEx · Q1 FY25",
+          "company": "FedEx",
+          "meta": {
+            "title": "FedEx Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Aug. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "联邦快递 · 2025 财年第一季度",
+              "meta": {
+                "title": "联邦快递 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2024 年 8 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "fedex-q1-fy26",
+        "src": "data/datasets/fedex-q1-fy26.js",
+        "data": {
+          "name": "FedEx · Q1 FY26",
+          "company": "FedEx",
+          "meta": {
+            "title": "FedEx Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Aug. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "联邦快递 · 2026 财年第一季度",
+              "meta": {
+                "title": "联邦快递 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 8 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "fedex-q2-fy23",
+        "src": "data/datasets/fedex-q2-fy23.js",
+        "data": {
+          "name": "FedEx · Q2 FY23",
+          "company": "FedEx",
+          "meta": {
+            "title": "FedEx Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending November 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "FedEx · 2023 财年第二季度",
+              "meta": {
+                "title": "FedEx 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2022 年 11 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "fedex-q2-fy24",
+        "src": "data/datasets/fedex-q2-fy24.js",
+        "data": {
+          "name": "FedEx · Q2 FY24",
+          "company": "FedEx",
+          "meta": {
+            "title": "FedEx Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Nov. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "联邦快递 · 2024 财年第二季度",
+              "meta": {
+                "title": "联邦快递 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2023 年 11 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "fedex-q2-fy25",
+        "src": "data/datasets/fedex-q2-fy25.js",
+        "data": {
+          "name": "FedEx · Q2 FY25",
+          "company": "FedEx",
+          "meta": {
+            "title": "FedEx Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Nov. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "FedEx · 2025 财年第二季度",
+              "meta": {
+                "title": "FedEx 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2024 年 11 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "fedex-q2-fy26",
+        "src": "data/datasets/fedex-q2-fy26.js",
+        "data": {
+          "name": "FedEx · Q2 FY26",
+          "company": "FedEx",
+          "meta": {
+            "title": "FedEx Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending Nov. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "联邦快递 · 2026 财年第二季度",
+              "meta": {
+                "title": "联邦快递 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2025 年 11 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "fedex-q3-fy23",
+        "src": "data/datasets/fedex-q3-fy23.js",
+        "data": {
+          "name": "FedEx · Q3 FY23",
+          "company": "FedEx",
+          "meta": {
+            "title": "FedEx Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Feb. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "联邦快递 · 2023 财年第三季度",
+              "meta": {
+                "title": "联邦快递 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 2 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "fedex-q3-fy24",
+        "src": "data/datasets/fedex-q3-fy24.js",
+        "data": {
+          "name": "FedEx · Q3 FY24",
+          "company": "FedEx",
+          "meta": {
+            "title": "FedEx Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Feb. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "FedEx · 2024 财年第三季度",
+              "meta": {
+                "title": "FedEx 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 2 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "fedex-q4-fy23",
+        "src": "data/datasets/fedex-q4-fy23.js",
+        "data": {
+          "name": "FedEx · Q4 FY23",
+          "company": "FedEx",
+          "meta": {
+            "title": "FedEx Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending May 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "FedEx · 2023 财年第四季度",
+              "meta": {
+                "title": "FedEx 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 5 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "fedex-q4-fy24",
+        "src": "data/datasets/fedex-q4-fy24.js",
+        "data": {
+          "name": "FedEx · Q4 FY24",
+          "company": "FedEx",
+          "meta": {
+            "title": "FedEx Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending May 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "联邦快递 · 2024 财年第四季度",
+              "meta": {
+                "title": "联邦快递 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 5 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "fedex-q4-fy25",
+        "src": "data/datasets/fedex-q4-fy25.js",
+        "data": {
+          "name": "FedEx · Q4 FY25",
+          "company": "FedEx",
+          "meta": {
+            "title": "FedEx Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending May 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "FedEx · 2025 财年第四季度",
+              "meta": {
+                "title": "FedEx 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 5 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ferrari-fy23",
+        "src": "data/datasets/ferrari-fy23.js",
+        "data": {
+          "name": "Ferrari · FY23",
+          "company": "Ferrari",
+          "meta": {
+            "title": "Ferrari FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "法拉利 · 2023 财年",
+              "meta": {
+                "title": "法拉利 2023 财年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ferrari-h1-fy24",
+        "src": "data/datasets/ferrari-h1-fy24.js",
+        "data": {
+          "name": "Ferrari · H1 FY24",
+          "company": "Ferrari",
+          "meta": {
+            "title": "Ferrari H1 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "法拉利 · 2024 财年上半年",
+              "meta": {
+                "title": "法拉利 2024 财年上半年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ferrari-q2-fy25",
+        "src": "data/datasets/ferrari-q2-fy25.js",
+        "data": {
+          "name": "Ferrari · Q2 FY25",
+          "company": "Ferrari",
+          "meta": {
+            "title": "Ferrari Q2 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "法拉利 · 2025 财年第二季度",
+              "meta": {
+                "title": "法拉利 2025 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ferrari-q3-fy24",
+        "src": "data/datasets/ferrari-q3-fy24.js",
+        "data": {
+          "name": "Ferrari · Q3 FY24",
+          "company": "Ferrari",
+          "meta": {
+            "title": "Ferrari Q3 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "法拉利 · 2024 财年第三季度",
+              "meta": {
+                "title": "法拉利 2024 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ford-q2-fy24",
+        "src": "data/datasets/ford-q2-fy24.js",
+        "data": {
+          "name": "Ford · Q2 FY24",
+          "company": "Ford",
+          "meta": {
+            "title": "Ford Q2 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "福特 · 2024 财年第二季度",
+              "meta": {
+                "title": "福特 2024 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ford-q2-fy25",
+        "src": "data/datasets/ford-q2-fy25.js",
+        "data": {
+          "name": "Ford · Q2 FY25",
+          "company": "Ford",
+          "meta": {
+            "title": "Ford Q2 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "福特 · 2025 财年第二季度",
+              "meta": {
+                "title": "福特 2025 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ford-q3-fy24",
+        "src": "data/datasets/ford-q3-fy24.js",
+        "data": {
+          "name": "Ford · Q3 FY24",
+          "company": "Ford",
+          "meta": {
+            "title": "Ford Q3 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "福特 · 2024 财年第三季度",
+              "meta": {
+                "title": "福特 2024 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ford-q3-fy25",
+        "src": "data/datasets/ford-q3-fy25.js",
+        "data": {
+          "name": "Ford · Q3 FY25",
+          "company": "Ford",
+          "meta": {
+            "title": "Ford Q3 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "福特 · 2025 财年第三季度",
+              "meta": {
+                "title": "福特 2025 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "gm-q1-fy23",
+        "src": "data/datasets/gm-q1-fy23.js",
+        "data": {
+          "name": "GM · Q1 FY23",
+          "company": "GM",
+          "meta": {
+            "title": "GM Q1 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "通用汽车 · 2023 财年第一季度",
+              "meta": {
+                "title": "通用汽车 2023 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "gm-q1-fy24",
+        "src": "data/datasets/gm-q1-fy24.js",
+        "data": {
+          "name": "GM · Q1 FY24",
+          "company": "GM",
+          "meta": {
+            "title": "GM Q1 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "GM · 2024 财年第一季度",
+              "meta": {
+                "title": "GM 2024 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "gm-q2-fy23",
+        "src": "data/datasets/gm-q2-fy23.js",
+        "data": {
+          "name": "GM · Q2 FY23",
+          "company": "GM",
+          "meta": {
+            "title": "GM Q2 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "GM · 2023 财年第二季度",
+              "meta": {
+                "title": "GM 2023 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "gm-q2-fy24",
+        "src": "data/datasets/gm-q2-fy24.js",
+        "data": {
+          "name": "GM · Q2 FY24",
+          "company": "GM",
+          "meta": {
+            "title": "GM Q2 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "GM · 2024 财年第二季度",
+              "meta": {
+                "title": "GM 2024 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "gm-q3-fy23",
+        "src": "data/datasets/gm-q3-fy23.js",
+        "data": {
+          "name": "GM · Q3 FY23",
+          "company": "GM",
+          "meta": {
+            "title": "GM Q3 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "GM · 2023 财年第三季度",
+              "meta": {
+                "title": "GM 2023 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "gm-q3-fy24",
+        "src": "data/datasets/gm-q3-fy24.js",
+        "data": {
+          "name": "GM · Q3 FY24",
+          "company": "GM",
+          "meta": {
+            "title": "GM Q3 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "GM · 2024 财年第三季度",
+              "meta": {
+                "title": "GM 2024 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "gm-q3-fy25",
+        "src": "data/datasets/gm-q3-fy25.js",
+        "data": {
+          "name": "GM · Q3 FY25",
+          "company": "GM",
+          "meta": {
+            "title": "GM Q3 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "GM · 2025 财年第三季度",
+              "meta": {
+                "title": "GM 2025 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "gm-q4-fy22",
+        "src": "data/datasets/gm-q4-fy22.js",
+        "data": {
+          "name": "GM · Q4 FY22",
+          "company": "GM",
+          "meta": {
+            "title": "GM Q4 FY22 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "通用汽车 · 2022 财年第四季度",
+              "meta": {
+                "title": "通用汽车 2022 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "gm-q4-fy23",
+        "src": "data/datasets/gm-q4-fy23.js",
+        "data": {
+          "name": "GM · Q4 FY23",
+          "company": "GM",
+          "meta": {
+            "title": "GM Q4 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "GM · 2023 财年第四季度",
+              "meta": {
+                "title": "GM 2023 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "gm-q4-fy24",
+        "src": "data/datasets/gm-q4-fy24.js",
+        "data": {
+          "name": "GM · Q4 FY24",
+          "company": "GM",
+          "meta": {
+            "title": "GM Q4 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "GM · 2024 财年第四季度",
+              "meta": {
+                "title": "GM 2024 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hermes-fy22",
+        "src": "data/datasets/hermes-fy22.js",
+        "data": {
+          "name": "Hermès · FY22",
+          "company": "Hermès",
+          "meta": {
+            "title": "Hermès FY22 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "爱马仕 · 2022 财年",
+              "meta": {
+                "title": "爱马仕 2022 财年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hermes-fy23",
+        "src": "data/datasets/hermes-fy23.js",
+        "data": {
+          "name": "Hermès · FY23",
+          "company": "Hermès",
+          "meta": {
+            "title": "Hermès FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "爱马仕 · 2023 财年",
+              "meta": {
+                "title": "爱马仕 2023 财年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hermes-h1-fy22",
+        "src": "data/datasets/hermes-h1-fy22.js",
+        "data": {
+          "name": "Hermès · H1 FY22",
+          "company": "Hermès",
+          "meta": {
+            "title": "Hermès H1 FY22 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "爱马仕 · 2022 财年上半年",
+              "meta": {
+                "title": "爱马仕 2022 财年上半年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hermes-h1-fy23",
+        "src": "data/datasets/hermes-h1-fy23.js",
+        "data": {
+          "name": "Hermès · H1 FY23",
+          "company": "Hermès",
+          "meta": {
+            "title": "Hermès H1 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "爱马仕 · 2023 财年上半年",
+              "meta": {
+                "title": "爱马仕 2023 财年上半年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hermes-h1-fy24",
+        "src": "data/datasets/hermes-h1-fy24.js",
+        "data": {
+          "name": "Hermès · H1 FY24",
+          "company": "Hermès",
+          "meta": {
+            "title": "Hermès H1 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "爱马仕 · 2024 财年上半年",
+              "meta": {
+                "title": "爱马仕 2024 财年上半年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hermes-h1-fy25",
+        "src": "data/datasets/hermes-h1-fy25.js",
+        "data": {
+          "name": "Hermès · H1 FY25",
+          "company": "Hermès",
+          "meta": {
+            "title": "Hermès H1 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "爱马仕 · 2025 财年上半年",
+              "meta": {
+                "title": "爱马仕 2025 财年上半年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "loreal-fy22",
+        "src": "data/datasets/loreal-fy22.js",
+        "data": {
+          "name": "L’Oréal · FY22",
+          "company": "L'Oréal",
+          "meta": {
+            "title": "L’Oréal FY22 Income Statement",
+            "period": "FY22",
+            "periodNote": "Year ended Dec. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "欧莱雅 · 2022 财年",
+              "meta": {
+                "title": "欧莱雅 2022 财年利润表",
+                "period": "2022 财年",
+                "periodNote": "截至 2022 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "loreal-fy23",
+        "src": "data/datasets/loreal-fy23.js",
+        "data": {
+          "name": "L’Oréal · FY23",
+          "company": "L'Oréal",
+          "meta": {
+            "title": "L’Oréal FY23 Income Statement",
+            "period": "FY23",
+            "periodNote": "Year ended Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "欧莱雅 · 2023 财年",
+              "meta": {
+                "title": "欧莱雅 2023 财年利润表",
+                "period": "2023 财年",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "loreal-h1-fy22",
+        "src": "data/datasets/loreal-h1-fy22.js",
+        "data": {
+          "name": "L’Oréal · H1 FY22",
+          "company": "L'Oréal",
+          "meta": {
+            "title": "L’Oréal H1 FY22 Income Statement",
+            "period": "H1 FY22",
+            "periodNote": "Ending Jun. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "欧莱雅 · 2022 财年上半年",
+              "meta": {
+                "title": "欧莱雅 2022 财年上半年利润表",
+                "period": "2022 财年上半年",
+                "periodNote": "截至 2022 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "loreal-h1-fy23",
+        "src": "data/datasets/loreal-h1-fy23.js",
+        "data": {
+          "name": "L’Oréal · H1 FY23",
+          "company": "L'Oréal",
+          "meta": {
+            "title": "L’Oréal H1 FY23 Income Statement",
+            "period": "H1 FY23",
+            "periodNote": "Ending Jun. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "欧莱雅 · 2023 财年上半年",
+              "meta": {
+                "title": "欧莱雅 2023 财年上半年利润表",
+                "period": "2023 财年上半年",
+                "periodNote": "截至 2023 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "loreal-h1-fy25",
+        "src": "data/datasets/loreal-h1-fy25.js",
+        "data": {
+          "name": "L’Oréal · H1 FY25",
+          "company": "L'Oréal",
+          "meta": {
+            "title": "L’Oréal H1 FY25 Income Statement",
+            "period": "H1 FY25",
+            "periodNote": "Ending Jun. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "欧莱雅 · 2025 财年上半年",
+              "meta": {
+                "title": "欧莱雅 2025 财年上半年利润表",
+                "period": "2025 财年上半年",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lvmh-fy22",
+        "src": "data/datasets/lvmh-fy22.js",
+        "data": {
+          "name": "LVMH · FY22",
+          "company": "LVMH",
+          "meta": {
+            "title": "LVMH FY22 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "LVMH · 2022 财年",
+              "meta": {
+                "title": "LVMH 2022 财年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lvmh-fy23",
+        "src": "data/datasets/lvmh-fy23.js",
+        "data": {
+          "name": "LVMH · FY23",
+          "company": "LVMH",
+          "meta": {
+            "title": "LVMH FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "LVMH · 2023 财年",
+              "meta": {
+                "title": "路威酩轩 2023 财年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lvmh-h1-fy22",
+        "src": "data/datasets/lvmh-h1-fy22.js",
+        "data": {
+          "name": "LVMH · H1 FY22",
+          "company": "LVMH",
+          "meta": {
+            "title": "LVMH H1 FY22 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "路威酩轩 · 2022 财年上半年",
+              "meta": {
+                "title": "路威酩轩 2022 财年上半年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lvmh-h1-fy23",
+        "src": "data/datasets/lvmh-h1-fy23.js",
+        "data": {
+          "name": "LVMH · H1 FY23",
+          "company": "LVMH",
+          "meta": {
+            "title": "LVMH H1 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "路威酩轩 · 2023 财年上半年",
+              "meta": {
+                "title": "路威酩轩 2023 财年上半年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lvmh-h1-fy24",
+        "src": "data/datasets/lvmh-h1-fy24.js",
+        "data": {
+          "name": "LVMH · H1 FY24",
+          "company": "LVMH",
+          "meta": {
+            "title": "LVMH H1 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "LVMH · 2024 财年上半年",
+              "meta": {
+                "title": "LVMH 2024 财年上半年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lvmh-h1-fy25",
+        "src": "data/datasets/lvmh-h1-fy25.js",
+        "data": {
+          "name": "LVMH · H1 FY25",
+          "company": "LVMH",
+          "meta": {
+            "title": "LVMH H1 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "路威酩轩 · 2025 财年上半年",
+              "meta": {
+                "title": "路威酩轩 2025 财年上半年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "netflix-q1-fy23",
+        "src": "data/datasets/netflix-q1-fy23.js",
+        "data": {
+          "name": "Netflix - Q1 FY23",
+          "company": "Netflix",
+          "meta": {
+            "title": "Netflix Q1 FY23 Income Statement",
+            "period": "Q1 FY23"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Netflix · 2023 财年第一季度",
+              "meta": {
+                "title": "Netflix 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "netflix-q1-fy24",
+        "src": "data/datasets/netflix-q1-fy24.js",
+        "data": {
+          "name": "Netflix - Q1 FY24",
+          "company": "Netflix",
+          "meta": {
+            "title": "Netflix Q1 FY24 Income Statement",
+            "period": "Q1 FY24"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Netflix · 2024 财年第一季度",
+              "meta": {
+                "title": "Netflix 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "netflix-q2-fy23",
+        "src": "data/datasets/netflix-q2-fy23.js",
+        "data": {
+          "name": "Netflix - Q2 FY23",
+          "company": "Netflix",
+          "meta": {
+            "title": "Netflix Q2 FY23 Income Statement",
+            "period": "Q2 FY23"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Netflix · 2023 财年第二季度",
+              "meta": {
+                "title": "Netflix 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "netflix-q2-fy24",
+        "src": "data/datasets/netflix-q2-fy24.js",
+        "data": {
+          "name": "Netflix - Q2 FY24",
+          "company": "Netflix",
+          "meta": {
+            "title": "Netflix Q2 FY24 Income Statement",
+            "period": "Q2 FY24"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Netflix · 2024 财年第二季度",
+              "meta": {
+                "title": "Netflix 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "netflix-q2-fy25",
+        "src": "data/datasets/netflix-q2-fy25.js",
+        "data": {
+          "name": "Netflix - Q2 FY25",
+          "company": "Netflix",
+          "meta": {
+            "title": "Netflix Q2 FY25 Income Statement",
+            "period": "Q2 FY25"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Netflix · 2025 财年第二季度",
+              "meta": {
+                "title": "Netflix 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "netflix-q3-fy22",
+        "src": "data/datasets/netflix-q3-fy22.js",
+        "data": {
+          "name": "Netflix - Q3 FY22",
+          "company": "Netflix",
+          "meta": {
+            "title": "Netflix Q3 FY22 Income Statement",
+            "period": "Q3 FY22"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Netflix · 2022 财年第三季度",
+              "meta": {
+                "title": "Netflix 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "netflix-q3-fy23",
+        "src": "data/datasets/netflix-q3-fy23.js",
+        "data": {
+          "name": "Netflix - Q3 FY23",
+          "company": "Netflix",
+          "meta": {
+            "title": "Netflix Q3 FY23 Income Statement",
+            "period": "Q3 FY23"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Netflix · 2023 财年第三季度",
+              "meta": {
+                "title": "Netflix 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "netflix-q3-fy24",
+        "src": "data/datasets/netflix-q3-fy24.js",
+        "data": {
+          "name": "Netflix - Q3 FY24",
+          "company": "Netflix",
+          "meta": {
+            "title": "Netflix Q3 FY24 Income Statement",
+            "period": "Q3 FY24"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Netflix · 2024 财年第三季度",
+              "meta": {
+                "title": "Netflix 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "netflix-q3-fy25",
+        "src": "data/datasets/netflix-q3-fy25.js",
+        "data": {
+          "name": "Netflix - Q3 FY25",
+          "company": "Netflix",
+          "meta": {
+            "title": "Netflix Q3 FY25 Income Statement",
+            "period": "Q3 FY25"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Netflix · 2025 财年第三季度",
+              "meta": {
+                "title": "Netflix 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "netflix-q4-fy22",
+        "src": "data/datasets/netflix-q4-fy22.js",
+        "data": {
+          "name": "Netflix - Q4 FY22",
+          "company": "Netflix",
+          "meta": {
+            "title": "Netflix Q4 FY22 Income Statement",
+            "period": "Q4 FY22"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Netflix · 2022 财年第四季度",
+              "meta": {
+                "title": "Netflix 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "netflix-q4-fy23",
+        "src": "data/datasets/netflix-q4-fy23.js",
+        "data": {
+          "name": "Netflix - Q4 FY23",
+          "company": "Netflix",
+          "meta": {
+            "title": "Netflix Q4 FY23 Income Statement",
+            "period": "Q4 FY23"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Netflix · 2023 财年第四季度",
+              "meta": {
+                "title": "Netflix 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "netflix-q4-fy24",
+        "src": "data/datasets/netflix-q4-fy24.js",
+        "data": {
+          "name": "Netflix - Q4 FY24",
+          "company": "Netflix",
+          "meta": {
+            "title": "Netflix Q4 FY24 Income Statement",
+            "period": "Q4 FY24"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Netflix · 2024 财年第四季度",
+              "meta": {
+                "title": "Netflix 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pfizer-q1-fy24",
+        "src": "data/datasets/pfizer-q1-fy24.js",
+        "data": {
+          "name": "Pfizer · Q1 FY24",
+          "company": "Pfizer",
+          "meta": {
+            "title": "Pfizer Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Source-stated Q1 FY24"
+          },
+          "i18n": {
+            "zh": {
+              "name": "辉瑞 · 2024 财年第一季度",
+              "meta": {
+                "title": "辉瑞 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "来源标注为 2024 财年第一季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pfizer-q2-fy24",
+        "src": "data/datasets/pfizer-q2-fy24.js",
+        "data": {
+          "name": "Pfizer · Q2 FY24",
+          "company": "Pfizer",
+          "meta": {
+            "title": "Pfizer Q2 FY24 Income Statement",
+            "period": "Q2 FY24"
+          },
+          "i18n": {
+            "zh": {
+              "name": "辉瑞 · 2024 财年第二季度",
+              "meta": {
+                "title": "辉瑞 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pfizer-q2-fy25",
+        "src": "data/datasets/pfizer-q2-fy25.js",
+        "data": {
+          "name": "Pfizer · Q2 FY25",
+          "company": "Pfizer",
+          "meta": {
+            "title": "Pfizer Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Source-stated Q2 FY25"
+          },
+          "i18n": {
+            "zh": {
+              "name": "辉瑞 · 2025 财年第二季度",
+              "meta": {
+                "title": "辉瑞 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "原图标示 2025 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pfizer-q3-fy24",
+        "src": "data/datasets/pfizer-q3-fy24.js",
+        "data": {
+          "name": "Pfizer · Q3 FY24",
+          "company": "Pfizer",
+          "meta": {
+            "title": "Pfizer Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Source-stated Q3 FY24"
+          },
+          "i18n": {
+            "zh": {
+              "name": "辉瑞 · 2024 财年第三季度",
+              "meta": {
+                "title": "辉瑞 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "来源标注为 2024 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ups-q1-fy23",
+        "src": "data/datasets/ups-q1-fy23.js",
+        "data": {
+          "name": "UPS · Q1 FY23",
+          "company": "UPS",
+          "meta": {
+            "title": "UPS Q1 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "UPS · 2023 财年第一季度",
+              "meta": {
+                "title": "UPS 2023 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ups-q1-fy24",
+        "src": "data/datasets/ups-q1-fy24.js",
+        "data": {
+          "name": "UPS · Q1 FY24",
+          "company": "UPS",
+          "meta": {
+            "title": "UPS Q1 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "联合包裹 · 2024 财年第一季度",
+              "meta": {
+                "title": "联合包裹 2024 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ups-q2-fy23",
+        "src": "data/datasets/ups-q2-fy23.js",
+        "data": {
+          "name": "UPS · Q2 FY23",
+          "company": "UPS",
+          "meta": {
+            "title": "UPS Q2 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "联合包裹 · 2023 财年第二季度",
+              "meta": {
+                "title": "联合包裹 2023 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ups-q2-fy24",
+        "src": "data/datasets/ups-q2-fy24.js",
+        "data": {
+          "name": "UPS · Q2 FY24",
+          "company": "UPS",
+          "meta": {
+            "title": "UPS Q2 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "联合包裹 · 2024 财年第二季度",
+              "meta": {
+                "title": "联合包裹 2024 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ups-q2-fy25",
+        "src": "data/datasets/ups-q2-fy25.js",
+        "data": {
+          "name": "UPS · Q2 FY25",
+          "company": "UPS",
+          "meta": {
+            "title": "UPS Q2 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "联合包裹 · 2025 财年第二季度",
+              "meta": {
+                "title": "联合包裹 2025 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ups-q3-fy23",
+        "src": "data/datasets/ups-q3-fy23.js",
+        "data": {
+          "name": "UPS · Q3 FY23",
+          "company": "UPS",
+          "meta": {
+            "title": "UPS Q3 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "UPS · 2023 财年第三季度",
+              "meta": {
+                "title": "UPS 2023 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ups-q3-fy24",
+        "src": "data/datasets/ups-q3-fy24.js",
+        "data": {
+          "name": "UPS · Q3 FY24",
+          "company": "UPS",
+          "meta": {
+            "title": "UPS Q3 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "UPS · 2024 财年第三季度",
+              "meta": {
+                "title": "UPS 2024 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ups-q3-fy25",
+        "src": "data/datasets/ups-q3-fy25.js",
+        "data": {
+          "name": "UPS · Q3 FY25",
+          "company": "UPS",
+          "meta": {
+            "title": "UPS Q3 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "联合包裹 · 2025 财年第三季度",
+              "meta": {
+                "title": "联合包裹 2025 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ups-q4-fy22",
+        "src": "data/datasets/ups-q4-fy22.js",
+        "data": {
+          "name": "UPS · Q4 FY22",
+          "company": "UPS",
+          "meta": {
+            "title": "UPS Q4 FY22 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "联合包裹 · 2022 财年第四季度",
+              "meta": {
+                "title": "联合包裹 2022 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ups-q4-fy23",
+        "src": "data/datasets/ups-q4-fy23.js",
+        "data": {
+          "name": "UPS · Q4 FY23",
+          "company": "UPS",
+          "meta": {
+            "title": "UPS Q4 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "UPS · 2023 财年第四季度",
+              "meta": {
+                "title": "UPS 2023 财年第四季度利润表"
+              }
+            }
+          }
+        }
       }
     ]
   };

@@ -1455,6 +1455,411 @@
       "digest": "sha256:9f615e63b76e0c820dcf0c463a1c62f3ef70abb3615a9888915148e36b6cbb5f",
       "updatedAt": "2026-10-15T05:06:52.565Z",
       "publishedDigest": "sha256:fa306d338ff39b5aab7e601493261ebaf45c4cb246d4e5c3c7b1c9e530545f59"
+    },
+    "data/datasets/airbus-fy23.js": {
+      "digest": "sha256:c8c97967e8fcf4c1ca3361f8a689110229f0d4dfacfced738386b0b94cd5575a",
+      "updatedAt": "2026-10-17T18:57:26.921Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/airbus-h1-fy24.js": {
+      "digest": "sha256:16c23590717c535e932ed3ca6e0a4a06f79fe8ad24207adbe85743e706f474a0",
+      "updatedAt": "2026-10-17T18:56:56.136Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/boeing-9m-fy25.js": {
+      "digest": "sha256:570b84b6c8b8c4cb462eed9cac051266b513f1e5ea62c9511ae140452fd25cbe",
+      "updatedAt": "2026-10-17T18:57:25.053Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/boeing-fy23.js": {
+      "digest": "sha256:5e7cdd103b6ec36136760f25f29ccda771ab9914255091bdb93683acc49fe95b",
+      "updatedAt": "2026-10-17T18:57:54.236Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/boeing-q2-fy24.js": {
+      "digest": "sha256:29c6cce5f9fce2e29d3fdf51d15b55e48828fb1db4ab6e784fd5b9bee4fb5084",
+      "updatedAt": "2026-10-17T18:57:01.099Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/boeing-q2-fy25.js": {
+      "digest": "sha256:26fce34d678f94af10aefd5c067da5b4e587823b21e33c1bfecfc26be591cf3b",
+      "updatedAt": "2026-10-17T18:57:42.460Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/boeing-q3-fy24.js": {
+      "digest": "sha256:0f14bfa68e5558bab4755fbebb890316c0133f5425d6c5c81c770e3a9f6d796f",
+      "updatedAt": "2026-10-17T18:57:00.300Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/disney-q4-fy22.js": {
+      "digest": "sha256:eda55a466610cee986459c15c8352d7f389a35c9c59545a74775a19a8e4ed3e4",
+      "updatedAt": "2026-10-17T18:30:28.158Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/fedex-q1-fy24.js": {
+      "digest": "sha256:ea2874118b080767633112426c0a8b700a06424b79a2a9b741c37b50fdce39b2",
+      "updatedAt": "2026-10-17T18:56:27.446Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/fedex-q1-fy25.js": {
+      "digest": "sha256:aa9c709070094cb3f94ea4729f6819d21cb6a5ba6f503cc7c50f5a97b0eb4743",
+      "updatedAt": "2026-10-17T18:55:51.638Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/fedex-q1-fy26.js": {
+      "digest": "sha256:4fa5c364c512e0f930d914d450578c270f0fecc89ef572bb8c6b80a3340ef7ad",
+      "updatedAt": "2026-10-17T18:55:26.913Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/fedex-q2-fy23.js": {
+      "digest": "sha256:133d75c2d6926b663ba611c8b933ec4f0e6fa3acb3bbefa59ceb61c940c808db",
+      "updatedAt": "2026-10-17T18:55:05.556Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/fedex-q2-fy24.js": {
+      "digest": "sha256:b750e31b9c66d4d463f31da41300324bd636137c635236290450d77b3cfae1b0",
+      "updatedAt": "2026-10-17T18:56:29.869Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/fedex-q2-fy25.js": {
+      "digest": "sha256:290b2b29ba6bf685c719687aac449ac790cee2f94b4841deeb9d21d2562c28ca",
+      "updatedAt": "2026-10-17T18:55:59.011Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/fedex-q2-fy26.js": {
+      "digest": "sha256:3baab3de6bd99aeaf13d80945651ccfe539f0f0fc3115c87f5bc3e3b365ff3d0",
+      "updatedAt": "2026-10-17T18:56:09.091Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/fedex-q3-fy23.js": {
+      "digest": "sha256:a57bf9d52d92470fc6579971df62a8cc8aa5d224ce233e21f1ca7fba8892be01",
+      "updatedAt": "2026-10-17T18:55:09.099Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/fedex-q3-fy24.js": {
+      "digest": "sha256:ee62fdcb7897b0de8690e865561c792278babd3a3f1eb97402ada0648878e601",
+      "updatedAt": "2026-10-17T18:55:52.248Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/fedex-q4-fy23.js": {
+      "digest": "sha256:2174e1f9288021cb575cd28313377f5b015244af6857f7aa7f9613e6bd5d004c",
+      "updatedAt": "2026-10-17T18:56:22.154Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/fedex-q4-fy24.js": {
+      "digest": "sha256:2c198b04d86d1d6c6fa1c03ee61497e7a13e26c239b7e3f4dfc8ce793ed64d4d",
+      "updatedAt": "2026-10-17T18:56:43.292Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/fedex-q4-fy25.js": {
+      "digest": "sha256:4e6835b27d1017b25bcb61f670b2725c180d7557e7ecae944fb07acbd7f78b45",
+      "updatedAt": "2026-10-17T18:55:12.915Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/ferrari-fy23.js": {
+      "digest": "sha256:1bda3e7db733422ab188de71e8a67247205f4feb8448242cfba8b9b6bdddc7ab",
+      "updatedAt": "2026-10-17T18:55:28.100Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/ferrari-h1-fy24.js": {
+      "digest": "sha256:ae5c83978f7316b23eb3e0d5591e477ddeae7cca1e4193211ac8cf6e8b9c1a01",
+      "updatedAt": "2026-10-17T18:57:31.039Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/ferrari-q2-fy25.js": {
+      "digest": "sha256:1873cb9efcd2fe0283983bb060828ce0734a881fbfb02798d30e0d1bd3c398bd",
+      "updatedAt": "2026-10-17T18:57:13.155Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/ferrari-q3-fy24.js": {
+      "digest": "sha256:4b33551f3028f4b5b91a4ad422d200ce03233b2db4a23c1d3765497e3bac0517",
+      "updatedAt": "2026-10-17T18:56:53.568Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/ford-q2-fy24.js": {
+      "digest": "sha256:94cb1e8636290715174c0ed53053572a482377e0706ce5bc053eb93782bed538",
+      "updatedAt": "2026-10-17T18:55:38.889Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/ford-q2-fy25.js": {
+      "digest": "sha256:dad488a749773cea9df4aed142cd6bfcc6265761a9f22a2d90a6e55d4169fb86",
+      "updatedAt": "2026-10-17T18:56:28.749Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/ford-q3-fy24.js": {
+      "digest": "sha256:ef160ee9a0d33e9605cea948e0c56ef873fc7e379363d3e456cc4cba47ec95d1",
+      "updatedAt": "2026-10-17T18:56:12.909Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/ford-q3-fy25.js": {
+      "digest": "sha256:4585e065da76ed09ef7d9b7856270d5a7e547a33615d0a6c539ca009e80c144e",
+      "updatedAt": "2026-10-17T18:56:24.325Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/gm-q1-fy23.js": {
+      "digest": "sha256:c9f98577ae340913cc8f9b611dfbf31e4cf3ed14d24c5107550905a885ea7ac9",
+      "updatedAt": "2026-10-17T18:55:40.327Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/gm-q1-fy24.js": {
+      "digest": "sha256:61430023f20f59184bb4e100864db16682e84ef18f16a1ad0b10d7e7871017d6",
+      "updatedAt": "2026-10-17T18:54:49.855Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/gm-q2-fy23.js": {
+      "digest": "sha256:7ac6c14e3fa50a27294fe6be420e546ec226efc186114d30a12092217d733ae9",
+      "updatedAt": "2026-10-17T18:55:34.423Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/gm-q2-fy24.js": {
+      "digest": "sha256:815cd5301547646d608e9e21072b45587c4d0281add46e46300877e7ddaed440",
+      "updatedAt": "2026-10-17T18:55:47.703Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/gm-q3-fy23.js": {
+      "digest": "sha256:3584f9ee10f2092a9f10c61d6dec793747b851bbfc7c891b57cb62b6b6d663d2",
+      "updatedAt": "2026-10-17T18:55:43.406Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/gm-q3-fy24.js": {
+      "digest": "sha256:ec938d4124575d1bae7a26c9afc0d2de3ac64ea984cdfc068554a38f13d93e78",
+      "updatedAt": "2026-10-17T18:56:38.337Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/gm-q3-fy25.js": {
+      "digest": "sha256:a23799b109de2e6ca4b07a7fdad5c46a305831d1a1518dd1bfda671f289613cb",
+      "updatedAt": "2026-10-17T18:55:44.164Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/gm-q4-fy22.js": {
+      "digest": "sha256:aba0b909cb5d7a0312b28077204862ab44c1f6a1632ac483dee1c8cc8e249cc5",
+      "updatedAt": "2026-10-17T18:55:23.186Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/gm-q4-fy23.js": {
+      "digest": "sha256:4dfb4f7230c5dcb2cef1bbc6bcc464dad70adc292e89af2596e40d354cfd1309",
+      "updatedAt": "2026-10-17T18:54:53.481Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/gm-q4-fy24.js": {
+      "digest": "sha256:b779fad060d0a74ea8c5f499c11d2f17b7d8b7b0cd2a95c1a4db6964a588df6f",
+      "updatedAt": "2026-10-17T18:55:38.296Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/hermes-fy22.js": {
+      "digest": "sha256:6ea140950211685e67f83b35a201d4e9014833249d27be37d4d58727d830d389",
+      "updatedAt": "2026-10-17T18:30:38.527Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/hermes-fy23.js": {
+      "digest": "sha256:df9daf0b68d7ddfa9edbc0d414507ad3edf54a8c1129e24518b4dcd8ef38ee3c",
+      "updatedAt": "2026-10-17T18:29:59.624Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/hermes-h1-fy22.js": {
+      "digest": "sha256:8e638be96d1064eaa442dd20680e3b5d55f2927826fa0ddce1c89157a5a29da1",
+      "updatedAt": "2026-10-17T18:27:16.941Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/hermes-h1-fy23.js": {
+      "digest": "sha256:404423e46dec62a1f2006f36e439c58a2045c69bc5cb7c0c38d852f2c8ffdbe4",
+      "updatedAt": "2026-10-17T18:29:46.475Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/hermes-h1-fy24.js": {
+      "digest": "sha256:7d21c130c54edbdecede2b774eeef5b8d853dfc53530144a9cf0fa1dc382f7de",
+      "updatedAt": "2026-10-17T18:27:23.388Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/hermes-h1-fy25.js": {
+      "digest": "sha256:b1a571ef3c9ee6f31b9f0f2b4d51ef336a1ce8dd833601bf2741fd0647c978a5",
+      "updatedAt": "2026-10-17T18:29:29.442Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/loreal-fy22.js": {
+      "digest": "sha256:1e01dd36b91e8045e0b40516ab81bb84c34f94b1056c81ee9e2d895f9e8af4d8",
+      "updatedAt": "2026-10-17T18:28:09.726Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/loreal-fy23.js": {
+      "digest": "sha256:67a408742344c15f6e96583e933f7deb286b084c0c76ac2883a151572aa6bd52",
+      "updatedAt": "2026-10-17T18:31:15.105Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/loreal-h1-fy22.js": {
+      "digest": "sha256:a5b5d240534f52358a48279ada377a086fbaa500b704ff78dec929ea1a0e91bf",
+      "updatedAt": "2026-10-17T18:30:04.165Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/loreal-h1-fy23.js": {
+      "digest": "sha256:988b5a2777c7f2860b457a5be139ec97d2f3ffafd0394f3a09c119666f13d9f3",
+      "updatedAt": "2026-10-17T18:29:41.891Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/loreal-h1-fy25.js": {
+      "digest": "sha256:290574e0d07c039d578f10174d4f6b0a4160b5340ca06f5bd89bf1f8b2388b0f",
+      "updatedAt": "2026-10-17T18:31:11.882Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/lvmh-fy22.js": {
+      "digest": "sha256:0ce7c7274b6964c0a1a763a20e6049a71cfeafc7d4bf3fd101162a97d7a10910",
+      "updatedAt": "2026-10-17T18:29:12.807Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/lvmh-fy23.js": {
+      "digest": "sha256:689bad6eaa4ea68783ecc5a47cc63680fda2d227a2c02171579a2f3f3e944a55",
+      "updatedAt": "2026-10-17T18:30:48.980Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/lvmh-h1-fy22.js": {
+      "digest": "sha256:69e5f4baa016e47aaae0a19560f171cba2de069a6446e39b021616603637bf6b",
+      "updatedAt": "2026-10-17T18:25:24.320Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/lvmh-h1-fy23.js": {
+      "digest": "sha256:ae8c17f249e5848fbe446cedf448dc279a6b299d943b11926f3bebfd92c71a09",
+      "updatedAt": "2026-10-17T18:29:44.692Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/lvmh-h1-fy24.js": {
+      "digest": "sha256:6b73b79f596c632efd8e84419fd0f6fafb7a2e62d9e83b1ee1ec5f53e7c8acb7",
+      "updatedAt": "2026-10-17T18:27:30.693Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/lvmh-h1-fy25.js": {
+      "digest": "sha256:f285eaa3ca283479293c311304f329659e1846002b08456254d2fda3e23483d0",
+      "updatedAt": "2026-10-17T18:28:00.949Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/netflix-q1-fy23.js": {
+      "digest": "sha256:8d72675ae9d6c10949a5cd46f05d1b14f0bd6405e8924609ac8ed374d2885ed6",
+      "updatedAt": "2026-10-17T18:30:43.442Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/netflix-q1-fy24.js": {
+      "digest": "sha256:18de8c1dccdd783eae642d2ea3394c55dc10d2efca3c2f9fd8ccf925ef9ca65e",
+      "updatedAt": "2026-10-17T18:29:47.300Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/netflix-q2-fy23.js": {
+      "digest": "sha256:d8080a1047c9259b9bd2eafcd56b4560f4bc722d670f20174e55375633bd663f",
+      "updatedAt": "2026-10-17T18:30:10.104Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/netflix-q2-fy24.js": {
+      "digest": "sha256:8ffbccaacaa759a4e20503a52ca0ef5277752b254494d5f48ce7982f0d6fd7b4",
+      "updatedAt": "2026-10-17T18:27:18.263Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/netflix-q2-fy25.js": {
+      "digest": "sha256:017ed1ca8cb4fb9093fce0326d18e3bf4e24b93c5fb7ac8c64edb7f0c200908c",
+      "updatedAt": "2026-10-17T18:27:00.172Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/netflix-q3-fy22.js": {
+      "digest": "sha256:ce1433953bdcc6e87cdaf8fce9ebe998cfb044b6dbd24271a3f6f275399221c0",
+      "updatedAt": "2026-10-17T18:25:27.139Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/netflix-q3-fy23.js": {
+      "digest": "sha256:33518347f25872c542e4c15ccba1b31eac0b25e5a2eca1acdbf6f8d3c4014d4a",
+      "updatedAt": "2026-10-17T18:29:34.934Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/netflix-q3-fy24.js": {
+      "digest": "sha256:fa341a84af54345170d0894de300941c84ce0da98b98d88689686097b372766d",
+      "updatedAt": "2026-10-17T18:30:13.308Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/netflix-q3-fy25.js": {
+      "digest": "sha256:9797a7f0bea5d43519bc3b4b30e32326573a29f7d95d37029840cddcbb357171",
+      "updatedAt": "2026-10-17T18:30:29.650Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/netflix-q4-fy22.js": {
+      "digest": "sha256:2a377d4cf297b468b06f1e660a56016e7372f1176dce5a89527bfd03a95aa5f0",
+      "updatedAt": "2026-10-17T18:26:55.816Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/netflix-q4-fy23.js": {
+      "digest": "sha256:8e4e79aea93c759d669be665b2618f6408ae62d7ab11c8938b446bf814705121",
+      "updatedAt": "2026-10-17T18:30:11.217Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/netflix-q4-fy24.js": {
+      "digest": "sha256:b0f1c5533d846a1730f97dc8e29e1c7251d557b898b48cb402b1d87203cc76a3",
+      "updatedAt": "2026-10-17T18:30:18.312Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/pfizer-q1-fy24.js": {
+      "digest": "sha256:8d378c09dc6d39cc3c5d59005b87c979ec46bd3e28b2a05589fc5171a7b1f44e",
+      "updatedAt": "2026-10-17T18:57:35.607Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/pfizer-q2-fy24.js": {
+      "digest": "sha256:a6031a253fac89c20527aba0902757941492aec55562403d94f420391ae54b60",
+      "updatedAt": "2026-10-17T18:57:57.407Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/pfizer-q2-fy25.js": {
+      "digest": "sha256:bdee6ed6eee17c16bbe7fd083002ea63b435f76e417d3412cb9abb2666708977",
+      "updatedAt": "2026-10-17T18:56:40.313Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/pfizer-q3-fy24.js": {
+      "digest": "sha256:df7e53d14e9f617cbfcddc9d1dcb272f444b2021c9acf6dd0e86a1a332beef29",
+      "updatedAt": "2026-10-17T18:57:19.960Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/ups-q1-fy23.js": {
+      "digest": "sha256:320be1b1843929a615f5ea7473688489e2f648b124e356c0d6b4557c142bef5c",
+      "updatedAt": "2026-10-17T18:30:06.609Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/ups-q1-fy24.js": {
+      "digest": "sha256:6b63f5f0927415b829b9c9396b0135f0972357ca22cfdf68a6cd1b314ee6fc8f",
+      "updatedAt": "2026-10-17T18:28:11.782Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/ups-q2-fy23.js": {
+      "digest": "sha256:901f9239df54e8f9f0c1cad638a98b9e77adbe7e486d80108defa7d08e1836de",
+      "updatedAt": "2026-10-17T18:29:48.006Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/ups-q2-fy24.js": {
+      "digest": "sha256:f216888e9a93d3046113dde10d4c5c722dc099aa57f2663a331d083ccdc2096a",
+      "updatedAt": "2026-10-17T18:29:11.096Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/ups-q2-fy25.js": {
+      "digest": "sha256:e5b46be06dfb3b9b6e2a2e2da14d7b0226289b2bf10fa46183beae6a968f0d53",
+      "updatedAt": "2026-10-17T18:30:47.602Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/ups-q3-fy23.js": {
+      "digest": "sha256:508d0c98dbdba0e91b60e3b21ebc31b22d9fecf566abaa68d0c10c0caa2f0956",
+      "updatedAt": "2026-10-17T18:28:14.998Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/ups-q3-fy24.js": {
+      "digest": "sha256:9acfa97372f54691c1c3c1b69ca92d369c0ddac6c15a706af1397241aece4945",
+      "updatedAt": "2026-10-17T18:30:40.425Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/ups-q3-fy25.js": {
+      "digest": "sha256:f50438b09783d6414982328ba025a10fda1a6fda8818c72a3fe106644c831f0a",
+      "updatedAt": "2026-10-17T18:29:11.689Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/ups-q4-fy22.js": {
+      "digest": "sha256:122242e8cb04749a2f4744d8193418a67a094d8d7c09885867ede5ecc2848d77",
+      "updatedAt": "2026-10-17T18:30:37.019Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/ups-q4-fy23.js": {
+      "digest": "sha256:c76fde8bef1b44afd129e6d07bf76cbff26e663545de7c899bed8dff5185573b",
+      "updatedAt": "2026-10-17T18:29:08.952Z",
+      "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
     }
   }
 }

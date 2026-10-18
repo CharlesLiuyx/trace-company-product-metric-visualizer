@@ -753,5 +753,376 @@
         }
       }
     }
+  },
+{
+  "key": "disney-q4-fy22",
+  "company": "Disney",
+  "period": "Q4 FY22",
+  "periodNote": "Ending Sept. 2022",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processing/disney-q4-fy22.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 20.1,
+    "notes": [
+      "+9% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "media_total",
+        "label": "Media & Entertainment",
+        "value": 12.7,
+        "notes": [
+          "(3%) Y/Y"
+        ],
+        "children": [
+          {
+            "id": "linear",
+            "label": "Linear Networks",
+            "value": 6.3,
+            "notes": [
+              "(5%) Y/Y"
+            ]
+          },
+          {
+            "id": "dtc",
+            "label": "Direct to consumer",
+            "value": 4.9,
+            "notes": [
+              "+8% Y/Y"
+            ]
+          },
+          {
+            "id": "content",
+            "label": "Content Sales Licensing",
+            "value": 1.7,
+            "notes": [
+              "(15%) Y/Y"
+            ]
+          },
+          {
+            "id": "eliminations",
+            "label": "Eliminations",
+            "value": -0.3
+          }
+        ]
+      },
+      {
+        "id": "parks_total",
+        "label": "Parks, Experiences & Products",
+        "value": 7.4,
+        "notes": [
+          "+36% Y/Y"
+        ],
+        "children": [
+          {
+            "id": "parks",
+            "label": "Parks & Experiences",
+            "value": 6.1,
+            "notes": [
+              "+46% Y/Y"
+            ]
+          },
+          {
+            "id": "consumer",
+            "label": "Consumer Products",
+            "value": 1.3,
+            "notes": [
+              "+4% Y/Y"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "label": "Cost of revenue not separately reported",
+      "value": 0
+    },
+    "operatingExpenses": {
+      "total": 19.6,
+      "items": [
+        {
+          "id": "operating_expenses",
+          "label": "Costs & expenses",
+          "value": 19.6
+        }
+      ]
+    },
+    "tax": {
+      "label": "Tax not reported",
+      "value": 0
+    }
+  },
+  "operatingOtherExpenses": {
+    "total": 0.2,
+    "items": [
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 0.2
+      }
+    ]
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "revenue",
+      "label": "Revenue layer (gross profit not separately reported)",
+      "value": 20.1
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 0.4,
+      "notes": [
+        "2% margin",
+        "+0.3pp Y/Y"
+      ],
+      "items": [
+        {
+          "id": "segment_profit",
+          "label": "Segment operating profit",
+          "value": 1.6,
+          "children": [
+            {
+              "id": "parks_profit",
+              "label": "Parks",
+              "value": 1.5,
+              "notes": [
+                "20% adj. margin"
+              ]
+            },
+            {
+              "id": "media_profit",
+              "label": "Media",
+              "value": 0.1,
+              "notes": [
+                "1% adj. margin"
+              ],
+              "children": [
+                {
+                  "id": "linear_profit",
+                  "label": "Linear",
+                  "value": 1.7
+                },
+                {
+                  "id": "dtc_profit",
+                  "label": "DTC",
+                  "value": -1.5
+                },
+                {
+                  "id": "content_profit",
+                  "label": "Content",
+                  "value": -0.2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "amortization",
+          "label": "Amortization",
+          "value": -0.6
+        },
+        {
+          "id": "other_costs",
+          "label": "Other costs",
+          "value": -0.3
+        },
+        {
+          "id": "unallocated",
+          "label": "Unallocated",
+          "value": -0.3
+        }
+      ]
+    },
+    "net": {
+      "availability": "not-reported",
+      "value": null,
+      "label": "Net result not reported",
+      "notes": [
+        "Source ends at operating profit."
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2022 财年第四季度",
+      "periodNote": "截至 2022 年 9 月",
+      "revenue": {
+        "notes": [
+          "同比 +9%"
+        ],
+        "items": [
+          {
+            "id": "media_total",
+            "label": "媒体及 娱乐",
+            "notes": [
+              "同比 (3%)"
+            ],
+            "children": [
+              {
+                "id": "linear",
+                "label": "线性 电视网",
+                "notes": [
+                  "同比 (5%)"
+                ]
+              },
+              {
+                "id": "dtc",
+                "label": "直接面向 消费者",
+                "notes": [
+                  "同比 +8%"
+                ]
+              },
+              {
+                "id": "content",
+                "label": "内容销售 与授权",
+                "notes": [
+                  "同比 (15%)"
+                ]
+              },
+              {
+                "id": "eliminations",
+                "label": "抵销"
+              }
+            ]
+          },
+          {
+            "id": "parks_total",
+            "label": "乐园、 体验及 产品",
+            "notes": [
+              "同比 +36%"
+            ],
+            "children": [
+              {
+                "id": "parks",
+                "label": "乐园及 体验",
+                "notes": [
+                  "同比 +46%"
+                ]
+              },
+              {
+                "id": "consumer",
+                "label": "消费 产品",
+                "notes": [
+                  "同比 +4%"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "未单列收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "operating_expenses",
+              "label": "成本及 费用"
+            }
+          ]
+        },
+        "tax": {
+          "label": "未报告税费"
+        }
+      },
+      "operatingOtherExpenses": {
+        "items": [
+          {
+            "id": "other",
+            "label": "其他"
+          }
+        ]
+      },
+      "otherIncome": {
+        "items": []
+      },
+      "otherExpenses": {
+        "items": []
+      },
+      "profit": {
+        "gross": {
+          "id": "revenue",
+          "label": "收入层（未单列毛利润）"
+        },
+        "operating": {
+          "id": "operating_profit",
+          "label": "营业利润",
+          "notes": [
+            "利润率 2%",
+            "同比 +0.3 个百分点"
+          ],
+          "items": [
+            {
+              "id": "segment_profit",
+              "label": "分部 营业 利润",
+              "children": [
+                {
+                  "id": "parks_profit",
+                  "label": "乐园",
+                  "notes": [
+                    "调整后利润率 20%"
+                  ]
+                },
+                {
+                  "id": "media_profit",
+                  "label": "媒体",
+                  "notes": [
+                    "调整后利润率 1%"
+                  ],
+                  "children": [
+                    {
+                      "id": "linear_profit",
+                      "label": "线性电视"
+                    },
+                    {
+                      "id": "dtc_profit",
+                      "label": "直接面向消费者"
+                    },
+                    {
+                      "id": "content_profit",
+                      "label": "内容"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "amortization",
+              "label": "摊销"
+            },
+            {
+              "id": "other_costs",
+              "label": "其他成本"
+            },
+            {
+              "id": "unallocated",
+              "label": "未分摊"
+            }
+          ]
+        },
+        "net": {
+          "label": "未报告净利润",
+          "notes": [
+            "原图止于营业利润。"
+          ]
+        }
+      }
+    }
   }
+}
 ]); })(window);

@@ -1339,6 +1339,1432 @@
         ]
       }
     }
+  },
+  {
+    "key": "boeing-9m-fy25",
+    "company": "Boeing",
+    "period": "9M FY25",
+    "periodNote": "",
+    "currency": "$",
+    "unit": "B",
+    "decimals": 1,
+    "sourceImage": "input/processed/boeing-9m-fy25.png",
+    "roundingTolerance": 0.15,
+    "revenue": {
+      "total": 65.5,
+      "notes": [
+        "+27% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "commercial_airplanes",
+          "label": "Commercial Airplanes",
+          "value": 30.1,
+          "notes": [
+            "+66% Y/Y",
+            "(21%) segment margin"
+          ]
+        },
+        {
+          "id": "defense",
+          "label": "Defense, Space & Security",
+          "value": 19.8,
+          "notes": [
+            "+7% Y/Y",
+            "2% segment margin"
+          ]
+        },
+        {
+          "id": "global_services",
+          "label": "Global Services",
+          "value": 15.7,
+          "notes": [
+            "+6% Y/Y",
+            "19% segment margin"
+          ]
+        },
+        {
+          "id": "unallocated",
+          "label": "Unallocated",
+          "value": -0.1,
+          "notes": []
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_sales",
+        "label": "Cost of sales",
+        "value": 63,
+        "notes": []
+      },
+      "operatingExpenses": {
+        "total": 7.1,
+        "items": [
+          {
+            "id": "ga",
+            "label": "G&A",
+            "value": 4.4,
+            "notes": [
+              "7% of revenue",
+              "(0pp) Y/Y"
+            ]
+          },
+          {
+            "id": "rnd",
+            "label": "R&D",
+            "value": 2.7,
+            "notes": [
+              "4% of revenue",
+              "(2pp) Y/Y"
+            ]
+          }
+        ]
+      },
+      "tax": {
+        "label": "Tax",
+        "value": 0,
+        "notes": [
+          "Not separately reported in this source."
+        ]
+      }
+    },
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 0,
+      "items": []
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 2.5,
+        "notes": [
+          "4% margin",
+          "+5pp Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_loss",
+        "label": "Operating loss",
+        "value": -4.5,
+        "notes": [
+          "(7%) margin",
+          "+7pp Y/Y"
+        ]
+      },
+      "net": {
+        "availability": "not-reported",
+        "value": null,
+        "label": "Net result not reported",
+        "notes": [
+          "Source ends at operating loss."
+        ]
+      }
+    },
+    "operatingMetrics": [
+      {
+        "id": "deliveries",
+        "label": "Deliveries",
+        "literal": "440",
+        "value": "440",
+        "unit": "count",
+        "currency": null,
+        "comparison": "eq",
+        "quote": "Deliveries\n440 commercial airplanes\n+51% Y/Y",
+        "basis": "unspecified",
+        "notes": [
+          "+51% Y/Y"
+        ],
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            73,
+            1177,
+            446,
+            159
+          ]
+        }
+      },
+      {
+        "id": "backlog",
+        "label": "Backlog",
+        "literal": "$636B",
+        "value": "636",
+        "unit": "B",
+        "currency": "USD",
+        "comparison": "eq",
+        "quote": "Backlog\n$636B\n+22% Y/Y",
+        "basis": "unspecified",
+        "notes": [
+          "+22% Y/Y"
+        ],
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            531,
+            1177,
+            240,
+            159
+          ]
+        }
+      }
+    ],
+    "i18n": {
+      "zh": {
+        "period": "2025 财年前 9 个月",
+        "revenue": {
+          "notes": [
+            "同比 +27%"
+          ],
+          "items": [
+            {
+              "id": "commercial_airplanes",
+              "label": "商用飞机",
+              "notes": [
+                "同比 +66%",
+                "分部利润率 (21%)"
+              ]
+            },
+            {
+              "id": "defense",
+              "label": "国防、太空与安全",
+              "notes": [
+                "同比 +7%",
+                "分部利润率 2%"
+              ]
+            },
+            {
+              "id": "global_services",
+              "label": "全球服务",
+              "notes": [
+                "同比 +6%",
+                "分部利润率 19%"
+              ]
+            },
+            {
+              "id": "unallocated",
+              "label": "未分配项",
+              "notes": []
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "销售成本"
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "ga",
+                "label": "管理费用 G&A",
+                "notes": [
+                  "占收入 7%",
+                  "同比 (0 个百分点)"
+                ]
+              },
+              {
+                "id": "rnd",
+                "label": "研发 R&D",
+                "notes": [
+                  "占收入 4%",
+                  "同比 (2 个百分点)"
+                ]
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费",
+            "notes": [
+              "来源未单独报告。"
+            ]
+          }
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 4%",
+              "同比 +5 个百分点"
+            ]
+          },
+          "operating": {
+            "label": "营业亏损",
+            "notes": [
+              "利润率 (7%)",
+              "同比 +7 个百分点"
+            ]
+          },
+          "net": {
+            "label": "来源未报告净利润",
+            "notes": [
+              "来源止于营业亏损。"
+            ]
+          }
+        },
+        "operatingMetrics": [
+          {
+            "id": "deliveries",
+            "label": "交付",
+            "notes": [
+              "同比 +51%"
+            ]
+          },
+          {
+            "id": "backlog",
+            "label": "订单储备",
+            "notes": [
+              "同比 +22%"
+            ]
+          }
+        ],
+        "periodNote": ""
+      }
+    }
+  },
+  {
+    "key": "boeing-q2-fy25",
+    "company": "Boeing",
+    "period": "Q2 FY25",
+    "periodNote": "",
+    "currency": "$",
+    "unit": "B",
+    "decimals": 3,
+    "sourceImage": "input/processed/boeing-q2-fy25.png",
+    "roundingTolerance": 0.15,
+    "revenue": {
+      "total": 22.7,
+      "notes": [
+        "+35% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "commercial_airplanes",
+          "label": "Commercial Airplanes",
+          "value": 10.9,
+          "notes": [
+            "+81% Y/Y",
+            "(5%) segment margin"
+          ]
+        },
+        {
+          "id": "defense",
+          "label": "Defense, Space & Security",
+          "value": 6.6,
+          "notes": [
+            "+10% Y/Y",
+            "2% segment margin"
+          ]
+        },
+        {
+          "id": "global_services",
+          "label": "Global Services",
+          "value": 5.3,
+          "notes": [
+            "+8% Y/Y",
+            "20% segment margin"
+          ]
+        },
+        {
+          "id": "unallocated",
+          "label": "Unallocated",
+          "value": -0.023,
+          "notes": []
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_sales",
+        "label": "Cost of sales",
+        "value": 20.3,
+        "notes": []
+      },
+      "operatingExpenses": {
+        "total": 2.7,
+        "items": [
+          {
+            "id": "ga",
+            "label": "G&A",
+            "value": 1.8,
+            "notes": [
+              "8% of revenue",
+              "(0pp) Y/Y"
+            ]
+          },
+          {
+            "id": "rnd",
+            "label": "R&D",
+            "value": 0.9,
+            "notes": [
+              "4% of revenue",
+              "(2pp) Y/Y"
+            ]
+          }
+        ]
+      },
+      "tax": {
+        "label": "Tax",
+        "value": 0,
+        "notes": [
+          "Not separately reported in this source."
+        ]
+      }
+    },
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 0,
+      "items": []
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 2.4,
+        "notes": [
+          "11% margin",
+          "+16pp Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_loss",
+        "label": "Operating loss",
+        "value": -0.2,
+        "notes": [
+          "(1%) margin",
+          "+6pp Y/Y"
+        ]
+      },
+      "net": {
+        "availability": "not-reported",
+        "value": null,
+        "label": "Net result not reported",
+        "notes": [
+          "Source ends at operating loss."
+        ]
+      }
+    },
+    "operatingMetrics": [
+      {
+        "id": "deliveries",
+        "label": "Deliveries",
+        "literal": "150",
+        "value": "150",
+        "unit": "count",
+        "currency": null,
+        "comparison": "eq",
+        "quote": "Deliveries\n150 commercial airplanes\n+63% Y/Y",
+        "basis": "unspecified",
+        "notes": [
+          "+63% Y/Y"
+        ],
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            73,
+            1177,
+            447,
+            159
+          ]
+        }
+      },
+      {
+        "id": "backlog",
+        "label": "Backlog",
+        "literal": "$619B",
+        "value": "619",
+        "unit": "B",
+        "currency": "USD",
+        "comparison": "eq",
+        "quote": "Backlog\n$619B\n+19% Y/Y",
+        "basis": "unspecified",
+        "notes": [
+          "+19% Y/Y"
+        ],
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            531,
+            1177,
+            240,
+            159
+          ]
+        }
+      }
+    ],
+    "i18n": {
+      "zh": {
+        "period": "2025 财年第二季度",
+        "revenue": {
+          "notes": [
+            "同比 +35%"
+          ],
+          "items": [
+            {
+              "id": "commercial_airplanes",
+              "label": "商用飞机",
+              "notes": [
+                "同比 +81%",
+                "分部利润率 (5%)"
+              ]
+            },
+            {
+              "id": "defense",
+              "label": "国防、太空与安全",
+              "notes": [
+                "同比 +10%",
+                "分部利润率 2%"
+              ]
+            },
+            {
+              "id": "global_services",
+              "label": "全球服务",
+              "notes": [
+                "同比 +8%",
+                "分部利润率 20%"
+              ]
+            },
+            {
+              "id": "unallocated",
+              "label": "未分配项",
+              "notes": []
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "销售成本"
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "ga",
+                "label": "管理费用",
+                "notes": [
+                  "占收入 8%",
+                  "同比 (0 个百分点)"
+                ]
+              },
+              {
+                "id": "rnd",
+                "label": "研发",
+                "notes": [
+                  "占收入 4%",
+                  "同比 (2 个百分点)"
+                ]
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费",
+            "notes": [
+              "来源未单独报告。"
+            ]
+          }
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 11%",
+              "同比 +16 个百分点"
+            ]
+          },
+          "operating": {
+            "label": "营业亏损",
+            "notes": [
+              "利润率 (1%)",
+              "同比 +6 个百分点"
+            ]
+          },
+          "net": {
+            "label": "来源未报告净利润",
+            "notes": [
+              "来源止于营业亏损。"
+            ]
+          }
+        },
+        "operatingMetrics": [
+          {
+            "id": "deliveries",
+            "label": "交付",
+            "notes": [
+              "同比 +63%"
+            ]
+          },
+          {
+            "id": "backlog",
+            "label": "订单储备",
+            "notes": [
+              "同比 +19%"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "key": "boeing-q2-fy24",
+    "company": "Boeing",
+    "period": "Q2 FY24",
+    "periodNote": "",
+    "currency": "$",
+    "unit": "B",
+    "decimals": 3,
+    "sourceImage": "input/processing/boeing-q2-fy24.png",
+    "roundingTolerance": 0.15,
+    "revenue": {
+      "total": 16.9,
+      "notes": [
+        "(15%) Y/Y"
+      ],
+      "items": [
+        {
+          "id": "commercial_airplanes",
+          "label": "Commercial Airplanes",
+          "value": 6,
+          "notes": [
+            "(32%) Y/Y",
+            "(9%) segment margin"
+          ]
+        },
+        {
+          "id": "defense",
+          "label": "Defense, Space & Security",
+          "value": 6,
+          "notes": [
+            "(2%) Y/Y",
+            "(17%) segment margin"
+          ]
+        },
+        {
+          "id": "global_services",
+          "label": "Global Services",
+          "value": 4.9,
+          "notes": [
+            "+3% Y/Y",
+            "16% segment margin"
+          ]
+        },
+        {
+          "id": "unallocated",
+          "label": "Unallocated",
+          "value": -0.047,
+          "notes": []
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_sales",
+        "label": "Cost of sales",
+        "value": 15.6,
+        "notes": []
+      },
+      "operatingExpenses": {
+        "total": 2.3,
+        "items": [
+          {
+            "id": "ga",
+            "label": "G&A & Other",
+            "value": 1.4,
+            "notes": [
+              "8% of revenue",
+              "+2pp Y/Y"
+            ]
+          },
+          {
+            "id": "rnd",
+            "label": "R&D",
+            "value": 1,
+            "notes": [
+              "6% of revenue",
+              "+2pp Y/Y"
+            ]
+          }
+        ]
+      },
+      "tax": {
+        "label": "Tax",
+        "value": 0,
+        "notes": [
+          "Not separately reported in this source."
+        ]
+      }
+    },
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 0,
+      "items": []
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 1.2,
+        "notes": [
+          "7% margin",
+          "(3pp) Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_loss",
+        "label": "Operating loss",
+        "value": -1.1,
+        "notes": [
+          "(6%) margin",
+          "(6pp) Y/Y"
+        ]
+      },
+      "net": {
+        "availability": "not-reported",
+        "value": null,
+        "label": "Net result not reported",
+        "notes": [
+          "Source ends at operating loss."
+        ]
+      }
+    },
+    "operatingMetrics": [
+      {
+        "id": "deliveries",
+        "label": "Deliveries",
+        "literal": "92",
+        "value": "92",
+        "unit": "count",
+        "currency": null,
+        "comparison": "eq",
+        "quote": "Deliveries\n92 commercial airplanes\n(32%) Y/Y",
+        "basis": "unspecified",
+        "notes": [
+          "(32%) Y/Y"
+        ],
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            73,
+            1219,
+            447,
+            159
+          ]
+        }
+      },
+      {
+        "id": "backlog",
+        "label": "Backlog",
+        "literal": "$516B",
+        "value": "516",
+        "unit": "B",
+        "currency": "USD",
+        "comparison": "eq",
+        "quote": "Backlog\n$516B\n+10% Y/Y",
+        "basis": "unspecified",
+        "notes": [
+          "+10% Y/Y"
+        ],
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            531,
+            1219,
+            240,
+            159
+          ]
+        }
+      }
+    ],
+    "i18n": {
+      "zh": {
+        "revenue": {
+          "notes": [
+            "同比 (15%)"
+          ],
+          "items": [
+            {
+              "id": "commercial_airplanes",
+              "label": "商用飞机",
+              "notes": [
+                "同比 (32%)",
+                "分部利润率 (9%)"
+              ]
+            },
+            {
+              "id": "defense",
+              "label": "国防、太空与安全",
+              "notes": [
+                "同比 (2%)",
+                "分部利润率 (17%)"
+              ]
+            },
+            {
+              "id": "global_services",
+              "label": "全球服务",
+              "notes": [
+                "同比 +3%",
+                "分部利润率 16%"
+              ]
+            },
+            {
+              "id": "unallocated",
+              "label": "未分配项",
+              "notes": []
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "id": "cost_of_sales",
+            "label": "销售成本",
+            "notes": []
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "ga",
+                "label": "管理费用及其他",
+                "notes": [
+                  "占收入 8%",
+                  "同比 +2 个百分点"
+                ]
+              },
+              {
+                "id": "rnd",
+                "label": "研发",
+                "notes": [
+                  "占收入 6%",
+                  "同比 +2 个百分点"
+                ]
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费",
+            "notes": [
+              "来源未单独报告。"
+            ]
+          }
+        },
+        "profit": {
+          "gross": {
+            "id": "gross_profit",
+            "label": "毛利润",
+            "notes": [
+              "利润率 7%",
+              "同比 (3 个百分点)"
+            ]
+          },
+          "operating": {
+            "id": "operating_loss",
+            "label": "营业亏损",
+            "notes": [
+              "利润率 (6%)",
+              "同比 (6 个百分点)"
+            ]
+          },
+          "net": {
+            "label": "来源未报告净利润",
+            "notes": [
+              "来源止于营业亏损。"
+            ]
+          }
+        },
+        "operatingMetrics": [
+          {
+            "id": "deliveries",
+            "label": "交付",
+            "notes": [
+              "同比 (32%)"
+            ]
+          },
+          {
+            "id": "backlog",
+            "label": "订单储备",
+            "notes": [
+              "同比 +10%"
+            ]
+          }
+        ],
+        "period": "2024 财年第二季度"
+      }
+    }
+  },
+  {
+    "key": "boeing-fy23",
+    "company": "Boeing",
+    "period": "FY23",
+    "periodNote": "",
+    "currency": "$",
+    "unit": "B",
+    "decimals": 1,
+    "sourceImage": "input/processed/boeing-fy23.png",
+    "roundingTolerance": 0.15,
+    "revenue": {
+      "total": 77.8,
+      "notes": [
+        "+17% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "commercial_airplanes",
+          "label": "Commercial Airplanes",
+          "value": 33.9,
+          "notes": [
+            "+30% Y/Y",
+            "(5%) segment margin"
+          ]
+        },
+        {
+          "id": "defense",
+          "label": "Defense, Space & Security",
+          "value": 24.9,
+          "notes": [
+            "+8% Y/Y",
+            "(7%) segment margin"
+          ]
+        },
+        {
+          "id": "global_services",
+          "label": "Global Services",
+          "value": 19.1,
+          "notes": [
+            "+9% Y/Y",
+            "17% segment margin"
+          ]
+        },
+        {
+          "id": "unallocated",
+          "label": "Unallocated",
+          "value": -0.2,
+          "notes": []
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_sales",
+        "label": "Cost of sales",
+        "value": 70,
+        "notes": []
+      },
+      "operatingExpenses": {
+        "total": 8.5,
+        "items": [
+          {
+            "id": "ga",
+            "label": "G&A",
+            "value": 5.1,
+            "notes": [
+              "7% of revenue",
+              "+0pp Y/Y"
+            ]
+          },
+          {
+            "id": "rnd",
+            "label": "R&D",
+            "value": 3.4,
+            "notes": [
+              "4% of revenue",
+              "+0pp Y/Y"
+            ]
+          }
+        ]
+      },
+      "tax": {
+        "label": "Tax",
+        "value": 0,
+        "notes": [
+          "Not separately reported in this source."
+        ]
+      }
+    },
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 0,
+      "items": []
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 7.7,
+        "notes": [
+          "10% margin",
+          "+5pp Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_loss",
+        "label": "Operating loss",
+        "value": -0.8,
+        "notes": [
+          "(1%) margin",
+          "+4pp Y/Y"
+        ]
+      },
+      "net": {
+        "availability": "not-reported",
+        "value": null,
+        "label": "Net result not reported",
+        "notes": [
+          "Source ends at operating loss."
+        ]
+      }
+    },
+    "operatingMetrics": [
+      {
+        "id": "deliveries",
+        "label": "Deliveries",
+        "literal": "528",
+        "value": "528",
+        "unit": "count",
+        "currency": null,
+        "comparison": "eq",
+        "quote": "Deliveries\n528 commercial airplanes\n+10% Y/Y",
+        "basis": "unspecified",
+        "notes": [
+          "+10% Y/Y"
+        ],
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            73,
+            1219,
+            447,
+            159
+          ]
+        }
+      },
+      {
+        "id": "backlog",
+        "label": "Backlog",
+        "literal": "$520B",
+        "value": "520",
+        "unit": "B",
+        "currency": "USD",
+        "comparison": "eq",
+        "quote": "Backlog\n$520B\n+29% Y/Y",
+        "basis": "unspecified",
+        "notes": [
+          "+29% Y/Y"
+        ],
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            531,
+            1219,
+            240,
+            159
+          ]
+        }
+      }
+    ],
+    "i18n": {
+      "zh": {
+        "period": "2023 财年",
+        "revenue": {
+          "notes": [
+            "同比 +17%"
+          ],
+          "items": [
+            {
+              "id": "commercial_airplanes",
+              "label": "商用飞机",
+              "notes": [
+                "同比 +30%",
+                "分部利润率 (5%)"
+              ]
+            },
+            {
+              "id": "defense",
+              "label": "国防、太空与安全",
+              "notes": [
+                "同比 +8%",
+                "分部利润率 (7%)"
+              ]
+            },
+            {
+              "id": "global_services",
+              "label": "全球服务",
+              "notes": [
+                "同比 +9%",
+                "分部利润率 17%"
+              ]
+            },
+            {
+              "id": "unallocated",
+              "label": "未分配项",
+              "notes": []
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "销售成本"
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "ga",
+                "label": "管理费用 G&A",
+                "notes": [
+                  "占收入 7%",
+                  "同比 +0 个百分点"
+                ]
+              },
+              {
+                "id": "rnd",
+                "label": "研发 R&D",
+                "notes": [
+                  "占收入 4%",
+                  "同比 +0 个百分点"
+                ]
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费",
+            "notes": [
+              "来源未单独报告。"
+            ]
+          }
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 10%",
+              "同比 +5 个百分点"
+            ]
+          },
+          "operating": {
+            "label": "营业亏损",
+            "notes": [
+              "利润率 (1%)",
+              "同比 +4 个百分点"
+            ]
+          },
+          "net": {
+            "label": "来源未报告净利润",
+            "notes": [
+              "来源止于营业亏损。"
+            ]
+          }
+        },
+        "operatingMetrics": [
+          {
+            "id": "deliveries",
+            "label": "交付",
+            "notes": [
+              "同比 +10%"
+            ]
+          },
+          {
+            "id": "backlog",
+            "label": "订单储备",
+            "notes": [
+              "同比 +29%"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "key": "boeing-q3-fy24",
+    "company": "Boeing",
+    "period": "Q3 FY24",
+    "periodNote": "",
+    "currency": "$",
+    "unit": "B",
+    "decimals": 2,
+    "sourceImage": "input/processed/boeing-q3-fy24.png",
+    "roundingTolerance": 0.15,
+    "revenue": {
+      "total": 17.8,
+      "notes": [
+        "(1%) Y/Y"
+      ],
+      "items": [
+        {
+          "id": "commercial_airplanes",
+          "label": "Commercial Airplanes",
+          "value": 7.4,
+          "notes": [
+            "(5%) Y/Y",
+            "(54%) segment margin"
+          ]
+        },
+        {
+          "id": "defense",
+          "label": "Defense, Space & Security",
+          "value": 5.5,
+          "notes": [
+            "+1% Y/Y",
+            "(43%) segment margin"
+          ]
+        },
+        {
+          "id": "global_services",
+          "label": "Global Services",
+          "value": 4.9,
+          "notes": [
+            "+2% Y/Y",
+            "17% segment margin"
+          ]
+        },
+        {
+          "id": "unallocated",
+          "label": "Unallocated",
+          "value": -0.04,
+          "notes": []
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "costs_expenses",
+        "label": "Costs & expenses",
+        "value": 23.6,
+        "items": [
+          {
+            "id": "cost_of_sales",
+            "label": "Cost of products & services",
+            "value": 21.3,
+            "notes": []
+          },
+          {
+            "id": "ga",
+            "label": "G&A & Other",
+            "value": 1.1,
+            "notes": [
+              "6% of revenue",
+              "+0pp Y/Y"
+            ]
+          },
+          {
+            "id": "rnd",
+            "label": "R&D",
+            "value": 1.2,
+            "notes": [
+              "6% of revenue",
+              "+1pp Y/Y"
+            ]
+          }
+        ],
+        "notes": []
+      },
+      "operatingExpenses": {
+        "total": 0,
+        "items": []
+      },
+      "tax": {
+        "value": 0,
+        "label": "Tax",
+        "notes": [
+          "Not separately reported in this source."
+        ]
+      }
+    },
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 0,
+      "items": []
+    },
+    "profit": {
+      "gross": {
+        "id": "combined_result",
+        "label": "Result after combined costs (derived)",
+        "value": -5.8,
+        "notes": [
+          "Derived revenue less the source combined costs aggregate; source does not report a separate gross result."
+        ]
+      },
+      "operating": {
+        "id": "operating_loss",
+        "label": "Operating loss",
+        "value": -5.8,
+        "notes": [
+          "(32%) margin",
+          "(32pp) Y/Y"
+        ]
+      },
+      "net": {
+        "availability": "not-reported",
+        "value": null,
+        "label": "Net result not reported",
+        "notes": [
+          "Source ends at operating loss."
+        ]
+      }
+    },
+    "operatingMetrics": [
+      {
+        "id": "deliveries",
+        "label": "Deliveries",
+        "literal": "150",
+        "value": "150",
+        "unit": "count",
+        "currency": null,
+        "comparison": "eq",
+        "quote": "Deliveries\n150 commercial airplanes\n+17 Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            73,
+            1172,
+            448,
+            159
+          ]
+        },
+        "notes": [
+          "+17 Y/Y"
+        ],
+        "basis": "unspecified"
+      },
+      {
+        "id": "backlog",
+        "label": "Backlog",
+        "literal": "$511B",
+        "value": "511",
+        "unit": "B",
+        "currency": "USD",
+        "comparison": "eq",
+        "quote": "Backlog\n$511B\n(2%) Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            531,
+            1172,
+            241,
+            159
+          ]
+        },
+        "notes": [
+          "(2%) Y/Y"
+        ],
+        "basis": "unspecified"
+      }
+    ],
+    "i18n": {
+      "zh": {
+        "period": "2024 财年第三季度",
+        "revenue": {
+          "notes": [
+            "同比 (1%)"
+          ],
+          "items": [
+            {
+              "id": "commercial_airplanes",
+              "label": "商用飞机",
+              "notes": [
+                "同比 (5%)",
+                "分部利润率 (54%)"
+              ]
+            },
+            {
+              "id": "defense",
+              "label": "国防、太空与安全",
+              "notes": [
+                "同比 +1%",
+                "分部利润率 (43%)"
+              ]
+            },
+            {
+              "id": "global_services",
+              "label": "全球服务",
+              "notes": [
+                "同比 +2%",
+                "分部利润率 17%"
+              ]
+            },
+            {
+              "id": "unallocated",
+              "label": "未分配项",
+              "notes": []
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "成本及费用",
+            "items": [
+              {
+                "id": "cost_of_sales",
+                "label": "产品与服务成本",
+                "notes": []
+              },
+              {
+                "id": "ga",
+                "label": "管理费用及其他"
+              },
+              {
+                "id": "rnd",
+                "label": "研发"
+              }
+            ],
+            "notes": []
+          },
+          "tax": {
+            "label": "税费",
+            "notes": [
+              "来源未单独报告。"
+            ]
+          }
+        },
+        "profit": {
+          "gross": {
+            "label": "扣除合并成本后的结果（推导）",
+            "notes": [
+              "由收入减去来源合并成本推导；来源未单独报告毛利润。"
+            ]
+          },
+          "operating": {
+            "label": "营业亏损",
+            "notes": [
+              "利润率 (32%)",
+              "同比 (32 个百分点)"
+            ]
+          },
+          "net": {
+            "label": "来源未报告净利润",
+            "notes": [
+              "来源止于营业亏损。"
+            ]
+          }
+        },
+        "operatingMetrics": [
+          {
+            "id": "deliveries",
+            "label": "交付",
+            "notes": [
+              "同比 +17"
+            ]
+          },
+          {
+            "id": "backlog",
+            "label": "订单储备",
+            "notes": [
+              "同比 (2%)"
+            ]
+          }
+        ]
+      }
+    }
   }
 ]);
 })(window);
