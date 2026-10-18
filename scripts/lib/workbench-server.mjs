@@ -1,7 +1,7 @@
 import { digestValue } from './dataset-build.mjs';
 import { readInside } from './workspace-storage.mjs';
 import path from 'node:path';
-import { watch, existsSync, createReadStream, statSync } from 'node:fs';
+import { watch, existsSync, createReadStream, statSync, lstatSync } from 'node:fs';
 import { readFile, readdir, stat, mkdir, writeFile, rm } from 'node:fs/promises';
 import { spawn, execFile } from 'node:child_process';
 import { promisify } from 'node:util';
@@ -59,11 +59,22 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
   let closing;
   let closed = false, remote = { status: 'unknown', checkedAt: null }, remoteAt = 0, remoteBusy = false;
   // Snapshot copies read watched trees and macOS reports each copied file as a
-  // change, often a few hundred ms late. Only during that window (plus a grace
-  // period) is an event with unchanged file identity treated as copy noise;
-  // otherwise a concurrent manifest pass could hide a real edit.
+  // change, often a few hundred ms late. A file whose identity equals the one
+  // this preview saw at its previous event is that noise; a moved identity is
+  // always an edit. Each preview keeps its own record because several previews
+  // watch the same root. Before a file's first event, only a copy window (plus
+  // a grace period) with an identity matching the digest cache counts as noise,
+  // so a concurrent manifest pass cannot hide a real edit.
   let copying = 0, copyQuietUntil = 0;
-  const copyNoise = (file) => (copying > 0 || Date.now() < copyQuietUntil) && manifest.unchanged(file);
+  const copyNoise = (lastSeen, file) => {
+    let stamp;
+    try { const s = lstatSync(file, { bigint: true }); stamp = `${s.dev}:${s.ino}:${s.size}:${s.mtimeNs}:${s.ctimeNs}`; }
+    catch { lastSeen.delete(file); return false; }
+    const prior = lastSeen.get(file);
+    lastSeen.set(file, stamp);
+    if (prior !== undefined) return prior === stamp;
+    return (copying > 0 || Date.now() < copyQuietUntil) && manifest.unchanged(file);
+  };
   const copyPhase = async (work) => {
     copying++;
     try { return await work(); } finally { copying--; copyQuietUntil = Date.now() + 2000; }
@@ -86,7 +97,7 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
   function ensurePreview(source) {
     if (previews.has(source)) return previews.get(source);
     const workspace = sourceRoot(source);
-    const state = { source, workspace, status: 'queued', revision: 0, candidate: null, error: null, busy: false, dirty: true, watched: new Set() };
+    const state = { source, workspace, status: 'queued', revision: 0, candidate: null, error: null, busy: false, dirty: true, watched: new Set(), lastSeen: new Map() };
     previews.set(source, state);
     let debounce;
     const flush = () => {
@@ -122,7 +133,7 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
             if (item === 'input' && !/^(icon-crop-specs|processing|processed)(\/|$)/.test(String(name))) return;
             // Cloning a snapshot out of this tree reports a change for every
             // source file; during a copy only a file whose identity moved is an edit.
-            if (copyNoise(path.join(file, String(name)))) return;
+            if (copyNoise(state.lastSeen, path.join(file, String(name)))) return;
             changed();
           }));
         }
@@ -130,7 +141,7 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
       if (!state.watched.has(folder)) {
         state.watched.add(folder);
         watchers.push(watch(folder, (_event, file) => {
-          if (['index.html', 'package.json', 'pnpm-lock.yaml'].includes(String(file)) && !copyNoise(path.join(folder, String(file)))) changed();
+          if (['index.html', 'package.json', 'pnpm-lock.yaml'].includes(String(file)) && !copyNoise(state.lastSeen, path.join(folder, String(file)))) changed();
           if (['src', 'data', 'vendor', 'scripts', 'input', 'output'].includes(String(file))) { state.watchWorkspace(folder); changed(); }
         }));
       }
