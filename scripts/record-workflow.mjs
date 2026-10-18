@@ -3,7 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { realpathSync } from 'node:fs';
 import { randomUUID } from 'node:crypto';
-import { acquireBuildSession, assertBuildSession, sessionIdentity } from './lib/workflow-session.mjs';
+import { acquireBuildSession, assertBuildSession, readBuildSession, sessionIdentity } from './lib/workflow-session.mjs';
 import { WORKFLOW_ACTIONS } from './lib/workflow-contract.mjs';
 import { rootDir, isBuildWorkspace } from './lib/project.mjs';
 import { readJson, atomicJson, inside, recoverFileLock } from './lib/workflow-files.mjs';
@@ -24,6 +24,26 @@ export function parseWorkflowArgs(args) {
   }
   return { command: positional[0], buildId: positional[1], ...values };
 }
+// recover-session must observe the generation itself; session/release-session take ownership by identity.
+const EXPLICIT_GENERATION_ACTIONS = new Set(['session', 'release-session', 'recover-session']);
+// A --session without --generation adopts the generation recorded in the Build's own unreleased
+// session.json when that Session already owns it. The owner/generation fence in assertBuildSession
+// still runs unchanged; a foreign, released or missing lease leaves the generation unset (old error).
+export async function defaultSessionGeneration(root, buildId, session) {
+  if (!session || !/^build-[a-z0-9-]+$/i.test(buildId || '')) return null;
+  const lease = await readBuildSession(root, buildId);
+  return lease && lease.owner === session && lease.released === false && lease.generation ? lease.generation : null;
+}
+// Without --session the same env identity the fence uses (TRACE_SESSION_ID, CODEX_THREAD_ID,
+// CLAUDE_SESSION_ID) names the owner, so a Codex worker that never passes --session still gets the default.
+export function resolvedSessionOwner(input, env = process.env) {
+  return input.session || env.TRACE_SESSION_ID || env.CODEX_THREAD_ID || env.CLAUDE_SESSION_ID || '';
+}
+export async function resolveSessionGeneration(root, input, env = process.env) {
+  const session = resolvedSessionOwner(input, env);
+  if (!session || input.generation || env.TRACE_SESSION_GENERATION || EXPLICIT_GENERATION_ACTIONS.has(input.command)) return null;
+  return defaultSessionGeneration(root, input.buildId, session);
+}
 export async function main(args = process.argv.slice(2)) {
   // Root-scoped state (Sessions, intake claims, local-view registrations) would land inside the workspace.
   if (isBuildWorkspace(rootDir)) throw new Error(`record:workflow must run from the project root, not a Build workspace (${rootDir})`);
@@ -31,6 +51,11 @@ export async function main(args = process.argv.slice(2)) {
   if (input.session) process.env.TRACE_SESSION_ID = input.session;
   if (input.generation) process.env.TRACE_SESSION_GENERATION = input.generation;
   if (!Object.hasOwn(WORKFLOW_ACTIONS, input.command)) throw new Error(`Supported actions: ${Object.keys(WORKFLOW_ACTIONS).join(', ')}`);
+  const defaultedGeneration = await resolveSessionGeneration(rootDir, input);
+  if (defaultedGeneration) {
+    process.env.TRACE_SESSION_GENERATION = defaultedGeneration;
+    console.error(`record:workflow: --generation omitted; using ${defaultedGeneration} from output/builds/${input.buildId}/session.json (owner ${resolvedSessionOwner(input)})`);
+  }
   let result;
   if (['compact', 'share-assets', 'materialize'].includes(input.command)) {
     result = await storeAssetWorkspace(input.buildId, input.command);
@@ -59,6 +84,13 @@ export async function main(args = process.argv.slice(2)) {
   else if (input.command === 'accept') {
     if (!input.input) throw new Error('accept requires --input');
     const acceptance = await readJson(path.resolve(input.input));
+    // Batch members keep member-specific generations; omitted ones follow the same session.json default.
+    if (!input.buildId && Array.isArray(acceptance?.builds) && input.session && !input.generation && !process.env.TRACE_SESSION_GENERATION) {
+      for (const member of acceptance.builds) {
+        const generation = member && member.generation == null ? await defaultSessionGeneration(rootDir, member.buildId, input.session) : null;
+        if (generation) { member.generation = generation; console.error(`record:workflow: --generation omitted; using ${generation} from output/builds/${member.buildId}/session.json (owner ${input.session})`); }
+      }
+    }
     result = input.buildId ? await acceptAsset(input.buildId, acceptance) : await acceptAssets(acceptance, rootDir, { concurrency: Number(input.concurrency || 2), session: input.session, generation: input.generation });
     if (result.status === 'partial-failure') process.exitCode = 1;
   }
@@ -90,7 +122,7 @@ export async function main(args = process.argv.slice(2)) {
   } else if (input.command === 'refresh') {
     const { refreshAssetWorkspace } = await import('./lib/workflow-recovery.mjs');
     result = await refreshAssetWorkspace(input.buildId);
-  } else throw new Error('Usage: pnpm record:workflow -- start|prepare|continue|show|report|checkpoint|review|accept|seal|batch|refresh [build-id] [options]');
+  } else throw new Error(`Usage: pnpm record:workflow -- ${Object.keys(WORKFLOW_ACTIONS).join('|')} [build-id] [options]`);
   if (input.json) console.log(JSON.stringify(result, null, 2));
   else {
     console.log(JSON.stringify(result.path ? result : { buildId: result.buildId, workspace: result.workspace, session: result.session, state: result.state, next: result.next, actionRequired: result.actionRequired, retention: result.retention, ...(!result.buildId ? result : {}) }, null, 2));
