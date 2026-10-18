@@ -1070,6 +1070,9 @@ export async function auditTextAndAnnotationLayout(page) {
 // data-node to a node or non-node metric, carry text, and own the renderer's
 // transparent hitbox; annotation text naming such a metric outside its group
 // is unbound. Expectations come from the rendered DOM, not from authored input.
+// A10: max root-SVG distance between a hover-percentage anchor and its guide.
+export const ANNOTATION_LINK_ANCHOR_MAX_DISTANCE = 40;
+
 export function classifySemanticAnnotationAudit({
   annotations = [],
   unboundNodeLikeTexts = [],
@@ -1085,6 +1088,7 @@ export function classifySemanticAnnotationAudit({
     hasHitbox: item?.hasHitbox === true,
     requiresLinkEndpoints: item?.requiresLinkEndpoints === true,
     linkEndpointsValid: item?.linkEndpointsValid === true,
+    linkAnchorGuideDistance: Number.isFinite(item?.linkAnchorGuideDistance) ? item.linkAnchorGuideDistance : null,
     hasDuplicateRouteLabel: item?.hasDuplicateRouteLabel === true,
     index,
   }));
@@ -1100,6 +1104,18 @@ export function classifySemanticAnnotationAudit({
     if (item.hasDuplicateRouteLabel) violations.push({ nodeId: item.nodeId, code: 'duplicate-route-metric-label' });
     if (item.requiresLinkEndpoints && !item.linkEndpointsValid) {
       violations.push({ nodeId: item.nodeId, code: 'missing-annotation-link-endpoints' });
+    }
+    // The renderer places the percentage tooltip at the declared anchor in
+    // root SVG coordinates (node hover drops an anchorless annotation), so
+    // the anchor must exist and sit on the rendered guide.
+    if (item.requiresLinkEndpoints && item.linkAnchorGuideDistance == null) {
+      violations.push({ nodeId: item.nodeId, code: 'missing-annotation-link-anchor' });
+    } else if (item.requiresLinkEndpoints && item.linkAnchorGuideDistance > ANNOTATION_LINK_ANCHOR_MAX_DISTANCE) {
+      violations.push({
+        nodeId: item.nodeId,
+        code: 'annotation-link-anchor-off-guide',
+        distance: Math.round(item.linkAnchorGuideDistance * 10) / 10,
+      });
     }
   }
   const annotatedNodeIds = [...new Set(normalized.map((item) => item.nodeId).filter(Boolean))].sort();
@@ -1144,6 +1160,38 @@ export async function auditSemanticAnnotations(page, { datasetKey, language } = 
       }
     }
     const semanticMetricIds = new Set(semanticMetrics.map((metric) => metric.id).filter(Boolean));
+    const guidesOf = (element) => [
+      ...element.querySelectorAll(':scope > path[fill="none"], :scope > line, :scope > polyline'),
+      element.previousElementSibling,
+    ].filter((guide) => guide && (
+      guide.matches('line, polyline') || (
+        guide.matches('path[fill="none"]') && !/[zZ]/.test(guide.getAttribute('d') || '')
+      )
+    ));
+    // Distance, in root SVG user units, from the declared tooltip anchor to
+    // the nearest sampled point of the rendered guide geometry.
+    const anchorGuideDistance = (element) => {
+      const x = element.getAttribute('data-link-anchor-x');
+      const y = element.getAttribute('data-link-anchor-y');
+      if (x == null || y == null || !x.trim() || !y.trim()) return null;
+      const anchorX = Number(x);
+      const anchorY = Number(y);
+      const rootMatrix = svg.getScreenCTM();
+      if (!Number.isFinite(anchorX) || !Number.isFinite(anchorY) || !rootMatrix) return null;
+      const toRoot = rootMatrix.inverse();
+      let best = Infinity;
+      for (const guide of guidesOf(element)) {
+        if (typeof guide.getTotalLength !== 'function' || !guide.getScreenCTM()) continue;
+        const matrix = toRoot.multiply(guide.getScreenCTM());
+        const length = guide.getTotalLength();
+        for (let step = 0; step <= 64; step += 1) {
+          const local = guide.getPointAtLength((length * step) / 64);
+          const point = new DOMPoint(local.x, local.y).matrixTransform(matrix);
+          best = Math.min(best, Math.hypot(point.x - anchorX, point.y - anchorY));
+        }
+      }
+      return Number.isFinite(best) ? best : null;
+    };
     const annotations = Array.from(svg.querySelectorAll('.sankey-annotations .sankey-interactive-annotation'))
       .map((element) => ({
         nodeId: element.getAttribute('data-node') || '',
@@ -1158,19 +1206,13 @@ export async function auditSemanticAnnotations(page, { datasetKey, language } = 
               )
             )),
         hasHitbox: Boolean(element.querySelector(':scope > .sankey-annotation-hitbox')),
-        requiresLinkEndpoints: [
-          ...element.querySelectorAll(':scope > path[fill="none"], :scope > line, :scope > polyline'),
-          element.previousElementSibling,
-        ].some((guide) => guide && (
-          guide.matches('line, polyline') || (
-            guide.matches('path[fill="none"]') && !/[zZ]/.test(guide.getAttribute('d') || '')
-          )
-        )) && (localized?.nonNodeMetrics || []).some((metric) =>
+        requiresLinkEndpoints: guidesOf(element).length > 0 && (localized?.nonNodeMetrics || []).some((metric) =>
           metric.id === element.getAttribute('data-node') && metric.representation === 'annotation'
         ),
         linkEndpointsValid: ['data-link-numerator', 'data-link-denominator'].every((attribute) =>
           semanticMetricIds.has(element.getAttribute(attribute) || '')
         ),
+        linkAnchorGuideDistance: anchorGuideDistance(element),
       }));
     const unboundNodeLikeTexts = Array.from(svg.querySelectorAll('.sankey-annotations text'))
       .filter((element) => !element.closest('.sankey-interactive-annotation[data-node]'))

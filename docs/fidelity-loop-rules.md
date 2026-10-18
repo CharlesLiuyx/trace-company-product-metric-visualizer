@@ -155,7 +155,7 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 #### <a id="rule-a10"></a>A10 · conditional-gate · 交互 annotation 绑定 node
 
 - 触发：渲染结果含 `.sankey-interactive-annotation` group 时，期望来自 DOM 而非作者声明。
-- 通过：每个 group 都带可解析到 node 或 non-node metric 的 `data-node`，含文本且由 renderer 提供透明 hitbox；带组内或紧邻前置引导线（未闭合的无填充 path、line 或 polyline）的 annotation non-node metric 必须声明可解析的 `data-link-numerator` 与 `data-link-denominator`，用于 Hover 百分比；同名 node-like annotation text 未绑定到该 group 即失败；同一指标在 annotation 与 label 层绘制的同文文本不得交叠，路由指标跨层同文重复即失败。
+- 通过：每个 group 都带可解析到 node 或 non-node metric 的 `data-node`，含文本且由 renderer 提供透明 hitbox；带组内或紧邻前置引导线（未闭合的无填充 path、line 或 polyline）的 annotation non-node metric 必须声明可解析的 `data-link-numerator` 与 `data-link-denominator`，用于 Hover 百分比；同时须声明 `data-link-anchor-x/y`（根 SVG 坐标，renderer 不套用 group transform），锚点到渲染后引导线的距离 `<=40px`；同名 node-like annotation text 未绑定到该 group 即失败；同一指标在 annotation 与 label 层绘制的同文文本不得交叠，路由指标跨层同文重复即失败。
 - 证据：逐 locale 的 `semanticAnnotationAudit`。
 
 #### <a id="rule-i12"></a>I12 · conditional-gate · 图标簇与 paired 目标对齐

@@ -12,6 +12,7 @@ import {
   classifySideLabelColumnAlignment,
   classifyNodePaintAudit,
   classifySemanticAnnotationAudit,
+  ANNOTATION_LINK_ANCHOR_MAX_DISTANCE,
   labelPositionExpectations,
   renderAuditFailures,
 } from '../scripts/lib/render-harness.mjs';
@@ -561,12 +562,31 @@ test('B15 requires the Lenovo operating profit horizontal face even with a short
 });
 
 test('A10 requires resolvable hover endpoints for annotation-only metrics', () => {
-  const finance = { nodeId: 'finance', metricExists: true, textCount: 2, hasHitbox: true, requiresLinkEndpoints: true };
+  const finance = { nodeId: 'finance', metricExists: true, textCount: 2, hasHitbox: true, requiresLinkEndpoints: true, linkAnchorGuideDistance: 0 };
   for (const linkEndpointsValid of [undefined, false]) {
     assert.deepEqual(classifySemanticAnnotationAudit({ annotations: [{ ...finance, linkEndpointsValid }] }).violations.map((v) => v.code), ['missing-annotation-link-endpoints']);
   }
   assert.deepEqual(classifySemanticAnnotationAudit({ annotations: [{ ...finance, linkEndpointsValid: true }] }).violations, []);
   assert.deepEqual(classifySemanticAnnotationAudit({ annotations: [{ ...finance, requiresLinkEndpoints: false }] }).violations, []);
+});
+
+test('A10 requires a hover-percentage anchor on the rendered guide (UPS Q2 FY23, Q2 FY24, Q3 FY23)', () => {
+  const other = { nodeId: 'other_income', metricExists: true, textCount: 1, hasHitbox: true, requiresLinkEndpoints: true, linkEndpointsValid: true };
+  // Q2 FY23 declared no anchor: node hover dropped the Other percentage.
+  assert.deepEqual(classifySemanticAnnotationAudit({ annotations: [{ ...other }] }).violations.map((v) => v.code), ['missing-annotation-link-anchor']);
+  // Q2 FY24 authored the anchor in a scaled group's local space: the tooltip landed ~441px from the guide.
+  const offGuide = classifySemanticAnnotationAudit({ annotations: [{ ...other, linkAnchorGuideDistance: 440.8 }] }).violations;
+  assert.deepEqual(offGuide.map((v) => `${v.code}:${v.distance}`), ['annotation-link-anchor-off-guide:440.8']);
+  assert.throws(
+    () => assertRenderAudits({ textLayoutAudit: { checkedTexts: 1, overflowViolations: [] }, semanticAnnotationAudit: classifySemanticAnnotationAudit({ annotations: [{ ...other, linkAnchorGuideDistance: 440.8 }] }) }),
+    /A10=other_income:annotation-link-anchor-off-guide/
+  );
+  // Canonical anchors sit 0-32px from their guide (some mark the label side of a short leader).
+  for (const linkAnchorGuideDistance of [0, 32, ANNOTATION_LINK_ANCHOR_MAX_DISTANCE]) {
+    assert.deepEqual(classifySemanticAnnotationAudit({ annotations: [{ ...other, linkAnchorGuideDistance }] }).violations, []);
+  }
+  // Annotations without a guide keep the pointer-anchored tooltip and need no anchor.
+  assert.deepEqual(classifySemanticAnnotationAudit({ annotations: [{ ...other, requiresLinkEndpoints: false }] }).violations, []);
 });
 
 test('A10 rejects a repeated route metric label even when the two text boxes do not overlap', () => {
