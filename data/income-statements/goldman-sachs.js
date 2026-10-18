@@ -743,7 +743,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/goldman-sachs-q1-fy25.png",
+    "sourceImage": "input/processed/goldman-sachs-q1-fy25.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 15.1,
@@ -1353,7 +1353,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/goldman-sachs-q1-fy23.png",
+    "sourceImage": "input/processed/goldman-sachs-q1-fy23.png",
     "roundingTolerance": 0.25,
     "revenue": {
       "total": 12.2,
@@ -1669,7 +1669,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/goldman-sachs-q1-fy24.png",
+    "sourceImage": "input/processed/goldman-sachs-q1-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 14.2,
@@ -1976,7 +1976,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/goldman-sachs-q2-fy23.png",
+    "sourceImage": "input/processed/goldman-sachs-q2-fy23.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 10.9,
@@ -2287,7 +2287,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/goldman-sachs-q2-fy24.png",
+    "sourceImage": "input/processed/goldman-sachs-q2-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 12.7,
@@ -2589,7 +2589,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/goldman-sachs-q2-fy25.png",
+    "sourceImage": "input/processed/goldman-sachs-q2-fy25.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 14.6,
@@ -2899,7 +2899,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/goldman-sachs-q3-fy23.png",
+    "sourceImage": "input/processed/goldman-sachs-q3-fy23.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 11.8,
@@ -3195,7 +3195,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/goldman-sachs-q3-fy24.png",
+    "sourceImage": "input/processed/goldman-sachs-q3-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 12.7,
@@ -3499,7 +3499,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/goldman-sachs-q3-fy25.png",
+    "sourceImage": "input/processed/goldman-sachs-q3-fy25.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 15.2,
@@ -3813,7 +3813,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/goldman-sachs-q4-fy22.png",
+    "sourceImage": "input/processed/goldman-sachs-q4-fy22.png",
     "roundingTolerance": 0.25,
     "revenue": {
       "total": 10.6,

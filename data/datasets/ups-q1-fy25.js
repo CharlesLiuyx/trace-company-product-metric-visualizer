@@ -12,7 +12,7 @@
     "unit": "B",
     "decimals": 1,
     "referenceImage": {
-      "src": "input/processing/ups-q1-fy25.png",
+      "src": "input/processed/ups-q1-fy25.png",
       "width": 2667,
       "height": 1500
     },

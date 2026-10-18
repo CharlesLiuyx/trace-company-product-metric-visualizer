@@ -231,7 +231,7 @@
   "currency": "$",
   "unit": "B",
   "decimals": 3,
-  "sourceImage": "input/processing/take-two-q1-fy27.png",
+  "sourceImage": "input/processed/take-two-q1-fy27.png",
   "roundingTolerance": 0.15,
   "revenue": {
     "total": 1.5,

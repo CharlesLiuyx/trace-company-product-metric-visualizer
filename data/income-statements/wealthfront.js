@@ -6,7 +6,7 @@
   "currency": "$",
   "unit": "M",
   "decimals": 0,
-  "sourceImage": "input/processing/wealthfront-q2-fy27.png",
+  "sourceImage": "input/processed/wealthfront-q2-fy27.png",
   "roundingTolerance": 1.1,
   "revenue": {
     "total": 92,

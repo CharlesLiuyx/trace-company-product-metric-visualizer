@@ -1171,7 +1171,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/ford-q2-fy24.png",
+    "sourceImage": "input/processed/ford-q2-fy24.png",
     "roundingTolerance": 0.21,
     "revenue": {
       "total": 47.8,
@@ -1634,7 +1634,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/ford-q2-fy25.png",
+    "sourceImage": "input/processed/ford-q2-fy25.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 50.2,
@@ -1879,7 +1879,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/ford-q3-fy25.png",
+    "sourceImage": "input/processed/ford-q3-fy25.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 50.5,

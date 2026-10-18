@@ -7,7 +7,7 @@
     "unit": "B",
     "decimals": 1,
     "referenceImage": {
-      "src": "input/processing/uber-q2-fy26.png",
+      "src": "input/processed/uber-q2-fy26.png",
       "width": 2667,
       "height": 1500
     },

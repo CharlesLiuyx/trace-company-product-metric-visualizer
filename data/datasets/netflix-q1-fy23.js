@@ -11,7 +11,7 @@ window.DATASETS=window.DATASETS||[];window.DATASETS.push({
     "unit": "B",
     "decimals": 1,
     "referenceImage": {
-      "src": "input/processing/netflix-q1-fy23.png",
+      "src": "input/processed/netflix-q1-fy23.png",
       "width": 2667,
       "height": 1500
     },

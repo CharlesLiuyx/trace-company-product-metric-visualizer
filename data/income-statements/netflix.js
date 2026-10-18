@@ -770,7 +770,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/netflix-q1-fy25.png",
+    "sourceImage": "input/processed/netflix-q1-fy25.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 10.5,
@@ -1024,7 +1024,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/netflix-q1-fy24.png",
+    "sourceImage": "input/processed/netflix-q1-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 9.4,
@@ -1408,7 +1408,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/netflix-q2-fy25.png",
+    "sourceImage": "input/processed/netflix-q2-fy25.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 11.1,
@@ -1662,7 +1662,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/netflix-q2-fy24.png",
+    "sourceImage": "input/processed/netflix-q2-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 9.6,
@@ -2045,7 +2045,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/netflix-q4-fy23.png",
+    "sourceImage": "input/processed/netflix-q4-fy23.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 8.8,
@@ -2420,7 +2420,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/netflix-q3-fy24.png",
+    "sourceImage": "input/processed/netflix-q3-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 9.8,
@@ -2803,7 +2803,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 6,
-    "sourceImage": "input/processing/netflix-q3-fy23.png",
+    "sourceImage": "input/processed/netflix-q3-fy23.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 8.5,
@@ -3214,7 +3214,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/netflix-q4-fy24.png",
+    "sourceImage": "input/processed/netflix-q4-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 10.2,
@@ -3598,7 +3598,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/netflix-q4-fy22.png",
+    "sourceImage": "input/processed/netflix-q4-fy22.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 7.9,
@@ -3986,7 +3986,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/netflix-q1-fy23.png",
+    "sourceImage": "input/processed/netflix-q1-fy23.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 8.2,
@@ -4363,7 +4363,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/netflix-q3-fy22.png",
+    "sourceImage": "input/processed/netflix-q3-fy22.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 7.9,
@@ -4724,7 +4724,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/netflix-q3-fy25.png",
+    "sourceImage": "input/processed/netflix-q3-fy25.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 11.5,

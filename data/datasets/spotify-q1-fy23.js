@@ -8,7 +8,7 @@
     "unit": "M",
     "decimals": 0,
     "referenceImage": {
-      "src": "input/processing/spotify-q1-fy23.png",
+      "src": "input/processed/spotify-q1-fy23.png",
       "width": 2667,
       "height": 1500
     },

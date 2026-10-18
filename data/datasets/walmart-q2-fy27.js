@@ -12,7 +12,7 @@
     "unit": "B",
     "decimals": 1,
     "referenceImage": {
-      "src": "input/processing/walmart-q2-fy27.png",
+      "src": "input/processed/walmart-q2-fy27.png",
       "width": 2667,
       "height": 1500
     },

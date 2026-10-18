@@ -1917,7 +1917,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/boeing-q2-fy24.png",
+    "sourceImage": "input/processed/boeing-q2-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 16.9,

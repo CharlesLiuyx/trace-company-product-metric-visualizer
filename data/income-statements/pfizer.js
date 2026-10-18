@@ -1773,7 +1773,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/pfizer-q1-fy24.png",
+    "sourceImage": "input/processed/pfizer-q1-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 14.9,
@@ -2309,7 +2309,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/pfizer-q2-fy24.png",
+    "sourceImage": "input/processed/pfizer-q2-fy24.png",
     "roundingTolerance": 0.2,
     "revenue": {
       "total": 13.3,

@@ -254,7 +254,7 @@
   "currency": "$",
   "unit": "M",
   "decimals": 0,
-  "sourceImage": "input/processing/mongodb-q2-fy27.png",
+  "sourceImage": "input/processed/mongodb-q2-fy27.png",
   "roundingTolerance": 1.1,
   "revenue": {
     "total": 772,

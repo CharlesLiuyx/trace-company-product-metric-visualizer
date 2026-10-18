@@ -11,7 +11,7 @@
     "unit": "B",
     "decimals": 1,
     "referenceImage": {
-      "src": "input/processing/starbucks-q1-fy24.png",
+      "src": "input/processed/starbucks-q1-fy24.png",
       "width": 2667,
       "height": 1500
     },

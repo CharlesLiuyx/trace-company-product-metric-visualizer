@@ -418,7 +418,7 @@
   "currency": "$",
   "unit": "B",
   "decimals": 1,
-  "sourceImage": "input/processing/j-j-q4-fy24.png",
+  "sourceImage": "input/processed/j-j-q4-fy24.png",
   "roundingTolerance": 0.2,
   "revenue": {
     "total": 22.5,

@@ -10,7 +10,7 @@
     "currency": "€",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/lvmh-h1-fy25.png",
+    "sourceImage": "input/processed/lvmh-h1-fy25.png",
     "roundingTolerance": 0.2,
     "revenue": {
       "total": 39.8,
@@ -1292,7 +1292,7 @@
     "currency": "€",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/lvmh-h1-fy22.png",
+    "sourceImage": "input/processed/lvmh-h1-fy22.png",
     "roundingTolerance": 0.2,
     "revenue": {
       "total": 36.7,
@@ -1543,7 +1543,7 @@
     "currency": "€",
     "unit": "B",
     "decimals": 2,
-    "sourceImage": "input/processing/lvmh-h1-fy23.png",
+    "sourceImage": "input/processed/lvmh-h1-fy23.png",
     "roundingTolerance": 0.2,
     "revenue": {
       "total": 42.2,
@@ -1803,7 +1803,7 @@
     "currency": "€",
     "unit": "B",
     "decimals": 2,
-    "sourceImage": "input/processing/lvmh-h1-fy24.png",
+    "sourceImage": "input/processed/lvmh-h1-fy24.png",
     "roundingTolerance": 0.2,
     "revenue": {
       "total": 41.7,

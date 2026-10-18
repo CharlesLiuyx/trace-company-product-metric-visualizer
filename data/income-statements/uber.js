@@ -15,7 +15,7 @@
   "currency": "$",
   "unit": "B",
   "decimals": 1,
-  "sourceImage": "input/processing/uber-q2-fy26.png",
+  "sourceImage": "input/processed/uber-q2-fy26.png",
   "roundingTolerance": 0.15,
   "revenue": {
     "total": 14.2,

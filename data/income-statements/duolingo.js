@@ -689,7 +689,7 @@
     "currency": "$",
     "unit": "M",
     "decimals": 0,
-    "sourceImage": "input/processing/duolingo-q2-fy26.png",
+    "sourceImage": "input/processed/duolingo-q2-fy26.png",
     "roundingTolerance": 1.1,
     "revenue": {
       "total": 298,

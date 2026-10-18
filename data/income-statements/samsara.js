@@ -152,7 +152,7 @@ window.INCOME_STATEMENT_SSOT.records.push({
   "currency": "$",
   "unit": "M",
   "decimals": 0,
-  "sourceImage": "input/processing/samsara-q2-fy27.png",
+  "sourceImage": "input/processed/samsara-q2-fy27.png",
   "roundingTolerance": 1.1,
   "revenue": {
     "total": 508,

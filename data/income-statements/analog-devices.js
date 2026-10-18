@@ -282,7 +282,7 @@ window.INCOME_STATEMENT_SSOT.records.push({
   "currency": "$",
   "unit": "B",
   "decimals": 3,
-  "sourceImage": "input/processing/analog-devices-q3-fy26.png",
+  "sourceImage": "input/processed/analog-devices-q3-fy26.png",
   "roundingTolerance": 0.15,
   "revenue": {
     "total": 4,

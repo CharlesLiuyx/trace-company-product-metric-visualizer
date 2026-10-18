@@ -712,7 +712,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/walmart-q2-fy27.png",
+    "sourceImage": "input/processed/walmart-q2-fy27.png",
     "roundingTolerance": 0.25,
     "revenue": {
       "total": 187.9,
@@ -966,7 +966,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/walmart-q1-fy26.png",
+    "sourceImage": "input/processed/walmart-q1-fy26.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 165.6,
@@ -1189,7 +1189,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/walmart-q4-fy25.png",
+    "sourceImage": "input/processed/walmart-q4-fy25.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 180.6,
@@ -1441,7 +1441,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/walmart-q1-fy24.png",
+    "sourceImage": "input/processed/walmart-q1-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 152.3,
@@ -1661,7 +1661,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/walmart-q1-fy25.png",
+    "sourceImage": "input/processed/walmart-q1-fy25.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 161.5,
@@ -1908,7 +1908,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/walmart-q2-fy24.png",
+    "sourceImage": "input/processed/walmart-q2-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 161.6,
@@ -2131,7 +2131,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/walmart-q2-fy25.png",
+    "sourceImage": "input/processed/walmart-q2-fy25.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 169.3,
@@ -2383,7 +2383,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/walmart-q2-fy26.png",
+    "sourceImage": "input/processed/walmart-q2-fy26.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 177.4,
@@ -2634,7 +2634,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/walmart-q3-fy23.png",
+    "sourceImage": "input/processed/walmart-q3-fy23.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 152.8,
@@ -2802,7 +2802,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/walmart-q3-fy24.png",
+    "sourceImage": "input/processed/walmart-q3-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 160.8,
@@ -3022,7 +3022,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/walmart-q3-fy25.png",
+    "sourceImage": "input/processed/walmart-q3-fy25.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 169.6,
@@ -3274,7 +3274,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/walmart-q4-fy23.png",
+    "sourceImage": "input/processed/walmart-q4-fy23.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 164,
@@ -3433,7 +3433,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/walmart-q4-fy24.png",
+    "sourceImage": "input/processed/walmart-q4-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 173.4,

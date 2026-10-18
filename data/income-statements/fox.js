@@ -255,7 +255,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/fox-q4-fy26.png",
+    "sourceImage": "input/processed/fox-q4-fy26.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 4.2,

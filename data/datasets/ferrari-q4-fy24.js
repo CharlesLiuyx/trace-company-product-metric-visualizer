@@ -9,7 +9,7 @@
     "unit": "B",
     "decimals": 1,
     "referenceImage": {
-      "src": "input/processing/ferrari-q4-fy24.png",
+      "src": "input/processed/ferrari-q4-fy24.png",
       "width": 2667,
       "height": 1500
     },

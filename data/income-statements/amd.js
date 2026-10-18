@@ -3898,7 +3898,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/amd-q2-fy26.png",
+    "sourceImage": "input/processed/amd-q2-fy26.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 11.5,

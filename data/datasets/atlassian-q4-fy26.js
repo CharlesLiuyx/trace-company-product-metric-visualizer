@@ -113,7 +113,7 @@
     meta: {
       company: 'Atlassian', title: 'Atlassian Q4 FY26 Income Statement', period: 'Q4 FY26', periodNote: 'Ending June 2026',
       currency: '$', unit: 'M', decimals: 0,
-      referenceImage: { src: 'input/processing/atlassian-q4-fy26.png', width: 2667, height: 1500 },
+      referenceImage: { src: 'input/processed/atlassian-q4-fy26.png', width: 2667, height: 1500 },
       titleX: 1333.5, titleY: 204, titleSize: 128, titleWeight: 800, titleTextLength: 2120,
       periodX: 2437, periodY: 282, periodNoteY: 325,
       logoX: 777, logoY: 248, logoWidth: 201, logoHeight: 223, logoViewBox: '20 10 233 229',

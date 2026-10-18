@@ -11,7 +11,7 @@
     "unit": "M",
     "decimals": 0,
     "referenceImage": {
-      "src": "input/processing/snowflake-q2-fy27.png",
+      "src": "input/processed/snowflake-q2-fy27.png",
       "width": 2667,
       "height": 1500
     },

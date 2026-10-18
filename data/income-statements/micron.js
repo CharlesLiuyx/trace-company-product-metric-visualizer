@@ -669,7 +669,7 @@
   "currency": "$",
   "unit": "B",
   "decimals": 1,
-  "sourceImage": "input/processing/micron-q4-fy26.png",
+  "sourceImage": "input/processed/micron-q4-fy26.png",
   "roundingTolerance": 0.2,
   "revenue": {
     "total": 54.2,

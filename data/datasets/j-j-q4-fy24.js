@@ -11,7 +11,7 @@ window.DATASETS.push({
     "unit": "B",
     "decimals": 1,
     "referenceImage": {
-      "src": "input/processing/j-j-q4-fy24.png",
+      "src": "input/processed/j-j-q4-fy24.png",
       "width": 2667,
       "height": 1500
     },

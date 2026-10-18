@@ -417,7 +417,7 @@
     "currency": "$",
     "unit": "M",
     "decimals": 0,
-    "sourceImage": "input/processing/asana-q2-fy27.png",
+    "sourceImage": "input/processed/asana-q2-fy27.png",
     "roundingTolerance": 1.1,
     "revenue": {
       "total": 216,

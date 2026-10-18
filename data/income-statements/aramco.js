@@ -1182,7 +1182,7 @@
     "currency": "SAR",
     "unit": "B",
     "decimals": 0,
-    "sourceImage": "input/processing/aramco-q1-fy24.png",
+    "sourceImage": "input/processed/aramco-q1-fy24.png",
     "roundingTolerance": 1.1,
     "revenue": {
       "total": 438,

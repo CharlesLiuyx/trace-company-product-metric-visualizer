@@ -875,7 +875,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/chevron-q1-fy25.png",
+    "sourceImage": "input/processed/chevron-q1-fy25.png",
     "roundingTolerance": 0.05,
     "revenue": {
       "total": 47.6,
@@ -1147,7 +1147,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/chevron-q4-fy24.png",
+    "sourceImage": "input/processed/chevron-q4-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 52.2,
@@ -1430,7 +1430,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/chevron-fy23.png",
+    "sourceImage": "input/processed/chevron-fy23.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 200.9,
@@ -1717,7 +1717,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/chevron-q1-fy24.png",
+    "sourceImage": "input/processed/chevron-q1-fy24.png",
     "roundingTolerance": 0.2,
     "revenue": {
       "total": 48.7,
@@ -2035,7 +2035,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/chevron-q2-fy24.png",
+    "sourceImage": "input/processed/chevron-q2-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 51.1,
@@ -2330,7 +2330,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/chevron-q2-fy25.png",
+    "sourceImage": "input/processed/chevron-q2-fy25.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 44.8,
@@ -2611,7 +2611,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/chevron-q3-fy23.png",
+    "sourceImage": "input/processed/chevron-q3-fy23.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 54.1,
@@ -2887,7 +2887,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/chevron-q3-fy24.png",
+    "sourceImage": "input/processed/chevron-q3-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 50.7,

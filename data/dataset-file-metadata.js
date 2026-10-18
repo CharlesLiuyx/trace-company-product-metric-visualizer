@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-10-18T11:39:05.000Z",
+  "generatedAt": "2026-10-18T14:02:49.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -6405,9 +6405,9 @@
     },
     "atlassian-q4-fy26": {
       "path": "data/datasets/atlassian-q4-fy26.js",
-      "updatedAtMs": 1790362315541,
-      "updatedAt": "2026-09-25T18:51:55.541Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "intuit-q4-fy26": {
       "path": "data/datasets/intuit-q4-fy26.js",
@@ -6495,9 +6495,9 @@
     },
     "fox-q4-fy26": {
       "path": "data/datasets/fox-q4-fy26.js",
-      "updatedAtMs": 1790834790168,
-      "updatedAt": "2026-10-01T06:06:30.168Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "alibaba-q1-fy27": {
       "path": "data/datasets/alibaba-q1-fy27.js",
@@ -6507,27 +6507,27 @@
     },
     "disney-q3-fy26-by-segment": {
       "path": "data/datasets/disney-q3-fy26-by-segment.js",
-      "updatedAtMs": 1791006207802,
-      "updatedAt": "2026-10-03T05:43:27.802Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "duolingo-q2-fy26": {
       "path": "data/datasets/duolingo-q2-fy26.js",
-      "updatedAtMs": 1792323545000,
-      "updatedAt": "2026-10-18T11:39:05.000Z",
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
       "timeSource": "git"
     },
     "jd-com-q2-fy26": {
       "path": "data/datasets/jd-com-q2-fy26.js",
-      "updatedAtMs": 1791006225041,
-      "updatedAt": "2026-10-03T05:43:45.041Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "match-group-q2-fy26": {
       "path": "data/datasets/match-group-q2-fy26.js",
-      "updatedAtMs": 1791006244353,
-      "updatedAt": "2026-10-03T05:44:04.353Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "netease-q2-fy26": {
       "path": "data/datasets/netease-q2-fy26.js",
@@ -6561,9 +6561,9 @@
     },
     "sony-q1-fy26": {
       "path": "data/datasets/sony-q1-fy26.js",
-      "updatedAtMs": 1791006221943,
-      "updatedAt": "2026-10-03T05:43:41.943Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "spotify-q2-fy26": {
       "path": "data/datasets/spotify-q2-fy26.js",
@@ -6573,15 +6573,15 @@
     },
     "take-two-q1-fy27": {
       "path": "data/datasets/take-two-q1-fy27.js",
-      "updatedAtMs": 1791006259064,
-      "updatedAt": "2026-10-03T05:44:19.064Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "tencent-q2-fy26": {
       "path": "data/datasets/tencent-q2-fy26.js",
-      "updatedAtMs": 1791006282322,
-      "updatedAt": "2026-10-03T05:44:42.322Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "best-buy-q2-fy27": {
       "path": "data/datasets/best-buy-q2-fy27.js",
@@ -6591,9 +6591,9 @@
     },
     "home-depot-q2-fy26": {
       "path": "data/datasets/home-depot-q2-fy26.js",
-      "updatedAtMs": 1791008155100,
-      "updatedAt": "2026-10-03T06:15:55.100Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "instacart-q2-fy26": {
       "path": "data/datasets/instacart-q2-fy26.js",
@@ -6603,21 +6603,21 @@
     },
     "lowes-q2-fy26": {
       "path": "data/datasets/lowes-q2-fy26.js",
-      "updatedAtMs": 1791008166941,
-      "updatedAt": "2026-10-03T06:16:06.941Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "target-q2-fy27": {
       "path": "data/datasets/target-q2-fy27.js",
-      "updatedAtMs": 1791008162034,
-      "updatedAt": "2026-10-03T06:16:02.034Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "walmart-q2-fy27": {
       "path": "data/datasets/walmart-q2-fy27.js",
-      "updatedAtMs": 1791008158221,
-      "updatedAt": "2026-10-03T06:15:58.221Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "airbnb-q1-fy25": {
       "path": "data/datasets/airbnb-q1-fy25.js",
@@ -6627,21 +6627,21 @@
     },
     "amd-q2-fy26": {
       "path": "data/datasets/amd-q2-fy26.js",
-      "updatedAtMs": 1792323545000,
-      "updatedAt": "2026-10-18T11:39:05.000Z",
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
       "timeSource": "git"
     },
     "analog-devices-q3-fy26": {
       "path": "data/datasets/analog-devices-q3-fy26.js",
-      "updatedAtMs": 1791013763058,
-      "updatedAt": "2026-10-03T07:49:23.058Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "applied-materials-q3-fy26": {
       "path": "data/datasets/applied-materials-q3-fy26.js",
-      "updatedAtMs": 1791013772540,
-      "updatedAt": "2026-10-03T07:49:32.540Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "astera-labs-q2-fy26": {
       "path": "data/datasets/astera-labs-q2-fy26.js",
@@ -6657,15 +6657,15 @@
     },
     "chevron-q1-fy25": {
       "path": "data/datasets/chevron-q1-fy25.js",
-      "updatedAtMs": 1791013770922,
-      "updatedAt": "2026-10-03T07:49:30.922Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "coreweave-q2-fy26": {
       "path": "data/datasets/coreweave-q2-fy26.js",
-      "updatedAtMs": 1791013759732,
-      "updatedAt": "2026-10-03T07:49:19.732Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "crowdstrike-q2-fy27": {
       "path": "data/datasets/crowdstrike-q2-fy27.js",
@@ -6681,9 +6681,9 @@
     },
     "ferrari-q1-fy25": {
       "path": "data/datasets/ferrari-q1-fy25.js",
-      "updatedAtMs": 1791013774073,
-      "updatedAt": "2026-10-03T07:49:34.073Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "ford-q1-fy25": {
       "path": "data/datasets/ford-q1-fy25.js",
@@ -6693,9 +6693,9 @@
     },
     "gm-q1-fy25": {
       "path": "data/datasets/gm-q1-fy25.js",
-      "updatedAtMs": 1791013758288,
-      "updatedAt": "2026-10-03T07:49:18.288Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "grab-q2-fy26": {
       "path": "data/datasets/grab-q2-fy26.js",
@@ -6705,9 +6705,9 @@
     },
     "hp-q3-fy26": {
       "path": "data/datasets/hp-q3-fy26.js",
-      "updatedAtMs": 1791013773553,
-      "updatedAt": "2026-10-03T07:49:33.553Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "j-j-q1-fy25": {
       "path": "data/datasets/j-j-q1-fy25.js",
@@ -6717,15 +6717,15 @@
     },
     "lenovo-q1-fy27": {
       "path": "data/datasets/lenovo-q1-fy27.js",
-      "updatedAtMs": 1791013768504,
-      "updatedAt": "2026-10-03T07:49:28.504Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "marvell-q2-fy27": {
       "path": "data/datasets/marvell-q2-fy27.js",
-      "updatedAtMs": 1791013751515,
-      "updatedAt": "2026-10-03T07:49:11.515Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "mastercard-q1-fy25": {
       "path": "data/datasets/mastercard-q1-fy25.js",
@@ -6759,9 +6759,9 @@
     },
     "spacex-q2-fy26": {
       "path": "data/datasets/spacex-q2-fy26.js",
-      "updatedAtMs": 1791013769572,
-      "updatedAt": "2026-10-03T07:49:29.572Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "starbucks-q2-fy25": {
       "path": "data/datasets/starbucks-q2-fy25.js",
@@ -6777,15 +6777,15 @@
     },
     "twilio-q2-fy26": {
       "path": "data/datasets/twilio-q2-fy26.js",
-      "updatedAtMs": 1791013752572,
-      "updatedAt": "2026-10-03T07:49:12.572Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "uber-q2-fy26": {
       "path": "data/datasets/uber-q2-fy26.js",
-      "updatedAtMs": 1791013771606,
-      "updatedAt": "2026-10-03T07:49:31.606Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "veeva-q2-fy27": {
       "path": "data/datasets/veeva-q2-fy27.js",
@@ -6795,21 +6795,21 @@
     },
     "walmart-q1-fy26": {
       "path": "data/datasets/walmart-q1-fy26.js",
-      "updatedAtMs": 1791013756076,
-      "updatedAt": "2026-10-03T07:49:16.076Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "adobe-q3-fy26": {
       "path": "data/datasets/adobe-q3-fy26.js",
-      "updatedAtMs": 1791030705382,
-      "updatedAt": "2026-10-03T12:31:45.382Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "asana-q2-fy27": {
       "path": "data/datasets/asana-q2-fy27.js",
-      "updatedAtMs": 1791030703438,
-      "updatedAt": "2026-10-03T12:31:43.438Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "broadcom-q3-fy26": {
       "path": "data/datasets/broadcom-q3-fy26.js",
@@ -6819,9 +6819,9 @@
     },
     "c3-ai-q1-fy27": {
       "path": "data/datasets/c3-ai-q1-fy27.js",
-      "updatedAtMs": 1791030704208,
-      "updatedAt": "2026-10-03T12:31:44.208Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "carnival-q3-fy26": {
       "path": "data/datasets/carnival-q3-fy26.js",
@@ -6837,15 +6837,15 @@
     },
     "costco-q4-fy26": {
       "path": "data/datasets/costco-q4-fy26.js",
-      "updatedAtMs": 1791030710553,
-      "updatedAt": "2026-10-03T12:31:50.553Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "darden-q1-fy27": {
       "path": "data/datasets/darden-q1-fy27.js",
-      "updatedAtMs": 1791030712541,
-      "updatedAt": "2026-10-03T12:31:52.541Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "dell-q2-fy27": {
       "path": "data/datasets/dell-q2-fy27.js",
@@ -6855,9 +6855,9 @@
     },
     "didi-q2-fy26": {
       "path": "data/datasets/didi-q2-fy26.js",
-      "updatedAtMs": 1791030715606,
-      "updatedAt": "2026-10-03T12:31:55.606Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "docusign-q2-fy27": {
       "path": "data/datasets/docusign-q2-fy27.js",
@@ -6879,15 +6879,15 @@
     },
     "gitlab-q2-fy27": {
       "path": "data/datasets/gitlab-q2-fy27.js",
-      "updatedAtMs": 1791030707289,
-      "updatedAt": "2026-10-03T12:31:47.289Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "hpe-q3-fy26": {
       "path": "data/datasets/hpe-q3-fy26.js",
-      "updatedAtMs": 1791030705964,
-      "updatedAt": "2026-10-03T12:31:45.964Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "lululemon-q2-fy26": {
       "path": "data/datasets/lululemon-q2-fy26.js",
@@ -6903,45 +6903,45 @@
     },
     "micron-q4-fy26": {
       "path": "data/datasets/micron-q4-fy26.js",
-      "updatedAtMs": 1791030711416,
-      "updatedAt": "2026-10-03T12:31:51.416Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "mongodb-q2-fy27": {
       "path": "data/datasets/mongodb-q2-fy27.js",
-      "updatedAtMs": 1791030716610,
-      "updatedAt": "2026-10-03T12:31:56.610Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "nio-q2-fy26": {
       "path": "data/datasets/nio-q2-fy26.js",
-      "updatedAtMs": 1791030706441,
-      "updatedAt": "2026-10-03T12:31:46.441Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "oracle-q1-fy27": {
       "path": "data/datasets/oracle-q1-fy27.js",
-      "updatedAtMs": 1791030718880,
-      "updatedAt": "2026-10-03T12:31:58.880Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "palo-alto-q4-fy26": {
       "path": "data/datasets/palo-alto-q4-fy26.js",
-      "updatedAtMs": 1791030718415,
-      "updatedAt": "2026-10-03T12:31:58.415Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "samsara-q2-fy27": {
       "path": "data/datasets/samsara-q2-fy27.js",
-      "updatedAtMs": 1792323545000,
-      "updatedAt": "2026-10-18T11:39:05.000Z",
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
       "timeSource": "git"
     },
     "snowflake-q2-fy27": {
       "path": "data/datasets/snowflake-q2-fy27.js",
-      "updatedAtMs": 1791030753462,
-      "updatedAt": "2026-10-03T12:32:33.462Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "uipath-q2-fy27": {
       "path": "data/datasets/uipath-q2-fy27.js",
@@ -6957,27 +6957,27 @@
     },
     "wealthfront-q2-fy27": {
       "path": "data/datasets/wealthfront-q2-fy27.js",
-      "updatedAtMs": 1791030722371,
-      "updatedAt": "2026-10-03T12:32:02.371Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "zscaler-q4-fy26": {
       "path": "data/datasets/zscaler-q4-fy26.js",
-      "updatedAtMs": 1791030714537,
-      "updatedAt": "2026-10-03T12:31:54.537Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "airbnb-q4-fy24": {
       "path": "data/datasets/airbnb-q4-fy24.js",
-      "updatedAtMs": 1792323545000,
-      "updatedAt": "2026-10-18T11:39:05.000Z",
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
       "timeSource": "git"
     },
     "american-express-q1-fy25": {
       "path": "data/datasets/american-express-q1-fy25.js",
-      "updatedAtMs": 1791035171690,
-      "updatedAt": "2026-10-03T13:46:11.690Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "boeing-q1-fy25": {
       "path": "data/datasets/boeing-q1-fy25.js",
@@ -6993,9 +6993,9 @@
     },
     "chevron-q4-fy24": {
       "path": "data/datasets/chevron-q4-fy24.js",
-      "updatedAtMs": 1791035132573,
-      "updatedAt": "2026-10-03T13:45:32.573Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "fedex-q3-fy25": {
       "path": "data/datasets/fedex-q3-fy25.js",
@@ -7005,8 +7005,8 @@
     },
     "ferrari-q4-fy24": {
       "path": "data/datasets/ferrari-q4-fy24.js",
-      "updatedAtMs": 1792322537000,
-      "updatedAt": "2026-10-18T11:22:17.000Z",
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
       "timeSource": "git"
     },
     "ford-fy24": {
@@ -7017,9 +7017,9 @@
     },
     "goldman-sachs-q1-fy25": {
       "path": "data/datasets/goldman-sachs-q1-fy25.js",
-      "updatedAtMs": 1791035136741,
-      "updatedAt": "2026-10-03T13:45:36.741Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "goldman-sachs-q4-fy24": {
       "path": "data/datasets/goldman-sachs-q4-fy24.js",
@@ -7035,9 +7035,9 @@
     },
     "j-j-q4-fy24": {
       "path": "data/datasets/j-j-q4-fy24.js",
-      "updatedAtMs": 1791035166996,
-      "updatedAt": "2026-10-03T13:46:06.996Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "jpmorganchase-q1-fy25": {
       "path": "data/datasets/jpmorganchase-q1-fy25.js",
@@ -7047,9 +7047,9 @@
     },
     "jpmorganchase-q4-fy24": {
       "path": "data/datasets/jpmorganchase-q4-fy24.js",
-      "updatedAtMs": 1791035158876,
-      "updatedAt": "2026-10-03T13:45:58.876Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "loreal-fy24": {
       "path": "data/datasets/loreal-fy24.js",
@@ -7065,9 +7065,9 @@
     },
     "netflix-q1-fy25": {
       "path": "data/datasets/netflix-q1-fy25.js",
-      "updatedAtMs": 1791035129807,
-      "updatedAt": "2026-10-03T13:45:29.807Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "nintendo-q3-fy25": {
       "path": "data/datasets/nintendo-q3-fy25.js",
@@ -7077,9 +7077,9 @@
     },
     "paypal-q1-fy25": {
       "path": "data/datasets/paypal-q1-fy25.js",
-      "updatedAtMs": 1791035132053,
-      "updatedAt": "2026-10-03T13:45:32.053Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "paypal-q4-fy24": {
       "path": "data/datasets/paypal-q4-fy24.js",
@@ -7101,27 +7101,27 @@
     },
     "spotify-q1-fy25": {
       "path": "data/datasets/spotify-q1-fy25.js",
-      "updatedAtMs": 1791035125516,
-      "updatedAt": "2026-10-03T13:45:25.516Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "spotify-q4-fy24": {
       "path": "data/datasets/spotify-q4-fy24.js",
-      "updatedAtMs": 1791035147536,
-      "updatedAt": "2026-10-03T13:45:47.536Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "starbucks-q1-fy25": {
       "path": "data/datasets/starbucks-q1-fy25.js",
-      "updatedAtMs": 1791035148196,
-      "updatedAt": "2026-10-03T13:45:48.196Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "ups-q1-fy25": {
       "path": "data/datasets/ups-q1-fy25.js",
-      "updatedAtMs": 1791035121082,
-      "updatedAt": "2026-10-03T13:45:21.082Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "ups-q4-fy24": {
       "path": "data/datasets/ups-q4-fy24.js",
@@ -7131,15 +7131,15 @@
     },
     "visa-q2-fy25": {
       "path": "data/datasets/visa-q2-fy25.js",
-      "updatedAtMs": 1791035177134,
-      "updatedAt": "2026-10-03T13:46:17.134Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "walmart-q4-fy25": {
       "path": "data/datasets/walmart-q4-fy25.js",
-      "updatedAtMs": 1791035141806,
-      "updatedAt": "2026-10-03T13:45:41.806Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "aramco-fy23": {
       "path": "data/datasets/aramco-fy23.js",
@@ -7149,8 +7149,8 @@
     },
     "aramco-q1-fy24": {
       "path": "data/datasets/aramco-q1-fy24.js",
-      "updatedAtMs": 1792322537000,
-      "updatedAt": "2026-10-18T11:22:17.000Z",
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
       "timeSource": "git"
     },
     "aramco-q2-fy24": {
@@ -7173,333 +7173,333 @@
     },
     "chevron-fy23": {
       "path": "data/datasets/chevron-fy23.js",
-      "updatedAtMs": 1791116267537,
-      "updatedAt": "2026-10-04T12:17:47.537Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "chevron-q1-fy24": {
       "path": "data/datasets/chevron-q1-fy24.js",
-      "updatedAtMs": 1791116274382,
-      "updatedAt": "2026-10-04T12:17:54.382Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "chevron-q2-fy24": {
       "path": "data/datasets/chevron-q2-fy24.js",
-      "updatedAtMs": 1791116220774,
-      "updatedAt": "2026-10-04T12:17:00.774Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "chevron-q2-fy25": {
       "path": "data/datasets/chevron-q2-fy25.js",
-      "updatedAtMs": 1791116231949,
-      "updatedAt": "2026-10-04T12:17:11.949Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "chevron-q3-fy23": {
       "path": "data/datasets/chevron-q3-fy23.js",
-      "updatedAtMs": 1791116278489,
-      "updatedAt": "2026-10-04T12:17:58.489Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "chevron-q3-fy24": {
       "path": "data/datasets/chevron-q3-fy24.js",
-      "updatedAtMs": 1791116284697,
-      "updatedAt": "2026-10-04T12:18:04.697Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "starbucks-fy24": {
       "path": "data/datasets/starbucks-fy24.js",
-      "updatedAtMs": 1791116276207,
-      "updatedAt": "2026-10-04T12:17:56.207Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "starbucks-q1-fy23": {
       "path": "data/datasets/starbucks-q1-fy23.js",
-      "updatedAtMs": 1791116294784,
-      "updatedAt": "2026-10-04T12:18:14.784Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "starbucks-q1-fy24": {
       "path": "data/datasets/starbucks-q1-fy24.js",
-      "updatedAtMs": 1791116261337,
-      "updatedAt": "2026-10-04T12:17:41.337Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "starbucks-q2-fy23": {
       "path": "data/datasets/starbucks-q2-fy23.js",
-      "updatedAtMs": 1791116238158,
-      "updatedAt": "2026-10-04T12:17:18.158Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "starbucks-q2-fy24": {
       "path": "data/datasets/starbucks-q2-fy24.js",
-      "updatedAtMs": 1792323545000,
-      "updatedAt": "2026-10-18T11:39:05.000Z",
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
       "timeSource": "git"
     },
     "starbucks-q3-fy23": {
       "path": "data/datasets/starbucks-q3-fy23.js",
-      "updatedAtMs": 1792323545000,
-      "updatedAt": "2026-10-18T11:39:05.000Z",
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
       "timeSource": "git"
     },
     "starbucks-q3-fy24": {
       "path": "data/datasets/starbucks-q3-fy24.js",
-      "updatedAtMs": 1791116258900,
-      "updatedAt": "2026-10-04T12:17:38.900Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "starbucks-q3-fy25": {
       "path": "data/datasets/starbucks-q3-fy25.js",
-      "updatedAtMs": 1791116272645,
-      "updatedAt": "2026-10-04T12:17:52.645Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "starbucks-q4-fy22": {
       "path": "data/datasets/starbucks-q4-fy22.js",
-      "updatedAtMs": 1791116228242,
-      "updatedAt": "2026-10-04T12:17:08.242Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "starbucks-q4-fy23": {
       "path": "data/datasets/starbucks-q4-fy23.js",
-      "updatedAtMs": 1792323545000,
-      "updatedAt": "2026-10-18T11:39:05.000Z",
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
       "timeSource": "git"
     },
     "walmart-q1-fy24": {
       "path": "data/datasets/walmart-q1-fy24.js",
-      "updatedAtMs": 1791116225578,
-      "updatedAt": "2026-10-04T12:17:05.578Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "walmart-q1-fy25": {
       "path": "data/datasets/walmart-q1-fy25.js",
-      "updatedAtMs": 1791116224783,
-      "updatedAt": "2026-10-04T12:17:04.783Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "walmart-q2-fy24": {
       "path": "data/datasets/walmart-q2-fy24.js",
-      "updatedAtMs": 1791116218763,
-      "updatedAt": "2026-10-04T12:16:58.763Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "walmart-q2-fy25": {
       "path": "data/datasets/walmart-q2-fy25.js",
-      "updatedAtMs": 1791116223654,
-      "updatedAt": "2026-10-04T12:17:03.654Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "walmart-q2-fy26": {
       "path": "data/datasets/walmart-q2-fy26.js",
-      "updatedAtMs": 1791116234294,
-      "updatedAt": "2026-10-04T12:17:14.294Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "walmart-q3-fy23": {
       "path": "data/datasets/walmart-q3-fy23.js",
-      "updatedAtMs": 1791116230851,
-      "updatedAt": "2026-10-04T12:17:10.851Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "walmart-q3-fy24": {
       "path": "data/datasets/walmart-q3-fy24.js",
-      "updatedAtMs": 1791116224202,
-      "updatedAt": "2026-10-04T12:17:04.202Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "walmart-q3-fy25": {
       "path": "data/datasets/walmart-q3-fy25.js",
-      "updatedAtMs": 1791116246252,
-      "updatedAt": "2026-10-04T12:17:26.252Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "walmart-q4-fy23": {
       "path": "data/datasets/walmart-q4-fy23.js",
-      "updatedAtMs": 1792323545000,
-      "updatedAt": "2026-10-18T11:39:05.000Z",
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
       "timeSource": "git"
     },
     "walmart-q4-fy24": {
       "path": "data/datasets/walmart-q4-fy24.js",
-      "updatedAtMs": 1791116270388,
-      "updatedAt": "2026-10-04T12:17:50.388Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "airbnb-fy23": {
       "path": "data/datasets/airbnb-fy23.js",
-      "updatedAtMs": 1792044507722,
-      "updatedAt": "2026-10-15T06:08:27.722Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "airbnb-q1-fy23": {
       "path": "data/datasets/airbnb-q1-fy23.js",
-      "updatedAtMs": 1792044496010,
-      "updatedAt": "2026-10-15T06:08:16.010Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "airbnb-q1-fy24": {
       "path": "data/datasets/airbnb-q1-fy24.js",
-      "updatedAtMs": 1792044487128,
-      "updatedAt": "2026-10-15T06:08:07.128Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "airbnb-q2-fy23": {
       "path": "data/datasets/airbnb-q2-fy23.js",
-      "updatedAtMs": 1792044544850,
-      "updatedAt": "2026-10-15T06:09:04.850Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "airbnb-q2-fy24": {
       "path": "data/datasets/airbnb-q2-fy24.js",
-      "updatedAtMs": 1792323545000,
-      "updatedAt": "2026-10-18T11:39:05.000Z",
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
       "timeSource": "git"
     },
     "airbnb-q2-fy25": {
       "path": "data/datasets/airbnb-q2-fy25.js",
-      "updatedAtMs": 1792323545000,
-      "updatedAt": "2026-10-18T11:39:05.000Z",
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
       "timeSource": "git"
     },
     "airbnb-q3-fy22": {
       "path": "data/datasets/airbnb-q3-fy22.js",
-      "updatedAtMs": 1792044500896,
-      "updatedAt": "2026-10-15T06:08:20.896Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "airbnb-q3-fy23": {
       "path": "data/datasets/airbnb-q3-fy23.js",
-      "updatedAtMs": 1792044503080,
-      "updatedAt": "2026-10-15T06:08:23.080Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "airbnb-q3-fy24": {
       "path": "data/datasets/airbnb-q3-fy24.js",
-      "updatedAtMs": 1792323545000,
-      "updatedAt": "2026-10-18T11:39:05.000Z",
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
       "timeSource": "git"
     },
     "airbnb-q4-fy22": {
       "path": "data/datasets/airbnb-q4-fy22.js",
-      "updatedAtMs": 1792044525712,
-      "updatedAt": "2026-10-15T06:08:45.712Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "american-express-q1-fy23": {
       "path": "data/datasets/american-express-q1-fy23.js",
-      "updatedAtMs": 1792040768636,
-      "updatedAt": "2026-10-15T05:06:08.636Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "american-express-q1-fy24": {
       "path": "data/datasets/american-express-q1-fy24.js",
-      "updatedAtMs": 1792040794033,
-      "updatedAt": "2026-10-15T05:06:34.033Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "american-express-q2-fy23": {
       "path": "data/datasets/american-express-q2-fy23.js",
-      "updatedAtMs": 1792040795403,
-      "updatedAt": "2026-10-15T05:06:35.403Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "american-express-q2-fy24": {
       "path": "data/datasets/american-express-q2-fy24.js",
-      "updatedAtMs": 1792040788293,
-      "updatedAt": "2026-10-15T05:06:28.293Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "american-express-q2-fy25": {
       "path": "data/datasets/american-express-q2-fy25.js",
-      "updatedAtMs": 1792040804595,
-      "updatedAt": "2026-10-15T05:06:44.595Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "american-express-q3-fy23": {
       "path": "data/datasets/american-express-q3-fy23.js",
-      "updatedAtMs": 1792040793304,
-      "updatedAt": "2026-10-15T05:06:33.304Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "american-express-q3-fy24": {
       "path": "data/datasets/american-express-q3-fy24.js",
-      "updatedAtMs": 1792040812666,
-      "updatedAt": "2026-10-15T05:06:52.666Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "american-express-q3-fy25": {
       "path": "data/datasets/american-express-q3-fy25.js",
-      "updatedAtMs": 1792040777385,
-      "updatedAt": "2026-10-15T05:06:17.385Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "american-express-q4-fy23": {
       "path": "data/datasets/american-express-q4-fy23.js",
-      "updatedAtMs": 1792040790980,
-      "updatedAt": "2026-10-15T05:06:30.980Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "american-express-q4-fy24": {
       "path": "data/datasets/american-express-q4-fy24.js",
-      "updatedAtMs": 1792040773297,
-      "updatedAt": "2026-10-15T05:06:13.297Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "goldman-sachs-q1-fy23": {
       "path": "data/datasets/goldman-sachs-q1-fy23.js",
-      "updatedAtMs": 1792040767752,
-      "updatedAt": "2026-10-15T05:06:07.752Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "goldman-sachs-q1-fy24": {
       "path": "data/datasets/goldman-sachs-q1-fy24.js",
-      "updatedAtMs": 1792040768385,
-      "updatedAt": "2026-10-15T05:06:08.385Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "goldman-sachs-q2-fy23": {
       "path": "data/datasets/goldman-sachs-q2-fy23.js",
-      "updatedAtMs": 1792040809371,
-      "updatedAt": "2026-10-15T05:06:49.371Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "goldman-sachs-q2-fy24": {
       "path": "data/datasets/goldman-sachs-q2-fy24.js",
-      "updatedAtMs": 1792040755746,
-      "updatedAt": "2026-10-15T05:05:55.746Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "goldman-sachs-q2-fy25": {
       "path": "data/datasets/goldman-sachs-q2-fy25.js",
-      "updatedAtMs": 1792040821111,
-      "updatedAt": "2026-10-15T05:07:01.111Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "goldman-sachs-q3-fy23": {
       "path": "data/datasets/goldman-sachs-q3-fy23.js",
-      "updatedAtMs": 1792040783509,
-      "updatedAt": "2026-10-15T05:06:23.509Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "goldman-sachs-q3-fy24": {
       "path": "data/datasets/goldman-sachs-q3-fy24.js",
-      "updatedAtMs": 1792040766484,
-      "updatedAt": "2026-10-15T05:06:06.484Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "goldman-sachs-q3-fy25": {
       "path": "data/datasets/goldman-sachs-q3-fy25.js",
-      "updatedAtMs": 1792040797862,
-      "updatedAt": "2026-10-15T05:06:37.862Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "goldman-sachs-q4-fy22": {
       "path": "data/datasets/goldman-sachs-q4-fy22.js",
-      "updatedAtMs": 1792040807955,
-      "updatedAt": "2026-10-15T05:06:47.955Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "goldman-sachs-q4-fy23": {
       "path": "data/datasets/goldman-sachs-q4-fy23.js",
@@ -7509,9 +7509,9 @@
     },
     "jpmorganchase-q1-fy23": {
       "path": "data/datasets/jpmorganchase-q1-fy23.js",
-      "updatedAtMs": 1792040790073,
-      "updatedAt": "2026-10-15T05:06:30.073Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "jpmorganchase-q1-fy24": {
       "path": "data/datasets/jpmorganchase-q1-fy24.js",
@@ -7521,51 +7521,51 @@
     },
     "jpmorganchase-q2-fy23": {
       "path": "data/datasets/jpmorganchase-q2-fy23.js",
-      "updatedAtMs": 1792040812294,
-      "updatedAt": "2026-10-15T05:06:52.294Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "jpmorganchase-q2-fy24": {
       "path": "data/datasets/jpmorganchase-q2-fy24.js",
-      "updatedAtMs": 1792040765021,
-      "updatedAt": "2026-10-15T05:06:05.021Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "jpmorganchase-q2-fy25": {
       "path": "data/datasets/jpmorganchase-q2-fy25.js",
-      "updatedAtMs": 1792040792447,
-      "updatedAt": "2026-10-15T05:06:32.447Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "jpmorganchase-q3-fy23": {
       "path": "data/datasets/jpmorganchase-q3-fy23.js",
-      "updatedAtMs": 1792040781781,
-      "updatedAt": "2026-10-15T05:06:21.781Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "jpmorganchase-q3-fy24": {
       "path": "data/datasets/jpmorganchase-q3-fy24.js",
-      "updatedAtMs": 1792040771100,
-      "updatedAt": "2026-10-15T05:06:11.100Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "jpmorganchase-q3-fy25": {
       "path": "data/datasets/jpmorganchase-q3-fy25.js",
-      "updatedAtMs": 1792040798576,
-      "updatedAt": "2026-10-15T05:06:38.576Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "jpmorganchase-q4-fy22": {
       "path": "data/datasets/jpmorganchase-q4-fy22.js",
-      "updatedAtMs": 1792040812453,
-      "updatedAt": "2026-10-15T05:06:52.453Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "jpmorganchase-q4-fy23": {
       "path": "data/datasets/jpmorganchase-q4-fy23.js",
-      "updatedAtMs": 1792040851813,
-      "updatedAt": "2026-10-15T05:07:31.813Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "mastercard-q1-fy23": {
       "path": "data/datasets/mastercard-q1-fy23.js",
@@ -7575,15 +7575,15 @@
     },
     "mastercard-q1-fy24": {
       "path": "data/datasets/mastercard-q1-fy24.js",
-      "updatedAtMs": 1792040793769,
-      "updatedAt": "2026-10-15T05:06:33.769Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "mastercard-q2-fy23": {
       "path": "data/datasets/mastercard-q2-fy23.js",
-      "updatedAtMs": 1792040807165,
-      "updatedAt": "2026-10-15T05:06:47.165Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "mastercard-q2-fy24": {
       "path": "data/datasets/mastercard-q2-fy24.js",
@@ -7611,15 +7611,15 @@
     },
     "mastercard-q3-fy24": {
       "path": "data/datasets/mastercard-q3-fy24.js",
-      "updatedAtMs": 1792040815497,
-      "updatedAt": "2026-10-15T05:06:55.497Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "mastercard-q3-fy25": {
       "path": "data/datasets/mastercard-q3-fy25.js",
-      "updatedAtMs": 1792040812402,
-      "updatedAt": "2026-10-15T05:06:52.402Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "mastercard-q4-fy22": {
       "path": "data/datasets/mastercard-q4-fy22.js",
@@ -7641,9 +7641,9 @@
     },
     "nintendo-fy23": {
       "path": "data/datasets/nintendo-fy23.js",
-      "updatedAtMs": 1792044501737,
-      "updatedAt": "2026-10-15T06:08:21.737Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "nintendo-fy24": {
       "path": "data/datasets/nintendo-fy24.js",
@@ -7671,21 +7671,21 @@
     },
     "nintendo-q1-fy26": {
       "path": "data/datasets/nintendo-q1-fy26.js",
-      "updatedAtMs": 1792044518072,
-      "updatedAt": "2026-10-15T06:08:38.072Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "nintendo-q3-fy23": {
       "path": "data/datasets/nintendo-q3-fy23.js",
-      "updatedAtMs": 1792044495474,
-      "updatedAt": "2026-10-15T06:08:15.474Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "nintendo-q3-fy24": {
       "path": "data/datasets/nintendo-q3-fy24.js",
-      "updatedAtMs": 1792044529753,
-      "updatedAt": "2026-10-15T06:08:49.753Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "paypal-q1-fy23": {
       "path": "data/datasets/paypal-q1-fy23.js",
@@ -7695,27 +7695,27 @@
     },
     "paypal-q1-fy24": {
       "path": "data/datasets/paypal-q1-fy24.js",
-      "updatedAtMs": 1792044520629,
-      "updatedAt": "2026-10-15T06:08:40.629Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "paypal-q2-fy23": {
       "path": "data/datasets/paypal-q2-fy23.js",
-      "updatedAtMs": 1792044508658,
-      "updatedAt": "2026-10-15T06:08:28.658Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "paypal-q2-fy24": {
       "path": "data/datasets/paypal-q2-fy24.js",
-      "updatedAtMs": 1792044531162,
-      "updatedAt": "2026-10-15T06:08:51.162Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "paypal-q2-fy25": {
       "path": "data/datasets/paypal-q2-fy25.js",
-      "updatedAtMs": 1792044547400,
-      "updatedAt": "2026-10-15T06:09:07.400Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "paypal-q3-fy22": {
       "path": "data/datasets/paypal-q3-fy22.js",
@@ -7725,21 +7725,21 @@
     },
     "paypal-q3-fy23": {
       "path": "data/datasets/paypal-q3-fy23.js",
-      "updatedAtMs": 1792044540050,
-      "updatedAt": "2026-10-15T06:09:00.050Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "paypal-q3-fy24": {
       "path": "data/datasets/paypal-q3-fy24.js",
-      "updatedAtMs": 1792044553634,
-      "updatedAt": "2026-10-15T06:09:13.634Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "paypal-q3-fy25": {
       "path": "data/datasets/paypal-q3-fy25.js",
-      "updatedAtMs": 1792044522943,
-      "updatedAt": "2026-10-15T06:08:42.943Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "paypal-q4-fy22": {
       "path": "data/datasets/paypal-q4-fy22.js",
@@ -7755,63 +7755,63 @@
     },
     "spotify-q1-fy23": {
       "path": "data/datasets/spotify-q1-fy23.js",
-      "updatedAtMs": 1792044550559,
-      "updatedAt": "2026-10-15T06:09:10.559Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "spotify-q1-fy24": {
       "path": "data/datasets/spotify-q1-fy24.js",
-      "updatedAtMs": 1792044502355,
-      "updatedAt": "2026-10-15T06:08:22.355Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "spotify-q2-fy23": {
       "path": "data/datasets/spotify-q2-fy23.js",
-      "updatedAtMs": 1792044498977,
-      "updatedAt": "2026-10-15T06:08:18.977Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "spotify-q2-fy24": {
       "path": "data/datasets/spotify-q2-fy24.js",
-      "updatedAtMs": 1792044503965,
-      "updatedAt": "2026-10-15T06:08:23.965Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "spotify-q2-fy25": {
       "path": "data/datasets/spotify-q2-fy25.js",
-      "updatedAtMs": 1792044534060,
-      "updatedAt": "2026-10-15T06:08:54.060Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "spotify-q3-fy22": {
       "path": "data/datasets/spotify-q3-fy22.js",
-      "updatedAtMs": 1792044534686,
-      "updatedAt": "2026-10-15T06:08:54.686Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "spotify-q3-fy23": {
       "path": "data/datasets/spotify-q3-fy23.js",
-      "updatedAtMs": 1792044499966,
-      "updatedAt": "2026-10-15T06:08:19.966Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "spotify-q3-fy24": {
       "path": "data/datasets/spotify-q3-fy24.js",
-      "updatedAtMs": 1792044505883,
-      "updatedAt": "2026-10-15T06:08:25.883Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "spotify-q4-fy22": {
       "path": "data/datasets/spotify-q4-fy22.js",
-      "updatedAtMs": 1792044511922,
-      "updatedAt": "2026-10-15T06:08:31.922Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "spotify-q4-fy23": {
       "path": "data/datasets/spotify-q4-fy23.js",
-      "updatedAtMs": 1792044507003,
-      "updatedAt": "2026-10-15T06:08:27.003Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "airbus-fy23": {
       "path": "data/datasets/airbus-fy23.js",
@@ -7839,9 +7839,9 @@
     },
     "boeing-q2-fy24": {
       "path": "data/datasets/boeing-q2-fy24.js",
-      "updatedAtMs": 1792263421099,
-      "updatedAt": "2026-10-17T18:57:01.099Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "boeing-q2-fy25": {
       "path": "data/datasets/boeing-q2-fy25.js",
@@ -7851,15 +7851,15 @@
     },
     "boeing-q3-fy24": {
       "path": "data/datasets/boeing-q3-fy24.js",
-      "updatedAtMs": 1792263420300,
-      "updatedAt": "2026-10-17T18:57:00.300Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "disney-q4-fy22": {
       "path": "data/datasets/disney-q4-fy22.js",
-      "updatedAtMs": 1792261828158,
-      "updatedAt": "2026-10-17T18:30:28.158Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "fedex-q1-fy24": {
       "path": "data/datasets/fedex-q1-fy24.js",
@@ -7869,9 +7869,9 @@
     },
     "fedex-q1-fy25": {
       "path": "data/datasets/fedex-q1-fy25.js",
-      "updatedAtMs": 1792263351638,
-      "updatedAt": "2026-10-17T18:55:51.638Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "fedex-q1-fy26": {
       "path": "data/datasets/fedex-q1-fy26.js",
@@ -7881,9 +7881,9 @@
     },
     "fedex-q2-fy23": {
       "path": "data/datasets/fedex-q2-fy23.js",
-      "updatedAtMs": 1792263305556,
-      "updatedAt": "2026-10-17T18:55:05.556Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "fedex-q2-fy24": {
       "path": "data/datasets/fedex-q2-fy24.js",
@@ -7893,21 +7893,21 @@
     },
     "fedex-q2-fy25": {
       "path": "data/datasets/fedex-q2-fy25.js",
-      "updatedAtMs": 1792263359011,
-      "updatedAt": "2026-10-17T18:55:59.011Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "fedex-q2-fy26": {
       "path": "data/datasets/fedex-q2-fy26.js",
-      "updatedAtMs": 1792263369091,
-      "updatedAt": "2026-10-17T18:56:09.091Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "fedex-q3-fy23": {
       "path": "data/datasets/fedex-q3-fy23.js",
-      "updatedAtMs": 1792263309099,
-      "updatedAt": "2026-10-17T18:55:09.099Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "fedex-q3-fy24": {
       "path": "data/datasets/fedex-q3-fy24.js",
@@ -7923,9 +7923,9 @@
     },
     "fedex-q4-fy24": {
       "path": "data/datasets/fedex-q4-fy24.js",
-      "updatedAtMs": 1792263403292,
-      "updatedAt": "2026-10-17T18:56:43.292Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "fedex-q4-fy25": {
       "path": "data/datasets/fedex-q4-fy25.js",
@@ -7935,39 +7935,39 @@
     },
     "ferrari-fy23": {
       "path": "data/datasets/ferrari-fy23.js",
-      "updatedAtMs": 1792263328100,
-      "updatedAt": "2026-10-17T18:55:28.100Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "ferrari-h1-fy24": {
       "path": "data/datasets/ferrari-h1-fy24.js",
-      "updatedAtMs": 1792263451039,
-      "updatedAt": "2026-10-17T18:57:31.039Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "ferrari-q2-fy25": {
       "path": "data/datasets/ferrari-q2-fy25.js",
-      "updatedAtMs": 1792263433155,
-      "updatedAt": "2026-10-17T18:57:13.155Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "ferrari-q3-fy24": {
       "path": "data/datasets/ferrari-q3-fy24.js",
-      "updatedAtMs": 1792263413568,
-      "updatedAt": "2026-10-17T18:56:53.568Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "ford-q2-fy24": {
       "path": "data/datasets/ford-q2-fy24.js",
-      "updatedAtMs": 1792263338889,
-      "updatedAt": "2026-10-17T18:55:38.889Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "ford-q2-fy25": {
       "path": "data/datasets/ford-q2-fy25.js",
-      "updatedAtMs": 1792263388749,
-      "updatedAt": "2026-10-17T18:56:28.749Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "ford-q3-fy24": {
       "path": "data/datasets/ford-q3-fy24.js",
@@ -7977,69 +7977,69 @@
     },
     "ford-q3-fy25": {
       "path": "data/datasets/ford-q3-fy25.js",
-      "updatedAtMs": 1792263384325,
-      "updatedAt": "2026-10-17T18:56:24.325Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "gm-q1-fy23": {
       "path": "data/datasets/gm-q1-fy23.js",
-      "updatedAtMs": 1792263340327,
-      "updatedAt": "2026-10-17T18:55:40.327Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "gm-q1-fy24": {
       "path": "data/datasets/gm-q1-fy24.js",
-      "updatedAtMs": 1792263289855,
-      "updatedAt": "2026-10-17T18:54:49.855Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "gm-q2-fy23": {
       "path": "data/datasets/gm-q2-fy23.js",
-      "updatedAtMs": 1792263334423,
-      "updatedAt": "2026-10-17T18:55:34.423Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "gm-q2-fy24": {
       "path": "data/datasets/gm-q2-fy24.js",
-      "updatedAtMs": 1792263347703,
-      "updatedAt": "2026-10-17T18:55:47.703Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "gm-q3-fy23": {
       "path": "data/datasets/gm-q3-fy23.js",
-      "updatedAtMs": 1792263343406,
-      "updatedAt": "2026-10-17T18:55:43.406Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "gm-q3-fy24": {
       "path": "data/datasets/gm-q3-fy24.js",
-      "updatedAtMs": 1792263398337,
-      "updatedAt": "2026-10-17T18:56:38.337Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "gm-q3-fy25": {
       "path": "data/datasets/gm-q3-fy25.js",
-      "updatedAtMs": 1792263344164,
-      "updatedAt": "2026-10-17T18:55:44.164Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "gm-q4-fy22": {
       "path": "data/datasets/gm-q4-fy22.js",
-      "updatedAtMs": 1792263323186,
-      "updatedAt": "2026-10-17T18:55:23.186Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "gm-q4-fy23": {
       "path": "data/datasets/gm-q4-fy23.js",
-      "updatedAtMs": 1792263293481,
-      "updatedAt": "2026-10-17T18:54:53.481Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "gm-q4-fy24": {
       "path": "data/datasets/gm-q4-fy24.js",
-      "updatedAtMs": 1792263338296,
-      "updatedAt": "2026-10-17T18:55:38.296Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "hermes-fy22": {
       "path": "data/datasets/hermes-fy22.js",
@@ -8049,15 +8049,15 @@
     },
     "hermes-fy23": {
       "path": "data/datasets/hermes-fy23.js",
-      "updatedAtMs": 1792261799624,
-      "updatedAt": "2026-10-17T18:29:59.624Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "hermes-h1-fy22": {
       "path": "data/datasets/hermes-h1-fy22.js",
-      "updatedAtMs": 1792261636941,
-      "updatedAt": "2026-10-17T18:27:16.941Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "hermes-h1-fy23": {
       "path": "data/datasets/hermes-h1-fy23.js",
@@ -8073,9 +8073,9 @@
     },
     "hermes-h1-fy25": {
       "path": "data/datasets/hermes-h1-fy25.js",
-      "updatedAtMs": 1792261769442,
-      "updatedAt": "2026-10-17T18:29:29.442Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "loreal-fy22": {
       "path": "data/datasets/loreal-fy22.js",
@@ -8097,9 +8097,9 @@
     },
     "loreal-h1-fy23": {
       "path": "data/datasets/loreal-h1-fy23.js",
-      "updatedAtMs": 1792261781891,
-      "updatedAt": "2026-10-17T18:29:41.891Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "loreal-h1-fy25": {
       "path": "data/datasets/loreal-h1-fy25.js",
@@ -8121,111 +8121,111 @@
     },
     "lvmh-h1-fy22": {
       "path": "data/datasets/lvmh-h1-fy22.js",
-      "updatedAtMs": 1792261524320,
-      "updatedAt": "2026-10-17T18:25:24.320Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "lvmh-h1-fy23": {
       "path": "data/datasets/lvmh-h1-fy23.js",
-      "updatedAtMs": 1792261784692,
-      "updatedAt": "2026-10-17T18:29:44.692Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "lvmh-h1-fy24": {
       "path": "data/datasets/lvmh-h1-fy24.js",
-      "updatedAtMs": 1792261650693,
-      "updatedAt": "2026-10-17T18:27:30.693Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "lvmh-h1-fy25": {
       "path": "data/datasets/lvmh-h1-fy25.js",
-      "updatedAtMs": 1792261680949,
-      "updatedAt": "2026-10-17T18:28:00.949Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "netflix-q1-fy23": {
       "path": "data/datasets/netflix-q1-fy23.js",
-      "updatedAtMs": 1792261843442,
-      "updatedAt": "2026-10-17T18:30:43.442Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "netflix-q1-fy24": {
       "path": "data/datasets/netflix-q1-fy24.js",
-      "updatedAtMs": 1792261787300,
-      "updatedAt": "2026-10-17T18:29:47.300Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "netflix-q2-fy23": {
       "path": "data/datasets/netflix-q2-fy23.js",
-      "updatedAtMs": 1792261810104,
-      "updatedAt": "2026-10-17T18:30:10.104Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "netflix-q2-fy24": {
       "path": "data/datasets/netflix-q2-fy24.js",
-      "updatedAtMs": 1792261638263,
-      "updatedAt": "2026-10-17T18:27:18.263Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "netflix-q2-fy25": {
       "path": "data/datasets/netflix-q2-fy25.js",
-      "updatedAtMs": 1792261620172,
-      "updatedAt": "2026-10-17T18:27:00.172Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "netflix-q3-fy22": {
       "path": "data/datasets/netflix-q3-fy22.js",
-      "updatedAtMs": 1792261527139,
-      "updatedAt": "2026-10-17T18:25:27.139Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "netflix-q3-fy23": {
       "path": "data/datasets/netflix-q3-fy23.js",
-      "updatedAtMs": 1792261774934,
-      "updatedAt": "2026-10-17T18:29:34.934Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "netflix-q3-fy24": {
       "path": "data/datasets/netflix-q3-fy24.js",
-      "updatedAtMs": 1792261813308,
-      "updatedAt": "2026-10-17T18:30:13.308Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "netflix-q3-fy25": {
       "path": "data/datasets/netflix-q3-fy25.js",
-      "updatedAtMs": 1792261829650,
-      "updatedAt": "2026-10-17T18:30:29.650Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "netflix-q4-fy22": {
       "path": "data/datasets/netflix-q4-fy22.js",
-      "updatedAtMs": 1792261615816,
-      "updatedAt": "2026-10-17T18:26:55.816Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "netflix-q4-fy23": {
       "path": "data/datasets/netflix-q4-fy23.js",
-      "updatedAtMs": 1792261811217,
-      "updatedAt": "2026-10-17T18:30:11.217Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "netflix-q4-fy24": {
       "path": "data/datasets/netflix-q4-fy24.js",
-      "updatedAtMs": 1792261818312,
-      "updatedAt": "2026-10-17T18:30:18.312Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "pfizer-q1-fy24": {
       "path": "data/datasets/pfizer-q1-fy24.js",
-      "updatedAtMs": 1792263455607,
-      "updatedAt": "2026-10-17T18:57:35.607Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "pfizer-q2-fy24": {
       "path": "data/datasets/pfizer-q2-fy24.js",
-      "updatedAtMs": 1792263477407,
-      "updatedAt": "2026-10-17T18:57:57.407Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "pfizer-q2-fy25": {
       "path": "data/datasets/pfizer-q2-fy25.js",
@@ -8241,15 +8241,15 @@
     },
     "ups-q1-fy23": {
       "path": "data/datasets/ups-q1-fy23.js",
-      "updatedAtMs": 1792261806609,
-      "updatedAt": "2026-10-17T18:30:06.609Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "ups-q1-fy24": {
       "path": "data/datasets/ups-q1-fy24.js",
-      "updatedAtMs": 1792261691782,
-      "updatedAt": "2026-10-17T18:28:11.782Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "ups-q2-fy23": {
       "path": "data/datasets/ups-q2-fy23.js",
@@ -8259,45 +8259,45 @@
     },
     "ups-q2-fy24": {
       "path": "data/datasets/ups-q2-fy24.js",
-      "updatedAtMs": 1792261751096,
-      "updatedAt": "2026-10-17T18:29:11.096Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "ups-q2-fy25": {
       "path": "data/datasets/ups-q2-fy25.js",
-      "updatedAtMs": 1792261847602,
-      "updatedAt": "2026-10-17T18:30:47.602Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "ups-q3-fy23": {
       "path": "data/datasets/ups-q3-fy23.js",
-      "updatedAtMs": 1792261694998,
-      "updatedAt": "2026-10-17T18:28:14.998Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "ups-q3-fy24": {
       "path": "data/datasets/ups-q3-fy24.js",
-      "updatedAtMs": 1792261840425,
-      "updatedAt": "2026-10-17T18:30:40.425Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "ups-q3-fy25": {
       "path": "data/datasets/ups-q3-fy25.js",
-      "updatedAtMs": 1792261751689,
-      "updatedAt": "2026-10-17T18:29:11.689Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "ups-q4-fy22": {
       "path": "data/datasets/ups-q4-fy22.js",
-      "updatedAtMs": 1792261837019,
-      "updatedAt": "2026-10-17T18:30:37.019Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "ups-q4-fy23": {
       "path": "data/datasets/ups-q4-fy23.js",
-      "updatedAtMs": 1792261748952,
-      "updatedAt": "2026-10-17T18:29:08.952Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792332169000,
+      "updatedAt": "2026-10-18T14:02:49.000Z",
+      "timeSource": "git"
     },
     "data/revenue-metrics.js": {
       "path": "data/revenue-metrics.js",

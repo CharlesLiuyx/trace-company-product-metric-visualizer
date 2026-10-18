@@ -12,7 +12,7 @@ window.DATASETS.push({
     "unit": "B",
     "decimals": 1,
     "referenceImage": {
-      "src": "input/processing/adobe-q3-fy26.png",
+      "src": "input/processed/adobe-q3-fy26.png",
       "width": 2667,
       "height": 1500
     },

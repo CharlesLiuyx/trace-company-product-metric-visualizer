@@ -11,7 +11,7 @@
     "unit": "B",
     "decimals": 1,
     "referenceImage": {
-      "src": "input/processing/marvell-q2-fy27.png",
+      "src": "input/processed/marvell-q2-fy27.png",
       "width": 2667,
       "height": 1500
     },

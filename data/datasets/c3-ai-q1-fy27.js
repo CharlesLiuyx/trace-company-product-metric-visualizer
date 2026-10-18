@@ -11,7 +11,7 @@
     "unit": "M",
     "decimals": 0,
     "referenceImage": {
-      "src": "input/processing/c3-ai-q1-fy27.png",
+      "src": "input/processed/c3-ai-q1-fy27.png",
       "width": 2667,
       "height": 1500
     },

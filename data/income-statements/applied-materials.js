@@ -874,7 +874,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/applied-materials-q3-fy26.png",
+    "sourceImage": "input/processed/applied-materials-q3-fy26.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 9.1,

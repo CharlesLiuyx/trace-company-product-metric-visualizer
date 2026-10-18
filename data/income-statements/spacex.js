@@ -16,7 +16,7 @@
   "currency": "$",
   "unit": "B",
   "decimals": 1,
-  "sourceImage": "input/processing/spacex-q2-fy26.png",
+  "sourceImage": "input/processed/spacex-q2-fy26.png",
   "roundingTolerance": 0.15,
   "revenue": {
     "total": 7.8,

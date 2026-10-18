@@ -9,7 +9,7 @@
     "unit": "B",
     "decimals": 1,
     "referenceImage": {
-      "src": "input/processing/gm-q2-fy23.png",
+      "src": "input/processed/gm-q2-fy23.png",
       "width": 2667.0,
       "height": 1500
     },

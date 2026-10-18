@@ -12,7 +12,7 @@ window.DATASETS.push({
     "unit": "B",
     "decimals": 1,
     "referenceImage": {
-      "src": "input/processing/american-express-q3-fy25.png",
+      "src": "input/processed/american-express-q3-fy25.png",
       "width": 2667,
       "height": 1500
     },

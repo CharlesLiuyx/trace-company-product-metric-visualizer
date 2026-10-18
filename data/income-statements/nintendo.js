@@ -1795,7 +1795,7 @@
     "currency": "¥",
     "unit": "B",
     "decimals": 0,
-    "sourceImage": "input/processing/nintendo-fy23.png",
+    "sourceImage": "input/processed/nintendo-fy23.png",
     "roundingTolerance": 1.2,
     "revenue": {
       "total": 1601,
@@ -3462,7 +3462,7 @@
     "currency": "¥",
     "unit": "B",
     "decimals": 0,
-    "sourceImage": "input/processing/nintendo-q1-fy26.png",
+    "sourceImage": "input/processed/nintendo-q1-fy26.png",
     "roundingTolerance": 1.2,
     "revenue": {
       "total": 572,
@@ -3709,7 +3709,7 @@
     "currency": "¥",
     "unit": "B",
     "decimals": 0,
-    "sourceImage": "input/processing/nintendo-q3-fy23.png",
+    "sourceImage": "input/processed/nintendo-q3-fy23.png",
     "roundingTolerance": 1.2,
     "revenue": {
       "total": 638,
@@ -4004,7 +4004,7 @@
     "currency": "¥",
     "unit": "B",
     "decimals": 0,
-    "sourceImage": "input/processing/nintendo-q3-fy24.png",
+    "sourceImage": "input/processed/nintendo-q3-fy24.png",
     "roundingTolerance": 1.2,
     "revenue": {
       "total": 623,

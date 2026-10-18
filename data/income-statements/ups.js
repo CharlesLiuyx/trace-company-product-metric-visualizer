@@ -897,7 +897,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/ups-q1-fy25.png",
+    "sourceImage": "input/processed/ups-q1-fy25.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 21.5,
@@ -1489,7 +1489,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/ups-q2-fy25.png",
+    "sourceImage": "input/processed/ups-q2-fy25.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 21.2,
@@ -2081,7 +2081,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/ups-q2-fy24.png",
+    "sourceImage": "input/processed/ups-q2-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 21.8,
@@ -2671,7 +2671,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/ups-q3-fy25.png",
+    "sourceImage": "input/processed/ups-q3-fy25.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 21.4,
@@ -2968,7 +2968,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/ups-q3-fy24.png",
+    "sourceImage": "input/processed/ups-q3-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 22.2,
@@ -3264,7 +3264,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/ups-q1-fy24.png",
+    "sourceImage": "input/processed/ups-q1-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 21.7,
@@ -3559,7 +3559,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/ups-q4-fy22.png",
+    "sourceImage": "input/processed/ups-q4-fy22.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 27,
@@ -3859,7 +3859,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/ups-q4-fy23.png",
+    "sourceImage": "input/processed/ups-q4-fy23.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 24.9,
@@ -4154,7 +4154,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/ups-q3-fy23.png",
+    "sourceImage": "input/processed/ups-q3-fy23.png",
     "roundingTolerance": 0.4,
     "revenue": {
       "total": 21.1,

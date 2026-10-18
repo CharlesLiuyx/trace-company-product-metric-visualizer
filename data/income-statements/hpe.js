@@ -497,7 +497,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/hpe-q3-fy26.png",
+    "sourceImage": "input/processed/hpe-q3-fy26.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 12.2,

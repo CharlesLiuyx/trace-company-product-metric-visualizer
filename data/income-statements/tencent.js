@@ -4027,7 +4027,7 @@
     "currency": "RMB",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/tencent-q2-fy26.png",
+    "sourceImage": "input/processed/tencent-q2-fy26.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 204.8,

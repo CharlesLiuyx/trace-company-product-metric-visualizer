@@ -11,7 +11,7 @@
     "unit": "B",
     "decimals": 1,
     "referenceImage": {
-      "src": "input/processing/walmart-q4-fy23.png",
+      "src": "input/processed/walmart-q4-fy23.png",
       "width": 2667,
       "height": 1500
     },

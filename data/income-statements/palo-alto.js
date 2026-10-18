@@ -243,7 +243,7 @@ ssot.records.push({
   "currency": "$",
   "unit": "B",
   "decimals": 1,
-  "sourceImage": "input/processing/palo-alto-q4-fy26.png",
+  "sourceImage": "input/processed/palo-alto-q4-fy26.png",
   "roundingTolerance": 0.15,
   "revenue": {
     "total": 3.4,

@@ -12,7 +12,7 @@
     "unit": "B",
     "decimals": 1,
     "referenceImage": {
-      "src": "input/processing/goldman-sachs-q1-fy23.png",
+      "src": "input/processed/goldman-sachs-q1-fy23.png",
       "width": 2667,
       "height": 1500
     },

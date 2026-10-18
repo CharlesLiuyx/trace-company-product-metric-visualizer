@@ -695,7 +695,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/jd-com-q2-fy26.png",
+    "sourceImage": "input/processed/jd-com-q2-fy26.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 51.1,

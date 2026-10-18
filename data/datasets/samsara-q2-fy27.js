@@ -12,7 +12,7 @@ window.DATASETS.push({
     "unit": "M",
     "decimals": 0,
     "referenceImage": {
-      "src": "input/processing/samsara-q2-fy27.png",
+      "src": "input/processed/samsara-q2-fy27.png",
       "width": 2667,
       "height": 1500
     },

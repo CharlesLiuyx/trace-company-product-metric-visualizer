@@ -9,7 +9,7 @@
     "unit": "B",
     "decimals": 1,
     "referenceImage": {
-      "src": "input/processing/hermes-h1-fy25.png",
+      "src": "input/processed/hermes-h1-fy25.png",
       "width": 2667,
       "height": 1500
     },

@@ -1232,7 +1232,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/jpmorganchase-q4-fy24.png",
+    "sourceImage": "input/processed/jpmorganchase-q4-fy24.png",
     "roundingTolerance": 0.2,
     "revenue": {
       "total": 42.8,
@@ -1608,7 +1608,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/jpmorganchase-q1-fy23.png",
+    "sourceImage": "input/processed/jpmorganchase-q1-fy23.png",
     "roundingTolerance": 0.2,
     "revenue": {
       "total": 38.3,
@@ -2415,7 +2415,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/jpmorganchase-q2-fy23.png",
+    "sourceImage": "input/processed/jpmorganchase-q2-fy23.png",
     "roundingTolerance": 0.25,
     "revenue": {
       "total": 41.3,
@@ -2809,7 +2809,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/jpmorganchase-q2-fy24.png",
+    "sourceImage": "input/processed/jpmorganchase-q2-fy24.png",
     "roundingTolerance": 0.2,
     "revenue": {
       "total": 50.2,
@@ -3187,7 +3187,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/jpmorganchase-q2-fy25.png",
+    "sourceImage": "input/processed/jpmorganchase-q2-fy25.png",
     "roundingTolerance": 0.2,
     "revenue": {
       "total": 44.9,
@@ -3563,7 +3563,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/jpmorganchase-q3-fy23.png",
+    "sourceImage": "input/processed/jpmorganchase-q3-fy23.png",
     "roundingTolerance": 0.2,
     "revenue": {
       "total": 39.9,
@@ -3964,7 +3964,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/jpmorganchase-q3-fy24.png",
+    "sourceImage": "input/processed/jpmorganchase-q3-fy24.png",
     "roundingTolerance": 0.2,
     "revenue": {
       "total": 42.7,
@@ -4340,7 +4340,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/jpmorganchase-q3-fy25.png",
+    "sourceImage": "input/processed/jpmorganchase-q3-fy25.png",
     "roundingTolerance": 0.2,
     "revenue": {
       "total": 46.4,
@@ -4716,7 +4716,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/jpmorganchase-q4-fy22.png",
+    "sourceImage": "input/processed/jpmorganchase-q4-fy22.png",
     "roundingTolerance": 0.2,
     "revenue": {
       "total": 34.5,
@@ -5067,7 +5067,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/jpmorganchase-q4-fy23.png",
+    "sourceImage": "input/processed/jpmorganchase-q4-fy23.png",
     "roundingTolerance": 0.3,
     "revenue": {
       "total": 38.6,

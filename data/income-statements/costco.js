@@ -985,7 +985,7 @@
   "currency": "$",
   "unit": "B",
   "decimals": 1,
-  "sourceImage": "input/processing/costco-q4-fy26.png",
+  "sourceImage": "input/processed/costco-q4-fy26.png",
   "roundingTolerance": 0.15,
   "revenue": {
     "total": 95.7,

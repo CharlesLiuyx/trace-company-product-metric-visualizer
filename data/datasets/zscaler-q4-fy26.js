@@ -11,7 +11,7 @@
     "unit": "M",
     "decimals": 0,
     "referenceImage": {
-      "src": "input/processing/zscaler-q4-fy26.png",
+      "src": "input/processed/zscaler-q4-fy26.png",
       "width": 2667,
       "height": 1500
     },

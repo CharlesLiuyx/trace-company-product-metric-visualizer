@@ -957,7 +957,7 @@
     "currency": "€",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/ferrari-q1-fy25.png",
+    "sourceImage": "input/processed/ferrari-q1-fy25.png",
     "roundingTolerance": 0.1,
     "revenue": {
       "total": 1.8,
@@ -1210,7 +1210,7 @@
     "currency": "€",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/ferrari-q4-fy24.png",
+    "sourceImage": "input/processed/ferrari-q4-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 1.7,
@@ -1446,7 +1446,7 @@
     "currency": "€",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/ferrari-q3-fy24.png",
+    "sourceImage": "input/processed/ferrari-q3-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 1.6,
@@ -1686,7 +1686,7 @@
     "currency": "€",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/ferrari-h1-fy24.png",
+    "sourceImage": "input/processed/ferrari-h1-fy24.png",
     "roundingTolerance": 0.11,
     "revenue": {
       "total": 3.3,
@@ -1926,7 +1926,7 @@
     "currency": "€",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/ferrari-q2-fy25.png",
+    "sourceImage": "input/processed/ferrari-q2-fy25.png",
     "roundingTolerance": 0.11,
     "revenue": {
       "total": 1.8,
@@ -2194,7 +2194,7 @@
     "currency": "€",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/ferrari-fy23.png",
+    "sourceImage": "input/processed/ferrari-fy23.png",
     "roundingTolerance": 0.16,
     "revenue": {
       "total": 6,

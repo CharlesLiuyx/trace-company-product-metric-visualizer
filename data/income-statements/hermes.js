@@ -1108,7 +1108,7 @@
     "currency": "€",
     "unit": "B",
     "decimals": 2,
-    "sourceImage": "input/processing/hermes-h1-fy22.png",
+    "sourceImage": "input/processed/hermes-h1-fy22.png",
     "roundingTolerance": 0.16,
     "revenue": {
       "total": 5.5,
@@ -1855,7 +1855,7 @@
     "currency": "€",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/hermes-h1-fy25.png",
+    "sourceImage": "input/processed/hermes-h1-fy25.png",
     "roundingTolerance": 0.16,
     "revenue": {
       "total": 8,
@@ -2131,7 +2131,7 @@
     "currency": "€",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/hermes-fy23.png",
+    "sourceImage": "input/processed/hermes-fy23.png",
     "roundingTolerance": 0.16,
     "revenue": {
       "total": 13.4,

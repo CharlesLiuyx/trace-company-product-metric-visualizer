@@ -1735,7 +1735,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/mastercard-q2-fy23.png",
+    "sourceImage": "input/processed/mastercard-q2-fy23.png",
     "roundingTolerance": 0.15,
     "notes": [
       "Source rounding preserved: gross fee components total 7.9B versus 7.8B from 4.1B + 3.7B; operating expense items total 2.62B versus 2.6B; net bridge 3.7B + 0.048B - 0.9B = 2.848B versus 2.8B."
@@ -3286,7 +3286,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/mastercard-q3-fy24.png",
+    "sourceImage": "input/processed/mastercard-q3-fy24.png",
     "roundingTolerance": 0.15,
     "notes": [
       "Source rounded amounts: 4.6 + 2.7 = 7.3 versus net revenue 7.4; operating expense items total 3.3 versus 3.4."
@@ -3666,7 +3666,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/mastercard-q3-fy25.png",
+    "sourceImage": "input/processed/mastercard-q3-fy25.png",
     "roundingTolerance": 0.15,
     "notes": [
       "Source-rounded values retained. Gross network items total 10.6; rebates 5.4 leave 5.2. Expense items total 3.5."

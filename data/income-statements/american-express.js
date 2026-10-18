@@ -742,7 +742,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/american-express-q1-fy25.png",
+    "sourceImage": "input/processed/american-express-q1-fy25.png",
     "roundingTolerance": 0.25,
     "revenue": {
       "total": 17,
@@ -1088,7 +1088,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/american-express-q1-fy23.png",
+    "sourceImage": "input/processed/american-express-q1-fy23.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 14.3,
@@ -1452,7 +1452,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/american-express-q1-fy24.png",
+    "sourceImage": "input/processed/american-express-q1-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 15.8,
@@ -1798,7 +1798,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/american-express-q2-fy23.png",
+    "sourceImage": "input/processed/american-express-q2-fy23.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 15.1,
@@ -2137,7 +2137,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/american-express-q2-fy24.png",
+    "sourceImage": "input/processed/american-express-q2-fy24.png",
     "roundingTolerance": 0.2,
     "revenue": {
       "total": 16.3,
@@ -2483,7 +2483,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/american-express-q2-fy25.png",
+    "sourceImage": "input/processed/american-express-q2-fy25.png",
     "roundingTolerance": 0.25,
     "revenue": {
       "total": 17.9,
@@ -2835,7 +2835,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/american-express-q3-fy23.png",
+    "sourceImage": "input/processed/american-express-q3-fy23.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 15.4,
@@ -3183,7 +3183,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/american-express-q3-fy24.png",
+    "sourceImage": "input/processed/american-express-q3-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 16.6,
@@ -3531,7 +3531,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/american-express-q3-fy25.png",
+    "sourceImage": "input/processed/american-express-q3-fy25.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 18.4,
@@ -3881,7 +3881,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/american-express-q4-fy23.png",
+    "sourceImage": "input/processed/american-express-q4-fy23.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 15.8,
@@ -4140,7 +4140,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/american-express-q4-fy24.png",
+    "sourceImage": "input/processed/american-express-q4-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 17.2,

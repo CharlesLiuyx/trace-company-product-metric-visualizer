@@ -417,7 +417,7 @@
     "currency": "$",
     "unit": "M",
     "decimals": 0,
-    "sourceImage": "input/processing/snowflake-q2-fy27.png",
+    "sourceImage": "input/processed/snowflake-q2-fy27.png",
     "roundingTolerance": 0.01,
     "revenue": {
       "total": 1547,

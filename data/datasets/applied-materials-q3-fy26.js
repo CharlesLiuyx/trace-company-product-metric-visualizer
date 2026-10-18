@@ -11,7 +11,7 @@
     "unit": "B",
     "decimals": 1,
     "referenceImage": {
-      "src": "input/processing/applied-materials-q3-fy26.png",
+      "src": "input/processed/applied-materials-q3-fy26.png",
       "width": 2667,
       "height": 1500
     },

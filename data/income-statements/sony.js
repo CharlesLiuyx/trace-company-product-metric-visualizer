@@ -1157,7 +1157,7 @@
   "currency": "¥",
   "unit": "B",
   "decimals": 0,
-  "sourceImage": "input/processing/sony-q1-fy26.png",
+  "sourceImage": "input/processed/sony-q1-fy26.png",
   "roundingTolerance": 1.5,
   "revenue": {
     "total": 2838,

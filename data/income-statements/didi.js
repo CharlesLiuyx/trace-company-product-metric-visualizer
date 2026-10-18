@@ -201,7 +201,7 @@
   "currency": "RMB",
   "unit": "B",
   "decimals": 1,
-  "sourceImage": "input/processing/didi-q2-fy26.png",
+  "sourceImage": "input/processed/didi-q2-fy26.png",
   "roundingTolerance": 0.2,
   "revenue": {
     "total": 62.5,

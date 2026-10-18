@@ -11,7 +11,7 @@ window.DATASETS=window.DATASETS||[];window.DATASETS.push({
     "unit": "B",
     "decimals": 1,
     "referenceImage": {
-      "src": "input/processing/spotify-q4-fy22.png",
+      "src": "input/processed/spotify-q4-fy22.png",
       "width": 2667,
       "height": 1500
     },

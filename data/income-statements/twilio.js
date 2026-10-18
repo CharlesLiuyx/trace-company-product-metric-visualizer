@@ -702,7 +702,7 @@
     "currency": "$",
     "unit": "M",
     "decimals": 0,
-    "sourceImage": "input/processing/twilio-q2-fy26.png",
+    "sourceImage": "input/processed/twilio-q2-fy26.png",
     "roundingTolerance": 1.5,
     "revenue": {
       "total": 1499,

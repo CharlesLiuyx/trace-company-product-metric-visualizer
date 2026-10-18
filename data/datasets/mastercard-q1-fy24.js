@@ -11,7 +11,7 @@
     "unit": "B",
     "decimals": 1,
     "referenceImage": {
-      "src": "input/processing/mastercard-q1-fy24.png",
+      "src": "input/processed/mastercard-q1-fy24.png",
       "width": 2667,
       "height": 1500
     },

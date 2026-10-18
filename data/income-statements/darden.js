@@ -239,7 +239,7 @@ ssot.records.push({
   "currency": "$",
   "unit": "B",
   "decimals": 3,
-  "sourceImage": "input/processing/darden-q1-fy27.png",
+  "sourceImage": "input/processed/darden-q1-fy27.png",
   "roundingTolerance": 0.15,
   "revenue": {
     "total": 3.2,

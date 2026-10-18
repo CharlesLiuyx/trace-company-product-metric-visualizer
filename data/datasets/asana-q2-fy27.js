@@ -11,7 +11,7 @@
     "unit": "M",
     "decimals": 0,
     "referenceImage": {
-      "src": "input/processing/asana-q2-fy27.png",
+      "src": "input/processed/asana-q2-fy27.png",
       "width": 2667,
       "height": 1500
     },

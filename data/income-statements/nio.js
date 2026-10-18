@@ -313,7 +313,7 @@ window.INCOME_STATEMENT_SSOT.records.push({
   "currency": "$",
   "unit": "B",
   "decimals": 3,
-  "sourceImage": "input/processing/nio-q2-fy26.png",
+  "sourceImage": "input/processed/nio-q2-fy26.png",
   "roundingTolerance": 0.11,
   "revenue": {
     "total": 4.7,

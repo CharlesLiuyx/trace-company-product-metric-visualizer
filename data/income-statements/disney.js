@@ -361,7 +361,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/disney-q3-fy26-by-segment.png",
+    "sourceImage": "input/processed/disney-q3-fy26-by-segment.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 25.2,
@@ -762,7 +762,7 @@
   "currency": "$",
   "unit": "B",
   "decimals": 1,
-  "sourceImage": "input/processing/disney-q4-fy22.png",
+  "sourceImage": "input/processed/disney-q4-fy22.png",
   "roundingTolerance": 0.15,
   "revenue": {
     "total": 20.1,

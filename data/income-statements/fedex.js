@@ -1392,7 +1392,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/fedex-q2-fy25.png",
+    "sourceImage": "input/processed/fedex-q2-fy25.png",
     "roundingTolerance": 0.2,
     "revenue": {
       "total": 22,
@@ -1964,7 +1964,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/fedex-q3-fy23.png",
+    "sourceImage": "input/processed/fedex-q3-fy23.png",
     "roundingTolerance": 0.2,
     "revenue": {
       "total": 22.2,
@@ -2541,7 +2541,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/fedex-q4-fy24.png",
+    "sourceImage": "input/processed/fedex-q4-fy24.png",
     "roundingTolerance": 0.2,
     "revenue": {
       "total": 22.1,
@@ -2839,7 +2839,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/fedex-q2-fy23.png",
+    "sourceImage": "input/processed/fedex-q2-fy23.png",
     "roundingTolerance": 0.2,
     "revenue": {
       "total": 22.8,
@@ -3444,7 +3444,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/fedex-q1-fy25.png",
+    "sourceImage": "input/processed/fedex-q1-fy25.png",
     "roundingTolerance": 0.2,
     "revenue": {
       "total": 21.6,
@@ -3712,7 +3712,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/fedex-q2-fy26.png",
+    "sourceImage": "input/processed/fedex-q2-fy26.png",
     "roundingTolerance": 0.2,
     "revenue": {
       "total": 23.5,

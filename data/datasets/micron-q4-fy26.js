@@ -11,7 +11,7 @@
     "unit": "B",
     "decimals": 1,
     "referenceImage": {
-      "src": "input/processing/micron-q4-fy26.png",
+      "src": "input/processed/micron-q4-fy26.png",
       "width": 2667,
       "height": 1500
     },

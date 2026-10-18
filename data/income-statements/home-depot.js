@@ -266,7 +266,7 @@ window.INCOME_STATEMENT_SSOT.records.push({
   "currency": "$",
   "unit": "B",
   "decimals": 1,
-  "sourceImage": "input/processing/home-depot-q2-fy26.png",
+  "sourceImage": "input/processed/home-depot-q2-fy26.png",
   "roundingTolerance": 0.15,
   "revenue": {
     "total": 47.9,

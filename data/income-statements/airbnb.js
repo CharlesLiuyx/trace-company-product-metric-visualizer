@@ -1503,7 +1503,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/airbnb-q4-fy24.png",
+    "sourceImage": "input/processed/airbnb-q4-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 2.5,
@@ -1841,7 +1841,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/airbnb-fy23.png",
+    "sourceImage": "input/processed/airbnb-fy23.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 9.9,
@@ -2213,7 +2213,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/airbnb-q1-fy23.png",
+    "sourceImage": "input/processed/airbnb-q1-fy23.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 1.8,
@@ -2528,7 +2528,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/airbnb-q1-fy24.png",
+    "sourceImage": "input/processed/airbnb-q1-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 2.1,
@@ -2818,7 +2818,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/airbnb-q2-fy23.png",
+    "sourceImage": "input/processed/airbnb-q2-fy23.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 2.5,
@@ -3200,7 +3200,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/airbnb-q2-fy24.png",
+    "sourceImage": "input/processed/airbnb-q2-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 2.7,
@@ -3537,7 +3537,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/airbnb-q2-fy25.png",
+    "sourceImage": "input/processed/airbnb-q2-fy25.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 3.1,
@@ -3888,7 +3888,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/airbnb-q3-fy22.png",
+    "sourceImage": "input/processed/airbnb-q3-fy22.png",
     "roundingTolerance": 0.11,
     "revenue": {
       "total": 2.9,
@@ -4189,7 +4189,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/airbnb-q3-fy23.png",
+    "sourceImage": "input/processed/airbnb-q3-fy23.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 3.4,
@@ -4560,7 +4560,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/airbnb-q3-fy24.png",
+    "sourceImage": "input/processed/airbnb-q3-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 3.7,
@@ -4912,7 +4912,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/airbnb-q4-fy22.png",
+    "sourceImage": "input/processed/airbnb-q4-fy22.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 1.9,

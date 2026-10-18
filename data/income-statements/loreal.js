@@ -1034,7 +1034,7 @@
     "currency": "€",
     "unit": "B",
     "decimals": 2,
-    "sourceImage": "input/processing/loreal-h1-fy23.png",
+    "sourceImage": "input/processed/loreal-h1-fy23.png",
     "roundingTolerance": 0.1,
     "revenue": {
       "total": 20.6,

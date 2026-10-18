@@ -858,7 +858,7 @@ window.INCOME_STATEMENT_SSOT.records.push(...[
     "currency": "$",
     "unit": "M",
     "decimals": 0,
-    "sourceImage": "input/processing/match-group-q2-fy26.png",
+    "sourceImage": "input/processed/match-group-q2-fy26.png",
     "roundingTolerance": 2.1,
     "revenue": {
       "total": 853,

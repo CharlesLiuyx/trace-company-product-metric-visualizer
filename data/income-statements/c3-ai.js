@@ -455,7 +455,7 @@
     "currency": "$",
     "unit": "M",
     "decimals": 0,
-    "sourceImage": "input/processing/c3-ai-q1-fy27.png",
+    "sourceImage": "input/processed/c3-ai-q1-fy27.png",
     "roundingTolerance": 1.1,
     "revenue": {
       "total": 52,

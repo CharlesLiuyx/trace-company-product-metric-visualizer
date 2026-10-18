@@ -145,7 +145,7 @@
     meta: {
       company: 'Costco', title: 'Costco Q4 FY26 Income Statement', period: 'Q4 FY26',
       periodNote: 'Ending Aug. 2026', currency: '$', unit: 'B', decimals: 1,
-      referenceImage: { src: 'input/processing/costco-q4-fy26.png', width: 2667, height: 1500 },
+      referenceImage: { src: 'input/processed/costco-q4-fy26.png', width: 2667, height: 1500 },
       titleX: 1334, titleY: 194, titleSize: 132, titleWeight: 800, titleTextLength: 2165,
       periodX: 2255, periodY: 1228, periodNoteY: 1270,
     },

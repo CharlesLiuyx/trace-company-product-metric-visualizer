@@ -11,7 +11,7 @@ window.DATASETS=window.DATASETS||[];window.DATASETS.push({
     "unit": "B",
     "decimals": 1,
     "referenceImage": {
-      "src": "input/processing/amd-q2-fy26.png",
+      "src": "input/processed/amd-q2-fy26.png",
       "width": 2667,
       "height": 1500
     },

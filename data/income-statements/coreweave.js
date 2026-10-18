@@ -589,7 +589,7 @@
   "currency": "$",
   "unit": "B",
   "decimals": 3,
-  "sourceImage": "input/processing/coreweave-q2-fy26.png",
+  "sourceImage": "input/processed/coreweave-q2-fy26.png",
   "roundingTolerance": 0.15,
   "revenue": {
     "total": 2.6,

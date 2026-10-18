@@ -1456,7 +1456,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/starbucks-q1-fy25.png",
+    "sourceImage": "input/processed/starbucks-q1-fy25.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 9.4,
@@ -1865,7 +1865,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/starbucks-fy24.png",
+    "sourceImage": "input/processed/starbucks-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 36.2,
@@ -2272,7 +2272,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/starbucks-q1-fy23.png",
+    "sourceImage": "input/processed/starbucks-q1-fy23.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 8.7,
@@ -2695,7 +2695,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/starbucks-q1-fy24.png",
+    "sourceImage": "input/processed/starbucks-q1-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 9.4,
@@ -3108,7 +3108,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/starbucks-q2-fy23.png",
+    "sourceImage": "input/processed/starbucks-q2-fy23.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 8.7,
@@ -3530,7 +3530,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/starbucks-q2-fy24.png",
+    "sourceImage": "input/processed/starbucks-q2-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 8.6,
@@ -3940,7 +3940,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/starbucks-q3-fy23.png",
+    "sourceImage": "input/processed/starbucks-q3-fy23.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 9.2,
@@ -4356,7 +4356,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/starbucks-q3-fy24.png",
+    "sourceImage": "input/processed/starbucks-q3-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 9.1,
@@ -4761,7 +4761,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/starbucks-q3-fy25.png",
+    "sourceImage": "input/processed/starbucks-q3-fy25.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 9.5,
@@ -5135,7 +5135,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/starbucks-q4-fy22.png",
+    "sourceImage": "input/processed/starbucks-q4-fy22.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 8.4,
@@ -5546,7 +5546,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/starbucks-q4-fy23.png",
+    "sourceImage": "input/processed/starbucks-q4-fy23.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 9.4,

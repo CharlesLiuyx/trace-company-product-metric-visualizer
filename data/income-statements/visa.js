@@ -292,7 +292,7 @@
   "currency": "$",
   "unit": "B",
   "decimals": 1,
-  "sourceImage": "input/processing/visa-q2-fy25.png",
+  "sourceImage": "input/processed/visa-q2-fy25.png",
   "roundingTolerance": 0.15,
   "notes": [
     "Source-rounded operating profit $5.4B less tax $0.9B differs from net profit $4.6B by $0.1B. Source values are retained."

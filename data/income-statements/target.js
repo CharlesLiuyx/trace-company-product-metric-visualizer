@@ -971,7 +971,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/target-q2-fy27.png",
+    "sourceImage": "input/processed/target-q2-fy27.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 26.5,

@@ -811,7 +811,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/paypal-q1-fy25.png",
+    "sourceImage": "input/processed/paypal-q1-fy25.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 7.8,
@@ -1890,7 +1890,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/paypal-q1-fy24.png",
+    "sourceImage": "input/processed/paypal-q1-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 7.7,
@@ -2250,7 +2250,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/paypal-q2-fy23.png",
+    "sourceImage": "input/processed/paypal-q2-fy23.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 7.3,
@@ -2604,7 +2604,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/paypal-q2-fy24.png",
+    "sourceImage": "input/processed/paypal-q2-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 7.9,
@@ -2869,7 +2869,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/paypal-q2-fy25.png",
+    "sourceImage": "input/processed/paypal-q2-fy25.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 8.3,
@@ -3509,7 +3509,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/paypal-q3-fy23.png",
+    "sourceImage": "input/processed/paypal-q3-fy23.png",
     "roundingTolerance": 0.16,
     "revenue": {
       "total": 7.4,
@@ -3838,7 +3838,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/paypal-q3-fy24.png",
+    "sourceImage": "input/processed/paypal-q3-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 7.8,
@@ -4199,7 +4199,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/paypal-q3-fy25.png",
+    "sourceImage": "input/processed/paypal-q3-fy25.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 8.4,

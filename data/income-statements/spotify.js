@@ -1040,7 +1040,7 @@
     "currency": "€",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/spotify-q1-fy25.png",
+    "sourceImage": "input/processed/spotify-q1-fy25.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 4.2,
@@ -1378,7 +1378,7 @@
     "currency": "€",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/spotify-q4-fy24.png",
+    "sourceImage": "input/processed/spotify-q4-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 4.2,
@@ -1714,7 +1714,7 @@
     "currency": "€",
     "unit": "M",
     "decimals": 0,
-    "sourceImage": "input/processing/spotify-q1-fy23.png",
+    "sourceImage": "input/processed/spotify-q1-fy23.png",
     "roundingTolerance": 0.01,
     "revenue": {
       "total": 3042,
@@ -1936,7 +1936,7 @@
     "currency": "€",
     "unit": "M",
     "decimals": 0,
-    "sourceImage": "input/processing/spotify-q1-fy24.png",
+    "sourceImage": "input/processed/spotify-q1-fy24.png",
     "roundingTolerance": 0.01,
     "revenue": {
       "total": 3636,
@@ -2260,7 +2260,7 @@
     "currency": "€",
     "unit": "M",
     "decimals": 0,
-    "sourceImage": "input/processing/spotify-q2-fy23.png",
+    "sourceImage": "input/processed/spotify-q2-fy23.png",
     "roundingTolerance": 1,
     "revenue": {
       "total": 3177,
@@ -2544,7 +2544,7 @@
     "currency": "€",
     "unit": "M",
     "decimals": 0,
-    "sourceImage": "input/processing/spotify-q2-fy24.png",
+    "sourceImage": "input/processed/spotify-q2-fy24.png",
     "roundingTolerance": 1,
     "revenue": {
       "total": 3807,
@@ -2870,7 +2870,7 @@
     "currency": "€",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/spotify-q2-fy25.png",
+    "sourceImage": "input/processed/spotify-q2-fy25.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 4.2,
@@ -3187,7 +3187,7 @@
     "currency": "€",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/spotify-q3-fy22.png",
+    "sourceImage": "input/processed/spotify-q3-fy22.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 3,
@@ -3527,7 +3527,7 @@
     "currency": "€",
     "unit": "M",
     "decimals": 0,
-    "sourceImage": "input/processing/spotify-q3-fy23.png",
+    "sourceImage": "input/processed/spotify-q3-fy23.png",
     "roundingTolerance": 0,
     "revenue": {
       "total": 3357,
@@ -3840,7 +3840,7 @@
     "currency": "€",
     "unit": "M",
     "decimals": 0,
-    "sourceImage": "input/processing/spotify-q3-fy24.png",
+    "sourceImage": "input/processed/spotify-q3-fy24.png",
     "roundingTolerance": 0.5,
     "revenue": {
       "total": 3988,
@@ -4187,7 +4187,7 @@
     "currency": "€",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/spotify-q4-fy22.png",
+    "sourceImage": "input/processed/spotify-q4-fy22.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 3.2,
@@ -4512,7 +4512,7 @@
     "currency": "€",
     "unit": "M",
     "decimals": 0,
-    "sourceImage": "input/processing/spotify-q4-fy23.png",
+    "sourceImage": "input/processed/spotify-q4-fy23.png",
     "roundingTolerance": 1,
     "revenue": {
       "total": 3671,

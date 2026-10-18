@@ -9,7 +9,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/gm-q1-fy25.png",
+    "sourceImage": "input/processed/gm-q1-fy25.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 44,
@@ -950,7 +950,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/gm-q2-fy24.png",
+    "sourceImage": "input/processed/gm-q2-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 48,
@@ -1185,7 +1185,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/gm-q3-fy25.png",
+    "sourceImage": "input/processed/gm-q3-fy25.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 48.6,
@@ -1420,7 +1420,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/gm-q4-fy23.png",
+    "sourceImage": "input/processed/gm-q4-fy23.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 43,
@@ -1675,7 +1675,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 4,
-    "sourceImage": "input/processing/gm-q4-fy22.png",
+    "sourceImage": "input/processed/gm-q4-fy22.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 43.1,
@@ -1899,7 +1899,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/gm-q2-fy23.png",
+    "sourceImage": "input/processed/gm-q2-fy23.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 44.7,
@@ -2152,7 +2152,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 1,
-    "sourceImage": "input/processing/gm-q4-fy24.png",
+    "sourceImage": "input/processed/gm-q4-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 47.7,
@@ -2395,7 +2395,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/gm-q3-fy23.png",
+    "sourceImage": "input/processed/gm-q3-fy23.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 44.1,
@@ -2645,7 +2645,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/gm-q3-fy24.png",
+    "sourceImage": "input/processed/gm-q3-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 48.8,
@@ -2898,7 +2898,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/gm-q1-fy24.png",
+    "sourceImage": "input/processed/gm-q1-fy24.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 43,
@@ -3147,7 +3147,7 @@
     "currency": "$",
     "unit": "B",
     "decimals": 3,
-    "sourceImage": "input/processing/gm-q1-fy23.png",
+    "sourceImage": "input/processed/gm-q1-fy23.png",
     "roundingTolerance": 0.15,
     "revenue": {
       "total": 40,
