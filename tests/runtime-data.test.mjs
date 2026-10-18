@@ -31,6 +31,7 @@ function viewer(fetchOverride) {
 
 test('bootstrap fits the catalog budget and restores every versioned adapter manifest entry', () => {
   assert.ok(Buffer.byteLength(projection.source) <= 1024 * 1024, 'catalog must fit the Pages raw-byte budget');
+  assert.ok(!projection.source.includes('"src":"data/datasets/'), 'conventional Adapter paths are restored from the key, not stored');
   const { context } = viewer();
   const expected = plain(full.__DATASET_MANIFEST__);
   for (const entry of expected.datasets) entry.src = `releases/${version}/${entry.src}`;

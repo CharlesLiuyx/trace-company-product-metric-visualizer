@@ -25,7 +25,8 @@ foundation date, and update timestamps. It omits financial line items and
 long company profiles. The currently small Revenue Metric SSOT remains complete
 in the catalog so historical observation/source search stays complete. Its
 size remains part of the startup budget; split it when growth warrants it.
-The generated catalog stores the shared version path once and restores each
+The generated catalog stores the shared version path once, omits an Adapter
+`src` that is the conventional `data/datasets/<key>.js`, and restores each
 Adapter's complete URL before installing the Dataset Loader manifest.
 
 Company JSON includes full authored metadata and all financial periods for that

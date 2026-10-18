@@ -37,6 +37,9 @@ export function buildSiteData({ root, sources, version, assetPrefix }) {
     vm.runInContext(readFileSync(path.join(root, source), 'utf8'), context, { filename: source });
   }
   const datasetManifest = JSON.parse(JSON.stringify(context.__DATASET_MANIFEST__));
+  // An Adapter at its conventional path needs no stored src; the bootstrap
+  // restores it from the key (see the restore line below).
+  datasetManifest.datasets.forEach((entry) => { if (entry.src === `data/datasets/${entry.key}.js`) delete entry.src; });
   const financial = JSON.parse(JSON.stringify(context.INCOME_STATEMENT_SSOT?.records || []));
   const companies = JSON.parse(JSON.stringify(context.COMPANY_METADATA?.companies || []));
   const companyIndex = context.TraceDomain.buildCompanyMetadataIndex(companies);
@@ -83,7 +86,7 @@ export function buildSiteData({ root, sources, version, assetPrefix }) {
     ...Object.entries(globals).map(([key, value]) => `window.${key}=${JSON.stringify(value)};`),
     // Store the shared version path once, then restore complete loader URLs
     // before the registry consumes the manifest.
-    `window.__DATASET_MANIFEST__.datasets.forEach(function(entry){entry.src=${JSON.stringify(`${assetPrefix}/`)}+entry.src;});`,
+    `window.__DATASET_MANIFEST__.datasets.forEach(function(entry){entry.src=${JSON.stringify(`${assetPrefix}/`)}+(entry.src||'data/datasets/'+entry.key+'.js');});`,
     'window.TraceDatasetRegistry.installManifest(window.__DATASET_MANIFEST__);',
     `window.TraceRuntimeData.install(${JSON.stringify(manifest)});`,
   ].join('\n');
