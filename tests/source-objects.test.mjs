@@ -198,6 +198,40 @@ test('T22 rejects any Income Statement amount routed as a faceless flow, not onl
   assert.doesNotThrow(() => create([otherIncome()], { loadedData: loadedData() }));
 });
 
+test('T22 rejects an amount drawn as a link-declaring guide annotation', () => {
+  // fedex-q2-fy23 / ferrari-q2-fy25: Other $10M and Investments €2M were leader annotations with
+  // data-link-numerator; hover missed them and the opex/net-profit link shares left them out.
+  const guide = '<g class="sankey-interactive-annotation" data-node="other_income" data-link-numerator="other_income" data-link-denominator="net_profit"><path d="M0 0 H10"/></g>';
+  for (const place of ['root', 'locale']) {
+    const loaded = loadedData();
+    loaded.datasets[0].nodes = [];
+    loaded.datasets[0].nonNodeMetrics = [{ id: 'other_income', representation: 'annotation', value: 0.04 }];
+    if (place === 'root') loaded.datasets[0].annotationsSvg = guide;
+    else loaded.datasets[0].i18n = { zh: { annotationsSvg: guide } };
+    assert.throws(() => create([otherIncome({ node: undefined, nonNodeMetric: 'other_income' })], { loadedData: loaded }),
+      (error) => error.code === 'SOURCE_OBJECTS_VALUE_NODE_REQUIRED' && /data-link-numerator/.test(error.message), place);
+  }
+  // ford-q2-fy24 / ford-q1-fy25: Operating profit -> Net profit set showTooltip: false, so hovering
+  // Net profit showed every share except the main profit flow.
+  const linked = loadedData();
+  linked.datasets[0].nodes.push({ id: 'product_cost', value: 0.6, valueText: '$600M' });
+  const productCost = {
+    id: 'product-cost', class: 'value', literal: '$600M', value: '600', unit: 'M',
+    ssotRef: { family: 'income-statement', path: 'costs.costOfRevenue.items', id: 'product_cost' }, node: 'product_cost',
+  };
+  linked.datasets[0].links = [{ source: 'product_cost', target: 'other_income', value: 0.04, showTooltip: false }];
+  assert.throws(() => create([otherIncome(), productCost], { loadedData: linked }),
+    (error) => error.code === 'SOURCE_OBJECTS_LINK_SHARE_SUPPRESSED');
+  linked.datasets[0].links = [{ source: 'product_cost', target: 'bridge', value: 0.04, showTooltip: false }];
+  assert.doesNotThrow(() => create([otherIncome(), productCost], { loadedData: linked }));
+  // A plain note annotation without link ends (segment profit beside its bar) stays allowed.
+  const note = loadedData();
+  note.datasets[0].nodes = [];
+  note.datasets[0].nonNodeMetrics = [{ id: 'other_income', representation: 'annotation', value: 0.04 }];
+  note.datasets[0].annotationsSvg = '<text data-node="other_income">$40M</text>';
+  assert.doesNotThrow(() => create([otherIncome({ node: undefined, nonNodeMetric: 'other_income' })], { loadedData: note }));
+});
+
 test('T22 rejects Other revenue routing without a face and preserves a declared short node', () => {
   const other = otherIncome({
     id: 'other-revenue', literal: '$0.2B', value: '0.2', unit: 'B',

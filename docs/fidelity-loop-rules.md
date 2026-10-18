@@ -129,7 +129,7 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 #### <a id="rule-t22"></a>T22 · build-gate · 带值 Other 是数据柱
 
 - 触发：prepare 校验 `source-objects/v1` 时，对象的 id、label 或 literal 命中 Other/All Other 语义。
-- 检查：带值 Other 是数据指标而非标注：label 或 literal 含 K/M/B/T 金额而 class 不是 `value` 立即失败（`SOURCE_OBJECTS_OTHER_CLASS_INVALID`）；Other 对象不得记为 `residual`。收入构成中的 Other 必须绑定 node，不能用 nonNodeMetric 路由省略柱面（`SOURCE_OBJECTS_OTHER_REVENUE_NODE_REQUIRED`）；prepare 对账时，任何利润表金额绑定到 `flow`（或未声明 representation）的 nonNodeMetric 也失败（`SOURCE_OBJECTS_VALUE_NODE_REQUIRED`），因为路由只画连线、没有可 Hover 的柱面与 Link 百分比；只有 `annotation`/`data-only` 表示保留非节点。映射到 node 的 value 对象由 B15 在渲染时确认柱面已绘制。
+- 检查：带值 Other 是数据指标而非标注：label 或 literal 含 K/M/B/T 金额而 class 不是 `value` 立即失败（`SOURCE_OBJECTS_OTHER_CLASS_INVALID`）；Other 对象不得记为 `residual`。收入构成中的 Other 必须绑定 node，不能用 nonNodeMetric 路由省略柱面（`SOURCE_OBJECTS_OTHER_REVENUE_NODE_REQUIRED`）；prepare 对账时，任何利润表金额绑定到 `flow`（或未声明 representation）的 nonNodeMetric 也失败（`SOURCE_OBJECTS_VALUE_NODE_REQUIRED`），因为路由只画连线、没有可 Hover 的柱面与 Link 百分比；`annotation` 表示的金额若在任一 locale 的 `annotationsSvg` 中声明 `data-link-numerator`（用引导线冒充连线），同样以 `SOURCE_OBJECTS_VALUE_NODE_REQUIRED` 失败——小金额是正常节点数据，须画真实短 node 与 link（引导线形状用自定义 curve）；只有不声明 link 两端的说明性 `annotation` 与 `data-only` 表示保留非节点；两端都映射 Source 金额 node 的 link 不得设 `showTooltip: false`（`SOURCE_OBJECTS_LINK_SHARE_SUPPRESSED`），它是财务关系而非纯视觉路由。映射到 node 的 value 对象由 B15 在渲染时确认柱面已绘制。
 - 通过：把带值 Other 记成标签、流带、资产或残留一律失败；真实柱面低于 3px 时按 B15 的 `shortNodes` 声明处理，而不是隐藏。
 
 #### <a id="rule-t6"></a>T6 · conditional-gate · 侧置 label 列对齐

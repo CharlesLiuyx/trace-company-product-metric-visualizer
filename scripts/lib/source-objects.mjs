@@ -807,6 +807,8 @@ function reconcileIncomeStatement(sourceObjects, values, loaded) {
   }
   const nodes = new Map((dataset.nodes || []).map((node) => [node.id, node]));
   const nonNodeMetrics = new Map((dataset.nonNodeMetrics || []).map((metric) => [metric.id, metric]));
+  const linkedAnnotations = linkedAnnotationMetricIds(dataset);
+  const valueNodes = new Set();
   const operatingMetrics = assertOperatingMetricView(record, dataset);
   const operating = values.filter((entry) => entry.ssotRef.path === OPERATING_METRIC_SSOT_PATH);
   if (operatingMetrics.length !== operating.length) {
@@ -836,6 +838,12 @@ function reconcileIncomeStatement(sourceObjects, values, loaded) {
     if (!entry.node && (metric.representation || 'flow') === 'flow') {
       throw sourceObjectsError('SOURCE_OBJECTS_VALUE_NODE_REQUIRED', `${entry.id} is routed as nonNodeMetric flow ${target}; map the Source amount to a painted node and declare a thin face in shortNodes`);
     }
+    // T22: an amount drawn as a guide annotation that declares link ends is a
+    // flow in disguise; it hovers only on its own bbox and never joins a
+    // node's link shares. Small amounts are ordinary node data.
+    if (!entry.node && metric.representation === 'annotation' && linkedAnnotations.has(target)) {
+      throw sourceObjectsError('SOURCE_OBJECTS_VALUE_NODE_REQUIRED', `${entry.id} is drawn as annotation ${target} with data-link-numerator; map the Source amount to a painted node and a real link (custom curve for a leader shape) and declare a thin face in shortNodes`);
+    }
     const type = metric.type;
     if (!equalAmount(normalizeSankeyMetricValue(actualSsot, type), normalizeSankeyMetricValue(expected, type))) {
       throw sourceObjectsError('SOURCE_OBJECTS_SSOT_VALUE_MISMATCH', `${entry.id} Source amount ${entry.value}${entry.unit} does not match SSOT ${entry.ssotRef.path}/${entry.ssotRef.id}: ${actualSsot}`);
@@ -845,13 +853,35 @@ function reconcileIncomeStatement(sourceObjects, values, loaded) {
       throw sourceObjectsError('SOURCE_OBJECTS_ADAPTER_VALUE_MISMATCH', `${entry.id} Source amount ${entry.value}${entry.unit} does not match Adapter metric ${target}: ${metric.value}`);
     }
     if (entry.node) {
+      valueNodes.add(entry.node);
       assertNodeDisplayPrecision(dataset, metric, expected, record.unit, entry.id);
       if (expected === 0) {
         throw sourceObjectsError('SOURCE_OBJECTS_NODE_ZERO_VALUE', `${entry.id} maps to painted node ${target} but reconciles to zero`);
       }
     }
   }
+  // T22: a link between two Source amounts is a financial relationship, not a
+  // visual-only route, so its hover share must stay visible.
+  for (const link of dataset.links || []) {
+    if (link.showTooltip === false && valueNodes.has(link.source) && valueNodes.has(link.target)) {
+      throw sourceObjectsError('SOURCE_OBJECTS_LINK_SHARE_SUPPRESSED', `Link ${link.source} -> ${link.target} joins two Source amounts but sets showTooltip: false; keep its hover share visible`);
+    }
+  }
   return { checked: values.length, unit: record.unit };
+}
+
+// Metric ids that any locale's annotationsSvg presents as a link numerator.
+function linkedAnnotationMetricIds(dataset) {
+  const ids = new Set();
+  const visit = (value, key) => {
+    if (typeof value === 'string') {
+      if (key === 'annotationsSvg') for (const match of value.matchAll(/data-link-numerator=["']([^"']+)["']/g)) ids.add(match[1]);
+    } else if (value && typeof value === 'object') {
+      for (const [childKey, child] of Object.entries(value)) visit(child, childKey);
+    }
+  };
+  visit(dataset, null);
+  return ids;
 }
 
 function reconcileRevenueMetric(sourceObjects, values, loaded) {
