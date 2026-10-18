@@ -28,3 +28,6 @@ input/**/.DS_Store
 
 # Crop recipes are durable metadata; reference PNGs remain local-only.
 !input/icon-crop-specs/*.json
+
+# Crop validation sheets are local review material like input/processed/.
+data/assets/icon-references/**/validation-sheets/

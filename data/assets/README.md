@@ -24,7 +24,7 @@ data/assets/
   icon-references/
     <company>/
       crops/              # validated icon reference crops
-      validation-sheets/  # original image + crop-box review sheets
+      validation-sheets/  # original image + crop-box review sheets (local-only, Git-ignored)
       crop-report.json    # script output and validation metrics
       model-validation.md # model/visual acceptance record
   raster-annotations/
@@ -62,7 +62,10 @@ Each spec should crop only the icon subject, then validate:
 When `validationSheetDir` is set, the script also writes per-crop validation
 sheets with the original reference, highlighted crop box, and extracted crop.
 Use those sheets for visual/model validation before accepting an asset.
-Record the result in the company folder's `model-validation.md`.
+Record the result in the company folder's `model-validation.md`. Like
+`input/processed/`, the sheets stay on the machine that produced them: they are
+Git-ignored, no script reads them, and `crop-report.json` plus
+`model-validation.md` carry the reviewable record.
 
 Each `crop-report.json` records the sampled crop background color and
 transparent pixel ratio for every crop. Disable or tune this with
