@@ -838,6 +838,10 @@ identity-mapped term as translated wherever it appears.
 Link colour is derived automatically from the two endpoints' types (a teal→teal,
 green→green, or green→salmon gradient), so you only specify the flow amount.
 Keep flows conserved (sum of a node's inflows ≈ its outflows) for clean bars.
+A link `value` is the actual flow amount: it may not exceed what its source
+receives (its amount or inflow total) or what its target passes on (its amount
+or outflow total) by more than one display unit; never copy the target's total
+into each inflow. `verify:ssot` enforces this (`scripts/lib/link-amounts.mjs`).
 
 Fixed-layout adapters may use measured endpoint geometry:
 

@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-10-18T11:22:17.000Z",
+  "generatedAt": "2026-10-18T11:39:05.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -2391,8 +2391,8 @@
     },
     "coreweave-q3-fy25": {
       "path": "data/datasets/coreweave-q3-fy25.js",
-      "updatedAtMs": 1784322877000,
-      "updatedAt": "2026-07-17T21:14:37.000Z",
+      "updatedAtMs": 1792323545000,
+      "updatedAt": "2026-10-18T11:39:05.000Z",
       "timeSource": "git"
     },
     "lenovo-q2-fy26": {
@@ -6165,8 +6165,8 @@
     },
     "arista-q2-fy26": {
       "path": "data/datasets/arista-q2-fy26.js",
-      "updatedAtMs": 1788844579000,
-      "updatedAt": "2026-09-08T05:16:19.000Z",
+      "updatedAtMs": 1792323545000,
+      "updatedAt": "2026-10-18T11:39:05.000Z",
       "timeSource": "git"
     },
     "axon-q2-fy26": {
@@ -6513,8 +6513,8 @@
     },
     "duolingo-q2-fy26": {
       "path": "data/datasets/duolingo-q2-fy26.js",
-      "updatedAtMs": 1791007484000,
-      "updatedAt": "2026-10-03T06:04:44.000Z",
+      "updatedAtMs": 1792323545000,
+      "updatedAt": "2026-10-18T11:39:05.000Z",
       "timeSource": "git"
     },
     "jd-com-q2-fy26": {
@@ -6627,8 +6627,8 @@
     },
     "amd-q2-fy26": {
       "path": "data/datasets/amd-q2-fy26.js",
-      "updatedAtMs": 1791025920000,
-      "updatedAt": "2026-10-03T11:12:00.000Z",
+      "updatedAtMs": 1792323545000,
+      "updatedAt": "2026-10-18T11:39:05.000Z",
       "timeSource": "git"
     },
     "analog-devices-q3-fy26": {
@@ -6675,8 +6675,8 @@
     },
     "doordash-q2-fy26": {
       "path": "data/datasets/doordash-q2-fy26.js",
-      "updatedAtMs": 1791025920000,
-      "updatedAt": "2026-10-03T11:12:00.000Z",
+      "updatedAtMs": 1792323545000,
+      "updatedAt": "2026-10-18T11:39:05.000Z",
       "timeSource": "git"
     },
     "ferrari-q1-fy25": {
@@ -6933,8 +6933,8 @@
     },
     "samsara-q2-fy27": {
       "path": "data/datasets/samsara-q2-fy27.js",
-      "updatedAtMs": 1791034863000,
-      "updatedAt": "2026-10-03T13:41:03.000Z",
+      "updatedAtMs": 1792323545000,
+      "updatedAt": "2026-10-18T11:39:05.000Z",
       "timeSource": "git"
     },
     "snowflake-q2-fy27": {
@@ -6969,8 +6969,8 @@
     },
     "airbnb-q4-fy24": {
       "path": "data/datasets/airbnb-q4-fy24.js",
-      "updatedAtMs": 1791038406000,
-      "updatedAt": "2026-10-03T14:40:06.000Z",
+      "updatedAtMs": 1792323545000,
+      "updatedAt": "2026-10-18T11:39:05.000Z",
       "timeSource": "git"
     },
     "american-express-q1-fy25": {
@@ -7083,8 +7083,8 @@
     },
     "paypal-q4-fy24": {
       "path": "data/datasets/paypal-q4-fy24.js",
-      "updatedAtMs": 1791038406000,
-      "updatedAt": "2026-10-03T14:40:06.000Z",
+      "updatedAtMs": 1792323545000,
+      "updatedAt": "2026-10-18T11:39:05.000Z",
       "timeSource": "git"
     },
     "pfizer-q1-fy25": {
@@ -7233,14 +7233,14 @@
     },
     "starbucks-q2-fy24": {
       "path": "data/datasets/starbucks-q2-fy24.js",
-      "updatedAtMs": 1791127016000,
-      "updatedAt": "2026-10-04T15:16:56.000Z",
+      "updatedAtMs": 1792323545000,
+      "updatedAt": "2026-10-18T11:39:05.000Z",
       "timeSource": "git"
     },
     "starbucks-q3-fy23": {
       "path": "data/datasets/starbucks-q3-fy23.js",
-      "updatedAtMs": 1791127016000,
-      "updatedAt": "2026-10-04T15:16:56.000Z",
+      "updatedAtMs": 1792323545000,
+      "updatedAt": "2026-10-18T11:39:05.000Z",
       "timeSource": "git"
     },
     "starbucks-q3-fy24": {
@@ -7263,8 +7263,8 @@
     },
     "starbucks-q4-fy23": {
       "path": "data/datasets/starbucks-q4-fy23.js",
-      "updatedAtMs": 1791127016000,
-      "updatedAt": "2026-10-04T15:16:56.000Z",
+      "updatedAtMs": 1792323545000,
+      "updatedAt": "2026-10-18T11:39:05.000Z",
       "timeSource": "git"
     },
     "walmart-q1-fy24": {
@@ -7317,8 +7317,8 @@
     },
     "walmart-q4-fy23": {
       "path": "data/datasets/walmart-q4-fy23.js",
-      "updatedAtMs": 1791127016000,
-      "updatedAt": "2026-10-04T15:16:56.000Z",
+      "updatedAtMs": 1792323545000,
+      "updatedAt": "2026-10-18T11:39:05.000Z",
       "timeSource": "git"
     },
     "walmart-q4-fy24": {
@@ -7353,14 +7353,14 @@
     },
     "airbnb-q2-fy24": {
       "path": "data/datasets/airbnb-q2-fy24.js",
-      "updatedAtMs": 1792059444000,
-      "updatedAt": "2026-10-15T10:17:24.000Z",
+      "updatedAtMs": 1792323545000,
+      "updatedAt": "2026-10-18T11:39:05.000Z",
       "timeSource": "git"
     },
     "airbnb-q2-fy25": {
       "path": "data/datasets/airbnb-q2-fy25.js",
-      "updatedAtMs": 1792059444000,
-      "updatedAt": "2026-10-15T10:17:24.000Z",
+      "updatedAtMs": 1792323545000,
+      "updatedAt": "2026-10-18T11:39:05.000Z",
       "timeSource": "git"
     },
     "airbnb-q3-fy22": {
@@ -7377,8 +7377,8 @@
     },
     "airbnb-q3-fy24": {
       "path": "data/datasets/airbnb-q3-fy24.js",
-      "updatedAtMs": 1792059444000,
-      "updatedAt": "2026-10-15T10:17:24.000Z",
+      "updatedAtMs": 1792323545000,
+      "updatedAt": "2026-10-18T11:39:05.000Z",
       "timeSource": "git"
     },
     "airbnb-q4-fy22": {
@@ -7587,14 +7587,14 @@
     },
     "mastercard-q2-fy24": {
       "path": "data/datasets/mastercard-q2-fy24.js",
-      "updatedAtMs": 1792059444000,
-      "updatedAt": "2026-10-15T10:17:24.000Z",
+      "updatedAtMs": 1792323545000,
+      "updatedAt": "2026-10-18T11:39:05.000Z",
       "timeSource": "git"
     },
     "mastercard-q2-fy25": {
       "path": "data/datasets/mastercard-q2-fy25.js",
-      "updatedAtMs": 1792059444000,
-      "updatedAt": "2026-10-15T10:17:24.000Z",
+      "updatedAtMs": 1792323545000,
+      "updatedAt": "2026-10-18T11:39:05.000Z",
       "timeSource": "git"
     },
     "mastercard-q3-fy22": {
@@ -7635,8 +7635,8 @@
     },
     "mastercard-q4-fy24": {
       "path": "data/datasets/mastercard-q4-fy24.js",
-      "updatedAtMs": 1792059444000,
-      "updatedAt": "2026-10-15T10:17:24.000Z",
+      "updatedAtMs": 1792323545000,
+      "updatedAt": "2026-10-18T11:39:05.000Z",
       "timeSource": "git"
     },
     "nintendo-fy23": {

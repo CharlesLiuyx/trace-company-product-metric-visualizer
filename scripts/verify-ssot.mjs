@@ -11,6 +11,7 @@ import {
   registeredDatasetScripts,
 } from './script-sources.mjs';
 import { assert, listScripts, readProjectFile, rootDir } from './lib/project.mjs';
+import { linkAmountViolations } from './lib/link-amounts.mjs';
 import { loadBrowserData } from './lib/browser-data-loader.mjs';
 import { resolveSourcePath } from './lib/source-lifecycle.mjs';
 import { assertOperatingMetricView } from './lib/operating-metrics.mjs';
@@ -206,6 +207,7 @@ function validateDatasetParity(record, dataset, domain, errors) {
     );
   }
   validateHoverShareContract(dataset, errors);
+  for (const message of linkAmountViolations(dataset)) assert(false, message, errors);
   const checkNode = (item, label, fallbackType) => {
     if (!item?.id) return;
     referencedMetricIds.add(item.id);
