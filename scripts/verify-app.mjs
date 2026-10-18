@@ -42,6 +42,10 @@ async function scenario(name, run, { viewport = { width: 1440, height: 900 }, in
 }
 
 async function boot(page, target = url) {
+  // A hash-only goto keeps the document and its previous #chart svg, so the
+  // wait below could return before the new dataset renders (CI hovered the
+  // Affirm chart after booting #airbus-fy25). Leave the page first.
+  if (page.url() !== 'about:blank') await page.goto('about:blank');
   await page.goto(target, { waitUntil: 'domcontentloaded' });
   await page.waitForSelector('#chart svg, #tableView:not([hidden]), #trendView:not([hidden])', { timeout: 15000 });
 }
