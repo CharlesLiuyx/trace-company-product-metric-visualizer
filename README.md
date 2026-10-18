@@ -14,30 +14,12 @@ Tencent, and SpaceX, across quarterly and annual periods.
 
 ## Input a metric asset
 
-Give the executor a PNG image or UTF-8 text file. The current workflow is
-**receive → structure → check and review → include in the system**. It saves the
-original, records exact values and source positions, builds the review sheet,
-and keeps each draft isolated until reviewed publication.
-
-Open the [interactive workflow graph](docs/workflow-flowchart.zh-CN.html), or use
-[the operator guide](docs/asset-workflow.md) for commands and an example.
-General metrics retain exact values and original quotes in the observation SSOT.
-The main viewer has no **指标资产 / Metrics** toolbar entry. Financial tables,
-trends and Sankeys remain available.
-Run `pnpm dev` once, then open the repository's `index.html` or
-<http://127.0.0.1:8000/>. The local workbench combines prepared drafts and project
-data in one review page. Use the company/period selectors or Previous/Next to
-inspect each item, then give your confirmation in the task. Review tabs automatically load each latest successful
-complete Pages candidate, including subsequent draft edits, while preserving the
-selection and display preferences. More → Pause automatic updates explicitly freezes
-a tab. Each displayed candidate retains a separate review binding per Build. Dev and individual-source
-inspection live under More, with CI/version details collapsed. Several Codex / Claude Code Sessions can process different
-Sources in this same directory using ordinary Build folders, without worktrees.
-
-See [local environments and concurrency](docs/local-environments.md). A published
-snapshot is transported through `release:git` into an explicitly reviewed commit;
-push remains your separate instruction. Without the server, the file entry retains
-its offline viewer. `pnpm dev -- --draft` opens the plain static source viewer.
+Put a PNG or UTF-8 text file in `input/pending/` and ask Codex or Claude Code
+`处理{文件名}`. The agent records exact values in an isolated draft, runs the
+automatic checks and replies with a review link; run `pnpm dev` to open it.
+Your approval publishes locally; pushing is a separate instruction. Process:
+[asset workflow](docs/asset-workflow.md) ([graph](docs/workflow-flowchart.zh-CN.html));
+workbench and concurrent Sessions: [local environments](docs/local-environments.md).
 
 ## Highlights
 
@@ -172,22 +154,11 @@ pnpm build:site && pnpm verify:site              # optimized GitHub Pages projec
 pnpm build:standalone && pnpm verify:standalone  # single self-contained HTML file
 ```
 
-The Pages build boots with a light company/period catalog and the selected
-company's complete financial/profile detail. Tables load their complete data
-family on demand; CSV export waits for that data. All generated resources share
-a content-versioned path, with best-effort retention of two prior runtimes for
-open tabs. See [the runtime data contract](docs/architecture/runtime-data.md).
-The build boots with just the active dataset adapter, then
-asynchronously preloads the selected company's complete adapter set (every
-period and variant) so in-company navigation shows no loading state;
-pointer/keyboard intent prefetches ahead of the click, and Chart.js stays
-deferred until the first Trend interaction. The standalone build inlines
-CSS, scripts, fonts, and datasets into one file:
-`output/trace-company-product-metric-visualizer.html`.
-This generated file is ignored by Git. After all local work and delivery finish,
-run `pnpm clean:artifacts -- --completed` to leave only historical meta in
-output/compare; see [artifact retention](docs/artifact-retention.md).
-
+The Pages build boots from a light catalog and loads details on demand; see
+[the runtime data contract](docs/architecture/runtime-data.md). The standalone
+build inlines everything into the Git-ignored
+`output/trace-company-product-metric-visualizer.html`. Local output cleanup is
+described in [artifact retention](docs/artifact-retention.md).
 
 CI ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) always runs
 `pnpm check`, plans browser/render gates from the Git diff, and deploys the
@@ -196,17 +167,13 @@ documents every check.
 
 ## Contributing a dataset (the fidelity loop)
 
-New datasets follow a source-to-sealed pipeline: intake a reference image
-from `input/pending/`, author the data SSOTs and dataset adapter, localize
-fixed-layout text, then pass automated render gates once per locale and your
-review before the build seals. The rendered output under comparison is always the
-SVG produced by `SankeyEngine.render()` — never the source PNG or crops of
-it.
-
-Git tracks the shared `input/pending/` queue and active
-`input/processing/` claims so multiple project checkouts can coordinate work.
-Completed references move to the ignored `input/processed/` archive and stay
-only on the local machine.
+New datasets follow the workflow above: claim a Source from `input/pending/`,
+author the data SSOTs and dataset adapter, localize fixed-layout text, pass the
+automated render gates once per locale, then your review. The rendered output
+under comparison is always the SVG produced by `SankeyEngine.render()` — never
+the source PNG or crops of it. Git tracks the `input/pending/` queue and active
+`input/processing/` claims; archived references stay in the Git-ignored
+`input/processed/` on the local machine.
 
 The owning documents:
 
@@ -218,9 +185,8 @@ The owning documents:
   fidelity gates, the reviewer checklist, and the feedback protocol.
 - [`CONTEXT.md`](CONTEXT.md) and [`docs/architecture/`](docs/architecture/README.md) —
   domain language and lifecycle architecture.
-- [`data/assets/README.md`](data/assets/README.md) — icon crop extraction
-  and reference-asset layout (crops are conversion references only, never
-  embedded in output).
+- [`data/assets/README.md`](data/assets/README.md) — icon crop extraction,
+  reference-asset layout and runtime raster annotations.
 
 Commit messages follow [`docs/commit-messages.md`](docs/commit-messages.md).
 

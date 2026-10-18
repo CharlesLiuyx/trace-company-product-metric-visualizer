@@ -6,8 +6,6 @@ authoring reconciliation, and recurring traps. The process
 (commands, order, checks, review, publication, archive, reporting) is owned by
 [asset-workflow.md](asset-workflow.md). Fields belong to `data/schema.md`;
 fidelity rules to `docs/fidelity-loop-rules.md`; assets to `data/assets/README.md`.
-Builds created before `review-candidate/v1` keep the historical pipeline in
-[archive/legacy-direct-edit-workflow.md](archive/legacy-direct-edit-workflow.md).
 
 A finding that breaks any rule here stops the dependent step: fix the facts or
 authored files and run `record:workflow continue` again. There is no retype
@@ -24,6 +22,10 @@ signature:
 | `revenue-metric` | `revenue-metric-definition`, `time-series-observations` | one defined metric observed across dates in a table/chart, without authored Source Sankey topology |
 | `metric-observation` | `metric-observations` | company/product metrics in text or a plain image, compiled from `source-facts/v1` |
 
+Write the signature as the facts file's top-level `signals` array; `start`
+derives the Adapter from it, and a missing array silently selects
+`metric-observation`.
+
 An Income Statement with supplemental operating cards (ARR, retention, customer
 counts) also records `supplemental-operating-metrics`. The Source objects must
 then contain one `value` entry per card (`ssotRef.path: "operatingMetrics"`) and
@@ -31,15 +33,17 @@ the typed `operatingMetrics` SSOT/View contract in `data/schema.md`. That signal
 alone selects no Adapter.
 
 Company, title, "revenue", or one period token are not classifiers. Mixed,
-incomplete, or contradictory signals stop before intake. A new Adapter, metric
-family, or SSOT also updates AGENTS, its mirror, and the Trace spec.
+incomplete, or contradictory signals stop before intake.
 
 ## Source objects and anti-omission invariants
 
 Sankey and revenue Builds list every independent Source object once in the
 `source-facts/v1` `objects[]` array (`source-objects/v1`); metric-observation
 Builds keep their `metrics`/`context`/`exclusions` shape and the workflow
-derives the same list. Each entry has a stable `id` and one `class`:
+derives the same list. A complete example that reconciles against the
+published GM Q2 FY24 data is
+[examples/source-facts.sankey.example.json](examples/source-facts.sankey.example.json).
+Each entry has a stable `id` and one `class`:
 
 | class | entry |
 | --- | --- |
@@ -89,11 +93,16 @@ Invariants checked by `prepare`:
   value lies inside the literal's rounding interval, `precisionRecovery:
   { literal, reason }` is mandatory (a higher-precision K/M/B/T literal that
   equals the value; the reason names its source). Otherwise it is a typo.
+  When no authoritative higher-precision value can be recovered, the Build
+  stops instead of writing `0`.
 - Source typos: a confirmed unit or numeric typo keeps the original literal and
   needs a user-directed `authoritativeCorrection: { literal, reason, approval:
   "user-directed-source-correction" }`, where `literal` is the corrected display
   and the reason names the authoritative source. It is never inferred or
   combined with precision recovery.
+- Topology absent from the exported raster: only when the operator directs
+  restoring it, author the node and its `value` entry as usual; the human
+  review records that decision.
 - Optional T18 label position: a `label` or `value` entry may carry
   `referenceBBox: [x, y, w, h]` (native Source pixels) and `labelGroup` (the
   `layout.labels` key). Only declared groups are position-audited; when the

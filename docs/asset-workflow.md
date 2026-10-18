@@ -28,17 +28,19 @@
 
 | # | 执行者做什么 | 命令 |
 | --- | --- | --- |
-| 1 | 完整读原材料，按建模规则过 Type Gate，写 `source-facts/v1`（桑基图与收入序列用扁平 `objects[]` 来源对象清单）；读不清的写进 `questions` | — |
+| 1 | 完整读原材料，按建模规则过 Type Gate，写 `source-facts/v1`：顶层 `signals` 数组选择 Adapter（缺少时静默落成 metric-observation）；桑基图与收入序列写扁平 `objects[]` 来源对象清单（[示例](examples/source-facts.sankey.example.json)）；读不清的写进 `questions` | — |
 | 2 | 接收并认领来源，建立独立草稿 | `pnpm record:workflow -- start --source <pending> --key <key> --facts <facts.json> --session <owner>` |
 | 3 | 桑基图 / 收入序列：在返回的 workspace 中编写 SSOT、Adapter、i18n | — |
-| 4 | 连续跑完全部自动步骤：准备与对账 → 数据一致性 → 一次全语言渲染，停在待审阅 | `pnpm record:workflow -- continue <build> --session <owner> --generation <gen>` |
+| 4 | 连续跑完全部自动步骤：准备与对账 → 数据一致性 → 一次全语言渲染，停在待审阅 | `pnpm record:workflow -- continue <build> --session <owner> --generation <gen> --json` |
 | 5 | 交付审阅链接（§4），等待操作员 | — |
 | 6 | 操作员通过后：一次接受并封存 → 本机发布（无需再问） | `accept` / `publish:datasets plan` + `commit` |
 | 7 | 操作员要求推送时：Git 交接与上线核对（§6） | `release:git` 等 |
 | 8 | 操作员给出完成信号时：归档来源（§7），流程全部结束后清理（§8） | `archive-list` / `archive` |
 
 `continue` 任一步失败即停，并给出原因。修改事实或草稿后再跑 `continue`，它按
-实际输入变化自动决定重新准备、重跑检查或重新渲染。编写期间需要看图时，只渲染
+实际输入变化自动决定重新准备、重跑检查或重新渲染。到达审阅时 `continue` 会压缩
+workspace；此后再改文件，先 `record:workflow materialize <build> --session <owner>`，
+再修改并 `continue`。`--session` 持有未释放的 Build 时可省略 `--generation`。编写期间需要看图时，只渲染
 源语言做诊断：`pnpm verify:d3 -- <key> --build <build> --language en`；该命令
 只读，不产生证据。材料有 `questions` 或建模规则的阻断项时，不能推进到审阅。
 
@@ -62,7 +64,8 @@ Build workspace；根目录后续工具、文档更新不会要求整批刷新�
 
 ## 4. 交付待审阅
 
-`continue` 返回 `next: "review"`、`fresh: true` 且带 `reviewToken` 即可交付，不等待
+`continue --json` 返回 `next: "review"`、`fresh: true` 且带 `reviewToken` 即可交付
+（不加 `--json` 时不输出 `fresh` 与 `reviewToken`），不等待
 统一预览重建、不打开浏览器。操作员运行 `pnpm dev` 后使用审阅链接
 `http://127.0.0.1:8000/?review=<build>#<key>`（根目录 `index.html` 会自动发现同一服务）。
 
@@ -93,7 +96,7 @@ Build workspace；根目录后续工具、文档更新不会要求整批刷新�
 但必须仍可读取且与该 Build 的当前字节相符。缺少某语言证据、证据或输入已过期时接受
 失败。不通过或有问题时，用 `record:workflow feedback` 记录
 `{ "note": "<操作员原话>", "date": "YYYY-MM-DD" }`（可选 `locales`、`objectIds`），
-它使当前审阅候选失效；修复后重新 `continue`，不写 `decision` 为拒绝。
+它使当前审阅候选失效；先 `materialize`，修复后重新 `continue`，不写 `decision` 为拒绝。
 
 单份使用 `record:workflow accept <build> --input <review.json> --session <owner> --generation <gen>`。
 多份已人工通过的材料合成一份清单：
@@ -155,13 +158,9 @@ Build workspace；根目录后续工具、文档更新不会要求整批刷新�
 
 ## 8. 收尾清理
 
-`publish:datasets commit`、`archive`、`recover-intake` 与 `release:git push` 结束时自动
-清理已不再被读取的产物，并在结果的 `retention` 中列出；范围见
-[artifact-retention.md](artifact-retention.md)。已清理的 Build 不能再修改，变更请新建 Build。
-
-所需审阅、发布、归档与交付都完成，且没有其他 Session 使用工作台与产物目录后，
-停止 `pnpm dev`，执行 `pnpm clean:artifacts -- --completed`。保留范围见
-[artifact-retention.md](artifact-retention.md)。
+`publish:datasets commit`、`archive`、`recover-intake` 与 `release:git push` 结束时自动清理，
+结果的 `retention` 列出范围；已清理的 Build 不能再修改，变更请新建 Build。手动
+`pnpm clean:artifacts -- --derived` / `--completed` 的时机与保留范围见 [artifact-retention.md](artifact-retention.md)。
 
 ## 9. 协作、恢复与资产
 
@@ -170,10 +169,11 @@ Build workspace；根目录后续工具、文档更新不会要求整批刷新�
   [local-environments.md](local-environments.md)。
 - 正式版本变化后，旧草稿先 `record:workflow refresh <build>`，再按新结果审阅。
 - 新反馈写入 `record:workflow feedback`，只记录说明并使当前审阅候选失效，同时列出
-  同批需要横向排查的 Build；反馈协议见 [fidelity-loop-rules.md](fidelity-loop-rules.md) §4。
+  同批需要横向排查的 Build；随后 `materialize` → 修改 → `continue`。反馈协议见
+  [fidelity-loop-rules.md](fidelity-loop-rules.md) §4。
 - 图标先查 `record:workflow assets <build>`；新版本在草稿中用 `asset-version` 记录。
   资产目录规则只由 [data/assets/README.md](../data/assets/README.md) 定义。
-- 通用指标的 `source-facts/v1` 字段示例见
-  [source-facts.example.json](examples/source-facts.example.json)。其中 `questions` 非空时不能审阅；
-  PNG 位置用 `image-box`，文本用 `text-range`（UTF-16 区间）。桑基图与收入序列的扁平
-  `objects[]` 写法见 [dynamic-dataset-workflow.md](dynamic-dataset-workflow.md)。
+- `source-facts/v1` 示例：利润表桑基图见
+  [source-facts.sankey.example.json](examples/source-facts.sankey.example.json)，通用指标见
+  [source-facts.example.json](examples/source-facts.example.json)。`questions` 非空时不能审阅；
+  通用指标的 PNG 位置用 `image-box`，文本用 `text-range`（UTF-16 区间）。

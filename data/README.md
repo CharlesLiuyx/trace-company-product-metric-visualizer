@@ -3,10 +3,11 @@
 General company/product observations now live in `metric-observations/*.json`.
 Run `pnpm update:metric-catalog` to generate `metric-observations.js`;
 `pnpm verify:metrics` checks its registration, values, provenance and duplicate
-identities. The viewer's **指标资产 / Metrics** entry opens this searchable library.
-Use the [asset workflow](../docs/asset-workflow.md) for new images or text. New
-isolated Builds author these paths inside their own workspace, then Publication
-projects the accepted contribution into the formal snapshot.
+identities. The main viewer has no **指标资产 / Metrics** toolbar entry
+(`verify:app` asserts its absence). New images or text go through the
+[asset workflow](../docs/asset-workflow.md): each Build authors these paths in
+its own workspace, and Publication projects the accepted contribution into the
+formal snapshot.
 
 The `data/` directory is the source of truth for dataset records and reusable
 data-adjacent assets.
@@ -47,8 +48,7 @@ register in the generated `data/dataset-manifest.js` (run
 `pnpm sync:index-datasets`), not as `index.html` tags: the viewer boots from
 lightweight manifest stubs and loads adapter scripts progressively, while
 the standalone builder and verification harnesses load every adapter from
-the manifest's ordered list. The project workflow documents this path as
-the stable dataset convention.
+the manifest's ordered list.
 
 `render-baselines.json` records each registered dataset's d3-render pixel
 similarity against its reference image; `pnpm verify:render-regression`
@@ -72,29 +72,9 @@ metrics are implemented.
 `data/dataset-manifest.js`. Each entry records the file's latest git author time (falling
 back to filesystem mtime only until a file's first commit), so the output is
 reproducible on any checkout. The Company navigator's Recently updated sort
-mode uses these timestamps. After committing a new or materially edited
-dataset, the repository-managed post-commit hook reruns the generator; amend
-or separately commit the refreshed file before pushing. The pre-push hook
-requires the generated result to be both current and committed. `pnpm install`
-enables these hooks when `core.hooksPath` is unset; `pnpm setup:git-hooks`
-enables them explicitly and refuses to overwrite a custom path. This is the
-current compatibility Implementation; the accepted lifecycle target records
-stable `acceptedAt` at SEALED time and removes the feedback loop
-(`docs/architecture/dataset-lifecycle.md`).
+mode uses these timestamps. Repository Git hooks keep it current; their
+rules are owned by `docs/commit-messages.md` (Dataset metadata).
 
-Use `data/assets/icon-references/<company>/` for reusable company and business
-icon reference crops. These crops are conversion references only; d3 output must
-use SVG/vector assets and must not embed these PNG crops.
-
-For each company icon-reference folder, keep this shape:
-
-```text
-data/assets/icon-references/<company>/
-  crops/
-  validation-sheets/
-  crop-report.json
-  model-validation.md
-```
-
-The crop spec that regenerates these files belongs in
-`input/icon-crop-specs/<dataset-key>.json`.
+Icon reference crops under `assets/icon-references/<company>/` are conversion
+references only; their layout, crop specs (`input/icon-crop-specs/`) and runtime
+raster rules are owned by [assets/README.md](assets/README.md).
