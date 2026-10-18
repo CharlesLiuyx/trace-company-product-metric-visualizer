@@ -417,14 +417,14 @@ await scenario('sankey hover: unified node and link share rules', async (page) =
   });
   assertPrimaryFont(tooltipFont, 'Roboto', 'Sankey hover tooltip');
   assert(
-    netProfit.join('|') === ['12.3%', '90.8%'].sort().join('|'),
-    `net profit hover expected 12.3% + 90.8%, got ${netProfit.join(' + ')}`
+    netProfit.join('|') === ['12.3%', '87.7%'].sort().join('|'),
+    `net profit hover expected 12.3% + 87.7% (multi-input Net profit: link / hovered node), got ${netProfit.join(' + ')}`
   );
 
   const operatingProfit = await hoverPercentages('operating_profit');
   assert(
-    operatingProfit.join('|') === ['10.5%', '3.4%', '90.8%'].sort().join('|'),
-    `operating profit hover expected 10.5% + 3.4% + 90.8%, got ${operatingProfit.join(' + ')}`
+    operatingProfit.join('|') === ['10.5%', '3.4%', '96.6%'].sort().join('|'),
+    `operating profit hover expected 10.5% + 3.4% + 96.6% (Net profit link 114 / Operating profit 118), got ${operatingProfit.join(' + ')}`
   );
 
   // The authored Tax bar is one source pixel tall (sub-pixel after fit), so
