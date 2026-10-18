@@ -6165,9 +6165,9 @@
     },
     "arista-q2-fy26": {
       "path": "data/datasets/arista-q2-fy26.js",
-      "updatedAtMs": 1788813290402,
-      "updatedAt": "2026-09-07T20:34:50.402Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1788844579000,
+      "updatedAt": "2026-09-08T05:16:19.000Z",
+      "timeSource": "git"
     },
     "axon-q2-fy26": {
       "path": "data/datasets/axon-q2-fy26.js",
@@ -6513,9 +6513,9 @@
     },
     "duolingo-q2-fy26": {
       "path": "data/datasets/duolingo-q2-fy26.js",
-      "updatedAtMs": 1791006252842,
-      "updatedAt": "2026-10-03T05:44:12.842Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1791007484000,
+      "updatedAt": "2026-10-03T06:04:44.000Z",
+      "timeSource": "git"
     },
     "jd-com-q2-fy26": {
       "path": "data/datasets/jd-com-q2-fy26.js",
@@ -6627,9 +6627,9 @@
     },
     "amd-q2-fy26": {
       "path": "data/datasets/amd-q2-fy26.js",
-      "updatedAtMs": 1791013763929,
-      "updatedAt": "2026-10-03T07:49:23.929Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1791025920000,
+      "updatedAt": "2026-10-03T11:12:00.000Z",
+      "timeSource": "git"
     },
     "analog-devices-q3-fy26": {
       "path": "data/datasets/analog-devices-q3-fy26.js",
@@ -6675,9 +6675,9 @@
     },
     "doordash-q2-fy26": {
       "path": "data/datasets/doordash-q2-fy26.js",
-      "updatedAtMs": 1791013768916,
-      "updatedAt": "2026-10-03T07:49:28.916Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1791025920000,
+      "updatedAt": "2026-10-03T11:12:00.000Z",
+      "timeSource": "git"
     },
     "ferrari-q1-fy25": {
       "path": "data/datasets/ferrari-q1-fy25.js",
@@ -6933,9 +6933,9 @@
     },
     "samsara-q2-fy27": {
       "path": "data/datasets/samsara-q2-fy27.js",
-      "updatedAtMs": 1791030702968,
-      "updatedAt": "2026-10-03T12:31:42.968Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1791034863000,
+      "updatedAt": "2026-10-03T13:41:03.000Z",
+      "timeSource": "git"
     },
     "snowflake-q2-fy27": {
       "path": "data/datasets/snowflake-q2-fy27.js",
@@ -6969,9 +6969,9 @@
     },
     "airbnb-q4-fy24": {
       "path": "data/datasets/airbnb-q4-fy24.js",
-      "updatedAtMs": 1791035172349,
-      "updatedAt": "2026-10-03T13:46:12.349Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1791038406000,
+      "updatedAt": "2026-10-03T14:40:06.000Z",
+      "timeSource": "git"
     },
     "american-express-q1-fy25": {
       "path": "data/datasets/american-express-q1-fy25.js",
@@ -7083,9 +7083,9 @@
     },
     "paypal-q4-fy24": {
       "path": "data/datasets/paypal-q4-fy24.js",
-      "updatedAtMs": 1791035146346,
-      "updatedAt": "2026-10-03T13:45:46.346Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1791038406000,
+      "updatedAt": "2026-10-03T14:40:06.000Z",
+      "timeSource": "git"
     },
     "pfizer-q1-fy25": {
       "path": "data/datasets/pfizer-q1-fy25.js",
@@ -7233,15 +7233,15 @@
     },
     "starbucks-q2-fy24": {
       "path": "data/datasets/starbucks-q2-fy24.js",
-      "updatedAtMs": 1791116271583,
-      "updatedAt": "2026-10-04T12:17:51.583Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1791127016000,
+      "updatedAt": "2026-10-04T15:16:56.000Z",
+      "timeSource": "git"
     },
     "starbucks-q3-fy23": {
       "path": "data/datasets/starbucks-q3-fy23.js",
-      "updatedAtMs": 1791116225249,
-      "updatedAt": "2026-10-04T12:17:05.249Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1791127016000,
+      "updatedAt": "2026-10-04T15:16:56.000Z",
+      "timeSource": "git"
     },
     "starbucks-q3-fy24": {
       "path": "data/datasets/starbucks-q3-fy24.js",
@@ -7263,9 +7263,9 @@
     },
     "starbucks-q4-fy23": {
       "path": "data/datasets/starbucks-q4-fy23.js",
-      "updatedAtMs": 1791118837415,
-      "updatedAt": "2026-10-04T13:00:37.415Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1791127016000,
+      "updatedAt": "2026-10-04T15:16:56.000Z",
+      "timeSource": "git"
     },
     "walmart-q1-fy24": {
       "path": "data/datasets/walmart-q1-fy24.js",
@@ -7317,9 +7317,9 @@
     },
     "walmart-q4-fy23": {
       "path": "data/datasets/walmart-q4-fy23.js",
-      "updatedAtMs": 1791116222908,
-      "updatedAt": "2026-10-04T12:17:02.908Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1791127016000,
+      "updatedAt": "2026-10-04T15:16:56.000Z",
+      "timeSource": "git"
     },
     "walmart-q4-fy24": {
       "path": "data/datasets/walmart-q4-fy24.js",
@@ -7353,15 +7353,15 @@
     },
     "airbnb-q2-fy24": {
       "path": "data/datasets/airbnb-q2-fy24.js",
-      "updatedAtMs": 1792044528190,
-      "updatedAt": "2026-10-15T06:08:48.190Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792059444000,
+      "updatedAt": "2026-10-15T10:17:24.000Z",
+      "timeSource": "git"
     },
     "airbnb-q2-fy25": {
       "path": "data/datasets/airbnb-q2-fy25.js",
-      "updatedAtMs": 1792044514477,
-      "updatedAt": "2026-10-15T06:08:34.477Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792059444000,
+      "updatedAt": "2026-10-15T10:17:24.000Z",
+      "timeSource": "git"
     },
     "airbnb-q3-fy22": {
       "path": "data/datasets/airbnb-q3-fy22.js",
@@ -7377,9 +7377,9 @@
     },
     "airbnb-q3-fy24": {
       "path": "data/datasets/airbnb-q3-fy24.js",
-      "updatedAtMs": 1792044498244,
-      "updatedAt": "2026-10-15T06:08:18.244Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792059444000,
+      "updatedAt": "2026-10-15T10:17:24.000Z",
+      "timeSource": "git"
     },
     "airbnb-q4-fy22": {
       "path": "data/datasets/airbnb-q4-fy22.js",
@@ -7587,15 +7587,15 @@
     },
     "mastercard-q2-fy24": {
       "path": "data/datasets/mastercard-q2-fy24.js",
-      "updatedAtMs": 1792040789258,
-      "updatedAt": "2026-10-15T05:06:29.258Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792059444000,
+      "updatedAt": "2026-10-15T10:17:24.000Z",
+      "timeSource": "git"
     },
     "mastercard-q2-fy25": {
       "path": "data/datasets/mastercard-q2-fy25.js",
-      "updatedAtMs": 1792040817473,
-      "updatedAt": "2026-10-15T05:06:57.473Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792059444000,
+      "updatedAt": "2026-10-15T10:17:24.000Z",
+      "timeSource": "git"
     },
     "mastercard-q3-fy22": {
       "path": "data/datasets/mastercard-q3-fy22.js",
@@ -7635,9 +7635,9 @@
     },
     "mastercard-q4-fy24": {
       "path": "data/datasets/mastercard-q4-fy24.js",
-      "updatedAtMs": 1792040812565,
-      "updatedAt": "2026-10-15T05:06:52.565Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792059444000,
+      "updatedAt": "2026-10-15T10:17:24.000Z",
+      "timeSource": "git"
     },
     "nintendo-fy23": {
       "path": "data/datasets/nintendo-fy23.js",

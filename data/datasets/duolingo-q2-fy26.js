@@ -887,7 +887,7 @@
     {
       "source": "other",
       "target": "net_profit",
-      "value": 33,
+      "value": 11,
       "width": 11,
       "sourceOrder": 0,
       "targetOrder": 1

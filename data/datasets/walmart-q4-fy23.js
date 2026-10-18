@@ -942,7 +942,7 @@
     {
       "source": "operating_profit",
       "target": "net_profit",
-      "value": 5.8,
+      "value": 2.0,
       "sourceWidth": 3.90673828125,
       "targetWidth": 5.208984375,
       "sourceOrder": 0,

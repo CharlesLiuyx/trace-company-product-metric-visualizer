@@ -382,7 +382,7 @@ window.DATASETS=window.DATASETS||[];window.DATASETS.push({
     {
       "source": "other_income",
       "target": "net_profit",
-      "value": 0.5,
+      "value": 0.2,
       "sourceWidth": 23.4404296875,
       "targetWidth": 22.13818359375,
       "y0": 424.5322265625,

@@ -948,7 +948,7 @@
     {
       "source": "payment_network",
       "target": "revenue",
-      "value": 7,
+      "value": 4.4,
       "sourceOrder": 0,
       "targetOrder": 0,
       "sourceWidth": 148.4560546875,
@@ -957,7 +957,7 @@
     {
       "source": "value_added",
       "target": "revenue",
-      "value": 7,
+      "value": 2.6,
       "sourceOrder": 0,
       "targetOrder": 1,
       "sourceWidth": 87.25048828125,

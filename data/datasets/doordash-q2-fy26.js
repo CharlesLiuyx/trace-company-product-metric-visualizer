@@ -949,7 +949,7 @@
     {
       "source": "other_income",
       "target": "net_profit",
-      "value": 199,
+      "value": 51,
       "sourceWidth": 3.90673828125,
       "targetWidth": 3.90673828125,
       "sourceOrder": 0,

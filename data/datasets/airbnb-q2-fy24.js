@@ -262,7 +262,7 @@ window.DATASETS=window.DATASETS||[];window.DATASETS.push({
     {
       "source": "north_america",
       "target": "revenue",
-      "value": 2.7,
+      "value": 1.3,
       "sourceWidth": 139.34033203125,
       "targetWidth": 139.34033203125,
       "y0": 558.012451171875,
@@ -274,7 +274,7 @@ window.DATASETS=window.DATASETS||[];window.DATASETS.push({
     {
       "source": "emea",
       "target": "revenue",
-      "value": 2.7,
+      "value": 1.0,
       "sourceWidth": 111.9931640625,
       "targetWidth": 111.9931640625,
       "y0": 803.48583984375,
@@ -286,7 +286,7 @@ window.DATASETS=window.DATASETS||[];window.DATASETS.push({
     {
       "source": "latam",
       "target": "revenue",
-      "value": 2.7,
+      "value": 0.2,
       "sourceWidth": 20.8359375,
       "targetWidth": 20.8359375,
       "y0": 991.00927734375,
@@ -298,7 +298,7 @@ window.DATASETS=window.DATASETS||[];window.DATASETS.push({
     {
       "source": "apac",
       "target": "revenue",
-      "value": 2.7,
+      "value": 0.2,
       "sourceWidth": 23.4404296875,
       "targetWidth": 20.8359375,
       "y0": 1134.25634765625,

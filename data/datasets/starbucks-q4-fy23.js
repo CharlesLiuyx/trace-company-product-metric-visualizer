@@ -277,7 +277,7 @@
     {
       "source": "other_income",
       "target": "operating_profit",
-      "value": 1.7,
+      "value": 0.1,
       "sourceWidth": 5.208984375,
       "targetWidth": 3.90673828125,
       "sourceOrder": 0,

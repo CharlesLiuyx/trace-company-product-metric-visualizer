@@ -178,7 +178,7 @@
       { source: 'gross_profit', target: 'operating_profit', value: 0.052, sourceWidth: 11, targetWidth: 9, sourceOrder: 0, targetOrder: 0, linkTint: GREEN_LINK },
       { source: 'gross_profit', target: 'operating_expenses', value: 0.944, width: 203, sourceOrder: 1, targetOrder: 0, linkTint: RED_LINK },
       { source: 'operating_profit', target: 'other_expenses', value: 0.052, sourceWidth: 9, targetWidth: 13, sourceOrder: 0, targetOrder: 0, linkTint: RED_LINK },
-      { source: 'net_loss', target: 'other_expenses', value: 0.162, sourceWidth: 21, targetWidth: 21, sourceOrder: 0, targetOrder: 1, linkTint: RED_LINK },
+      { source: 'net_loss', target: 'other_expenses', value: 0.11, sourceWidth: 21, targetWidth: 21, sourceOrder: 0, targetOrder: 1, linkTint: RED_LINK },
       { source: 'operating_expenses', target: 'rnd', value: 0.747, sourceWidth: 162, targetWidth: 160, sourceOrder: 0, targetOrder: 0, linkTint: RED_LINK },
       { source: 'operating_expenses', target: 'ga', value: 0.152, sourceWidth: 33, targetWidth: 31, sourceOrder: 1, targetOrder: 0, linkTint: RED_LINK },
       { source: 'operating_expenses', target: 'sm', value: 0.045, sourceWidth: 8, targetWidth: 8, sourceOrder: 2, targetOrder: 0, linkTint: RED_LINK },

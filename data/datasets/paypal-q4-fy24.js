@@ -1124,7 +1124,7 @@ window.DATASETS=window.DATASETS||[];window.DATASETS.push({
     {
       "source": "transaction_revenues",
       "target": "revenue",
-      "value": 8.4,
+      "value": 7.6,
       "sourceWidth": 339.84375,
       "targetWidth": 341.1458333333333,
       "y0": 677.734375,
@@ -1136,7 +1136,7 @@ window.DATASETS=window.DATASETS||[];window.DATASETS.push({
     {
       "source": "other_value_added_services",
       "target": "revenue",
-      "value": 8.4,
+      "value": 0.8,
       "sourceWidth": 35.15625,
       "targetWidth": 35.15625,
       "y0": 1034.5052083333333,

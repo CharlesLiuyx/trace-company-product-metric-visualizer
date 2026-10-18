@@ -954,7 +954,7 @@ window.DATASETS.push({
     {
       "source": "payment_network",
       "target": "revenue",
-      "value": 7.5,
+      "value": 4.4,
       "targetOrder": 0,
       "sourceWidth": 128.90625,
       "targetWidth": 128.90625
@@ -962,7 +962,7 @@ window.DATASETS.push({
     {
       "source": "value_added",
       "target": "revenue",
-      "value": 7.5,
+      "value": 3.1,
       "sourceWidth": 89.84375,
       "targetWidth": 91.14583333333333,
       "targetOrder": 1

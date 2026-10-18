@@ -910,7 +910,7 @@ window.DATASETS.push({
     {
       "source": "other_income",
       "target": "net_profit",
-      "value": 1.2,
+      "value": 0.1,
       "sourceWidth": 12,
       "targetWidth": 12,
       "y0": 517,

@@ -1027,7 +1027,7 @@ window.DATASETS=window.DATASETS||[];window.DATASETS.push({
     {
       "source": "other",
       "target": "net_profit",
-      "value": 2.3,
+      "value": 0.6,
       "sourceOrder": 0,
       "targetOrder": 1,
       "linkTint": {
