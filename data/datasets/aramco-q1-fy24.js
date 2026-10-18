@@ -76,17 +76,7 @@ window.DATASETS.push({
       "height": 197.94140625
     }
   ],
-  "annotationsSvg": "<g transform=\"scale(1.30224609375)\"><g><text x=\"179\" y=\"216\" font-size=\"30\" font-weight=\"800\" fill=\"#075c92\">In SAR billion</text></g><g class=\"sankey-interactive-annotation\" data-node=\"finance\" data-link-numerator=\"finance\" data-link-denominator=\"net_profit\"><path d=\"M1668 323 H1724 Q1735 323 1745 294 L1751 283\" fill=\"none\" stroke=\"#99cd99\" stroke-width=\"2\"/><text x=\"1696\" y=\"351\" text-anchor=\"middle\" font-size=\"24\" font-weight=\"800\" fill=\"#009652\">Finance</text><text x=\"1696\" y=\"383\" text-anchor=\"middle\" font-size=\"24\" fill=\"#009652\">4B</text></g></g>",
-  "nonNodeMetrics": [
-    {
-      "id": "finance",
-      "representation": "annotation",
-      "value": 4,
-      "type": "profit",
-      "label": "Finance",
-      "valueText": "4B"
-    }
-  ],
+  "annotationsSvg": "<g transform=\"scale(1.30224609375)\"><g><text x=\"179\" y=\"216\" font-size=\"30\" font-weight=\"800\" fill=\"#075c92\">In SAR billion</text></g></g>",
   "nodes": [
     {
       "id": "crude_oil",
@@ -206,6 +196,16 @@ window.DATASETS.push({
       "type": "cost",
       "col": 3,
       "order": 9
+    },
+    {
+      "id": "finance",
+      "label": "Finance",
+      "value": 4,
+      "valueText": "4B",
+      "notes": [],
+      "type": "profit",
+      "col": 3,
+      "order": 20
     },
     {
       "id": "net_profit",
@@ -421,6 +421,25 @@ window.DATASETS.push({
       "targetOrder": 0
     },
     {
+      "source": "finance",
+      "target": "net_profit",
+      "value": 4,
+      "width": 3,
+      "sourceOrder": 0,
+      "targetOrder": 1,
+      "linkTint": "#99cd99",
+      "y0": 419.625,
+      "y1": 367.233,
+      "curve": {
+        "x0": 2245.072,
+        "x1": 2285.44189453125,
+        "c1x": 2262.001,
+        "c1y": 419.625,
+        "c2x": 2268.513,
+        "c2y": 367.233
+      }
+    },
+    {
       "source": "operating_expenses",
       "target": "purchases",
       "value": 110,
@@ -546,6 +565,12 @@ window.DATASETS.push({
         "y": 1001.42724609375,
         "width": 72.92578125,
         "height": 149.75830078125
+      },
+      "finance": {
+        "x": 2172.146,
+        "y": 418.125,
+        "width": 72.926,
+        "height": 3
       },
       "net_profit": {
         "x": 2285.44189453125,
@@ -954,6 +979,28 @@ window.DATASETS.push({
           }
         ]
       },
+      "finance": {
+        "blocks": [
+          {
+            "x": 2208.609,
+            "top": 427.334,
+            "lines": [
+              {
+                "text": "Finance",
+                "size": 31.254,
+                "weight": 800
+              },
+              {
+                "text": "$value",
+                "size": 31.254,
+                "weight": 400
+              }
+            ],
+            "anchor": "middle",
+            "lineGap": 10.418
+          }
+        ]
+      },
       "net_profit": {
         "blocks": [
           {
@@ -1221,6 +1268,10 @@ window.DATASETS.push({
           "label": "营业费用",
           "notes": []
         },
+        "finance": {
+          "label": "财务收益",
+          "notes": []
+        },
         "net_profit": {
           "label": "净利润",
           "notes": [
@@ -1265,12 +1316,7 @@ window.DATASETS.push({
           "notes": []
         }
       },
-      "nonNodeMetrics": {
-        "finance": {
-          "label": "财务收益"
-        }
-      },
-      "annotationsSvg": "<g transform=\"scale(1.30224609375)\"><g><text x=\"179\" y=\"216\" font-size=\"30\" font-weight=\"800\" fill=\"#075c92\">单位：十亿沙特里亚尔</text></g><g class=\"sankey-interactive-annotation\" data-node=\"finance\" data-link-numerator=\"finance\" data-link-denominator=\"net_profit\"><path d=\"M1668 323 H1724 Q1735 323 1745 294 L1751 283\" fill=\"none\" stroke=\"#99cd99\" stroke-width=\"2\"/><text x=\"1696\" y=\"351\" text-anchor=\"middle\" font-size=\"24\" font-weight=\"800\" fill=\"#009652\">财务收益</text><text x=\"1696\" y=\"383\" text-anchor=\"middle\" font-size=\"24\" fill=\"#009652\">4B</text></g></g>",
+      "annotationsSvg": "<g transform=\"scale(1.30224609375)\"><g><text x=\"179\" y=\"216\" font-size=\"30\" font-weight=\"800\" fill=\"#075c92\">单位：十亿沙特里亚尔</text></g></g>",
       "layout": {
         "labels": {
           "crude_oil": {
@@ -1615,6 +1661,28 @@ window.DATASETS.push({
                 ],
                 "anchor": "middle",
                 "lineGap": 9.11572265625
+              }
+            ]
+          },
+          "finance": {
+            "blocks": [
+              {
+                "x": 2208.609,
+                "top": 427.334,
+                "lines": [
+                  {
+                    "text": "财务收益",
+                    "size": 31.254,
+                    "weight": 800
+                  },
+                  {
+                    "text": "$value",
+                    "size": 31.254,
+                    "weight": 400
+                  }
+                ],
+                "anchor": "middle",
+                "lineGap": 10.418
               }
             ]
           },

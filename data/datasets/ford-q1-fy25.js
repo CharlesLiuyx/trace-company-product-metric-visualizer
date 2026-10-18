@@ -928,8 +928,7 @@
       "sourceWidth": 1.30224609375,
       "targetWidth": 1.30224609375,
       "sourceOrder": 0,
-      "targetOrder": 0,
-      "showTooltip": false
+      "targetOrder": 0
     },
     {
       "source": "operating_profit",

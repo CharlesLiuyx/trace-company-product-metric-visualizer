@@ -178,6 +178,19 @@ window.DATASETS.push({
       "order": 7
     },
     {
+      "id": "pretax_loss",
+      "label": "Pretax loss",
+      "value": -0.009,
+      "valueText": "($9M)",
+      "notes": [
+        "0% margin",
+        "+28pp Y/Y"
+      ],
+      "type": "cost",
+      "col": 3,
+      "order": 15
+    },
+    {
       "id": "operating_expenses",
       "label": [
         "Operating",
@@ -379,6 +392,25 @@ window.DATASETS.push({
       "linkTint": "#df8688"
     },
     {
+      "source": "pretax_loss",
+      "target": "operating_expenses",
+      "value": 0.009,
+      "width": 3,
+      "sourceOrder": 0,
+      "targetOrder": 1,
+      "linkTint": "#df8688",
+      "y0": 943,
+      "y1": 795,
+      "curve": {
+        "x0": 1868,
+        "x1": 1940,
+        "c1x": 1904,
+        "c1y": 943,
+        "c2x": 1904,
+        "c2y": 795
+      }
+    },
+    {
       "source": "operating_expenses",
       "target": "sga",
       "value": 4.3,
@@ -451,21 +483,6 @@ window.DATASETS.push({
       "linkTint": "#df8688"
     }
   ],
-  "nonNodeMetrics": [
-    {
-      "id": "pretax_loss",
-      "representation": "annotation",
-      "value": -0.009,
-      "valueText": "($9M)",
-      "type": "cost",
-      "label": "Pretax loss",
-      "notes": [
-        "0% margin",
-        "+28pp Y/Y"
-      ]
-    }
-  ],
-  "annotationsSvg": "<g class=\"sankey-interactive-annotation\" data-node=\"pretax_loss\" data-link-numerator=\"pretax_loss\" data-link-denominator=\"operating_expenses\" data-link-anchor-x=\"1905\" data-link-anchor-y=\"870\"><path d=\"M 1802 943 L 1872 943 C 1905 943 1905 796 1940 795\" fill=\"none\" stroke=\"#df8688\" stroke-width=\"2\"/><text x=\"1833\" y=\"990\" text-anchor=\"middle\" font-size=\"40\" font-weight=\"800\" fill=\"#9c1600\">Pretax loss</text><text x=\"1833\" y=\"1034\" text-anchor=\"middle\" font-size=\"40\" font-weight=\"400\" fill=\"#9c1600\">($9M)</text><text x=\"1833\" y=\"1078\" text-anchor=\"middle\" font-size=\"28\" font-weight=\"400\" fill=\"#777777\">0% margin</text><text x=\"1833\" y=\"1122\" text-anchor=\"middle\" font-size=\"28\" font-weight=\"400\" fill=\"#777777\">+28pp Y/Y</text></g>",
   "layout": {
     "nodes": {
       "primary_care": {
@@ -515,6 +532,12 @@ window.DATASETS.push({
         "y": 1112,
         "width": 72,
         "height": 118
+      },
+      "pretax_loss": {
+        "x": 1798,
+        "y": 941.5,
+        "width": 70,
+        "height": 3
       },
       "operating_expenses": {
         "x": 1940,
@@ -818,6 +841,56 @@ window.DATASETS.push({
                 "text": "$value",
                 "size": 36.46,
                 "weight": 400
+              }
+            ]
+          }
+        ]
+      },
+      "pretax_loss": {
+        "blocks": [
+          {
+            "x": 1833,
+            "top": 952,
+            "anchor": "middle",
+            "lineGap": 0,
+            "lines": [
+              {
+                "text": "Pretax loss",
+                "size": 40,
+                "weight": 800
+              }
+            ]
+          },
+          {
+            "x": 1833,
+            "top": 1002.5,
+            "anchor": "middle",
+            "lineGap": 0,
+            "lines": [
+              {
+                "text": "$value",
+                "size": 40,
+                "weight": 400
+              }
+            ]
+          },
+          {
+            "x": 1833,
+            "top": 1058,
+            "anchor": "middle",
+            "lineGap": 11,
+            "lines": [
+              {
+                "text": "0% margin",
+                "size": 28,
+                "weight": 400,
+                "color": "#777777"
+              },
+              {
+                "text": "+28pp Y/Y",
+                "size": 28,
+                "weight": 400,
+                "color": "#777777"
               }
             ]
           }
@@ -1165,6 +1238,15 @@ window.DATASETS.push({
           ],
           "notes": []
         },
+        "pretax_loss": {
+          "label": [
+            "税前亏损"
+          ],
+          "notes": [
+            "利润率 0%",
+            "同比 +28 个百分点"
+          ]
+        },
         "operating_expenses": {
           "label": [
             "营业",
@@ -1224,15 +1306,6 @@ window.DATASETS.push({
           "notes": [
             "占收入 0%",
             "同比 (0 个百分点)"
-          ]
-        }
-      },
-      "nonNodeMetrics": {
-        "pretax_loss": {
-          "label": "税前亏损",
-          "notes": [
-            "利润率 0%",
-            "同比 +28 个百分点"
           ]
         }
       },
@@ -1501,6 +1574,56 @@ window.DATASETS.push({
               }
             ]
           },
+          "pretax_loss": {
+            "blocks": [
+              {
+                "x": 1833,
+                "top": 952,
+                "anchor": "middle",
+                "lineGap": 0,
+                "lines": [
+                  {
+                    "text": "税前亏损",
+                    "size": 40,
+                    "weight": 800
+                  }
+                ]
+              },
+              {
+                "x": 1833,
+                "top": 1002.5,
+                "anchor": "middle",
+                "lineGap": 0,
+                "lines": [
+                  {
+                    "text": "$value",
+                    "size": 40,
+                    "weight": 400
+                  }
+                ]
+              },
+              {
+                "x": 1833,
+                "top": 1058,
+                "anchor": "middle",
+                "lineGap": 11,
+                "lines": [
+                  {
+                    "text": "利润率 0%",
+                    "size": 28,
+                    "weight": 400,
+                    "color": "#777777"
+                  },
+                  {
+                    "text": "同比 +28 个百分点",
+                    "size": 28,
+                    "weight": 400,
+                    "color": "#777777"
+                  }
+                ]
+              }
+            ]
+          },
           "operating_expenses": {
             "blocks": [
               {
@@ -1733,8 +1856,7 @@ window.DATASETS.push({
             ]
           }
         }
-      },
-      "annotationsSvg": "<g class=\"sankey-interactive-annotation\" data-node=\"pretax_loss\" data-link-numerator=\"pretax_loss\" data-link-denominator=\"operating_expenses\" data-link-anchor-x=\"1905\" data-link-anchor-y=\"870\"><path d=\"M 1802 943 L 1872 943 C 1905 943 1905 796 1940 795\" fill=\"none\" stroke=\"#df8688\" stroke-width=\"2\"/><text x=\"1833\" y=\"990\" text-anchor=\"middle\" font-size=\"40\" font-weight=\"800\" fill=\"#9c1600\">税前亏损</text><text x=\"1833\" y=\"1034\" text-anchor=\"middle\" font-size=\"40\" font-weight=\"400\" fill=\"#9c1600\">($9M)</text><text x=\"1833\" y=\"1078\" text-anchor=\"middle\" font-size=\"28\" font-weight=\"400\" fill=\"#777777\">利润率 0%</text><text x=\"1833\" y=\"1122\" text-anchor=\"middle\" font-size=\"28\" font-weight=\"400\" fill=\"#777777\">同比 +28 个百分点</text></g>"
+      }
     }
   }
 });

@@ -137,6 +137,12 @@
         "width": 72,
         "height": 79
       },
+      "finance": {
+        "x": 2240,
+        "y": 547.5,
+        "width": 64,
+        "height": 3
+      },
       "net_profit": {
         "x": 2334,
         "y": 429,
@@ -454,6 +460,30 @@
           }
         ]
       },
+      "finance": {
+        "blocks": [
+          {
+            "x": 2272,
+            "top": 559,
+            "anchor": "middle",
+            "lineGap": 12,
+            "lines": [
+              {
+                "text": "Finance",
+                "size": 31,
+                "color": "#008f51",
+                "weight": 700
+              },
+              {
+                "text": "$value",
+                "size": 30,
+                "color": "#008f51",
+                "weight": 400
+              }
+            ]
+          }
+        ]
+      },
       "net_profit": {
         "blocks": [
           {
@@ -733,6 +763,16 @@
       "labelColor": "#941100"
     },
     {
+      "id": "finance",
+      "label": "Finance",
+      "value": 0.004,
+      "valueText": "€4M",
+      "notes": [],
+      "type": "profit",
+      "col": 3,
+      "order": 13
+    },
+    {
       "id": "net_profit",
       "label": "Net profit",
       "value": 0.4,
@@ -912,6 +952,25 @@
       "linkTint": "#e08585"
     },
     {
+      "source": "finance",
+      "target": "net_profit",
+      "value": 0.004,
+      "width": 3,
+      "sourceOrder": 0,
+      "targetOrder": 1,
+      "linkTint": "#99cd99",
+      "y0": 549,
+      "y1": 504,
+      "curve": {
+        "x0": 2304,
+        "x1": 2334,
+        "c1x": 2320,
+        "c1y": 549,
+        "c2x": 2318,
+        "c2y": 504
+      }
+    },
+    {
       "source": "operating_expenses",
       "target": "rnd",
       "value": 0.2,
@@ -946,17 +1005,6 @@
       "sourceOrder": 2,
       "targetOrder": 0,
       "linkTint": "#e08585"
-    }
-  ],
-  "annotationsSvg": "<g class=\"sankey-interactive-annotation\" data-node=\"finance\" data-link-numerator=\"finance\" data-link-denominator=\"net_profit\" data-link-anchor-x=\"2300\" data-link-anchor-y=\"549\" font-family=\"Noto Sans,Arial,sans-serif\" text-anchor=\"middle\"><path d=\"M2334 504 C2310 504 2317 549 2298 549 H2230\" fill=\"none\" stroke=\"#99cd99\" stroke-width=\"2\"/><text x=\"2272\" y=\"590\" font-size=\"31\" font-weight=\"700\" fill=\"#008f51\">Finance</text><text x=\"2272\" y=\"632\" font-size=\"30\" fill=\"#008f51\">€4M</text></g>",
-  "nonNodeMetrics": [
-    {
-      "id": "finance",
-      "representation": "annotation",
-      "value": 0.004,
-      "type": "profit",
-      "label": "Finance",
-      "valueText": "€4M"
     }
   ],
   "i18n": {
@@ -1022,6 +1070,10 @@
           ],
           "notes": []
         },
+        "finance": {
+          "label": "财务收益",
+          "notes": []
+        },
         "net_profit": {
           "label": "净利润",
           "notes": [
@@ -1050,11 +1102,6 @@
         "other_opex": {
           "label": "其他",
           "notes": []
-        }
-      },
-      "nonNodeMetrics": {
-        "finance": {
-          "label": "财务收益"
         }
       },
       "layout": {
@@ -1344,6 +1391,30 @@
               }
             ]
           },
+          "finance": {
+            "blocks": [
+              {
+                "x": 2272,
+                "top": 559,
+                "anchor": "middle",
+                "lineGap": 12,
+                "lines": [
+                  {
+                    "text": "财务收益",
+                    "size": 31,
+                    "color": "#008f51",
+                    "weight": 700
+                  },
+                  {
+                    "text": "$value",
+                    "size": 30,
+                    "color": "#008f51",
+                    "weight": 400
+                  }
+                ]
+              }
+            ]
+          },
           "net_profit": {
             "blocks": [
               {
@@ -1501,8 +1572,7 @@
             ]
           }
         }
-      },
-      "annotationsSvg": "<g class=\"sankey-interactive-annotation\" data-node=\"finance\" data-link-numerator=\"finance\" data-link-denominator=\"net_profit\" data-link-anchor-x=\"2300\" data-link-anchor-y=\"549\" font-family=\"Noto Sans,Arial,sans-serif\" text-anchor=\"middle\"><path d=\"M2334 504 C2310 504 2317 549 2298 549 H2230\" fill=\"none\" stroke=\"#99cd99\" stroke-width=\"2\"/><text x=\"2272\" y=\"590\" font-size=\"31\" font-weight=\"700\" fill=\"#008f51\">财务收益</text><text x=\"2272\" y=\"632\" font-size=\"30\" fill=\"#008f51\">€4M</text></g>"
+      }
     }
   }
 });})();

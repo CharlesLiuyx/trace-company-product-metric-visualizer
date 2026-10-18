@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-10-17T18:57:57.407Z",
+  "generatedAt": "2026-10-18T11:22:17.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -6687,9 +6687,9 @@
     },
     "ford-q1-fy25": {
       "path": "data/datasets/ford-q1-fy25.js",
-      "updatedAtMs": 1791013767142,
-      "updatedAt": "2026-10-03T07:49:27.142Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792322537000,
+      "updatedAt": "2026-10-18T11:22:17.000Z",
+      "timeSource": "git"
     },
     "gm-q1-fy25": {
       "path": "data/datasets/gm-q1-fy25.js",
@@ -7005,9 +7005,9 @@
     },
     "ferrari-q4-fy24": {
       "path": "data/datasets/ferrari-q4-fy24.js",
-      "updatedAtMs": 1791035139831,
-      "updatedAt": "2026-10-03T13:45:39.831Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792322537000,
+      "updatedAt": "2026-10-18T11:22:17.000Z",
+      "timeSource": "git"
     },
     "ford-fy24": {
       "path": "data/datasets/ford-fy24.js",
@@ -7095,9 +7095,9 @@
     },
     "pfizer-q4-fy24": {
       "path": "data/datasets/pfizer-q4-fy24.js",
-      "updatedAtMs": 1791035146938,
-      "updatedAt": "2026-10-03T13:45:46.938Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792322537000,
+      "updatedAt": "2026-10-18T11:22:17.000Z",
+      "timeSource": "git"
     },
     "spotify-q1-fy25": {
       "path": "data/datasets/spotify-q1-fy25.js",
@@ -7149,9 +7149,9 @@
     },
     "aramco-q1-fy24": {
       "path": "data/datasets/aramco-q1-fy24.js",
-      "updatedAtMs": 1791116229986,
-      "updatedAt": "2026-10-04T12:17:09.986Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1792322537000,
+      "updatedAt": "2026-10-18T11:22:17.000Z",
+      "timeSource": "git"
     },
     "aramco-q2-fy24": {
       "path": "data/datasets/aramco-q2-fy24.js",
