@@ -140,6 +140,10 @@ contradiction with the intaked Adapter.
 
 ## Traps and hard constraints
 
+- Source locators are the stable archive path: SSOT `sourceImage` and Adapter
+  `meta.referenceImage.src` write `input/processed/<key>.<ext>` even while the
+  file still sits in `input/processing/`; tools resolve the fallback, and
+  `verify:ssot` rejects an `input/processing/` locator.
 - Fidelity definitions and formulas live only in the fidelity catalog.
 - Title/period placement uses rendered bboxes, not authored baselines.
 - Preserve displayed integer decimals through schema `valueText`.

@@ -13,7 +13,7 @@ import {
 import { assert, listScripts, readProjectFile, rootDir } from './lib/project.mjs';
 import { linkAmountViolations } from './lib/link-amounts.mjs';
 import { loadBrowserData } from './lib/browser-data-loader.mjs';
-import { resolveSourcePath } from './lib/source-lifecycle.mjs';
+import { resolveSourcePath, workingLocatorError } from './lib/source-lifecycle.mjs';
 import { assertOperatingMetricView } from './lib/operating-metrics.mjs';
 import { isUnreportedNetProfit, validNetProfit } from './lib/net-profit-availability.mjs';
 
@@ -88,6 +88,8 @@ function validateHoverShareContract(dataset, errors) {
 function validateRenderCanvas(dataset, errors) {
   const reference = dataset.meta?.referenceImage;
   if (!reference || typeof reference !== 'object') return;
+  const locator = workingLocatorError(`${dataset.key}: meta.referenceImage.src`, reference);
+  assert(!locator, locator, errors);
   const render = dataset.render || {};
   for (const side of ['width', 'height']) {
     if (typeof render[side] !== 'number' || typeof reference[side] !== 'number') continue;
@@ -100,6 +102,8 @@ function validateRenderCanvas(dataset, errors) {
 }
 
 function validateRecordShape(record, errors) {
+  const locator = workingLocatorError(`${record.key}: sourceImage`, record.sourceImage);
+  assert(!locator, locator, errors);
   assert(validNetProfit(record.profit?.net), `${record.key}: net profit must be finite or explicitly not-reported with null value, no node id, a label and Source explanation`, errors);
   const forbidden = ['nodes', 'links', 'layout', 'render'];
   for (const field of forbidden) {

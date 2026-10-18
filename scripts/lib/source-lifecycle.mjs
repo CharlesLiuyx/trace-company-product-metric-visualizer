@@ -163,9 +163,22 @@ export function resolveSourcePath(requested, options = {}) {
   assertInsideProject(absolute, projectRoot, 'Source locator');
   if (existsSync(absolute)) return absolute;
 
+  // The stable locator resolves to the working claim while a Build is active;
+  // a historical working locator (digest-bound asset provenance written before
+  // the archive move) resolves forward to the archive.
   const relative = slashPath(path.relative(projectRoot, absolute));
-  const match = relative.match(/^input\/processed\/([^/]+\.(?:png|txt|md))$/i);
+  const match = relative.match(/^input\/(processed|processing)\/([^/]+\.(?:png|txt|md))$/i);
   if (!match) return absolute;
-  const processingPath = path.join(projectRoot, 'input', 'processing', match[1]);
-  return existsSync(processingPath) ? processingPath : absolute;
+  const other = path.join(projectRoot, 'input', match[1].toLowerCase() === 'processed' ? 'processing' : 'processed', match[2]);
+  return existsSync(other) ? other : absolute;
+}
+
+// Authored data records the stable archive locator even while the Build still
+// holds the file in input/processing/; resolveSourcePath bridges the gap at
+// read time. A working locator written into SSOT or Adapter bytes would go
+// stale the moment the operator's completion signal archives the Source.
+export function workingLocatorError(label, value) {
+  const locator = typeof value === 'string' ? value : value?.src;
+  if (typeof locator !== 'string' || !/^input\/processing\//i.test(locator)) return null;
+  return `${label} ${locator} names the working locator; author input/processed/${locator.slice('input/processing/'.length)} (tools resolve it to processing while the Build is active)`;
 }
