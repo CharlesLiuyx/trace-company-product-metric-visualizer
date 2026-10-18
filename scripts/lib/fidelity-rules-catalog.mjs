@@ -46,7 +46,7 @@ export const FIDELITY_RULES = Object.freeze([
   }),
   rule('G3d', 'hard-gate', {
     title: '字形比例',
-    trigger: '每个 evidence run、`verify:d3` 与 Build seal 中的非品牌产品文本（名称、金额、备注、标题，各 locale）。',
+    trigger: '每个 evidence run、`verify:d3` 与 `seal --fresh-render` 中的非品牌产品文本（名称、金额、备注、标题，各 locale）。',
     check:
       '使用已加载字体的自然字宽，测量 textLength/spacingAndGlyphs 与祖先变换组合后的字形比例；' +
       '排除整体等比缩放与旋转。',
@@ -84,7 +84,7 @@ export const FIDELITY_RULES = Object.freeze([
     title: '数据一致性',
     trigger: '每个 authored digest。',
     check: '独立记录 `dataset-verification/v1` 数据/SSOT/i18n 一致性证据。',
-    pass: '不属于每次 raster evidence run；finish 必须引用 fresh 结果。',
+    pass: '不属于每次 raster evidence run；`accept` 必须引用当前输入的 fresh 结果。',
   }),
   rule('G12', 'hard-gate', {
     title: '可见接口',

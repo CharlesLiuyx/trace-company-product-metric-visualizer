@@ -81,7 +81,7 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 
 #### <a id="rule-g3d"></a>G3d · hard-gate · 字形比例
 
-- 触发：每个 evidence run、`verify:d3` 与 Build seal 中的非品牌产品文本（名称、金额、备注、标题，各 locale）。
+- 触发：每个 evidence run、`verify:d3` 与 `seal --fresh-render` 中的非品牌产品文本（名称、金额、备注、标题，各 locale）。
 - 检查：使用已加载字体的自然字宽，测量 textLength/spacingAndGlyphs 与祖先变换组合后的字形比例；排除整体等比缩放与旋转。
 - 通过：组合变换的最大/最小主轴比不超过 1.25；不得为贴合 bbox 把文字横向压窄，优先使用自然字形、合适字号和换行。
 - 证据：`typographyAudit` 逐 text/tspan/textPath 保存 glyphScaleX、glyphAspectRatio，越界阻断 G3。未绑定 Build 的目录回归、Pages 与 standalone 检查只以 audit 模式记录字形失败，不替代 Build 的硬门。
@@ -104,7 +104,7 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 
 - 触发：每个 authored digest。
 - 检查：独立记录 `dataset-verification/v1` 数据/SSOT/i18n 一致性证据。
-- 通过：不属于每次 raster evidence run；finish 必须引用 fresh 结果。
+- 通过：不属于每次 raster evidence run；`accept` 必须引用当前输入的 fresh 结果。
 
 #### <a id="rule-g12"></a>G12 · hard-gate · 可见接口
 
