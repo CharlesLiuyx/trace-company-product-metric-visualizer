@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import { webcrypto } from 'node:crypto';
-import { buildSiteData, sha256 } from '../scripts/lib/site-data.mjs';
+import { buildSiteData, columnarManifest, sha256 } from '../scripts/lib/site-data.mjs';
 import { readProjectFile, rootDir } from '../scripts/lib/project.mjs';
 import { scriptSources } from '../scripts/script-sources.mjs';
 import { loadClassicScripts } from './helpers/vm-load.mjs';
@@ -36,6 +36,27 @@ test('bootstrap fits the catalog budget and restores every versioned adapter man
   const expected = plain(full.__DATASET_MANIFEST__);
   for (const entry of expected.datasets) entry.src = `releases/${version}/${entry.src}`;
   assert.deepEqual(plain(context.__DATASET_MANIFEST__), expected);
+});
+
+test('columnar manifest rows round-trip through the inline restore in order', () => {
+  const original = {
+    extra: { kept: true },
+    datasets: [
+      { key: 'a', data: { name: 'A', meta: { title: 'A title', period: 'Q1' } } },
+      { key: 'b', data: { name: 'B', meta: { title: 'B title' } }, src: 'custom/b.js' },
+      { key: 'c', data: { name: 'C', list: [1, 2] } },
+      { key: 'd', data: { name: 'D', meta: {} } },
+      { key: 'e', data: { name: 'E', meta: { title: 'E title', period: 'Q2' }, note: null } },
+    ],
+  };
+  const encoded = columnarManifest(JSON.parse(JSON.stringify(original)));
+  assert.equal(encoded.datasets, undefined);
+  assert.deepEqual(plain(encoded.rows[2]), original.datasets[2], 'arrays stay plain rows');
+  assert.deepEqual(plain(encoded.rows[3]), original.datasets[3], 'empty objects stay plain rows');
+  const restoreLine = projection.source.split('\n').find((line) => line.startsWith('window.__DATASET_MANIFEST__=(function'));
+  const context = { window: { __DATASET_MANIFEST__: encoded } };
+  vm.runInNewContext(restoreLine, context);
+  assert.deepEqual(plain(context.window.__DATASET_MANIFEST__), original);
 });
 
 test('bootstrap retains all navigation identities, sorting values and full revenue search inputs', () => {

@@ -29,6 +29,30 @@ function financialSummary(record) {
   };
 }
 
+// The catalog repeats one of a few manifest entry shapes per Adapter, so
+// field names outweighed values. Store each shape's leaf paths once and each
+// entry as a row of values; the bootstrap rebuilds identical objects in order.
+// An entry with arrays or empty objects stays a plain object row.
+export function columnarManifest(datasetManifest) {
+  const shapes = [], shapeIndex = new Map();
+  const leaves = (value, prefix = []) => Object.entries(value).flatMap(([key, child]) => (
+    child !== null && typeof child === 'object' ? leaves(child, [...prefix, key]) : [[[...prefix, key], child]]
+  ));
+  const encodable = (value) => Object.values(value).every((child) => child === null || typeof child !== 'object'
+    || (!Array.isArray(child) && Object.keys(child).length > 0 && encodable(child)));
+  const rows = datasetManifest.datasets.map((entry) => {
+    if (!encodable(entry)) return entry;
+    const pairs = leaves(entry), signature = JSON.stringify(pairs.map(([path]) => path));
+    if (!shapeIndex.has(signature)) { shapeIndex.set(signature, shapes.length); shapes.push(pairs.map(([path]) => path)); }
+    return [shapeIndex.get(signature), ...pairs.map(([, value]) => value)];
+  });
+  const { datasets, ...rest } = datasetManifest;
+  return { ...rest, shapes, rows };
+}
+
+// Inverse of columnarManifest, inlined into the catalog before any reader.
+const RESTORE_COLUMNAR_MANIFEST = 'window.__DATASET_MANIFEST__=(function(m){var r={};for(var k in m)if(k!=="shapes"&&k!=="rows")r[k]=m[k];r.datasets=m.rows.map(function(row){if(!Array.isArray(row))return row;var o={},paths=m.shapes[row[0]];for(var i=0;i<paths.length;i++){var t=o,p=paths[i];for(var j=0;j<p.length-1;j++)t=t[p[j]]||(t[p[j]]={});t[p[p.length-1]]=row[i+1];}return o;});return r;})(window.__DATASET_MANIFEST__);';
+
 export function buildSiteData({ root, sources, version, assetPrefix }) {
   const context = { console };
   context.window = context;
@@ -79,11 +103,12 @@ export function buildSiteData({ root, sources, version, assetPrefix }) {
     },
     PRODUCT_CATALOG: context.PRODUCT_CATALOG || {},
     METRIC_OBSERVATIONS: [],
-    __DATASET_MANIFEST__: datasetManifest,
+    __DATASET_MANIFEST__: columnarManifest(datasetManifest),
   };
   const source = [
     '/* Generated Pages data projection; edit the authored SSOTs. */',
     ...Object.entries(globals).map(([key, value]) => `window.${key}=${JSON.stringify(value)};`),
+    RESTORE_COLUMNAR_MANIFEST,
     // Store the shared version path once, then restore complete loader URLs
     // before the registry consumes the manifest.
     `window.__DATASET_MANIFEST__.datasets.forEach(function(entry){entry.src=${JSON.stringify(`${assetPrefix}/`)}+(entry.src||'data/datasets/'+entry.key+'.js');});`,
