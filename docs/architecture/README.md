@@ -2,8 +2,8 @@
 
 This directory is the fast-loading architecture index for dataset ingestion,
 fidelity verification, canonical publication, and release. It describes the
-accepted target architecture without pretending that unimplemented commands
-or storage guarantees already exist.
+current implementation; the milestone table below is the dated record of how
+it was reached.
 
 ## Read order
 
@@ -23,18 +23,15 @@ or storage guarantees already exist.
 
 ## Same-checkout implementation
 
-[ADR-0003](../adr/0003-shared-checkout-sessions-and-git-transport.md) adds ordinary
-Build folder ownership, typed SSOT merging, a local workbench and reviewed Git
-transport. [Local environment operations](../local-environments.md) own commands
-and recovery. The workbench defaults to one immutable combined review projection
-of prepared drafts and project data, with per-Build semantic/preview bindings;
-this derived view adds no publication state or write authority. These are implemented local P0/P1 features; remote staging and
-automatic reuse of changed human review remain outside the implemented guarantee.
-The three lifecycle scopes and Publication pointer CAS remain unchanged.
+[ADR-0003](../adr/0003-shared-checkout-sessions-and-git-transport.md) adds Build
+folder ownership, typed SSOT merging, a local workbench and reviewed Git
+transport; [local-environments.md](../local-environments.md) owns their
+behaviour, commands and recovery. None of them adds publication state or write
+authority; the three lifecycle scopes and Publication pointer CAS are unchanged.
 
 ## Architecture summary
 
-The target has three state scopes with different ownership and retry rules:
+Three state scopes have different ownership and retry rules:
 
 ```text
 DatasetBuild
@@ -55,18 +52,13 @@ build can enter a `PublicationBatch`; only a `PUBLISHED` canonical digest can
 start a `ReleaseAttempt`.
 
 `pending/`, `processing/`, and `processed/` are Source locators, not additional
-states. Both media formats use digest-bound Source claims. New inputs use an isolated
-Build workspace and share the existing Build ledger. Publication fixes Source
-locators and digests with the canonical data. Moving the local Source bytes
-still requires the explicit, list-confirmed operator signal defined in
-[dynamic-dataset-workflow.md](../dynamic-dataset-workflow.md); see ADR-0002.
+states; both media formats use digest-bound Source claims. Publication fixes
+Source locators and digests with the canonical data. Git tracks `pending/` and
+`processing/` as a shared queue and ignores the machine-local `processed/`
+archive; local relocation follows the operator signal owned by
+[asset-workflow.md](../asset-workflow.md) §7 (ADR-0002).
 
-The repository currently tracks Source files in `pending/` and `processing/`
-so queue and claim changes can be shared across project checkouts. `processed/`
-is a Git-ignored, machine-local archive. This transport policy is not lifecycle
-authority and creates no additional state.
-
-The target deepens four Modules:
+Four Deep Modules carry the lifecycle:
 
 | Module | Interface responsibility | Implementation hidden behind the Seam |
 | --- | --- | --- |
@@ -75,22 +67,21 @@ The target deepens four Modules:
 | Publication | plan and atomically publish a set of sealed contributions | global projections, path claims, baseline ledger, metadata, CAS and recovery |
 | Release | build or deploy one published digest | standalone build, hosted release, retries and receipts |
 
-These are **Deep** Modules: callers get high Leverage from small lifecycle
-operations, while ordering, recovery, and correctness retain Locality inside
-the owning Module. Income Statement, Revenue Metric and Metric Observation are real Adapters at
-the input-type Seam; future input types add an Adapter instead of branching
+Callers get high Leverage from small lifecycle operations, while ordering,
+recovery, and correctness retain Locality inside the owning Module. Income
+Statement, Revenue Metric and Metric Observation are the Adapters at the
+input-type Seam; a future input type adds an Adapter instead of branching
 through every caller.
 
-The implemented M3 Build path uses `source-classification/v1` before fresh
-intake, then the author's flat `source-objects/v1` list plus actual SSOT/View
-reconciliation, a fixed per-Adapter `verification-plan/v6`, and
-`review-packet/v5`. Review closes on the operator's acceptance recorded in
+`record:workflow` drives the Build path: `source-classification/v1` (PNG) or
+`/v2` (text) at intake, then the author's flat `source-objects/v1` list plus
+actual SSOT/View reconciliation, a fixed per-Adapter `verification-plan/v6`,
+and `review-packet/v5`. Review closes on the operator's acceptance recorded in
 `fidelity-result/v3` together with the per-locale render evidence and the
 consistency evidence; operator feedback is a `feedback-note/v1` that expires
 the current review candidate. Every value node is expected painted at render
 (B15); geometry without a Source face is modeled as a non-node metric, flow, or
-annotation. These remain build-local guards. Publication consumes the
-resulting fresh seals.
+annotation. Publication consumes the resulting fresh seals.
 
 ## Non-negotiable invariants
 
@@ -101,7 +92,7 @@ resulting fresh seals.
   acceptance, and a review never records a pending or rejected result: problems
   are feedback, and only an explicit acceptance closes a Build.
 - Fresh intake requires a whole-Source Type Gate whose signals derive exactly
-  one Adapter and agree with the requested Adapter.
+  one Adapter (and agree with any explicitly requested Adapter).
 - A new review Plan requires the flat Source object list. `Other` / `All
   Other` cannot be classified as non-semantic residual, and every Source value
   must reconcile against the actually loaded Adapter-owned SSOT/View (one SSOT
@@ -137,17 +128,16 @@ entering financial sums or creating Sankey faces. The lifecycle owner describes
 the optional Source signal and complete reconciliation.
 
 New Sources use [asset-workflow.md](../asset-workflow.md). PNG, TXT and Markdown
-are supported; the media format is separate from Income Statement, Revenue
-Metric and the new generic Metric Observation Adapter. The latter has exact
-decimal strings, explicit units/basis, real Source anchors and a viewer library.
+are supported; the media format is separate from the Adapter (text Sources use
+Metric Observation). Metric Observation keeps exact decimal strings, explicit
+units/basis, real Source anchors and a viewer library.
 
 Build workspaces isolate data authoring. Preparation derives ArtifactManifest,
 semantic contributions, the source objects and the Plan, generates review
-sheets, and records timings. New isolated Sankey Builds
-(`review-candidate/v1`) render one all-locale review candidate and close on
-human acceptance; Builds prepared under
-`fidelity-checkpoints/v1` keep their digest-bound stage checkpoints. Historical
-Builds are not silently upgraded.
+sheets, and records timings. New Sankey Builds (`review-candidate/v1`) render
+one all-locale review candidate and close on human acceptance; historical
+Builds prepared under `fidelity-checkpoints/v1` keep their digest-bound stage
+checkpoints and are not silently upgraded.
 
 Publication composes owned data paths in a private candidate, runs shared
 projectors and checks, verifies fresh seals and performs one immutable-tree
@@ -156,21 +146,18 @@ Readers pin the digest before fetching HTML and assets. The working tree is
 still available for code development and legacy direct-edit data; it is not
 claimed to become atomic through a series of file copies.
 
-The root file entry discovers the local workbench, which automatically follows each
-latest successful complete review candidate. An explicit pause freezes a tab; each
-displayed candidate retains its immutable identity and per-Build review bindings.
-Without the workbench, the file viewer embeds one selected complete draft or published tree at a time.
-A machine-local selection is derived by preparation/publication; it neither merges
-data into the development worktree nor changes the canonical pointer/evidence
-contract. Drafts are visibly pending human review. Delivery and production checks
-are command/HTTP only; the operator, not the executor, views the page.
+Drafts shown by the workbench are visibly pending human review and add no
+canonical or evidence state; delivery and production checks are command/HTTP
+only, and the operator, not the executor, views the page
+([local-environments.md](../local-environments.md)).
 
 Release attempts build and verify Pages or standalone output from a published
 digest and retain their own success/error receipt. No external deployment is
-implicit. Local Source archive moves remain operator-controlled; canonical
-Source metadata is published with the data.
+implicit. Canonical Source metadata is published with the data.
 
 ## Migration milestones
+
+Dated record of the migration; status as of 2026-10-18:
 
 | milestone | implementation status | outcome |
 | --- | --- | --- |
@@ -180,10 +167,6 @@ Source metadata is published with the data.
 | M3 — close and stage | implemented | source objects, consistency, one per-locale review candidate and operator acceptance (historical checkpoint Builds keep stage freezes); baseline and final seal remain separate |
 | M4 — publish atomically | implemented for local dataset publication | private combined candidate, pure-in-candidate shared projections, owned-path conflicts, fresh seal check, immutable tree and pointer CAS, digest-qualified reader, idempotent recovery |
 | M5 — separate Release | implemented for local site/standalone artifacts | published-digest input, independent attempt/error receipts and retries; external hosted deployment remains an explicit separate operation |
-
-Each milestone must run in shadow or compatibility mode until its observable
-results match the current verifier behavior. Do not delete an old Interface
-until tests at the new Deep Module's Interface cover its behavior.
 
 `pnpm verify:architecture` keeps the machine-readable contract, executable
 protocol constants, Adapter/ChangeImpact values, command semantics, context
@@ -198,5 +181,5 @@ routes, and local architecture-document links in sync. It is part of
 - [`verification-publication.md`](verification-publication.md) owns evidence
   semantics, baseline restrictions, canonical publication, retry rules, and
   Release separation.
-- Operational step-by-step instructions remain in the existing workflow and
-  fidelity documents until migrated.
+- Operational step-by-step instructions live in
+  [asset-workflow.md](../asset-workflow.md) and the fidelity documents.

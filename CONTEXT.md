@@ -7,32 +7,25 @@ build-local evidence, not publication state.
 
 New input uses `docs/asset-workflow.md`: a PNG or UTF-8 text Source, one facts
 file, an isolated Build, generated review records, atomic local publication,
-and an optional release from that published digest. The root `index.html` is the
-stable local review entry: it discovers the local HTTP workbench, where the default
-view combines prepared drafts and current project data in one complete candidate that automatically follows successful updates.
-Next/previous navigates the displayed member list; an explicit pause freezes the tab; each Build retains its own review
-binding. Individual Build/transport views remain available for inspection. Session owner/generation fences
-writers; no Git worktree is needed. A reviewed Git transport uses a shared write
-mutex, exact paths, a private index and a recovery journal. The operational owner
-is `docs/local-environments.md`; ADR-0003 preserves the existing lifecycle scopes.
-Generic observations live
+and an optional release from that published digest. Generic observations live
 in `data/metric-observations/` and appear in the viewer metric library.
 
-Source folders are operational locators, not a fourth lifecycle scope.
-`record:intake` fixes the Source digest and claims the selected file from
-`input/pending/` into the Build-local `input/processing/` working locator and
-lease. The Source remains there until an explicit operator review-completion
-signal; the Sources inside the scope that signal names move no-clobber to
-`input/processed/`. That signal is the only current relocation trigger, changes
-no Source digest identity, and fabricates no Build state; its owning definition
-is `docs/asset-workflow.md` §7 Operator Review-Completion Signal. Publication records the stable Source locator and digest with the data;
-local archive relocation retains this explicit operator policy (ADR-0002).
+The root `index.html` discovers the local review workbench. Its behaviour,
+Session owner/generation fencing and reviewed Git transport are owned by
+`docs/local-environments.md`; ADR-0003 keeps the lifecycle scopes unchanged.
 
-Git transport is separate from lifecycle state: `input/pending/` and
-`input/processing/` are tracked so multiple project checkouts can exchange
-queue and active-claim changes, while `input/processed/` is ignored and kept
-as a complete local archive. Tracking or ignoring a locator does not create a
-Build transition or change Source identity.
+Source folders (`pending/`, `processing/`, `processed/`) are operational
+locators, not a fourth lifecycle scope: claiming or relocating bytes never
+changes Source digest identity or Build state. Git tracks the pending and
+processing queue and ignores the machine-local `processed/` archive. The only
+relocation trigger is the operator signal owned by `docs/asset-workflow.md` §7
+(ADR-0002).
+
+## Renderer-owned semantics
+
+This file owns the renderer semantics below (Hover Share, Comparison Visual
+Scale, and the fit/zoom transaction). `data/schema.md` holds only the Adapter
+field formats (`comparisonScale`, `meta`), and Adapters cannot override them.
 
 Within a Sankey View, **Hover Share（所占比例）** is renderer-owned rather
 than Adapter-configurable. The default formula, used on every hover surface
@@ -71,7 +64,8 @@ it directly as calibration evidence.
 
 The Comparison Visual Scale Module joins that renderer-owned native
 measurement with the matching Metric SSOT record's `currency` and `unit`, then
-uses the dated Trace FX snapshot to derive viewBox units per USD. A group is
+uses the dated Trace FX snapshot to derive viewBox units per USD
+(`native viewBox units per authored value / USD per authored value`). A group is
 normalized only when every selected record has compiled anchor geometry, a
 matching Metric SSOT record with explicit currency and a `K`/`M`/`B`/`T`
 unit, and a positive USD conversion. Any failure makes the whole group
@@ -110,7 +104,10 @@ off-screen group is committed. Fit always measures the stable Sankey viewport
 content box; the zoomed max-content comparison is output and can never become
 the next redraw's width input. The renderer independently enforces the same
 safe SVG boundary. The renderer and
-measurement Interface also share the same minimum visible node face.
+measurement Interface also share the same minimum visible node face: a positive
+compiled face paints at least one viewBox unit, and that painted height is what
+calibration reports; `pnpm verify:i18n -- --strict` rejects any overlay that
+changes value-bearing renderer geometry.
 
 The complete comparison group renders in a connected off-screen transaction
 that mirrors the real `.comparison-view` ancestry. Calibration, every card,
@@ -124,7 +121,8 @@ measurement/render drift cannot cross the transaction boundary.
 
 Responsive fit measures resolved `row-gap`, `column-gap`, margins, and actual
 card chrome from that connected staging tree; it never parses raw CSS custom
-properties. Zoom preview uses a connected, SVG-free skeleton under the same
+properties; the staging element is a fixed-position sibling under the real
+comparison ancestor, not a body-level approximation. Zoom preview uses a connected, SVG-free skeleton under the same
 CSS ancestry and asks the active browser to resolve each target flex box.
 Thus browser subpixel quantization, `rem`/`calc()` lengths, independent
 row/column gaps, asymmetric margins/borders, and future card chrome remain
@@ -133,6 +131,8 @@ JavaScript. Fit and zoom retain fractional authored widths without a
 one-pixel floor, so even extreme cross-company magnitudes keep the
 mathematical scale; browser subpixel rasterization is an explicit
 presentation boundary, and zoom is the inspection path.
+
+## Domain and architecture vocabulary
 
 Architecture vocabulary is **Module**, **Interface**, **Implementation**,
 **Depth**, **Deep/Shallow**, **Seam**, **Adapter**, **Leverage**, and
@@ -154,63 +154,22 @@ authored file SSOTs remain authoritative, and source/standalone retain complete
 offline data. A runtime digest identifies generated bytes, not a canonical
 publication or human acceptance. See `docs/architecture/runtime-data.md`.
 
-The current M3 build-local chain is the primary close-out authority and runs
-end to end. Fresh intake first records a whole-Source Type Gate; authored
-review then validates the author's flat Source object list and reconciles every
-Source amount against the actually loaded SSOT (and exactly one Sankey node or
-non-node metric for Income Statement) before a Plan can exist:
+## Current dataset path
 
-```text
-SourceClassification v1 -> INTAKED
-  -> SourceObjects v1 (flat list + actual authored-value reconciliation)
-  -> VerificationPlan v6 (fixed per-Adapter checklist) -> ReviewPacket v5
-  -> dataset-verification/v1 consistency evidence
-  -> fidelity-run/2 EVIDENCE_READY (one review candidate per required locale)
-  -> operator acceptance -> FidelityResult v3 -> CLOSED -> BASELINE_STAGED -> fresh SEALED
-```
-
-- **SourceObjects** (`source-objects/v1`): the author's flat `objects[]` list in
-  `source-facts/v1`, one entry per Source object with class `value`, `flow`,
-  `label`, `asset`, or `residual`; values reconcile to SSOT and Adapter targets.
-- **shortNodes**: the top-level facts declaration `{ node, reason }` for a
-  genuine Source face thinner than 3px; B15 accepts it below the floor.
-- **Opt-in label position**: a `label` or `value` entry with `referenceBBox`
-  and `labelGroup` turns on T18 for that group; undeclared groups are not
-  position-audited.
-- **FidelityResult** (`fidelity-result/v3`): the operator acceptance plus the
-  per-locale render evidence digests and the automatic gate summary.
-- **FeedbackNote** (`feedback-note/v1`): what the operator said about a review
-  candidate; recording it expires that candidate and is not a review outcome.
-
-`verify:d3` is read-only diagnostic execution and never records durable
-evidence. `record:fidelity` owns durable automatic evidence; its
-`evidence-ready` result still requires human review and cannot close a Build.
-The Plan binds the immutable Source digest and the source-objects digest, and
-the accepted FidelityResult binds the Plan. Every value node must render a
-painted face (B15); geometry without a Source-painted face is modeled as a
-non-node metric, flow geometry, or annotation, never as an invisible node. A genuinely sub-floor
-Source face is declared once in `shortNodes`. Neither an omitted small value
-nor an `Other` label can be accepted as decorative residue. A primary
-zero-looking literal that masks a real non-zero amount must bind
-higher-precision recovery and remain non-zero in the authored SSOT/View; a
-value outside its literal's rounding interval is a confirmed typo and may
-proceed only through the user-directed authoritative-correction path. Without
-one of those typed records, the Build stops rather than writing zero.
-`record:workflow` drives these operations for new Builds (`record:build`
-exposes the deep prepare-review, finish-reviewed, stage, seal, and inspect
-operations for historical ones). A stored `SEALED` receipt is historical fact, while
-inspection computes effective freshness: changing an authored file makes a
-historical `SEALED` Build effectively `AUTHORED`. Builds prepared under an
-older Plan protocol stay readable; `record:workflow continue` or `refresh`
-re-prepares them. `CloseoutReport`, Task information, and Loop Fidelity Summary
-are generated Views over structured Build objects, not acceptance inputs.
-
-When a Source literal has a confirmed unit or numeric typo, the source objects
-keep the original literal immutable and may apply only a user-directed
-correction that records the corrected display literal, the approval, and a
-reason naming the authoritative source; the corrected display must express the
-authored amount within its own resolution. This is distinct from rounded-zero
-precision recovery and the two mechanisms cannot be combined.
+The path is `record:workflow start → continue → accept`, then `publish:datasets plan/commit`
+and, on a push instruction, `release:git`. A Build records
+`source-classification/v1` (PNG) or `/v2` (text), the author's flat
+`source-objects/v1` list reconciled against the actually loaded SSOT/View, a
+fixed per-Adapter `verification-plan/v6`, `review-packet/v5`,
+`dataset-verification/v1` consistency evidence and one `fidelity-run/2` review
+candidate per required locale; operator acceptance records
+`fidelity-result/v3` and moves the Build through `CLOSED`, `BASELINE_STAGED`
+and `SEALED`, while operator feedback is a `feedback-note/v1` that expires the
+candidate. `verify:d3` is read-only diagnosis, and automatic evidence never
+closes a Build. Inspection re-hashes authored files, so a changed file makes a
+historical `SEALED` Build effectively `AUTHORED`. Source-object invariants
+(`objects[]`, `shortNodes`, precision recovery, authoritative correction,
+Other/T22) are owned by `docs/dynamic-dataset-workflow.md`.
 
 Load context in this order:
 
@@ -220,6 +179,6 @@ Load context in this order:
 4. [Machine-readable lifecycle contract](docs/architecture/lifecycle-contract.json)
 5. [ADR-0001](docs/adr/0001-dataset-build-transactions.md)
 
-The architecture documents distinguish **current Implementation** from the
-accepted **target architecture**. Until a migration milestone is implemented,
-the current commands and operational rules remain authoritative.
+The architecture documents describe the current implementation; the
+[milestone table](docs/architecture/README.md#migration-milestones) is the
+dated record of how it was reached.

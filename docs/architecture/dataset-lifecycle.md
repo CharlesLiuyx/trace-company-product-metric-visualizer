@@ -1,37 +1,16 @@
 # Dataset Lifecycle Architecture
 
-## Logical objects and local storage
-
-`trace-record-list/v1` is a local storage encoding for large file-entry and
-artifact arrays. The store resolves digest-addressed chunks and verifies the
-reconstructed array before exposing a Build or object. The logical JSON,
-receipt chain, object digests and lifecycle protocols are unchanged. Plain
-historical JSON remains readable; frozen toolchains without the codec keep
-writing plain JSON until explicitly refreshed.
-
-`workspace-storage/v1` represents a complete canonical workspace using its
-immutable base plus ordinary, independently writable local changes. Inherited
-paths are explicit indices into the digest-verified base manifest. Enumeration
-and verification use the complete logical tree and hash actual bytes. External
-authoring materializes independent files first, including before deletion;
-workflow operations use the existing owner/generation and operation lock.
-Storage compaction does not accept, close, seal, publish or relocate a Source.
-The operational and retention owners remain `docs/local-environments.md` and
-`docs/artifact-retention.md`.
-
-This document owns the target lifecycle model for turning one Source into a
-validated dataset contribution. It defines the three state scopes, the
-build-local `FidelityRun`, the durable objects shared between Modules, and the
-Income Statement / Revenue Metric Adapter Seam. Verification and canonical
-write semantics are owned by
+This document owns the lifecycle model for turning one Source into a validated
+dataset contribution. It defines the three state scopes, the build-local
+`FidelityRun`, the durable objects shared between Modules, and the input-type
+Adapter Seam. Verification and canonical write semantics are owned by
 [`verification-publication.md`](verification-publication.md).
 
-Current entry point: [asset-workflow.md](../asset-workflow.md). New isolated
-Builds add derived dependencies and a single review candidate to the existing state machine;
-Metric Observation keeps real text/image anchors in its metric record and
-derives the same flat Source object list.
-Historical protocol readers and the legacy direct-edit description below remain
-explicit compatibility paths.
+The operational entry point is [asset-workflow.md](../asset-workflow.md):
+`record:workflow` drives every new Build through the states below. Metric
+Observation keeps real text/image anchors in its metric record and derives the
+same flat Source object list. Historical protocol readers stay explicit
+compatibility paths.
 
 ## Scope model
 
@@ -46,11 +25,11 @@ INTAKED -> AUTHORED -> CLOSED -> BASELINE_STAGED -> SEALED
 
 | state | meaning | required durable result |
 | --- | --- | --- |
-| `INTAKED` | key, Source digest, dimensions, provenance, availability, whole-Source Type Gate, selected Adapter, and base canonical snapshot are fixed; the current compatibility implementation also claims the working Source locator | intake record with `SourceClassification` |
+| `INTAKED` | key, Source digest, dimensions, provenance, availability, whole-Source Type Gate, selected Adapter, and base canonical snapshot are fixed; intake also claims the working Source locator | intake record with `SourceClassification` |
 | `AUTHORED` | the selected Adapter accepts the Source objects and authored contribution | `ArtifactManifest` |
 | `CLOSED` | every check of the Adapter's fixed Plan has current evidence and the operator accepted the authored snapshot | closure digest plus the accepted `FidelityResult` reference |
 | `BASELINE_STAGED` | a future-regression record has been derived from the closed candidate but is not canonical | staged baseline artifact bound to the closure digest |
-| `SEALED` | a fresh, read-only final verification accepts the exact build inputs and publication contribution | seal digest and `acceptedAt` |
+| `SEALED` | the exact build inputs and publication contribution are re-hashed under the write lock and the Adapter final profile passes; by default it reuses the accepted consistency and per-locale render evidence on the same authored snapshot (`--fresh-checks` / `--fresh-render` re-run them) | seal digest and `acceptedAt` |
 
 States are append-only facts, not mutable labels. Rework records a new
 `AUTHORED` receipt with `reopenedFrom` when it follows `CLOSED`,
@@ -58,42 +37,29 @@ States are append-only facts, not mutable labels. Rework records a new
 audit, while making that earlier closure ineligible for the new authored
 snapshot.
 
-### Source identity, working locator, and projection
+### Source identity and working locator
 
 The Source digest identifies immutable bytes. A filesystem path locates or
 projects those bytes; moving an exact digest does not create a lifecycle state,
 rewrite Source identity, or invalidate evidence by itself.
 
-The current compatibility workflow uses three directory roles:
-
-- `input/pending/` is the unclaimed discovery queue and is Git-tracked so new
-  work can be shared across project checkouts;
+- `input/pending/` is the unclaimed, Git-tracked discovery queue;
 - `input/processing/` is the Build-local working locator and filesystem lease.
-  After the guard, key, and input-type selection succeed, `record:intake`
-  durably fixes Source identity and claims the selected file here before
-  authoring begins. These active claims are also Git-tracked;
-- `input/processed/` is the stable compatibility locator and a Git-ignored,
-  machine-local archive. An explicit operator completion signal — confirmed
-  against the enumerated processing batch — is
-  the only current relocation authority (owning rule:
-  [`asset-workflow.md`](../asset-workflow.md)
-  §7 Operator Review-Completion Signal); passing Build close-out
-  alone does not move files, and relocation records no Build transition or
-  receipt.
+  `record:workflow start` durably fixes Source identity and claims the selected
+  file here (no-clobber, digest-checked) before authoring; claims are also
+  Git-tracked;
+- `input/processed/` is the operator-managed stable locator and a Git-ignored,
+  machine-local archive. Relocation into it follows only the operator signal
+  owned by [`asset-workflow.md`](../asset-workflow.md) §7 and records no Build
+  transition or receipt.
 
-Git visibility is collaboration transport, not lifecycle authority. A Git
-add, rename, or deletion for one of these locators neither advances a Build nor
-replaces the digest and no-clobber checks owned by the lifecycle interfaces.
-
-Directory existence is never authoritative state. A crash may leave a locator
-and Build record temporarily out of sync; recovery reconciles them by Build ID,
-key, and digest without inferring a transition or overwriting another file. A
+Git visibility is collaboration transport, not lifecycle authority. Directory
+existence is never authoritative state: recovery reconciles a locator and its
+Build record by Build ID, key, and digest without inferring a transition, and a
 missing working file, a destination collision, or changed bytes is a hard
-recovery/freshness failure.
-
-Publication owns the canonical Source locator/digest projection. The local
-processed archive remains operator-controlled, as clarified by ADR-0002;
-it is not a canonical visibility boundary.
+recovery/freshness failure. Publication owns the canonical Source
+locator/digest projection; the local archive is not a canonical visibility
+boundary (ADR-0002).
 
 ### 2. PublicationBatch
 
@@ -144,10 +110,11 @@ or compatible accepted evidence set it consumes.
 
 The current review-evidence protocol is `fidelity-run/2`. Its durable
 automatic terminal is `EVIDENCE_READY`, not human acceptance. `verify:d3`
-uses only ephemeral diagnostic scratch; `record:fidelity` is the operation
-that may finalize a build-bound `evidence-ready` archive, and only after every
-gate of that run passed. The operator acceptance is joined later by the Dataset
-Build Module rather than inferred from this run.
+uses only ephemeral diagnostic scratch; the `record:fidelity` operation (run by
+`record:workflow continue`) is the only one that may finalize a build-bound
+`evidence-ready` archive, and only after every gate of that run passed. The
+operator acceptance is joined later by the Dataset Build Module rather than
+inferred from this run.
 
 ## Durable lifecycle objects
 
@@ -158,68 +125,60 @@ semantic gain.
 
 ### SourceClassification
 
-`source-classification/v1` is the pre-intake Type Gate for a fresh
-`record:intake`. It is an explicit, Source-bound classification record, not a
-claim that a vision model inferred the input type. It binds the complete
-native image bbox, locator, digest, dimensions, stable dataset key, confirmed
-status, review method, positive signals, and derived Adapter.
+The pre-intake Type Gate records an explicit, Source-bound classification, not
+a claim that a vision model inferred the input type. `record:workflow start`
+reads the positive signals from the facts file's top-level `signals` and
+derives exactly one Adapter from them; there is no Adapter flag. The record
+binds the locator, digest, stable dataset key, confirmed status, review method
+(`full-source-type-gate`), signals, and derived Adapter, plus the complete
+native Source scope. `createSourceClassification`
+(`scripts/lib/source-objects.mjs`) picks the protocol from the media format:
 
-The current Adapter signatures are deliberately mutually exclusive:
+| protocol | Source | complete-Source scope | Adapters |
+| --- | --- | --- | --- |
+| `source-classification/v1` | PNG (`width`, `height`) | `fullImageBBox: [0, 0, width, height]` | any |
+| `source-classification/v2` | UTF-8 text (`format: 'text'`, `charLength`) | `fullTextRange: [0, charLength]` | Metric Observation only |
+
+Each Adapter signature requires and forbids signals; the signatures do not
+overlap, so a signal set matches at most one Adapter:
 
 | Adapter | required Source signals | forbidden Source signals |
 | --- | --- | --- |
-| Income Statement | `income-statement-values`, `sankey-flow-topology` | `revenue-metric-definition`, `time-series-observations` |
-| Revenue Metric | `revenue-metric-definition`, `time-series-observations` | `income-statement-values`, `sankey-flow-topology` |
+| Income Statement | `income-statement-values`, `sankey-flow-topology` | `revenue-metric-definition`, `time-series-observations`, `metric-observations` |
+| Revenue Metric | `revenue-metric-definition`, `time-series-observations` | `income-statement-values`, `sankey-flow-topology`, `metric-observations`, `supplemental-operating-metrics` |
+| Metric Observation | `metric-observations` | every other signal |
 
-Income Statement optionally accepts `supplemental-operating-metrics` when the
-Source includes separate operating cards. This signal is forbidden for the
-other Adapters and alone cannot select an Adapter. Each card is one `value`
-Source object bound to `operatingMetrics` on the same SSOT record; see
-`data/schema.md` for fields. They are excluded from accounting sums and node
-faces, while requiring one dedicated value text in each locale. Preparation
-reconciles their exact values, comparison operators, labels and quotes against
-the loaded SSOT/View. Existing states and financial precision obligations
-remain unchanged.
+Facts without `signals` default to `metric-observations`. Income Statement
+optionally accepts `supplemental-operating-metrics` when the Source includes
+separate operating cards; this signal alone cannot select an Adapter. Each card
+is one `value` Source object bound to `operatingMetrics` on the same SSOT
+record (fields: `data/schema.md`); cards stay out of accounting sums and node
+faces, need one dedicated value text per locale, and are reconciled with their
+exact values, comparison operators, labels and quotes against the loaded
+SSOT/View.
 
-The signals must select exactly one supported Adapter and that result must
-match the requested `--adapter`. Otherwise intake fails before a Build is
-initialized or the Source is claimed. Fresh CLI intakes require this record;
-legacy Builds without one remain inspectable, but cannot prepare new Source
-objects. Changing an intake
+A signal set that matches no Adapter or more than one fails before a Build is
+initialized or the Source is claimed. Legacy Builds without a classification
+remain inspectable but cannot prepare new Source objects. Changing an intake
 classification requires a successor Build with a new immutable intake fact.
 
 ### SourceObjects
 
 `source-objects/v1` is the single Source-to-authored bridge required by a new
-review preparation. The author lists every independent Source object once in
-`source-facts/v1` `objects[]` (field rules: `docs/dynamic-dataset-workflow.md`);
-metric-observation facts are compiled into the same list. Each entry has a
-stable ID and one class — `value`, `flow`, `label`, `asset`, or `residual` — and
-the Build Module binds the list to `SourceClassification` and the Build Source
-digest. Entries carry no Source pixel evidence; the Build records which Source
-digest the facts were authored against.
-
-`prepareBuildReview` validates the list and reconciles it against the actually
-loaded registry before it records `AUTHORED`:
-
-- every `value` entry matches its typed SSOT field, and an Income Statement
-  financial value matches exactly one Adapter node or non-node metric, with no
-  Adapter target claimed twice;
-- the value lies within its literal's rounding interval, or carries the typed
-  `precisionRecovery` (rounded-to-zero literals) or user-directed
-  `authoritativeCorrection` record; a recovered non-zero value must stay
-  non-zero through SSOT/View display precision;
-- an `Other` object is never a residual, and an Other that displays an amount
-  is a `value` entry (T22); a residual cannot display an amount;
-- payment-network charts use the typed `revenue.paymentNetwork.*` paths;
-  Revenue Metric values match the selected dated SSOT observation.
-
-The object also derives `Other` identities, value node IDs, non-node metric
-IDs, the smallest non-zero values, the declared `shortNodes`, and the
-opt-in label groups that carry a `referenceBBox` (T18). Render-time B15
-expects every value node painted and every rendered node at least 3px tall
-unless listed in `shortNodes`; fidelity definitions and thresholds remain owned
-by [`fidelity-loop-rules.md`](../fidelity-loop-rules.md).
+review preparation: the author's flat `source-facts/v1` `objects[]` list
+(metric-observation facts compile into the same list), one entry per
+independent Source object with a stable ID and one class — `value`, `flow`,
+`label`, `asset`, or `residual`. The Build Module binds the list to
+`SourceClassification` and the Build Source digest; entries carry no Source
+pixel evidence. `prepareBuildReview` validates the list and reconciles every
+value against the actually loaded SSOT (and, for an Income Statement financial
+value, exactly one Adapter node or non-node metric) before it records
+`AUTHORED`. It also derives `Other` identities, value node IDs, non-node metric
+IDs, the declared `shortNodes`, and the opt-in T18 label groups. The authoring
+invariants (rounding interval, `precisionRecovery`, `authoritativeCorrection`,
+Other/T22, `shortNodes`) are owned by
+[`dynamic-dataset-workflow.md`](../dynamic-dataset-workflow.md); fidelity
+definitions and thresholds by [`fidelity-loop-rules.md`](../fidelity-loop-rules.md).
 
 ### ChangeImpact
 
@@ -268,20 +227,22 @@ under v6 before review.
 `review-packet/v5` is the content-addressed handoff from authored preparation to
 automatic and human review. It binds `buildId`, authored digest, Verification
 Plan digest, source-objects digest, required locales, and references to the
-recorded source objects and Plan. `record:build prepare-review` returns its
-digest as a `reviewToken`; `finish` consumes that token (`packetDigest` remains
-a compatibility alias). The token identifies the packet and cannot select a
-different Build. Older packets must be regenerated by re-preparing the Build.
+recorded source objects and Plan. `record:workflow continue --json` (and
+`show --json`) return its digest as `reviewToken`; `accept` consumes that token
+(`packetDigest` remains a compatibility alias). The token identifies the packet
+and cannot select a different Build. Older packets must be regenerated by
+re-preparing the Build.
 
 ### DatasetVerification
 
-`dataset-verification/v1` is Build-bound, non-render consistency evidence produced
-by `record:verification`. It runs the current dataset profile for syntax, SSOT,
-strict i18n, and generated metadata with rendering skipped, then binds the pass
-to the Build, Adapter, authored digest, and Verification Plan digest. A failed
-check records no ready object; a Build or authored-file change during the run
-invalidates the result. Closure for every Adapter requires this evidence;
-Sankey render evidence remains an additional Income Statement obligation.
+`dataset-verification/v1` is Build-bound, non-render consistency evidence
+recorded by the `verify` step of `record:workflow continue`. It runs the current
+dataset profile for syntax, SSOT, strict i18n, and generated metadata with
+rendering skipped, then binds the pass to the Build, Adapter, authored digest,
+and Verification Plan digest. A failed check records no ready object; a Build
+or authored-file change during the run invalidates the result. Closure for
+every Adapter requires this evidence; Sankey render evidence remains an
+additional Income Statement obligation.
 
 ### ArtifactManifest
 
@@ -417,9 +378,8 @@ historical `SEALED` receipt remains auditable while `effectiveState` becomes
 
 - One Build is serial by version; different Builds may run in parallel.
 - The `processing/` locator is a per-key working lease, not a state transition;
-  intake claims are no-clobber and digest-checked. Its only current relocation
-  authority is the explicit, batch-confirmed operator completion signal, which
-  moves the confirmed set no-clobber without lifecycle receipt synthesis.
+  intake claims are no-clobber and digest-checked, and relocation follows
+  [`asset-workflow.md`](../asset-workflow.md) §7 without lifecycle receipts.
 - Every state-changing operation has an idempotency identity and an expected
   aggregate version.
 - Artifacts are stored and hash-verified before a state event references
@@ -434,39 +394,38 @@ historical `SEALED` receipt remains auditable while `effectiveState` becomes
 - `SEALED` is fresh only for its exact digest set.
 - Only fresh sealed contributions enter Publication.
 
-## Current Implementation note
+## Current implementation note
 
-The M3 build-local chain is the primary close-out path, exposed through the
-deep `prepareBuildReview`, `finishReviewedBuild`, `stageReviewedBaseline`,
-`sealReviewedBuild`, and `inspectBuildCloseout` Interfaces, surfaced by
-`record:build`. Together with `record:verification`, it records content-addressed
+`record:workflow` drives the current path (`start → continue → accept`) through
+the deep `prepareBuildReview`, `finishReviewedBuild`, `stageReviewedBaseline`,
+`sealReviewedBuild`, and `inspectBuildCloseout` Interfaces. Together with the
+consistency step it records content-addressed SourceClassification,
 SourceObjects, VerificationPlan, ReviewPacket, DatasetVerification,
 FidelityResult, FeedbackNote, closure, staged baseline, and seal objects under
-the per-Build store. `inspect` also produces `CloseoutReport`, Task
+the per-Build store; `accept` records acceptance, closure, baseline staging and
+seal in one locked transaction. Inspection also produces `CloseoutReport`, Task
 information, and Loop Fidelity Summary as pure Views over the recorded
 `FidelityResult`. Closures recorded before `fidelity-result/v3` may still
-reference a feedback-ledger object; it is no longer read.
+reference a feedback-ledger object; it is no longer read. The low-level
+`record:intake`, `record:build`, `record:verification`, `record:fidelity` and
+`verify:closeout` commands remain only for historical Builds
+([legacy workflow](../archive/legacy-direct-edit-workflow.md)), and
+`compat:baseline` is only the legacy baseline writer.
 
-At current intake, `record:intake` first records `source-classification/v1`
-from the whole-Source Type Gate, then claims the selected Source from
-`pending/` to the Build-local, Git-tracked `processing/` locator. At review
-preparation, SourceObjects with actual SSOT/View reconciliation, Plan v6, and
-ReviewPacket v5 are current M3 behavior. The operator
-review-completion signal (owning rule:
-[`asset-workflow.md`](../asset-workflow.md)
-§7 Operator Review-Completion Signal) is the only current authority to relocate
-Sources from `processing/` to `processed/`, and it moves only the batch the
-operator has confirmed. The destination is a Git-ignored local archive, so the
-repository records removal from the shared processing queue rather than the
-archived PNG. Passing Build close-out alone does not move a Source.
-Neither filesystem move adds or infers a DatasetBuild state.
+Sealing re-hashes authored files under the write lock and, by default, reuses
+the accepted non-render consistency evidence and, for Income Statement, the
+per-locale d3 render proof on the same authored snapshot (`--fresh-checks`
+reruns both; `--fresh-render` reruns rendering) before recording `SEALED`
+against an accepted closure. New Builds use immutable-tree Publication and
+path-claim CAS; the local Source archive move stays outside that canonical
+publication boundary. Milestone history: [`README.md`](README.md#migration-milestones).
 
-The preceding path describes legacy direct-edit compatibility. New isolated Builds use `docs/asset-workflow.md`;
-`compat:baseline` remains only the legacy baseline writer. New isolated Builds
-use immutable-tree Publication and path-claim CAS. The local Source archive
-move remains separate from that canonical publication boundary. The current seal operation re-hashes
-authored files and reuses the accepted non-render consistency evidence and, for
-Income Statement, per-locale d3 render proof on the same authored snapshot
-(`--fresh-checks` reruns both; `--fresh-render` reruns rendering) before recording `SEALED`
-against an accepted closure.
-See the live status table in [`README.md`](README.md).
+## Workspace storage
+
+`trace-record-list/v1` (chunked large record arrays) and `workspace-storage/v1`
+(immutable base plus independently writable local changes) are storage
+encodings only: logical JSON, receipt chains, object digests and lifecycle
+protocols are unchanged, and compaction never accepts, closes, seals, publishes
+or relocates a Source. Operations (`compact`, `materialize`, `share-assets`) are
+owned by [`local-environments.md`](../local-environments.md); retention by
+[`artifact-retention.md`](../artifact-retention.md).

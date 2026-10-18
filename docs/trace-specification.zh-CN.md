@@ -58,9 +58,10 @@ Metric 是 Trace 最重要的关注点。一个有效 Metric 必须完整描述�
 - 来源：至少来自一个可追溯 Source，或来自可追溯观测的推理结果；
 - 置信度：说明当前系统对该值的可信程度。
 
-当前项目实现了两个 Metric 家族：Income Statement（收入、成本、毛利、运营
-利润、税、净利润等结构化指标）与 Revenue Metric（多期收入/ARR 观测、条件、
-事件、来源与置信度）。
+当前项目实现了三个 Metric 家族：Income Statement（收入、成本、毛利、运营
+利润、税、净利润等结构化指标）、Revenue Metric（多期收入/ARR 观测、条件、
+事件、来源与置信度）与 Metric Observation（图片或文字中的通用公司/产品指标，
+见第 7 节）。
 
 ### Source
 
@@ -206,7 +207,7 @@ InputFile {
 | View / Table | `src/app/tables.js`（查看器其余 UI 模块见 `src/app/`，加载顺序在 `index.html`） |
 | Source Image | `input/processed/<dataset-key>.png` 与 `meta.referenceImage` |
 | Pending Input | `input/pending/` |
-| Processing Input | `input/processing/<dataset-key>.png`；`record:intake` 守卫通过后立即 no-clobber 领取，并保留到 accepted、fresh close-out 完成或操作者明确发出批量审阅完成信号 |
+| Processing Input | `input/processing/<dataset-key>.<png\|txt\|md>`；`record:workflow start` 通过 Type Gate 后 no-clobber 领取；何时移到 processed 只由操作员完成信号决定，见 [asset-workflow.md](asset-workflow.md) §7（close-out 不触发搬移） |
 | 处理插件雏形 | `scripts/check-pending-processed.mjs`、`scripts/extract_icon_crops.py`、验证脚本 |
 | 可复用资产 | `data/assets/` |
 
@@ -223,11 +224,8 @@ InputFile {
 - Git 跟踪 `input/pending/` 与 `input/processing/` 的共享队列/claim；
   `input/processed/` 整目录忽略并只作为本机完整归档。此版本控制策略不创造
   DatasetBuild 状态；
-- Source relocation 的唯一当前授权是用户明确说人工审阅完毕，或本地工作已推送
-  并合入 `main`；收到信号后，把当前全部 processing PNG 视为已审阅，先检查整批
-  同名冲突，再直接移动到 processed，不补造 Build receipt；单独通过 Build
-  close-out 不移动文件；processing 非空不应让全局 `pnpm check` 失败；该移动不是
-  M4 Publication；
+- Source 搬移规则只由 [asset-workflow.md](asset-workflow.md) §7 拥有；搬移不补造
+  Build receipt、不是 Publication，processing 非空不应让全局 `pnpm check` 失败；
 - `input/processed/` 的图片是本机验证参考，不是运行时事实，也不得 force-add；
 - processed 图片一经物化永不改名或覆盖；
 - i18n 覆盖只改变显示文本和文本布局，不改变 Metric 语义、数值或关系。

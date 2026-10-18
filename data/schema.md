@@ -91,73 +91,14 @@ cross-company normalization reads the SSOT, not the adapter.
 
 ### Comparison Visual Scale
 
-Comparison Visual Scale is compiled rather than Adapter-authored. For every
-selected Sankey View Adapter, the renderer compiles the same fixed or dynamic
-graph geometry used by `render()`, resolves a stable semantic anchor (normally
-the `revenue` node), and reports:
+Comparison Visual Scale is compiled by the renderer, not Adapter-authored. Its
+semantics (anchor measurement, USD join, group-atomic fail-closed calibration,
+the off-screen render transaction, responsive fit and zoom) are owned by
+[`CONTEXT.md`](../CONTEXT.md#renderer-owned-semantics). The only Adapter field
+is [`comparisonScale`](#comparisonscale), and the Adapter `meta.currency` /
+`meta.unit` contract above is the only money-dimension input it checks.
 
-```text
-native viewBox units per authored value
-  = compiled anchor node-face height / |anchor authored value|
-```
-
-The Comparison Visual Scale Module combines that renderer-owned measurement
-with the matching financial Metric SSOT record's `currency` and `unit`.
-`strictSankeyMoneyDimension(meta, financial)` shares the same contract with
-`verify:ssot`: the financial record must declare a known currency and exact
-`K`/`M`/`B`/`T` unit, the Adapter unit must match, and any non-empty Adapter
-display currency must denote the same currency. It then supplies USD per
-authored value, so the comparison calibration is:
-
-```text
-viewBox units per USD
-  = native viewBox units per authored value / USD per authored value
-```
-
-This join is group-atomic. Every selected record must have compiled positive
-anchor geometry, a matching Metric SSOT record, a `source`/`hub` anchor role,
-canonical string ids, native finite numeric amounts/decimals, representable
-display precision, and a positive USD conversion. The normal `revenue` face
-is proven against `revenue.total`; only an alternate anchor must occur exactly
-once in an acyclic revenue lineage. Every normalization factor must itself
-remain finite and positive; floating-point underflow is an uncalibrated
-result. If any record cannot be calibrated, the whole comparison is
-uncalibrated and the viewer fails closed instead of rendering a partially
-normalized group. After
-calibration, every card renders into one connected off-screen transaction;
-the renderer remeasures the exact SVG anchor instance and requires its value,
-face height, scale, and final `viewBox` width/height to match the plan before
-the live DOM is replaced. Responsive fit and card base width consume the
-canvas dimensions returned by that same renderer measurement, never a second
-Adapter read. A renderer exception or geometry drift therefore also fails
-closed with zero partial cards. Never substitute a factor of `1`, exclude
-only the failed record, or use `meta.currency` / `meta.unit` as a comparison
-fallback.
-
-The renderer and measurement Interface share the same visible node-face rule:
-a positive compiled face is painted at a minimum of one viewBox unit, and that
-painted height is what calibration reports. The viewer localizes each Adapter
-once and passes that same object to calibration, responsive fit, and render;
-`pnpm verify:i18n -- --strict` rejects any language overlay that changes
-value-bearing renderer geometry.
-
-Normalization widths remain fractional all the way through responsive fit and
-zoom. Do not round or clamp a comparison chart to one CSS pixel: that silently
-changes the monetary scale for very different company magnitudes. Browser
-subpixel rasterization is the only allowed quantization, and comparison zoom
-is the inspection path for a correctly calibrated chart that is initially
-sub-pixel at fit. The 100% fit width always comes from the stable Sankey
-viewport content box; a zoomed comparison is max-content output and must never
-feed its enlarged width back into a redraw. Responsive fit measures the
-connected staging flow's
-computed `column-gap`, `row-gap`, inline margins, and actual card
-outer-minus-chart chrome;
-the staging element is a fixed-position sibling under the real comparison
-ancestor, not a body-level approximation. Zoom preview resolves target card
-boxes through a connected, SVG-free skeleton under that same CSS ancestry.
-Never parse raw CSS tokens, duplicate a browser's private layout-unit rule,
-or assume row and column gaps, margins, border sides, or non-border card
-chrome are equal.
+### Company, product, revenue and language files
 
 `data/company-metadata/<company-key>.js` is the company-profile SSOT. Add or update it before
 registering a new company's first dataset so Table mode can show company-level
@@ -413,37 +354,17 @@ metric i18n flow when present.
 
 ### Source object value references
 
-The `source-objects/v1` list (authored as `source-facts/v1` `objects[]`; rules in
-[`docs/dynamic-dataset-workflow.md`](../docs/dynamic-dataset-workflow.md)) keeps
-Source-reading facts separate from the Metric SSOT, but every `value` entry must
-point back to an actual SSOT value with a typed `ssotRef`. It preserves the
-literal Source text, the exact decimal `value`, and the display `unit` (`K`, `M`,
-`B`, or `T`) as strings so author input is not silently rounded before
-verification. The exact value must remain inside the rounding interval of its
-own literal (`$18.5B` covers 18.45–18.55B); a supplemental source cannot justify
-a value that the primary display could not have rounded to.
-
-When the primary Source literal displays zero only because it rounded a real
-non-zero value (for example, `$0.0B`), preserve the primary literal but recover
-the actual amount from an authoritative supplemental source:
+The `source-objects/v1` list is authored as `source-facts/v1` `objects[]`. Every
+`value` entry points back to an actual SSOT value with a typed `ssotRef` and
+keeps the literal Source text, the exact decimal `value`, and the display `unit`
+(`K`, `M`, `B`, or `T`) as strings so author input is not silently rounded.
+Optional value fields have these shapes:
 
 ```js
 { id: 'other', class: 'value', literal: '$0.0B', value: '0.04', unit: 'B',
   ssotRef: { family: 'income-statement', path: 'revenue.items', id: 'other' }, node: 'other',
   precisionRecovery: { literal: '$40M', reason: 'FY26 10-K segment note' } }
-```
 
-The recovered literal must include a numeric K/M/B/T amount and normalize to
-exactly the same effective value (here `$40M = $0.04B`). `precisionRecovery` is
-forbidden when the primary literal did not round a non-zero value to zero. If no
-authoritative higher-precision value can be recovered, stop the Build; do not
-write `0` as a guess.
-
-For a confirmed unit or numeric typo, preserve the original Source literal and
-record an explicit, user-approved correction whose `literal` is the corrected
-display:
-
-```js
 { id: 'cost-of-revenue', class: 'value', literal: '$3.3M', value: '3.3', unit: 'B',
   ssotRef: { family: 'income-statement', path: 'costs.costOfRevenue', id: 'cost_of_revenue' },
   node: 'cost_of_revenue',
@@ -454,35 +375,18 @@ display:
   } }
 ```
 
-This correction is valid only when the original literal conflicts with the
-authored amount; the corrected literal must use the authored unit and express
-the amount within its own rounding interval. Do not use it for an unverified
-discrepancy or a zero-looking rounded amount; the latter uses
-`precisionRecovery`. The two mechanisms are mutually exclusive.
-
 | Adapter | typed reference | resolved authored value |
 | --- | --- | --- |
 | Income Statement | `{ family: 'income-statement', path, id }` | the matching record selected by dataset key; `path` covers revenue (including optional independent `revenue.breakdowns`), cost (including `costs.costOfRevenue.items`), profit (including optional `profit.gross.items` and `profit.operating.items`), and operating/non-operating other-income/expense totals or items; item paths search nested `children` by `id`, while total paths use their stable node ID (and may omit `id`) |
 | Revenue Metric | `{ family: 'revenue-metric', path: 'observations', date }` | the matching record's observation at the exact `YYYY-MM-DD` date |
 
-During `prepare`, verification converts the Source amount to the SSOT record's
-unit and compares it with the value loaded from these registered records.
-Income Statement preparation also loads the registered Sankey View and requires
-each financial value to name exactly one Adapter `node` or `nonNodeMetric` with
-the same value. The review input cannot replace those loaded values: a missing
-record/View, unsupported unit or path, wrong ID/date, missing target, or unequal
-amount fails before a new authored review snapshot is recorded. A recovered
-non-zero amount must also remain non-zero at display precision: increase the
-SSOT record's `decimals`, and for an Income Statement increase Adapter
-`meta.decimals` or provide an exact non-zero node `valueText`. The lifecycle
-ownership rules live in
+A genuine Source face thinner than 3px is declared at the top level of the
+facts as `shortNodes: [{ node, reason }]`. When and how these fields may be
+used (rounding interval, precision recovery, authoritative correction, Other,
+`shortNodes`, reconciliation against the loaded SSOT/View) is owned by
+[`docs/dynamic-dataset-workflow.md`](../docs/dynamic-dataset-workflow.md);
+lifecycle binding by
 [`docs/architecture/dataset-lifecycle.md`](../docs/architecture/dataset-lifecycle.md).
-
-A value mapped to a node must render a painted face (B15). A genuine Source face
-thinner than 3px is declared at the top level of the facts as
-`shortNodes: [{ node, reason }]`. When the operator directs the restoration of
-Sankey topology absent from the exported raster, author the node and its value
-entry as usual; the human review records that decision.
 
 ---
 
@@ -637,7 +541,7 @@ the normal `revenue` node exists.
 | `currency`    | string  | prepended to values, default `"$"`                           |
 | `unit`        | string  | appended to values (e.g. `"B"`, `"M"`)                       |
 | `decimals`    | number  | decimal places for non-integers, default `1`                 |
-| `referenceImage` | object \| string | processed PNG for Reference mode, e.g. `{ src, width, height }` |
+| `referenceImage` | object \| string | processed Source PNG, e.g. `{ src, width, height }`; its size is the default canvas (G2) and the render-regression reference |
 | `logoSvg`     | string  | inner SVG markup drawn above the hub node (optional); the renderer wraps it with `data-typography-role="brand"` |
 | `logoViewBox` / `logoWidth` / `logoHeight` | — | size/coords for `logoSvg`              |
 

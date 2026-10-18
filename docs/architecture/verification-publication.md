@@ -1,7 +1,7 @@
 # Verification, Publication, and Release Architecture
 
-This document owns target semantics for verification evidence, fidelity
-closure, staged baselines, final sealing, canonical Publication, and Release.
+This document owns the semantics of verification evidence, fidelity closure,
+staged baselines, final sealing, canonical Publication, and Release.
 Lifecycle states and durable build objects are defined in
 [`dataset-lifecycle.md`](dataset-lifecycle.md).
 
@@ -30,7 +30,7 @@ read-only or mutating; renaming alone does not change semantics.
 
 ## Verification sequence
 
-For an Income Statement build, the target sequence is:
+For an Income Statement build, the sequence is:
 
 ```text
 verify preflight (read-only)
@@ -38,54 +38,50 @@ verify preflight (read-only)
   -> operator acceptance
   -> record closure
   -> record staged baseline
-  -> verify final seal profile (fresh and read-only)
+  -> seal: re-hash inputs + Adapter final profile (reuses accepted evidence)
   -> record seal
 ```
 
 Revenue Metric and Metric Observation builds use the Adapter's data-level
 checklist, which contains no render step. All plans still produce a
-machine-readable `FidelityResult` and a fresh seal.
+machine-readable `FidelityResult` and a seal.
 
-The implemented M3 lane — the primary Build close-out path — exposes the same
-ordering through the Dataset Build Module:
+`record:workflow` exposes that ordering through the Dataset Build Module:
 
 ```text
-record:intake --signal ...  -> source-classification/v1 + INTAKED
-record:build prepare-review -> source-objects/v1
-                            -> actual authored-value reconciliation
-                            -> verification-plan/v6 (fixed per-Adapter checklist)
-                            -> review-packet/v5 reviewToken + AUTHORED
-record:verification          -> dataset-verification/v1 consistency evidence
-record:fidelity --build ... -> fidelity-run/2 evidence-ready
-record:build finish         -> operator acceptance -> fidelity-result/v3 -> CLOSED
-record:build stage-baseline -> BASELINE_STAGED
-record:build seal           -> re-hash + Adapter final profile + SEALED
-record:build inspect / verify:closeout
+record:workflow start     -> source-classification/v1 (PNG) or /v2 (text) + INTAKED
+record:workflow continue  -> source-objects/v1 + actual authored-value reconciliation
+                          -> verification-plan/v6 + review-packet/v5 reviewToken + AUTHORED
+                          -> dataset-verification/v1 consistency evidence
+                          -> fidelity-run/2 evidence-ready per required locale
+                          -> waiting for human review
+record:workflow feedback  -> feedback-note/v1 (expires the review candidate)
+record:workflow accept    -> fidelity-result/v3 -> CLOSED -> BASELINE_STAGED -> SEALED
+publish:datasets plan/commit -> PublicationBatch
 ```
 
 `prepareBuildReview`, `finishReviewedBuild`, `stageReviewedBaseline`,
-`sealReviewedBuild`, and `inspectBuildCloseout` are the deep Module
-Interfaces behind that CLI. The review token is the digest of the recorded
+`sealReviewedBuild`, and `inspectBuildCloseout` are the deep Module Interfaces
+behind those actions. The review token is the digest of the recorded
 ReviewPacket; a JSON document cannot redirect an operation to another Build.
-This lane is the primary Build close-out workflow; canonical publication
-itself is implemented by the isolated Publication module. For new isolated
-Builds `record:workflow` drives the same Interfaces: `continue` prepares, records
-consistency, and records one fidelity run per required locale (the review
-candidate); `accept` records acceptance, closure, baseline and seal in one
-locked manifest transaction, using those existing checks. The older `review`
-and `seal` commands retain their separate entry points. The atomic operation
-preserves every state-machine receipt and leaves no partial acceptance if any
-transition fails. Each Build in a batch commits independently.
+`accept` records acceptance, closure, baseline and seal in one locked manifest
+transaction using the existing checks; it preserves every state-machine
+receipt, leaves no partial acceptance if any transition fails, and commits each
+Build in a batch independently. Historically the same Interfaces were driven
+step by step through `record:intake`, `record:build`, `record:verification`,
+`record:fidelity` and `verify:closeout`; those commands remain only for
+historical Builds.
 
-The intake Type Gate is a current M3 guard, not a target command: explicit
-whole-Source signals must derive exactly one Adapter and agree with
-`--adapter` before Build initialization or the working-Source claim. During
+The intake Type Gate derives exactly one Adapter from the facts' top-level
+`signals` before Build initialization or the working-Source claim (rules:
+[`dataset-lifecycle.md`](dataset-lifecycle.md#sourceclassification)). During
 review preparation, the Build Module validates the flat Source object list,
 then reads the actual loaded SSOT and, for Income Statement values, the Sankey
 View Adapter node or non-node metric each value names. A mismatch fails before
-the new authored snapshot, Plan, or packet can become review input.
-These are build-local validation and recording operations; they neither
-publish canonical files nor materialize a stable Source projection.
+the new authored snapshot, Plan, or packet can become review input. These are
+build-local validation and recording operations; they neither publish
+canonical files nor materialize a stable Source projection.
+
 
 ### Evidence purposes
 
@@ -133,16 +129,18 @@ files were written.
 Current review evidence uses `fidelity-run/2`. `verify:d3` is strictly
 read-only diagnostic execution: it may use ephemeral scratch but does not
 promote any archive, even when automatic page, purity, size, label, text,
-annotation, and Interface audits complete. `record:fidelity` is the only fidelity
-operation that may archive durable evidence. With `--build`, the archive is
+annotation, and Interface audits complete. The `record:fidelity` operation
+(run by `record:workflow continue`) is the only fidelity operation that may
+archive durable evidence. Bound to a Build, the archive is
 bound to Build, authored, and Verification Plan digests and is finalized as
 `evidence-ready (human review required)`. Unbound legacy manual archives retain
 the v1 compatibility identity and explicitly do not imply Build closure.
 
 `evidence-ready` is not `ACCEPTED` and is not `DatasetBuild.CLOSED`.
-`record:verification` first records the non-render dataset consistency profile
-against the current Build/authored/Plan identity. `finishReviewedBuild`
-requires the ReviewPacket's `reviewToken`, that consistency reference, and,
+The consistency step of `record:workflow continue` first records the non-render
+dataset consistency profile against the current Build/authored/Plan identity.
+`finishReviewedBuild` requires the ReviewPacket's `reviewToken`, that
+consistency reference, and,
 for Income Statement, one evidence-ready run per required locale bound to the
 current Build, authored digest, and Plan digest. It re-hashes each run's
 artifacts, rejects a run whose recorded gate summary contains a failed gate,
@@ -181,76 +179,71 @@ published baseline as independent historical evidence, but it cannot override
 candidate, reference, interface, or manual failures.
 
 No-key, full-catalog baseline updates are not a close-out operation for one
-Build and are rejected by the current CLI. Until M4,
-`compat:baseline -- <key> [...]` (renamed from `record:baseline`; it mutates
-the canonical ledger, so it sits deliberately outside the `record:*` class)
-is a subset-only compatibility mutation: it writes atomically only after all
-selected render/structure checks pass, but it is not build-local staging.
-Batch baseline changes require their own explicit scope and Verification
-Plan.
+Build and are rejected by the current CLI. `compat:baseline -- <key> [...]`
+(renamed from `record:baseline`; it mutates the canonical ledger, so it sits
+deliberately outside the `record:*` class) is a subset-only legacy mutation: it
+writes atomically only after all selected render/structure checks pass, but it
+is not build-local staging. Batch baseline changes require their own explicit
+scope and Verification Plan.
 
-In parallel, the M3 lane has true build-local staging:
-`stageReviewedBaseline` consumes the exact closure digest, records Income
-Statement metrics with `future-regression-only`, and records the Revenue
-Metric baseline as explicitly `not-applicable`. It does not update the
-canonical baseline ledger. The compatibility command and the build-local
-staging object must not be described as one transaction.
+Build-local staging is separate: `stageReviewedBaseline` consumes the exact
+closure digest, records Income Statement metrics with
+`future-regression-only`, and records the Revenue Metric baseline as explicitly
+`not-applicable`. It does not update the canonical baseline ledger; the legacy
+command and the build-local staging object must not be described as one
+transaction.
 
 ## SEALED final verification
 
-Sealing is a fresh, non-mutating check after closure and baseline staging. It
-recomputes the build's seal-input digest, validates every ArtifactManifest
-reference, completes the Adapter's final profile, and verifies that no open
-manual or automatic requirement remains.
+Sealing is a non-mutating check after closure and baseline staging.
+`sealReviewedBuild` takes no caller pass JSON: under the write lock it
+re-hashes the authored files, recomputes the seal-input digest, validates every
+ArtifactManifest reference, requires `BASELINE_STAGED` with an accepted
+closure, completes the Adapter's final profile, and verifies that no open
+requirement remains before recording `SEALED`.
+
+By default the final profile reuses evidence instead of re-running it. The
+non-render consistency proof comes from the accepted closure on the same
+authored and Plan digests (`reusedEvidence: true` plus the accepted consistency
+object digest). For Income Statement, the accepted FidelityResult already
+proved the d3 render hard gates for every required Plan locale on the exact
+authored snapshot; because the locked freshness check pins the renderer,
+fonts, Adapter and semantic data, seal reuses that proof (output digest =
+accepted locale evidence digest). `record:workflow seal --fresh-checks` reruns
+consistency and rendering, `--fresh-render` reruns rendering, and a missing
+historical proof or a locale the proof does not cover falls back to a new
+check. The receipt stores each profile row in `finalProfiles`.
 
 The seal verifier must not repair registration, regenerate metadata, update a
-baseline, archive a provisional run, or build a release artifact. If any
-input differs, it returns a stale-input result; the Build reopens at the
-recovery point defined in the lifecycle document.
-
-The implemented `sealReviewedBuild` takes no caller pass JSON: it internally
-re-hashes the authored files under the write lock, requires the Build to be
-`BASELINE_STAGED` with an accepted closure, and only then records `SEALED`. The
-non-render consistency proof is reused from that closure on the same authored
-and Plan digests; its profile row records `reusedEvidence: true` and the accepted
-consistency object digest. Missing historical proof falls back to a fresh check;
-`--fresh-checks` explicitly reruns consistency and rendering. For Income Statement the d3
-render hard gates for every required Plan locale were already proven by the
-accepted FidelityResult on the exact authored snapshot; because the final locked freshness check pins
-the renderer, fonts, Adapter and semantic data, seal reuses that proof
-(`reusedEvidence: true`, output digest = accepted locale evidence digest) and
-renders again only when that proof does not cover every locale or the caller
-passes `--fresh-render`. The receipt stores each profile row in `finalProfiles`.
-The operator acceptance is consumed from the accepted closure rather than
-re-collected, and the staged baseline stays excluded from the verdict. The
-Source classification and source objects remain bound through their
-authored/Plan digests; sealing does not reinterpret the Source. If a
-loaded SSOT or View artifact changed after preparation, artifact freshness
-fails and a new preparation must reconcile the new values. New isolated Builds derive the complete artifact set and semantic contributions
-at preparation and recompute those dependencies at inspection; Publication
-then checks the combined canonical projection before its pointer swap. Legacy
-Builds retain the artifact lists and protocol they actually recorded.
+baseline, archive a provisional run, or build a release artifact. The operator
+acceptance is consumed from the accepted closure rather than re-collected, and
+the staged baseline stays excluded from the verdict. The Source classification
+and source objects remain bound through their authored/Plan digests; sealing
+does not reinterpret the Source. If any input differs — for example a loaded
+SSOT or View artifact changed after preparation — it returns a stale-input
+result and the Build reopens at the recovery point defined in the lifecycle
+document, where a new preparation reconciles the new values. New Builds derive
+the complete artifact set and semantic contributions at preparation and
+recompute those dependencies at inspection; Publication then checks the
+combined canonical projection before its pointer swap. Legacy Builds retain
+the artifact lists and protocol they actually recorded.
 
 After sealing, inspection preserves both truths. `historicalState=SEALED`
 records what happened; if an authored file is missing or its bytes change,
-`effectiveState=AUTHORED` and `fresh=false`. `verify:closeout` succeeds only
-when historical and effective states are both `SEALED`, freshness is true,
-and review status is `accepted`.
+`effectiveState=AUTHORED` and `fresh=false`. Publication accepts a Build only
+when its effective state is `SEALED`, it is fresh, and its review status is
+`accepted`.
 
 ## Reporting Views
 
 `inspectBuildCloseout` may read the recorded `FidelityResult` (any version)
 into a deterministic `CloseoutReport`, then render Task information and Loop
-Fidelity Summary. These are pure Views: status and
-confidence are derived from structured facts, and the rendered text is never
-fed back as evidence, acceptance, or a state-transition input.
-
-The root `index.html` is also a stable local review View. Preparation selects a
-Build workspace; successful publication selects the current published tree. The
-machine-local `output/local-view/selection.js` is a rebuildable UI preference,
-not canonical registration, evidence or a Build transition. A pending label stays
-until publication, and selection cannot accept a review. File readers embed one
-complete selected tree and poll the preference; HTTP readers retain digest routing.
+Fidelity Summary. These are pure Views: status and confidence are derived from
+structured facts, and the rendered text is never fed back as evidence,
+acceptance, or a state-transition input. The local review workbench is likewise
+a derived View that cannot accept a review or change registration, evidence or
+Build state; its behaviour is owned by
+[`local-environments.md`](../local-environments.md).
 
 ## Publication planning
 
@@ -279,11 +272,10 @@ keeps global merge knowledge local to one Module.
 compareAndSwap(baseCanonicalDigest, planDigest, projectedTreeDigest)
 ```
 
-The Implementation must provide all-or-none canonical visibility and an
-idempotent receipt for the plan digest. Writing several shared files in
-sequence is not atomic. A target Implementation may use an immutable tree plus
-pointer swap, a Git tree/ref CAS, or another Adapter that satisfies the same
-Interface; tests use an in-memory Adapter.
+The Implementation provides all-or-none canonical visibility and an idempotent
+receipt for the plan digest; writing several shared files in sequence is not
+atomic. The current Implementation is an immutable tree plus pointer swap;
+another Adapter (for example a Git tree/ref CAS) may satisfy the same Interface.
 
 Outcomes:
 
@@ -319,9 +311,9 @@ new Attempt, but against the newer digest.
 
 | failure | durable state | recovery |
 | --- | --- | --- |
-| Type Gate or source-object/authored-value reconciliation failure | no new intake/authored receipt for the failed operation | correct the classification or authored mapping, then rerun the same current M3 operation |
+| Type Gate or source-object/authored-value reconciliation failure | no new intake/authored receipt for the failed operation | correct the classification or authored mapping, then rerun the same operation |
 | provisional render/gate failure | Build stays `AUTHORED`; the run is not archived | fix, then record a new FidelityRun |
-| missing operator acceptance | Build stays `AUTHORED`; finish fails | deliver the review candidate and wait for acceptance; do not infer pass |
+| missing operator acceptance | Build stays `AUTHORED`; `accept` fails | deliver the review candidate and wait for acceptance; do not infer pass |
 | closure dependency changed | closure stale; effective state `AUTHORED` | run affected plan steps again |
 | baseline staging failure | Build stays `CLOSED` | retry recording with the same closed digest |
 | final seal failure | Build stays `BASELINE_STAGED` or reopens per invalidation | fix or refresh evidence, then reseal |
@@ -329,43 +321,18 @@ new Attempt, but against the newer digest.
 | Publication outcome unknown | no guessed state | inspect receipt by plan digest |
 | Release failure | Publication remains `PUBLISHED` | retry Release independently |
 
-## Current-to-target migration
+## Migration record
 
-Migration milestones are owned by the
-[`architecture index`](README.md#migration-milestones). The important
-compatibility rule is replace, not layer indefinitely:
-
-- first wrap existing render and data verifiers as evidence-producing
-  Adapters in shadow mode;
-- keep `verify:d3` read-only and route durable automatic evidence through
-  `record:fidelity`;
-- record SourceClassification at fresh intake, then SourceObjects, Plan v6,
-  ReviewPacket v5, the operator acceptance, and FidelityResult v3 through the
-  Build Module;
-- exercise closure, build-local baseline staging, freshness inspection, and
-  sealing without changing canonical output (implemented; now the primary
-  close-out path);
-- replace the freshness-only seal check with the complete Adapter
-  final-verification profile (implemented: non-render consistency and
-  per-locale render hard gates, both reused from the accepted evidence when the
-  authored snapshot is unchanged);
-- turn manifest, registration, baseline, and metadata writers into pure
-  projectors;
-- add canonical CAS and only then route mutations through `publish:*`;
-- make standalone build/read verification a Release Adapter;
-- delete old Shallow orchestration once tests at the new Module Interfaces
-  cover the same behavior.
-
-Until each replacement lands, the current operational commands in
-[`asset-workflow.md`](../asset-workflow.md) remain the executable
-instructions, including their known transitional limitations.
+Milestones are recorded in the
+[`architecture index`](README.md#migration-milestones). The migration followed
+"replace, not layer indefinitely": existing verifiers were wrapped as
+evidence-producing Adapters, `verify:d3` stayed read-only, closure, staging and
+sealing moved into the Build Module, writers became pure projectors behind
+`publish:*` CAS, and standalone output became a Release Adapter. Old Shallow
+orchestration is deleted only once tests at the new Module Interfaces cover it.
 
 ## Completed-work artifact retirement
 
-After the operator declares all local work and delivery complete, the explicit
-`clean:artifacts -- --completed` maintenance command retires local workspaces,
-evidence and publication trees together with their local pointers. It preserves
-compact historical summaries, not resumable Build state or fresh proof. The root
-project data becomes the base of subsequent work. This is not a lifecycle transition
-and never fabricates acceptance. [Artifact retention](../artifact-retention.md)
-owns the operation and its audit limits.
+Local workspace, evidence and publication-tree retirement is a maintenance
+operation, not a lifecycle transition, and never fabricates acceptance;
+[artifact-retention.md](../artifact-retention.md) owns it.
