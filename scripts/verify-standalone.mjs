@@ -23,7 +23,8 @@ function primaryFontFamily(value) {
 }
 
 function parseArgs(argv) {
-  const args = argv.slice(2);
+  // pnpm forwards a literal `--` before script arguments.
+  const args = argv.slice(2).filter((arg) => arg !== '--');
   const html = args[0] || defaultHtml;
   if (args.length > 1) throw new Error(`Unknown argument(s): ${args.slice(1).join(' ')}`);
   return { html };
