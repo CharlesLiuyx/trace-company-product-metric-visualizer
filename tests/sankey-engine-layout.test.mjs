@@ -123,18 +123,43 @@ test('node hover uses endpoint ratios for singleton and split relationships', ()
   assert.equal(nodeShare(taxFlow, tax, 1), '3.4%', 'a terminal singleton is current / upstream');
 });
 
-test('node hover uses endpoint ratios for every source of a multi-source bar', () => {
+test('node hover shows link amount over the hovered node when the target has other inputs', () => {
   const operatingProfit = { id: 'operating_profit', dv: 118 };
   const otherIncome = { id: 'other_income', dv: 16 };
   const netProfit = { id: 'net_profit', dv: 130 };
   const retained = { source: operatingProfit, target: netProfit, value: 114, raw: { value: 114 } };
   const other = { source: otherIncome, target: netProfit, value: 16, raw: { value: 16 } };
   const incoming = [retained, other];
+  netProfit.targetLinks = incoming;
   const count = distinctAdjacentNodeCount(netProfit, incoming);
 
   assert.equal(count, 2);
-  assert.equal(nodeShare(retained, netProfit, count), '90.8%');
-  assert.equal(nodeShare(other, netProfit, count), '12.3%');
+  assert.equal(hoverShare.targetHasOtherInputs(retained), true);
+  assert.equal(nodeShare(retained, netProfit, count), '87.7%', 'link 114 / hovered Net profit 130');
+  assert.equal(nodeShare(other, netProfit, count), '12.3%', 'link 16 / hovered Net profit 130');
+  assert.equal(nodeShare(retained, operatingProfit, 1), '96.6%', 'link 114 / hovered Operating profit 118');
+  assert.equal(nodeShare(other, otherIncome, 1), '100%');
+  assert.equal(linkShare(retained), '90.8%', 'direct link hover keeps the endpoint ratio');
+});
+
+test('ups-q4-fy22: hovering Operating profit splits it across Net profit, Tax and Interest', () => {
+  // Operating profit $3.2B -> Net profit (which also receives Other $1.5B), Tax $1.0B, Interest $0.2B.
+  const operatingProfit = { id: 'operating_profit', dv: 3.2 };
+  const other = { id: 'other', dv: 1.5 };
+  const netProfit = { id: 'net_profit', dv: 3.5 };
+  const tax = { id: 'tax', dv: 1.0 };
+  const interest = { id: 'interest', dv: 0.2 };
+  const retained = { source: operatingProfit, target: netProfit, value: 2.0, raw: { value: 2.0 } };
+  const otherFlow = { source: other, target: netProfit, value: 1.5, raw: { value: 1.5 } };
+  const taxFlow = { source: operatingProfit, target: tax, value: 1.0, raw: { value: 1.0 } };
+  const interestFlow = { source: operatingProfit, target: interest, value: 0.2, raw: { value: 0.2 } };
+  netProfit.targetLinks = [retained, otherFlow];
+  tax.targetLinks = [taxFlow];
+  interest.targetLinks = [interestFlow];
+
+  assert.equal(nodeShare(retained, operatingProfit, 3), '62.5%', 'was 91.4% (3.2 / 3.5)');
+  assert.equal(nodeShare(taxFlow, operatingProfit, 3), '31.3%', 'single-input target keeps the endpoint ratio');
+  assert.equal(nodeShare(interestFlow, operatingProfit, 3), '6.3%');
 });
 
 test('node hover counts distinct opposite bars rather than duplicate links', () => {
@@ -172,7 +197,7 @@ test('direct link hover is smaller endpoint / larger endpoint', () => {
   assert.equal(linkShare({ source: { dv: 0 }, target: { dv: 0 } }), '');
 });
 
-test('node and link hover use the same endpoint-ratio formula', () => {
+test('without other inputs, node and link hover use the same endpoint-ratio formula', () => {
   const operatingProfit = { id: 'operating_profit', dv: 2.5 };
   const otherIncome = { id: 'other_income', dv: 0.6 };
   const netProfit = { id: 'net_profit', dv: 2.5 };

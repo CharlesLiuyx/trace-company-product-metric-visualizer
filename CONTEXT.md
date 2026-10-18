@@ -35,12 +35,19 @@ as a complete local archive. Tracking or ignoring a locator does not create a
 Build transition or change Source identity.
 
 Within a Sankey View, **Hover Share（所占比例）** is renderer-owned rather
-than Adapter-configurable. Every semantic relationship uses one formula on
-every hover surface (node, node label, link, or endpoint-declared guide):
+than Adapter-configurable. The default formula, used on every hover surface
+(node, node label, link, or endpoint-declared guide), is
 `min(|source authored value|, |target authored value|) /
 max(|source authored value|, |target authored value|)`. It is direction-
 independent, ignores the d3-computed node value and `link.value`, and shows no
 card when the larger endpoint is zero.
+
+One rule takes precedence on node and node-label hover: when the link's target
+node also receives input from another source node, the card shows
+`|link value| / |hovered node authored value|` (for example, hovering Operating
+profit shows the Operating profit → Net profit link as its share of Operating
+profit when Net profit also receives Other). Direct link hover keeps the
+default formula.
 
 On node or node-label hover, incoming and outgoing sides are still grouped
 independently by **distinct opposite semantic node**. That grouping controls

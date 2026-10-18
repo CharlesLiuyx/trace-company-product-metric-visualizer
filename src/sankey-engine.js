@@ -188,7 +188,19 @@
       if (!link || !hoveredNode || !oppositeNode || !Number.isFinite(count) || count < 1) {
         return '';
       }
+      // A link into a node that also receives other inputs is only part of
+      // that node, so the endpoint ratio overstates it; show the link's own
+      // amount against the hovered node instead.
+      if (targetHasOtherInputs(link)) {
+        return format(linkAmount(link), nodeAmount(hoveredNode), decimals);
+      }
       return forLink(link, decimals);
+    }
+
+    function targetHasOtherInputs(link) {
+      const inputs = link && link.target && link.target.targetLinks;
+      if (!Array.isArray(inputs)) return false;
+      return inputs.some((input) => input && input.source && !sameNode(input.source, link.source));
     }
 
     function forLink(link, decimals = 1) {
@@ -197,7 +209,7 @@
       return format(Math.min(source, target), Math.max(source, target), decimals);
     }
 
-    return Object.freeze({ format, nodeAmount, linkAmount, forNode, forLink });
+    return Object.freeze({ format, nodeAmount, linkAmount, forNode, forLink, targetHasOtherInputs });
   })();
 
   function sameNode(left, right) {
