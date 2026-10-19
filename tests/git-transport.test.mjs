@@ -61,15 +61,22 @@ test('transport stages only accepted paths, preserves unrelated work and recover
   assert.equal(git(root, ['status', '--porcelain']), 'M notes.md');
   assert.deepEqual(await commitGitTransport(plan.id, root), result);
 });
-test('Git-ignored local-only sheets in a publication are left out of the hand-off commit', async (t) => {
-  const { root, file, sheet, prepare } = await fixture(t, { localOnly: true }), plan = await prepare();
+test('Git-ignored local-only sheets stay out of the reviewed candidate and the hand-off commit', async (t) => {
+  const { root, file, sheet, prepare } = await fixture(t, { localOnly: true });
+  const hostSheet = 'data/assets/icon-references/other/validation-sheets/other-logo.png';
+  await mkdir(path.dirname(path.join(root, hostSheet)), { recursive: true }); await writeFile(path.join(root, hostSheet), 'host-only sheet');
+  const plan = await prepare();
   assert.ok(plan.paths.some((entry) => entry.path === file));
-  assert.ok(!plan.paths.some((entry) => entry.path === sheet));
+  assert.ok(!plan.paths.some((entry) => entry.path.includes('validation-sheets')));
   await approve(plan, root);
   const result = await commitGitTransport(plan.id, root);
   assert.equal(git(root, ['rev-parse', 'HEAD']), result.commit);
   assert.ok(git(root, ['ls-tree', '-r', '--name-only', 'HEAD']).split('\n').includes(file));
   assert.ok(!git(root, ['ls-tree', '-r', '--name-only', 'HEAD']).includes('validation-sheets'));
+  // CI recomputes the candidate digest from a clean checkout (verify:release).
+  const clone = path.join(root, 'output/clean-clone');
+  git(root, ['clone', '--quiet', '--no-hardlinks', root, clone]);
+  assert.equal((await fileManifest(clone, [...CANONICAL_ROOTS, 'scripts', 'package.json', 'pnpm-lock.yaml'])).digest, plan.candidateDigest);
 });
 test('staged or overlapping user work blocks before mutation; a competing prepared candidate cannot reuse old HEAD', async (t) => {
   const { root, file, prepare } = await fixture(t), a = await prepare(), b = await prepare();

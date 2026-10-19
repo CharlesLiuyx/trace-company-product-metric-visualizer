@@ -32,9 +32,9 @@ export function humanReviewCommitSummary(items) {
 }
 function git(root, args, options = {}) { return execFileSync('git', args, { cwd: root, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, ...options }); }
 function ignoredPaths(root, files) {
-  if (!files.length) return new Set();
-  try { return new Set(git(root, ['check-ignore', '--stdin', '-z'], { input: files.join('\0') + '\0' }).split('\0').filter(Boolean)); }
-  catch (error) { if (error.status === 1) return new Set(); throw error; }
+  if (!files.length) return [];
+  try { return git(root, ['check-ignore', '--stdin', '-z'], { input: files.join('\0') + '\0' }).split('\0').filter(Boolean); }
+  catch (error) { if (error.status === 1) return []; throw error; }
 }
 function folder(root, id) { if (!/^transport-[a-f0-9-]+$/.test(id)) throw new Error('Invalid transport id'); return inside(root, `output/git-transports/${id}`); }
 async function readPlan(root, id) {
@@ -205,6 +205,10 @@ async function prepareCandidate(publishedDigest, root, options, baseHead, direct
       }
     }
   }
+  // Git-ignored local-only files (crop validation sheets) never reach a clean
+  // checkout. Drop them so the reviewed digest is the one CI recomputes and
+  // the commit never stages an ignored path.
+  for (const file of ignoredPaths(root, await filesUnder(candidate, runtimeRoots))) await rm(inside(candidate, file), { force: true });
   // Standard validation is the fast aggregate gate plus the Pages build whose
   // identity the commit binds. Browser checks (render regression, verify:site)
   // run once in CI on the pushed commit; `full` repeats them locally.
@@ -230,11 +234,7 @@ async function prepareCandidate(publishedDigest, root, options, baseHead, direct
   const acceptance = { inheritsBuildAcceptance: staleApplication.length === 0, applicationDigest: candidateApplication,
     reason: staleApplication.length ? 'Application code differs from what the Builds were reviewed with; show the changed result and ask for explicit acceptance' : 'Candidate ships reviewed contributions under the reviewed application code' };
   const before = await fileManifest(root), after = await fileManifest(candidate);
-  const differing = after.entries.filter((entry) => before.entries.find((item) => item.path === entry.path)?.digest !== entry.digest);
-  // Local-only files (crop validation sheets) are Git-ignored; the hand-off
-  // never stages them, so `git add` cannot refuse the reviewed commit.
-  const ignored = ignoredPaths(root, differing.map((entry) => entry.path));
-  const paths = differing.filter((entry) => !ignored.has(entry.path));
+  const paths = after.entries.filter((entry) => before.entries.find((item) => item.path === entry.path)?.digest !== entry.digest);
   if (git(root, ['rev-parse', 'HEAD']).trim() !== baseHead || git(root, ['status', '--porcelain', '--', ...runtimeRoots]).trim()) throw new Error('Git inputs changed during candidate verification; prepare a new candidate');
   const plan = { schema: 'git-transport/v1', id, state: 'REVIEW_PENDING', baseHead, publishedDigest, lineage: lineage.map(({ receipt }) => receipt.planDigest), builds: lineage.flatMap(({ plan: item }) => item.builds), candidateDigest: (await fileManifest(candidate, runtimeRoots)).digest, release: { version: release.version, contentDigest: release.contentDigest }, validation, acceptance, paths: [...paths.map((entry) => ({ ...entry, before: before.entries.find((item) => item.path === entry.path)?.digest || null })), ...queue], receiptBefore: await hashAt(root, trackedReceipt), preparedAt: new Date().toISOString() };
   plan.planDigest = digestValue(plan);
