@@ -1,0 +1,105 @@
+{
+  "source": "input/processed/salesforce-q1-fy27.png",
+  "outputDir": "data/assets/icon-references/salesforce/q1-fy27",
+  "validationSheetDir": "data/assets/icon-references/salesforce/q1-fy27/validation-sheets",
+  "runtimeOutputDir": "data/assets/raster-annotations/salesforce",
+  "report": "crop-report.json",
+  "background": [
+    239,
+    239,
+    239
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [
+      239,
+      239,
+      239
+    ]
+  },
+  "crops": [
+    {
+      "key": "salesforce-q1-fy27-company-logo",
+      "output": "crops/q1-fy27-company-logo.png",
+      "runtimeOutput": "q1-fy27-company-logo.png",
+      "searchBox": {
+        "x": 1168,
+        "y": 204,
+        "width": 386,
+        "height": 271
+      },
+      "cropBox": {
+        "x": 1168,
+        "y": 204,
+        "width": 386,
+        "height": 271
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Salesforce cloud wordmark only; excludes title, labels and chart marks."
+    },
+    {
+      "key": "salesforce-q1-fy27-agentforce-icons",
+      "output": "crops/q1-fy27-agentforce-icons.png",
+      "runtimeOutput": "q1-fy27-agentforce-icons.png",
+      "searchBox": {
+        "x": 7,
+        "y": 687,
+        "width": 457,
+        "height": 71
+      },
+      "cropBox": {
+        "x": 7,
+        "y": 687,
+        "width": 457,
+        "height": 71
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Six Agentforce Apps product icons (Sales, Service, Marketing, Commerce, Tableau Next, Slack) as one row; excludes labels and the node."
+    },
+    {
+      "key": "salesforce-q1-fy27-data360-icons",
+      "output": "crops/q1-fy27-data360-icons.png",
+      "runtimeOutput": "q1-fy27-data360-icons.png",
+      "searchBox": {
+        "x": 65,
+        "y": 1153,
+        "width": 365,
+        "height": 84
+      },
+      "cropBox": {
+        "x": 65,
+        "y": 1153,
+        "width": 365,
+        "height": 84
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Five Data 360 / Headless Platform product icons (Agentforce, Data 360, Informatica, MuleSoft, Tableau) as one row; excludes labels."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "publisher",
+      "reason": "Publisher branding, URL and how-they-make-money mark are nonsemantic."
+    }
+  ]
+}

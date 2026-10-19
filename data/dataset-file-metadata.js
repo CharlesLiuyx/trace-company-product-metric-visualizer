@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-10-19T04:25:36.436Z",
+  "generatedAt": "2026-10-19T13:37:29.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -519,8 +519,8 @@
     },
     "salesforce-q1-fy27": {
       "path": "data/datasets/salesforce-q1-fy27.js",
-      "updatedAtMs": 1783854481000,
-      "updatedAt": "2026-07-12T11:08:01.000Z",
+      "updatedAtMs": 1792417049000,
+      "updatedAt": "2026-10-19T13:37:29.000Z",
       "timeSource": "git"
     },
     "servicenow-q1-fy26": {
@@ -963,8 +963,8 @@
     },
     "salesforce-q4-fy26": {
       "path": "data/datasets/salesforce-q4-fy26.js",
-      "updatedAtMs": 1783757678000,
-      "updatedAt": "2026-07-11T08:14:38.000Z",
+      "updatedAtMs": 1792417049000,
+      "updatedAt": "2026-10-19T13:37:29.000Z",
       "timeSource": "git"
     },
     "robinhood-q4-fy25": {

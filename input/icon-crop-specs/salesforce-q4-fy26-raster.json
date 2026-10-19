@@ -1,0 +1,213 @@
+{
+  "source": "input/processed/salesforce-q4-fy26.png",
+  "outputDir": "data/assets/icon-references/salesforce/q4-fy26",
+  "validationSheetDir": "data/assets/icon-references/salesforce/q4-fy26/validation-sheets",
+  "runtimeOutputDir": "data/assets/raster-annotations/salesforce",
+  "report": "crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [
+      242,
+      242,
+      242
+    ]
+  },
+  "crops": [
+    {
+      "key": "salesforce-q4-fy26-company-logo",
+      "output": "crops/q4-fy26-company-logo.png",
+      "runtimeOutput": "q4-fy26-company-logo.png",
+      "searchBox": {
+        "x": 1042,
+        "y": 231,
+        "width": 339,
+        "height": 239
+      },
+      "cropBox": {
+        "x": 1042,
+        "y": 231,
+        "width": 339,
+        "height": 239
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Salesforce cloud wordmark only; excludes title, labels and chart marks."
+    },
+    {
+      "key": "salesforce-q4-fy26-sales-icon",
+      "output": "crops/q4-fy26-sales-icon.png",
+      "runtimeOutput": "q4-fy26-sales-icon.png",
+      "searchBox": {
+        "x": 222,
+        "y": 364,
+        "width": 109,
+        "height": 110
+      },
+      "cropBox": {
+        "x": 222,
+        "y": 364,
+        "width": 109,
+        "height": 110
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Sales segment chart tile only; excludes the Sales label and node."
+    },
+    {
+      "key": "salesforce-q4-fy26-service-icon",
+      "output": "crops/q4-fy26-service-icon.png",
+      "runtimeOutput": "q4-fy26-service-icon.png",
+      "searchBox": {
+        "x": 196,
+        "y": 588,
+        "width": 104,
+        "height": 88
+      },
+      "cropBox": {
+        "x": 196,
+        "y": 588,
+        "width": 104,
+        "height": 88
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Service segment heart only; excludes the Service label."
+    },
+    {
+      "key": "salesforce-q4-fy26-slack-icon",
+      "output": "crops/q4-fy26-slack-icon.png",
+      "runtimeOutput": "q4-fy26-slack-icon.png",
+      "searchBox": {
+        "x": 67,
+        "y": 770,
+        "width": 120,
+        "height": 120
+      },
+      "cropBox": {
+        "x": 67,
+        "y": 770,
+        "width": 120,
+        "height": 120
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Slack badge for Platform, Slack & Other; excludes the segment label."
+    },
+    {
+      "key": "salesforce-q4-fy26-marketing-commerce-icon",
+      "output": "crops/q4-fy26-marketing-commerce-icon.png",
+      "runtimeOutput": "q4-fy26-marketing-commerce-icon.png",
+      "searchBox": {
+        "x": 104,
+        "y": 989,
+        "width": 112,
+        "height": 116
+      },
+      "cropBox": {
+        "x": 104,
+        "y": 989,
+        "width": 112,
+        "height": 116
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Marketing & Commerce magnifier only; excludes the overlapping 'M' of the segment label.",
+      "excludeBoxes": [
+        {
+          "x": 205,
+          "y": 989,
+          "width": 11,
+          "height": 46
+        }
+      ]
+    },
+    {
+      "key": "salesforce-q4-fy26-mulesoft-icon",
+      "output": "crops/q4-fy26-mulesoft-icon.png",
+      "runtimeOutput": "q4-fy26-mulesoft-icon.png",
+      "searchBox": {
+        "x": 100,
+        "y": 1156,
+        "width": 111,
+        "height": 111
+      },
+      "cropBox": {
+        "x": 100,
+        "y": 1156,
+        "width": 111,
+        "height": 111
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "MuleSoft badge for Integration & Analytics; excludes the segment label."
+    },
+    {
+      "key": "salesforce-q4-fy26-tableau-icon",
+      "output": "crops/q4-fy26-tableau-icon.png",
+      "runtimeOutput": "q4-fy26-tableau-icon.png",
+      "searchBox": {
+        "x": 136,
+        "y": 1279,
+        "width": 94,
+        "height": 93
+      },
+      "cropBox": {
+        "x": 136,
+        "y": 1279,
+        "width": 94,
+        "height": 93
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Tableau cross mark for Integration & Analytics; excludes the Mulesoft, Tableau note."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "publisher",
+      "reason": "Publisher branding, URL and how-they-make-money mark are nonsemantic."
+    }
+  ]
+}

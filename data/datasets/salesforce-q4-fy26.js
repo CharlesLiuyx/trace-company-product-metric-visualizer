@@ -1,7 +1,8 @@
 /* ====================================================================
  *  Salesforce - Q4 FY26 income statement ($B)
  *  Reconstructed from input/processed/salesforce-q4-fy26.png as a fixed
- *  d3-sankey layout with pure SVG business icon annotations.
+ *  d3-sankey layout; the logo and business icons are source-cropped raster
+ *  annotations (data/assets/raster-annotations/salesforce/q4-fy26-*).
  * ==================================================================== */
 (function () {
   const TITLE = '#155077';
@@ -24,57 +25,6 @@
   const RED_LINK = '#e28486';
   const NOTE = '#6f6f6f';
   const RIGHT_LABEL_X = 2360;
-
-  const annotations = `
-    <g>
-      <g transform="translate(225,368)">
-        <rect x="0" y="0" width="92" height="92" rx="2" fill="${SALES}" stroke="#08756f" stroke-width="6"/>
-        <path d="M16 58 L35 39 L52 52 L75 25" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M56 25 H75 V45" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M18 75 V66 M40 75 V62 M62 75 V55" stroke="#08756f" stroke-width="8" stroke-linecap="butt"/>
-      </g>
-      <g transform="translate(205,590)">
-        <path d="M47 81 C17 56 5 43 5 25 C5 11 15 3 28 3 C37 3 43 8 48 15 C53 8 61 3 70 3 C83 3 93 12 93 25 C93 43 79 57 48 81 Z"
-          fill="#e16aa8" stroke="#8a1748" stroke-width="6" stroke-linejoin="round"/>
-        <circle cx="22" cy="20" r="4" fill="#ffffff" opacity="0.85"/>
-      </g>
-      <g transform="translate(68,771)">
-        <circle cx="60" cy="60" r="58" fill="${PLATFORM}"/>
-        <rect x="50" y="17" width="15" height="43" rx="8" fill="#31c6f2"/>
-        <rect x="50" y="60" width="15" height="43" rx="8" fill="#e91e63"/>
-        <rect x="17" y="50" width="43" height="15" rx="8" fill="#31c6f2"/>
-        <rect x="60" y="50" width="43" height="15" rx="8" fill="#2dbf75"/>
-        <rect x="60" y="76" width="43" height="15" rx="8" fill="#f6c12a"/>
-        <rect x="76" y="17" width="15" height="43" rx="8" fill="#2dbf75"/>
-        <rect x="76" y="60" width="15" height="43" rx="8" fill="#e91e63"/>
-        <rect x="17" y="76" width="17" height="15" rx="7" fill="#e91e63"/>
-        <rect x="86" y="96" width="32" height="15" rx="8" transform="rotate(90 86 96)" fill="#f6c12a"/>
-      </g>
-      <g transform="translate(104,987)">
-        <circle cx="48" cy="48" r="42" fill="#ffc17c" stroke="#d76b00" stroke-width="7"/>
-        <circle cx="48" cy="37" r="17" fill="#ffffff" stroke="#d76b00" stroke-width="7"/>
-        <path d="M21 75 C27 57 36 50 48 50 C61 50 70 58 76 75" fill="#ffffff" stroke="#d76b00" stroke-width="7" stroke-linecap="round"/>
-        <rect x="82" y="76" width="19" height="58" rx="4" fill="#ffffff" stroke="#d76b00" stroke-width="7" transform="rotate(-45 82 76)"/>
-      </g>
-      <g transform="translate(103,1160)">
-        <circle cx="55" cy="55" r="50" fill="${CYAN}" stroke="#004f73" stroke-width="6"/>
-        <path d="M25 58 C31 75 45 83 55 83 C66 83 80 75 86 58 L72 35 L55 65 L38 35 Z"
-          fill="#ffffff"/>
-      </g>
-      <g transform="translate(128,1294) scale(0.62)" stroke-linecap="square">
-        <g stroke-width="6">
-          <path d="M58 0 V43 M36 21 H80" stroke="#f28e2c"/>
-          <path d="M102 0 V43 M80 21 H124" stroke="#6f8a99"/>
-          <path d="M22 48 V91 M0 69 H44" stroke="#8aa2ad"/>
-          <path d="M74 51 V101 M49 76 H99" stroke="#f28e2c"/>
-          <path d="M130 51 V94 M108 72 H152" stroke="#4a627f"/>
-          <path d="M40 104 V147 M18 125 H62" stroke="#d6222a"/>
-          <path d="M106 112 V155 M84 133 H128" stroke="#49617b"/>
-          <path d="M150 105 V148 M128 126 H172" stroke="#005b8f"/>
-          <path d="M76 150 V187 M58 168 H94" stroke="#4a627f"/>
-        </g>
-      </g>
-    </g>`;
 
   const zhLayoutLabels = {
     sales: {
@@ -196,21 +146,6 @@
       unit: 'B',
       decimals: 1,
       referenceImage: { src: 'input/processed/salesforce-q4-fy26.png', width: 2667, height: 1500 },
-      logoWidth: 350,
-      logoHeight: 235,
-      logoY: 205,
-      logoViewBox: '0 0 360 190',
-      logoSvg: `
-        <g fill="#0aa5df">
-          <circle cx="105" cy="88" r="58"/>
-          <circle cx="160" cy="70" r="64"/>
-          <circle cx="220" cy="88" r="58"/>
-          <circle cx="182" cy="118" r="58"/>
-          <ellipse cx="247" cy="94" rx="68" ry="58"/>
-          <ellipse cx="84" cy="112" rx="65" ry="53"/>
-        </g>
-        <text x="180" y="109" text-anchor="middle" font-family="Montserrat,Arial,sans-serif" font-size="52" font-weight="600" fill="#ffffff">salesforce</text>
-      `,
     },
     render: {
       width: 2667,
@@ -234,8 +169,17 @@
         profit: GREEN_LINK,
         cost: RED_LINK,
       },
+      allowRasterAnnotations: true,
     },
-    annotationsSvg: annotations,
+    rasterAnnotations: [
+      { key: 'salesforce-q4-fy26-company-logo', href: 'data/assets/raster-annotations/salesforce/q4-fy26-company-logo.png', x: 1042, y: 231, width: 339, height: 239, clearance: true },
+      { key: 'salesforce-q4-fy26-sales-icon', href: 'data/assets/raster-annotations/salesforce/q4-fy26-sales-icon.png', x: 222, y: 364, width: 109, height: 110, clearance: true },
+      { key: 'salesforce-q4-fy26-service-icon', href: 'data/assets/raster-annotations/salesforce/q4-fy26-service-icon.png', x: 196, y: 588, width: 104, height: 88, clearance: true },
+      { key: 'salesforce-q4-fy26-slack-icon', href: 'data/assets/raster-annotations/salesforce/q4-fy26-slack-icon.png', x: 67, y: 770, width: 120, height: 120, clearance: true },
+      { key: 'salesforce-q4-fy26-marketing-commerce-icon', href: 'data/assets/raster-annotations/salesforce/q4-fy26-marketing-commerce-icon.png', x: 104, y: 989, width: 112, height: 116, clearance: true },
+      { key: 'salesforce-q4-fy26-mulesoft-icon', href: 'data/assets/raster-annotations/salesforce/q4-fy26-mulesoft-icon.png', x: 100, y: 1156, width: 111, height: 111, clearance: true },
+      { key: 'salesforce-q4-fy26-tableau-icon', href: 'data/assets/raster-annotations/salesforce/q4-fy26-tableau-icon.png', x: 136, y: 1279, width: 94, height: 93, clearance: true },
+    ],
 
     layout: {
       scale: 34,

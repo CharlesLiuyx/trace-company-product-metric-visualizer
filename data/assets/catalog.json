@@ -12097,6 +12097,66 @@
       "reusable": true
     },
     {
+      "path": "data/assets/raster-annotations/salesforce/q1-fy27-agentforce-icons.png",
+      "digest": "sha256:5472afed7fd13be1202151dbed2fb6b67f5bc22ff9425280fca7d43f2e17138a",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/salesforce-q1-fy27.json",
+          "recipeDigest": "sha256:4cc08683497dbf4248816c58419e569e1d414ee310665d0a33fddb0225545f51",
+          "source": "input/processed/salesforce-q1-fy27.png",
+          "cropKey": "salesforce-q1-fy27-agentforce-icons"
+        }
+      ],
+      "directConsumers": [
+        "salesforce-q1-fy27"
+      ],
+      "consumers": [
+        "salesforce-q1-fy27"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q1-fy27-company-logo.png",
+      "digest": "sha256:ca3ffbb099c540bfc4a41a33a4ce972e777cc8e5e658ed83e8451916d7337068",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/salesforce-q1-fy27.json",
+          "recipeDigest": "sha256:4cc08683497dbf4248816c58419e569e1d414ee310665d0a33fddb0225545f51",
+          "source": "input/processed/salesforce-q1-fy27.png",
+          "cropKey": "salesforce-q1-fy27-company-logo"
+        }
+      ],
+      "directConsumers": [
+        "salesforce-q1-fy27"
+      ],
+      "consumers": [
+        "salesforce-q1-fy27"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q1-fy27-data360-icons.png",
+      "digest": "sha256:6b7e0d2497c7c3addeb172a3bd6a596c4bb001ab89b1a31764fcf318bfee77ad",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/salesforce-q1-fy27.json",
+          "recipeDigest": "sha256:4cc08683497dbf4248816c58419e569e1d414ee310665d0a33fddb0225545f51",
+          "source": "input/processed/salesforce-q1-fy27.png",
+          "cropKey": "salesforce-q1-fy27-data360-icons"
+        }
+      ],
+      "directConsumers": [
+        "salesforce-q1-fy27"
+      ],
+      "consumers": [
+        "salesforce-q1-fy27"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/salesforce/q2-fy24-company-logo.png",
       "digest": "sha256:962980b5098ee460fa9e595629e421a4a5f7fe46b191750b152f916f28634725",
       "provenance": [
@@ -13695,6 +13755,146 @@
         "sha256:7c5336888d3d3e6840f63f73a0822f2e197d56a4a49ce507127b85c883da7ddf"
       ],
       "reusable": true
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q4-fy26-company-logo.png",
+      "digest": "sha256:9b2fad979dad370fedcb1c079bea71891620f604cb096f37c7d3f0ef67be4db0",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/salesforce-q4-fy26-raster.json",
+          "recipeDigest": "sha256:9b68df9dd2c088c0caf0764d458a294ec7563f2936191287e61cebf6afb7989a",
+          "source": "input/processed/salesforce-q4-fy26.png",
+          "cropKey": "salesforce-q4-fy26-company-logo"
+        }
+      ],
+      "directConsumers": [
+        "salesforce-q4-fy26"
+      ],
+      "consumers": [
+        "salesforce-q4-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q4-fy26-marketing-commerce-icon.png",
+      "digest": "sha256:94a041d5dc1f10fd12614e527571669a3007c565773451a72ebf2378dad9d368",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/salesforce-q4-fy26-raster.json",
+          "recipeDigest": "sha256:9b68df9dd2c088c0caf0764d458a294ec7563f2936191287e61cebf6afb7989a",
+          "source": "input/processed/salesforce-q4-fy26.png",
+          "cropKey": "salesforce-q4-fy26-marketing-commerce-icon"
+        }
+      ],
+      "directConsumers": [
+        "salesforce-q4-fy26"
+      ],
+      "consumers": [
+        "salesforce-q4-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q4-fy26-mulesoft-icon.png",
+      "digest": "sha256:13597b8ab10726b4459289f68709dd5686b4e64118e3ecc28879308c8ed5e620",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/salesforce-q4-fy26-raster.json",
+          "recipeDigest": "sha256:9b68df9dd2c088c0caf0764d458a294ec7563f2936191287e61cebf6afb7989a",
+          "source": "input/processed/salesforce-q4-fy26.png",
+          "cropKey": "salesforce-q4-fy26-mulesoft-icon"
+        }
+      ],
+      "directConsumers": [
+        "salesforce-q4-fy26"
+      ],
+      "consumers": [
+        "salesforce-q4-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q4-fy26-sales-icon.png",
+      "digest": "sha256:cf907fd392cef9f6a20421b42f84f0e9aa853bccc5b806c6bce3a0c30a8cbceb",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/salesforce-q4-fy26-raster.json",
+          "recipeDigest": "sha256:9b68df9dd2c088c0caf0764d458a294ec7563f2936191287e61cebf6afb7989a",
+          "source": "input/processed/salesforce-q4-fy26.png",
+          "cropKey": "salesforce-q4-fy26-sales-icon"
+        }
+      ],
+      "directConsumers": [
+        "salesforce-q4-fy26"
+      ],
+      "consumers": [
+        "salesforce-q4-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q4-fy26-service-icon.png",
+      "digest": "sha256:26c06c9aa9617b3bc129c8bae0abda86b702bad8d0f1e806b412e686931d4f6b",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/salesforce-q4-fy26-raster.json",
+          "recipeDigest": "sha256:9b68df9dd2c088c0caf0764d458a294ec7563f2936191287e61cebf6afb7989a",
+          "source": "input/processed/salesforce-q4-fy26.png",
+          "cropKey": "salesforce-q4-fy26-service-icon"
+        }
+      ],
+      "directConsumers": [
+        "salesforce-q4-fy26"
+      ],
+      "consumers": [
+        "salesforce-q4-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q4-fy26-slack-icon.png",
+      "digest": "sha256:baf399c866acf56dab24e42df2ebfc22cd332b6fc934969dafa9bf69f2535e0f",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/salesforce-q4-fy26-raster.json",
+          "recipeDigest": "sha256:9b68df9dd2c088c0caf0764d458a294ec7563f2936191287e61cebf6afb7989a",
+          "source": "input/processed/salesforce-q4-fy26.png",
+          "cropKey": "salesforce-q4-fy26-slack-icon"
+        }
+      ],
+      "directConsumers": [
+        "salesforce-q4-fy26"
+      ],
+      "consumers": [
+        "salesforce-q4-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q4-fy26-tableau-icon.png",
+      "digest": "sha256:b97f5610eb129313830c645be36eb1e9ea7513ae8beed4532c1d574021ff0b30",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/salesforce-q4-fy26-raster.json",
+          "recipeDigest": "sha256:9b68df9dd2c088c0caf0764d458a294ec7563f2936191287e61cebf6afb7989a",
+          "source": "input/processed/salesforce-q4-fy26.png",
+          "cropKey": "salesforce-q4-fy26-tableau-icon"
+        }
+      ],
+      "directConsumers": [
+        "salesforce-q4-fy26"
+      ],
+      "consumers": [
+        "salesforce-q4-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
     },
     {
       "path": "data/assets/raster-annotations/samsara/company-wordmark-q2-fy27.png",
@@ -16914,6 +17114,11 @@
       "source": "input/processing/salesforce-q1-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/salesforce-q1-fy27.json",
+      "digest": "sha256:4cc08683497dbf4248816c58419e569e1d414ee310665d0a33fddb0225545f51",
+      "source": "input/processed/salesforce-q1-fy27.png"
+    },
+    {
       "path": "input/icon-crop-specs/salesforce-q2-fy24.json",
       "digest": "sha256:efb1c12aa16a951fad0d27659ae02bf8cf5beb388a7e4439a686f30daceebe23",
       "source": "input/processed/salesforce-q2-fy24.png"
@@ -16967,6 +17172,11 @@
       "path": "input/icon-crop-specs/salesforce-q4-fy25.json",
       "digest": "sha256:8cf54a95b1f28caee19fd86fde0b879c2a86930aced0d9648e5798a51bddc255",
       "source": "input/processed/salesforce-q4-fy25.png"
+    },
+    {
+      "path": "input/icon-crop-specs/salesforce-q4-fy26-raster.json",
+      "digest": "sha256:9b68df9dd2c088c0caf0764d458a294ec7563f2936191287e61cebf6afb7989a",
+      "source": "input/processed/salesforce-q4-fy26.png"
     },
     {
       "path": "input/icon-crop-specs/salesforce-q4-fy26.json",

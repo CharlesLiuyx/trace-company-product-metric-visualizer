@@ -1,7 +1,8 @@
 /* ====================================================================
  *  Salesforce — Q1 FY27 income statement ($B)
  *  Reconstructed from input/processed/salesforce-q1-fy27.png as a fixed d3-sankey
- *  layout.
+ *  layout; the logo and both product-icon rows are source-cropped raster
+ *  annotations (data/assets/raster-annotations/salesforce/q1-fy27-*).
  * ==================================================================== */
 (function () {
   const BLUE = '#118fd9';
@@ -28,21 +29,6 @@
       unit: 'B',
       decimals: 1,
       referenceImage: { src: 'input/processed/salesforce-q1-fy27.png', width: 2958, height: 1490 },
-      logoWidth: 380,
-      logoHeight: 210,
-      logoY: 205,
-      logoViewBox: '0 0 360 190',
-      logoSvg: `
-        <g fill="#0aa5df">
-          <circle cx="105" cy="88" r="58"/>
-          <circle cx="160" cy="70" r="64"/>
-          <circle cx="220" cy="88" r="58"/>
-          <circle cx="182" cy="118" r="58"/>
-          <ellipse cx="247" cy="94" rx="68" ry="58"/>
-          <ellipse cx="84" cy="112" rx="65" ry="53"/>
-        </g>
-        <text x="180" y="109" text-anchor="middle" font-family="Montserrat,Arial,sans-serif" font-size="52" font-weight="600" fill="#ffffff">salesforce</text>
-      `,
     },
     render: {
       width: 2958,
@@ -63,7 +49,13 @@
         profit: GREEN_LINK,
         cost: RED_LINK,
       },
+      allowRasterAnnotations: true,
     },
+    rasterAnnotations: [
+      { key: 'salesforce-q1-fy27-company-logo', href: 'data/assets/raster-annotations/salesforce/q1-fy27-company-logo.png', x: 1168, y: 204, width: 386, height: 271, clearance: true },
+      { key: 'salesforce-q1-fy27-agentforce-icons', href: 'data/assets/raster-annotations/salesforce/q1-fy27-agentforce-icons.png', x: 7, y: 687, width: 457, height: 71, clearance: true },
+      { key: 'salesforce-q1-fy27-data360-icons', href: 'data/assets/raster-annotations/salesforce/q1-fy27-data360-icons.png', x: 65, y: 1153, width: 365, height: 84, clearance: true },
+    ],
 
     layout: {
       scale: 42.55,

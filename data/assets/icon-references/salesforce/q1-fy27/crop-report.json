@@ -1,0 +1,295 @@
+{
+  "source": "input/processed/salesforce-q1-fy27.png",
+  "spec": "input/icon-crop-specs/salesforce-q1-fy27.json",
+  "background": [
+    239,
+    239,
+    239
+  ],
+  "generatedAt": "2026-10-19T08:40:34.319660+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/salesforce",
+  "crops": [
+    {
+      "key": "salesforce-q1-fy27-company-logo",
+      "output": "data/assets/icon-references/salesforce/q1-fy27/crops/q1-fy27-company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 6965,
+        "losslessBytes": 32739,
+        "savingsVsLossless": 0.7873,
+        "metrics": {
+          "meanAbsoluteError": 0.5307,
+          "rootMeanSquareError": 1.274,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 27,
+          "changedPixelRatio": 0.7146
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          239,
+          239,
+          239
+        ],
+        "transparentPixels": 31281,
+        "transparentPixelRatio": 0.299
+      },
+      "searchBox": {
+        "x": 1168,
+        "y": 204,
+        "width": 386,
+        "height": 271
+      },
+      "componentCount": 5,
+      "subjectBox": {
+        "x0": 1170,
+        "y0": 206,
+        "x1": 1552,
+        "y1": 473
+      },
+      "cropBox": {
+        "x0": 1168,
+        "y0": 204,
+        "x1": 1554,
+        "y1": 475
+      },
+      "validation": {
+        "width": 386,
+        "height": 271,
+        "foregroundPixels": 69128,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 2,
+          "right": 2,
+          "top": 2,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Salesforce cloud wordmark only; excludes title, labels and chart marks.",
+      "runtimeOutput": "data/assets/raster-annotations/salesforce/q1-fy27-company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 6965,
+        "losslessBytes": 32739,
+        "savingsVsLossless": 0.7873,
+        "metrics": {
+          "meanAbsoluteError": 0.5307,
+          "rootMeanSquareError": 1.274,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 27,
+          "changedPixelRatio": 0.7146
+        }
+      },
+      "validationSheet": "data/assets/icon-references/salesforce/q1-fy27/validation-sheets/salesforce-q1-fy27-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 274862,
+        "losslessBytes": 274862,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "salesforce-q1-fy27-agentforce-icons",
+      "output": "data/assets/icon-references/salesforce/q1-fy27/crops/q1-fy27-agentforce-icons.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 34084,
+        "losslessBytes": 34084,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          239,
+          239,
+          239
+        ],
+        "transparentPixels": 13452,
+        "transparentPixelRatio": 0.4146
+      },
+      "searchBox": {
+        "x": 7,
+        "y": 687,
+        "width": 457,
+        "height": 71
+      },
+      "componentCount": 13,
+      "subjectBox": {
+        "x0": 9,
+        "y0": 689,
+        "x1": 462,
+        "y1": 756
+      },
+      "cropBox": {
+        "x0": 7,
+        "y0": 687,
+        "x1": 464,
+        "y1": 758
+      },
+      "validation": {
+        "width": 457,
+        "height": 71,
+        "foregroundPixels": 17044,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 2,
+          "right": 2,
+          "top": 2,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Six Agentforce Apps product icons (Sales, Service, Marketing, Commerce, Tableau Next, Slack) as one row; excludes labels and the node.",
+      "runtimeOutput": "data/assets/raster-annotations/salesforce/q1-fy27-agentforce-icons.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 34084,
+        "losslessBytes": 34084,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/salesforce/q1-fy27/validation-sheets/salesforce-q1-fy27-agentforce-icons.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 265809,
+        "losslessBytes": 265809,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "salesforce-q1-fy27-data360-icons",
+      "output": "data/assets/icon-references/salesforce/q1-fy27/crops/q1-fy27-data360-icons.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 32783,
+        "losslessBytes": 32783,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          239,
+          239,
+          239
+        ],
+        "transparentPixels": 16080,
+        "transparentPixelRatio": 0.5245
+      },
+      "searchBox": {
+        "x": 65,
+        "y": 1153,
+        "width": 365,
+        "height": 84
+      },
+      "componentCount": 13,
+      "subjectBox": {
+        "x0": 67,
+        "y0": 1155,
+        "x1": 428,
+        "y1": 1235
+      },
+      "cropBox": {
+        "x0": 65,
+        "y0": 1153,
+        "x1": 430,
+        "y1": 1237
+      },
+      "validation": {
+        "width": 365,
+        "height": 84,
+        "foregroundPixels": 12288,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 2,
+          "right": 2,
+          "top": 2,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Five Data 360 / Headless Platform product icons (Agentforce, Data 360, Informatica, MuleSoft, Tableau) as one row; excludes labels.",
+      "runtimeOutput": "data/assets/raster-annotations/salesforce/q1-fy27-data360-icons.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 32783,
+        "losslessBytes": 32783,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/salesforce/q1-fy27/validation-sheets/salesforce-q1-fy27-data360-icons.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 279441,
+        "losslessBytes": 279441,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}
