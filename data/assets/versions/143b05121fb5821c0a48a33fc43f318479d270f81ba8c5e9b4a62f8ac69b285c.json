@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "salesforce-q3-fy24-slack-icon",
+  "artifact": {
+    "path": "data/assets/raster-annotations/salesforce/q3-fy24-slack-icon.png",
+    "digest": "sha256:71c7af8ce41c469e7cd8b5482c6ad86183177c21ef20ee4cd0bee8df226dfabb"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/salesforce-q3-fy24.json",
+    "digest": "sha256:136aabba89024615d4613f1e5db9ba9a554cb67d80b325dc8bb0beda2406b4fe"
+  },
+  "source": {
+    "path": "input/processed/salesforce-q3-fy24.png",
+    "digest": "sha256:61ff0a239e41e2bd107eac754d75250b7f1a013e6ca252330b2f62b52a01bc5a"
+  },
+  "review": {
+    "reviewer": "Codex (visual asset inspection)",
+    "decision": "accepted",
+    "artifactDigest": "sha256:71c7af8ce41c469e7cd8b5482c6ad86183177c21ef20ee4cd0bee8df226dfabb",
+    "note": "2026-10-19: Compared regenerated crop against the original Source and all-crop composite. Complete icon only; no labels, values, connectors, watermarks or neighboring icon fragments. Optimized lossless PNG preserves source detail. Dataset acceptance remains pending operator review."
+  },
+  "versionDigest": "sha256:143b05121fb5821c0a48a33fc43f318479d270f81ba8c5e9b4a62f8ac69b285c"
+}

@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "salesforce-q3-fy23-slack-icon",
+  "artifact": {
+    "path": "data/assets/raster-annotations/salesforce/q3-fy23-slack-icon.png",
+    "digest": "sha256:1d1e7afcd3ea442e66676be2e9913c768d7f41193a6d9248abe17f9b22fcbc21"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/salesforce-q3-fy23.json",
+    "digest": "sha256:f90d4317f8c9028006d4d547d36081d8595787f1758afd0646c7e9caab0778ee"
+  },
+  "source": {
+    "path": "input/processed/salesforce-q3-fy23.png",
+    "digest": "sha256:74372bd9f28407db9099ed00910cf0a32b932110078e3aa00210d0379a353cac"
+  },
+  "review": {
+    "reviewer": "Codex model visual validation",
+    "decision": "accepted",
+    "artifactDigest": "sha256:1d1e7afcd3ea442e66676be2e9913c768d7f41193a6d9248abe17f9b22fcbc21",
+    "note": "2026-10-19: Compared the crop and generated validation sheet with the original Source. Complete icon subject; no labels, connectors, neighboring icons or publisher marks. Extractor validation passes. Dataset still awaits operator review."
+  },
+  "versionDigest": "sha256:0b113b3b8ab6c07a4baed60805803bc8eecef479c580cd605418b80b73caac4c"
+}

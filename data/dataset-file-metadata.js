@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-10-18T14:02:49.000Z",
+  "generatedAt": "2026-10-19T04:25:36.436Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -8298,6 +8298,228 @@
       "updatedAtMs": 1792332169000,
       "updatedAt": "2026-10-18T14:02:49.000Z",
       "timeSource": "git"
+    },
+    "salesforce-q1-fy24": {
+      "path": "data/datasets/salesforce-q1-fy24.js",
+      "updatedAtMs": 1792383714318,
+      "updatedAt": "2026-10-19T04:21:54.318Z",
+      "timeSource": "publication"
+    },
+    "salesforce-q1-fy25": {
+      "path": "data/datasets/salesforce-q1-fy25.js",
+      "updatedAtMs": 1792383711372,
+      "updatedAt": "2026-10-19T04:21:51.372Z",
+      "timeSource": "publication"
+    },
+    "salesforce-q1-fy26": {
+      "path": "data/datasets/salesforce-q1-fy26.js",
+      "updatedAtMs": 1792383865295,
+      "updatedAt": "2026-10-19T04:24:25.295Z",
+      "timeSource": "publication"
+    },
+    "salesforce-q2-fy24": {
+      "path": "data/datasets/salesforce-q2-fy24.js",
+      "updatedAtMs": 1792383677378,
+      "updatedAt": "2026-10-19T04:21:17.378Z",
+      "timeSource": "publication"
+    },
+    "salesforce-q2-fy25": {
+      "path": "data/datasets/salesforce-q2-fy25.js",
+      "updatedAtMs": 1792383772147,
+      "updatedAt": "2026-10-19T04:22:52.147Z",
+      "timeSource": "publication"
+    },
+    "salesforce-q2-fy26": {
+      "path": "data/datasets/salesforce-q2-fy26.js",
+      "updatedAtMs": 1792383651863,
+      "updatedAt": "2026-10-19T04:20:51.863Z",
+      "timeSource": "publication"
+    },
+    "salesforce-q3-fy23": {
+      "path": "data/datasets/salesforce-q3-fy23.js",
+      "updatedAtMs": 1792383778538,
+      "updatedAt": "2026-10-19T04:22:58.538Z",
+      "timeSource": "publication"
+    },
+    "salesforce-q3-fy24": {
+      "path": "data/datasets/salesforce-q3-fy24.js",
+      "updatedAtMs": 1792383672285,
+      "updatedAt": "2026-10-19T04:21:12.285Z",
+      "timeSource": "publication"
+    },
+    "salesforce-q3-fy25": {
+      "path": "data/datasets/salesforce-q3-fy25.js",
+      "updatedAtMs": 1792383652449,
+      "updatedAt": "2026-10-19T04:20:52.449Z",
+      "timeSource": "publication"
+    },
+    "salesforce-q3-fy26": {
+      "path": "data/datasets/salesforce-q3-fy26.js",
+      "updatedAtMs": 1792383674660,
+      "updatedAt": "2026-10-19T04:21:14.660Z",
+      "timeSource": "publication"
+    },
+    "salesforce-q4-fy23": {
+      "path": "data/datasets/salesforce-q4-fy23.js",
+      "updatedAtMs": 1792383704325,
+      "updatedAt": "2026-10-19T04:21:44.325Z",
+      "timeSource": "publication"
+    },
+    "salesforce-q4-fy24": {
+      "path": "data/datasets/salesforce-q4-fy24.js",
+      "updatedAtMs": 1792383691529,
+      "updatedAt": "2026-10-19T04:21:31.529Z",
+      "timeSource": "publication"
+    },
+    "salesforce-q4-fy25": {
+      "path": "data/datasets/salesforce-q4-fy25.js",
+      "updatedAtMs": 1792383936436,
+      "updatedAt": "2026-10-19T04:25:36.436Z",
+      "timeSource": "publication"
+    },
+    "shopify-q1-fy23": {
+      "path": "data/datasets/shopify-q1-fy23.js",
+      "updatedAtMs": 1792383830170,
+      "updatedAt": "2026-10-19T04:23:50.170Z",
+      "timeSource": "publication"
+    },
+    "shopify-q1-fy24": {
+      "path": "data/datasets/shopify-q1-fy24.js",
+      "updatedAtMs": 1792383813444,
+      "updatedAt": "2026-10-19T04:23:33.444Z",
+      "timeSource": "publication"
+    },
+    "shopify-q1-fy25": {
+      "path": "data/datasets/shopify-q1-fy25.js",
+      "updatedAtMs": 1792383854791,
+      "updatedAt": "2026-10-19T04:24:14.791Z",
+      "timeSource": "publication"
+    },
+    "shopify-q2-fy23": {
+      "path": "data/datasets/shopify-q2-fy23.js",
+      "updatedAtMs": 1792383757218,
+      "updatedAt": "2026-10-19T04:22:37.218Z",
+      "timeSource": "publication"
+    },
+    "shopify-q2-fy24": {
+      "path": "data/datasets/shopify-q2-fy24.js",
+      "updatedAtMs": 1792383860301,
+      "updatedAt": "2026-10-19T04:24:20.301Z",
+      "timeSource": "publication"
+    },
+    "shopify-q2-fy25": {
+      "path": "data/datasets/shopify-q2-fy25.js",
+      "updatedAtMs": 1792383850571,
+      "updatedAt": "2026-10-19T04:24:10.571Z",
+      "timeSource": "publication"
+    },
+    "shopify-q3-fy22": {
+      "path": "data/datasets/shopify-q3-fy22.js",
+      "updatedAtMs": 1792383692259,
+      "updatedAt": "2026-10-19T04:21:32.259Z",
+      "timeSource": "publication"
+    },
+    "shopify-q3-fy23": {
+      "path": "data/datasets/shopify-q3-fy23.js",
+      "updatedAtMs": 1792383808188,
+      "updatedAt": "2026-10-19T04:23:28.188Z",
+      "timeSource": "publication"
+    },
+    "shopify-q3-fy24": {
+      "path": "data/datasets/shopify-q3-fy24.js",
+      "updatedAtMs": 1792383817111,
+      "updatedAt": "2026-10-19T04:23:37.111Z",
+      "timeSource": "publication"
+    },
+    "shopify-q4-fy22": {
+      "path": "data/datasets/shopify-q4-fy22.js",
+      "updatedAtMs": 1792383701230,
+      "updatedAt": "2026-10-19T04:21:41.230Z",
+      "timeSource": "publication"
+    },
+    "shopify-q4-fy23": {
+      "path": "data/datasets/shopify-q4-fy23.js",
+      "updatedAtMs": 1792383889413,
+      "updatedAt": "2026-10-19T04:24:49.413Z",
+      "timeSource": "publication"
+    },
+    "shopify-q4-fy24": {
+      "path": "data/datasets/shopify-q4-fy24.js",
+      "updatedAtMs": 1792383869823,
+      "updatedAt": "2026-10-19T04:24:29.823Z",
+      "timeSource": "publication"
+    },
+    "snap-q1-fy23": {
+      "path": "data/datasets/snap-q1-fy23.js",
+      "updatedAtMs": 1792383666229,
+      "updatedAt": "2026-10-19T04:21:06.229Z",
+      "timeSource": "publication"
+    },
+    "snap-q1-fy24": {
+      "path": "data/datasets/snap-q1-fy24.js",
+      "updatedAtMs": 1792383654698,
+      "updatedAt": "2026-10-19T04:20:54.698Z",
+      "timeSource": "publication"
+    },
+    "snap-q1-fy25": {
+      "path": "data/datasets/snap-q1-fy25.js",
+      "updatedAtMs": 1792383706522,
+      "updatedAt": "2026-10-19T04:21:46.522Z",
+      "timeSource": "publication"
+    },
+    "snap-q2-fy23": {
+      "path": "data/datasets/snap-q2-fy23.js",
+      "updatedAtMs": 1792383649264,
+      "updatedAt": "2026-10-19T04:20:49.264Z",
+      "timeSource": "publication"
+    },
+    "snap-q2-fy24": {
+      "path": "data/datasets/snap-q2-fy24.js",
+      "updatedAtMs": 1792383892673,
+      "updatedAt": "2026-10-19T04:24:52.673Z",
+      "timeSource": "publication"
+    },
+    "snap-q2-fy25": {
+      "path": "data/datasets/snap-q2-fy25.js",
+      "updatedAtMs": 1792383822811,
+      "updatedAt": "2026-10-19T04:23:42.811Z",
+      "timeSource": "publication"
+    },
+    "snap-q3-fy22": {
+      "path": "data/datasets/snap-q3-fy22.js",
+      "updatedAtMs": 1792383637742,
+      "updatedAt": "2026-10-19T04:20:37.742Z",
+      "timeSource": "publication"
+    },
+    "snap-q3-fy23": {
+      "path": "data/datasets/snap-q3-fy23.js",
+      "updatedAtMs": 1792383683940,
+      "updatedAt": "2026-10-19T04:21:23.940Z",
+      "timeSource": "publication"
+    },
+    "snap-q3-fy24": {
+      "path": "data/datasets/snap-q3-fy24.js",
+      "updatedAtMs": 1792383725676,
+      "updatedAt": "2026-10-19T04:22:05.676Z",
+      "timeSource": "publication"
+    },
+    "snap-q4-fy22": {
+      "path": "data/datasets/snap-q4-fy22.js",
+      "updatedAtMs": 1792383670066,
+      "updatedAt": "2026-10-19T04:21:10.066Z",
+      "timeSource": "publication"
+    },
+    "snap-q4-fy23": {
+      "path": "data/datasets/snap-q4-fy23.js",
+      "updatedAtMs": 1792383879041,
+      "updatedAt": "2026-10-19T04:24:39.041Z",
+      "timeSource": "publication"
+    },
+    "snap-q4-fy24": {
+      "path": "data/datasets/snap-q4-fy24.js",
+      "updatedAtMs": 1792383826913,
+      "updatedAt": "2026-10-19T04:23:46.913Z",
+      "timeSource": "publication"
     },
     "data/revenue-metrics.js": {
       "path": "data/revenue-metrics.js",

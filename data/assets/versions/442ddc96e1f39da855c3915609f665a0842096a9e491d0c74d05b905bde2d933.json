@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "salesforce-q3-fy26-company-logo",
+  "artifact": {
+    "path": "data/assets/raster-annotations/salesforce/q3-fy26-company-logo.png",
+    "digest": "sha256:9b8d225634ef279a59023c607325bcf7c80292972daf8f8efa8ba2ae64cb19ab"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/salesforce-q3-fy26.json",
+    "digest": "sha256:362bdd3935bb6a5751a5fbfbff85510f67cba0d53b7ccdff387be0f29c597476"
+  },
+  "source": {
+    "path": "input/processed/salesforce-q3-fy26.png",
+    "digest": "sha256:6f801400a9b31a34ff412e2ca9778611ccfb03bb6867715dcfb18acf91631aa6"
+  },
+  "review": {
+    "reviewer": "Codex model visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:9b8d225634ef279a59023c607325bcf7c80292972daf8f8efa8ba2ae64cb19ab",
+    "note": "Compared Source, crop and validation sheet: complete salesforce-q3-fy26-company-logo subject, no visible adjacent labels, values, links, publisher or neighboring icons. Edge-connected transparent background; native placement and size retained. Marketing label corner and Tableau top-edge text are excluded without changing icon pixels."
+  },
+  "versionDigest": "sha256:442ddc96e1f39da855c3915609f665a0842096a9e491d0c74d05b905bde2d933"
+}

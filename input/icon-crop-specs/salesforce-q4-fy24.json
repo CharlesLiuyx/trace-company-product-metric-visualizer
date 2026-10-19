@@ -1,0 +1,216 @@
+{
+  "source": "input/processed/salesforce-q4-fy24.png",
+  "outputDir": "data/assets/icon-references/salesforce/q4-fy24",
+  "validationSheetDir": "data/assets/icon-references/salesforce/q4-fy24/validation-sheets",
+  "runtimeOutputDir": "data/assets/raster-annotations/salesforce",
+  "report": "crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "salesforce-q4-fy24-company-logo",
+      "output": "crops/q4-fy24-company-logo.png",
+      "runtimeOutput": "q4-fy24-company-logo.png",
+      "searchBox": {
+        "x": 1032,
+        "y": 235,
+        "width": 342,
+        "height": 241
+      },
+      "cropBox": {
+        "x": 1032,
+        "y": 235,
+        "width": 342,
+        "height": 241
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete source icon only; excludes labels, values, flows, publisher and neighboring icons."
+    },
+    {
+      "key": "salesforce-q4-fy24-sales",
+      "output": "crops/q4-fy24-sales.png",
+      "runtimeOutput": "q4-fy24-sales.png",
+      "searchBox": {
+        "x": 220,
+        "y": 337,
+        "width": 110,
+        "height": 109
+      },
+      "cropBox": {
+        "x": 220,
+        "y": 337,
+        "width": 110,
+        "height": 109
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete source icon only; excludes labels, values, flows, publisher and neighboring icons."
+    },
+    {
+      "key": "salesforce-q4-fy24-service",
+      "output": "crops/q4-fy24-service.png",
+      "runtimeOutput": "q4-fy24-service.png",
+      "searchBox": {
+        "x": 197,
+        "y": 573,
+        "width": 104,
+        "height": 90
+      },
+      "cropBox": {
+        "x": 197,
+        "y": 573,
+        "width": 104,
+        "height": 90
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete source icon only; excludes labels, values, flows, publisher and neighboring icons."
+    },
+    {
+      "key": "salesforce-q4-fy24-slack",
+      "output": "crops/q4-fy24-slack.png",
+      "runtimeOutput": "q4-fy24-slack.png",
+      "searchBox": {
+        "x": 154,
+        "y": 792,
+        "width": 123,
+        "height": 123
+      },
+      "cropBox": {
+        "x": 154,
+        "y": 792,
+        "width": 123,
+        "height": 123
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete source icon only; excludes labels, values, flows, publisher and neighboring icons."
+    },
+    {
+      "key": "salesforce-q4-fy24-marketing-commerce",
+      "output": "crops/q4-fy24-marketing-commerce.png",
+      "runtimeOutput": "q4-fy24-marketing-commerce.png",
+      "searchBox": {
+        "x": 103,
+        "y": 1035,
+        "width": 114,
+        "height": 117
+      },
+      "cropBox": {
+        "x": 103,
+        "y": 1035,
+        "width": 114,
+        "height": 117
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete source icon only; excludes labels, values, flows, publisher and neighboring icons. Transparent upper-right exclusion removes the neighboring Marketing label without touching the magnifier.",
+      "excludeBoxes": [
+        {
+          "x": 205,
+          "y": 1035,
+          "width": 12,
+          "height": 27
+        }
+      ]
+    },
+    {
+      "key": "salesforce-q4-fy24-mulesoft",
+      "output": "crops/q4-fy24-mulesoft.png",
+      "runtimeOutput": "q4-fy24-mulesoft.png",
+      "searchBox": {
+        "x": 105,
+        "y": 1168,
+        "width": 112,
+        "height": 112
+      },
+      "cropBox": {
+        "x": 105,
+        "y": 1168,
+        "width": 112,
+        "height": 112
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete source icon only; excludes labels, values, flows, publisher and neighboring icons."
+    },
+    {
+      "key": "salesforce-q4-fy24-tableau",
+      "output": "crops/q4-fy24-tableau.png",
+      "runtimeOutput": "q4-fy24-tableau.png",
+      "searchBox": {
+        "x": 141,
+        "y": 1281,
+        "width": 103,
+        "height": 99
+      },
+      "cropBox": {
+        "x": 141,
+        "y": 1282,
+        "width": 103,
+        "height": 99
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete source icon only; excludes labels, values, flows, publisher and neighboring icons. Transparent upper-right exclusion removes the neighboring Analytics text without touching the Tableau crosses.",
+      "excludeBoxes": [
+        {
+          "x": 226,
+          "y": 1282,
+          "width": 18,
+          "height": 18
+        }
+      ]
+    }
+  ],
+  "skipped": [
+    {
+      "key": "publisher",
+      "reason": "Publisher branding and URL are nonsemantic."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Salesforce Q4 FY23 company-logo",
+  "artifact": {
+    "path": "data/assets/raster-annotations/salesforce/q4-fy23-company-logo.png",
+    "digest": "sha256:2f190615c34ca83b62b7be2780a1c60d9e624fcc915330047c9872b37341a634"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/salesforce-q4-fy23.json",
+    "digest": "sha256:4c43f457f030fe4ecbafb5f0267a7f353b93c8bc18275bf4f3101eb8c7223d84"
+  },
+  "source": {
+    "path": "input/processed/salesforce-q4-fy23.png",
+    "digest": "sha256:7900978b9046053f0968bb960e426fc86a0a0a755b2920ff70c5f58a1549bb05"
+  },
+  "review": {
+    "reviewer": "Codex model visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:2f190615c34ca83b62b7be2780a1c60d9e624fcc915330047c9872b37341a634",
+    "note": "Compared this exact runtime PNG to the source and extraction validation sheet. Complete icon subject; original proportions; transparent background. No visible text, flows, publisher branding or adjacent icons. All crop validation checks pass. Dataset acceptance remains pending operator review."
+  },
+  "versionDigest": "sha256:834ddd997b17b2de6e4e6ffbc685c92a04798d01d1caad229a714ddffc7b9768"
+}

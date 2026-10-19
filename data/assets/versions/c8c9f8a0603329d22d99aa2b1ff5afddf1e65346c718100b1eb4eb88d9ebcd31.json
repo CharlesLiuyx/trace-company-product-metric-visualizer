@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "salesforce-q4-fy24-marketing-commerce",
+  "artifact": {
+    "path": "data/assets/raster-annotations/salesforce/q4-fy24-marketing-commerce.png",
+    "digest": "sha256:d08ed2c8607c6774bcd6ec5dcab1d133723b3fb2171350019f471aac88a2aa70"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/salesforce-q4-fy24.json",
+    "digest": "sha256:0312b851918d5b103c7fd960e161b08214b91a1b4f8dfa728f4878515405d03f"
+  },
+  "source": {
+    "path": "input/processed/salesforce-q4-fy24.png",
+    "digest": "sha256:95a6e5270b935afd1cea53e406f4c5f692e002fdb78dd73ec587e719488a195e"
+  },
+  "review": {
+    "reviewer": "Codex (model source comparison)",
+    "decision": "accepted",
+    "artifactDigest": "sha256:d08ed2c8607c6774bcd6ec5dcab1d133723b3fb2171350019f471aac88a2aa70",
+    "note": "2026-10-19: Inspected original Source and generated crop. Complete source icon only; no labels, values, flows, publisher or adjacent icons. Extractor validation passed. Dataset awaits operator review."
+  },
+  "versionDigest": "sha256:c8c9f8a0603329d22d99aa2b1ff5afddf1e65346c718100b1eb4eb88d9ebcd31"
+}

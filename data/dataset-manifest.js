@@ -30592,6 +30592,841 @@
             }
           }
         }
+      },
+      {
+        "key": "salesforce-q1-fy24",
+        "src": "data/datasets/salesforce-q1-fy24.js",
+        "data": {
+          "name": "Salesforce · Q1 FY24",
+          "company": "Salesforce",
+          "meta": {
+            "title": "Salesforce Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Apr. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Salesforce · 2024 财年第一季度",
+              "meta": {
+                "title": "Salesforce 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2023 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "salesforce-q1-fy25",
+        "src": "data/datasets/salesforce-q1-fy25.js",
+        "data": {
+          "name": "Salesforce · Q1 FY25",
+          "company": "Salesforce",
+          "meta": {
+            "title": "Salesforce Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Apr. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Salesforce · 2025 财年第一季度",
+              "meta": {
+                "title": "Salesforce 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2024 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "salesforce-q1-fy26",
+        "src": "data/datasets/salesforce-q1-fy26.js",
+        "data": {
+          "name": "Salesforce · Q1 FY26",
+          "company": "Salesforce",
+          "meta": {
+            "title": "Salesforce Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Apr. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Salesforce · 2026 财年第一季度",
+              "meta": {
+                "title": "Salesforce 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "salesforce-q2-fy24",
+        "src": "data/datasets/salesforce-q2-fy24.js",
+        "data": {
+          "name": "Salesforce · Q2 FY24",
+          "company": "Salesforce",
+          "meta": {
+            "title": "Salesforce Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending July 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Salesforce · 2024 财年第二季度",
+              "meta": {
+                "title": "Salesforce 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2023 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "salesforce-q2-fy25",
+        "src": "data/datasets/salesforce-q2-fy25.js",
+        "data": {
+          "name": "Salesforce · Q2 FY25",
+          "company": "Salesforce",
+          "meta": {
+            "title": "Salesforce Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending July 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Salesforce · 2025 财年第二季度",
+              "meta": {
+                "title": "Salesforce 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2024 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "salesforce-q2-fy26",
+        "src": "data/datasets/salesforce-q2-fy26.js",
+        "data": {
+          "name": "Salesforce · Q2 FY26",
+          "company": "Salesforce",
+          "meta": {
+            "title": "Salesforce Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending July 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Salesforce · 2026 财年第二季度",
+              "meta": {
+                "title": "Salesforce 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2025 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "salesforce-q3-fy23",
+        "src": "data/datasets/salesforce-q3-fy23.js",
+        "data": {
+          "name": "Salesforce · Q3 FY23",
+          "company": "Salesforce",
+          "meta": {
+            "title": "Salesforce Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending October 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Salesforce · 2023 财年第三季度",
+              "meta": {
+                "title": "Salesforce 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2022 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "salesforce-q3-fy24",
+        "src": "data/datasets/salesforce-q3-fy24.js",
+        "data": {
+          "name": "Salesforce · Q3 FY24",
+          "company": "Salesforce",
+          "meta": {
+            "title": "Salesforce Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Oct. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Salesforce · 2024 财年第三季度",
+              "meta": {
+                "title": "Salesforce 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2023 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "salesforce-q3-fy25",
+        "src": "data/datasets/salesforce-q3-fy25.js",
+        "data": {
+          "name": "Salesforce · Q3 FY25",
+          "company": "Salesforce",
+          "meta": {
+            "title": "Salesforce Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Oct. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Salesforce · 2025 财年第三季度",
+              "meta": {
+                "title": "Salesforce 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2024 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "salesforce-q3-fy26",
+        "src": "data/datasets/salesforce-q3-fy26.js",
+        "data": {
+          "name": "Salesforce · Q3 FY26",
+          "company": "Salesforce",
+          "meta": {
+            "title": "Salesforce Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Oct. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Salesforce · 2026 财年第三季度",
+              "meta": {
+                "title": "Salesforce 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2025 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "salesforce-q4-fy23",
+        "src": "data/datasets/salesforce-q4-fy23.js",
+        "data": {
+          "name": "Salesforce · Q4 FY23",
+          "company": "Salesforce",
+          "meta": {
+            "title": "Salesforce Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending January 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Salesforce · 2023 财年第四季度",
+              "meta": {
+                "title": "Salesforce 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "salesforce-q4-fy24",
+        "src": "data/datasets/salesforce-q4-fy24.js",
+        "data": {
+          "name": "Salesforce · Q4 FY24",
+          "company": "Salesforce",
+          "meta": {
+            "title": "Salesforce Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Jan. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Salesforce · 2024 财年第四季度",
+              "meta": {
+                "title": "Salesforce 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "salesforce-q4-fy25",
+        "src": "data/datasets/salesforce-q4-fy25.js",
+        "data": {
+          "name": "Salesforce · Q4 FY25",
+          "company": "Salesforce",
+          "meta": {
+            "title": "Salesforce Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Jan. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Salesforce · 2025 财年第四季度",
+              "meta": {
+                "title": "Salesforce 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "shopify-q1-fy23",
+        "src": "data/datasets/shopify-q1-fy23.js",
+        "data": {
+          "name": "Shopify · Q1 FY23",
+          "company": "Shopify",
+          "meta": {
+            "title": "Shopify Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Quarter ended Mar. 31, 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Shopify · 2023 财年第一季度",
+              "meta": {
+                "title": "Shopify 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2023 年 3 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "shopify-q1-fy24",
+        "src": "data/datasets/shopify-q1-fy24.js",
+        "data": {
+          "name": "Shopify · Q1 FY24",
+          "company": "Shopify",
+          "meta": {
+            "title": "Shopify Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Quarter ended Mar. 31, 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Shopify · 2024 财年第一季度",
+              "meta": {
+                "title": "Shopify 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 3 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "shopify-q1-fy25",
+        "src": "data/datasets/shopify-q1-fy25.js",
+        "data": {
+          "name": "Shopify · Q1 FY25",
+          "company": "Shopify",
+          "meta": {
+            "title": "Shopify Q1 FY25 Income Statement",
+            "period": "Q1 FY25"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Shopify · 2025 财年第一季度",
+              "meta": {
+                "title": "Shopify 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "shopify-q2-fy23",
+        "src": "data/datasets/shopify-q2-fy23.js",
+        "data": {
+          "name": "Shopify · Q2 FY23",
+          "company": "Shopify",
+          "meta": {
+            "title": "Shopify Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Quarter ended Jun. 30, 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Shopify · 2023 财年第二季度",
+              "meta": {
+                "title": "Shopify 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 6 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "shopify-q2-fy24",
+        "src": "data/datasets/shopify-q2-fy24.js",
+        "data": {
+          "name": "Shopify · Q2 FY24",
+          "company": "Shopify",
+          "meta": {
+            "title": "Shopify Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Quarter ended Jun. 30, 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Shopify · 2024 财年第二季度",
+              "meta": {
+                "title": "Shopify 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 6 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "shopify-q2-fy25",
+        "src": "data/datasets/shopify-q2-fy25.js",
+        "data": {
+          "name": "Shopify · Q2 FY25",
+          "company": "Shopify",
+          "meta": {
+            "title": "Shopify Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Quarter ended Jun. 30, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Shopify · 2025 财年第二季度",
+              "meta": {
+                "title": "Shopify 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 6 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "shopify-q3-fy22",
+        "src": "data/datasets/shopify-q3-fy22.js",
+        "data": {
+          "name": "Shopify · Q3 FY22",
+          "company": "Shopify",
+          "meta": {
+            "title": "Shopify Q3 FY22 Income Statement",
+            "period": "Q3 FY22"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Shopify · 2022 财年第三季度",
+              "meta": {
+                "title": "Shopify 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "shopify-q3-fy23",
+        "src": "data/datasets/shopify-q3-fy23.js",
+        "data": {
+          "name": "Shopify · Q3 FY23",
+          "company": "Shopify",
+          "meta": {
+            "title": "Shopify Q3 FY23 Income Statement",
+            "period": "Q3 FY23"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Shopify · 2023 财年第三季度",
+              "meta": {
+                "title": "Shopify 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "shopify-q3-fy24",
+        "src": "data/datasets/shopify-q3-fy24.js",
+        "data": {
+          "name": "Shopify · Q3 FY24",
+          "company": "Shopify",
+          "meta": {
+            "title": "Shopify Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Quarter ended Sep. 30, 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Shopify · 2024 财年第三季度",
+              "meta": {
+                "title": "Shopify 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "shopify-q4-fy22",
+        "src": "data/datasets/shopify-q4-fy22.js",
+        "data": {
+          "name": "Shopify · Q4 FY22",
+          "company": "Shopify",
+          "meta": {
+            "title": "Shopify Q4 FY22 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Shopify · 2022 财年第四季度",
+              "meta": {
+                "title": "Shopify 2022 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "shopify-q4-fy23",
+        "src": "data/datasets/shopify-q4-fy23.js",
+        "data": {
+          "name": "Shopify · Q4 FY23",
+          "company": "Shopify",
+          "meta": {
+            "title": "Shopify Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Quarter ended Dec. 31, 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Shopify · 2023 财年第四季度",
+              "meta": {
+                "title": "Shopify 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "shopify-q4-fy24",
+        "src": "data/datasets/shopify-q4-fy24.js",
+        "data": {
+          "name": "Shopify · Q4 FY24",
+          "company": "Shopify",
+          "meta": {
+            "title": "Shopify Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Quarter ended Dec. 31, 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Shopify · 2024 财年第四季度",
+              "meta": {
+                "title": "Shopify 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "snap-q1-fy23",
+        "src": "data/datasets/snap-q1-fy23.js",
+        "data": {
+          "name": "Snap · Q1 FY23",
+          "company": "Snap",
+          "meta": {
+            "title": "Snap Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending Mar. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Snap · 2023 财年第一季度",
+              "meta": {
+                "title": "Snap 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2023 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "snap-q1-fy24",
+        "src": "data/datasets/snap-q1-fy24.js",
+        "data": {
+          "name": "Snap · Q1 FY24",
+          "company": "Snap",
+          "meta": {
+            "title": "Snap Q1 FY24 Income Statement",
+            "period": "Q1 FY24"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Snap · 2024 财年第一季度",
+              "meta": {
+                "title": "Snap 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "snap-q1-fy25",
+        "src": "data/datasets/snap-q1-fy25.js",
+        "data": {
+          "name": "Snap · Q1 FY25",
+          "company": "Snap",
+          "meta": {
+            "title": "Snap Q1 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Snap · 2025 财年第一季度",
+              "meta": {
+                "title": "Snap 2025 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "snap-q2-fy23",
+        "src": "data/datasets/snap-q2-fy23.js",
+        "data": {
+          "name": "Snap · Q2 FY23",
+          "company": "Snap",
+          "meta": {
+            "title": "Snap Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Jun. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Snap · 2023 财年第二季度",
+              "meta": {
+                "title": "Snap 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "snap-q2-fy24",
+        "src": "data/datasets/snap-q2-fy24.js",
+        "data": {
+          "name": "Snap · Q2 FY24",
+          "company": "Snap",
+          "meta": {
+            "title": "Snap Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Snap · 2024 财年第二季度",
+              "meta": {
+                "title": "Snap 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "snap-q2-fy25",
+        "src": "data/datasets/snap-q2-fy25.js",
+        "data": {
+          "name": "Snap · Q2 FY25",
+          "company": "Snap",
+          "meta": {
+            "title": "Snap Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Jun. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Snap · 2025 财年第二季度",
+              "meta": {
+                "title": "Snap 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "snap-q3-fy22",
+        "src": "data/datasets/snap-q3-fy22.js",
+        "data": {
+          "name": "Snap · Q3 FY22",
+          "company": "Snap",
+          "meta": {
+            "title": "Snap Q3 FY22 Income Statement",
+            "period": "Q3 FY22",
+            "periodNote": "Ending Sep. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Snap · 2022 财年第三季度",
+              "meta": {
+                "title": "Snap 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度",
+                "periodNote": "截至 2022 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "snap-q3-fy23",
+        "src": "data/datasets/snap-q3-fy23.js",
+        "data": {
+          "name": "Snap · Q3 FY23",
+          "company": "Snap",
+          "meta": {
+            "title": "Snap Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Sep. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Snap · 2023 财年第三季度",
+              "meta": {
+                "title": "Snap 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "snap-q3-fy24",
+        "src": "data/datasets/snap-q3-fy24.js",
+        "data": {
+          "name": "Snap · Q3 FY24",
+          "company": "Snap",
+          "meta": {
+            "title": "Snap Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Snap · 2024 财年第三季度",
+              "meta": {
+                "title": "Snap 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "snap-q4-fy22",
+        "src": "data/datasets/snap-q4-fy22.js",
+        "data": {
+          "name": "Snap · Q4 FY22",
+          "company": "Snap",
+          "meta": {
+            "title": "Snap Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Ending Dec. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Snap · 2022 财年第四季度",
+              "meta": {
+                "title": "Snap 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2022 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "snap-q4-fy23",
+        "src": "data/datasets/snap-q4-fy23.js",
+        "data": {
+          "name": "Snap · Q4 FY23",
+          "company": "Snap",
+          "meta": {
+            "title": "Snap Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Snap · 2023 财年第四季度",
+              "meta": {
+                "title": "Snap 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "snap-q4-fy24",
+        "src": "data/datasets/snap-q4-fy24.js",
+        "data": {
+          "name": "Snap · Q4 FY24",
+          "company": "Snap",
+          "meta": {
+            "title": "Snap Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Snap · 2024 财年第四季度",
+              "meta": {
+                "title": "Snap 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

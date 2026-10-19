@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "salesforce-q2-fy25-marketing-commerce-icon",
+  "artifact": {
+    "path": "data/assets/raster-annotations/salesforce/q2-fy25-marketing-commerce-icon.png",
+    "digest": "sha256:432de16e6eb2189b1c8be7d996cba3f13686d4ffa006e0959fcc3ed1363cbee6"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/salesforce-q2-fy25.json",
+    "digest": "sha256:424e73d31f68c18f78c22adf653ffd2abdca5a994c73522003bf2750add52c06"
+  },
+  "source": {
+    "path": "input/processing/salesforce-q2-fy25.png",
+    "digest": "sha256:21c8c7a78c0eb81242ca3b29ab04c6cf6ae7984d9a27ca50058d1630e2fe92da"
+  },
+  "review": {
+    "reviewer": "Codex crop visual QA",
+    "decision": "accepted",
+    "note": "Compared the original Q2 FY25 Source and extractor validation sheet. Complete icon body, centered bounds, no labels, values, connectors, watermark or neighboring icons. Recipe exclusions for adjacent text do not intersect the icon body. Dataset candidate still requires operator review.",
+    "artifactDigest": "sha256:432de16e6eb2189b1c8be7d996cba3f13686d4ffa006e0959fcc3ed1363cbee6"
+  },
+  "versionDigest": "sha256:e0f5150aa23aca503556f0de870b84dfdf2548a3e88799cfee0067f4f865767a"
+}

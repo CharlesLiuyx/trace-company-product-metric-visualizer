@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "salesforce-q1-fy26-service",
+  "artifact": {
+    "path": "data/assets/raster-annotations/salesforce/q1-fy26-service.png",
+    "digest": "sha256:d204b381563549b6f81370dd52e9296902f3dbebf429ea8991461e11b661838b"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/salesforce-q1-fy26.json",
+    "digest": "sha256:0d6a253f450131708d7bc3de4d452293b3cc0835c963abbd119ec39cdf9dc98e"
+  },
+  "source": {
+    "path": "input/processing/salesforce-q1-fy26.png",
+    "digest": "sha256:6bb63d6623396ae91ad3c7e7616224a218621e5a664c886e87f2507e0ed6419e"
+  },
+  "review": {
+    "reviewer": "Codex model visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:d204b381563549b6f81370dd52e9296902f3dbebf429ea8991461e11b661838b",
+    "note": "2026-10-19: inspected the Source, isolated crop and validation sheet. Complete icon, no label/link/publisher or neighboring icon. Extraction boundary, centering, isolation and compression checks passed; runtime placement uses original Source coordinates with clearance. Operator review of the dataset remains pending."
+  },
+  "versionDigest": "sha256:be376f6c67e441ca148ceabcde544f95505d815b704c0770776c4462c56febf7"
+}

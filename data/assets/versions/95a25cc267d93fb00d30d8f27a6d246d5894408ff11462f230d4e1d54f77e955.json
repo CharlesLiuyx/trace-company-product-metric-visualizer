@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "salesforce-q3-fy25-marketing-commerce",
+  "artifact": {
+    "path": "data/assets/raster-annotations/salesforce/q3-fy25-marketing-commerce.png",
+    "digest": "sha256:72990fce6bf1270ed8eeaa30fc94b09743a712782aaf932d8d45394767251d8c"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/salesforce-q3-fy25.json",
+    "digest": "sha256:3f030c9ca6b751f78747729d6009d8f7518cce2bc5f5bc8ca0b39c94794b1501"
+  },
+  "source": {
+    "path": "input/processed/salesforce-q3-fy25.png",
+    "digest": "sha256:ceb3726e6fe2ebfffbac04d6c333e567d5479e27453bff6237c8bdf6e8e874e2"
+  },
+  "review": {
+    "reviewer": "Codex model visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:72990fce6bf1270ed8eeaa30fc94b09743a712782aaf932d8d45394767251d8c",
+    "note": "Inspected generated Source/crop validation sheet: complete native icon, centered with margins, no labels, links, publisher or neighboring icons; script isolation checks passed. Exact bytes bound after background removal and compression."
+  },
+  "versionDigest": "sha256:95a25cc267d93fb00d30d8f27a6d246d5894408ff11462f230d4e1d54f77e955"
+}

@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "salesforce-q4-fy25-tableau",
+  "artifact": {
+    "path": "data/assets/raster-annotations/salesforce/q4-fy25-tableau.png",
+    "digest": "sha256:f6189873290e7b9aa0286c08793965195a4e2461430a5e2f03fd28d94dba5c2f"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/salesforce-q4-fy25.json",
+    "digest": "sha256:8cf54a95b1f28caee19fd86fde0b879c2a86930aced0d9648e5798a51bddc255"
+  },
+  "source": {
+    "path": "input/processed/salesforce-q4-fy25.png",
+    "digest": "sha256:496002d84fe235a476f00c65652bd25541755a17fd28c692447e14ff1f0b5263"
+  },
+  "review": {
+    "reviewer": "Codex — model crop inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:f6189873290e7b9aa0286c08793965195a4e2461430a5e2f03fd28d94dba5c2f",
+    "note": "2026-10-19: Compared original Source, highlighted crop validation sheet, and extracted icon. Complete icon preserved; neighboring labels, flows and publisher excluded. Transparent background and compressed runtime PNG verified. This is model asset inspection; the DatasetBuild remains pending operator review."
+  },
+  "versionDigest": "sha256:7c5336888d3d3e6840f63f73a0822f2e197d56a4a49ce507127b85c883da7ddf"
+}

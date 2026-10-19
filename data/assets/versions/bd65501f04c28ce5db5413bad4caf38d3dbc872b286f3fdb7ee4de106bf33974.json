@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "salesforce-q3-fy24-mulesoft-icon",
+  "artifact": {
+    "path": "data/assets/raster-annotations/salesforce/q3-fy24-mulesoft-icon.png",
+    "digest": "sha256:6cb8223459e53cbf991837279888b2ab71fb4c851505ba715b80d6961d3f286d"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/salesforce-q3-fy24.json",
+    "digest": "sha256:136aabba89024615d4613f1e5db9ba9a554cb67d80b325dc8bb0beda2406b4fe"
+  },
+  "source": {
+    "path": "input/processed/salesforce-q3-fy24.png",
+    "digest": "sha256:61ff0a239e41e2bd107eac754d75250b7f1a013e6ca252330b2f62b52a01bc5a"
+  },
+  "review": {
+    "reviewer": "Codex (visual asset inspection)",
+    "decision": "accepted",
+    "artifactDigest": "sha256:6cb8223459e53cbf991837279888b2ab71fb4c851505ba715b80d6961d3f286d",
+    "note": "2026-10-19: Compared regenerated crop against the original Source and all-crop composite. Complete icon only; no labels, values, connectors, watermarks or neighboring icon fragments. Optimized lossless PNG preserves source detail. Dataset acceptance remains pending operator review."
+  },
+  "versionDigest": "sha256:bd65501f04c28ce5db5413bad4caf38d3dbc872b286f3fdb7ee4de106bf33974"
+}

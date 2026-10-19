@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "q2-fy26-service.png",
+  "artifact": {
+    "path": "data/assets/raster-annotations/salesforce/q2-fy26-service.png",
+    "digest": "sha256:baa39d49eddcf2eaa71e8554fef77ba34e58956d24f1dd5a9875aee59e4bc403"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/salesforce-q2-fy26.json",
+    "digest": "sha256:f6c799a177b701536925051bdc9d23e3d329edc5aa2e357889e18e6562d9846f"
+  },
+  "source": {
+    "path": "input/processing/salesforce-q2-fy26.png",
+    "digest": "sha256:f1c6bb0f8401f2bab206aeeee44d506279b11b6af804cf813ba56a366a6eebff"
+  },
+  "review": {
+    "reviewer": "codex-page-0006-Salesforce-Q2-FY26-Income-Statement (model crop inspection)",
+    "decision": "accepted",
+    "artifactDigest": "sha256:baa39d49eddcf2eaa71e8554fef77ba34e58956d24f1dd5a9875aee59e4bc403",
+    "note": "Compared generated crop and validation sheet to the Q2 FY26 Source on 2026-10-19: complete isolated icon; no labels, values, links or neighboring marks. Native geometry and source pixels preserved. Model crop validation only; operator dataset review pending."
+  },
+  "versionDigest": "sha256:8ed7cc23ee3e24b65dbd1d747b1ac74326c2c88db4f7b6c94c922804e7c33dcc"
+}

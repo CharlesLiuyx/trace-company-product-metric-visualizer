@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "salesforce-q1-fy25-company-logo",
+  "artifact": {
+    "path": "data/assets/raster-annotations/salesforce/q1-fy25-company-logo.png",
+    "digest": "sha256:9033d47a29a4cacde145d84f32059d02b2abb2358cb891fb6a3d6606f1c05744"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/salesforce-q1-fy25.json",
+    "digest": "sha256:f1bc1a633530632a44b661768ec39137483f49f1759ae7b02abed401f4b93352"
+  },
+  "source": {
+    "path": "input/processed/salesforce-q1-fy25.png",
+    "digest": "sha256:dc69fa89b8e59979f7345d3ef740f4ef952e7770d0dcff93752da2a7326d0437"
+  },
+  "review": {
+    "reviewer": "Codex model crop QA",
+    "decision": "accepted",
+    "artifactDigest": "sha256:9033d47a29a4cacde145d84f32059d02b2abb2358cb891fb6a3d6606f1c05744",
+    "note": "2026-10-19: Compared the original-with-crop-box validation sheet and extracted crop. Complete salesforce-q1-fy25-company-logo icon only, with no neighboring text, values, connectors, publisher mark or other icon; transparent exclusions preserve all icon pixels."
+  },
+  "versionDigest": "sha256:20ececf6bbe5cd0a4e3c5547bdd8577881560f154c4ebcc1c27e2f5bc8e20d28"
+}

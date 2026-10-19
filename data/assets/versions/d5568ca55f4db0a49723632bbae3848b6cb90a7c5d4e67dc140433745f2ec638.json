@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Salesforce Q4 FY23 sales",
+  "artifact": {
+    "path": "data/assets/raster-annotations/salesforce/q4-fy23-sales.png",
+    "digest": "sha256:9f8eb798983322129b68d028e9b670ac822b644d661b95d0be39c6b7c0a0f06c"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/salesforce-q4-fy23.json",
+    "digest": "sha256:4c43f457f030fe4ecbafb5f0267a7f353b93c8bc18275bf4f3101eb8c7223d84"
+  },
+  "source": {
+    "path": "input/processed/salesforce-q4-fy23.png",
+    "digest": "sha256:7900978b9046053f0968bb960e426fc86a0a0a755b2920ff70c5f58a1549bb05"
+  },
+  "review": {
+    "reviewer": "Codex model visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:9f8eb798983322129b68d028e9b670ac822b644d661b95d0be39c6b7c0a0f06c",
+    "note": "Compared this exact runtime PNG to the source and extraction validation sheet. Complete icon subject; original proportions; transparent background. No visible text, flows, publisher branding or adjacent icons. All crop validation checks pass. Dataset acceptance remains pending operator review."
+  },
+  "versionDigest": "sha256:d5568ca55f4db0a49723632bbae3848b6cb90a7c5d4e67dc140433745f2ec638"
+}

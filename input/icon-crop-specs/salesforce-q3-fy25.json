@@ -1,0 +1,216 @@
+{
+  "source": "input/processed/salesforce-q3-fy25.png",
+  "outputDir": "data/assets/icon-references/salesforce/q3-fy25",
+  "validationSheetDir": "data/assets/icon-references/salesforce/q3-fy25/validation-sheets",
+  "runtimeOutputDir": "data/assets/raster-annotations/salesforce",
+  "report": "crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "salesforce-q3-fy25-company-logo",
+      "output": "crops/q3-fy25-company-logo.png",
+      "runtimeOutput": "q3-fy25-company-logo.png",
+      "searchBox": {
+        "x": 1039,
+        "y": 229,
+        "width": 344,
+        "height": 242
+      },
+      "cropBox": {
+        "x": 1039,
+        "y": 229,
+        "width": 344,
+        "height": 242
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Icon subject only; excludes adjacent label, flow and publisher."
+    },
+    {
+      "key": "salesforce-q3-fy25-sales",
+      "output": "crops/q3-fy25-sales.png",
+      "runtimeOutput": "q3-fy25-sales.png",
+      "searchBox": {
+        "x": 221,
+        "y": 332,
+        "width": 109,
+        "height": 112
+      },
+      "cropBox": {
+        "x": 221,
+        "y": 332,
+        "width": 109,
+        "height": 112
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Icon subject only; excludes adjacent label, flow and publisher."
+    },
+    {
+      "key": "salesforce-q3-fy25-service",
+      "output": "crops/q3-fy25-service.png",
+      "runtimeOutput": "q3-fy25-service.png",
+      "searchBox": {
+        "x": 195,
+        "y": 565,
+        "width": 105,
+        "height": 90
+      },
+      "cropBox": {
+        "x": 195,
+        "y": 565,
+        "width": 105,
+        "height": 90
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Icon subject only; excludes adjacent label, flow and publisher."
+    },
+    {
+      "key": "salesforce-q3-fy25-slack",
+      "output": "crops/q3-fy25-slack.png",
+      "runtimeOutput": "q3-fy25-slack.png",
+      "searchBox": {
+        "x": 154,
+        "y": 770,
+        "width": 124,
+        "height": 125
+      },
+      "cropBox": {
+        "x": 154,
+        "y": 770,
+        "width": 124,
+        "height": 125
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Icon subject only; excludes adjacent label, flow and publisher."
+    },
+    {
+      "key": "salesforce-q3-fy25-marketing-commerce",
+      "output": "crops/q3-fy25-marketing-commerce.png",
+      "runtimeOutput": "q3-fy25-marketing-commerce.png",
+      "searchBox": {
+        "x": 102,
+        "y": 1013,
+        "width": 115,
+        "height": 117
+      },
+      "cropBox": {
+        "x": 102,
+        "y": 1013,
+        "width": 115,
+        "height": 117
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Icon subject only; excludes adjacent label, flow and publisher.",
+      "excludeBoxes": [
+        {
+          "x": 202,
+          "y": 1006,
+          "width": 20,
+          "height": 75
+        }
+      ]
+    },
+    {
+      "key": "salesforce-q3-fy25-mulesoft",
+      "output": "crops/q3-fy25-mulesoft.png",
+      "runtimeOutput": "q3-fy25-mulesoft.png",
+      "searchBox": {
+        "x": 99,
+        "y": 1158,
+        "width": 115,
+        "height": 115
+      },
+      "cropBox": {
+        "x": 99,
+        "y": 1158,
+        "width": 115,
+        "height": 115
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Icon subject only; excludes adjacent label, flow and publisher."
+    },
+    {
+      "key": "salesforce-q3-fy25-tableau",
+      "output": "crops/q3-fy25-tableau.png",
+      "runtimeOutput": "q3-fy25-tableau.png",
+      "searchBox": {
+        "x": 133,
+        "y": 1278,
+        "width": 100,
+        "height": 99
+      },
+      "cropBox": {
+        "x": 133,
+        "y": 1278,
+        "width": 100,
+        "height": 99
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Icon subject only; excludes adjacent label, flow and publisher.",
+      "excludeBoxes": [
+        {
+          "x": 218,
+          "y": 1278,
+          "width": 15,
+          "height": 17
+        }
+      ]
+    }
+  ],
+  "skipped": [
+    {
+      "key": "publisher",
+      "reason": "Publisher marks, URL and decorative residue are nonsemantic."
+    }
+  ]
+}

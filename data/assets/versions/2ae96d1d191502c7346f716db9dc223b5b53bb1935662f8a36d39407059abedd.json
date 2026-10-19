@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "salesforce-q4-fy24-sales",
+  "artifact": {
+    "path": "data/assets/raster-annotations/salesforce/q4-fy24-sales.png",
+    "digest": "sha256:4bdd9ab6aa9ff475e42e900920fa66dd6fa7e587df7175c99a9fbc3f9c48e47d"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/salesforce-q4-fy24.json",
+    "digest": "sha256:0312b851918d5b103c7fd960e161b08214b91a1b4f8dfa728f4878515405d03f"
+  },
+  "source": {
+    "path": "input/processed/salesforce-q4-fy24.png",
+    "digest": "sha256:95a6e5270b935afd1cea53e406f4c5f692e002fdb78dd73ec587e719488a195e"
+  },
+  "review": {
+    "reviewer": "Codex (model source comparison)",
+    "decision": "accepted",
+    "artifactDigest": "sha256:4bdd9ab6aa9ff475e42e900920fa66dd6fa7e587df7175c99a9fbc3f9c48e47d",
+    "note": "2026-10-19: Inspected original Source and generated crop. Complete source icon only; no labels, values, flows, publisher or adjacent icons. Extractor validation passed. Dataset awaits operator review."
+  },
+  "versionDigest": "sha256:2ae96d1d191502c7346f716db9dc223b5b53bb1935662f8a36d39407059abedd"
+}

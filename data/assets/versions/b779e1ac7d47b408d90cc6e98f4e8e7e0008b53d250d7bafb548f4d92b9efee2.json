@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "salesforce-q2-fy25-mulesoft-icon",
+  "artifact": {
+    "path": "data/assets/raster-annotations/salesforce/q2-fy25-mulesoft-icon.png",
+    "digest": "sha256:4fe5f0a04481ebecf17608b9afd7f94a5d8d74708343bc78ace53e03023131ff"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/salesforce-q2-fy25.json",
+    "digest": "sha256:424e73d31f68c18f78c22adf653ffd2abdca5a994c73522003bf2750add52c06"
+  },
+  "source": {
+    "path": "input/processing/salesforce-q2-fy25.png",
+    "digest": "sha256:21c8c7a78c0eb81242ca3b29ab04c6cf6ae7984d9a27ca50058d1630e2fe92da"
+  },
+  "review": {
+    "reviewer": "Codex crop visual QA",
+    "decision": "accepted",
+    "note": "Compared the original Q2 FY25 Source and extractor validation sheet. Complete icon body, centered bounds, no labels, values, connectors, watermark or neighboring icons. Recipe exclusions for adjacent text do not intersect the icon body. Dataset candidate still requires operator review.",
+    "artifactDigest": "sha256:4fe5f0a04481ebecf17608b9afd7f94a5d8d74708343bc78ace53e03023131ff"
+  },
+  "versionDigest": "sha256:b779e1ac7d47b408d90cc6e98f4e8e7e0008b53d250d7bafb548f4d92b9efee2"
+}

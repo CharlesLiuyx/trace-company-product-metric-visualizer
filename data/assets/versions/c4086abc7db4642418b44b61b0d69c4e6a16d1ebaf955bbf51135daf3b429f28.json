@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "salesforce-q1-fy25-sales",
+  "artifact": {
+    "path": "data/assets/raster-annotations/salesforce/q1-fy25-sales.png",
+    "digest": "sha256:2d91f6995255657ced483d0a89129d7f958e926bcf1a050adf745702beea2995"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/salesforce-q1-fy25.json",
+    "digest": "sha256:f1bc1a633530632a44b661768ec39137483f49f1759ae7b02abed401f4b93352"
+  },
+  "source": {
+    "path": "input/processed/salesforce-q1-fy25.png",
+    "digest": "sha256:dc69fa89b8e59979f7345d3ef740f4ef952e7770d0dcff93752da2a7326d0437"
+  },
+  "review": {
+    "reviewer": "Codex model crop QA",
+    "decision": "accepted",
+    "artifactDigest": "sha256:2d91f6995255657ced483d0a89129d7f958e926bcf1a050adf745702beea2995",
+    "note": "2026-10-19: Compared the original-with-crop-box validation sheet and extracted crop. Complete salesforce-q1-fy25-sales icon only, with no neighboring text, values, connectors, publisher mark or other icon; transparent exclusions preserve all icon pixels."
+  },
+  "versionDigest": "sha256:c4086abc7db4642418b44b61b0d69c4e6a16d1ebaf955bbf51135daf3b429f28"
+}

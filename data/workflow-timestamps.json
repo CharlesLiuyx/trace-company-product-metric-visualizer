@@ -1860,6 +1860,191 @@
       "digest": "sha256:c76fde8bef1b44afd129e6d07bf76cbff26e663545de7c899bed8dff5185573b",
       "updatedAt": "2026-10-17T18:29:08.952Z",
       "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e"
+    },
+    "data/datasets/salesforce-q1-fy24.js": {
+      "digest": "sha256:15b2a24ccb90bbce1a221c988099c27c3e55961557fb3dd2c30bce013e755dd4",
+      "updatedAt": "2026-10-19T04:21:54.318Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/salesforce-q1-fy25.js": {
+      "digest": "sha256:4921279e41c5e4f240117310ea7310e6af3f054306277e906446e5306cac7595",
+      "updatedAt": "2026-10-19T04:21:51.372Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/salesforce-q1-fy26.js": {
+      "digest": "sha256:ccf12cdf36b266f36932a242b7cb2d3d8de3c1f8a53769a7ccbc7f984caf8739",
+      "updatedAt": "2026-10-19T04:24:25.295Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/salesforce-q2-fy24.js": {
+      "digest": "sha256:efceaa8d018dba83911fe27416e7dfc8b288f9e3aa0541376c8de4c10d136a8b",
+      "updatedAt": "2026-10-19T04:21:17.378Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/salesforce-q2-fy25.js": {
+      "digest": "sha256:9332bbae8432a4843e3cf9204afa055d13e67ac8d84dbfbd00e42195a9a3a7ae",
+      "updatedAt": "2026-10-19T04:22:52.147Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/salesforce-q2-fy26.js": {
+      "digest": "sha256:8fd9cac5c380e94781a76c698bd814e1ad712e34f2fd4d5adb731d53e1d0b162",
+      "updatedAt": "2026-10-19T04:20:51.863Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/salesforce-q3-fy23.js": {
+      "digest": "sha256:d76287e1fd1ab67a2f085d74e3e679f04d74546232ae047e672b7549f07a2c9b",
+      "updatedAt": "2026-10-19T04:22:58.538Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/salesforce-q3-fy24.js": {
+      "digest": "sha256:d08844a830e0722a5e98c0977078c362d8cd0fbd56d880783a7d52fe336287f2",
+      "updatedAt": "2026-10-19T04:21:12.285Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/salesforce-q3-fy25.js": {
+      "digest": "sha256:196470d20f925702d3013f52bb609ba9606d5adb6326b62b7e248b3f10c7aeba",
+      "updatedAt": "2026-10-19T04:20:52.449Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/salesforce-q3-fy26.js": {
+      "digest": "sha256:c9871d3e9915912dfe9b219633eff5972646bbdf3419305cf3c604d48fa2ceb4",
+      "updatedAt": "2026-10-19T04:21:14.660Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/salesforce-q4-fy23.js": {
+      "digest": "sha256:8784ad0baf904390933b41a746faadf74b9dd33013af0626fdebb8b93c7faf8b",
+      "updatedAt": "2026-10-19T04:21:44.325Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/salesforce-q4-fy24.js": {
+      "digest": "sha256:9eed80bc013ba1c1899d9d616f06cf599e44de4daacaac40f4bd2c6dfbd3ceda",
+      "updatedAt": "2026-10-19T04:21:31.529Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/salesforce-q4-fy25.js": {
+      "digest": "sha256:c0837675ae7f750200dfbb35e0500160ccbd8fd5e28a2809f27b9836c0e96979",
+      "updatedAt": "2026-10-19T04:25:36.436Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/shopify-q1-fy23.js": {
+      "digest": "sha256:624418318de985115dc11a04e75b2785117d347781428615a79ac59f7dd99693",
+      "updatedAt": "2026-10-19T04:23:50.170Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/shopify-q1-fy24.js": {
+      "digest": "sha256:0a6ad3f1094c2d6713d20536ef0ac35293678e4397c2bc544b4412cbe5578ce2",
+      "updatedAt": "2026-10-19T04:23:33.444Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/shopify-q1-fy25.js": {
+      "digest": "sha256:a62efc9989c0dd552bed3d26aedbba5341b2aea7ca6600f2228d14aed358b985",
+      "updatedAt": "2026-10-19T04:24:14.791Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/shopify-q2-fy23.js": {
+      "digest": "sha256:5419f53b612d0336bc85c2732d7e62b58cd895f5e33b91698373721e5ccf3170",
+      "updatedAt": "2026-10-19T04:22:37.218Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/shopify-q2-fy24.js": {
+      "digest": "sha256:c883e7440bf760d9feda7c31b2610e362392e7c7d2fb8b576725e37992b632e8",
+      "updatedAt": "2026-10-19T04:24:20.301Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/shopify-q2-fy25.js": {
+      "digest": "sha256:8554b257a8a64b24c370a90f58aa1dde361b18ffcadd83154f058539935129d5",
+      "updatedAt": "2026-10-19T04:24:10.571Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/shopify-q3-fy22.js": {
+      "digest": "sha256:62aa9dfd324cdf035ac588046ae12fd14c80c99634df275a5acb30bd6449d004",
+      "updatedAt": "2026-10-19T04:21:32.259Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/shopify-q3-fy23.js": {
+      "digest": "sha256:b42d68ecf2efeb4a702dacb7280a9abeb3e1dc73c8579427ee258a66da9729f7",
+      "updatedAt": "2026-10-19T04:23:28.188Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/shopify-q3-fy24.js": {
+      "digest": "sha256:4c9f62b78f75f3ec02f3ef0905f6916515b0308b805938e9de34b5932d08fca5",
+      "updatedAt": "2026-10-19T04:23:37.111Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/shopify-q4-fy22.js": {
+      "digest": "sha256:c81e41ea3d1a712edb7cb361db545fd8603454c79c9fe9203d17f763b1ab2da1",
+      "updatedAt": "2026-10-19T04:21:41.230Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/shopify-q4-fy23.js": {
+      "digest": "sha256:b5083ca103de3f9a5095e59bc443e4d2beff1bd498fa3efe9ca22218c3b294bd",
+      "updatedAt": "2026-10-19T04:24:49.413Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/shopify-q4-fy24.js": {
+      "digest": "sha256:c187ccd872f712d3c073176070b5d5dd5693f612564569ab7bd76c5b8e40a73c",
+      "updatedAt": "2026-10-19T04:24:29.823Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/snap-q1-fy23.js": {
+      "digest": "sha256:b3257b8d00d13ad6a4eb2017da813c8f9a8332221ce623ea80f1f0d571f2436b",
+      "updatedAt": "2026-10-19T04:21:06.229Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/snap-q1-fy24.js": {
+      "digest": "sha256:b2943342232938d2cd3e27d3742a01935523225b066684fd70f3cdaf120ac383",
+      "updatedAt": "2026-10-19T04:20:54.698Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/snap-q1-fy25.js": {
+      "digest": "sha256:abf8c607b40e634d333602ce67dfde26ea86b3cd80a423c881c3236da5c5db20",
+      "updatedAt": "2026-10-19T04:21:46.522Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/snap-q2-fy23.js": {
+      "digest": "sha256:83981ad77306ca93dc2b4502ffe3559d76a30bb31a10c617f3c08ec2920f95fd",
+      "updatedAt": "2026-10-19T04:20:49.264Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/snap-q2-fy24.js": {
+      "digest": "sha256:cedcca15bb297d7865bb6d3e8ac8ac6a2937d196cecf8ac0302a7b4da7a188df",
+      "updatedAt": "2026-10-19T04:24:52.673Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/snap-q2-fy25.js": {
+      "digest": "sha256:a7fa2505e22cd150390e223201fd9a3a70bad06942f1e188d37b79b4967fad69",
+      "updatedAt": "2026-10-19T04:23:42.811Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/snap-q3-fy22.js": {
+      "digest": "sha256:85137788f48a1e61b6159541c4bc953901ec1a2c5a93b9740214424d12fb349b",
+      "updatedAt": "2026-10-19T04:20:37.742Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/snap-q3-fy23.js": {
+      "digest": "sha256:3ac6018ecb192acaab05476569a70d8588f98a02afeb0febb4cbe59567085e96",
+      "updatedAt": "2026-10-19T04:21:23.940Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/snap-q3-fy24.js": {
+      "digest": "sha256:8ceacfb7398ba29a905094a16d45fbde0f558ca34228bf5fffeb23ee6feda8d4",
+      "updatedAt": "2026-10-19T04:22:05.676Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/snap-q4-fy22.js": {
+      "digest": "sha256:c67eae9ffc4a81695a0acf13669c2ed3b7af90ddac3fb8ceee0f03a39cf0a504",
+      "updatedAt": "2026-10-19T04:21:10.066Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/snap-q4-fy23.js": {
+      "digest": "sha256:e4c90347464818b113b812dc83e7b411971153ec90e30d90ffcc01ae8696d7c1",
+      "updatedAt": "2026-10-19T04:24:39.041Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
+    },
+    "data/datasets/snap-q4-fy24.js": {
+      "digest": "sha256:a1fc717bbeec34f156ff20551140769ce5f63995ce7bd389ca62d5e77da62170",
+      "updatedAt": "2026-10-19T04:23:46.913Z",
+      "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a"
     }
   }
 }

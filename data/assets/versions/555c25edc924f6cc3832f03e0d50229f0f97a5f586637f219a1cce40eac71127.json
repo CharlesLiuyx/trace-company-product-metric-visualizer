@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "salesforce-q4-fy24-slack",
+  "artifact": {
+    "path": "data/assets/raster-annotations/salesforce/q4-fy24-slack.png",
+    "digest": "sha256:bbc693fd6aaa14ac5caf0c3018e37f7848f36c4ac000535bf14fe0b9e81c4631"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/salesforce-q4-fy24.json",
+    "digest": "sha256:0312b851918d5b103c7fd960e161b08214b91a1b4f8dfa728f4878515405d03f"
+  },
+  "source": {
+    "path": "input/processed/salesforce-q4-fy24.png",
+    "digest": "sha256:95a6e5270b935afd1cea53e406f4c5f692e002fdb78dd73ec587e719488a195e"
+  },
+  "review": {
+    "reviewer": "Codex (model source comparison)",
+    "decision": "accepted",
+    "artifactDigest": "sha256:bbc693fd6aaa14ac5caf0c3018e37f7848f36c4ac000535bf14fe0b9e81c4631",
+    "note": "2026-10-19: Inspected original Source and generated crop. Complete source icon only; no labels, values, flows, publisher or adjacent icons. Extractor validation passed. Dataset awaits operator review."
+  },
+  "versionDigest": "sha256:555c25edc924f6cc3832f03e0d50229f0f97a5f586637f219a1cce40eac71127"
+}

@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "salesforce-q1-fy25-mulesoft",
+  "artifact": {
+    "path": "data/assets/raster-annotations/salesforce/q1-fy25-mulesoft.png",
+    "digest": "sha256:59f28c21e7b16df1ae550a650448f196f33810f037898300d657d312be0cdfcf"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/salesforce-q1-fy25.json",
+    "digest": "sha256:f1bc1a633530632a44b661768ec39137483f49f1759ae7b02abed401f4b93352"
+  },
+  "source": {
+    "path": "input/processed/salesforce-q1-fy25.png",
+    "digest": "sha256:dc69fa89b8e59979f7345d3ef740f4ef952e7770d0dcff93752da2a7326d0437"
+  },
+  "review": {
+    "reviewer": "Codex model crop QA",
+    "decision": "accepted",
+    "artifactDigest": "sha256:59f28c21e7b16df1ae550a650448f196f33810f037898300d657d312be0cdfcf",
+    "note": "2026-10-19: Compared the original-with-crop-box validation sheet and extracted crop. Complete salesforce-q1-fy25-mulesoft icon only, with no neighboring text, values, connectors, publisher mark or other icon; transparent exclusions preserve all icon pixels."
+  },
+  "versionDigest": "sha256:bd1ea8e4617cf48969e2bd4c40945c0cc36fd856058878c04ff555691aaece70"
+}

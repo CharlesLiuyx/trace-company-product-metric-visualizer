@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "salesforce-q1-fy25-service",
+  "artifact": {
+    "path": "data/assets/raster-annotations/salesforce/q1-fy25-service.png",
+    "digest": "sha256:e4f457fcd05063d2106b83888ce193ee33b163f44b44a835a944912393d3d85c"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/salesforce-q1-fy25.json",
+    "digest": "sha256:f1bc1a633530632a44b661768ec39137483f49f1759ae7b02abed401f4b93352"
+  },
+  "source": {
+    "path": "input/processed/salesforce-q1-fy25.png",
+    "digest": "sha256:dc69fa89b8e59979f7345d3ef740f4ef952e7770d0dcff93752da2a7326d0437"
+  },
+  "review": {
+    "reviewer": "Codex model crop QA",
+    "decision": "accepted",
+    "artifactDigest": "sha256:e4f457fcd05063d2106b83888ce193ee33b163f44b44a835a944912393d3d85c",
+    "note": "2026-10-19: Compared the original-with-crop-box validation sheet and extracted crop. Complete salesforce-q1-fy25-service icon only, with no neighboring text, values, connectors, publisher mark or other icon; transparent exclusions preserve all icon pixels."
+  },
+  "versionDigest": "sha256:41120ff2bcc8c9861dcbc59c942c8d8ddb75db85499328b410fb529f49db888d"
+}

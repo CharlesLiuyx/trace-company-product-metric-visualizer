@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "salesforce-q3-fy24-company-logo",
+  "artifact": {
+    "path": "data/assets/raster-annotations/salesforce/q3-fy24-company-logo.png",
+    "digest": "sha256:ce16607b257c52ae00fd12e1f809251dd695ba9d8c552e17395ea04c06f7d2e0"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/salesforce-q3-fy24.json",
+    "digest": "sha256:136aabba89024615d4613f1e5db9ba9a554cb67d80b325dc8bb0beda2406b4fe"
+  },
+  "source": {
+    "path": "input/processed/salesforce-q3-fy24.png",
+    "digest": "sha256:61ff0a239e41e2bd107eac754d75250b7f1a013e6ca252330b2f62b52a01bc5a"
+  },
+  "review": {
+    "reviewer": "Codex (visual asset inspection)",
+    "decision": "accepted",
+    "artifactDigest": "sha256:ce16607b257c52ae00fd12e1f809251dd695ba9d8c552e17395ea04c06f7d2e0",
+    "note": "2026-10-19: Compared regenerated crop against the original Source and all-crop composite. Complete icon only; no labels, values, connectors, watermarks or neighboring icon fragments. Optimized lossless PNG preserves source detail. Dataset acceptance remains pending operator review."
+  },
+  "versionDigest": "sha256:54a7204f8c8e8a4d34bb890f7ef5f0e5dacd8103fc6c4b3c42fb69e7beeb4245"
+}

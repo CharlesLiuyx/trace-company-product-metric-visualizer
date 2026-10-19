@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "salesforce-q4-fy24-company-logo",
+  "artifact": {
+    "path": "data/assets/raster-annotations/salesforce/q4-fy24-company-logo.png",
+    "digest": "sha256:c8e799aebbeedc9c7323a1d83b43911c2aef59ee3f61cd1dda00febad4f7b8bb"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/salesforce-q4-fy24.json",
+    "digest": "sha256:0312b851918d5b103c7fd960e161b08214b91a1b4f8dfa728f4878515405d03f"
+  },
+  "source": {
+    "path": "input/processed/salesforce-q4-fy24.png",
+    "digest": "sha256:95a6e5270b935afd1cea53e406f4c5f692e002fdb78dd73ec587e719488a195e"
+  },
+  "review": {
+    "reviewer": "Codex (model source comparison)",
+    "decision": "accepted",
+    "artifactDigest": "sha256:c8e799aebbeedc9c7323a1d83b43911c2aef59ee3f61cd1dda00febad4f7b8bb",
+    "note": "2026-10-19: Inspected original Source and generated crop. Complete source icon only; no labels, values, flows, publisher or adjacent icons. Extractor validation passed. Dataset awaits operator review."
+  },
+  "versionDigest": "sha256:51f5c02e99fbdec7518fe2528a0a5bdac9bbc863f47d62ddb7f75b7cc8fd8f54"
+}

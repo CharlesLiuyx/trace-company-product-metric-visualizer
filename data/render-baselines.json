@@ -8294,6 +8294,228 @@
       "mae": 8.086980877390326,
       "width": 2667,
       "height": 1500
+    },
+    "salesforce-q1-fy24": {
+      "similarity": 0.9704478116706,
+      "mae": 7.535808023997,
+      "width": 2667,
+      "height": 1500
+    },
+    "salesforce-q1-fy25": {
+      "similarity": 0.9571119695005444,
+      "mae": 10.936447777361163,
+      "width": 2667,
+      "height": 1500
+    },
+    "salesforce-q1-fy26": {
+      "similarity": 0.9635389220138333,
+      "mae": 9.297574886472525,
+      "width": 2667,
+      "height": 1500
+    },
+    "salesforce-q2-fy24": {
+      "similarity": 0.9696034296366549,
+      "mae": 7.751125442653001,
+      "width": 2667,
+      "height": 1500
+    },
+    "salesforce-q2-fy25": {
+      "similarity": 0.9505814952869454,
+      "mae": 12.601718701828938,
+      "width": 2667,
+      "height": 1500
+    },
+    "salesforce-q2-fy26": {
+      "similarity": 0.9628960268855282,
+      "mae": 9.46151314419031,
+      "width": 2667,
+      "height": 1500
+    },
+    "salesforce-q3-fy23": {
+      "similarity": 0.9664557280013201,
+      "mae": 8.553789359663375,
+      "width": 2667,
+      "height": 1500
+    },
+    "salesforce-q3-fy24": {
+      "similarity": 0.9652514703635902,
+      "mae": 8.860875057284506,
+      "width": 2667,
+      "height": 1500
+    },
+    "salesforce-q3-fy25": {
+      "similarity": 0.9622938704557356,
+      "mae": 9.615063033787443,
+      "width": 2667,
+      "height": 1500
+    },
+    "salesforce-q3-fy26": {
+      "similarity": 0.9522263145211424,
+      "mae": 12.182289797108695,
+      "width": 2667,
+      "height": 1500
+    },
+    "salesforce-q4-fy23": {
+      "similarity": 0.9701375530673045,
+      "mae": 7.6149239678373535,
+      "width": 2667,
+      "height": 1500
+    },
+    "salesforce-q4-fy24": {
+      "similarity": 0.968437703783759,
+      "mae": 8.04838553514144,
+      "width": 2667,
+      "height": 1500
+    },
+    "salesforce-q4-fy25": {
+      "similarity": 0.9603464050653799,
+      "mae": 10.111666708328126,
+      "width": 2667,
+      "height": 1500
+    },
+    "shopify-q1-fy23": {
+      "similarity": 0.9723431463223959,
+      "mae": 7.052497687789026,
+      "width": 2667,
+      "height": 1500
+    },
+    "shopify-q1-fy24": {
+      "similarity": 0.9687822316328106,
+      "mae": 7.9605309336332954,
+      "width": 2667,
+      "height": 1500
+    },
+    "shopify-q1-fy25": {
+      "similarity": 0.9700089959343318,
+      "mae": 7.647706036745407,
+      "width": 2667,
+      "height": 1500
+    },
+    "shopify-q2-fy23": {
+      "similarity": 0.9668362239033846,
+      "mae": 8.456762904636921,
+      "width": 2667,
+      "height": 1500
+    },
+    "shopify-q2-fy24": {
+      "similarity": 0.9668581410983758,
+      "mae": 8.451174019914177,
+      "width": 2667,
+      "height": 1500
+    },
+    "shopify-q2-fy25": {
+      "similarity": 0.9686633772085679,
+      "mae": 7.990838811815189,
+      "width": 2667,
+      "height": 1500
+    },
+    "shopify-q3-fy22": {
+      "similarity": 0.9668388506992182,
+      "mae": 8.456093071699371,
+      "width": 2667,
+      "height": 1500
+    },
+    "shopify-q3-fy23": {
+      "similarity": 0.9714037804098017,
+      "mae": 7.292035995500562,
+      "width": 2667,
+      "height": 1500
+    },
+    "shopify-q3-fy24": {
+      "similarity": 0.9671382698077773,
+      "mae": 8.37974119901679,
+      "width": 2667,
+      "height": 1500
+    },
+    "shopify-q4-fy22": {
+      "similarity": 0.972428346456693,
+      "mae": 7.030771653543307,
+      "width": 2667,
+      "height": 1500
+    },
+    "shopify-q4-fy23": {
+      "similarity": 0.9700103323685847,
+      "mae": 7.647365246010915,
+      "width": 2667,
+      "height": 1500
+    },
+    "shopify-q4-fy24": {
+      "similarity": 0.9704619331080347,
+      "mae": 7.532207057451152,
+      "width": 2667,
+      "height": 1500
+    },
+    "snap-q1-fy23": {
+      "similarity": 0.977532334275209,
+      "mae": 5.729254759821689,
+      "width": 2667,
+      "height": 1500
+    },
+    "snap-q1-fy24": {
+      "similarity": 0.9773945377742815,
+      "mae": 5.764392867558222,
+      "width": 2667,
+      "height": 1500
+    },
+    "snap-q1-fy25": {
+      "similarity": 0.9752632881674105,
+      "mae": 6.307861517310336,
+      "width": 2667,
+      "height": 1500
+    },
+    "snap-q2-fy23": {
+      "similarity": 0.9717549950047094,
+      "mae": 7.202476273799109,
+      "width": 2667,
+      "height": 1500
+    },
+    "snap-q2-fy24": {
+      "similarity": 0.9713327288337323,
+      "mae": 7.310154147398242,
+      "width": 2667,
+      "height": 1500
+    },
+    "snap-q2-fy25": {
+      "similarity": 0.9797917890982581,
+      "mae": 5.153093779944173,
+      "width": 2667,
+      "height": 1500
+    },
+    "snap-q3-fy22": {
+      "similarity": 0.9752453832159869,
+      "mae": 6.312427279923343,
+      "width": 2667,
+      "height": 1500
+    },
+    "snap-q3-fy23": {
+      "similarity": 0.9693075421127915,
+      "mae": 7.8265767612381785,
+      "width": 2667,
+      "height": 1500
+    },
+    "snap-q3-fy24": {
+      "similarity": 0.9779415416210229,
+      "mae": 5.62490688663917,
+      "width": 2667,
+      "height": 1500
+    },
+    "snap-q4-fy22": {
+      "similarity": 0.9769486294605331,
+      "mae": 5.878099487564055,
+      "width": 2667,
+      "height": 1500
+    },
+    "snap-q4-fy23": {
+      "similarity": 0.9743701860796812,
+      "mae": 6.53560254968129,
+      "width": 2667,
+      "height": 1500
+    },
+    "snap-q4-fy24": {
+      "similarity": 0.9736959768917774,
+      "mae": 6.707525892596759,
+      "width": 2667,
+      "height": 1500
     }
   }
 }

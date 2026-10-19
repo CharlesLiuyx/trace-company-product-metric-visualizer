@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "salesforce-q4-fy25-company-logo",
+  "artifact": {
+    "path": "data/assets/raster-annotations/salesforce/q4-fy25-company-logo.png",
+    "digest": "sha256:190e317515df3aa02dd0c8d22d4baa41e369b8b58e6874af58f43d39f61cf388"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/salesforce-q4-fy25.json",
+    "digest": "sha256:8cf54a95b1f28caee19fd86fde0b879c2a86930aced0d9648e5798a51bddc255"
+  },
+  "source": {
+    "path": "input/processed/salesforce-q4-fy25.png",
+    "digest": "sha256:496002d84fe235a476f00c65652bd25541755a17fd28c692447e14ff1f0b5263"
+  },
+  "review": {
+    "reviewer": "Codex — model crop inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:190e317515df3aa02dd0c8d22d4baa41e369b8b58e6874af58f43d39f61cf388",
+    "note": "2026-10-19: Compared original Source, highlighted crop validation sheet, and extracted icon. Complete icon preserved; neighboring labels, flows and publisher excluded. Transparent background and compressed runtime PNG verified. This is model asset inspection; the DatasetBuild remains pending operator review."
+  },
+  "versionDigest": "sha256:32348309d4d7252405f6ae9b1059837ed0039cd143a14e9679890836212a9820"
+}

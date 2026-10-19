@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "salesforce-q2-fy24-tableau",
+  "artifact": {
+    "path": "data/assets/raster-annotations/salesforce/q2-fy24-tableau.png",
+    "digest": "sha256:d41f13b3f1afd3a22edb5dafea35f9812863965d631ed3d0e9a6b06cf9543c51"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/salesforce-q2-fy24.json",
+    "digest": "sha256:efb1c12aa16a951fad0d27659ae02bf8cf5beb388a7e4439a686f30daceebe23"
+  },
+  "source": {
+    "path": "input/processed/salesforce-q2-fy24.png",
+    "digest": "sha256:e8767361709cd1b8889671c47324991db95938ea52c6bf112c07da80dec3b6c2"
+  },
+  "review": {
+    "reviewer": "codex-model-visual-review",
+    "decision": "accepted",
+    "artifactDigest": "sha256:d41f13b3f1afd3a22edb5dafea35f9812863965d631ed3d0e9a6b06cf9543c51",
+    "note": "2026-10-19: Model compared the alpha-composited crop with the native Source. Complete icon only; no label, flow, watermark or neighboring icon. Extraction validation passes. Complete dataset remains pending operator review."
+  },
+  "versionDigest": "sha256:2133b2fbbdd7120f3d8c10215bebbcf201bf576d5710dfec8537db7d768961ac"
+}

@@ -1,1981 +1,1995 @@
 {
   "schema": "reviewed-git-release/v1",
-  "id": "transport-1dae1689-1baa-420c-b1db-83fa6bbc1fdc",
-  "baseHead": "7a08e1acd3e4e9c1c999bac7910f58231becaf3a",
-  "planDigest": "sha256:ff62105532b50da4e5d767b8748e3407c5aa95b7a34386e4b4217b58bfb9401c",
-  "publishedDigest": "sha256:721dfaea41195a2df14d430f8a9cdf01b1621141435a51411b5b4db866cabd7e",
+  "id": "transport-6f4dfccc-df64-4bd2-9f07-5d1601200ae9",
+  "baseHead": "e4892dfaa2b9342f07135d6bdeff831901d61591",
+  "planDigest": "sha256:92e13d831f7d410ef4a3a4aeae30cbcc2bbde0509845c6dd5eab0f365db77e3d",
+  "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a",
   "builds": [
     {
-      "buildId": "build-a9ba5523-6995-4c05-9efc-86c4ccfc7e1c",
-      "key": "airbnb-fy23",
-      "sealDigest": "sha256:4d263fe5731d6606ddfd24c8ff9964d3bea2ee7b1bd37420ce8bf470effe4939"
+      "buildId": "build-fbe573ad-5128-4025-b987-54dfc2707ba0",
+      "key": "salesforce-q1-fy24",
+      "sealDigest": "sha256:1de92fc90b3fe1d449c17b8393c815d7652ac2f54919ef9a724becb52405ccad"
     },
     {
-      "buildId": "build-39571934-710a-4c4f-8271-1f4eb63e3765",
-      "key": "airbnb-q1-fy23",
-      "sealDigest": "sha256:de3b5d7fc00dacc63f2b62162e70530712f80283a79188df43a048acaf1a2024"
+      "buildId": "build-528b7fd7-8ae8-4644-90a7-6a1fadc9b6eb",
+      "key": "salesforce-q1-fy25",
+      "sealDigest": "sha256:176ba96364c5abec433d90f8f500eb007a636ec07aa025bd70398da510785768"
     },
     {
-      "buildId": "build-e630ed56-29a9-44e5-8562-c7d7c7832aad",
-      "key": "airbnb-q1-fy24",
-      "sealDigest": "sha256:a13cf64e78b2a1c965feccef8378672d39fc1185d53988cbc40d4ca2ee8622d6"
+      "buildId": "build-fdd2b640-3d6c-48b9-8ecd-045be7e86f74",
+      "key": "salesforce-q1-fy26",
+      "sealDigest": "sha256:f2c4facfab6ce8078312a94906697579f75fc011b484e0b74a92fd8b7e64c091"
     },
     {
-      "buildId": "build-755942dd-4e3c-4184-9eec-01ac99c21577",
-      "key": "airbnb-q2-fy23",
-      "sealDigest": "sha256:1f69d92fce5d79856387b8baa60cb3791c4b23db9debc6975c16eb40cd311482"
+      "buildId": "build-3e03047b-0e9b-4cfa-a877-3445d53f1171",
+      "key": "salesforce-q2-fy24",
+      "sealDigest": "sha256:e05feb3f5a8a2ce12b87741290f9cf16108bd0b9a9b63724eb8202fed5b45034"
     },
     {
-      "buildId": "build-fe015fd5-5cf7-4a46-923e-88828edf6ff2",
-      "key": "airbnb-q2-fy24",
-      "sealDigest": "sha256:6d6d2538955c8ab11fe84de1b2d90bc70e12d8e9e1a4b0ab1b01f6e7f7b0e625"
+      "buildId": "build-0fab3d14-cd59-4a73-92e1-259900a124ec",
+      "key": "salesforce-q2-fy25",
+      "sealDigest": "sha256:c816ec192341210624112fa0e981c53184e0cabfb8f2c6f6128cc2e1560043e0"
     },
     {
-      "buildId": "build-1a0beb63-4003-4167-b71f-2f49d2fe8dc0",
-      "key": "airbnb-q2-fy25",
-      "sealDigest": "sha256:7a8ddb52e8b3c577280a3bf7d42d4c9151df1ac391892d8fa949408d198a0881"
+      "buildId": "build-f2045269-60eb-4607-b1f8-c03564f73aab",
+      "key": "salesforce-q2-fy26",
+      "sealDigest": "sha256:afbe0ae8aee8e9f0799132a5966f524b7bd4d8bdd6fafc5d021534aa8f83cc7f"
     },
     {
-      "buildId": "build-86df2851-b3ad-47f7-ade9-493019e7610b",
-      "key": "airbnb-q3-fy22",
-      "sealDigest": "sha256:2e81a6c1aad544271999280dc101de06b3bb1748090619891f3164b244786aed"
+      "buildId": "build-397de79f-8cf1-462a-8ecd-01fbacdd81af",
+      "key": "salesforce-q3-fy23",
+      "sealDigest": "sha256:ab9195323dc39d9991180b380125eaefeccc13c5b23b8eaf017b7d9d028f086d"
     },
     {
-      "buildId": "build-4449f07d-aaf0-4f38-a80c-c91217cb192e",
-      "key": "airbnb-q3-fy23",
-      "sealDigest": "sha256:33257c2e576284564addb7ff9261ee7421626173c3ed9aae0d5ae0f9a6d366d1"
+      "buildId": "build-7a1b1fbf-3979-4a84-ba4c-b7389672263e",
+      "key": "salesforce-q3-fy24",
+      "sealDigest": "sha256:ae3b9da041e2b0b8cfac6a3b50e7ad6d82885fe8b3e3ddc7da2bf6f36619214d"
     },
     {
-      "buildId": "build-f4bce88c-af16-4f6c-ac76-be87a1eb0a0c",
-      "key": "airbnb-q3-fy24",
-      "sealDigest": "sha256:a8f1d8e95005d8c09945eae41516c031f2a9474dc7eed6c5c5b9096cbe8a4e5f"
+      "buildId": "build-e798826d-61a1-4dc5-87b2-435224bbdc9e",
+      "key": "salesforce-q3-fy25",
+      "sealDigest": "sha256:029fc64fa145f5875681efddb1d4b0af8694885d9eb4a164bca34d9ffe5f8ea3"
     },
     {
-      "buildId": "build-0956093f-1b92-4b73-ad65-52fb2b3cc5d1",
-      "key": "airbnb-q4-fy22",
-      "sealDigest": "sha256:7f3b6c258dc6ce3249c35903b07a11a4f757c9a8b22f62a80f35126e1d514e93"
+      "buildId": "build-dd051137-e656-4d60-8ea7-3840f2496c78",
+      "key": "salesforce-q3-fy26",
+      "sealDigest": "sha256:e7e985965c05e4c4555d35d58c19bb76432fc443630f0b9350e4b03ee3de432f"
     },
     {
-      "buildId": "build-d77ed6b4-c295-49a9-9207-06cdb22a1adc",
-      "key": "nintendo-fy23",
-      "sealDigest": "sha256:34984b23b9993dbbf4de55cb725c9e531a6a814cd7c650f6489f153619177bcf"
+      "buildId": "build-2d5842d2-feb4-4204-b549-e5bf42df5252",
+      "key": "salesforce-q4-fy23",
+      "sealDigest": "sha256:af911369c7ef662feb2251f9c89a376f93c1b7467a1f98032bd9e2ba4746c9f3"
     },
     {
-      "buildId": "build-17a72ca4-5b72-4088-8fb4-52d40630f6c8",
-      "key": "nintendo-fy24",
-      "sealDigest": "sha256:c1ac06a2c47ff8b4f38132b1640ccc72ebc33da10334f4c90d4d9ccb7d83602f"
+      "buildId": "build-b401646b-08c1-4704-94ee-9b102fcfced9",
+      "key": "salesforce-q4-fy24",
+      "sealDigest": "sha256:24fda38095b12af7a606cf71434a61b94d92b21202bf5042e3a9d8320ba045b1"
     },
     {
-      "buildId": "build-54502044-12f8-48ba-8f8c-8d09d7b28316",
-      "key": "nintendo-h1-fy24",
-      "sealDigest": "sha256:6fbe734ea36b9cf412704eb2a331d3000d5035a31f9b674e7e4b694c4f167857"
+      "buildId": "build-9aeb3d08-b118-4902-b48f-4296f69af137",
+      "key": "salesforce-q4-fy25",
+      "sealDigest": "sha256:f5b06e340e3ca1feca581f4037b58f8db51323d9374f3a1ff4e505e61cc6e925"
     },
     {
-      "buildId": "build-f4f3d67b-7bfa-440a-aaea-635744878746",
-      "key": "nintendo-h1-fy25",
-      "sealDigest": "sha256:8a7c0a44194dda057c0b77995af82c315d8006c1e6d6b363c34c5269ea042bbd"
+      "buildId": "build-9182d416-6551-47ee-9da5-e094dbb64049",
+      "key": "shopify-q1-fy23",
+      "sealDigest": "sha256:99fcf5d167ad98438ef6964f5ca854163e6bebf3003f2ed89a9849862cf3d900"
     },
     {
-      "buildId": "build-6a62a56c-e3df-4f49-b4cf-1a9e522c79af",
-      "key": "nintendo-q1-fy25",
-      "sealDigest": "sha256:a62b7281516860c7170b349136302c43b595a8d9dc7458c30c00fb3634fadc16"
+      "buildId": "build-38f25c23-333d-47d9-b324-4e0b6843c39e",
+      "key": "shopify-q1-fy24",
+      "sealDigest": "sha256:55315d26f0935f69854befe4a36ffec9b8a8d12aadcd12b64ee9a09fc9a8f50c"
     },
     {
-      "buildId": "build-f416c6db-6fc9-485c-84ed-a68f1db11143",
-      "key": "nintendo-q1-fy26",
-      "sealDigest": "sha256:3c6d5cf5cc009c5b84c81e385b94684877c51120e9176df6be5d9ab39bde3808"
+      "buildId": "build-2c3c0011-eea3-4545-9efd-869d9c0616e2",
+      "key": "shopify-q1-fy25",
+      "sealDigest": "sha256:28f17aa9b86f25bc21dbccb41fbee2925fd6529af85f6a84e25b90b42e742b9f"
     },
     {
-      "buildId": "build-43e6c080-8fd6-4f58-8a89-7ae0eda93376",
-      "key": "nintendo-q3-fy23",
-      "sealDigest": "sha256:4fd147ff53460c8ace7076b38703a0202192223f9d0be7006dc87c3ee9face7a"
+      "buildId": "build-b6a1f631-e273-4756-860c-835a18d09656",
+      "key": "shopify-q2-fy23",
+      "sealDigest": "sha256:477127181ea85eb55921373f8fd33629efadcec29ddb15333a99b4d4897a3c83"
     },
     {
-      "buildId": "build-6e8c0c6b-e13d-4d08-a151-28c187f6dc11",
-      "key": "nintendo-q3-fy24",
-      "sealDigest": "sha256:9f667ad20c46b6e7be36b0994833aa1627bf48c06febca13cb7bc96f0d913f16"
+      "buildId": "build-35925b32-aa9c-4562-af8b-54ac0e8f8a2e",
+      "key": "shopify-q2-fy24",
+      "sealDigest": "sha256:3414a01416a66ef1ac8084f1c01036325ae007e6648e76a80375fbb6178d906d"
     },
     {
-      "buildId": "build-12187b3b-32a3-4667-a081-12f3ce7b6490",
-      "key": "paypal-q1-fy23",
-      "sealDigest": "sha256:e894f06df12dfe2652524bab4d99e72878fcfd0861f0958656606bd7e8670cfb"
+      "buildId": "build-547b3b3d-c6a8-401b-b5a8-c65b5a10b5ed",
+      "key": "shopify-q2-fy25",
+      "sealDigest": "sha256:bdfdf75e7376ae32aff059b27786822de1d622842694a25d42db32813def198f"
     },
     {
-      "buildId": "build-77acc2a6-89ea-4a45-988a-eb69ff6a3d41",
-      "key": "paypal-q1-fy24",
-      "sealDigest": "sha256:93bd6ca4d031610faabe064c5fc69f321a4e6c0473115383f6b95b9ec65a604b"
+      "buildId": "build-cf578736-5ed6-4c53-8308-e7602fb6afca",
+      "key": "shopify-q3-fy22",
+      "sealDigest": "sha256:8853bccdec8cb56a177713805e2db699947431c1b5d8ede77b50198c2d412c12"
     },
     {
-      "buildId": "build-c139371a-62b7-4795-95d0-c04172a22034",
-      "key": "paypal-q2-fy23",
-      "sealDigest": "sha256:b450029f2c9a35af206e9caa5a6446e811d97e5b64d9545bba6b3e3c7ef5dd26"
+      "buildId": "build-db14124b-bc74-4081-8e07-f22c1ef1ca65",
+      "key": "shopify-q3-fy23",
+      "sealDigest": "sha256:61ddb52f6822b50852c772a41c5835bc69148a27f60925a1b087219aa162494c"
     },
     {
-      "buildId": "build-cb9cba99-8cab-4dff-b790-a7b5f1659121",
-      "key": "paypal-q2-fy24",
-      "sealDigest": "sha256:4bf0a1e3e9ac8f8a474b05af38c0e9d0c7cc5398c20ebfef6d11f071f3dd08e1"
+      "buildId": "build-97915c91-04a4-4da9-b8c2-84baa0099eaf",
+      "key": "shopify-q3-fy24",
+      "sealDigest": "sha256:a86fca3a8e71a6be99e7a90444d9acaaf6c908da21afe974bb9277a61166e1a4"
     },
     {
-      "buildId": "build-f0a3863a-4f42-4653-9940-61ea6cf60c58",
-      "key": "paypal-q2-fy25",
-      "sealDigest": "sha256:80da0632c8b1f8a61cc13fbadc547a0ad39d81aec5a0e6f904095067734e81b8"
+      "buildId": "build-a8748922-a437-4b9c-9fa7-126f161edd8b",
+      "key": "shopify-q4-fy22",
+      "sealDigest": "sha256:619bb71720343d4ed17be1fb4713e8b4699c00398f1cc0e583cd8e9535f9c60c"
     },
     {
-      "buildId": "build-67f0be55-077a-4195-9a9c-f0bdcad52a09",
-      "key": "paypal-q3-fy22",
-      "sealDigest": "sha256:306dbc9151d64d13aa3f96e615362b1dbd3c694d518f80c2cdfed7e62eb50a27"
+      "buildId": "build-bdbe52fc-074b-482a-9dc7-81f268e1bb4a",
+      "key": "shopify-q4-fy23",
+      "sealDigest": "sha256:44338b1253300980896fbce7c4f160997f6db12f492b24ac5b3e27b32446ede2"
     },
     {
-      "buildId": "build-433577bf-8be5-42bf-9cbb-16a335e02cf6",
-      "key": "paypal-q3-fy23",
-      "sealDigest": "sha256:baa500f722e130921f643380c42f4e46c3a389731d92ff0f9221c4036db48b7c"
+      "buildId": "build-104bbaba-a2d7-4eec-af1b-b86c67a20e18",
+      "key": "shopify-q4-fy24",
+      "sealDigest": "sha256:2224d83c252535b5b748b9a8ae66f807f1326dc6091d9608907b08a88ee4982c"
     },
     {
-      "buildId": "build-753e2f67-b907-4d62-b5ba-b9c2038a3db7",
-      "key": "paypal-q3-fy24",
-      "sealDigest": "sha256:54b95c00ce257f3eb01751c0624c3ec84acfcc5f7d4b26452c9f3e3e1ff241a6"
+      "buildId": "build-a6de1198-00d6-4b89-8a93-b78e87dbfa24",
+      "key": "snap-q1-fy23",
+      "sealDigest": "sha256:7dd7aaf31fdca7bd0b7af89cfc1e68bc71f14c1f294bf2787dc8bfee2b2112bb"
     },
     {
-      "buildId": "build-c9d0ab1b-63f5-46cc-9c0f-ddd8acd2f7f5",
-      "key": "paypal-q3-fy25",
-      "sealDigest": "sha256:fbf2cf40b7fea1270be141e7f6c7d4db31fd870abbd260ead4c3787cfda689c0"
+      "buildId": "build-26ec1f9f-dd02-4a2a-ad49-808c21832d89",
+      "key": "snap-q1-fy24",
+      "sealDigest": "sha256:52a6cd9a4cacc0fecd2f818e07c38cdf7c6784a3db9c9c9db034283fd7dbc5be"
     },
     {
-      "buildId": "build-9791b848-4d92-4b1d-8f4f-ebfb921b1f58",
-      "key": "paypal-q4-fy22",
-      "sealDigest": "sha256:31fd6226b3c13c0a444b0b619b0e281d209f2627e7ada0e7d2764b6a30bd51f7"
+      "buildId": "build-8dd730fa-42c6-448c-97d8-991bbedf4ca1",
+      "key": "snap-q1-fy25",
+      "sealDigest": "sha256:9e00ad9ab2addfee93ad807e11e6d8a96c1320eb3ca6ad3a2743a2c108ea5148"
     },
     {
-      "buildId": "build-71b01f9e-a5b5-4679-9378-8c3acdf798e5",
-      "key": "paypal-q4-fy23",
-      "sealDigest": "sha256:76814f098a227e9addbd84b91d9a4307862c511af519b6d59e4ae1824d4b97a6"
+      "buildId": "build-1c8d1f8d-49dd-4ec6-a828-b74cb511da66",
+      "key": "snap-q2-fy23",
+      "sealDigest": "sha256:4b9625dc10569a2a634563f37933e1cdbe65c1ab8fc39b9d31f509ec3d30b887"
     },
     {
-      "buildId": "build-5ce9d3e1-8c15-4cea-b81a-1b8417c16c4c",
-      "key": "spotify-q1-fy23",
-      "sealDigest": "sha256:5737d28582bdd7c67856b8297df4f307c56af00c8cec14fdc23e6d05d36d3b4a"
+      "buildId": "build-c1033f27-8ca0-4d99-9636-b127bda8eadf",
+      "key": "snap-q2-fy24",
+      "sealDigest": "sha256:c428230f3750c59a14cf90487fc62d59284e0a927bcb61273c71789015401811"
     },
     {
-      "buildId": "build-bd6b0e6c-c323-405a-939c-7c879e63857f",
-      "key": "spotify-q1-fy24",
-      "sealDigest": "sha256:0a3590eef7089084517bfdb82e573db8f142ce8a99c59bad116b1996d6c4360c"
+      "buildId": "build-bd341d02-11bd-4fa8-96cc-7673c58bb996",
+      "key": "snap-q2-fy25",
+      "sealDigest": "sha256:514bfc040a27aeb200df364fbe73100beebd9add40562593458ad1fd1e6edbf4"
     },
     {
-      "buildId": "build-d7ff454f-85a2-4c09-bb79-108cf76149cf",
-      "key": "spotify-q2-fy23",
-      "sealDigest": "sha256:53934823718900f35f0f4053b78fe7b42ee2eff1fc468d408abc38056caeb2cd"
+      "buildId": "build-11b6f86c-4070-4092-9b25-cf53761785ed",
+      "key": "snap-q3-fy22",
+      "sealDigest": "sha256:77017802ee490b5b41cc4b7e40deddff012cef7f6a161e83671aa9966c6a6f14"
     },
     {
-      "buildId": "build-6863e5ac-f28c-4bee-acb5-d9a2e983ba7b",
-      "key": "spotify-q2-fy24",
-      "sealDigest": "sha256:ddcf0dc954b2b1a13db8e2277357b8af4a55df2c055a2d38c70dca39a8a611ac"
+      "buildId": "build-946b224d-eaee-4562-ae8c-4d868925e1e8",
+      "key": "snap-q3-fy23",
+      "sealDigest": "sha256:029f1b001cb1e7c80e1aa266c2cce71a6d63bbe6b33b42f06030fe77de3b6e53"
     },
     {
-      "buildId": "build-c061e2ca-6d85-4b5e-bdb0-54279850ad02",
-      "key": "spotify-q2-fy25",
-      "sealDigest": "sha256:d660f849843530573f1074a0165ba1ecc6ff91c7f4f1b34b71a4a94e638b51a9"
+      "buildId": "build-1d9614cf-148c-4c05-927f-6d91506d6085",
+      "key": "snap-q3-fy24",
+      "sealDigest": "sha256:4bbef9da0e743482adaf76a2bf48c67cc160c6c7ab7416726bfd6a1fa7c918c0"
     },
     {
-      "buildId": "build-9172c5cd-6cb4-47b4-82e6-19b73bce7c3a",
-      "key": "spotify-q3-fy22",
-      "sealDigest": "sha256:a46ba4c09ac6a7a6bfa51c277e250acf323360e59bb4f96992ca9a2c597b25d1"
+      "buildId": "build-12a3dd48-405a-44a5-8396-c3c70f23d32f",
+      "key": "snap-q4-fy22",
+      "sealDigest": "sha256:af3a4e3f5afdc407a60dcd67f542a8610901dd25f24eba91c9cf6f16a3314b3a"
     },
     {
-      "buildId": "build-ba49e3a7-ff13-4ab8-b809-d530d6a0c75d",
-      "key": "spotify-q3-fy23",
-      "sealDigest": "sha256:68c6b4f2d77ae2aae920b3c6fbce2f0ff6fb273d2b52cffba3cffa8c156e42be"
+      "buildId": "build-384e342d-78a5-4c41-90b9-5b73725ee16b",
+      "key": "snap-q4-fy23",
+      "sealDigest": "sha256:0d46021f5e69f2df86294993fc7b5aa1d17fff2ac4f2afb6983628293342b7df"
     },
     {
-      "buildId": "build-b19576cf-2cff-41a2-a0d8-d9198142394c",
-      "key": "spotify-q3-fy24",
-      "sealDigest": "sha256:1be0d886c284c080213a230608e67b0963dbb84000eb152d77b7670793833fbe"
-    },
-    {
-      "buildId": "build-00ef5990-c705-4bd1-98f3-9cfc8f6a4d56",
-      "key": "spotify-q4-fy22",
-      "sealDigest": "sha256:399b08ed4e51dc7ec8d441354c467e29688748f4fde0d2ca18414c1ae8b159c1"
-    },
-    {
-      "buildId": "build-0bd56bea-eb3d-4ca5-b558-9c250cd57aa7",
-      "key": "spotify-q4-fy23",
-      "sealDigest": "sha256:7072b290587f13f4aaf8172a791eee6593c9a00dc5bd0248dc4937d2c966aa54"
-    },
-    {
-      "buildId": "build-eb761b58-10f0-4e82-a1d7-57bfe1a29dba",
-      "key": "american-express-q1-fy23",
-      "sealDigest": "sha256:b0c0323b950dd7d19fab916dffd7c2bd429f42910c281d1487cdc85581906c02"
-    },
-    {
-      "buildId": "build-c5aa4ee6-2c61-4a03-9888-de5d462e6f7a",
-      "key": "american-express-q1-fy24",
-      "sealDigest": "sha256:fd457f59b987535a8168a55157504b73b3ba5ec0322eff57b09e9dbb06daa12c"
-    },
-    {
-      "buildId": "build-f8ecf38e-8e7d-42fc-bd24-e20ed1b93728",
-      "key": "american-express-q2-fy23",
-      "sealDigest": "sha256:b59471751396b648db6295a3e50a58249f61d3915348df29f3dadef84943e0c7"
-    },
-    {
-      "buildId": "build-1fab8244-552c-49c3-99ea-4ddb1006e546",
-      "key": "american-express-q2-fy24",
-      "sealDigest": "sha256:2cd5e8de0446b04f5fe460eb7b5d925adf342960ca86d2f0910f78e3f559a009"
-    },
-    {
-      "buildId": "build-729d56e4-9e58-4f4d-b9f3-eed84e54278e",
-      "key": "american-express-q2-fy25",
-      "sealDigest": "sha256:8fb401f313781bece9f573a880b70ec67004a321ee41b5a3bb524843fca2fe75"
-    },
-    {
-      "buildId": "build-f931f9b0-594b-47ec-9c1f-9ec247a39f34",
-      "key": "american-express-q3-fy23",
-      "sealDigest": "sha256:a10afc35217217c2537b1fb296000c5593b74d8e46a1e37c3842583e730d1a84"
-    },
-    {
-      "buildId": "build-0f47032f-1f6d-459f-be2c-3053bdee1f8a",
-      "key": "american-express-q3-fy24",
-      "sealDigest": "sha256:d7d42ec340d078be2fe4ad8c310711892b91ad29313a71d6255c431665f78aea"
-    },
-    {
-      "buildId": "build-5bc340b5-e02c-41ba-a327-ada0853e36fe",
-      "key": "american-express-q3-fy25",
-      "sealDigest": "sha256:e6c93d824dc5c61f91165348dee7d3ff47082861789a95c2c36a27d00284a29b"
-    },
-    {
-      "buildId": "build-f8099864-570b-4602-8155-185a3c6038fe",
-      "key": "american-express-q4-fy23",
-      "sealDigest": "sha256:f12c4cf1c0460d117c64b074b80a8a50f7f634f77cbd7e4b3cca15a5e1646317"
-    },
-    {
-      "buildId": "build-e8905e06-4f45-42e3-8855-dad4ac563fa1",
-      "key": "american-express-q4-fy24",
-      "sealDigest": "sha256:ca6d5187a6b3ff51b7215323ac9b0658c945a875eb0243d84e3b4f16bd3b6d4a"
-    },
-    {
-      "buildId": "build-5ce06e1c-6277-4c47-8d0b-36580a27e6b7",
-      "key": "goldman-sachs-q1-fy23",
-      "sealDigest": "sha256:53d7d2d41971dd07addaa4c73460496e2595756eb69c334470712bbd7ef0461a"
-    },
-    {
-      "buildId": "build-73282f9a-9d7f-4348-b534-bd00031dd3b7",
-      "key": "goldman-sachs-q1-fy24",
-      "sealDigest": "sha256:613570a81ccf0948df790feda4ad4ecd334263c80124906535cb922fcfa7884f"
-    },
-    {
-      "buildId": "build-2f548fbc-d300-4134-893f-9d08227f64b0",
-      "key": "goldman-sachs-q2-fy23",
-      "sealDigest": "sha256:98d0b5fe6f144adb98a649b497b876cd13debcd830328666cc12e29978947809"
-    },
-    {
-      "buildId": "build-6a88cda9-ce5c-4ef0-baed-c654e15c76e9",
-      "key": "goldman-sachs-q2-fy24",
-      "sealDigest": "sha256:54a8b82453e838927dc3195311f798b72d0264db5f9c9f04632cc3e3726a2484"
-    },
-    {
-      "buildId": "build-2b376233-ceac-4441-93f1-74ccc82326b9",
-      "key": "goldman-sachs-q2-fy25",
-      "sealDigest": "sha256:ffa0af762a9b2f091a45a913f309d22f934cc7cd48da14dcf35cef7a8a3e7683"
-    },
-    {
-      "buildId": "build-a28f4a51-764c-4ce2-b28b-f09756c8a115",
-      "key": "goldman-sachs-q3-fy23",
-      "sealDigest": "sha256:1ad32da00bf00b7f5ec9370f116593bafd9971f61c2b8512bbfc4d8557728a0e"
-    },
-    {
-      "buildId": "build-14331612-b1f2-4a4f-b117-c3f534d72e2d",
-      "key": "goldman-sachs-q3-fy24",
-      "sealDigest": "sha256:289de23ed3b769fa943cefa3282327a0eb12049e7f44f984964a3dfd7582954f"
-    },
-    {
-      "buildId": "build-a54c4d96-26fe-4f74-b218-609ed7f2ef06",
-      "key": "goldman-sachs-q3-fy25",
-      "sealDigest": "sha256:a4842e2bc49fc6b5cda70498e864094f7ed6ac1ac3123909f78e7b32c22c88ef"
-    },
-    {
-      "buildId": "build-00d9cc1c-7332-49ee-980b-376d6398a125",
-      "key": "goldman-sachs-q4-fy22",
-      "sealDigest": "sha256:05a3a945ff13f91b258b4891a9d3574be6f62f0cec031214cb65bd450cf2f8eb"
-    },
-    {
-      "buildId": "build-c1b243cc-e526-46f6-aa25-b41abae56f67",
-      "key": "goldman-sachs-q4-fy23",
-      "sealDigest": "sha256:a5730e439ae48b5da063bce13e242444a41f5229b8927b991cf2588b78252c14"
-    },
-    {
-      "buildId": "build-be31eebf-ce87-4e67-885b-184fd489ddda",
-      "key": "jpmorganchase-q1-fy23",
-      "sealDigest": "sha256:441d250ce9b15311484c728e0f09d16bd118e2a2911c83070a00e1107a3757d7"
-    },
-    {
-      "buildId": "build-3256778d-8d16-4b5e-b7c0-b2e9dc183d68",
-      "key": "jpmorganchase-q1-fy24",
-      "sealDigest": "sha256:62a4245c448656ed1ed97360d2ea042f99c68cee5d320dce2139ca71e63a771f"
-    },
-    {
-      "buildId": "build-62e978b2-1eb1-4c22-a06c-1c5e39026dc9",
-      "key": "jpmorganchase-q2-fy23",
-      "sealDigest": "sha256:e5929f51de5fb8700b7519de7c62c077bdfc5ea5b490ed4005af674e544bbad1"
-    },
-    {
-      "buildId": "build-75c77d53-ffbf-4fd7-814f-cbfccefcf188",
-      "key": "jpmorganchase-q2-fy24",
-      "sealDigest": "sha256:09ac790b9d37a4611da39707d7af6eb57d7bafd53c89b2a0f7343fa574970488"
-    },
-    {
-      "buildId": "build-5fd0369d-768b-4ff6-bf95-2d002cf67432",
-      "key": "jpmorganchase-q2-fy25",
-      "sealDigest": "sha256:4a604f711e8c623f3dec134a455839337ed79701b56aab99da497d2bfa42fba1"
-    },
-    {
-      "buildId": "build-769086c7-b3f7-46a8-8404-c7a99fdb4a37",
-      "key": "jpmorganchase-q3-fy23",
-      "sealDigest": "sha256:df79dc4859fbf42728da41cb9725650a18f7c606e7607b177f02c3cff839509c"
-    },
-    {
-      "buildId": "build-3c20c46d-8d4b-4a47-823d-6403eab402d4",
-      "key": "jpmorganchase-q3-fy24",
-      "sealDigest": "sha256:6d69f0a6d4fe630ca925c900b8c498b9d7a41af8459e7fbea0e63204a0b0fb9a"
-    },
-    {
-      "buildId": "build-c440bd32-e8b5-4014-833e-bee75afca454",
-      "key": "jpmorganchase-q3-fy25",
-      "sealDigest": "sha256:1c6a66ae89d05822e461f2eb5c846b0abd0a701e7f2059ef64751affc3d08e92"
-    },
-    {
-      "buildId": "build-9c679328-c6f8-4f5b-af8f-d02e3ae78d51",
-      "key": "jpmorganchase-q4-fy22",
-      "sealDigest": "sha256:f72b94c813ee82649cfaf97b4fb1e1cbe0266b9eb0fe9de8d13d7032b3e52cfd"
-    },
-    {
-      "buildId": "build-db0b2f49-226b-46f8-8940-3cfb6f406a38",
-      "key": "jpmorganchase-q4-fy23",
-      "sealDigest": "sha256:80a36b4463332ac2cf00079bf61f0ceea38a977100cdad0ec89406f28616d2dc"
-    },
-    {
-      "buildId": "build-318f2fcd-e976-4218-9bd3-681e23644f20",
-      "key": "mastercard-q1-fy23",
-      "sealDigest": "sha256:815729380971117393dbc93fb79896f46f517dddb4df699dccafb48814b397dc"
-    },
-    {
-      "buildId": "build-f637ecf4-f091-49b7-95f8-3f2e932bbde5",
-      "key": "mastercard-q1-fy24",
-      "sealDigest": "sha256:fc10036a17a37fff74c149270b45841c5ccbc8567ceaa6fadc2c43cb25b147bc"
-    },
-    {
-      "buildId": "build-ad69b9f8-fc3a-4460-89f0-9e02b6745367",
-      "key": "mastercard-q2-fy23",
-      "sealDigest": "sha256:029127f4df9bad95842a13e0a680bee5e1a52ca413f46106e7634a32873b631f"
-    },
-    {
-      "buildId": "build-3403cbaa-f971-41b9-88f9-2bb9e43ff4bf",
-      "key": "mastercard-q2-fy24",
-      "sealDigest": "sha256:c4f18094546b526709a5c991a2f384be8eb3d16647b0e5d5903bc9130b076a63"
-    },
-    {
-      "buildId": "build-84814de8-8b3f-41f2-9d93-432d9cb534df",
-      "key": "mastercard-q2-fy25",
-      "sealDigest": "sha256:ed4e1753f31f88746411430776e18199480764f1a42ca1d40d9eeff91dd13ad8"
-    },
-    {
-      "buildId": "build-62f52b6d-7124-488c-8827-902d03e4478c",
-      "key": "mastercard-q3-fy22",
-      "sealDigest": "sha256:c3bda2719f4764ead53316196f9b7e1a73c38969e943976d91f6db127b332334"
-    },
-    {
-      "buildId": "build-b956d8b0-602c-411e-93e3-d0c200f27e27",
-      "key": "mastercard-q3-fy23",
-      "sealDigest": "sha256:3a059afc205d3d205662651d4343ee4b9db0f5433af8418fb4355ac5dc7e67eb"
-    },
-    {
-      "buildId": "build-883951c7-9cc8-4ddd-bd6d-7eda4e36bea7",
-      "key": "mastercard-q3-fy24",
-      "sealDigest": "sha256:a2b3bbc7b6c1973d65188075b7b4790d2979daee3fadf8e4795910243c776cce"
-    },
-    {
-      "buildId": "build-8fa7fa8f-b9bb-414a-b6ea-048d47e13a23",
-      "key": "mastercard-q3-fy25",
-      "sealDigest": "sha256:f41c81e6d53a3c0e7077750af6dd83bc4ed1c356cbe5fc59706f3afc02dd8d38"
-    },
-    {
-      "buildId": "build-4b861b9c-6deb-4c95-ae7f-d99f034699b1",
-      "key": "mastercard-q4-fy22",
-      "sealDigest": "sha256:3bdcfbba41891fb61c7e67523e59b425cd38424a7808ef1e72fa15c7054a51b0"
-    },
-    {
-      "buildId": "build-8d297a35-45ac-4c82-90d1-df7f73563ba9",
-      "key": "mastercard-q4-fy23",
-      "sealDigest": "sha256:5abbd4ec17303487f51d172ac7bf95aea36bc45e595d6113b187774f835a7f9a"
-    },
-    {
-      "buildId": "build-7d7953d4-0d9b-4760-9fbf-38d74becd26b",
-      "key": "mastercard-q4-fy24",
-      "sealDigest": "sha256:77386f8e84dbf77965ef4369ffe75d60c628f020620ed58909770106b5ef4bc9"
-    },
-    {
-      "buildId": "build-adaf4f0f-9705-40d1-a80c-7a28724482dd",
-      "key": "airbus-fy23",
-      "sealDigest": "sha256:07ad3dd0bd34e8852bc3d766f1d97d6df4f60461f914c0a8c15986a6b452442b"
-    },
-    {
-      "buildId": "build-93b15a96-7257-4d08-a74e-5170f1ac4e5f",
-      "key": "airbus-h1-fy24",
-      "sealDigest": "sha256:df8fa36f9e4046892b1a7245ac4881c5916cd391454e2978f8794af2fa96efa3"
-    },
-    {
-      "buildId": "build-397147d5-515d-476c-af86-fe0b77e89c4b",
-      "key": "boeing-9m-fy25",
-      "sealDigest": "sha256:9c7b66db74df7942ab522d5e37b015d342e16efb5cdb8e4d1f0d951fb3c8e76b"
-    },
-    {
-      "buildId": "build-6776768d-2aa4-48a4-9576-b1158d704868",
-      "key": "boeing-fy23",
-      "sealDigest": "sha256:9fb317d2fb7aef5f7e9b6c2b80dbc6aa4a006ce41c6b2c0b86f598856a4a812d"
-    },
-    {
-      "buildId": "build-575b8903-5885-4727-a983-42195f6b0999",
-      "key": "boeing-q2-fy24",
-      "sealDigest": "sha256:6aa5a200cb3037d2d1159538eefb8678dcb374de07f464a60a1c6ba60750ea68"
-    },
-    {
-      "buildId": "build-4d9b16e2-7575-49ea-9590-0ba98d1eefc6",
-      "key": "boeing-q2-fy25",
-      "sealDigest": "sha256:2148694bb31608b58b333b273ac9c7d336b384044c10eb2a3d064057d6264a59"
-    },
-    {
-      "buildId": "build-ef178a04-617c-4273-9034-9c69f680727a",
-      "key": "boeing-q3-fy24",
-      "sealDigest": "sha256:aeb3963eeca22e132f811fc4200b13b3c0a29456442a25100cafd80ee77ea512"
-    },
-    {
-      "buildId": "build-41eef28d-6e35-4bf9-b997-6da5bbd0c561",
-      "key": "disney-q4-fy22",
-      "sealDigest": "sha256:3ae8ae646db718fa97a30d5a05de2aa120f46e09479e09df726b7250b574b622"
-    },
-    {
-      "buildId": "build-418f0e56-7d65-4869-84e4-5ede12d7d391",
-      "key": "fedex-q1-fy24",
-      "sealDigest": "sha256:f1d76cd73fcefe9410cc26467b7353b4b61a953c9d4f555a2c888437d4e46d38"
-    },
-    {
-      "buildId": "build-ee5ead8c-aa6f-45ba-ba5f-ad446a800dc2",
-      "key": "fedex-q1-fy25",
-      "sealDigest": "sha256:81c417b496c5e1cceda716cf7387c3e7cbf38f425db3fac42e4c906ad8297ef3"
-    },
-    {
-      "buildId": "build-f3588448-6d11-4cbe-8acc-db72c5b7f651",
-      "key": "fedex-q1-fy26",
-      "sealDigest": "sha256:1e0b3a658e535b9c326a15f88806e31bd79852acf60564093a5b52ee4795e5ba"
-    },
-    {
-      "buildId": "build-e23c80c7-c05f-4ea8-84ee-7035abba0121",
-      "key": "fedex-q2-fy23",
-      "sealDigest": "sha256:4d865a3e19cfc215ef425bb3a2075b0b947c237810e221dcab1a4dfb7ee62d21"
-    },
-    {
-      "buildId": "build-e62d42d4-ba32-466b-b327-088fd70c1b5f",
-      "key": "fedex-q2-fy24",
-      "sealDigest": "sha256:76963d951a6aad7ae9e78d6cbd4aaddd28d2e2420c941325f2abd5ad47313d45"
-    },
-    {
-      "buildId": "build-656ee361-9f96-42e8-bf98-dbf7cc94a035",
-      "key": "fedex-q2-fy25",
-      "sealDigest": "sha256:005d0727414646530932c208918e3a41bbc0fc23b72329e9b5bb60c3bc2a3a44"
-    },
-    {
-      "buildId": "build-f1541f19-6296-4095-bc7a-c72a35156964",
-      "key": "fedex-q2-fy26",
-      "sealDigest": "sha256:4a06b40848dd8da98a51e02560ec1439ee9aff5f800a26598b46c814ba8ce47f"
-    },
-    {
-      "buildId": "build-8f64b91e-6ca8-467c-8a9f-ef5cf5eb8007",
-      "key": "fedex-q3-fy23",
-      "sealDigest": "sha256:1e1136bfeefad66d08aaa9f91f47b4fbdff79af7c183de865447957e276e17db"
-    },
-    {
-      "buildId": "build-65a873ae-da3f-428a-90e8-b40e5177ce05",
-      "key": "fedex-q3-fy24",
-      "sealDigest": "sha256:a8eb2a6f3163d3543c21d47ce9a7e7d9bc16b422bbc10678ef88b35ed8dc4ea3"
-    },
-    {
-      "buildId": "build-54002747-9df1-42fc-b4ae-66f98cfb6412",
-      "key": "fedex-q4-fy23",
-      "sealDigest": "sha256:de297d4a271a50e5ea30537e933589ac499304120f5324b14c23a691a7b89bfd"
-    },
-    {
-      "buildId": "build-dc4e2b45-d5b7-41be-9c46-7a363dff364d",
-      "key": "fedex-q4-fy24",
-      "sealDigest": "sha256:3f77b30974da20fc03f980646f6dc4fb5221ab17cd3ab2dd99bae9ba2310ee24"
-    },
-    {
-      "buildId": "build-bcd9a668-1ecf-40ab-a4c6-87cef66e0297",
-      "key": "fedex-q4-fy25",
-      "sealDigest": "sha256:7da4af781ab1b8c68bac02f32d489cdc81fc77fac08a1cb7adc5203385f22994"
-    },
-    {
-      "buildId": "build-8a95c35f-452a-419b-b910-79be01d399b3",
-      "key": "ferrari-fy23",
-      "sealDigest": "sha256:7690fdfe769e3f68f5404cae0645f63a6b59422c18ca60a03aa605823027265f"
-    },
-    {
-      "buildId": "build-58d5c751-de14-447e-8a92-1abb961d5676",
-      "key": "ferrari-h1-fy24",
-      "sealDigest": "sha256:df0584408a2d365559182bbf2b1231f39e9ad84a7bdf22466523001436b1bbde"
-    },
-    {
-      "buildId": "build-5c749335-ab66-420f-a70b-3c373eb0d3bf",
-      "key": "ferrari-q2-fy25",
-      "sealDigest": "sha256:bed313de80b056de0855e11d13ed02246c318c62fcf25224a7181397ba169062"
-    },
-    {
-      "buildId": "build-0e353297-537a-4537-b15d-6f0631beed2b",
-      "key": "ferrari-q3-fy24",
-      "sealDigest": "sha256:bf41121608ce0872b65c801cbc1592ace4b31da96c6f418c7c2f5fd653d2a78c"
-    },
-    {
-      "buildId": "build-0037f13f-b0f3-4984-9e3f-b253f892f94a",
-      "key": "ford-q2-fy24",
-      "sealDigest": "sha256:03456da43cbd87f4bdca70575b0045f969fe9cf310d19860969b162d5be306b0"
-    },
-    {
-      "buildId": "build-688fd6a7-8bfb-4e29-8dd4-c6843d33bc67",
-      "key": "ford-q2-fy25",
-      "sealDigest": "sha256:a51083bae4327327b1da918b9098572703771a9daae4e01439ee1b9916c5f7a2"
-    },
-    {
-      "buildId": "build-5aa3cb0b-408b-4049-9ce5-bf88f0909ab3",
-      "key": "ford-q3-fy24",
-      "sealDigest": "sha256:161bf40bc64da59675fa66ae6d93a73d0925714890c5d882b073e7e060ed5605"
-    },
-    {
-      "buildId": "build-a01df69a-7988-400c-940d-30c25821d93c",
-      "key": "ford-q3-fy25",
-      "sealDigest": "sha256:fa56e3d3560ebb368b8ff7530327329b366299868eec9336136bec8c11e9db81"
-    },
-    {
-      "buildId": "build-f883a96e-0fdd-4aec-8e27-5e77051305f4",
-      "key": "gm-q1-fy23",
-      "sealDigest": "sha256:f4a4a6c69158aee6b7517465164e140b8acfdb50970a985a375214da4d3c2183"
-    },
-    {
-      "buildId": "build-eddbfc13-3664-4555-960e-7b2a2b65b95c",
-      "key": "gm-q1-fy24",
-      "sealDigest": "sha256:4ae713131d909db1837f96e083c1e744291d2f9bd498e9e9a6aa690ad1461df8"
-    },
-    {
-      "buildId": "build-80b3cf64-52c0-46a1-b60e-7114623e2fa5",
-      "key": "gm-q2-fy23",
-      "sealDigest": "sha256:7d02e8f05d682f0931e957ee0fd3e12be4cac76d59cf166381ee012cd9d768bd"
-    },
-    {
-      "buildId": "build-1430f9fd-616c-47f0-8374-00d75b8deaf2",
-      "key": "gm-q2-fy24",
-      "sealDigest": "sha256:989faf6c7b5076f544a08dbeb46850bddeee553fa17c37b969bec7b2b8d0ac3e"
-    },
-    {
-      "buildId": "build-d64014b5-6749-49a7-82d6-3276d3155fca",
-      "key": "gm-q3-fy23",
-      "sealDigest": "sha256:616114a4c20091a2b43b0d797c9cb38d4e206a919390dd6495dd105f6d6e06b7"
-    },
-    {
-      "buildId": "build-dccc5588-e964-4f11-bb5f-ca7727ce85f9",
-      "key": "gm-q3-fy24",
-      "sealDigest": "sha256:39e8b7bf101aa18236dec64372d8b3982fd2dac1e9234a22e9172ae08619637c"
-    },
-    {
-      "buildId": "build-3080458d-b2cd-4b18-b73c-87bcee0e1c3f",
-      "key": "gm-q3-fy25",
-      "sealDigest": "sha256:bf0b4c8e3cb501a52000e73a229aa422d69d1fe1df536b21f6656a8e59a8b593"
-    },
-    {
-      "buildId": "build-7d19e75e-b4e6-417d-aae6-87f837ce6577",
-      "key": "gm-q4-fy22",
-      "sealDigest": "sha256:c53213637598bda6813c0197f32fbac540da42236996635cc6110a9b252ec8a6"
-    },
-    {
-      "buildId": "build-53c6c2cc-cb87-4217-823c-083da3751486",
-      "key": "gm-q4-fy23",
-      "sealDigest": "sha256:c79e78327039310baf8872a68590b0fe34b88789251e30b900ebde9e9051f227"
-    },
-    {
-      "buildId": "build-85c8af3d-094c-440c-90c3-59a103660d67",
-      "key": "gm-q4-fy24",
-      "sealDigest": "sha256:cf515239a1de48d0b73eddb7b76d8a050e9c433ef02c34e8a0fff13e3ca58c90"
-    },
-    {
-      "buildId": "build-bf184c0d-f122-4c93-a1db-3bf3b7d608d2",
-      "key": "hermes-fy22",
-      "sealDigest": "sha256:014c7cab151ca9c9e56509ba3fff2b245a17ad223c7dd86629194d1318fed39f"
-    },
-    {
-      "buildId": "build-e653c23c-c071-4b29-9d49-8ab587d151b5",
-      "key": "hermes-fy23",
-      "sealDigest": "sha256:4f034b5e4478c158f9617b15d600b6f05aa30b86cf02bff7f659ea62e24d0c56"
-    },
-    {
-      "buildId": "build-06434307-9212-4022-8bc7-0b64650e7fe7",
-      "key": "hermes-h1-fy22",
-      "sealDigest": "sha256:362b6a320bf6579b8e341b94f2586c99d92979e0d28dd82443bdea249055a0f7"
-    },
-    {
-      "buildId": "build-6fda7c7a-b825-4308-a4d6-b5eb1d712c55",
-      "key": "hermes-h1-fy23",
-      "sealDigest": "sha256:5672c0163a5540abf734726270de04a9df48ac9dccc5784f9e0f5cd6750203f5"
-    },
-    {
-      "buildId": "build-0387ce38-9bd9-4b73-b506-de9e5156ee6e",
-      "key": "hermes-h1-fy24",
-      "sealDigest": "sha256:92c1e6680777bc78ce06b977a347823bd7d1af5a74de87d085b497f68f1d67fa"
-    },
-    {
-      "buildId": "build-c62aeed4-bde3-4644-8d06-f2f22f5586a9",
-      "key": "hermes-h1-fy25",
-      "sealDigest": "sha256:7e6c961ef3ed30194b0d3a481f68b2b969e595a9ef744c4a3c1a2f537de235cf"
-    },
-    {
-      "buildId": "build-cd681802-9547-4af4-8255-5491f7b2e9eb",
-      "key": "loreal-fy22",
-      "sealDigest": "sha256:0c99aaee1dfabfa0ad6538d81e96567ed6204e009860d27b94d37b56fd1fd085"
-    },
-    {
-      "buildId": "build-76889c88-07ea-485b-840c-1e962f41bc2b",
-      "key": "loreal-fy23",
-      "sealDigest": "sha256:8566a95544a43261ae02ba63b996ff4fa2c7b9a4bf6e80de47e823e76f0eab9c"
-    },
-    {
-      "buildId": "build-b8ce2cab-1bf7-48b0-b7b6-579bba879db9",
-      "key": "loreal-h1-fy22",
-      "sealDigest": "sha256:38d67735e28ed26115c217c823eb5cc791910d4d27b91abe243c54a33e9ecb84"
-    },
-    {
-      "buildId": "build-44ce35d7-1dce-4f58-8016-19adb6aaf474",
-      "key": "loreal-h1-fy23",
-      "sealDigest": "sha256:b46353b5847999b01bc91993f38e8d1c348d0ae0019e46e7d735c0a9212a94b8"
-    },
-    {
-      "buildId": "build-35fb397d-3e86-4659-8c1d-b68e5f9364cc",
-      "key": "loreal-h1-fy25",
-      "sealDigest": "sha256:247e899f381fcd2b541a79bab11357d1d62abd042abda0b85611331e72e4f4d5"
-    },
-    {
-      "buildId": "build-ffbc3f2a-b47a-407e-bba4-8f4f385c9c93",
-      "key": "lvmh-fy22",
-      "sealDigest": "sha256:35fc5fc2b1e40e47847d675da10ce236195a5288cf37bba31cf9e2e6b7019ddc"
-    },
-    {
-      "buildId": "build-50083364-bc00-49bc-825e-3420547c83a1",
-      "key": "lvmh-fy23",
-      "sealDigest": "sha256:7a0e6f9ca5078ded034d93d2527fdf11f43dda1afeab66df19d8a27f35de5218"
-    },
-    {
-      "buildId": "build-89bfde69-876e-4acd-bed1-1a6fdc0aa84a",
-      "key": "lvmh-h1-fy22",
-      "sealDigest": "sha256:225dcfdf9e9d663928d5dc25b1b3fabffe2a84fb3a6343d595e0a5fe9b346bb3"
-    },
-    {
-      "buildId": "build-b79b299b-21fb-452b-99cf-0f94471a2e90",
-      "key": "lvmh-h1-fy23",
-      "sealDigest": "sha256:12284cf8e9c755a135c121a72f4bff4dbcef6d0ed6aefba95c6bc6a92a060575"
-    },
-    {
-      "buildId": "build-fb85c767-0f05-41bd-9b27-91f97b856ba0",
-      "key": "lvmh-h1-fy24",
-      "sealDigest": "sha256:9a5f82ad13b9bd2a699384729efe2123b1b5dc6c715d59ef4108ad6c39a8e3fe"
-    },
-    {
-      "buildId": "build-18af9143-e0e8-464c-87f7-40a5f54e1eb5",
-      "key": "lvmh-h1-fy25",
-      "sealDigest": "sha256:334384c1cbea73f99252931eb027c8a61484ef14d2f3c12525dccd57cee0d1cc"
-    },
-    {
-      "buildId": "build-cd910553-d3d4-4211-86ed-f0a9468fde7c",
-      "key": "netflix-q1-fy23",
-      "sealDigest": "sha256:9787b4b4518739e3e25c0f315ea408d51334eac1d1b6410fd8b9ef59d3797e56"
-    },
-    {
-      "buildId": "build-0052549e-e8b2-4307-815a-276da6924124",
-      "key": "netflix-q1-fy24",
-      "sealDigest": "sha256:bd26dfb56084d448134ed9e4e6ce469edb93e069831a1689b1375500aa1fecff"
-    },
-    {
-      "buildId": "build-f515e2e4-804d-4503-a9da-c2047efa2107",
-      "key": "netflix-q2-fy23",
-      "sealDigest": "sha256:ea43249c921f8bc2685c90e23570e57c26331ef72f43d24338f495fc107cd463"
-    },
-    {
-      "buildId": "build-166c4e06-b58b-459e-8b36-aa13f8b72559",
-      "key": "netflix-q2-fy24",
-      "sealDigest": "sha256:e63651f612b442243fdc345ffc8dffba4028b138dbedc31230dc6f25bf374ba2"
-    },
-    {
-      "buildId": "build-0f1c5e3b-1224-4571-bc61-5b0c2da24d18",
-      "key": "netflix-q2-fy25",
-      "sealDigest": "sha256:1fe562182c8bd59be5ec982dbd40a67649bf305b02318f06cadcaa9fb44daac9"
-    },
-    {
-      "buildId": "build-d44e284d-6e5e-4c05-8c4f-d2dd87ccfc6c",
-      "key": "netflix-q3-fy22",
-      "sealDigest": "sha256:66ad63e92f2e4d5a6745717bb90ec797902783f437318702e3d72ebb3aaee13c"
-    },
-    {
-      "buildId": "build-89e2af45-6d4a-45b0-91d0-79b05c6d4616",
-      "key": "netflix-q3-fy23",
-      "sealDigest": "sha256:cc9a3082911718deb9a162c3d48d87fc5f237ea606f49f8ab2c44d30b05306a9"
-    },
-    {
-      "buildId": "build-55de9ee9-634c-4e74-96d4-defb750d3ba9",
-      "key": "netflix-q3-fy24",
-      "sealDigest": "sha256:3cefe75066f065fb61aa9444aea76f99b2e45a097c7b89cbe3d6a59a8f365df5"
-    },
-    {
-      "buildId": "build-ee35ab83-f555-46ee-88cf-dab5ac71abeb",
-      "key": "netflix-q3-fy25",
-      "sealDigest": "sha256:4522c60ec09947345f4ee941a5f8a5b2eba61087a29bc78c80dc0b9bc4883df8"
-    },
-    {
-      "buildId": "build-b7f3ce27-9ff9-48cb-bc48-d61a05be4b19",
-      "key": "netflix-q4-fy22",
-      "sealDigest": "sha256:795471f36f44681e01a8c43ea96491c0d4a6a763d26171101a00b836273a571f"
-    },
-    {
-      "buildId": "build-44789d91-a323-43d6-8287-fd7dcdfa8525",
-      "key": "netflix-q4-fy23",
-      "sealDigest": "sha256:1224316a0ffa7ce0e840af2803eadfcd15124979ef7d416a3c561b98aa3ae0e7"
-    },
-    {
-      "buildId": "build-90439e4d-3cbd-4c78-ab36-47444e0a162d",
-      "key": "netflix-q4-fy24",
-      "sealDigest": "sha256:aed3c58e148d387b6cba5200793c7aebe3e0a7b4ea77eba07c0ef8bdca449ea6"
-    },
-    {
-      "buildId": "build-148e70f2-4e96-48b3-bfb5-2d08333394dc",
-      "key": "pfizer-q1-fy24",
-      "sealDigest": "sha256:9759f0100d2e22e81bcd34c70e9c25e613aedc503b8bfafe76ccf0164758750c"
-    },
-    {
-      "buildId": "build-bf5194ef-17c3-44c1-bc83-385c02c32976",
-      "key": "pfizer-q2-fy24",
-      "sealDigest": "sha256:3226ff87fe50f255658b05bc9e748bdfc65940808b9e632c85075dbe9a5eee80"
-    },
-    {
-      "buildId": "build-b21572f8-9349-40b9-a69a-13461896e500",
-      "key": "pfizer-q2-fy25",
-      "sealDigest": "sha256:729b176403c4910d491916cdc94065b67a43c4f37b135dacba446cc77e646537"
-    },
-    {
-      "buildId": "build-e9e4ee5a-4a15-43ee-97a2-871012e0004c",
-      "key": "pfizer-q3-fy24",
-      "sealDigest": "sha256:a6d47fc64d333ffc87590997d686d8910e7ed7d8aa426d16f7328ad552119986"
-    },
-    {
-      "buildId": "build-2dc0a77b-4485-4983-95a7-278736cbdfdd",
-      "key": "ups-q1-fy23",
-      "sealDigest": "sha256:091eac8fd0605837993487d54610153e6c5ea31af12dcd7aea5b74e0356ddc77"
-    },
-    {
-      "buildId": "build-5475ba82-3995-4c63-abb3-66648625ba33",
-      "key": "ups-q1-fy24",
-      "sealDigest": "sha256:6b2b279392ca442af8807bb24288300f40d20e26e0d34edb5bc69896fdb53b6b"
-    },
-    {
-      "buildId": "build-47d4a97f-65ac-40cd-9a7a-85e160bff865",
-      "key": "ups-q2-fy23",
-      "sealDigest": "sha256:d39cc0625c1d8a4fb027f169ce4c1ca473811c7736beec1f516221947c33342a"
-    },
-    {
-      "buildId": "build-3ae92921-ad60-4b31-80c9-fb679858491b",
-      "key": "ups-q2-fy24",
-      "sealDigest": "sha256:9508f2ad6937ba736b7593ee963d602e730266ba3651c07f3fe245380fcf7a92"
-    },
-    {
-      "buildId": "build-230cc6f8-b687-4195-b361-3ac50f71cd33",
-      "key": "ups-q2-fy25",
-      "sealDigest": "sha256:82cd6b8c209dc8d042af9b90d3f46d77097c455d60e434766d21b0c055f3d07b"
-    },
-    {
-      "buildId": "build-a5487d7d-6a11-449a-b737-4bae0f6f9c29",
-      "key": "ups-q3-fy23",
-      "sealDigest": "sha256:456c9ed6c11d9a0a540df1ec3e4f830eb85f1d78bc1a93993cdc27805db319ee"
-    },
-    {
-      "buildId": "build-54509161-f32c-4c7a-90ae-197c7cf26b85",
-      "key": "ups-q3-fy24",
-      "sealDigest": "sha256:49b072a0e2fbc712ff2ca32fbdf2e9cdb67ed84c13db2932eb8399bb61e84cb0"
-    },
-    {
-      "buildId": "build-52e1e6de-763d-4a96-b65c-ef675bcd1895",
-      "key": "ups-q3-fy25",
-      "sealDigest": "sha256:79c3766d84d54ab846ce38bf3dce198be2c37daf22d501168f6c8e429f4129ac"
-    },
-    {
-      "buildId": "build-8372f41c-afdc-4dcf-acc5-214ab4b24dc1",
-      "key": "ups-q4-fy22",
-      "sealDigest": "sha256:d50cc8648433ff686d952ca92cab92d86844423e819a2961cca3037b8a2328a7"
-    },
-    {
-      "buildId": "build-a0972324-39d5-4c09-88ab-11c86e6cd4ec",
-      "key": "ups-q4-fy23",
-      "sealDigest": "sha256:8c714b3c1b434146b505771dfc8b48211959cb99bc0e0b0b2dacbd4801d0db27"
+      "buildId": "build-e638158b-8f64-4419-a409-b23a1ae6252d",
+      "key": "snap-q4-fy24",
+      "sealDigest": "sha256:0a7bd331a663281bc01150c3e04e90fdec658b0429e7f3c7208f888fc8e265ff"
     }
   ],
-  "candidateDigest": "sha256:4cd0b3201684e8b8e78a17f22cd97a9d0410b98cc464e3ac5d930bcdb5484021",
+  "candidateDigest": "sha256:69d4fc9c4f20a6c492e28b1655b512d88fb201fb83c7271245d5ec93856a7b87",
   "paths": [
     {
       "path": "data/assets/catalog.json",
-      "digest": "sha256:6124b22388acd0549eccb44c4ce8a9155e1f93a90a6fef68f67817321f0979c5",
-      "before": "sha256:04c060ebd8b633600f1523299c2b0be032186957e543c2739bf70ac651eea4e4"
+      "digest": "sha256:91a00e164cb12099446fae5e60e874aeafa3a5ad693f8770b74d96972ba16474",
+      "before": "sha256:6124b22388acd0549eccb44c4ce8a9155e1f93a90a6fef68f67817321f0979c5"
     },
     {
-      "path": "data/assets/icon-references/disney/fy22/crop-report.json",
-      "digest": "sha256:ca1d449ccd6eb3d8e63df9c0bfbd3203a428c47a46e39c197e30bc16f3d40fce",
+      "path": "data/assets/icon-references/salesforce/q1-fy24/crop-report.json",
+      "digest": "sha256:6620cb3d866989894e0b18ab853a98d14f23d0bf12fda31af9d997c69068b42d",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/disney/fy22/crops/fy22-consumer.png",
-      "digest": "sha256:9ad7f7da7eaf0c6b8285198dd58119486a26a99c91367152e145916c426c6893",
+      "path": "data/assets/icon-references/salesforce/q1-fy24/crops/q1-fy24-company-logo.png",
+      "digest": "sha256:fdf5dfc22cbe897bc109d4d4bdf77c0625f7d11908a4ed8b10feca57e8a72422",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/disney/fy22/crops/fy22-content.png",
-      "digest": "sha256:8c8d2268a44f29618873bc52618e37e96deb8723f9b77f2341eaf44ee60df77d",
+      "path": "data/assets/icon-references/salesforce/q1-fy24/crops/q1-fy24-marketing-commerce.png",
+      "digest": "sha256:2ebd476fea11494044dad75bfa589c2f131faa695584d3b5d55730bcfe6e230f",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/disney/fy22/crops/fy22-linear.png",
-      "digest": "sha256:7498fb3b4c78453adf96af390a6c412ab78e3c79e201c2d956b7caf5c9a177af",
+      "path": "data/assets/icon-references/salesforce/q1-fy24/crops/q1-fy24-mulesoft.png",
+      "digest": "sha256:bb486eda9b7d3b2d757a48b834b4eff755b5c08bce73fc165b776bef4db01897",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/disney/fy22/crops/fy22-parks.png",
-      "digest": "sha256:a49c4da1df1a413155d748e1ab240121fbfa1390ec57594dc9474c865d594609",
+      "path": "data/assets/icon-references/salesforce/q1-fy24/crops/q1-fy24-sales.png",
+      "digest": "sha256:de5c28d9cd0675483454ca16380f25d378744fb3bd303e715f038573aa202584",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/disney/fy22/crops/fy22-streaming.png",
-      "digest": "sha256:916be3c90534972c710b7f93b68af4b52cf02b33b18b4c5c515c481b2f1b025f",
+      "path": "data/assets/icon-references/salesforce/q1-fy24/crops/q1-fy24-service.png",
+      "digest": "sha256:578d00722d1c9f23e9bd0768d5893e915aa0cd0c7835a28dae6c70d614c16504",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/disney/fy22/model-validation.md",
-      "digest": "sha256:20b803ca6f667137ab2c5a74c650f4a0acdac62931fbd05da93e90f6cb2478ef",
+      "path": "data/assets/icon-references/salesforce/q1-fy24/crops/q1-fy24-slack.png",
+      "digest": "sha256:7a55b98c659e780ce2a3f8dfbe223724373777ece64b1823952f8e40b4010e4e",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/disney/fy22/validation-sheets/disney-fy22-consumer.png",
-      "digest": "sha256:044369ca19a13cce89f0081fc91270cde7be048355e596efe2bb485517fa3a4e",
+      "path": "data/assets/icon-references/salesforce/q1-fy24/crops/q1-fy24-tableau.png",
+      "digest": "sha256:e6cd1854720e98b5f195beca8880541548bdd1bc880ef3dc4c102b23edca2ba8",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/disney/fy22/validation-sheets/disney-fy22-content.png",
-      "digest": "sha256:caeebd7b8cd5b607891358a41d50282a0aa21bb3574310fbde940e65f5383e6f",
+      "path": "data/assets/icon-references/salesforce/q1-fy24/model-validation.md",
+      "digest": "sha256:25c87ac7c26f05d1e7c2d770059b0d0082f27784bbca03cb5089266085962805",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/disney/fy22/validation-sheets/disney-fy22-linear.png",
-      "digest": "sha256:ea3a51d789e4aa3549ba6a7b169f7defb8fd6d595d69361df35255c7918a1c29",
+      "path": "data/assets/icon-references/salesforce/q1-fy25/crop-report.json",
+      "digest": "sha256:afdb44d5014a3889dfce25b804f27006a88653c22dfe5afccc134f5de58f090a",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/disney/fy22/validation-sheets/disney-fy22-parks.png",
-      "digest": "sha256:ce8d569629018a072d1350e4adf0ca9b2c960398819619da68c9d44796b2d788",
+      "path": "data/assets/icon-references/salesforce/q1-fy25/crops/q1-fy25-company-logo.png",
+      "digest": "sha256:9033d47a29a4cacde145d84f32059d02b2abb2358cb891fb6a3d6606f1c05744",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/disney/fy22/validation-sheets/disney-fy22-streaming.png",
-      "digest": "sha256:3b8260be0b6f5489b5d19e75eaff3b8a141ea154d589b2966c5caf95c373fe17",
+      "path": "data/assets/icon-references/salesforce/q1-fy25/crops/q1-fy25-marketing-commerce.png",
+      "digest": "sha256:82df3d7ce8d767e526e5ba43731f404c1c5789b6aae2a3da7e10c8501bde2352",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/fedex/crop-report.json",
-      "digest": "sha256:ab1dcf41b54c0b9e54152c36980adc7304d5237dff7a7615616075e3f659513f",
+      "path": "data/assets/icon-references/salesforce/q1-fy25/crops/q1-fy25-mulesoft.png",
+      "digest": "sha256:59f28c21e7b16df1ae550a650448f196f33810f037898300d657d312be0cdfcf",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/fedex/crops/company-wordmark.png",
-      "digest": "sha256:bce7715dab3eedf64af87ad4a2524d619090e75b439558c2b63f19d7f91787a0",
+      "path": "data/assets/icon-references/salesforce/q1-fy25/crops/q1-fy25-sales.png",
+      "digest": "sha256:2d91f6995255657ced483d0a89129d7f958e926bcf1a050adf745702beea2995",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/fedex/crops/express.png",
-      "digest": "sha256:743cc24a8d3e7ff6bb2b5f7b48d58fc27fa23396210110aff338a6055b29ec31",
+      "path": "data/assets/icon-references/salesforce/q1-fy25/crops/q1-fy25-service.png",
+      "digest": "sha256:e4f457fcd05063d2106b83888ce193ee33b163f44b44a835a944912393d3d85c",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/fedex/crops/freight.png",
-      "digest": "sha256:43b0cb7a513808677abae92adf4907dd2fe6a8433629c04e2913f3f8fde42fca",
+      "path": "data/assets/icon-references/salesforce/q1-fy25/crops/q1-fy25-slack.png",
+      "digest": "sha256:3eac471e8f9ea8585ab1b74099066229d8c39869d0ba61d06cfca67d89682af4",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/fedex/crops/ground.png",
-      "digest": "sha256:731218f39665711786e14ce869ebd8fed7db83b131946057e1d098587f55e397",
+      "path": "data/assets/icon-references/salesforce/q1-fy25/crops/q1-fy25-tableau.png",
+      "digest": "sha256:f689b41245b48d9f767338495cedfb3e4e54b6528fcb4ae21025b84c19475b83",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/fedex/model-validation.md",
-      "digest": "sha256:7d23dbef651fe6553e51c5d73d55ec6e9f7905d5aab8853ae4550e71819400c5",
+      "path": "data/assets/icon-references/salesforce/q1-fy25/model-validation.md",
+      "digest": "sha256:2b5a053a2a29f1cfdfd55700172158446c3cb12e4db685d3f67c9b1af445bce1",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/fedex/validation-sheets/fedex-company-wordmark.png",
-      "digest": "sha256:37e3aa2c45c5b8a992f1c39109f04022a211c3213bd77d79d7891da524c4f39a",
+      "path": "data/assets/icon-references/salesforce/q1-fy26/crop-report.json",
+      "digest": "sha256:c10172cdf9bcfca22927545a0d20017dfccd16b2b4ed4be6dbea3f5dba6ab7a3",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/fedex/validation-sheets/fedex-express.png",
-      "digest": "sha256:d75139b6a04b9969d339f9c7006d902ed423e7a16ebe1f804e3e7100cdabc122",
+      "path": "data/assets/icon-references/salesforce/q1-fy26/crops/q1-fy26-company-logo.png",
+      "digest": "sha256:a5a28c572b62c67c18a6f1c10401aff0622ad5b32b99801cf6e32c471bbda1df",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/fedex/validation-sheets/fedex-freight.png",
-      "digest": "sha256:c8e6fcad40265f3c18f34158b26be713667b2f3d4a8c4c10b6ee219c7fb4b180",
+      "path": "data/assets/icon-references/salesforce/q1-fy26/crops/q1-fy26-marketing-commerce.png",
+      "digest": "sha256:675270ae53470e36a4a6fc9074da3266182c63c587a4e38023424799c3bd9a0c",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/fedex/validation-sheets/fedex-ground.png",
-      "digest": "sha256:10f908ad4d2453b03428b8cdce6d4b3659284e85e828377740d7b40f90b6d2d6",
+      "path": "data/assets/icon-references/salesforce/q1-fy26/crops/q1-fy26-mulesoft.png",
+      "digest": "sha256:6b86eca0298d4cb72866d06849281112913ad3e2cd6feb366425aa6ea598c403",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/disney/fy22-consumer.png",
-      "digest": "sha256:9ad7f7da7eaf0c6b8285198dd58119486a26a99c91367152e145916c426c6893",
+      "path": "data/assets/icon-references/salesforce/q1-fy26/crops/q1-fy26-sales.png",
+      "digest": "sha256:215ad1c89469efb715b55d86b97c79413d5d1af4656c2867c84abf93bab7d69f",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/disney/fy22-content.png",
-      "digest": "sha256:8c8d2268a44f29618873bc52618e37e96deb8723f9b77f2341eaf44ee60df77d",
+      "path": "data/assets/icon-references/salesforce/q1-fy26/crops/q1-fy26-service.png",
+      "digest": "sha256:d204b381563549b6f81370dd52e9296902f3dbebf429ea8991461e11b661838b",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/disney/fy22-linear.png",
-      "digest": "sha256:7498fb3b4c78453adf96af390a6c412ab78e3c79e201c2d956b7caf5c9a177af",
+      "path": "data/assets/icon-references/salesforce/q1-fy26/crops/q1-fy26-slack.png",
+      "digest": "sha256:79d23c8dcc65670d640e5a33694206e9d36f19eb794eecc99d362dc3954e29e8",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/disney/fy22-parks.png",
-      "digest": "sha256:a49c4da1df1a413155d748e1ab240121fbfa1390ec57594dc9474c865d594609",
+      "path": "data/assets/icon-references/salesforce/q1-fy26/crops/q1-fy26-tableau.png",
+      "digest": "sha256:ed22aec05d35eeefb366be420b168a8c8d95f9079b3e6bf7bd490c945d5273a6",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/disney/fy22-streaming.png",
-      "digest": "sha256:916be3c90534972c710b7f93b68af4b52cf02b33b18b4c5c515c481b2f1b025f",
+      "path": "data/assets/icon-references/salesforce/q1-fy26/model-validation.md",
+      "digest": "sha256:3ce3b7d0a064d000676dc0fe586aec2bdfd9eb350625011e47295b6f65c693eb",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/fedex/company-wordmark.png",
-      "digest": "sha256:bce7715dab3eedf64af87ad4a2524d619090e75b439558c2b63f19d7f91787a0",
+      "path": "data/assets/icon-references/salesforce/q2-fy24/crop-report.json",
+      "digest": "sha256:0b7c2d66b3e76c6f6788063d19c8dc9dc2d0bc9a0bce7fcea9673e914f402517",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/fedex/express.png",
-      "digest": "sha256:743cc24a8d3e7ff6bb2b5f7b48d58fc27fa23396210110aff338a6055b29ec31",
+      "path": "data/assets/icon-references/salesforce/q2-fy24/crops/q2-fy24-company-logo.png",
+      "digest": "sha256:962980b5098ee460fa9e595629e421a4a5f7fe46b191750b152f916f28634725",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/fedex/freight.png",
-      "digest": "sha256:43b0cb7a513808677abae92adf4907dd2fe6a8433629c04e2913f3f8fde42fca",
+      "path": "data/assets/icon-references/salesforce/q2-fy24/crops/q2-fy24-marketing-commerce.png",
+      "digest": "sha256:9551381678b87ca6c9d549489794a2bf0fd6cee5db2fef1f15d7332d06b01347",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/fedex/ground.png",
-      "digest": "sha256:731218f39665711786e14ce869ebd8fed7db83b131946057e1d098587f55e397",
+      "path": "data/assets/icon-references/salesforce/q2-fy24/crops/q2-fy24-mulesoft.png",
+      "digest": "sha256:b9b36eb95c99168a8f2484202337f694ef91058e7af34a6d957a64d1e8644bd0",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q2-fy24/crops/q2-fy24-sales.png",
+      "digest": "sha256:4fa4f8c4b20ad9d8406aa55e49b6d672fe5d0e4166396433b4ad5d97c381c504",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q2-fy24/crops/q2-fy24-service.png",
+      "digest": "sha256:4ce24f99d84e1cb69d851760e72992e5d1b79bb48f94c9b0db48781bc9d213c6",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q2-fy24/crops/q2-fy24-slack.png",
+      "digest": "sha256:d450fc1d64382f1ae0d6d43563db1702842a7004e8b38e4d1eedcfe52fb619f1",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q2-fy24/crops/q2-fy24-tableau.png",
+      "digest": "sha256:d41f13b3f1afd3a22edb5dafea35f9812863965d631ed3d0e9a6b06cf9543c51",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q2-fy24/model-validation.md",
+      "digest": "sha256:7285e26abe88ac4a056d43e4e609f39dc797f4b13380951b05650bfbbac0e537",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q2-fy25/crop-report.json",
+      "digest": "sha256:9f8d434aa7983fa5b1f43023a14bcd45c4037797df6272a3215d509b12dc6067",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q2-fy25/crops/q2-fy25-company-logo.png",
+      "digest": "sha256:330ed2a13bdcc535b2348d55f046e4a8778963b4f869a847bb4085b222544f50",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q2-fy25/crops/q2-fy25-marketing-commerce-icon.png",
+      "digest": "sha256:432de16e6eb2189b1c8be7d996cba3f13686d4ffa006e0959fcc3ed1363cbee6",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q2-fy25/crops/q2-fy25-mulesoft-icon.png",
+      "digest": "sha256:4fe5f0a04481ebecf17608b9afd7f94a5d8d74708343bc78ace53e03023131ff",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q2-fy25/crops/q2-fy25-sales-icon.png",
+      "digest": "sha256:10f25df3cd5ac379db4478b41f9f6fd778665c9c1dbc4b3d4a2810fa303b322d",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q2-fy25/crops/q2-fy25-service-icon.png",
+      "digest": "sha256:e4f457fcd05063d2106b83888ce193ee33b163f44b44a835a944912393d3d85c",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q2-fy25/crops/q2-fy25-slack-icon.png",
+      "digest": "sha256:08cc88e424278d124c9ad0e1ea44bfab27fffbce05be58b04e469cd6011e5271",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q2-fy25/crops/q2-fy25-tableau-icon.png",
+      "digest": "sha256:ca6026a8f8bb8318cd74dcd841f1b867acef6db4c0d9ceb42a35f62c1f7ec7e4",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q2-fy25/model-validation.md",
+      "digest": "sha256:7f88b64b83d8bcad76a8fa212cb12d3139757def33c903526699a10cad710e2f",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q2-fy26/crop-report.json",
+      "digest": "sha256:ae86ccf35dd95afd0eb0f287c81397d7056b535d11373ae22e986fd79563a3d2",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q2-fy26/crops/q2-fy26-company-logo.png",
+      "digest": "sha256:666a042cc68756ea5035c5496e1c742f2bae7b985f894f5146f1aa57650695af",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q2-fy26/crops/q2-fy26-marketing-commerce.png",
+      "digest": "sha256:ebd4e702631bdea68dfd032f69fb1ba2c76a87e95b4ea379e4d5b53f6513a5cb",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q2-fy26/crops/q2-fy26-mulesoft.png",
+      "digest": "sha256:47e1a72906a1e74a437c8f291b690069bce8c44274b5ae62d3178ba8ae288774",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q2-fy26/crops/q2-fy26-sales.png",
+      "digest": "sha256:a3c84a0a523aed3715dd1f95fb67bd742e544372834b5e1d55263611070e7f7e",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q2-fy26/crops/q2-fy26-service.png",
+      "digest": "sha256:baa39d49eddcf2eaa71e8554fef77ba34e58956d24f1dd5a9875aee59e4bc403",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q2-fy26/crops/q2-fy26-slack.png",
+      "digest": "sha256:10411cce945b4223646bc24f9a9ba65298455278b97dc0028cc2d9fbcc9c0d07",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q2-fy26/crops/q2-fy26-tableau.png",
+      "digest": "sha256:65b2dee7ab1f7cc143918940e5ae995907ab3f737bc9c3ec7ebcd0a16c97b48b",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q2-fy26/model-validation.md",
+      "digest": "sha256:83d14f09794529309eb99375577a65cc80a23054cd3d1dd1579e3b99de134c5c",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy23/crop-report.json",
+      "digest": "sha256:bd38da3162fdfed7235899668f8deb5e0f01e414bd0bd3923ceaafdfafc44201",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy23/crops/q3-fy23-company-logo.png",
+      "digest": "sha256:42eaa9227bce48c5cbbf9dc978ee42b148e345169ca99178f25422026242976f",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy23/crops/q3-fy23-marketing-commerce-icon.png",
+      "digest": "sha256:a26d44dc2b44e24ae041b1da82c83ed27dbb1c384b19864dcc8f969778e2dc9f",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy23/crops/q3-fy23-mulesoft-icon.png",
+      "digest": "sha256:156e19246a905c4cc2fbb74ff5a6024ad6a0c9df9c0930552417838a34a7bb08",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy23/crops/q3-fy23-sales-icon.png",
+      "digest": "sha256:d420177f91fcedc31762a49d281aca0d9f7e84adb059e666223c6cc07c8df3ee",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy23/crops/q3-fy23-service-icon.png",
+      "digest": "sha256:e9d711ffd2903615c049f93b9b555df84ae85b6360a200a79593f80e2c7a949f",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy23/crops/q3-fy23-slack-icon.png",
+      "digest": "sha256:1d1e7afcd3ea442e66676be2e9913c768d7f41193a6d9248abe17f9b22fcbc21",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy23/crops/q3-fy23-tableau-icon.png",
+      "digest": "sha256:d77bfdc07b610e58bb2de9ef20a2cf57baec5c759f4f937d029f8ff793325bdd",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy23/model-validation.md",
+      "digest": "sha256:36c75930d3eb4dca337a7752d0c811ff52eb07916cf5300da74fd0dd68bba23b",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy24/crop-report.json",
+      "digest": "sha256:0b4db94fc551adee87b7f77c1f03c00dba755be6f55609c5999e6d3f7e7d813b",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy24/crops/q3-fy24-company-logo.png",
+      "digest": "sha256:ce16607b257c52ae00fd12e1f809251dd695ba9d8c552e17395ea04c06f7d2e0",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy24/crops/q3-fy24-marketing-icon.png",
+      "digest": "sha256:9f3440832b97b10431fb928326ffcf4b78f3ad00a682b508bbfad3ec782b52a6",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy24/crops/q3-fy24-mulesoft-icon.png",
+      "digest": "sha256:6cb8223459e53cbf991837279888b2ab71fb4c851505ba715b80d6961d3f286d",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy24/crops/q3-fy24-sales-icon.png",
+      "digest": "sha256:088ae38ba6508b90e09399767965a2115ea7d42277987af782b812550e32b391",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy24/crops/q3-fy24-service-icon.png",
+      "digest": "sha256:3bfe87b3d843696eda36ead6427fc9263630ffdb6b95a70241cc8385ab480bae",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy24/crops/q3-fy24-slack-icon.png",
+      "digest": "sha256:71c7af8ce41c469e7cd8b5482c6ad86183177c21ef20ee4cd0bee8df226dfabb",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy24/crops/q3-fy24-tableau-icon.png",
+      "digest": "sha256:967d49ac17568425082dedf39f25b995c2aad1b150557ef1cbebdb221c1819ae",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy24/model-validation.md",
+      "digest": "sha256:9752ecad6cc8e39cd510fd248c81cf2cd301a8d261b48b8363a16bf9b1afd0b3",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy25/crop-report.json",
+      "digest": "sha256:3b0becf888ac5f0562d51da23c8c48641ed47071541c8a916c82fc95d254a904",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy25/crops/q3-fy25-company-logo.png",
+      "digest": "sha256:530aa7126ef2cf68b6c7092222d329710108e1bf50d1365c8a8eec1ee27f863a",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy25/crops/q3-fy25-marketing-commerce.png",
+      "digest": "sha256:72990fce6bf1270ed8eeaa30fc94b09743a712782aaf932d8d45394767251d8c",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy25/crops/q3-fy25-mulesoft.png",
+      "digest": "sha256:372888c2d37cbd0c39a1eb31a5b9202a8d3a049921adfbd19e0861f9cf99d2f1",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy25/crops/q3-fy25-sales.png",
+      "digest": "sha256:f201526b81af7ad02ad52054946f79b74c23f5dfaa2c480d15a09fa6acd752df",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy25/crops/q3-fy25-service.png",
+      "digest": "sha256:d204b381563549b6f81370dd52e9296902f3dbebf429ea8991461e11b661838b",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy25/crops/q3-fy25-slack.png",
+      "digest": "sha256:a1b01a4e69487740154b64525bb691288887fac48eb4aa450491ec76cb510509",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy25/crops/q3-fy25-tableau.png",
+      "digest": "sha256:24bf14ff8a58a15cbab28145a53d6e6b90082f73c57edbd644ce2d7dae18d517",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy25/model-validation.md",
+      "digest": "sha256:7627fbbdde9ef2704097a67db9b69f6289f1b6b52ffc2219b6e84dc627921af7",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy26/crop-report.json",
+      "digest": "sha256:c1a4a1a6f9676da7bb452a27faa86d513d325500ba0b27a33a7befc350cd4bd1",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy26/crops/q3-fy26-company-logo.png",
+      "digest": "sha256:9b8d225634ef279a59023c607325bcf7c80292972daf8f8efa8ba2ae64cb19ab",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy26/crops/q3-fy26-marketing-commerce.png",
+      "digest": "sha256:1aa0de6977ea2021e702635ed09e603f119e8d920735f55d06ceadc90eef762a",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy26/crops/q3-fy26-mulesoft.png",
+      "digest": "sha256:3ebb06dfb5992f825088d81bd8d64cea81ee96917df29b3dcf6921683fea4332",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy26/crops/q3-fy26-sales.png",
+      "digest": "sha256:8ab89c0d68ef67da75984769f4c4b459ec712b2694d4b8a1937404ec62d1a018",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy26/crops/q3-fy26-service.png",
+      "digest": "sha256:1f7a439fcb2fb121bf36115a7c989775e688a6f5a6e500bd43ac76a2a5b72aaa",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy26/crops/q3-fy26-slack.png",
+      "digest": "sha256:a9b1252bf8eb39dd97159b199ad89296944a366ab29eb40a3f0da56ea3c0d29b",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy26/crops/q3-fy26-tableau.png",
+      "digest": "sha256:46e633f8e1ca400c7c2c3a888dd0bc8bc764db6be10816d36529d045a7bedff3",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q3-fy26/model-validation.md",
+      "digest": "sha256:4d87b830c719ed83a2cc15e7debcd5eddb46a120f8570829db97438d1bbe19f1",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q4-fy23/crop-report.json",
+      "digest": "sha256:2389e826b42cfcf0b0d5344e0a0bcdb59f696a8d9111f8962a42d9bdef70b4b8",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q4-fy23/crops/q4-fy23-company-logo.png",
+      "digest": "sha256:2f190615c34ca83b62b7be2780a1c60d9e624fcc915330047c9872b37341a634",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q4-fy23/crops/q4-fy23-marketing-commerce.png",
+      "digest": "sha256:1d4db0c0d85874b2c5b66b3717c7255ad0edfb5032820f7dfd35f4a1ce839e4d",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q4-fy23/crops/q4-fy23-mulesoft.png",
+      "digest": "sha256:5b5e950e30ca1ca9cc86d0d88d9674c510b237216c0ce2c5a8c6f0804056d79e",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q4-fy23/crops/q4-fy23-sales.png",
+      "digest": "sha256:9f8eb798983322129b68d028e9b670ac822b644d661b95d0be39c6b7c0a0f06c",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q4-fy23/crops/q4-fy23-service.png",
+      "digest": "sha256:db6ddbe46e9c5c48122e1675b4c288cbf143458ed40211a1dcf630c5177e8783",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q4-fy23/crops/q4-fy23-slack.png",
+      "digest": "sha256:10411cce945b4223646bc24f9a9ba65298455278b97dc0028cc2d9fbcc9c0d07",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q4-fy23/crops/q4-fy23-tableau.png",
+      "digest": "sha256:e9b8d8e52650de9c6b06bca21741f8e40fa97e06778abcd44f96d9c7c754a451",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q4-fy23/model-validation.md",
+      "digest": "sha256:1abda224ddbf826834a97a79b2d0db0e3ceb377abcb383f3ff080f4cf49d64be",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q4-fy24/crop-report.json",
+      "digest": "sha256:e84c38291af90bc8881f5a2a5cdbe954280e30b1abc59efaad8558f3b59085ba",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q4-fy24/crops/q4-fy24-company-logo.png",
+      "digest": "sha256:c8e799aebbeedc9c7323a1d83b43911c2aef59ee3f61cd1dda00febad4f7b8bb",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q4-fy24/crops/q4-fy24-marketing-commerce.png",
+      "digest": "sha256:d08ed2c8607c6774bcd6ec5dcab1d133723b3fb2171350019f471aac88a2aa70",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q4-fy24/crops/q4-fy24-mulesoft.png",
+      "digest": "sha256:e7a969202bd81482e052e57737b3bb987ccdabec3f91504b7242eba8e6024978",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q4-fy24/crops/q4-fy24-sales.png",
+      "digest": "sha256:4bdd9ab6aa9ff475e42e900920fa66dd6fa7e587df7175c99a9fbc3f9c48e47d",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q4-fy24/crops/q4-fy24-service.png",
+      "digest": "sha256:76700c6c338375fbe7cf24a1e6e53ada0e4e611a3bf3db240089a4fd09651d37",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q4-fy24/crops/q4-fy24-slack.png",
+      "digest": "sha256:bbc693fd6aaa14ac5caf0c3018e37f7848f36c4ac000535bf14fe0b9e81c4631",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q4-fy24/crops/q4-fy24-tableau.png",
+      "digest": "sha256:e38d20d1d562ba83e9a3ebe3bd91461b949cde7b7b431e8c99e3a159f995d974",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q4-fy24/model-validation.md",
+      "digest": "sha256:d9e5c8f16ac56b19e7e4c3dd128a202fe1b15984c84057cfb5e51608771cb636",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q4-fy25/crop-report.json",
+      "digest": "sha256:b0880b58a38fd6307f043231d0089f7a019fb90247080735f5cfe63d58ba4470",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q4-fy25/crops/q4-fy25-company-logo.png",
+      "digest": "sha256:190e317515df3aa02dd0c8d22d4baa41e369b8b58e6874af58f43d39f61cf388",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q4-fy25/crops/q4-fy25-marketing-commerce.png",
+      "digest": "sha256:ad09af26e92c2b13b4bbb342eca2a948a5a67ac08d2c5e9de0944b7fd3ee688e",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q4-fy25/crops/q4-fy25-mulesoft.png",
+      "digest": "sha256:04e5964e4e75633b6a8e98a43c538ec401e0b2aec8b24d727c0b9d5bfa997845",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q4-fy25/crops/q4-fy25-sales.png",
+      "digest": "sha256:dcfdaa23a076f49e530826e88ef7173bdb87668386b04c24c85d191b69ea4945",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q4-fy25/crops/q4-fy25-service.png",
+      "digest": "sha256:84d785e843b65c0a78f2a938e83f65c1d850c3d177fc5e2ac4a2a94d83f18f53",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q4-fy25/crops/q4-fy25-slack.png",
+      "digest": "sha256:79d23c8dcc65670d640e5a33694206e9d36f19eb794eecc99d362dc3954e29e8",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q4-fy25/crops/q4-fy25-tableau.png",
+      "digest": "sha256:f6189873290e7b9aa0286c08793965195a4e2461430a5e2f03fd28d94dba5c2f",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/salesforce/q4-fy25/model-validation.md",
+      "digest": "sha256:fa20bd3008e781d9caf8983fbf5659683a675dc5528f76ad61ea124d327505b6",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q1-fy24-company-logo.png",
+      "digest": "sha256:fdf5dfc22cbe897bc109d4d4bdf77c0625f7d11908a4ed8b10feca57e8a72422",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q1-fy24-marketing-commerce.png",
+      "digest": "sha256:2ebd476fea11494044dad75bfa589c2f131faa695584d3b5d55730bcfe6e230f",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q1-fy24-mulesoft.png",
+      "digest": "sha256:bb486eda9b7d3b2d757a48b834b4eff755b5c08bce73fc165b776bef4db01897",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q1-fy24-sales.png",
+      "digest": "sha256:de5c28d9cd0675483454ca16380f25d378744fb3bd303e715f038573aa202584",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q1-fy24-service.png",
+      "digest": "sha256:578d00722d1c9f23e9bd0768d5893e915aa0cd0c7835a28dae6c70d614c16504",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q1-fy24-slack.png",
+      "digest": "sha256:7a55b98c659e780ce2a3f8dfbe223724373777ece64b1823952f8e40b4010e4e",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q1-fy24-tableau.png",
+      "digest": "sha256:e6cd1854720e98b5f195beca8880541548bdd1bc880ef3dc4c102b23edca2ba8",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q1-fy25-company-logo.png",
+      "digest": "sha256:9033d47a29a4cacde145d84f32059d02b2abb2358cb891fb6a3d6606f1c05744",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q1-fy25-marketing-commerce.png",
+      "digest": "sha256:82df3d7ce8d767e526e5ba43731f404c1c5789b6aae2a3da7e10c8501bde2352",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q1-fy25-mulesoft.png",
+      "digest": "sha256:59f28c21e7b16df1ae550a650448f196f33810f037898300d657d312be0cdfcf",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q1-fy25-sales.png",
+      "digest": "sha256:2d91f6995255657ced483d0a89129d7f958e926bcf1a050adf745702beea2995",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q1-fy25-service.png",
+      "digest": "sha256:e4f457fcd05063d2106b83888ce193ee33b163f44b44a835a944912393d3d85c",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q1-fy25-slack.png",
+      "digest": "sha256:3eac471e8f9ea8585ab1b74099066229d8c39869d0ba61d06cfca67d89682af4",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q1-fy25-tableau.png",
+      "digest": "sha256:f689b41245b48d9f767338495cedfb3e4e54b6528fcb4ae21025b84c19475b83",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q1-fy26-company-logo.png",
+      "digest": "sha256:a5a28c572b62c67c18a6f1c10401aff0622ad5b32b99801cf6e32c471bbda1df",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q1-fy26-marketing-commerce.png",
+      "digest": "sha256:675270ae53470e36a4a6fc9074da3266182c63c587a4e38023424799c3bd9a0c",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q1-fy26-mulesoft.png",
+      "digest": "sha256:6b86eca0298d4cb72866d06849281112913ad3e2cd6feb366425aa6ea598c403",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q1-fy26-sales.png",
+      "digest": "sha256:215ad1c89469efb715b55d86b97c79413d5d1af4656c2867c84abf93bab7d69f",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q1-fy26-service.png",
+      "digest": "sha256:d204b381563549b6f81370dd52e9296902f3dbebf429ea8991461e11b661838b",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q1-fy26-slack.png",
+      "digest": "sha256:79d23c8dcc65670d640e5a33694206e9d36f19eb794eecc99d362dc3954e29e8",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q1-fy26-tableau.png",
+      "digest": "sha256:ed22aec05d35eeefb366be420b168a8c8d95f9079b3e6bf7bd490c945d5273a6",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q2-fy24-company-logo.png",
+      "digest": "sha256:962980b5098ee460fa9e595629e421a4a5f7fe46b191750b152f916f28634725",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q2-fy24-marketing-commerce.png",
+      "digest": "sha256:9551381678b87ca6c9d549489794a2bf0fd6cee5db2fef1f15d7332d06b01347",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q2-fy24-mulesoft.png",
+      "digest": "sha256:b9b36eb95c99168a8f2484202337f694ef91058e7af34a6d957a64d1e8644bd0",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q2-fy24-sales.png",
+      "digest": "sha256:4fa4f8c4b20ad9d8406aa55e49b6d672fe5d0e4166396433b4ad5d97c381c504",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q2-fy24-service.png",
+      "digest": "sha256:4ce24f99d84e1cb69d851760e72992e5d1b79bb48f94c9b0db48781bc9d213c6",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q2-fy24-slack.png",
+      "digest": "sha256:d450fc1d64382f1ae0d6d43563db1702842a7004e8b38e4d1eedcfe52fb619f1",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q2-fy24-tableau.png",
+      "digest": "sha256:d41f13b3f1afd3a22edb5dafea35f9812863965d631ed3d0e9a6b06cf9543c51",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q2-fy25-company-logo.png",
+      "digest": "sha256:330ed2a13bdcc535b2348d55f046e4a8778963b4f869a847bb4085b222544f50",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q2-fy25-marketing-commerce-icon.png",
+      "digest": "sha256:432de16e6eb2189b1c8be7d996cba3f13686d4ffa006e0959fcc3ed1363cbee6",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q2-fy25-mulesoft-icon.png",
+      "digest": "sha256:4fe5f0a04481ebecf17608b9afd7f94a5d8d74708343bc78ace53e03023131ff",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q2-fy25-sales-icon.png",
+      "digest": "sha256:10f25df3cd5ac379db4478b41f9f6fd778665c9c1dbc4b3d4a2810fa303b322d",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q2-fy25-service-icon.png",
+      "digest": "sha256:e4f457fcd05063d2106b83888ce193ee33b163f44b44a835a944912393d3d85c",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q2-fy25-slack-icon.png",
+      "digest": "sha256:08cc88e424278d124c9ad0e1ea44bfab27fffbce05be58b04e469cd6011e5271",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q2-fy25-tableau-icon.png",
+      "digest": "sha256:ca6026a8f8bb8318cd74dcd841f1b867acef6db4c0d9ceb42a35f62c1f7ec7e4",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q2-fy26-company-logo.png",
+      "digest": "sha256:666a042cc68756ea5035c5496e1c742f2bae7b985f894f5146f1aa57650695af",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q2-fy26-marketing-commerce.png",
+      "digest": "sha256:ebd4e702631bdea68dfd032f69fb1ba2c76a87e95b4ea379e4d5b53f6513a5cb",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q2-fy26-mulesoft.png",
+      "digest": "sha256:47e1a72906a1e74a437c8f291b690069bce8c44274b5ae62d3178ba8ae288774",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q2-fy26-sales.png",
+      "digest": "sha256:a3c84a0a523aed3715dd1f95fb67bd742e544372834b5e1d55263611070e7f7e",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q2-fy26-service.png",
+      "digest": "sha256:baa39d49eddcf2eaa71e8554fef77ba34e58956d24f1dd5a9875aee59e4bc403",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q2-fy26-slack.png",
+      "digest": "sha256:10411cce945b4223646bc24f9a9ba65298455278b97dc0028cc2d9fbcc9c0d07",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q2-fy26-tableau.png",
+      "digest": "sha256:65b2dee7ab1f7cc143918940e5ae995907ab3f737bc9c3ec7ebcd0a16c97b48b",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q3-fy23-company-logo.png",
+      "digest": "sha256:42eaa9227bce48c5cbbf9dc978ee42b148e345169ca99178f25422026242976f",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q3-fy23-marketing-commerce-icon.png",
+      "digest": "sha256:a26d44dc2b44e24ae041b1da82c83ed27dbb1c384b19864dcc8f969778e2dc9f",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q3-fy23-mulesoft-icon.png",
+      "digest": "sha256:156e19246a905c4cc2fbb74ff5a6024ad6a0c9df9c0930552417838a34a7bb08",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q3-fy23-sales-icon.png",
+      "digest": "sha256:d420177f91fcedc31762a49d281aca0d9f7e84adb059e666223c6cc07c8df3ee",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q3-fy23-service-icon.png",
+      "digest": "sha256:e9d711ffd2903615c049f93b9b555df84ae85b6360a200a79593f80e2c7a949f",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q3-fy23-slack-icon.png",
+      "digest": "sha256:1d1e7afcd3ea442e66676be2e9913c768d7f41193a6d9248abe17f9b22fcbc21",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q3-fy23-tableau-icon.png",
+      "digest": "sha256:d77bfdc07b610e58bb2de9ef20a2cf57baec5c759f4f937d029f8ff793325bdd",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q3-fy24-company-logo.png",
+      "digest": "sha256:ce16607b257c52ae00fd12e1f809251dd695ba9d8c552e17395ea04c06f7d2e0",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q3-fy24-marketing-icon.png",
+      "digest": "sha256:9f3440832b97b10431fb928326ffcf4b78f3ad00a682b508bbfad3ec782b52a6",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q3-fy24-mulesoft-icon.png",
+      "digest": "sha256:6cb8223459e53cbf991837279888b2ab71fb4c851505ba715b80d6961d3f286d",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q3-fy24-sales-icon.png",
+      "digest": "sha256:088ae38ba6508b90e09399767965a2115ea7d42277987af782b812550e32b391",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q3-fy24-service-icon.png",
+      "digest": "sha256:3bfe87b3d843696eda36ead6427fc9263630ffdb6b95a70241cc8385ab480bae",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q3-fy24-slack-icon.png",
+      "digest": "sha256:71c7af8ce41c469e7cd8b5482c6ad86183177c21ef20ee4cd0bee8df226dfabb",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q3-fy24-tableau-icon.png",
+      "digest": "sha256:967d49ac17568425082dedf39f25b995c2aad1b150557ef1cbebdb221c1819ae",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q3-fy25-company-logo.png",
+      "digest": "sha256:530aa7126ef2cf68b6c7092222d329710108e1bf50d1365c8a8eec1ee27f863a",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q3-fy25-marketing-commerce.png",
+      "digest": "sha256:72990fce6bf1270ed8eeaa30fc94b09743a712782aaf932d8d45394767251d8c",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q3-fy25-mulesoft.png",
+      "digest": "sha256:372888c2d37cbd0c39a1eb31a5b9202a8d3a049921adfbd19e0861f9cf99d2f1",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q3-fy25-sales.png",
+      "digest": "sha256:f201526b81af7ad02ad52054946f79b74c23f5dfaa2c480d15a09fa6acd752df",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q3-fy25-service.png",
+      "digest": "sha256:d204b381563549b6f81370dd52e9296902f3dbebf429ea8991461e11b661838b",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q3-fy25-slack.png",
+      "digest": "sha256:a1b01a4e69487740154b64525bb691288887fac48eb4aa450491ec76cb510509",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q3-fy25-tableau.png",
+      "digest": "sha256:24bf14ff8a58a15cbab28145a53d6e6b90082f73c57edbd644ce2d7dae18d517",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q3-fy26-company-logo.png",
+      "digest": "sha256:9b8d225634ef279a59023c607325bcf7c80292972daf8f8efa8ba2ae64cb19ab",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q3-fy26-marketing-commerce.png",
+      "digest": "sha256:1aa0de6977ea2021e702635ed09e603f119e8d920735f55d06ceadc90eef762a",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q3-fy26-mulesoft.png",
+      "digest": "sha256:3ebb06dfb5992f825088d81bd8d64cea81ee96917df29b3dcf6921683fea4332",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q3-fy26-sales.png",
+      "digest": "sha256:8ab89c0d68ef67da75984769f4c4b459ec712b2694d4b8a1937404ec62d1a018",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q3-fy26-service.png",
+      "digest": "sha256:1f7a439fcb2fb121bf36115a7c989775e688a6f5a6e500bd43ac76a2a5b72aaa",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q3-fy26-slack.png",
+      "digest": "sha256:a9b1252bf8eb39dd97159b199ad89296944a366ab29eb40a3f0da56ea3c0d29b",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q3-fy26-tableau.png",
+      "digest": "sha256:46e633f8e1ca400c7c2c3a888dd0bc8bc764db6be10816d36529d045a7bedff3",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q4-fy23-company-logo.png",
+      "digest": "sha256:2f190615c34ca83b62b7be2780a1c60d9e624fcc915330047c9872b37341a634",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q4-fy23-marketing-commerce.png",
+      "digest": "sha256:1d4db0c0d85874b2c5b66b3717c7255ad0edfb5032820f7dfd35f4a1ce839e4d",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q4-fy23-mulesoft.png",
+      "digest": "sha256:5b5e950e30ca1ca9cc86d0d88d9674c510b237216c0ce2c5a8c6f0804056d79e",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q4-fy23-sales.png",
+      "digest": "sha256:9f8eb798983322129b68d028e9b670ac822b644d661b95d0be39c6b7c0a0f06c",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q4-fy23-service.png",
+      "digest": "sha256:db6ddbe46e9c5c48122e1675b4c288cbf143458ed40211a1dcf630c5177e8783",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q4-fy23-slack.png",
+      "digest": "sha256:10411cce945b4223646bc24f9a9ba65298455278b97dc0028cc2d9fbcc9c0d07",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q4-fy23-tableau.png",
+      "digest": "sha256:e9b8d8e52650de9c6b06bca21741f8e40fa97e06778abcd44f96d9c7c754a451",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q4-fy24-company-logo.png",
+      "digest": "sha256:c8e799aebbeedc9c7323a1d83b43911c2aef59ee3f61cd1dda00febad4f7b8bb",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q4-fy24-marketing-commerce.png",
+      "digest": "sha256:d08ed2c8607c6774bcd6ec5dcab1d133723b3fb2171350019f471aac88a2aa70",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q4-fy24-mulesoft.png",
+      "digest": "sha256:e7a969202bd81482e052e57737b3bb987ccdabec3f91504b7242eba8e6024978",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q4-fy24-sales.png",
+      "digest": "sha256:4bdd9ab6aa9ff475e42e900920fa66dd6fa7e587df7175c99a9fbc3f9c48e47d",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q4-fy24-service.png",
+      "digest": "sha256:76700c6c338375fbe7cf24a1e6e53ada0e4e611a3bf3db240089a4fd09651d37",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q4-fy24-slack.png",
+      "digest": "sha256:bbc693fd6aaa14ac5caf0c3018e37f7848f36c4ac000535bf14fe0b9e81c4631",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q4-fy24-tableau.png",
+      "digest": "sha256:e38d20d1d562ba83e9a3ebe3bd91461b949cde7b7b431e8c99e3a159f995d974",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q4-fy25-company-logo.png",
+      "digest": "sha256:190e317515df3aa02dd0c8d22d4baa41e369b8b58e6874af58f43d39f61cf388",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q4-fy25-marketing-commerce.png",
+      "digest": "sha256:ad09af26e92c2b13b4bbb342eca2a948a5a67ac08d2c5e9de0944b7fd3ee688e",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q4-fy25-mulesoft.png",
+      "digest": "sha256:04e5964e4e75633b6a8e98a43c538ec401e0b2aec8b24d727c0b9d5bfa997845",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q4-fy25-sales.png",
+      "digest": "sha256:dcfdaa23a076f49e530826e88ef7173bdb87668386b04c24c85d191b69ea4945",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q4-fy25-service.png",
+      "digest": "sha256:84d785e843b65c0a78f2a938e83f65c1d850c3d177fc5e2ac4a2a94d83f18f53",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q4-fy25-slack.png",
+      "digest": "sha256:79d23c8dcc65670d640e5a33694206e9d36f19eb794eecc99d362dc3954e29e8",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/salesforce/q4-fy25-tableau.png",
+      "digest": "sha256:f6189873290e7b9aa0286c08793965195a4e2461430a5e2f03fd28d94dba5c2f",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/02b28aff506730ba56f273f7d7892604dd190f72acfe74c220cfd44ba6e00f15.json",
+      "digest": "sha256:f8c6443698ad7aee92fac4f344cc24bfaf3ecfebd4a9ea21361f9548728e70ae",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/042fdb6f4ce81915cafcbd12cda1c7b9e89912a9c4a0710c9bde4248d6f26fd1.json",
+      "digest": "sha256:0ea2336b78e1c6ada8a5a82d7308696995cbf98926a53fe628b5e3b3b74173ff",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/0720ca97639d14abb65ceaba9e02d79c52516865955b36a14dfe1894c50f768f.json",
+      "digest": "sha256:9b5d7b74d4fd8458369833e24d26ddd75bc993b42aeb92ffdb3a919a93d2931a",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/0798bb3bb2f173233805efd77ad11c713cbefc5c2ba3273356f011873d6c4374.json",
+      "digest": "sha256:90ab3b677e3e796c517294e6df20ceebb571d6280794f7f138aebe13898794dc",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/08b17d5158f3ae2fb523157ce0aff723968567f13431c6b73cbffcd2d6f58876.json",
+      "digest": "sha256:40ae6975e1459430c8ce1791a55763700acf2577096de90d307de4595f3a073d",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/0a58c4f17a701aa9227d4c9ad775ef4db786168187bd87d1b3cae8300b5c310f.json",
+      "digest": "sha256:b265a3ba5cb28f7fadc44a5dd54373e7f26efe8cb2d3b1a399972bc114453d5b",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/0b113b3b8ab6c07a4baed60805803bc8eecef479c580cd605418b80b73caac4c.json",
+      "digest": "sha256:865f5c02d50c226b5e503adc911be55d30e3ab0ab2d8e517abfa4025c91da3d7",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/0bf56667021756903a945b992dbf8e693368b29ecdaa288abeb9ba6bf4d5635e.json",
+      "digest": "sha256:bcd69b89e36ff396d8d28989883a54f7310e85f7d469c7ed3f3b66d162b732a3",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/0f3380438cf7c051e02f159722291cbced860023ca4491bdb936f89fa2dd781a.json",
+      "digest": "sha256:d95c5f5ab18661523c28e5260678ccd5420cae3d36a5e2abf6db6bb16929737d",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/143b05121fb5821c0a48a33fc43f318479d270f81ba8c5e9b4a62f8ac69b285c.json",
+      "digest": "sha256:d6cb84cb5030b291c5282b2bbcdc72a18b72f0d6561b6802da1904e1097a2d35",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/15e1bbb31c5ad45e5985f8171e7cb4d6908b79b7c7cf0f7166c115b45c8e0bf1.json",
+      "digest": "sha256:185cd70eae5ecdd0b447fbba3d5616de5cd104acfbf15c4a15cdc5e6e2d57774",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/20ececf6bbe5cd0a4e3c5547bdd8577881560f154c4ebcc1c27e2f5bc8e20d28.json",
+      "digest": "sha256:002ea2834e507e3ce47bbc16a35167dec33206b769a207b0171a59814b6eb02d",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/2133b2fbbdd7120f3d8c10215bebbcf201bf576d5710dfec8537db7d768961ac.json",
+      "digest": "sha256:0f5a4ea8dd5e7eb65eaf1b9671f302928a4b66ff877dda8b04b4d6478ee4317e",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/21b8dafc8135853cc92e3504b5678f5f211cc2aa3a1a1d0c92022b780af6c3af.json",
+      "digest": "sha256:a19f8ef3bc93b9fe81b8068c630e2d5cdcb672e570fe1021b4038f0749714def",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/2ae96d1d191502c7346f716db9dc223b5b53bb1935662f8a36d39407059abedd.json",
+      "digest": "sha256:593736afa0672a0a09116c672238deeafc9a9bbe9033a0205eba2a1794a16e0d",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/2e70a1f9bf2098fa05a1e6ff2ce44c12ef60d1403c25294f233fc9fda7f9b018.json",
+      "digest": "sha256:378e0e190a406029ff9080ae02795d9faaa8e417bacac0a9a099b487dc9619c3",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/2fddf38138eda055d0680245bd441483c38e7cb860628848723a0a68e0b02977.json",
+      "digest": "sha256:d29702639a3d0cdb3ec8a75988ecb80e6d2dbe26fc7e3a59056072fffe7ca891",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/32348309d4d7252405f6ae9b1059837ed0039cd143a14e9679890836212a9820.json",
+      "digest": "sha256:a5330eb0b878c849ce12f9ff2bc31973a45125691e136e7ddb41e62f481b4be4",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/3629a0bd4b5171f3d49fedfbc7d3f044ed56ec6e032b799aa552885a20f92b93.json",
+      "digest": "sha256:a89c18fe80630c51d904216eb54c0d725565fc344c77ff4c05162752ee69c0e4",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/385ba7a8afe559f9ad4861dd37d8966a1f3d921398a4f7a7169de4b0b5f8319e.json",
+      "digest": "sha256:4032f55397fa5fc9a2dd793d73e0bef3f9e8489631315cf8dfbaf3da8abb261c",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/3a09cfb383fd1672b663ec04c4ef8ca2159ed8a339b00eb3489f966dda5d8841.json",
+      "digest": "sha256:cca7e967ee62a422c027755d24da93417929052646c7bec08ab9c262f02f2745",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/4013aae2910674548c10994cc82ccadbb5ae97b1849179a92b3c1b062e8d9c66.json",
+      "digest": "sha256:b39e58e6da007919133cb184fb8092249c8cc90d2cf80f908880eccea3cb86f9",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/41120ff2bcc8c9861dcbc59c942c8d8ddb75db85499328b410fb529f49db888d.json",
+      "digest": "sha256:05970ef6b24400be93c27b1321287b88278c31080490dcd2f9c9d949f128cfe4",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/42ca284af6ae0563948fa375caafe3a1ae1eef7ed93469c28802c4c3a66dec11.json",
+      "digest": "sha256:9982f5676a15e44f8c04a1bed874f8fb33de1bb73276047200f60817030e9ba5",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/43e53bb2cb3ccb19cd3ddbfdc331e58b44ca52b89a89b007e62f00250f218c5a.json",
+      "digest": "sha256:c634a1fcd1924915c45da4e0f4d3f8cfc8b452366f20c09814a3bbc05e9daba5",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/43e84a9d3dd2a92906d27fd43df350ecc7059dab6c199dcb18f62fc069508e35.json",
+      "digest": "sha256:04dcae94105a13c0a509843d086acad2671884ce08475cb634c038dfa68c4a01",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/442ddc96e1f39da855c3915609f665a0842096a9e491d0c74d05b905bde2d933.json",
+      "digest": "sha256:6cbb3dc57b0d2ce4f93f149f14c9b25a2fe8f73f347c0379b3aebbe666ddf631",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/47c7ea32c56be72974a41053b37f19b9ec0a959a87e498728bddcdb8d37fd7ff.json",
+      "digest": "sha256:3ab514a5fa71d063b79311c3f026e0c4621701f6e852a61af748c7413bda9d13",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/4971583000d6707aa8a67a30bd679b5dcfeb8081b3b64863465b0bf985a661f6.json",
+      "digest": "sha256:e1d95504cbe7f9b0e4d385c50e554c3b24817906448012dfb829c00b7847b408",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/4ec291f225232f858a5c2cf66bd8fa37017fc69f795e250491929183373450af.json",
+      "digest": "sha256:52c3085d316f4d5ef487113395cd47ff41fe9c2e426ef835bc866cd4859ac4bf",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/501373d7fb7ca446a92f2c9b2dabae3675349f677e0cef2e6a8ec106809d6770.json",
+      "digest": "sha256:6e0b06f5aaeb906100b412ddbfa6360264e5ced8aebb2878087ae21fe02a9838",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/51f5c02e99fbdec7518fe2528a0a5bdac9bbc863f47d62ddb7f75b7cc8fd8f54.json",
+      "digest": "sha256:baca427219c043894a7b5b4b08d1e8a090a874d20ae6c7cbb2dbd15be9a7934f",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/54a7204f8c8e8a4d34bb890f7ef5f0e5dacd8103fc6c4b3c42fb69e7beeb4245.json",
+      "digest": "sha256:b6d804f1b9acff952b649a409d75405ff4a4b5da304605c1920755e96fae592c",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/555c25edc924f6cc3832f03e0d50229f0f97a5f586637f219a1cce40eac71127.json",
+      "digest": "sha256:de6b3a1d49afd4aaec99feda1f58a40d030f112de6866b5dafbb30b825a30feb",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/5670078e76abd37b024131474b07d673052081d2f560322fa7349da57ed264c9.json",
+      "digest": "sha256:f170bf0c8d6865bde909e0140f09d2e1f578a09c04ffe90fa055d5cd5ed5de77",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/571f36528bd347d148e3dc4cfc177fe2e0f59858f559239eab8e6777ede93af4.json",
+      "digest": "sha256:e70867e3e1bb9c443300b113d52c1633c9872170a568d206b832f7da3375634e",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/587261fbd70ce59fdd4fe205a0f0e6828576cd0017be3bf804b41100b4cd807d.json",
+      "digest": "sha256:e177ce7f83a9cbc7c7ff6a5b7582b77f99ea901d41c0febbe58558ecf4f8713d",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/5f2f6e7737a65ddaa9729c815219957fbd5500066ae664c3a87ca477fe7d3d28.json",
+      "digest": "sha256:905b3d41985ae2aa9be5556edb5dba8f7beb67dcb7188f6064fbcada5280ad8a",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/5fcb2e0b2551087d42f0c332132d245e99a969b6bd9409ed349b6757b04dfd37.json",
+      "digest": "sha256:9e01d5e0980299410ccfec6dc5a54429c9be18e1a7905995038074ca7140e604",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/6272e0b5c8d7c7d1ba902d5080470bff8a34e5514c3d8f17606a010d2d7fc28f.json",
+      "digest": "sha256:f8d78fc507e90656761c29473cf9e21c78281daf5acf9ce1a76e044072b0cbea",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/679ca5cb9dc8a731b07ce74b6c050d22d0be4218c0540d9a01f65d2da3e1b4e4.json",
+      "digest": "sha256:c075c66a6f1ad30743346bf5db596c49153ac9f8fa798c4f7b499d35808cf4a4",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/68d536b2f13da119c505b864abb4b18eaed943aafc45319fff6f559561c83606.json",
+      "digest": "sha256:d71e94e1d9d3d0ae4881632a6565f2907ce038b331122d20da4416aa4d83eab2",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/692a39e072ebbd81378fea659a903106922e24fcc59ac82eb195f1866895ddb2.json",
+      "digest": "sha256:c440643a3da6d78103d45d74f862123bcbaf533fbbea758730d157611ce6c758",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/6bfefe8babc41c7bb94864f01ed11e1492a1ed33ca398f1fe5e5be3987761839.json",
+      "digest": "sha256:4d611e996c00032ef124ecf3de310c42ecc087cf70236d19ef6706214fb0470f",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/6e9a2a4d6f34480c1d9694afc837029a4dcf2ebca535d5d15a6a6481b92f5842.json",
+      "digest": "sha256:f9baa52421a8651c66f7226b27826e68c8d08421a9522e24b71c52578281b8d4",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/6f7e5195e02517ee3bd621e73ff342d911475433fd78598fbc7cdd8c39b1ba72.json",
+      "digest": "sha256:287114a51bd2f1df25de7e9e39231c58de12b5cc2ff0fd35aa44aa39a134bb60",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/72aa34e71495f990df1824520005924891651e314d5f3c28ea93c9efd991f895.json",
+      "digest": "sha256:4fb4f0c4652e0846df12a4e8602719928899a6e7260fe77c14668df06439562e",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/73552dd98edb0962b5b113d8329c7e08c37805ee5fbcccb0289bae659b8737c9.json",
+      "digest": "sha256:29443b5ed73f7187cc50178bb6b8d1f320ad6e1a1c04f8baf0a5d418c5a0d7a1",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/76a5f03e6aa7dd16fad9193b50008d1967dd22472d1ff071a2ddfc94fa988c39.json",
+      "digest": "sha256:2dda3fc6424b577972b12b4b61cb0b191d985decc410ac389f17b5121c57363a",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/77a5f8081d6f1dc78490e3bcc88da676255fe02c2f26b351d3f2f16de0538b5c.json",
+      "digest": "sha256:02aff96b2ea9292c1cebc6ede068a9e565f344f391785880f1f0962f91a6e442",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/7929c25a8eca7a51792c6b1338839f004a73751150954a482b0fbb57a6ff36b1.json",
+      "digest": "sha256:eb7eb17516df6cc7b9670792068f765cd07be6f658c0030ad6a8b64b2a671cf9",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/7c5336888d3d3e6840f63f73a0822f2e197d56a4a49ce507127b85c883da7ddf.json",
+      "digest": "sha256:f31df7d87785b27320595120c709d4980b6a970344f6a20e8fde8e7148beb21d",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/7f9952597222455f0633ce76f3cc542f414cf92a52bdb560724394386c324dc7.json",
+      "digest": "sha256:ae88d427da1d720d7583035d0f958d8206547af67715c03cb1ebc526191003ef",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/834ddd997b17b2de6e4e6ffbc685c92a04798d01d1caad229a714ddffc7b9768.json",
+      "digest": "sha256:f61ced6003cb42301de7bb08f89c6c35212605f7b73e2513bdcb12a303f86c30",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/8ed7cc23ee3e24b65dbd1d747b1ac74326c2c88db4f7b6c94c922804e7c33dcc.json",
+      "digest": "sha256:0a917bf332d115d00a6ec8c1363c2b20d0b1acdd757014d9abaffd4b11fadf37",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/902cefa964a142943b38798216e88b1743c583c5250cc99832eb68323bfeff00.json",
+      "digest": "sha256:d0047b8e32c883f2a0a8bef3898debf21d3a65f956bd357802826c5f82d67529",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/91c31c31f37bf9295cdfce92e661c8c8d8f959faabb8636033467603a5ab696b.json",
+      "digest": "sha256:0ebc2e373fccf89a4d5d4849770f12854fb12ad77e52b8f2ae409ddec4686e11",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/95a25cc267d93fb00d30d8f27a6d246d5894408ff11462f230d4e1d54f77e955.json",
+      "digest": "sha256:14f9d5bbf3e58ff517cde53b20d6b62e90a1b1700b397abed1d8d18934e892e1",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/95ce111ce30547049113e44aca8f0cdc37f15c2a36f83dfb34d14d5b881dc121.json",
+      "digest": "sha256:1837a274c0dd26206c7ff23fcbd722d950a77df9e3e98c7965202a397fa34ca9",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/a424c50c0817df2fdd7daefda0af2728358ecb355b5e8cf91c8815490239bcbd.json",
+      "digest": "sha256:a5fbb8804c0cf9dc4b469da2bbdc549d218a8e7b009cbd086f94194d7e762adc",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/a4ffb4d4ec78548a88d816be75e231a8916b9fd47b536b72dad28b2daa82ec38.json",
+      "digest": "sha256:69fa8ed2f77dacc04c9367c3866e657e194e5716fb8bdcd418a10c9ae9861312",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/a5e9cd435d32b00f85671bd05d0a33e4d519a0e863ce5974cdb0eb875baa4fc7.json",
+      "digest": "sha256:6ca345b7f3901b485834344c6a1dbe4554865387a55fd1778f1f61dedaea6f2b",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/a82a9350d3e91467d695a75ce5e4b351f6ec7a3c5b6cd09bcea4a9e7d448e408.json",
+      "digest": "sha256:f3cdb3db66c1dde01cfe3d64b5eb8896ec19de512bf1abd68c3d0b7b139553f3",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/a8ffeb09614d5a679ce126d626a9f2d0b68aaca4a161200d1a0f94292930ee2f.json",
+      "digest": "sha256:92c8745f0d70d56aefd01d2d9ca8a00a6ca532a6f0ee637302a9099f7dd011c6",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/adbc39b5df83fbd265cff2aab75309dbe4b08cc84285c844f56266b201738b0a.json",
+      "digest": "sha256:24079ca302356941aa0d93ceee12146bbf82489b30c619150e39f1f9098893d2",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/b3cae5587686e11bb53fde53218044fb2ef70b789c77a068bc84f80bc790d0f8.json",
+      "digest": "sha256:2328843bccfaf32c161bf8d25a6483065d66256a4367bd0ea0b25ab8ef50d23d",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/b6d93871396adbec56c4851c46fff519f4973190875185862915ab871f3db09e.json",
+      "digest": "sha256:0e6e47e78c61a9c7f491139ebd31fd29edd9abb9669e0645108c6c5595944d52",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/b779e1ac7d47b408d90cc6e98f4e8e7e0008b53d250d7bafb548f4d92b9efee2.json",
+      "digest": "sha256:89aec0cbbf08dbeec32bc75be72cde48ad1d0fffded1ab3ab5e3a3fece65de2f",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/bb37db0260c168895fbd9b0a5592b33c891f6d8f513db17b11dcc27c9ff84045.json",
+      "digest": "sha256:df079d48ca52b431a293d0c1c51899920ee706ff2bdd331816819c561725d1bd",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/bc0d57f752e7c466011462e3f7cd36612bc260e9654a50c88760f54b6308996b.json",
+      "digest": "sha256:ffc53c93df8eb19beda6f846bd343467ca6e660defc36a18e898647ec5a623ee",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/bd1ea8e4617cf48969e2bd4c40945c0cc36fd856058878c04ff555691aaece70.json",
+      "digest": "sha256:12958840b9e9bd06777216e1e9f08bed39cd2f2fed7ba40983fde476db3dfefc",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/bd65501f04c28ce5db5413bad4caf38d3dbc872b286f3fdb7ee4de106bf33974.json",
+      "digest": "sha256:fd4927abeb2cc9fac6a516b8ff1af2a141b8744754ab8657b83f1656a3c95ba6",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/be376f6c67e441ca148ceabcde544f95505d815b704c0770776c4462c56febf7.json",
+      "digest": "sha256:ac8997968d001ec5172d9d60293bf372fc8f9a6823c3d4482e5c41192d46533c",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/be6aa159a686f48f08d91574b77ad5860686ad97f5742afcada65618890195eb.json",
+      "digest": "sha256:7c913d16d953ad612386c36c1cc78df9f750701c9b5a263eb3f28fe90df085ac",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/bf79f79405ed6a55ffa497f3fdac9b566d24812ff7c893c67723483981b92efc.json",
+      "digest": "sha256:49b471fedc5ccf29d37c4c9b9f9300fdc87936f7a6c4907f26e6caaff87a5e85",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/c2b80c661e579ef204d48eaba80b56c5c26a0acb2000184616286177b39d4993.json",
+      "digest": "sha256:3773c5ffce8c6be71497756bcf7ff864653d6cb5a8d07fa378213173e0be4734",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/c4086abc7db4642418b44b61b0d69c4e6a16d1ebaf955bbf51135daf3b429f28.json",
+      "digest": "sha256:1f3eaeca02464aa9a387505cded1aeba5077d4224867ea6efce19ea847cb00a3",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/c8c9f8a0603329d22d99aa2b1ff5afddf1e65346c718100b1eb4eb88d9ebcd31.json",
+      "digest": "sha256:bba2aa9d6bd36d1768e290e148d3074b199a31dfc6d90540bd5d54165336dab0",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/c9e99db317170e89998f4379d98143bd9daeabfe7b0c0957e361120a025351fc.json",
+      "digest": "sha256:a57a1f5816437ab5594f92ec51e5eb176d95262231811c04dc318df1e7f0290b",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/ca7c8093d6fd2b6388ef0fc7e24328710cb37cd57015e58b48fea257ff9c9445.json",
+      "digest": "sha256:876c21fadd5b8c6536357cb40ae09190f69e5834f5024048078b4a48bc96990c",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/cc4102334a0edd262d4c2b5be065dbb3efbb9d8da5302e056d1b092f3656388c.json",
+      "digest": "sha256:d4e549e5b4e263aeb3fe5b924b37ad07a830b522155ddc8726b9631d5aeb40dd",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/d111b27c2c5b3e175d3ad748dc631ee2b8787d9fce914b99fcc8b8c4a9a560a6.json",
+      "digest": "sha256:076c7453c1c7f28e5a9639431aaf4c9635e20936058fc9a7731b0b48b9c7ae1f",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/d3925bc5e980bb107462a387f3a762015a2f9e061f1d9b693ec11efb0e8b0636.json",
+      "digest": "sha256:6860a81a6eb2a44d50f9fc3a13e398d8efd4728c7c24e90e9ca0de1b9cd502d0",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/d5568ca55f4db0a49723632bbae3848b6cb90a7c5d4e67dc140433745f2ec638.json",
+      "digest": "sha256:dab0d96e8d1a46c6ff078899314168beaa51c1107766839ad3b2e876a4f3eb3a",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/d9f937b03ec3287551c8838c3329eca9b0d853e1d5dbe721fa32d2abd12d106b.json",
+      "digest": "sha256:77bf0b6de9aed9bd4cbc5a29085f6e1dfa11225315b85fef43ab0b20a3e06f36",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/dffe8c3d12f59cce1eadd98ab3a807213abbe5561ee474e4dd54fdfb495cc389.json",
+      "digest": "sha256:61b9131e678c0f884dfaffb953cc542930dcc8d081c6f3bca869ccc4aff5c21a",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/e0665ce984c968735a2951b3a1a7b75eb4bc1f43693d5490c6bfc40eec9d74d0.json",
+      "digest": "sha256:2c8584b63865c1c2c68528b6f26e8d5440ecb530dc9562847f8383edf41d48d4",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/e0f5150aa23aca503556f0de870b84dfdf2548a3e88799cfee0067f4f865767a.json",
+      "digest": "sha256:cfeb80be05904ec6a0b256ae9288b0e2830ee02974ab78bbf378288c9428bd1c",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/e17374f55c2c3a6a894b79774ffbf00d472cb313b14733c3cfb18a64fc595f20.json",
+      "digest": "sha256:4591332e03da8d6ff134c700531c5b87ad19ec7ff9a668ebb46dd96bfecd5f0b",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/e3a65a322b9e5230dfd3af4ed1f98a46503395e8568e946666e8403476e65a0b.json",
+      "digest": "sha256:6a77c874bcc4b6718c2420d4ec1e3aa46bc9a89e9e7aeaf70563b3048ea3ddd4",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/ff4656dca2f29d89998cb37f882dc6c2b1682ef9f8c62af0394eaf52cf55b762.json",
+      "digest": "sha256:34f538c3ad873683848b829e2bc48a3eabd5c6414fcf33c20f03edd94b099066",
       "before": null
     },
     {
       "path": "data/dataset-file-metadata.js",
-      "digest": "sha256:fe1e628f613133ba52b84e2171753a0a0abeafadfbc1babdb996e57829522496",
-      "before": "sha256:95006e0dbf619abf5d3305a5abedec29c260775580a7c33f8200a81b630041a6"
+      "digest": "sha256:39e2f9bd98f117c97d755f15c07b5cf24ecbebac1f7a5189636b7b2a4aab7b05",
+      "before": "sha256:67da10a6100a74ce0c0b35e1e55a4a55f0164910ce160f70ea2a51e52332af36"
     },
     {
       "path": "data/dataset-manifest.js",
-      "digest": "sha256:50159a2243420c2fd65503bb237be3fa3756319c8fd8941219d95e25ce0f0829",
-      "before": "sha256:27ca4d918487f1fde8c504ac5b377699b63ce6667b8b02ec33fac298f1543f03"
+      "digest": "sha256:8696833ca086113bee3a1947a64b90a6c6afdb5d42adaa7321802bbc3456982c",
+      "before": "sha256:50159a2243420c2fd65503bb237be3fa3756319c8fd8941219d95e25ce0f0829"
     },
     {
-      "path": "data/datasets/airbus-fy23.js",
-      "digest": "sha256:c8c97967e8fcf4c1ca3361f8a689110229f0d4dfacfced738386b0b94cd5575a",
+      "path": "data/datasets/salesforce-q1-fy24.js",
+      "digest": "sha256:15b2a24ccb90bbce1a221c988099c27c3e55961557fb3dd2c30bce013e755dd4",
       "before": null
     },
     {
-      "path": "data/datasets/airbus-h1-fy24.js",
-      "digest": "sha256:16c23590717c535e932ed3ca6e0a4a06f79fe8ad24207adbe85743e706f474a0",
+      "path": "data/datasets/salesforce-q1-fy25.js",
+      "digest": "sha256:4921279e41c5e4f240117310ea7310e6af3f054306277e906446e5306cac7595",
       "before": null
     },
     {
-      "path": "data/datasets/boeing-9m-fy25.js",
-      "digest": "sha256:570b84b6c8b8c4cb462eed9cac051266b513f1e5ea62c9511ae140452fd25cbe",
+      "path": "data/datasets/salesforce-q1-fy26.js",
+      "digest": "sha256:ccf12cdf36b266f36932a242b7cb2d3d8de3c1f8a53769a7ccbc7f984caf8739",
       "before": null
     },
     {
-      "path": "data/datasets/boeing-fy23.js",
-      "digest": "sha256:5e7cdd103b6ec36136760f25f29ccda771ab9914255091bdb93683acc49fe95b",
+      "path": "data/datasets/salesforce-q2-fy24.js",
+      "digest": "sha256:efceaa8d018dba83911fe27416e7dfc8b288f9e3aa0541376c8de4c10d136a8b",
       "before": null
     },
     {
-      "path": "data/datasets/boeing-q2-fy24.js",
-      "digest": "sha256:29c6cce5f9fce2e29d3fdf51d15b55e48828fb1db4ab6e784fd5b9bee4fb5084",
+      "path": "data/datasets/salesforce-q2-fy25.js",
+      "digest": "sha256:9332bbae8432a4843e3cf9204afa055d13e67ac8d84dbfbd00e42195a9a3a7ae",
       "before": null
     },
     {
-      "path": "data/datasets/boeing-q2-fy25.js",
-      "digest": "sha256:26fce34d678f94af10aefd5c067da5b4e587823b21e33c1bfecfc26be591cf3b",
+      "path": "data/datasets/salesforce-q2-fy26.js",
+      "digest": "sha256:8fd9cac5c380e94781a76c698bd814e1ad712e34f2fd4d5adb731d53e1d0b162",
       "before": null
     },
     {
-      "path": "data/datasets/boeing-q3-fy24.js",
-      "digest": "sha256:0f14bfa68e5558bab4755fbebb890316c0133f5425d6c5c81c770e3a9f6d796f",
+      "path": "data/datasets/salesforce-q3-fy23.js",
+      "digest": "sha256:d76287e1fd1ab67a2f085d74e3e679f04d74546232ae047e672b7549f07a2c9b",
       "before": null
     },
     {
-      "path": "data/datasets/disney-q4-fy22.js",
-      "digest": "sha256:eda55a466610cee986459c15c8352d7f389a35c9c59545a74775a19a8e4ed3e4",
+      "path": "data/datasets/salesforce-q3-fy24.js",
+      "digest": "sha256:d08844a830e0722a5e98c0977078c362d8cd0fbd56d880783a7d52fe336287f2",
       "before": null
     },
     {
-      "path": "data/datasets/fedex-q1-fy24.js",
-      "digest": "sha256:ea2874118b080767633112426c0a8b700a06424b79a2a9b741c37b50fdce39b2",
+      "path": "data/datasets/salesforce-q3-fy25.js",
+      "digest": "sha256:196470d20f925702d3013f52bb609ba9606d5adb6326b62b7e248b3f10c7aeba",
       "before": null
     },
     {
-      "path": "data/datasets/fedex-q1-fy25.js",
-      "digest": "sha256:aa9c709070094cb3f94ea4729f6819d21cb6a5ba6f503cc7c50f5a97b0eb4743",
+      "path": "data/datasets/salesforce-q3-fy26.js",
+      "digest": "sha256:c9871d3e9915912dfe9b219633eff5972646bbdf3419305cf3c604d48fa2ceb4",
       "before": null
     },
     {
-      "path": "data/datasets/fedex-q1-fy26.js",
-      "digest": "sha256:4fa5c364c512e0f930d914d450578c270f0fecc89ef572bb8c6b80a3340ef7ad",
+      "path": "data/datasets/salesforce-q4-fy23.js",
+      "digest": "sha256:8784ad0baf904390933b41a746faadf74b9dd33013af0626fdebb8b93c7faf8b",
       "before": null
     },
     {
-      "path": "data/datasets/fedex-q2-fy23.js",
-      "digest": "sha256:133d75c2d6926b663ba611c8b933ec4f0e6fa3acb3bbefa59ceb61c940c808db",
+      "path": "data/datasets/salesforce-q4-fy24.js",
+      "digest": "sha256:9eed80bc013ba1c1899d9d616f06cf599e44de4daacaac40f4bd2c6dfbd3ceda",
       "before": null
     },
     {
-      "path": "data/datasets/fedex-q2-fy24.js",
-      "digest": "sha256:b750e31b9c66d4d463f31da41300324bd636137c635236290450d77b3cfae1b0",
+      "path": "data/datasets/salesforce-q4-fy25.js",
+      "digest": "sha256:c0837675ae7f750200dfbb35e0500160ccbd8fd5e28a2809f27b9836c0e96979",
       "before": null
     },
     {
-      "path": "data/datasets/fedex-q2-fy25.js",
-      "digest": "sha256:290b2b29ba6bf685c719687aac449ac790cee2f94b4841deeb9d21d2562c28ca",
+      "path": "data/datasets/shopify-q1-fy23.js",
+      "digest": "sha256:624418318de985115dc11a04e75b2785117d347781428615a79ac59f7dd99693",
       "before": null
     },
     {
-      "path": "data/datasets/fedex-q2-fy26.js",
-      "digest": "sha256:3baab3de6bd99aeaf13d80945651ccfe539f0f0fc3115c87f5bc3e3b365ff3d0",
+      "path": "data/datasets/shopify-q1-fy24.js",
+      "digest": "sha256:0a6ad3f1094c2d6713d20536ef0ac35293678e4397c2bc544b4412cbe5578ce2",
       "before": null
     },
     {
-      "path": "data/datasets/fedex-q3-fy23.js",
-      "digest": "sha256:a57bf9d52d92470fc6579971df62a8cc8aa5d224ce233e21f1ca7fba8892be01",
+      "path": "data/datasets/shopify-q1-fy25.js",
+      "digest": "sha256:a62efc9989c0dd552bed3d26aedbba5341b2aea7ca6600f2228d14aed358b985",
       "before": null
     },
     {
-      "path": "data/datasets/fedex-q3-fy24.js",
-      "digest": "sha256:ee62fdcb7897b0de8690e865561c792278babd3a3f1eb97402ada0648878e601",
+      "path": "data/datasets/shopify-q2-fy23.js",
+      "digest": "sha256:5419f53b612d0336bc85c2732d7e62b58cd895f5e33b91698373721e5ccf3170",
       "before": null
     },
     {
-      "path": "data/datasets/fedex-q4-fy23.js",
-      "digest": "sha256:2174e1f9288021cb575cd28313377f5b015244af6857f7aa7f9613e6bd5d004c",
+      "path": "data/datasets/shopify-q2-fy24.js",
+      "digest": "sha256:c883e7440bf760d9feda7c31b2610e362392e7c7d2fb8b576725e37992b632e8",
       "before": null
     },
     {
-      "path": "data/datasets/fedex-q4-fy24.js",
-      "digest": "sha256:2c198b04d86d1d6c6fa1c03ee61497e7a13e26c239b7e3f4dfc8ce793ed64d4d",
+      "path": "data/datasets/shopify-q2-fy25.js",
+      "digest": "sha256:8554b257a8a64b24c370a90f58aa1dde361b18ffcadd83154f058539935129d5",
       "before": null
     },
     {
-      "path": "data/datasets/fedex-q4-fy25.js",
-      "digest": "sha256:4e6835b27d1017b25bcb61f670b2725c180d7557e7ecae944fb07acbd7f78b45",
+      "path": "data/datasets/shopify-q3-fy22.js",
+      "digest": "sha256:62aa9dfd324cdf035ac588046ae12fd14c80c99634df275a5acb30bd6449d004",
       "before": null
     },
     {
-      "path": "data/datasets/ferrari-fy23.js",
-      "digest": "sha256:1bda3e7db733422ab188de71e8a67247205f4feb8448242cfba8b9b6bdddc7ab",
+      "path": "data/datasets/shopify-q3-fy23.js",
+      "digest": "sha256:b42d68ecf2efeb4a702dacb7280a9abeb3e1dc73c8579427ee258a66da9729f7",
       "before": null
     },
     {
-      "path": "data/datasets/ferrari-h1-fy24.js",
-      "digest": "sha256:ae5c83978f7316b23eb3e0d5591e477ddeae7cca1e4193211ac8cf6e8b9c1a01",
+      "path": "data/datasets/shopify-q3-fy24.js",
+      "digest": "sha256:4c9f62b78f75f3ec02f3ef0905f6916515b0308b805938e9de34b5932d08fca5",
       "before": null
     },
     {
-      "path": "data/datasets/ferrari-q2-fy25.js",
-      "digest": "sha256:1873cb9efcd2fe0283983bb060828ce0734a881fbfb02798d30e0d1bd3c398bd",
+      "path": "data/datasets/shopify-q4-fy22.js",
+      "digest": "sha256:c81e41ea3d1a712edb7cb361db545fd8603454c79c9fe9203d17f763b1ab2da1",
       "before": null
     },
     {
-      "path": "data/datasets/ferrari-q3-fy24.js",
-      "digest": "sha256:4b33551f3028f4b5b91a4ad422d200ce03233b2db4a23c1d3765497e3bac0517",
+      "path": "data/datasets/shopify-q4-fy23.js",
+      "digest": "sha256:b5083ca103de3f9a5095e59bc443e4d2beff1bd498fa3efe9ca22218c3b294bd",
       "before": null
     },
     {
-      "path": "data/datasets/ford-q2-fy24.js",
-      "digest": "sha256:94cb1e8636290715174c0ed53053572a482377e0706ce5bc053eb93782bed538",
+      "path": "data/datasets/shopify-q4-fy24.js",
+      "digest": "sha256:c187ccd872f712d3c073176070b5d5dd5693f612564569ab7bd76c5b8e40a73c",
       "before": null
     },
     {
-      "path": "data/datasets/ford-q2-fy25.js",
-      "digest": "sha256:dad488a749773cea9df4aed142cd6bfcc6265761a9f22a2d90a6e55d4169fb86",
+      "path": "data/datasets/snap-q1-fy23.js",
+      "digest": "sha256:b3257b8d00d13ad6a4eb2017da813c8f9a8332221ce623ea80f1f0d571f2436b",
       "before": null
     },
     {
-      "path": "data/datasets/ford-q3-fy24.js",
-      "digest": "sha256:ef160ee9a0d33e9605cea948e0c56ef873fc7e379363d3e456cc4cba47ec95d1",
+      "path": "data/datasets/snap-q1-fy24.js",
+      "digest": "sha256:b2943342232938d2cd3e27d3742a01935523225b066684fd70f3cdaf120ac383",
       "before": null
     },
     {
-      "path": "data/datasets/ford-q3-fy25.js",
-      "digest": "sha256:4585e065da76ed09ef7d9b7856270d5a7e547a33615d0a6c539ca009e80c144e",
+      "path": "data/datasets/snap-q1-fy25.js",
+      "digest": "sha256:abf8c607b40e634d333602ce67dfde26ea86b3cd80a423c881c3236da5c5db20",
       "before": null
     },
     {
-      "path": "data/datasets/gm-q1-fy23.js",
-      "digest": "sha256:c9f98577ae340913cc8f9b611dfbf31e4cf3ed14d24c5107550905a885ea7ac9",
+      "path": "data/datasets/snap-q2-fy23.js",
+      "digest": "sha256:83981ad77306ca93dc2b4502ffe3559d76a30bb31a10c617f3c08ec2920f95fd",
       "before": null
     },
     {
-      "path": "data/datasets/gm-q1-fy24.js",
-      "digest": "sha256:61430023f20f59184bb4e100864db16682e84ef18f16a1ad0b10d7e7871017d6",
+      "path": "data/datasets/snap-q2-fy24.js",
+      "digest": "sha256:cedcca15bb297d7865bb6d3e8ac8ac6a2937d196cecf8ac0302a7b4da7a188df",
       "before": null
     },
     {
-      "path": "data/datasets/gm-q2-fy23.js",
-      "digest": "sha256:7ac6c14e3fa50a27294fe6be420e546ec226efc186114d30a12092217d733ae9",
+      "path": "data/datasets/snap-q2-fy25.js",
+      "digest": "sha256:a7fa2505e22cd150390e223201fd9a3a70bad06942f1e188d37b79b4967fad69",
       "before": null
     },
     {
-      "path": "data/datasets/gm-q2-fy24.js",
-      "digest": "sha256:815cd5301547646d608e9e21072b45587c4d0281add46e46300877e7ddaed440",
+      "path": "data/datasets/snap-q3-fy22.js",
+      "digest": "sha256:85137788f48a1e61b6159541c4bc953901ec1a2c5a93b9740214424d12fb349b",
       "before": null
     },
     {
-      "path": "data/datasets/gm-q3-fy23.js",
-      "digest": "sha256:3584f9ee10f2092a9f10c61d6dec793747b851bbfc7c891b57cb62b6b6d663d2",
+      "path": "data/datasets/snap-q3-fy23.js",
+      "digest": "sha256:3ac6018ecb192acaab05476569a70d8588f98a02afeb0febb4cbe59567085e96",
       "before": null
     },
     {
-      "path": "data/datasets/gm-q3-fy24.js",
-      "digest": "sha256:ec938d4124575d1bae7a26c9afc0d2de3ac64ea984cdfc068554a38f13d93e78",
+      "path": "data/datasets/snap-q3-fy24.js",
+      "digest": "sha256:8ceacfb7398ba29a905094a16d45fbde0f558ca34228bf5fffeb23ee6feda8d4",
       "before": null
     },
     {
-      "path": "data/datasets/gm-q3-fy25.js",
-      "digest": "sha256:a23799b109de2e6ca4b07a7fdad5c46a305831d1a1518dd1bfda671f289613cb",
+      "path": "data/datasets/snap-q4-fy22.js",
+      "digest": "sha256:c67eae9ffc4a81695a0acf13669c2ed3b7af90ddac3fb8ceee0f03a39cf0a504",
       "before": null
     },
     {
-      "path": "data/datasets/gm-q4-fy22.js",
-      "digest": "sha256:aba0b909cb5d7a0312b28077204862ab44c1f6a1632ac483dee1c8cc8e249cc5",
+      "path": "data/datasets/snap-q4-fy23.js",
+      "digest": "sha256:e4c90347464818b113b812dc83e7b411971153ec90e30d90ffcc01ae8696d7c1",
       "before": null
     },
     {
-      "path": "data/datasets/gm-q4-fy23.js",
-      "digest": "sha256:4dfb4f7230c5dcb2cef1bbc6bcc464dad70adc292e89af2596e40d354cfd1309",
+      "path": "data/datasets/snap-q4-fy24.js",
+      "digest": "sha256:a1fc717bbeec34f156ff20551140769ce5f63995ce7bd389ca62d5e77da62170",
       "before": null
     },
     {
-      "path": "data/datasets/gm-q4-fy24.js",
-      "digest": "sha256:b779fad060d0a74ea8c5f499c11d2f17b7d8b7b0cd2a95c1a4db6964a588df6f",
-      "before": null
-    },
-    {
-      "path": "data/datasets/hermes-fy22.js",
-      "digest": "sha256:6ea140950211685e67f83b35a201d4e9014833249d27be37d4d58727d830d389",
-      "before": null
-    },
-    {
-      "path": "data/datasets/hermes-fy23.js",
-      "digest": "sha256:df9daf0b68d7ddfa9edbc0d414507ad3edf54a8c1129e24518b4dcd8ef38ee3c",
-      "before": null
-    },
-    {
-      "path": "data/datasets/hermes-h1-fy22.js",
-      "digest": "sha256:8e638be96d1064eaa442dd20680e3b5d55f2927826fa0ddce1c89157a5a29da1",
-      "before": null
-    },
-    {
-      "path": "data/datasets/hermes-h1-fy23.js",
-      "digest": "sha256:404423e46dec62a1f2006f36e439c58a2045c69bc5cb7c0c38d852f2c8ffdbe4",
-      "before": null
-    },
-    {
-      "path": "data/datasets/hermes-h1-fy24.js",
-      "digest": "sha256:7d21c130c54edbdecede2b774eeef5b8d853dfc53530144a9cf0fa1dc382f7de",
-      "before": null
-    },
-    {
-      "path": "data/datasets/hermes-h1-fy25.js",
-      "digest": "sha256:b1a571ef3c9ee6f31b9f0f2b4d51ef336a1ce8dd833601bf2741fd0647c978a5",
-      "before": null
-    },
-    {
-      "path": "data/datasets/loreal-fy22.js",
-      "digest": "sha256:1e01dd36b91e8045e0b40516ab81bb84c34f94b1056c81ee9e2d895f9e8af4d8",
-      "before": null
-    },
-    {
-      "path": "data/datasets/loreal-fy23.js",
-      "digest": "sha256:67a408742344c15f6e96583e933f7deb286b084c0c76ac2883a151572aa6bd52",
-      "before": null
-    },
-    {
-      "path": "data/datasets/loreal-h1-fy22.js",
-      "digest": "sha256:a5b5d240534f52358a48279ada377a086fbaa500b704ff78dec929ea1a0e91bf",
-      "before": null
-    },
-    {
-      "path": "data/datasets/loreal-h1-fy23.js",
-      "digest": "sha256:988b5a2777c7f2860b457a5be139ec97d2f3ffafd0394f3a09c119666f13d9f3",
-      "before": null
-    },
-    {
-      "path": "data/datasets/loreal-h1-fy25.js",
-      "digest": "sha256:290574e0d07c039d578f10174d4f6b0a4160b5340ca06f5bd89bf1f8b2388b0f",
-      "before": null
-    },
-    {
-      "path": "data/datasets/lvmh-fy22.js",
-      "digest": "sha256:0ce7c7274b6964c0a1a763a20e6049a71cfeafc7d4bf3fd101162a97d7a10910",
-      "before": null
-    },
-    {
-      "path": "data/datasets/lvmh-fy23.js",
-      "digest": "sha256:689bad6eaa4ea68783ecc5a47cc63680fda2d227a2c02171579a2f3f3e944a55",
-      "before": null
-    },
-    {
-      "path": "data/datasets/lvmh-h1-fy22.js",
-      "digest": "sha256:69e5f4baa016e47aaae0a19560f171cba2de069a6446e39b021616603637bf6b",
-      "before": null
-    },
-    {
-      "path": "data/datasets/lvmh-h1-fy23.js",
-      "digest": "sha256:ae8c17f249e5848fbe446cedf448dc279a6b299d943b11926f3bebfd92c71a09",
-      "before": null
-    },
-    {
-      "path": "data/datasets/lvmh-h1-fy24.js",
-      "digest": "sha256:6b73b79f596c632efd8e84419fd0f6fafb7a2e62d9e83b1ee1ec5f53e7c8acb7",
-      "before": null
-    },
-    {
-      "path": "data/datasets/lvmh-h1-fy25.js",
-      "digest": "sha256:f285eaa3ca283479293c311304f329659e1846002b08456254d2fda3e23483d0",
-      "before": null
-    },
-    {
-      "path": "data/datasets/netflix-q1-fy23.js",
-      "digest": "sha256:8d72675ae9d6c10949a5cd46f05d1b14f0bd6405e8924609ac8ed374d2885ed6",
-      "before": null
-    },
-    {
-      "path": "data/datasets/netflix-q1-fy24.js",
-      "digest": "sha256:18de8c1dccdd783eae642d2ea3394c55dc10d2efca3c2f9fd8ccf925ef9ca65e",
-      "before": null
-    },
-    {
-      "path": "data/datasets/netflix-q2-fy23.js",
-      "digest": "sha256:d8080a1047c9259b9bd2eafcd56b4560f4bc722d670f20174e55375633bd663f",
-      "before": null
-    },
-    {
-      "path": "data/datasets/netflix-q2-fy24.js",
-      "digest": "sha256:8ffbccaacaa759a4e20503a52ca0ef5277752b254494d5f48ce7982f0d6fd7b4",
-      "before": null
-    },
-    {
-      "path": "data/datasets/netflix-q2-fy25.js",
-      "digest": "sha256:017ed1ca8cb4fb9093fce0326d18e3bf4e24b93c5fb7ac8c64edb7f0c200908c",
-      "before": null
-    },
-    {
-      "path": "data/datasets/netflix-q3-fy22.js",
-      "digest": "sha256:ce1433953bdcc6e87cdaf8fce9ebe998cfb044b6dbd24271a3f6f275399221c0",
-      "before": null
-    },
-    {
-      "path": "data/datasets/netflix-q3-fy23.js",
-      "digest": "sha256:33518347f25872c542e4c15ccba1b31eac0b25e5a2eca1acdbf6f8d3c4014d4a",
-      "before": null
-    },
-    {
-      "path": "data/datasets/netflix-q3-fy24.js",
-      "digest": "sha256:fa341a84af54345170d0894de300941c84ce0da98b98d88689686097b372766d",
-      "before": null
-    },
-    {
-      "path": "data/datasets/netflix-q3-fy25.js",
-      "digest": "sha256:9797a7f0bea5d43519bc3b4b30e32326573a29f7d95d37029840cddcbb357171",
-      "before": null
-    },
-    {
-      "path": "data/datasets/netflix-q4-fy22.js",
-      "digest": "sha256:2a377d4cf297b468b06f1e660a56016e7372f1176dce5a89527bfd03a95aa5f0",
-      "before": null
-    },
-    {
-      "path": "data/datasets/netflix-q4-fy23.js",
-      "digest": "sha256:8e4e79aea93c759d669be665b2618f6408ae62d7ab11c8938b446bf814705121",
-      "before": null
-    },
-    {
-      "path": "data/datasets/netflix-q4-fy24.js",
-      "digest": "sha256:b0f1c5533d846a1730f97dc8e29e1c7251d557b898b48cb402b1d87203cc76a3",
-      "before": null
-    },
-    {
-      "path": "data/datasets/pfizer-q1-fy24.js",
-      "digest": "sha256:8d378c09dc6d39cc3c5d59005b87c979ec46bd3e28b2a05589fc5171a7b1f44e",
-      "before": null
-    },
-    {
-      "path": "data/datasets/pfizer-q2-fy24.js",
-      "digest": "sha256:a6031a253fac89c20527aba0902757941492aec55562403d94f420391ae54b60",
-      "before": null
-    },
-    {
-      "path": "data/datasets/pfizer-q2-fy25.js",
-      "digest": "sha256:bdee6ed6eee17c16bbe7fd083002ea63b435f76e417d3412cb9abb2666708977",
-      "before": null
-    },
-    {
-      "path": "data/datasets/pfizer-q3-fy24.js",
-      "digest": "sha256:df7e53d14e9f617cbfcddc9d1dcb272f444b2021c9acf6dd0e86a1a332beef29",
-      "before": null
-    },
-    {
-      "path": "data/datasets/ups-q1-fy23.js",
-      "digest": "sha256:320be1b1843929a615f5ea7473688489e2f648b124e356c0d6b4557c142bef5c",
-      "before": null
-    },
-    {
-      "path": "data/datasets/ups-q1-fy24.js",
-      "digest": "sha256:6b63f5f0927415b829b9c9396b0135f0972357ca22cfdf68a6cd1b314ee6fc8f",
-      "before": null
-    },
-    {
-      "path": "data/datasets/ups-q2-fy23.js",
-      "digest": "sha256:901f9239df54e8f9f0c1cad638a98b9e77adbe7e486d80108defa7d08e1836de",
-      "before": null
-    },
-    {
-      "path": "data/datasets/ups-q2-fy24.js",
-      "digest": "sha256:f216888e9a93d3046113dde10d4c5c722dc099aa57f2663a331d083ccdc2096a",
-      "before": null
-    },
-    {
-      "path": "data/datasets/ups-q2-fy25.js",
-      "digest": "sha256:e5b46be06dfb3b9b6e2a2e2da14d7b0226289b2bf10fa46183beae6a968f0d53",
-      "before": null
-    },
-    {
-      "path": "data/datasets/ups-q3-fy23.js",
-      "digest": "sha256:508d0c98dbdba0e91b60e3b21ebc31b22d9fecf566abaa68d0c10c0caa2f0956",
-      "before": null
-    },
-    {
-      "path": "data/datasets/ups-q3-fy24.js",
-      "digest": "sha256:9acfa97372f54691c1c3c1b69ca92d369c0ddac6c15a706af1397241aece4945",
-      "before": null
-    },
-    {
-      "path": "data/datasets/ups-q3-fy25.js",
-      "digest": "sha256:f50438b09783d6414982328ba025a10fda1a6fda8818c72a3fe106644c831f0a",
-      "before": null
-    },
-    {
-      "path": "data/datasets/ups-q4-fy22.js",
-      "digest": "sha256:122242e8cb04749a2f4744d8193418a67a094d8d7c09885867ede5ecc2848d77",
-      "before": null
-    },
-    {
-      "path": "data/datasets/ups-q4-fy23.js",
-      "digest": "sha256:c76fde8bef1b44afd129e6d07bf76cbff26e663545de7c899bed8dff5185573b",
-      "before": null
-    },
-    {
-      "path": "data/income-statements/airbus.js",
-      "digest": "sha256:33ce9f46f507a9ce96daed777bfd1a7abb3403cb9418d9eeaa0c3525d1ec7996",
-      "before": "sha256:4b99f615fc896c4ca3486cefbe1f1c46aba9d9781741c813b60a4db671dd4e1b"
-    },
-    {
-      "path": "data/income-statements/boeing.js",
-      "digest": "sha256:3baa5750f3078a33d4ef4737177d98248dab61fe7b97b35288dc7272f1b57e52",
-      "before": "sha256:7f0ef05748bd336a06769f495855f36d66f390bc16c417104d8c7398afe28447"
-    },
-    {
-      "path": "data/income-statements/disney.js",
-      "digest": "sha256:dff5b8d34087418a400c056cbec63bc844153f0398edb2ebdec411ae2bb53d65",
-      "before": "sha256:2ba716177fb1e1685d45397f81d395a2d398f50acc51703274cf2ed0018ad386"
-    },
-    {
-      "path": "data/income-statements/fedex.js",
-      "digest": "sha256:4f445370addd719ddd90eaf5700cc6801caaeb19f64a5687c553ab23262454f1",
-      "before": "sha256:9e2b4e4917d3c18620041ff8cc9db6a182a046df229e8e480611c7058ed85976"
-    },
-    {
-      "path": "data/income-statements/ferrari.js",
-      "digest": "sha256:6b88fce12a7afc0c1fc0b934e3594b68d578fd6b71255442f2f1c1c741df2c1b",
-      "before": "sha256:87949a8ce3b846d8a8b43b23b352e5152eec90c75c8eb82c8d244c2898d752cc"
-    },
-    {
-      "path": "data/income-statements/ford.js",
-      "digest": "sha256:e3967b44eb92ad5ad237ae388208cf6de5290d7a7d4eaffdeb201420cc851ba7",
-      "before": "sha256:cb1a0ad04c6be952411429bb5504648485f271fffe43af777fdd0f1e35fb7483"
-    },
-    {
-      "path": "data/income-statements/gm.js",
-      "digest": "sha256:c4d8f56850267cad32fc38a6cfbc6e3db90dc1b06da6a2b5e400bb8ddb3b839a",
-      "before": "sha256:19bef2c18dda30240578ff66b564ed566b61c25e919873047319c97bf660d76e"
-    },
-    {
-      "path": "data/income-statements/hermes.js",
-      "digest": "sha256:8f5b0b1b43d48682e2ec30c0a7d6532ba00e271f5507e4360cd2c5602240b650",
-      "before": "sha256:bb96b5493558a5aa94165d7c604d546c8bc22ae44e35900e815b553f718208c2"
-    },
-    {
-      "path": "data/income-statements/loreal.js",
-      "digest": "sha256:3178b118c7d66c8c3854fdd3e11741a1b1778ffda09efd0aad0d83abfa2695a5",
-      "before": "sha256:cc301561353056d33db362e4f63e96ac88d27e9fca33fddda14bba7d45d95c1e"
-    },
-    {
-      "path": "data/income-statements/lvmh.js",
-      "digest": "sha256:126b3a6be409accdac6308b6f549719399bfb38017ae5b4f41b55b34381e3311",
-      "before": "sha256:c91b546986566c61761505903546f5d9a875cc004aee0afcf14f77a69ab434f3"
-    },
-    {
-      "path": "data/income-statements/netflix.js",
-      "digest": "sha256:829ccf6c09a67c3105cae502894aee101edd4d0aee3c9f8e59828a6c384ffcab",
-      "before": "sha256:54f3a780061fb1e2fd9a89b24986b6422ec90d06ef187df54ec0ac6319b0c0fb"
+      "path": "data/income-statements/salesforce.js",
+      "digest": "sha256:93c4959b6d38755a75d1c84e46e7deb0f71a96293f52d6c343ac3feec368ec1f",
+      "before": "sha256:b2083c43b392b31158fb7b945c0f7a50fcbd96dc998bdbc603a446bb60c30227"
     },
     {
-      "path": "data/income-statements/pfizer.js",
-      "digest": "sha256:7a5543f7b6f8334960dbbb2f16141135c6afde1cb660d9fae741ebcb91b90c4e",
-      "before": "sha256:d9ef284235c03857263451e658c82eb0c762c77d8262f060a21ad66194fef1e2"
+      "path": "data/income-statements/shopify.js",
+      "digest": "sha256:1e673ce99bf2d1e51d32e44f9827e0c2c8a118b2cb581c3688fa1a2478bea49d",
+      "before": "sha256:3a4b6faeb6790491c8a8b0f4d31ee6d81130a3b6cbb0022c7d5438b5c0bf69d0"
     },
     {
-      "path": "data/income-statements/ups.js",
-      "digest": "sha256:826c80d520c342463f29d13f04c6e6797de36296f4defe0fe6b11475f1edfe05",
-      "before": "sha256:d544d34eccb94237bfc6337d28d26dbf5ba96c8b453be932ec6910a2250328fe"
+      "path": "data/income-statements/snap.js",
+      "digest": "sha256:98cfdf539f84c9e5dcb69733cd286ae979d8954ea1df8a755a38741953c8b641",
+      "before": "sha256:175ed32d74408f711cea9547e8825735956650fae35960e39875505fede38cee"
     },
     {
       "path": "data/render-baselines.json",
-      "digest": "sha256:a1ddd83d8dec86f410b24362788e3d90e5496335468ad277333e7367eee4e6f9",
-      "before": "sha256:43308bff5a0ca3b99ed5834c76b51eda3d0d5828f4e5baff5f8ef2c24ee76097"
+      "digest": "sha256:0e639d314d248271e06828aec3fb6650559a74047f3c2f656b24a521d3a7e29a",
+      "before": "sha256:a1ddd83d8dec86f410b24362788e3d90e5496335468ad277333e7367eee4e6f9"
     },
     {
       "path": "data/workflow-timestamps.json",
-      "digest": "sha256:7402ab41c2a625eb9ec31f8b0ca409b4847fc770db3c21f91fa70313c2364812",
-      "before": "sha256:630d042eedcd2107438911f8b7fbd1f58bba01456ca99a099d017ae618a07163"
+      "digest": "sha256:6dec1090c823f6336e62148510dc9bffb481ca3bfa959733ea9fc6a914e35f43",
+      "before": "sha256:7402ab41c2a625eb9ec31f8b0ca409b4847fc770db3c21f91fa70313c2364812"
     },
     {
-      "path": "input/icon-crop-specs/disney-q4-fy22.json",
-      "digest": "sha256:0a236be6b2ee6626a1a7ce1aabea415e675d65bae123e5dc78c63fe1197d73b1",
+      "path": "input/icon-crop-specs/salesforce-q1-fy24.json",
+      "digest": "sha256:89aaa05a46c1d19b2519ffbadc64edf1972e8ef3b56d2890b01e1a38e46614ae",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/fedex-q2-fy23.json",
-      "digest": "sha256:86cf204c321b2c951edb464b8c10954def6f29289b3299477bf08e858c7c8600",
+      "path": "input/icon-crop-specs/salesforce-q1-fy25.json",
+      "digest": "sha256:f1bc1a633530632a44b661768ec39137483f49f1759ae7b02abed401f4b93352",
       "before": null
     },
     {
-      "path": "input/pending/page-0087-Airbus-FY23-Income-Statement.png",
-      "before": "sha256:e70da879f855182e4046037e47bea496ef96e4a0a660f3674a0a90472b936e1b",
-      "digest": null,
-      "intakeOwned": true
+      "path": "input/icon-crop-specs/salesforce-q1-fy26.json",
+      "digest": "sha256:0d6a253f450131708d7bc3de4d452293b3cc0835c963abbd119ec39cdf9dc98e",
+      "before": null
     },
     {
-      "path": "input/pending/page-0066-Airbus-H1-FY24-Income-Statement.png",
-      "before": "sha256:d5d7adebb83a12e3cdfa49eaca2a3f65ac8e90b9a49dce527f0c1871cdc699ab",
-      "digest": null,
-      "intakeOwned": true
+      "path": "input/icon-crop-specs/salesforce-q2-fy24.json",
+      "digest": "sha256:efb1c12aa16a951fad0d27659ae02bf8cf5beb388a7e4439a686f30daceebe23",
+      "before": null
     },
     {
-      "path": "input/pending/page-0084-Boeing-1st-9M-FY25-Income-Statement.png",
-      "before": "sha256:ff4f2ef20aeee5352e674b2a1a81cf3a0932ae34a628a8c914a443a841b0e9a2",
-      "digest": null,
-      "intakeOwned": true
+      "path": "input/icon-crop-specs/salesforce-q2-fy25.json",
+      "digest": "sha256:424e73d31f68c18f78c22adf653ffd2abdca5a994c73522003bf2750add52c06",
+      "before": null
     },
     {
-      "path": "input/pending/page-0088-Boeing-FY23-Income-Statement.png",
-      "before": "sha256:557ddcb51a513d267f06571b6371c7752ae05ec0abf6e9e93ba2db0c27a900d3",
-      "digest": null,
-      "intakeOwned": true
+      "path": "input/icon-crop-specs/salesforce-q2-fy26.json",
+      "digest": "sha256:f6c799a177b701536925051bdc9d23e3d329edc5aa2e357889e18e6562d9846f",
+      "before": null
     },
     {
-      "path": "input/pending/page-0067-Boeing-Q2-FY24-Income-Statement.png",
-      "before": "sha256:3023adf5a2417799690b005c652a80418019c8445e7483cd439080820dec30b9",
-      "digest": null,
-      "intakeOwned": true
+      "path": "input/icon-crop-specs/salesforce-q3-fy23.json",
+      "digest": "sha256:f90d4317f8c9028006d4d547d36081d8595787f1758afd0646c7e9caab0778ee",
+      "before": null
     },
     {
-      "path": "input/pending/page-0092-Boeing-Q2-FY25-Income-Statement.png",
-      "before": "sha256:f72b5ccd44346834c744b84deb1d8018e2ca3345da0671244a1284acaeffbd2c",
-      "digest": null,
-      "intakeOwned": true
+      "path": "input/icon-crop-specs/salesforce-q3-fy24.json",
+      "digest": "sha256:136aabba89024615d4613f1e5db9ba9a554cb67d80b325dc8bb0beda2406b4fe",
+      "before": null
     },
     {
-      "path": "input/pending/page-0073-Boeing-Q3-FY24-Income-Statement.png",
-      "before": "sha256:44a23d978d4fd16afd09ac0db8322ec76f276fcb8f8aae8c2b75d0abfa1e2be0",
-      "digest": null,
-      "intakeOwned": true
+      "path": "input/icon-crop-specs/salesforce-q3-fy25.json",
+      "digest": "sha256:3f030c9ca6b751f78747729d6009d8f7518cce2bc5f5bc8ca0b39c94794b1501",
+      "before": null
     },
     {
-      "path": "input/pending/page-0010-Disney-Q4-FY22-Income-Statement.png",
-      "before": "sha256:96bb17f520caf360fbeeddec9b6b989daef16b775c045b7b239eeca23b00723a",
-      "digest": null,
-      "intakeOwned": true
+      "path": "input/icon-crop-specs/salesforce-q3-fy26.json",
+      "digest": "sha256:362bdd3935bb6a5751a5fbfbff85510f67cba0d53b7ccdff387be0f29c597476",
+      "before": null
     },
     {
-      "path": "input/pending/page-0039-FedEx-Q1-FY24-Income-Statement.png",
-      "before": "sha256:574f4b91ae662bad6834fd55f859d125272a9ebe328aabc726f128dfc672ad49",
-      "digest": null,
-      "intakeOwned": true
+      "path": "input/icon-crop-specs/salesforce-q4-fy23.json",
+      "digest": "sha256:4c43f457f030fe4ecbafb5f0267a7f353b93c8bc18275bf4f3101eb8c7223d84",
+      "before": null
     },
     {
-      "path": "input/pending/page-0030-FedEx-Q1-FY25-Income-Statement.png",
-      "before": "sha256:69e839c1738eada3731e578187d3accbef86bc9575dfec80b81460b3dfbea659",
-      "digest": null,
-      "intakeOwned": true
+      "path": "input/icon-crop-specs/salesforce-q4-fy24.json",
+      "digest": "sha256:0312b851918d5b103c7fd960e161b08214b91a1b4f8dfa728f4878515405d03f",
+      "before": null
     },
     {
-      "path": "input/pending/page-0029-FedEx-Q1-FY26-Income-Statement.png",
-      "before": "sha256:de2aa4294eec47dcf66d7cba4646dfd292e794cec9e2804100ed8feeac3547cf",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0014-FedEx-Q2-FY23-Income-Statement.png",
-      "before": "sha256:00eeb7e24142b5bae4d2a1c4042bf9139dc453591d7ff71845dc82b6ff834ac2",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0044-FedEx-Q2-FY24-Income-Statement.png",
-      "before": "sha256:2d429b45a3da09e3a0044f9d453f5e3aa5a3d57f482ffe09eef63042a43784c3",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0036-FedEx-Q2-FY25-Income-Statement.png",
-      "before": "sha256:4b12de69849f6f9a2213ba8d5a6ba4c28ec04d641aab34cc22cf29c7b6271cf8",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0037-FedEx-Q2-FY26-Income-Statement.png",
-      "before": "sha256:2012f834aff5451e4ece3298a5be4f2e66d0561608d0056da68a553a91980920",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0006-FedEx-Q3-FY23-Income-Statement.png",
-      "before": "sha256:1f8dc3183092757d80bbb2e8bcd894f1c2c487dbc017c458ffc5a25c72b243ed",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0026-FedEx-Q3-FY24-Income-Statement.png",
-      "before": "sha256:83ee15acdadbb67dcc91decc3039b31dc83c6b9110e7d7c63c763114bb1062c8",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0037-FedEx-Q4-FY23-Income-Statement.png",
-      "before": "sha256:1893c6c2c157dc2bc3d1c5f04bf3a82504ad8d43affa76b4e535fc5461a94eab",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0047-FedEx-Q4-FY24-Income-Statement.png",
-      "before": "sha256:d880df9ca1af1911f1495ea787812662e39193b61b7e08666c2bb7b8f49e224e",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0024-FedEx-Q4-FY25-Income-Statement.png",
-      "before": "sha256:d47648b6b2ffb862d77f378c26a0915a60affe4bebbfe28a4d69eb2a31794634",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0019-Ferrari-FY23-Income-Statement.png",
-      "before": "sha256:9c9821ed696f16af8e4846476b4799007f640e94b2f41a8f67a14dbf1d80d911",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0089-Ferrari-H1-FY24-Income-Statement.png",
-      "before": "sha256:e4acc74593fd2c5338a5d2acb46c2fc742118974d630083d24fe284172af0087",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0062-Ferrari-Q2-FY25-Income-Statement.png",
-      "before": "sha256:ff1924c75ba7015aaab1fb51f49420b53dd9674a90ff96064992fbbe935e2c60",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0063-Ferrari-Q3-FY24-Income-Statement.png",
-      "before": "sha256:bd322ea410c418da5411ade2979891683736b12600119f71b40bda1be25dbe18",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0032-Ford-Q2-FY24-Income-Statement.png",
-      "before": "sha256:759451b3be20d6cb428d1c67a46d963c620fde5ba6ceaf2cdd5faf81796db119",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0039-Ford-Q2-FY25-Income-Statement.png",
-      "before": "sha256:0ae8a0c9c1b9b6ce4f4d37b4cc9cc8da3551286ce7795b6d76b48d5195118057",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0037-Ford-Q3-FY24-Income-Statement.png",
-      "before": "sha256:fbf7d90cedbc539b9fbc097ed2fcb5cd1187cfdb06cc63c81cab9a3ffd91675b",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0034-Ford-Q3-FY25-Income-Statement.png",
-      "before": "sha256:18c27c8684db53ccf3d030fb106704e7450349c380479e5252b98bb80439a6cd",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0023-GM-Q1-FY23-Income-Statement.png",
-      "before": "sha256:0837b484360b44b9fac6ee0166885dce195c0b552e4e8b8a341613ba23340aed",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0005-GM-Q1-FY24-Income-Statement.png",
-      "before": "sha256:cae8b4dae157c2d607ef6678974155d58d29835073f72bc095eb55b1a84dde80",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0026-GM-Q2-FY23-Income-Statement.png",
-      "before": "sha256:580a7a921acd489186428c1e3aecf0ae7e527ed0427a2d446555f3496de38f36",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0031-GM-Q2-FY24-Income-Statement.png",
-      "before": "sha256:312338c0a638d56b6cc2033c38b27f1a3bcf120bf0288154bc0afaca3c3eba3c",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0033-GM-Q3-FY23-Income-Statement.png",
-      "before": "sha256:f6509163f04c8192af4f53be0ea78c6b13281909b1e9ea4e33fbbb7fd3cf6a53",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0036-GM-Q3-FY24-Income-Statement.png",
-      "before": "sha256:0be021f55fff6f5a0e323719bcfb74188c4e7ababcdda1648bf3ddf32833d162",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0033-GM-Q3-FY25-Income-Statement.png",
-      "before": "sha256:b2a568aff5fa49323683f6dd6e27697acc9539dc6c36fae8452347b905e7c2cf",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0006-GM-Q4-FY22-Income-Statement.png",
-      "before": "sha256:bb2cf907e67005b32a0d699b461c646e60223c0f1f5ad89eaaed3901f9a9e883",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0004-GM-Q4-FY23-Income-Statement.png",
-      "before": "sha256:00c9ddc7204382d6e3c6c8dbb4efeb6b968287a13db4cda1c4c039234542a11f",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0023-GM-Q4-FY24-Income-Statement.png",
-      "before": "sha256:1425d6f7b5b47d979cf97964b145f6cc78fe9d5b11d39a0a4b97f99596917944",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0041-Hermès-FY22-Income-Statement.png",
-      "before": "sha256:d3c918cd20fcda6b4805004f8cfce973ac3d3e7028754de65766518001ec2a21",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0020-Hermès-FY23-Income-Statement.png",
-      "before": "sha256:76366a93f492cbc6f6bf648382692374be8055cb2d865e88f8fe01ef31921363",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0017-Hermès-H1-FY22-Income-Statement.png",
-      "before": "sha256:462a142f0821528c0aa1543829aeaa8ce9dd906c9eed2c093eba514d95598323",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0059-Hermès-H1-FY23-Income-Statement.png",
-      "before": "sha256:d33b79cfaf3d55797cfd5a0c052b987a76e1fd032b9719706cf75f36a912e88a",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0008-Hermès-H1-FY24-Income-Statement.png",
-      "before": "sha256:b2426309185684e66cca843ee8b881112fc96c358d9caada7b2dc67f68b7d8d6",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0114-Hermès-H1-FY25-Income-Statement.png",
-      "before": "sha256:b666e5c5b938e5103fd8fa98e333bc8be49a2c6d28fde7aa4c752e0d21beca3c",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0040-L-Oréal-FY22-Income-Statement.png",
-      "before": "sha256:4e6eb90c46ccd2310a0920434c32b7a6856649b2b0643b3d5b82cbe84ef094c4",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0022-L-Oréal-FY23-Income-Statement.png",
-      "before": "sha256:a266aab2aca49ea40529407964474897b263e8daef7bd034ce73a9017fc2fa19",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0016-L-Oréal-H1-FY22-Income-Statement.png",
-      "before": "sha256:3bf615333bde0210471c93ef8a3efcf79ffe21d4dc965596f4f0a7673e0905fb",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0058-L-Oréal-H1-FY23-Income-Statement.png",
-      "before": "sha256:4d0976a87ba518183461a4e40ae57dfd4c35fd4855d43238e2f538cf1d84c74f",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0116-L-Oréal-H1-FY25-Income-Statement.png",
-      "before": "sha256:151601b40bfe865b03e9010f10e6a4c9ccf7f127dcd70bf64e67b65e48bfdab7",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0039-LVMH-FY22-Income-Statement.png",
-      "before": "sha256:59d6e94d193c78fba97c65dfef5f1bccda69c22d286f7232f6442e1ab4a6a0bb",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0051-LVMH-FY23-Income-Statement.png",
-      "before": "sha256:cfa4637427684f96ae859e2cb024ae62ee146242cec41e52dc170e2adbfce39f",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0015-LVMH-H1-FY22-Income-Statement.png",
-      "before": "sha256:278185e1c3b2673a196e8de1e5950fa9cb6ec36b24f8d046644b6075b77b65c4",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0057-LVMH-H1-FY23-Income-Statement.png",
-      "before": "sha256:c7e7b6fc627f22d18c2c10c52e1d66bb44981b06ee4346df9d0f9c259c10e38a",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0007-LVMH-H1-FY24-Income-Statement.png",
-      "before": "sha256:4ba3452c989ec96c95021084ccf1541aa75b24a94d38406cccf06b2cc8f0e165",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0115-LVMH-H1-FY25-Income-Statement.png",
-      "before": "sha256:5de126518b769c245744b11241bfa69f2adeef79a786480fa06bf8fa579f5bdc",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0017-Netflix-Q1-FY23-Income-Statement.png",
-      "before": "sha256:9ada9d9033d0312cf9aeb0f90055858b08d0d378b14fc367dd9518fa6110ac87",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0036-Netflix-Q1-FY24-Income-Statement.png",
-      "before": "sha256:a85122f72855f4477baf34bebd63f020f8aaf3bc54bc3f801b507315fd669a02",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0016-Netflix-Q2-FY23-Income-Statement.png",
-      "before": "sha256:e51e50d5ace6f268dac4fd5eed97681a618b93098fe7b4f5529eb6ba2c091141",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0018-Netflix-Q2-FY24-Income-Statement.png",
-      "before": "sha256:568174873a720d43ba6415f35d8364b3d14f11f7e34f7368da34b4a5d99a0a57",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0018-Netflix-Q2-FY25-Income-Statement.png",
-      "before": "sha256:c5ec5fb102022f1c2010ec96bb18482523dd37d65f11005e26b52ac6c6c0af24",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0002-Netflix-Q3-FY22-Income-Statement.png",
-      "before": "sha256:b8c86c43d57b81653241274d5fd6ef516009a47548606fcdc60a6e8acf12e299",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0025-Netflix-Q3-FY23-Income-Statement.png",
-      "before": "sha256:de2e11d33bcf58a92cf2aaf71533c41cdf5edc71b3b423684940120698c80d68",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0018-Netflix-Q3-FY24-Income-Statement.png",
-      "before": "sha256:1d2a46621b3e286dd4acd7b2c050e45cac7b561276dea9ab395f5fa91fe86eb7",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0016-Netflix-Q3-FY25-Income-Statement.png",
-      "before": "sha256:7e377d735d15c75787c6167dd5c0b88ab4acdf8e84e3082c185dfd44c05eeb32",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0002-Netflix-Q4-FY22-Income-Statement.png",
-      "before": "sha256:65f6d7e128955fab028490ef45c7481a9eb73fa0c5687427c6d06148cb8888de",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0018-Netflix-Q4-FY23-Income-Statement.png",
-      "before": "sha256:bb1eb3aee503982954b1f4e553cca196d082a287ce5307b369974505215fd011",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0008-Netflix-Q4-FY24-Income-Statement.png",
-      "before": "sha256:9b45b050d329448d9e26436904924ea3b9fafea0a9be3ecd563adb28ddfa5038",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0081-Pfizer-Q1-FY24-Income-Statement.png",
-      "before": "sha256:2e79a6c3cf09e7b04b00c7d9a66ac7a8e64591146e7ec33d6cc1447efddd869d",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0078-Pfizer-Q2-FY24-Income-Statement.png",
-      "before": "sha256:e4afb6b2519deccf27623018d8544cef31deae93089de8e116fe290904e87bd2",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0061-Pfizer-Q2-FY25-Income-Statement.png",
-      "before": "sha256:a4017a25b186674393740fce77029719bf01fdd0aa69b8c853ac267c680885b0",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0086-Pfizer-Q3-FY24-Income-Statement.png",
-      "before": "sha256:e4d098cde857c55b1595e0f6ed82fde5bd0518c198dc4288382138bb09f97bc5",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0050-UPS-Q1-FY23-Income-Statement.png",
-      "before": "sha256:310ca776339fe27537b81504743143de8e2fad4a5b8e48f135446b2cc8059fe5",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0035-UPS-Q1-FY24-Income-Statement.png",
-      "before": "sha256:f8c2b9e11e6cfff6e04e566fa577a0ae0f4ee78ca14f2b27f2e6ae1eae8f64e3",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0086-UPS-Q2-FY23-Income-Statement.png",
-      "before": "sha256:05865a9b613e7f3eade80a5d0bae9dec328626ecb9e903cd09275c3b7812b964",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0073-UPS-Q2-FY24-Income-Statement.png",
-      "before": "sha256:b209068c07d25f2a47d3fc65487e05711ad2a9a12d4c0978e01630136312e5bf",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0098-UPS-Q2-FY25-Income-Statement.png",
-      "before": "sha256:d4e01b472a22517f37f6ff9881e50a1a2c602fc7eeb3222f314086afc368c3fc",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0058-UPS-Q3-FY23-Income-Statement.png",
-      "before": "sha256:feb868316b1f1f2ddde558c706ba6913780fd679ed78ee8fa1af647384c79d98",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0081-UPS-Q3-FY24-Income-Statement.png",
-      "before": "sha256:6b008b19fc5ae13b4fa4309da9bbd7ba7e9490fcdbaef21563ea8e7fd79ab860",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0090-UPS-Q3-FY25-Income-Statement.png",
-      "before": "sha256:7d3df4c3a8850f8c1affe16293a0a84da129752371fa45683ceb0a771d32a585",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0015-UPS-Q4-FY22-Income-Statement.png",
-      "before": "sha256:8c2412174d226586f6358f4aaf85c98533835476ab7b438a66e1eebe5e6e92ee",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0032-UPS-Q4-FY23-Income-Statement.png",
-      "before": "sha256:ee2d5adf50b9db28d1718bca758cf0035bc839376e605632a365b2f4c8ed0f7a",
-      "digest": null,
-      "intakeOwned": true
+      "path": "input/icon-crop-specs/salesforce-q4-fy25.json",
+      "digest": "sha256:8cf54a95b1f28caee19fd86fde0b879c2a86930aced0d9648e5798a51bddc255",
+      "before": null
     }
   ],
   "release": {
-    "version": "0b283a793fe30fe8200d0c6d8bb417dda23a382b5af78e742cca57597b6f7d2b",
-    "contentDigest": "sha256:a3972bbf42d10d9bdbb5479545f0f2ad84552b320cb11cf894e851d6819388b1"
+    "version": "5eb30954692a537f99aaa3f72aaa670e257bf0928df794304daa47e33a3fa7fa",
+    "contentDigest": "sha256:e44cee598c5f6558e8b5442df50606bc9d08a2394549e93d540339e98388d99b"
   },
   "approval": {
     "operator": "Charles Liu",
     "accepted": true,
-    "candidateDigest": "sha256:4cd0b3201684e8b8e78a17f22cd97a9d0410b98cc464e3ac5d930bcdb5484021",
+    "candidateDigest": "sha256:69d4fc9c4f20a6c492e28b1655b512d88fb201fb83c7271245d5ec93856a7b87",
     "basis": "inherited-build-acceptance",
-    "note": "操作员原话：我已经全都人工审阅通过，可以都推送远端并合入了~（2026-10-18）",
-    "planDigest": "sha256:ff62105532b50da4e5d767b8748e3407c5aa95b7a34386e4b4217b58bfb9401c",
-    "recordedAt": "2026-10-18T08:52:22.063Z"
+    "note": "操作员原话：我已经验收全通过了~ 可以开始推送远端并合入（2026-10-19）",
+    "planDigest": "sha256:92e13d831f7d410ef4a3a4aeae30cbcc2bbde0509845c6dd5eab0f365db77e3d",
+    "recordedAt": "2026-10-19T13:36:06.342Z"
   }
 }

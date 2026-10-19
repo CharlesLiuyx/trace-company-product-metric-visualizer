@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "salesforce-q1-fy24-mulesoft",
+  "artifact": {
+    "path": "data/assets/raster-annotations/salesforce/q1-fy24-mulesoft.png",
+    "digest": "sha256:bb486eda9b7d3b2d757a48b834b4eff755b5c08bce73fc165b776bef4db01897"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/salesforce-q1-fy24.json",
+    "digest": "sha256:89aaa05a46c1d19b2519ffbadc64edf1972e8ef3b56d2890b01e1a38e46614ae"
+  },
+  "source": {
+    "path": "input/processed/salesforce-q1-fy24.png",
+    "digest": "sha256:8bc73343212e189b5a594b1c9e9872d75c4cf78d3c848e37ab6b45e9e0031856"
+  },
+  "review": {
+    "reviewer": "codex-source-crop-validation",
+    "decision": "accepted",
+    "artifactDigest": "sha256:bb486eda9b7d3b2d757a48b834b4eff755b5c08bce73fc165b776bef4db01897",
+    "note": "2026-10-19: visually compared Source, validation sheets and extracted subjects; complete isolated icon, no text/flow/neighbor contamination; seven extractor checks pass. Crop validation only; Dataset operator acceptance remains pending."
+  },
+  "versionDigest": "sha256:501373d7fb7ca446a92f2c9b2dabae3675349f677e0cef2e6a8ec106809d6770"
+}

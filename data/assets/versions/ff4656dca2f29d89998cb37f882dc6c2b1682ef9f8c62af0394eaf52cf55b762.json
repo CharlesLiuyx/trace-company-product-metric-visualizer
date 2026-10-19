@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Salesforce Q4 FY23 marketing-commerce",
+  "artifact": {
+    "path": "data/assets/raster-annotations/salesforce/q4-fy23-marketing-commerce.png",
+    "digest": "sha256:1d4db0c0d85874b2c5b66b3717c7255ad0edfb5032820f7dfd35f4a1ce839e4d"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/salesforce-q4-fy23.json",
+    "digest": "sha256:4c43f457f030fe4ecbafb5f0267a7f353b93c8bc18275bf4f3101eb8c7223d84"
+  },
+  "source": {
+    "path": "input/processed/salesforce-q4-fy23.png",
+    "digest": "sha256:7900978b9046053f0968bb960e426fc86a0a0a755b2920ff70c5f58a1549bb05"
+  },
+  "review": {
+    "reviewer": "Codex model visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:1d4db0c0d85874b2c5b66b3717c7255ad0edfb5032820f7dfd35f4a1ce839e4d",
+    "note": "Compared this exact runtime PNG to the source and extraction validation sheet. Complete icon subject; original proportions; transparent background. No visible text, flows, publisher branding or adjacent icons. All crop validation checks pass. Dataset acceptance remains pending operator review."
+  },
+  "versionDigest": "sha256:ff4656dca2f29d89998cb37f882dc6c2b1682ef9f8c62af0394eaf52cf55b762"
+}

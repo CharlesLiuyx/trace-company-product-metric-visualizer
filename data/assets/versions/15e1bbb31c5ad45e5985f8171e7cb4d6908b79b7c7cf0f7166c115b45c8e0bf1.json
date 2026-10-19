@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "salesforce-q1-fy24-marketing-commerce",
+  "artifact": {
+    "path": "data/assets/raster-annotations/salesforce/q1-fy24-marketing-commerce.png",
+    "digest": "sha256:2ebd476fea11494044dad75bfa589c2f131faa695584d3b5d55730bcfe6e230f"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/salesforce-q1-fy24.json",
+    "digest": "sha256:89aaa05a46c1d19b2519ffbadc64edf1972e8ef3b56d2890b01e1a38e46614ae"
+  },
+  "source": {
+    "path": "input/processed/salesforce-q1-fy24.png",
+    "digest": "sha256:8bc73343212e189b5a594b1c9e9872d75c4cf78d3c848e37ab6b45e9e0031856"
+  },
+  "review": {
+    "reviewer": "codex-source-crop-validation",
+    "decision": "accepted",
+    "artifactDigest": "sha256:2ebd476fea11494044dad75bfa589c2f131faa695584d3b5d55730bcfe6e230f",
+    "note": "2026-10-19: visually compared Source, validation sheets and extracted subjects; complete isolated icon, no text/flow/neighbor contamination; seven extractor checks pass. Crop validation only; Dataset operator acceptance remains pending."
+  },
+  "versionDigest": "sha256:15e1bbb31c5ad45e5985f8171e7cb4d6908b79b7c7cf0f7166c115b45c8e0bf1"
+}

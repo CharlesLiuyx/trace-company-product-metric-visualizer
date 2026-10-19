@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "salesforce-q3-fy25-tableau",
+  "artifact": {
+    "path": "data/assets/raster-annotations/salesforce/q3-fy25-tableau.png",
+    "digest": "sha256:24bf14ff8a58a15cbab28145a53d6e6b90082f73c57edbd644ce2d7dae18d517"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/salesforce-q3-fy25.json",
+    "digest": "sha256:3f030c9ca6b751f78747729d6009d8f7518cce2bc5f5bc8ca0b39c94794b1501"
+  },
+  "source": {
+    "path": "input/processed/salesforce-q3-fy25.png",
+    "digest": "sha256:ceb3726e6fe2ebfffbac04d6c333e567d5479e27453bff6237c8bdf6e8e874e2"
+  },
+  "review": {
+    "reviewer": "Codex model visual inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:24bf14ff8a58a15cbab28145a53d6e6b90082f73c57edbd644ce2d7dae18d517",
+    "note": "Inspected generated Source/crop validation sheet: complete native icon, centered with margins, no labels, links, publisher or neighboring icons; script isolation checks passed. Exact bytes bound after background removal and compression."
+  },
+  "versionDigest": "sha256:4013aae2910674548c10994cc82ccadbb5ae97b1849179a92b3c1b062e8d9c66"
+}

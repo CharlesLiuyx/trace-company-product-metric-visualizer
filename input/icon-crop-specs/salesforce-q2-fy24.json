@@ -1,0 +1,223 @@
+{
+  "source": "input/processed/salesforce-q2-fy24.png",
+  "outputDir": "data/assets/icon-references/salesforce/q2-fy24",
+  "validationSheetDir": "data/assets/icon-references/salesforce/q2-fy24/validation-sheets",
+  "runtimeOutputDir": "data/assets/raster-annotations/salesforce",
+  "report": "crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [
+      242,
+      242,
+      242
+    ]
+  },
+  "crops": [
+    {
+      "key": "salesforce-q2-fy24-company-logo",
+      "output": "crops/q2-fy24-company-logo.png",
+      "runtimeOutput": "q2-fy24-company-logo.png",
+      "searchBox": {
+        "x": 1028,
+        "y": 233,
+        "width": 347,
+        "height": 245
+      },
+      "cropBox": {
+        "x": 1028,
+        "y": 233,
+        "width": 347,
+        "height": 245
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Only the complete icon subject; excludes chart labels, links, neighboring icons and publisher marks."
+    },
+    {
+      "key": "salesforce-q2-fy24-sales",
+      "output": "crops/q2-fy24-sales.png",
+      "runtimeOutput": "q2-fy24-sales.png",
+      "searchBox": {
+        "x": 221,
+        "y": 320,
+        "width": 111,
+        "height": 111
+      },
+      "cropBox": {
+        "x": 221,
+        "y": 320,
+        "width": 111,
+        "height": 111
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Only the complete icon subject; excludes chart labels, links, neighboring icons and publisher marks.",
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "color": [
+          242,
+          242,
+          242
+        ]
+      }
+    },
+    {
+      "key": "salesforce-q2-fy24-service",
+      "output": "crops/q2-fy24-service.png",
+      "runtimeOutput": "q2-fy24-service.png",
+      "searchBox": {
+        "x": 195,
+        "y": 572,
+        "width": 105,
+        "height": 92
+      },
+      "cropBox": {
+        "x": 195,
+        "y": 572,
+        "width": 105,
+        "height": 92
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Only the complete icon subject; excludes chart labels, links, neighboring icons and publisher marks."
+    },
+    {
+      "key": "salesforce-q2-fy24-slack",
+      "output": "crops/q2-fy24-slack.png",
+      "runtimeOutput": "q2-fy24-slack.png",
+      "searchBox": {
+        "x": 153,
+        "y": 777,
+        "width": 126,
+        "height": 127
+      },
+      "cropBox": {
+        "x": 153,
+        "y": 777,
+        "width": 126,
+        "height": 127
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Only the complete icon subject; excludes chart labels, links, neighboring icons and publisher marks."
+    },
+    {
+      "key": "salesforce-q2-fy24-marketing-commerce",
+      "output": "crops/q2-fy24-marketing-commerce.png",
+      "runtimeOutput": "q2-fy24-marketing-commerce.png",
+      "searchBox": {
+        "x": 100,
+        "y": 1040,
+        "width": 120,
+        "height": 120
+      },
+      "cropBox": {
+        "x": 100,
+        "y": 1040,
+        "width": 120,
+        "height": 120
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Only the complete icon subject; excludes chart labels, links, neighboring icons and publisher marks. The top-right exclusion removes a Marketing label fragment without touching the icon.",
+      "excludeBoxes": [
+        {
+          "x": 204,
+          "y": 1040,
+          "width": 16,
+          "height": 38
+        }
+      ]
+    },
+    {
+      "key": "salesforce-q2-fy24-mulesoft",
+      "output": "crops/q2-fy24-mulesoft.png",
+      "runtimeOutput": "q2-fy24-mulesoft.png",
+      "searchBox": {
+        "x": 147,
+        "y": 1253,
+        "width": 118,
+        "height": 116
+      },
+      "cropBox": {
+        "x": 147,
+        "y": 1253,
+        "width": 118,
+        "height": 116
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Only the complete icon subject; excludes chart labels, links, neighboring icons and publisher marks."
+    },
+    {
+      "key": "salesforce-q2-fy24-tableau",
+      "output": "crops/q2-fy24-tableau.png",
+      "runtimeOutput": "q2-fy24-tableau.png",
+      "searchBox": {
+        "x": 256,
+        "y": 1183,
+        "width": 109,
+        "height": 111
+      },
+      "cropBox": {
+        "x": 256,
+        "y": 1183,
+        "width": 109,
+        "height": 111
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Only the complete icon subject; excludes chart labels, links, neighboring icons and publisher marks."
+    }
+  ],
+  "skipped": [
+    {
+      "key": "publisher",
+      "reason": "Publisher branding and URL are not business icons."
+    }
+  ]
+}

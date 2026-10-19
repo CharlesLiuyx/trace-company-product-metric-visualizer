@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "salesforce-q3-fy23-service-icon",
+  "artifact": {
+    "path": "data/assets/raster-annotations/salesforce/q3-fy23-service-icon.png",
+    "digest": "sha256:e9d711ffd2903615c049f93b9b555df84ae85b6360a200a79593f80e2c7a949f"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/salesforce-q3-fy23.json",
+    "digest": "sha256:f90d4317f8c9028006d4d547d36081d8595787f1758afd0646c7e9caab0778ee"
+  },
+  "source": {
+    "path": "input/processed/salesforce-q3-fy23.png",
+    "digest": "sha256:74372bd9f28407db9099ed00910cf0a32b932110078e3aa00210d0379a353cac"
+  },
+  "review": {
+    "reviewer": "Codex model visual validation",
+    "decision": "accepted",
+    "artifactDigest": "sha256:e9d711ffd2903615c049f93b9b555df84ae85b6360a200a79593f80e2c7a949f",
+    "note": "2026-10-19: Compared the crop and generated validation sheet with the original Source. Complete icon subject; no labels, connectors, neighboring icons or publisher marks. Extractor validation passes. Dataset still awaits operator review."
+  },
+  "versionDigest": "sha256:43e53bb2cb3ccb19cd3ddbfdc331e58b44ca52b89a89b007e62f00250f218c5a"
+}

@@ -1,0 +1,691 @@
+{
+  "source": "input/processed/salesforce-q1-fy25.png",
+  "spec": "input/icon-crop-specs/salesforce-q1-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-19T06:53:10.622439+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/salesforce",
+  "crops": [
+    {
+      "key": "salesforce-q1-fy25-company-logo",
+      "output": "data/assets/icon-references/salesforce/q1-fy25/crops/q1-fy25-company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 3622,
+        "losslessBytes": 17709,
+        "savingsVsLossless": 0.7955,
+        "metrics": {
+          "meanAbsoluteError": 0.2624,
+          "rootMeanSquareError": 1.7454,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.0822
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 31434,
+        "transparentPixelRatio": 0.3552
+      },
+      "searchBox": {
+        "x": 1027,
+        "y": 230,
+        "width": 354,
+        "height": 250
+      },
+      "componentCount": 5,
+      "subjectBox": {
+        "x0": 1035,
+        "y0": 238,
+        "x1": 1371,
+        "y1": 474
+      },
+      "cropBox": {
+        "x0": 1027,
+        "y0": 230,
+        "x1": 1381,
+        "y1": 480
+      },
+      "validation": {
+        "width": 354,
+        "height": 250,
+        "foregroundPixels": 53579,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 8,
+          "right": 10,
+          "top": 8,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": -0.0028,
+          "y": 0.004
+        },
+        "passes": true
+      },
+      "note": "Complete original icon only; excludes text, nodes, links and publisher branding.",
+      "runtimeOutput": "data/assets/raster-annotations/salesforce/q1-fy25-company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 3622,
+        "losslessBytes": 17709,
+        "savingsVsLossless": 0.7955,
+        "metrics": {
+          "meanAbsoluteError": 0.2624,
+          "rootMeanSquareError": 1.7454,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.0822
+        }
+      },
+      "validationSheet": "data/assets/icon-references/salesforce/q1-fy25/validation-sheets/salesforce-q1-fy25-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 100850,
+        "losslessBytes": 295345,
+        "savingsVsLossless": 0.6585,
+        "metrics": {
+          "meanAbsoluteError": 0.4017,
+          "rootMeanSquareError": 2.3962,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 62,
+          "changedPixelRatio": 0.0941
+        }
+      }
+    },
+    {
+      "key": "salesforce-q1-fy25-sales",
+      "output": "data/assets/icon-references/salesforce/q1-fy25/crops/q1-fy25-sales.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 7506,
+        "losslessBytes": 7506,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          17,
+          206,
+          192
+        ],
+        "transparentPixels": 0,
+        "transparentPixelRatio": 0.0
+      },
+      "searchBox": {
+        "x": 219,
+        "y": 332,
+        "width": 115,
+        "height": 118
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 224,
+        "y0": 338,
+        "x1": 329,
+        "y1": 444
+      },
+      "cropBox": {
+        "x0": 219,
+        "y0": 332,
+        "x1": 334,
+        "y1": 450
+      },
+      "validation": {
+        "width": 115,
+        "height": 118,
+        "foregroundPixels": 10438,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 5,
+          "right": 5,
+          "top": 6,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Complete original icon only; excludes text, nodes, links and publisher branding.",
+      "runtimeOutput": "data/assets/raster-annotations/salesforce/q1-fy25-sales.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 7506,
+        "losslessBytes": 7506,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/salesforce/q1-fy25/validation-sheets/salesforce-q1-fy25-sales.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 105076,
+        "losslessBytes": 306666,
+        "savingsVsLossless": 0.6574,
+        "metrics": {
+          "meanAbsoluteError": 0.5107,
+          "rootMeanSquareError": 2.5069,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 57,
+          "changedPixelRatio": 0.1487
+        }
+      }
+    },
+    {
+      "key": "salesforce-q1-fy25-service",
+      "output": "data/assets/icon-references/salesforce/q1-fy25/crops/q1-fy25-service.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 1504,
+        "losslessBytes": 8294,
+        "savingsVsLossless": 0.8187,
+        "metrics": {
+          "meanAbsoluteError": 0.8919,
+          "rootMeanSquareError": 2.125,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 32,
+          "changedPixelRatio": 0.5336
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 5228,
+        "transparentPixelRatio": 0.4806
+      },
+      "searchBox": {
+        "x": 193,
+        "y": 569,
+        "width": 111,
+        "height": 98
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 198,
+        "y0": 576,
+        "x1": 298,
+        "y1": 660
+      },
+      "cropBox": {
+        "x0": 193,
+        "y0": 569,
+        "x1": 304,
+        "y1": 667
+      },
+      "validation": {
+        "width": 111,
+        "height": 98,
+        "foregroundPixels": 5521,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 5,
+          "right": 6,
+          "top": 7,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": -0.0045,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Complete original icon only; excludes text, nodes, links and publisher branding.",
+      "runtimeOutput": "data/assets/raster-annotations/salesforce/q1-fy25-service.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 1504,
+        "losslessBytes": 8294,
+        "savingsVsLossless": 0.8187,
+        "metrics": {
+          "meanAbsoluteError": 0.8919,
+          "rootMeanSquareError": 2.125,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 32,
+          "changedPixelRatio": 0.5336
+        }
+      },
+      "validationSheet": "data/assets/icon-references/salesforce/q1-fy25/validation-sheets/salesforce-q1-fy25-service.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 115209,
+        "losslessBytes": 329056,
+        "savingsVsLossless": 0.6499,
+        "metrics": {
+          "meanAbsoluteError": 0.4294,
+          "rootMeanSquareError": 2.341,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 51,
+          "changedPixelRatio": 0.1142
+        }
+      }
+    },
+    {
+      "key": "salesforce-q1-fy25-slack",
+      "output": "data/assets/icon-references/salesforce/q1-fy25/crops/q1-fy25-slack.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2370,
+        "losslessBytes": 9503,
+        "savingsVsLossless": 0.7506,
+        "metrics": {
+          "meanAbsoluteError": 0.774,
+          "rootMeanSquareError": 2.4537,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 45,
+          "changedPixelRatio": 0.6533
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 6285,
+        "transparentPixelRatio": 0.3663
+      },
+      "searchBox": {
+        "x": 150,
+        "y": 788,
+        "width": 130,
+        "height": 132
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 158,
+        "y0": 795,
+        "x1": 274,
+        "y1": 912
+      },
+      "cropBox": {
+        "x0": 150,
+        "y0": 788,
+        "x1": 280,
+        "y1": 920
+      },
+      "validation": {
+        "width": 130,
+        "height": 132,
+        "foregroundPixels": 10833,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 8,
+          "right": 6,
+          "top": 7,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0077,
+          "y": -0.0038
+        },
+        "passes": true
+      },
+      "note": "Complete original icon only; excludes text, nodes, links and publisher branding.",
+      "runtimeOutput": "data/assets/raster-annotations/salesforce/q1-fy25-slack.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2370,
+        "losslessBytes": 9503,
+        "savingsVsLossless": 0.7506,
+        "metrics": {
+          "meanAbsoluteError": 0.774,
+          "rootMeanSquareError": 2.4537,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 45,
+          "changedPixelRatio": 0.6533
+        }
+      },
+      "validationSheet": "data/assets/icon-references/salesforce/q1-fy25/validation-sheets/salesforce-q1-fy25-slack.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 321640,
+        "losslessBytes": 321640,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "salesforce-q1-fy25-marketing-commerce",
+      "output": "data/assets/icon-references/salesforce/q1-fy25/crops/q1-fy25-marketing-commerce.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 13424,
+        "losslessBytes": 13424,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 6709,
+        "transparentPixelRatio": 0.4509
+      },
+      "searchBox": {
+        "x": 99,
+        "y": 1033,
+        "width": 120,
+        "height": 124
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 106,
+        "y0": 1039,
+        "x1": 214,
+        "y1": 1150
+      },
+      "cropBox": {
+        "x0": 99,
+        "y0": 1033,
+        "x1": 219,
+        "y1": 1157
+      },
+      "validation": {
+        "width": 120,
+        "height": 124,
+        "foregroundPixels": 6571,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 5,
+          "top": 6,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": 0.0083,
+          "y": -0.004
+        },
+        "passes": true
+      },
+      "note": "Complete original icon only; excludes text, nodes, links and publisher branding.",
+      "excludedPixels": 1053,
+      "runtimeOutput": "data/assets/raster-annotations/salesforce/q1-fy25-marketing-commerce.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 13424,
+        "losslessBytes": 13424,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/salesforce/q1-fy25/validation-sheets/salesforce-q1-fy25-marketing-commerce.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 125528,
+        "losslessBytes": 350702,
+        "savingsVsLossless": 0.6421,
+        "metrics": {
+          "meanAbsoluteError": 0.4708,
+          "rootMeanSquareError": 2.4423,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 61,
+          "changedPixelRatio": 0.1328
+        }
+      }
+    },
+    {
+      "key": "salesforce-q1-fy25-mulesoft",
+      "output": "data/assets/icon-references/salesforce/q1-fy25/crops/q1-fy25-mulesoft.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 14855,
+        "losslessBytes": 14855,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 5049,
+        "transparentPixelRatio": 0.3536
+      },
+      "searchBox": {
+        "x": 96,
+        "y": 1177,
+        "width": 119,
+        "height": 120
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 102,
+        "y0": 1183,
+        "x1": 210,
+        "y1": 1291
+      },
+      "cropBox": {
+        "x0": 96,
+        "y0": 1177,
+        "x1": 215,
+        "y1": 1297
+      },
+      "validation": {
+        "width": 119,
+        "height": 120,
+        "foregroundPixels": 6969,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 5,
+          "top": 6,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": 0.0042,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Complete original icon only; excludes text, nodes, links and publisher branding.",
+      "runtimeOutput": "data/assets/raster-annotations/salesforce/q1-fy25-mulesoft.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 14855,
+        "losslessBytes": 14855,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/salesforce/q1-fy25/validation-sheets/salesforce-q1-fy25-mulesoft.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 130243,
+        "losslessBytes": 364021,
+        "savingsVsLossless": 0.6422,
+        "metrics": {
+          "meanAbsoluteError": 0.4946,
+          "rootMeanSquareError": 2.4853,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 60,
+          "changedPixelRatio": 0.1388
+        }
+      }
+    },
+    {
+      "key": "salesforce-q1-fy25-tableau",
+      "output": "data/assets/icon-references/salesforce/q1-fy25/crops/q1-fy25-tableau.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 2724,
+        "losslessBytes": 2724,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 8471,
+        "transparentPixelRatio": 0.7985
+      },
+      "searchBox": {
+        "x": 130,
+        "y": 1299,
+        "width": 104,
+        "height": 102
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 138,
+        "y0": 1306,
+        "x1": 228,
+        "y1": 1395
+      },
+      "cropBox": {
+        "x0": 130,
+        "y0": 1299,
+        "x1": 234,
+        "y1": 1401
+      },
+      "validation": {
+        "width": 104,
+        "height": 102,
+        "foregroundPixels": 1947,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 8,
+          "right": 6,
+          "top": 7,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": 0.0096,
+          "y": 0.0049
+        },
+        "passes": true
+      },
+      "note": "Complete original icon only; excludes text, nodes, links and publisher branding.",
+      "excludedPixels": 208,
+      "runtimeOutput": "data/assets/raster-annotations/salesforce/q1-fy25-tableau.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 2724,
+        "losslessBytes": 2724,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/salesforce/q1-fy25/validation-sheets/salesforce-q1-fy25-tableau.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 108299,
+        "losslessBytes": 304309,
+        "savingsVsLossless": 0.6441,
+        "metrics": {
+          "meanAbsoluteError": 0.4335,
+          "rootMeanSquareError": 2.2264,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 56,
+          "changedPixelRatio": 0.1179
+        }
+      }
+    }
+  ]
+}

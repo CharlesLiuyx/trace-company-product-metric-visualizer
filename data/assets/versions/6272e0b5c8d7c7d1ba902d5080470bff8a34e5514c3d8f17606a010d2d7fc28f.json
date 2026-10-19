@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "salesforce-q4-fy25-marketing-commerce",
+  "artifact": {
+    "path": "data/assets/raster-annotations/salesforce/q4-fy25-marketing-commerce.png",
+    "digest": "sha256:ad09af26e92c2b13b4bbb342eca2a948a5a67ac08d2c5e9de0944b7fd3ee688e"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/salesforce-q4-fy25.json",
+    "digest": "sha256:8cf54a95b1f28caee19fd86fde0b879c2a86930aced0d9648e5798a51bddc255"
+  },
+  "source": {
+    "path": "input/processed/salesforce-q4-fy25.png",
+    "digest": "sha256:496002d84fe235a476f00c65652bd25541755a17fd28c692447e14ff1f0b5263"
+  },
+  "review": {
+    "reviewer": "Codex — model crop inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:ad09af26e92c2b13b4bbb342eca2a948a5a67ac08d2c5e9de0944b7fd3ee688e",
+    "note": "2026-10-19: Compared original Source, highlighted crop validation sheet, and extracted icon. Complete icon preserved; neighboring labels, flows and publisher excluded. Transparent background and compressed runtime PNG verified. This is model asset inspection; the DatasetBuild remains pending operator review."
+  },
+  "versionDigest": "sha256:6272e0b5c8d7c7d1ba902d5080470bff8a34e5514c3d8f17606a010d2d7fc28f"
+}
