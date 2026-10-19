@@ -1,13 +1,19 @@
 import { spawn } from 'node:child_process';
 
-export function runCheckProcess(command, args, options = {}) {
+// timeoutMs bounds a step: a hung child (e.g. a test awaiting a promise that
+// never settles) fails with timedOut instead of blocking prepare forever.
+export function runCheckProcess(command, args, { timeoutMs = 0, ...options } = {}) {
   return new Promise((resolve, reject) => {
     const child = spawn(command, args, { ...options, stdio: ['ignore', 'pipe', 'pipe'] });
-    let stdout = '', stderr = '';
+    let stdout = '', stderr = '', timedOut = false, kill;
+    const timer = timeoutMs > 0 ? setTimeout(() => {
+      timedOut = true; child.kill('SIGTERM');
+      kill = setTimeout(() => child.kill('SIGKILL'), 5000);
+    }, timeoutMs) : null;
     child.stdout.on('data', (chunk) => { stdout += chunk; });
     child.stderr.on('data', (chunk) => { stderr += chunk; });
-    child.on('error', reject);
-    child.on('close', (status, signal) => resolve({ status, signal, stdout, stderr }));
+    child.on('error', (error) => { clearTimeout(timer); clearTimeout(kill); reject(error); });
+    child.on('close', (status, signal) => { clearTimeout(timer); clearTimeout(kill); resolve({ status, signal, stdout, stderr, timedOut }); });
   });
 }
 

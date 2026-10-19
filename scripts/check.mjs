@@ -8,22 +8,30 @@ import { rootDir } from './lib/project.mjs';
 import { runCheckProcess, runChecks } from './lib/check-runner.mjs';
 import { checkPendingQueue, pendingCheckReport } from './lib/pending-queue.mjs';
 
+// Every step finishes in well under a minute; the bound turns a hang into a
+// named failure. A single test is cancelled earlier by --test-timeout.
+const STEP_TIMEOUT_MS = 5 * 60 * 1000;
+const TEST_TIMEOUT_MS = 2 * 60 * 1000;
+const timedOut = (name, result) => result.timedOut ? `${name} timed out after ${STEP_TIMEOUT_MS / 1000}s\n` : '';
+
 async function runVerifier(script, args = [], nodeArgs = []) {
   const result = await runCheckProcess(process.execPath, [...nodeArgs, path.join(rootDir, 'scripts', script), ...args], {
     cwd: rootDir,
     encoding: 'utf8',
+    timeoutMs: STEP_TIMEOUT_MS,
   });
   if (result.status !== 0) {
-    throw new Error(`${script} failed:\n${(result.stdout + result.stderr).trim()}`);
+    throw new Error(`${script} failed:\n${timedOut(script, result)}${(result.stdout + result.stderr).trim()}`);
   }
   const lastLine = result.stdout.trim().split('\n').filter(Boolean).pop() || 'ok';
   return lastLine.length > 100 ? `${lastLine.slice(0, 97)}...` : lastLine;
 }
 
 async function runUnitTests() {
-  const result = await runCheckProcess(process.execPath, ['--test', '--test-reporter=tap', 'tests/*.test.mjs'], {
+  const result = await runCheckProcess(process.execPath, ['--test', `--test-timeout=${TEST_TIMEOUT_MS}`, '--test-reporter=tap', 'tests/*.test.mjs'], {
     cwd: rootDir,
     encoding: 'utf8',
+    timeoutMs: STEP_TIMEOUT_MS,
   });
   const summary = {};
   for (const line of result.stdout.split('\n')) {
@@ -36,7 +44,7 @@ async function runUnitTests() {
       .filter((line) => line.startsWith('not ok'))
       .slice(0, 10)
       .join('\n');
-    throw new Error(`unit tests failed (${summary.fail ?? '?'} failing):\n${failures || result.stderr.trim()}`);
+    throw new Error(`${timedOut('unit tests', result)}unit tests failed (${summary.fail ?? '?'} failing):\n${failures || result.stderr.trim()}`);
   }
   return `${summary.pass ?? '?'} unit tests passed`;
 }

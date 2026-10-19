@@ -10,7 +10,7 @@
     "plan:ci": "node scripts/plan-ci.mjs",
     "check": "node scripts/check.mjs",
     "clean:artifacts": "node scripts/clean-artifacts.mjs",
-    "test": "node --test \"tests/*.test.mjs\"",
+    "test": "node --test --test-timeout=120000 \"tests/*.test.mjs\"",
     "build:site": "node scripts/build-site.mjs",
     "verify:site": "node scripts/verify-site.mjs",
     "build:standalone": "node scripts/build-standalone.mjs",

@@ -21,6 +21,16 @@ test('independent checks overlap within the limit and drain all failures', async
   await assert.rejects(runCheckProcess('/trace-nonexistent-executable', []), /ENOENT/);
 });
 
+test('a hung check process is terminated at its timeout instead of blocking forever', async () => {
+  const started = Date.now();
+  const result = await runCheckProcess(process.execPath, ['-e', 'setInterval(() => {}, 1000)'], { timeoutMs: 200 });
+  assert.equal(result.timedOut, true);
+  assert.notEqual(result.status, 0);
+  assert.ok(Date.now() - started < 5000);
+  const quick = await runCheckProcess(process.execPath, ['-e', 'process.stdout.write("ok")'], { timeoutMs: 5000 });
+  assert.equal(quick.timedOut, false); assert.equal(quick.stdout, 'ok');
+});
+
 test('batch syntax parsing matches node --check for module grammar without executing code', async (t) => {
   const dir = await mkdtemp(path.join(os.tmpdir(), 'trace-syntax-'));
   t.after(() => rm(dir, { recursive: true, force: true }));

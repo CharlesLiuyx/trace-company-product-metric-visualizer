@@ -12,11 +12,11 @@ import { digestValue } from '../scripts/lib/dataset-build.mjs';
 import { siteContentDigest } from '../scripts/lib/site-release-identity.mjs';
 import { applicationManifest } from '../scripts/lib/workflow-application.mjs';
 const git = (root, args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
-async function fixture(t, { reviewedApplication = false } = {}) {
+async function fixture(t, { reviewedApplication = false, localOnly = false } = {}) {
   const root = await mkdtemp(path.join(os.tmpdir(), 'trace-git-transport-'));
   t.after(() => rm(root, { recursive: true, force: true }));
   await mkdir(path.join(root, 'data/metric-observations'), { recursive: true });
-  await writeFile(path.join(root, '.gitignore'), 'output/\n_site/\n');
+  await writeFile(path.join(root, '.gitignore'), `output/\n_site/\n${localOnly ? 'data/assets/icon-references/**/validation-sheets/\n' : ''}`);
   await writeFile(path.join(root, 'index.html'), '<!doctype html>fixture');
   await writeFile(path.join(root, 'notes.md'), 'existing unrelated note');
   git(root, ['init', '-b', 'main']); git(root, ['config', 'user.name', 'Fixture']); git(root, ['config', 'user.email', 'fixture@example.test']); git(root, ['add', '.']); git(root, ['commit', '-m', 'test: base']);
@@ -24,12 +24,14 @@ async function fixture(t, { reviewedApplication = false } = {}) {
   await copyFiles(root, candidate, base.entries.map((item) => item.path));
   const file = 'data/metric-observations/example.json', value = '{"value":42}\n';
   await mkdir(path.join(candidate, 'data/metric-observations'), { recursive: true }); await writeFile(path.join(candidate, file), value);
+  const sheet = 'data/assets/icon-references/example/q1/validation-sheets/example-logo.png';
+  if (localOnly) { await mkdir(path.dirname(path.join(candidate, sheet)), { recursive: true }); await writeFile(path.join(candidate, sheet), 'local-only sheet'); }
   const published = await fileManifest(candidate), tree = path.join(root, 'output/publications/trees', published.digest.slice(7));
   await copyFiles(candidate, tree, published.entries.map((item) => item.path));
   let planDigest;
   const buildId = 'build-aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee';
   await atomicJson(path.join(root, `output/builds/${buildId}/manifest.json`), { sources: [], receipts: [{ state: 'AUTHORED', payload: { artifacts: [] } }] });
-  const publication = { ...(reviewedApplication ? { applicationDigest: (await applicationManifest(root)).digest } : {}), projectedTreeDigest: published.digest, baseCanonicalDigest: base.digest, builds: [{ buildId, key: 'example', sealDigest: 'fixture' }], contributions: [{ path: file, digest: bytesDigest(value), baseDigest: null, buildId }] };
+  const publication = { ...(reviewedApplication ? { applicationDigest: (await applicationManifest(root)).digest } : {}), projectedTreeDigest: published.digest, baseCanonicalDigest: base.digest, builds: [{ buildId, key: 'example', sealDigest: 'fixture' }], contributions: [{ path: file, digest: bytesDigest(value), baseDigest: null, buildId }, ...(localOnly ? [{ path: sheet, digest: bytesDigest('local-only sheet'), baseDigest: null, buildId }] : [])] };
   planDigest = digestValue(publication);
   await atomicJson(path.join(root, `output/publications/plans/${planDigest.slice(7)}/plan.json`), { ...publication, planDigest });
   await atomicJson(path.join(root, 'output/publications/current.json'), { publishedDigest: published.digest, planDigest, previousDigest: base.digest });
@@ -41,7 +43,7 @@ async function fixture(t, { reviewedApplication = false } = {}) {
     await atomicJson(path.join(site, 'site-release.json'), { schema: 'trace-site-release/v1', version, contentDigest: await siteContentDigest(site, version) });
   }
   const prepare = () => prepareGitTransport(published.digest, root, { validate });
-  return { root, file, prepare };
+  return { root, file, sheet, prepare };
 }
 async function approve(plan, root) { return reviewGitTransport(plan.id, { operator: 'test fixture', accepted: true, candidateDigest: plan.candidateDigest }, root); }
 test('transport stages only accepted paths, preserves unrelated work and recovers an interrupted commit exactly once', async (t) => {
@@ -58,6 +60,16 @@ test('transport stages only accepted paths, preserves unrelated work and recover
   assert.equal(git(root, ['diff', '--cached', '--name-only']), '');
   assert.equal(git(root, ['status', '--porcelain']), 'M notes.md');
   assert.deepEqual(await commitGitTransport(plan.id, root), result);
+});
+test('Git-ignored local-only sheets in a publication are left out of the hand-off commit', async (t) => {
+  const { root, file, sheet, prepare } = await fixture(t, { localOnly: true }), plan = await prepare();
+  assert.ok(plan.paths.some((entry) => entry.path === file));
+  assert.ok(!plan.paths.some((entry) => entry.path === sheet));
+  await approve(plan, root);
+  const result = await commitGitTransport(plan.id, root);
+  assert.equal(git(root, ['rev-parse', 'HEAD']), result.commit);
+  assert.ok(git(root, ['ls-tree', '-r', '--name-only', 'HEAD']).split('\n').includes(file));
+  assert.ok(!git(root, ['ls-tree', '-r', '--name-only', 'HEAD']).includes('validation-sheets'));
 });
 test('staged or overlapping user work blocks before mutation; a competing prepared candidate cannot reuse old HEAD', async (t) => {
   const { root, file, prepare } = await fixture(t), a = await prepare(), b = await prepare();

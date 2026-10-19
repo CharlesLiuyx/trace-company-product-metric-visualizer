@@ -279,7 +279,7 @@ export async function startWorkbench({ root = rootDir, port = 8000, build = run,
     if (Date.now() - gitAt < 15000) return git;
     gitAt = Date.now();
     try {
-      const results = await Promise.all([exec('git', ['rev-parse', 'HEAD'], { cwd: root }), exec('git', ['status', '--porcelain'], { cwd: root })]);
+      const results = await Promise.all([exec('git', ['rev-parse', 'HEAD'], { cwd: root, timeout: 5000 }), exec('git', ['status', '--porcelain'], { cwd: root, timeout: 5000 })]);
       git = { head: results[0].stdout.trim(), dirty: Boolean(results[1].stdout.trim()), checkedAt: new Date().toISOString() };
     } catch (error) { git = { error: error.message }; }
     return git;
