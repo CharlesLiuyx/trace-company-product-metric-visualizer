@@ -39,7 +39,7 @@
 
 候选 `members` 分别绑定每个 Build 的 sourceDigest 与 reviewToken。只有其当前检查
 仍然有效，且汇总后该 Build 的语义数据、显示时间、应用代码与已有资产仍一致，才给出
-可用于验收的 reviewToken；否则显示“待任务更新检查”。`record:workflow accept`（以及兼容入口 `review`）
+可用于验收的 reviewToken；否则显示“待任务更新检查”。资产比较不含资产目录 Markdown 与 Git 忽略的裁剪校验图（`validation-sheets/`）：查看器不加载它们，Git 交接也不把它们带回根目录。`record:workflow accept`（以及兼容入口 `review`）
 从实际显示候选解析成员，核对 token、workspace 的 source 摘要与站点完整性。
 候选自己的工具版本已冻结；根目录后来更新工具或文档不会使它失效。
 同页查看、切换下一项或自动构建均不产生人工接受；一份候选也不会替另一份 Build 接受。

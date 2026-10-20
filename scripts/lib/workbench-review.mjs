@@ -13,7 +13,12 @@ const GENERATED = new Set(['data/dataset-manifest.js', 'data/metric-observations
 // Asset-folder Markdown (README, model-validation records) documents crops but
 // is never loaded by the viewer, so another draft's note cannot change a render.
 const isAssetDocumentation = (file) => file.startsWith('data/assets/') && file.endsWith('.md');
-const dataPath = (file) => (file.startsWith('data/') || /^input\/icon-crop-specs\/[^/]+\.json$/.test(file)) && !GENERATED.has(file);
+// Crop validation sheets mirror the .gitignore rule
+// `data/assets/icon-references/**/validation-sheets/`: local review material the
+// viewer never loads. Published trees (Build bases) keep them, but a Git
+// hand-off never brings them into the root, so they cannot gate a binding.
+const isLocalValidationSheet = (file) => file.startsWith('data/assets/icon-references/') && file.split('/').slice(3, -1).includes('validation-sheets');
+const dataPath = (file) => (file.startsWith('data/') || /^input\/icon-crop-specs\/[^/]+\.json$/.test(file)) && !GENERATED.has(file) && !isLocalValidationSheet(file);
 const read = (root, file) => readFile(readInside(root, file)).catch((error) => { if (error.code !== 'ENOENT') throw error; return null; });
 async function metadata(root) {
   const source = await read(root, 'data/dataset-file-metadata.js');
@@ -88,7 +93,7 @@ export async function bindReviewMembers(root, snapshot, members, inspect, shared
       const { workspace, build, revision, ...identity } = member;
       let reviewToken = null, reason = '待任务更新检查';
       const authoredArtifacts = build.receipts?.filter((receipt) => receipt.state === 'AUTHORED').at(-1)?.payload.artifacts || [];
-      const assetsMatch = authoredArtifacts.filter((item) => ['asset', 'asset-recipe'].includes(item.role) && !GENERATED.has(item.path) && !isAssetDocumentation(item.path)).every((item) => projected.get(item.path) === item.digest);
+      const assetsMatch = authoredArtifacts.filter((item) => ['asset', 'asset-recipe'].includes(item.role) && !GENERATED.has(item.path) && !isAssetDocumentation(item.path) && !isLocalValidationSheet(item.path)).every((item) => projected.get(item.path) === item.digest);
       const draftApplication = await applicationManifest(workspace);
       if (application.digest === draftApplication.digest && assetsMatch) {
         const [shown, authored] = await Promise.all([

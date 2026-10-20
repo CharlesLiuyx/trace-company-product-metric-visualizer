@@ -145,3 +145,32 @@ test('minimal previews bind omitted references and changed assets from sparse dr
   await writeFile(path.join(target, changed), 'wrong pixels');
   assert.equal((await bindReviewMembers(root, target, members, inspect, shared))[0].reviewToken, null);
 });
+
+test('Git-ignored crop validation sheets present only in the Build base never unbind a member', async (t) => {
+  const crop = 'data/assets/icon-references/a/logo.png';
+  const kept = 'data/assets/icon-references/a/q1/validation-sheets/logo.png';
+  const edited = 'data/assets/icon-references/a/validation-sheets/edited.png';
+  const { root, task, snapshot } = await fixture(t, { [crop]: 'crop pixels', [kept]: 'sheet pixels', [edited]: 'old sheet' });
+  const a = await task('alpha', [{ key: 'original', value: 1 }, { key: 'alpha', value: 2 }]);
+  await writeFile(path.join(a.workspace, edited), 'new sheet');
+  const artifacts = [crop, kept, edited].map((item) => ({ path: item, role: 'asset', digest: bytesDigest(item === crop ? 'crop pixels' : item === kept ? 'sheet pixels' : 'new sheet') }));
+  await atomicJson(path.join(root, `output/builds/${a.buildId}/manifest.json`), {
+    key: a.key, adapter: 'revenue-metric', receipts: [{ state: 'AUTHORED', payload: { artifacts } }],
+  });
+  // A Git hand-off drops ignored files: the root keeps the crop, not the sheets
+  // its published base (the Build baseline) still carries.
+  await rm(path.join(root, 'data/assets/icon-references/a/q1'), { recursive: true });
+  await rm(path.join(root, 'data/assets/icon-references/a/validation-sheets'), { recursive: true });
+  const target = await snapshot('handed-off-review');
+  const shared = (await fileManifest(root)).entries.filter((entry) => entry.path.startsWith('data/assets/icon-references/'));
+  assert.ok(!shared.some((entry) => entry.path.includes('validation-sheets')));
+  await rm(path.join(target, 'data/assets/icon-references'), { recursive: true });
+  const members = await composeReviewData(root, target, [a], fileManifest, { referenceRoot: root });
+  await assert.rejects(readFile(path.join(target, edited)), /ENOENT/, 'the viewer never loads validation sheets, so the projection skips them');
+  const inspect = async () => ({ fresh: true, reviewToken: a.revision });
+  const [bound] = await bindReviewMembers(root, target, members, inspect, shared);
+  assert.equal(bound.reviewToken, a.revision);
+  assert.equal(bound.reason, '待验收');
+  const moved = shared.map((entry) => entry.path === crop ? { ...entry, digest: bytesDigest('other crop') } : entry);
+  assert.equal((await bindReviewMembers(root, target, members, inspect, moved))[0].reviewToken, null, 'a real crop asset still gates the binding');
+});
