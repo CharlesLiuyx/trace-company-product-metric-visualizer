@@ -1033,7 +1033,8 @@
           throw new Error('Sankey SVG annotations contain unsafe attributes');
         }
       }
-      if (checkedMarkup.replace(tagPattern, '').includes('<')) {
+      // A bare "<" in decoded text ("< 120%") is not markup.
+      if (/<\s*[A-Za-z/!?]/.test(checkedMarkup.replace(tagPattern, ''))) {
         throw new Error('Sankey SVG annotations contain malformed markup');
       }
       const compactMarkup = checkedMarkup.replace(/[\u0000-\u0020\u007f]+/g, '');

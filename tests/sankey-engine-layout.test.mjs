@@ -57,8 +57,11 @@ test('renderer accepts only the reviewed passive annotationsSvg vocabulary', () 
       <text>Safe<tspan> text</tspan></text>
     </g></svg>
   `));
+  assert.doesNotThrow(() => assertSafeSvgFragments('<text>DBNR &lt; 120%</text>'));
 
   for (const markup of [
+    '<text>&lt;script</text>',
+    '<text>&amp;lt;!x</text>',
     '<foreignObject><div>unsafe</div></foreignObject>',
     '<style>text{display:none}</style>',
     '<script>throw 1</script>',
