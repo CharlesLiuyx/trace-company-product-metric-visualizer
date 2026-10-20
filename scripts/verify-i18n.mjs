@@ -727,7 +727,8 @@ function annotationSvgSafetyIssue(svgText) {
       || /\b(?:expression\s*\(|@import\b)/i.test(match[0])
     ) return 'contains unsafe attributes';
   }
-  if (checkedMarkup.replace(tagPattern, '').includes('<')) return 'contains malformed markup';
+  // Mirrors src/i18n.js: a bare "<" in text ("< 120%") is not markup.
+  if (/<\s*[A-Za-z/!?]/.test(checkedMarkup.replace(tagPattern, ''))) return 'contains malformed markup';
   const compactMarkup = checkedMarkup.replace(/[\u0000-\u0020\u007f]+/g, '');
   if (/(?:javascript|vbscript|data:text\/html):/i.test(compactMarkup)) {
     return 'contains an unsafe URL';
