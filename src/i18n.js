@@ -677,8 +677,10 @@
         overlayContractError(surface, owner, language, `${path}.safeMarkup`);
       }
     }
+    // Decoded text may legitimately show a bare "<" ("< 120%"); only a
+    // residue that could still open markup is unsafe.
     const residue = checkedMarkup.replace(tagPattern, '');
-    if (residue.includes('<')) {
+    if (/<\s*[A-Za-z/!?]/.test(residue)) {
       overlayContractError(surface, owner, language, `${path}.safeMarkup`);
     }
     const compactMarkup = checkedMarkup.replace(/[\u0000-\u0020\u007f]+/g, '');
@@ -1675,7 +1677,7 @@
     if (raw.startsWith('-')) negative.push('explicit');
     if (currencySign === '+') positive.push('currency');
     if (currencySign === '-') negative.push('currency');
-    const spacedSign = before.match(/([+-])\s*$/)?.[1];
+    const spacedSign = before.match(/(?<!\b(?:low|mid|high|upper|lower))([+-])\s*$/i)?.[1];
     if (spacedSign === '+') positive.push('spaced');
     if (spacedSign === '-') negative.push('spaced');
     if (/[↑▲↗]\s*$/.test(before) || /^\s*[↑▲↗]/.test(after)) positive.push('arrow');
@@ -1852,7 +1854,8 @@
       const month = monthNumbers[monthMatch[1].toLowerCase()];
       if (month) tokens.push(`+:${month}:month::`);
     }
-    const pattern = /[+-]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?/g;
+    // A range qualifier's hyphen ("mid-110%", "high-110%") is not a sign.
+    const pattern = /(?:(?<!\b(?:low|mid|high|upper|lower))[+-])?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?/gi;
     let match;
     while ((match = pattern.exec(value))) {
       const raw = match[0];

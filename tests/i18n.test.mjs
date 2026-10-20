@@ -564,6 +564,40 @@ test('annotation overlays enforce the corpus-derived passive SVG allowlist', () 
   }
 });
 
+test('annotation text may show a bare less-than and word-hyphen ranges stay unsigned', () => {
+  const card = (value) => `<g><text x="10" y="20">DBNR</text><text x="10" y="40">${value}</text></g>`;
+  const dataset = (source, localized) => ({
+    key: 'dbnr-card',
+    name: 'Test',
+    meta: { title: 'Test' },
+    nodes: [],
+    links: [],
+    annotationsSvg: card(source),
+    i18n: { zh: { annotationsSvg: card(localized) } },
+  });
+  for (const [source, localized] of [
+    ['&lt; 120%', '低于 120%'],
+    ['mid-110%', '110% 中段'],
+    ['high-110%', '110% 高段'],
+  ]) {
+    assert.doesNotThrow(
+      () => SANKEY_I18N.localizeDataset(dataset(source, localized), 'zh'),
+      source
+    );
+  }
+  for (const unsafe of ['&lt;script', '&amp;lt;!x', '&lt;img']) {
+    assert.throws(
+      () => SANKEY_I18N.localizeDataset(dataset(unsafe, unsafe), 'zh'),
+      /safeMarkup.*not display-only/,
+      unsafe
+    );
+  }
+  assert.throws(
+    () => SANKEY_I18N.localizeDataset(dataset('high-110%', '-110%'), 'zh'),
+    /visibleAmountBinding.*not display-only/
+  );
+});
+
 test('annotation projection preserves every direct/tspan text slot and only typed text layout', () => {
   const source = [
     '<g transform="translate(10 20)">',
