@@ -1,0 +1,68 @@
+{
+  "source": "input/processed/roblox-q2-fy24.png",
+  "outputDir": "data/assets/raster-annotations/roblox-q2-fy24",
+  "runtimeOutputDir": "data/assets/raster-annotations/roblox-q2-fy24",
+  "validationSheetDir": "output/asset-validation/roblox-q2-fy24",
+  "report": "characters-crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "roblox-q2-fy24-characters",
+      "output": "characters.png",
+      "runtimeOutput": "characters.png",
+      "searchBox": {
+        "x": 712,
+        "y": 913,
+        "width": 353,
+        "height": 204
+      },
+      "cropBox": {
+        "x": 712,
+        "y": 913,
+        "width": 353,
+        "height": 204
+      },
+      "minComponentArea": 20,
+      "excludeBoxes": [
+        {
+          "relativeTo": "crop",
+          "x": 0,
+          "y": 0,
+          "width": 82,
+          "height": 37
+        },
+        {
+          "relativeTo": "crop",
+          "x": 306,
+          "y": 0,
+          "width": 47,
+          "height": 18
+        },
+        {
+          "relativeTo": "crop",
+          "x": 0,
+          "y": 0,
+          "width": 353,
+          "height": 6
+        },
+        {
+          "relativeTo": "crop",
+          "x": 0,
+          "y": 0,
+          "width": 10,
+          "height": 45
+        }
+      ],
+      "note": "Characters only. Transparent exclusions remove blue and pink chart fragments including antialiasing. Source padding preserves all character edges. Runtime placement and dimensions remain unchanged."
+    }
+  ]
+}

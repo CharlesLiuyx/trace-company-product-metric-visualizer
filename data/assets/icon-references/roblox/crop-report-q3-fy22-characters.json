@@ -1,0 +1,111 @@
+{
+  "source": "input/processed/roblox-q3-fy22.png",
+  "spec": "input/icon-crop-specs/roblox-q3-fy22-characters.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-20T09:37:15.091711+00:00",
+  "compression": {
+    "enabled": false,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": false,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/roblox-q3-fy22",
+  "crops": [
+    {
+      "key": "roblox-q3-fy22-characters",
+      "output": "data/assets/icon-references/roblox/crops/q3-fy22-characters.png",
+      "compression": {
+        "enabled": false,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 95257,
+        "losslessBytes": 95257,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 716,
+        "y": 819,
+        "width": 343,
+        "height": 200
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 725,
+        "y0": 824,
+        "x1": 1053,
+        "y1": 1012
+      },
+      "cropBox": {
+        "x0": 716,
+        "y0": 819,
+        "x1": 1059,
+        "y1": 1019
+      },
+      "validation": {
+        "width": 343,
+        "height": 200,
+        "foregroundPixels": 36323,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 9,
+          "right": 6,
+          "top": 5,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": 0.0044,
+          "y": -0.005
+        },
+        "passes": true
+      },
+      "note": "Preserve the native avatar cluster and existing runtime placement. The crop-local top-left 24\u00d728 blank-subject corner contains only the Source Rest of world \u2192 Revenue blue ribbon fragment; clear that corner to transparency. Keep every pixel outside the exclusion unchanged; no chart connector, label, or publisher mark is part of the subject. Extend the bottom canvas by 8 source pixels to retain the complete existing soft shadow with a blank border; preserve avatar scale and the runtime top-left position.",
+      "excludedPixels": 672,
+      "runtimeOutput": "data/assets/raster-annotations/roblox-q3-fy22/characters.png",
+      "runtimeCompression": {
+        "enabled": false,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 95257,
+        "losslessBytes": 95257,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "output/icon-validation/roblox-q3-fy22/roblox-q3-fy22-characters.png",
+      "validationSheetCompression": {
+        "enabled": false,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 371168,
+        "losslessBytes": 371168,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

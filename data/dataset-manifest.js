@@ -31427,6 +31427,1579 @@
             }
           }
         }
+      },
+      {
+        "key": "cloudflare-q1-fy23",
+        "src": "data/datasets/cloudflare-q1-fy23.js",
+        "data": {
+          "name": "Cloudflare · Q1 FY23",
+          "company": "Cloudflare",
+          "meta": {
+            "title": "Cloudflare Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Q1 FY23 · Source chart"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Cloudflare · 2023 财年第一季度",
+              "meta": {
+                "title": "Cloudflare 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "2023 财年第一季度 · 来源图"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "cloudflare-q1-fy24",
+        "src": "data/datasets/cloudflare-q1-fy24.js",
+        "data": {
+          "name": "Cloudflare · Q1 FY24",
+          "company": "Cloudflare",
+          "meta": {
+            "title": "Cloudflare Q1 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Cloudflare · 2024 财年第一季度",
+              "meta": {
+                "title": "Cloudflare 2024 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "cloudflare-q1-fy25",
+        "src": "data/datasets/cloudflare-q1-fy25.js",
+        "data": {
+          "name": "Cloudflare · Q1 FY25",
+          "company": "Cloudflare",
+          "meta": {
+            "title": "Cloudflare Q1 FY25 Income Statement",
+            "period": "Q1 FY25"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Cloudflare · 2025 财年第一季度",
+              "meta": {
+                "title": "Cloudflare 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "cloudflare-q2-fy24",
+        "src": "data/datasets/cloudflare-q2-fy24.js",
+        "data": {
+          "name": "Cloudflare · Q2 FY24",
+          "company": "Cloudflare",
+          "meta": {
+            "title": "Cloudflare Q2 FY24 Income Statement",
+            "period": "Q2 FY24"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Cloudflare · 2024 财年第二季度",
+              "meta": {
+                "title": "Cloudflare 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "cloudflare-q2-fy25",
+        "src": "data/datasets/cloudflare-q2-fy25.js",
+        "data": {
+          "name": "Cloudflare · Q2 FY25",
+          "company": "Cloudflare",
+          "meta": {
+            "title": "Cloudflare Q2 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Cloudflare · 2025 财年第二季度",
+              "meta": {
+                "title": "Cloudflare 2025 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "cloudflare-q3-fy22",
+        "src": "data/datasets/cloudflare-q3-fy22.js",
+        "data": {
+          "name": "Cloudflare · Q3 FY22",
+          "company": "Cloudflare",
+          "meta": {
+            "title": "Cloudflare Q3 FY22 Income Statement",
+            "period": "Q3 FY22"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Cloudflare · 2022 财年第三季度",
+              "meta": {
+                "title": "Cloudflare 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "cloudflare-q3-fy23",
+        "src": "data/datasets/cloudflare-q3-fy23.js",
+        "data": {
+          "name": "Cloudflare · Q3 FY23",
+          "company": "Cloudflare",
+          "meta": {
+            "title": "Cloudflare Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Q3 FY23 · Source chart"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Cloudflare · 2023 财年第三季度",
+              "meta": {
+                "title": "Cloudflare 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "2023 财年第三季度 · 来源图"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "cloudflare-q3-fy24",
+        "src": "data/datasets/cloudflare-q3-fy24.js",
+        "data": {
+          "name": "Cloudflare · Q3 FY24",
+          "company": "Cloudflare",
+          "meta": {
+            "title": "Cloudflare Q3 FY24 Income Statement",
+            "period": "Q3 FY24"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Cloudflare · 2024 财年第三季度",
+              "meta": {
+                "title": "Cloudflare 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "cloudflare-q3-fy25",
+        "src": "data/datasets/cloudflare-q3-fy25.js",
+        "data": {
+          "name": "Cloudflare · Q3 FY25",
+          "company": "Cloudflare",
+          "meta": {
+            "title": "Cloudflare Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Quarter ended Sep. 30, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Cloudflare · 2025 财年第三季度",
+              "meta": {
+                "title": "Cloudflare 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "cloudflare-q4-fy22",
+        "src": "data/datasets/cloudflare-q4-fy22.js",
+        "data": {
+          "name": "Cloudflare · Q4 FY22",
+          "company": "Cloudflare",
+          "meta": {
+            "title": "Cloudflare Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Quarter ended Dec. 31, 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Cloudflare · 2022 财年第四季度",
+              "meta": {
+                "title": "Cloudflare 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2022 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "cloudflare-q4-fy23",
+        "src": "data/datasets/cloudflare-q4-fy23.js",
+        "data": {
+          "name": "Cloudflare · Q4 FY23",
+          "company": "Cloudflare",
+          "meta": {
+            "title": "Cloudflare Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Quarter ended Dec. 31, 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Cloudflare · 2023 财年第四季度",
+              "meta": {
+                "title": "Cloudflare 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "cloudflare-q4-fy24",
+        "src": "data/datasets/cloudflare-q4-fy24.js",
+        "data": {
+          "name": "Cloudflare · Q4 FY24",
+          "company": "Cloudflare",
+          "meta": {
+            "title": "Cloudflare Q4 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Cloudflare · 2024 财年第四季度",
+              "meta": {
+                "title": "Cloudflare 2024 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "datadog-q1-fy23",
+        "src": "data/datasets/datadog-q1-fy23.js",
+        "data": {
+          "name": "Datadog · Q1 FY23",
+          "company": "Datadog",
+          "meta": {
+            "title": "Datadog Q1 FY23 Income Statement",
+            "period": "Q1 FY23"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Datadog · 2023 财年第一季度",
+              "meta": {
+                "title": "Datadog 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "datadog-q1-fy24",
+        "src": "data/datasets/datadog-q1-fy24.js",
+        "data": {
+          "name": "Datadog · Q1 FY24",
+          "company": "Datadog",
+          "meta": {
+            "title": "Datadog Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Quarter ended Mar. 31, 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Datadog · 2024 财年第一季度",
+              "meta": {
+                "title": "Datadog 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 3 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "datadog-q1-fy25",
+        "src": "data/datasets/datadog-q1-fy25.js",
+        "data": {
+          "name": "Datadog · Q1 FY25",
+          "company": "Datadog",
+          "meta": {
+            "title": "Datadog Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Quarter ended Mar. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Datadog · 2025 财年第一季度",
+              "meta": {
+                "title": "Datadog 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 3 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "datadog-q2-fy23",
+        "src": "data/datasets/datadog-q2-fy23.js",
+        "data": {
+          "name": "Datadog · Q2 FY23",
+          "company": "Datadog",
+          "meta": {
+            "title": "Datadog Q2 FY23 Income Statement",
+            "period": "Q2 FY23"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Datadog · 2023 财年第二季度",
+              "meta": {
+                "title": "Datadog 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "datadog-q2-fy24",
+        "src": "data/datasets/datadog-q2-fy24.js",
+        "data": {
+          "name": "Datadog · Q2 FY24",
+          "company": "Datadog",
+          "meta": {
+            "title": "Datadog Q2 FY24 Income Statement",
+            "period": "Q2 FY24"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Datadog · 2024 财年第二季度",
+              "meta": {
+                "title": "Datadog 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "datadog-q2-fy25",
+        "src": "data/datasets/datadog-q2-fy25.js",
+        "data": {
+          "name": "Datadog · Q2 FY25",
+          "company": "Datadog",
+          "meta": {
+            "title": "Datadog Q2 FY25 Income Statement",
+            "period": "Q2 FY25"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Datadog · 2025 财年第二季度",
+              "meta": {
+                "title": "Datadog 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "datadog-q3-fy22",
+        "src": "data/datasets/datadog-q3-fy22.js",
+        "data": {
+          "name": "Datadog · Q3 FY22",
+          "company": "Datadog",
+          "meta": {
+            "title": "Datadog Q3 FY22 Income Statement",
+            "period": "Q3 FY22"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Datadog · 2022 财年第三季度",
+              "meta": {
+                "title": "Datadog 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "datadog-q3-fy23",
+        "src": "data/datasets/datadog-q3-fy23.js",
+        "data": {
+          "name": "Datadog · Q3 FY23",
+          "company": "Datadog",
+          "meta": {
+            "title": "Datadog Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Quarter ended Sep. 30, 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Datadog · 2023 财年第三季度",
+              "meta": {
+                "title": "Datadog 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 9 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "datadog-q3-fy24",
+        "src": "data/datasets/datadog-q3-fy24.js",
+        "data": {
+          "name": "Datadog · Q3 FY24",
+          "company": "Datadog",
+          "meta": {
+            "title": "Datadog Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Quarter ended Sep. 30, 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Datadog · 2024 财年第三季度",
+              "meta": {
+                "title": "Datadog 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "datadog-q4-fy22",
+        "src": "data/datasets/datadog-q4-fy22.js",
+        "data": {
+          "name": "Datadog · Q4 FY22",
+          "company": "Datadog",
+          "meta": {
+            "title": "Datadog Q4 FY22 Income Statement",
+            "period": "Q4 FY22"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Datadog · 2022 财年第四季度",
+              "meta": {
+                "title": "Datadog 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "datadog-q4-fy23",
+        "src": "data/datasets/datadog-q4-fy23.js",
+        "data": {
+          "name": "Datadog · Q4 FY23",
+          "company": "Datadog",
+          "meta": {
+            "title": "Datadog Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Quarter ended Dec. 31, 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Datadog · 2023 财年第四季度",
+              "meta": {
+                "title": "Datadog 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "datadog-q4-fy24",
+        "src": "data/datasets/datadog-q4-fy24.js",
+        "data": {
+          "name": "Datadog · Q4 FY24",
+          "company": "Datadog",
+          "meta": {
+            "title": "Datadog Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Quarter ended Dec. 31, 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Datadog · 2024 财年第四季度",
+              "meta": {
+                "title": "Datadog 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pinterest-q1-fy23",
+        "src": "data/datasets/pinterest-q1-fy23.js",
+        "data": {
+          "name": "Pinterest · Q1 FY23",
+          "company": "Pinterest",
+          "meta": {
+            "title": "Pinterest Q1 FY23 Income Statement",
+            "period": "Q1 FY23"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Pinterest · 2023 财年第一季度",
+              "meta": {
+                "title": "Pinterest 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pinterest-q1-fy24",
+        "src": "data/datasets/pinterest-q1-fy24.js",
+        "data": {
+          "name": "Pinterest · Q1 FY24",
+          "company": "Pinterest",
+          "meta": {
+            "title": "Pinterest Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Pinterest · 2024 财年第一季度",
+              "meta": {
+                "title": "Pinterest 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pinterest-q1-fy25",
+        "src": "data/datasets/pinterest-q1-fy25.js",
+        "data": {
+          "name": "Pinterest · Q1 FY25",
+          "company": "Pinterest",
+          "meta": {
+            "title": "Pinterest Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Mar. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Pinterest · 2025 财年第一季度",
+              "meta": {
+                "title": "Pinterest 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pinterest-q2-fy23",
+        "src": "data/datasets/pinterest-q2-fy23.js",
+        "data": {
+          "name": "Pinterest · Q2 FY23",
+          "company": "Pinterest",
+          "meta": {
+            "title": "Pinterest Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Jun. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Pinterest · 2023 财年第二季度",
+              "meta": {
+                "title": "Pinterest 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pinterest-q2-fy24",
+        "src": "data/datasets/pinterest-q2-fy24.js",
+        "data": {
+          "name": "Pinterest · Q2 FY24",
+          "company": "Pinterest",
+          "meta": {
+            "title": "Pinterest Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Pinterest · 2024 财年第二季度",
+              "meta": {
+                "title": "Pinterest 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pinterest-q2-fy25",
+        "src": "data/datasets/pinterest-q2-fy25.js",
+        "data": {
+          "name": "Pinterest · Q2 FY25",
+          "company": "Pinterest",
+          "meta": {
+            "title": "Pinterest Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Jun. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Pinterest · 2025 财年第二季度",
+              "meta": {
+                "title": "Pinterest 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pinterest-q3-fy22",
+        "src": "data/datasets/pinterest-q3-fy22.js",
+        "data": {
+          "name": "Pinterest · Q3 FY22",
+          "company": "Pinterest",
+          "meta": {
+            "title": "Pinterest Q3 FY22 Income Statement",
+            "period": "Q3 FY22"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Pinterest · 2022 财年第三季度",
+              "meta": {
+                "title": "Pinterest 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pinterest-q3-fy23",
+        "src": "data/datasets/pinterest-q3-fy23.js",
+        "data": {
+          "name": "Pinterest · Q3 FY23",
+          "company": "Pinterest",
+          "meta": {
+            "title": "Pinterest Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Sep. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Pinterest · 2023 财年第三季度",
+              "meta": {
+                "title": "Pinterest 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pinterest-q3-fy24",
+        "src": "data/datasets/pinterest-q3-fy24.js",
+        "data": {
+          "name": "Pinterest · Q3 FY24",
+          "company": "Pinterest",
+          "meta": {
+            "title": "Pinterest Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Pinterest · 2024 财年第三季度",
+              "meta": {
+                "title": "Pinterest 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pinterest-q4-fy22",
+        "src": "data/datasets/pinterest-q4-fy22.js",
+        "data": {
+          "name": "Pinterest · Q4 FY22",
+          "company": "Pinterest",
+          "meta": {
+            "title": "Pinterest Q4 FY22 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Pinterest · 2022 财年第四季度",
+              "meta": {
+                "title": "Pinterest 2022 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pinterest-q4-fy23",
+        "src": "data/datasets/pinterest-q4-fy23.js",
+        "data": {
+          "name": "Pinterest · Q4 FY23",
+          "company": "Pinterest",
+          "meta": {
+            "title": "Pinterest Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Pinterest · 2023 财年第四季度",
+              "meta": {
+                "title": "Pinterest 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pinterest-q4-fy24",
+        "src": "data/datasets/pinterest-q4-fy24.js",
+        "data": {
+          "name": "Pinterest · Q4 FY24",
+          "company": "Pinterest",
+          "meta": {
+            "title": "Pinterest Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Pinterest · 2024 财年第四季度",
+              "meta": {
+                "title": "Pinterest 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "roblox-q1-fy23",
+        "src": "data/datasets/roblox-q1-fy23.js",
+        "data": {
+          "name": "Roblox · Q1 FY23",
+          "company": "Roblox",
+          "meta": {
+            "title": "Roblox Q1 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Roblox · 2023 财年第一季度",
+              "meta": {
+                "title": "Roblox 2023 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "roblox-q1-fy24",
+        "src": "data/datasets/roblox-q1-fy24.js",
+        "data": {
+          "name": "Roblox · Q1 FY24",
+          "company": "Roblox",
+          "meta": {
+            "title": "Roblox Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Roblox · 2024 财年第一季度",
+              "meta": {
+                "title": "Roblox 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "roblox-q1-fy25",
+        "src": "data/datasets/roblox-q1-fy25.js",
+        "data": {
+          "name": "Roblox · Q1 FY25",
+          "company": "Roblox",
+          "meta": {
+            "title": "Roblox Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Mar. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Roblox · 2025 财年第一季度",
+              "meta": {
+                "title": "Roblox 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "roblox-q2-fy23",
+        "src": "data/datasets/roblox-q2-fy23.js",
+        "data": {
+          "name": "Roblox · Q2 FY23",
+          "company": "Roblox",
+          "meta": {
+            "title": "Roblox Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Jun. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Roblox · 2023 财年第二季度",
+              "meta": {
+                "title": "Roblox 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "roblox-q2-fy24",
+        "src": "data/datasets/roblox-q2-fy24.js",
+        "data": {
+          "name": "Roblox · Q2 FY24",
+          "company": "Roblox",
+          "meta": {
+            "title": "Roblox Q2 FY24 Income Statement",
+            "period": "Q2 FY24"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Roblox · 2024 财年第二季度",
+              "meta": {
+                "title": "Roblox 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "roblox-q2-fy25",
+        "src": "data/datasets/roblox-q2-fy25.js",
+        "data": {
+          "name": "Roblox · Q2 FY25",
+          "company": "Roblox",
+          "meta": {
+            "title": "Roblox Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Jun. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Roblox · 2025 财年第二季度",
+              "meta": {
+                "title": "Roblox 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "roblox-q3-fy22",
+        "src": "data/datasets/roblox-q3-fy22.js",
+        "data": {
+          "name": "Roblox · Q3 FY22",
+          "company": "Roblox",
+          "meta": {
+            "title": "Roblox Q3 FY22 Income Statement",
+            "period": "Q3 FY22"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Roblox · 2022 财年第三季度",
+              "meta": {
+                "title": "Roblox 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "roblox-q3-fy23",
+        "src": "data/datasets/roblox-q3-fy23.js",
+        "data": {
+          "name": "Roblox · Q3 FY23",
+          "company": "Roblox",
+          "meta": {
+            "title": "Roblox Q3 FY23 Income Statement",
+            "period": "Q3 FY23"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Roblox · 2023 财年第三季度",
+              "meta": {
+                "title": "Roblox 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "roblox-q3-fy24",
+        "src": "data/datasets/roblox-q3-fy24.js",
+        "data": {
+          "name": "Roblox · Q3 FY24",
+          "company": "Roblox",
+          "meta": {
+            "title": "Roblox Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Roblox · 2024 财年第三季度",
+              "meta": {
+                "title": "Roblox 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "roblox-q3-fy25",
+        "src": "data/datasets/roblox-q3-fy25.js",
+        "data": {
+          "name": "Roblox · Q3 FY25",
+          "company": "Roblox",
+          "meta": {
+            "title": "Roblox Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Roblox · 2025 财年第三季度",
+              "meta": {
+                "title": "Roblox 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "roblox-q4-fy22",
+        "src": "data/datasets/roblox-q4-fy22.js",
+        "data": {
+          "name": "Roblox · Q4 FY22",
+          "company": "Roblox",
+          "meta": {
+            "title": "Roblox Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Ending Dec. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Roblox · 2022 财年第四季度",
+              "meta": {
+                "title": "Roblox 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2022 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "roblox-q4-fy23",
+        "src": "data/datasets/roblox-q4-fy23.js",
+        "data": {
+          "name": "Roblox · Q4 FY23",
+          "company": "Roblox",
+          "meta": {
+            "title": "Roblox Q4 FY23 Income Statement",
+            "period": "Q4 FY23"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Roblox · 2023 财年第四季度",
+              "meta": {
+                "title": "Roblox 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "servicenow-q1-fy23",
+        "src": "data/datasets/servicenow-q1-fy23.js",
+        "data": {
+          "name": "ServiceNow · Q1 FY23",
+          "company": "ServiceNow",
+          "meta": {
+            "title": "ServiceNow Q1 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ServiceNow · 2023 财年第一季度",
+              "meta": {
+                "title": "ServiceNow 2023 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "servicenow-q1-fy24",
+        "src": "data/datasets/servicenow-q1-fy24.js",
+        "data": {
+          "name": "ServiceNow · Q1 FY24",
+          "company": "ServiceNow",
+          "meta": {
+            "title": "ServiceNow Q1 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ServiceNow · 2024 财年第一季度",
+              "meta": {
+                "title": "ServiceNow 2024 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "servicenow-q1-fy25",
+        "src": "data/datasets/servicenow-q1-fy25.js",
+        "data": {
+          "name": "ServiceNow · Q1 FY25",
+          "company": "ServiceNow",
+          "meta": {
+            "title": "ServiceNow Q1 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ServiceNow · 2025 财年第一季度",
+              "meta": {
+                "title": "ServiceNow 2025 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "servicenow-q2-fy23",
+        "src": "data/datasets/servicenow-q2-fy23.js",
+        "data": {
+          "name": "ServiceNow · Q2 FY23",
+          "company": "ServiceNow",
+          "meta": {
+            "title": "ServiceNow Q2 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ServiceNow · 2023 财年第二季度",
+              "meta": {
+                "title": "ServiceNow 2023 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "servicenow-q2-fy24",
+        "src": "data/datasets/servicenow-q2-fy24.js",
+        "data": {
+          "name": "ServiceNow · Q2 FY24",
+          "company": "ServiceNow",
+          "meta": {
+            "title": "ServiceNow Q2 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ServiceNow · 2024 财年第二季度",
+              "meta": {
+                "title": "ServiceNow 2024 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "servicenow-q2-fy25",
+        "src": "data/datasets/servicenow-q2-fy25.js",
+        "data": {
+          "name": "ServiceNow · Q2 FY25",
+          "company": "ServiceNow",
+          "meta": {
+            "title": "ServiceNow Q2 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ServiceNow · 2025 财年第二季度",
+              "meta": {
+                "title": "ServiceNow 2025 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "servicenow-q3-fy22",
+        "src": "data/datasets/servicenow-q3-fy22.js",
+        "data": {
+          "name": "ServiceNow · Q3 FY22",
+          "company": "ServiceNow",
+          "meta": {
+            "title": "ServiceNow Q3 FY22 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ServiceNow · 2022 财年第三季度",
+              "meta": {
+                "title": "ServiceNow 2022 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "servicenow-q3-fy23",
+        "src": "data/datasets/servicenow-q3-fy23.js",
+        "data": {
+          "name": "ServiceNow · Q3 FY23",
+          "company": "ServiceNow",
+          "meta": {
+            "title": "ServiceNow Q3 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ServiceNow · 2023 财年第三季度",
+              "meta": {
+                "title": "ServiceNow 2023 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "servicenow-q3-fy24",
+        "src": "data/datasets/servicenow-q3-fy24.js",
+        "data": {
+          "name": "ServiceNow · Q3 FY24",
+          "company": "ServiceNow",
+          "meta": {
+            "title": "ServiceNow Q3 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ServiceNow · 2024 财年第三季度",
+              "meta": {
+                "title": "ServiceNow 2024 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "servicenow-q3-fy25",
+        "src": "data/datasets/servicenow-q3-fy25.js",
+        "data": {
+          "name": "ServiceNow · Q3 FY25",
+          "company": "ServiceNow",
+          "meta": {
+            "title": "ServiceNow Q3 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ServiceNow · 2025 财年第三季度",
+              "meta": {
+                "title": "ServiceNow 2025 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "servicenow-q4-fy22",
+        "src": "data/datasets/servicenow-q4-fy22.js",
+        "data": {
+          "name": "ServiceNow · Q4 FY22",
+          "company": "ServiceNow",
+          "meta": {
+            "title": "ServiceNow Q4 FY22 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ServiceNow · 2022 财年第四季度",
+              "meta": {
+                "title": "ServiceNow 2022 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "servicenow-q4-fy23",
+        "src": "data/datasets/servicenow-q4-fy23.js",
+        "data": {
+          "name": "ServiceNow · Q4 FY23",
+          "company": "ServiceNow",
+          "meta": {
+            "title": "ServiceNow Q4 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ServiceNow · 2023 财年第四季度",
+              "meta": {
+                "title": "ServiceNow 2023 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "servicenow-q4-fy24",
+        "src": "data/datasets/servicenow-q4-fy24.js",
+        "data": {
+          "name": "ServiceNow · Q4 FY24",
+          "company": "ServiceNow",
+          "meta": {
+            "title": "ServiceNow Q4 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ServiceNow · 2024 财年第四季度",
+              "meta": {
+                "title": "ServiceNow 2024 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "zoom-q1-fy24",
+        "src": "data/datasets/zoom-q1-fy24.js",
+        "data": {
+          "name": "Zoom · Q1 FY24",
+          "company": "Zoom",
+          "meta": {
+            "title": "Zoom Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending April 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Zoom · 2024 财年第一季度",
+              "meta": {
+                "title": "Zoom 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2023 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "zoom-q1-fy25",
+        "src": "data/datasets/zoom-q1-fy25.js",
+        "data": {
+          "name": "Zoom · Q1 FY25",
+          "company": "Zoom",
+          "meta": {
+            "title": "Zoom Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Apr. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Zoom · 2025 财年第一季度",
+              "meta": {
+                "title": "Zoom 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2024 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "zoom-q1-fy26",
+        "src": "data/datasets/zoom-q1-fy26.js",
+        "data": {
+          "name": "Zoom · Q1 FY26",
+          "company": "Zoom",
+          "meta": {
+            "title": "Zoom Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Apr. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Zoom · 2026 财年第一季度",
+              "meta": {
+                "title": "Zoom 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "zoom-q2-fy24",
+        "src": "data/datasets/zoom-q2-fy24.js",
+        "data": {
+          "name": "Zoom · Q2 FY24",
+          "company": "Zoom",
+          "meta": {
+            "title": "Zoom Q2 FY24 Income Statement",
+            "period": "Q2 FY24"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Zoom · 2024 财年第二季度",
+              "meta": {
+                "title": "Zoom 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "zoom-q2-fy25",
+        "src": "data/datasets/zoom-q2-fy25.js",
+        "data": {
+          "name": "Zoom · Q2 FY25",
+          "company": "Zoom",
+          "meta": {
+            "title": "Zoom Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending July 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Zoom · 2025 财年第二季度",
+              "meta": {
+                "title": "Zoom 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2024 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "zoom-q2-fy26",
+        "src": "data/datasets/zoom-q2-fy26.js",
+        "data": {
+          "name": "Zoom · Q2 FY26",
+          "company": "Zoom",
+          "meta": {
+            "title": "Zoom Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending July 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Zoom · 2026 财年第二季度",
+              "meta": {
+                "title": "Zoom 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2025 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "zoom-q3-fy23",
+        "src": "data/datasets/zoom-q3-fy23.js",
+        "data": {
+          "name": "Zoom · Q3 FY23",
+          "company": "Zoom",
+          "meta": {
+            "title": "Zoom Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending October 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Zoom · 2023 财年第三季度",
+              "meta": {
+                "title": "Zoom 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2022 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "zoom-q3-fy24",
+        "src": "data/datasets/zoom-q3-fy24.js",
+        "data": {
+          "name": "Zoom · Q3 FY24",
+          "company": "Zoom",
+          "meta": {
+            "title": "Zoom Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Oct. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Zoom · 2024 财年第三季度",
+              "meta": {
+                "title": "Zoom 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2023 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "zoom-q3-fy25",
+        "src": "data/datasets/zoom-q3-fy25.js",
+        "data": {
+          "name": "Zoom · Q3 FY25",
+          "company": "Zoom",
+          "meta": {
+            "title": "Zoom Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Oct. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Zoom · 2025 财年第三季度",
+              "meta": {
+                "title": "Zoom 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2024 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "zoom-q4-fy23",
+        "src": "data/datasets/zoom-q4-fy23.js",
+        "data": {
+          "name": "Zoom · Q4 FY23",
+          "company": "Zoom",
+          "meta": {
+            "title": "Zoom Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending January 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Zoom · 2023 财年第四季度",
+              "meta": {
+                "title": "Zoom 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "zoom-q4-fy24",
+        "src": "data/datasets/zoom-q4-fy24.js",
+        "data": {
+          "name": "Zoom · Q4 FY24",
+          "company": "Zoom",
+          "meta": {
+            "title": "Zoom Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Jan. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Zoom · 2024 财年第四季度",
+              "meta": {
+                "title": "Zoom 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "zoom-q4-fy25",
+        "src": "data/datasets/zoom-q4-fy25.js",
+        "data": {
+          "name": "Zoom · Q4 FY25",
+          "company": "Zoom",
+          "meta": {
+            "title": "Zoom Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Jan. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Zoom · 2025 财年第四季度",
+              "meta": {
+                "title": "Zoom 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 1 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

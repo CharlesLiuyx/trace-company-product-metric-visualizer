@@ -1,0 +1,54 @@
+{
+  "source": "input/processed/roblox-q3-fy22.png",
+  "outputDir": "data/assets/icon-references/roblox",
+  "runtimeOutputDir": "data/assets/raster-annotations/roblox-q3-fy22",
+  "validationSheetDir": "output/icon-validation/roblox-q3-fy22",
+  "report": "crop-report-q3-fy22-characters.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": false
+  },
+  "compression": {
+    "enabled": false
+  },
+  "crops": [
+    {
+      "key": "roblox-q3-fy22-characters",
+      "output": "crops/q3-fy22-characters.png",
+      "runtimeOutput": "characters.png",
+      "searchBox": {
+        "x": 716,
+        "y": 819,
+        "width": 343,
+        "height": 200
+      },
+      "cropBox": {
+        "x": 716,
+        "y": 819,
+        "width": 343,
+        "height": 200
+      },
+      "excludeBoxes": [
+        {
+          "relativeTo": "crop",
+          "x": 0,
+          "y": 0,
+          "width": 24,
+          "height": 28
+        }
+      ],
+      "threshold": 24,
+      "minComponentArea": 35,
+      "validation": {
+        "borderBand": 3,
+        "maxCenterOffset": 0.08,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Preserve the native avatar cluster and existing runtime placement. The crop-local top-left 24\u00d728 blank-subject corner contains only the Source Rest of world \u2192 Revenue blue ribbon fragment; clear that corner to transparency. Keep every pixel outside the exclusion unchanged; no chart connector, label, or publisher mark is part of the subject. Extend the bottom canvas by 8 source pixels to retain the complete existing soft shadow with a blank border; preserve avatar scale and the runtime top-left position."
+    }
+  ]
+}

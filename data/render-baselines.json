@@ -8516,6 +8516,444 @@
       "mae": 6.707525892596759,
       "width": 2667,
       "height": 1500
+    },
+    "cloudflare-q1-fy23": {
+      "similarity": 0.9751984214391501,
+      "mae": 6.324402533016706,
+      "width": 2667,
+      "height": 1500
+    },
+    "cloudflare-q1-fy24": {
+      "similarity": 0.9729563801256869,
+      "mae": 6.89612306794984,
+      "width": 2667,
+      "height": 1500
+    },
+    "cloudflare-q1-fy25": {
+      "similarity": 0.9747515772946682,
+      "mae": 6.438347789859601,
+      "width": 2667,
+      "height": 1500
+    },
+    "cloudflare-q2-fy24": {
+      "similarity": 0.9764500845890995,
+      "mae": 6.005228429779611,
+      "width": 2667,
+      "height": 1500
+    },
+    "cloudflare-q2-fy25": {
+      "similarity": 0.9734307956603464,
+      "mae": 6.775147106611674,
+      "width": 2667,
+      "height": 1500
+    },
+    "cloudflare-q3-fy22": {
+      "similarity": 0.9751188683113957,
+      "mae": 6.3446885805940925,
+      "width": 2667,
+      "height": 1500
+    },
+    "cloudflare-q3-fy23": {
+      "similarity": 0.9743166270882806,
+      "mae": 6.5492600924884385,
+      "width": 2667,
+      "height": 1500
+    },
+    "cloudflare-q3-fy24": {
+      "similarity": 0.9745729316515174,
+      "mae": 6.4839024288630585,
+      "width": 2667,
+      "height": 1500
+    },
+    "cloudflare-q3-fy25": {
+      "similarity": 0.9720086260459273,
+      "mae": 7.137800358288548,
+      "width": 2667,
+      "height": 1500
+    },
+    "cloudflare-q4-fy22": {
+      "similarity": 0.9759145234296693,
+      "mae": 6.14179652543432,
+      "width": 2667,
+      "height": 1500
+    },
+    "cloudflare-q4-fy23": {
+      "similarity": 0.9690476527035428,
+      "mae": 7.892848560596592,
+      "width": 2667,
+      "height": 1500
+    },
+    "cloudflare-q4-fy24": {
+      "similarity": 0.9741689759368314,
+      "mae": 6.586911136107987,
+      "width": 2667,
+      "height": 1500
+    },
+    "datadog-q1-fy23": {
+      "similarity": 0.9794668950694889,
+      "mae": 5.23594175728034,
+      "width": 2667,
+      "height": 1500
+    },
+    "datadog-q1-fy24": {
+      "similarity": 0.9755490214050041,
+      "mae": 6.234999541723951,
+      "width": 2667,
+      "height": 1500
+    },
+    "datadog-q1-fy25": {
+      "similarity": 0.9778496504930347,
+      "mae": 5.6483391242761325,
+      "width": 2667,
+      "height": 1500
+    },
+    "datadog-q2-fy23": {
+      "similarity": 0.9794772695896673,
+      "mae": 5.233296254634837,
+      "width": 2667,
+      "height": 1500
+    },
+    "datadog-q2-fy24": {
+      "similarity": 0.9755018295915625,
+      "mae": 6.247033454151564,
+      "width": 2667,
+      "height": 1500
+    },
+    "datadog-q2-fy25": {
+      "similarity": 0.9788812548758202,
+      "mae": 5.385280006665833,
+      "width": 2667,
+      "height": 1500
+    },
+    "datadog-q3-fy22": {
+      "similarity": 0.9753397884088019,
+      "mae": 6.288353955755531,
+      "width": 2667,
+      "height": 1500
+    },
+    "datadog-q3-fy23": {
+      "similarity": 0.9801217043947937,
+      "mae": 5.068965379327584,
+      "width": 2667,
+      "height": 1500
+    },
+    "datadog-q3-fy24": {
+      "similarity": 0.9766666826777372,
+      "mae": 5.949995917177019,
+      "width": 2667,
+      "height": 1500
+    },
+    "datadog-q4-fy22": {
+      "similarity": 0.9763720234317116,
+      "mae": 6.0251340249135525,
+      "width": 2667,
+      "height": 1500
+    },
+    "datadog-q4-fy23": {
+      "similarity": 0.976159962684403,
+      "mae": 6.079209515477232,
+      "width": 2667,
+      "height": 1500
+    },
+    "datadog-q4-fy24": {
+      "similarity": 0.9764970414645882,
+      "mae": 5.993254426530017,
+      "width": 2667,
+      "height": 1500
+    },
+    "pinterest-q1-fy23": {
+      "similarity": 0.9708578061729212,
+      "mae": 7.431259425905095,
+      "width": 2667,
+      "height": 1500
+    },
+    "pinterest-q1-fy24": {
+      "similarity": 0.9743739780893401,
+      "mae": 6.534635587218264,
+      "width": 2667,
+      "height": 1500
+    },
+    "pinterest-q1-fy25": {
+      "similarity": 0.9752055924382002,
+      "mae": 6.322573928258968,
+      "width": 2667,
+      "height": 1500
+    },
+    "pinterest-q2-fy23": {
+      "similarity": 0.9706802228152853,
+      "mae": 7.476543182102237,
+      "width": 2667,
+      "height": 1500
+    },
+    "pinterest-q2-fy24": {
+      "similarity": 0.9732264904795397,
+      "mae": 6.827244927717369,
+      "width": 2667,
+      "height": 1500
+    },
+    "pinterest-q2-fy25": {
+      "similarity": 0.9759381286489516,
+      "mae": 6.135777194517352,
+      "width": 2667,
+      "height": 1500
+    },
+    "pinterest-q3-fy22": {
+      "similarity": 0.9712587828482224,
+      "mae": 7.329010373703287,
+      "width": 2667,
+      "height": 1500
+    },
+    "pinterest-q3-fy23": {
+      "similarity": 0.9732714038196206,
+      "mae": 6.815792025996751,
+      "width": 2667,
+      "height": 1500
+    },
+    "pinterest-q3-fy24": {
+      "similarity": 0.9744707842892187,
+      "mae": 6.509950006249219,
+      "width": 2667,
+      "height": 1500
+    },
+    "pinterest-q4-fy22": {
+      "similarity": 0.9643900898008664,
+      "mae": 9.080527100779069,
+      "width": 2667,
+      "height": 1500
+    },
+    "pinterest-q4-fy23": {
+      "similarity": 0.9739466017728177,
+      "mae": 6.643616547931509,
+      "width": 2667,
+      "height": 1500
+    },
+    "pinterest-q4-fy24": {
+      "similarity": 0.9744680254837427,
+      "mae": 6.510653501645628,
+      "width": 2667,
+      "height": 1500
+    },
+    "roblox-q1-fy23": {
+      "similarity": 0.965725630047878,
+      "mae": 8.73996433779111,
+      "width": 2667,
+      "height": 1500
+    },
+    "roblox-q1-fy24": {
+      "similarity": 0.9630301101251233,
+      "mae": 9.427321918093572,
+      "width": 2667,
+      "height": 1500
+    },
+    "roblox-q1-fy25": {
+      "similarity": 0.9671876927148813,
+      "mae": 8.367138357705286,
+      "width": 2667,
+      "height": 1500
+    },
+    "roblox-q2-fy23": {
+      "similarity": 0.9703809216658376,
+      "mae": 7.552864975211432,
+      "width": 2667,
+      "height": 1500
+    },
+    "roblox-q2-fy24": {
+      "similarity": 0.9743721100221949,
+      "mae": 6.535111944340291,
+      "width": 2667,
+      "height": 1500
+    },
+    "roblox-q2-fy25": {
+      "similarity": 0.9694541430687177,
+      "mae": 7.789193517476982,
+      "width": 2667,
+      "height": 1500
+    },
+    "roblox-q3-fy22": {
+      "similarity": 0.9710046541567925,
+      "mae": 7.393813190017914,
+      "width": 2667,
+      "height": 1500
+    },
+    "roblox-q3-fy23": {
+      "similarity": 0.9698191784850423,
+      "mae": 7.696109486314211,
+      "width": 2667,
+      "height": 1500
+    },
+    "roblox-q3-fy24": {
+      "similarity": 0.9673977563262108,
+      "mae": 8.313572136816232,
+      "width": 2667,
+      "height": 1500
+    },
+    "roblox-q3-fy25": {
+      "similarity": 0.9685538320781798,
+      "mae": 8.018772820064159,
+      "width": 2667,
+      "height": 1500
+    },
+    "roblox-q4-fy22": {
+      "similarity": 0.9687024298433284,
+      "mae": 7.980880389951256,
+      "width": 2667,
+      "height": 1500
+    },
+    "roblox-q4-fy23": {
+      "similarity": 0.9680243747309364,
+      "mae": 8.153784443611215,
+      "width": 2667,
+      "height": 1500
+    },
+    "servicenow-q1-fy23": {
+      "similarity": 0.9678727645972358,
+      "mae": 8.19244502770487,
+      "width": 2667,
+      "height": 1500
+    },
+    "servicenow-q1-fy24": {
+      "similarity": 0.9724804611841821,
+      "mae": 7.017482398033579,
+      "width": 2667,
+      "height": 1500
+    },
+    "servicenow-q1-fy25": {
+      "similarity": 0.9678668431151989,
+      "mae": 8.193955005624296,
+      "width": 2667,
+      "height": 1500
+    },
+    "servicenow-q2-fy23": {
+      "similarity": 0.9691367418941913,
+      "mae": 7.87013081698121,
+      "width": 2667,
+      "height": 1500
+    },
+    "servicenow-q2-fy24": {
+      "similarity": 0.9674320190368361,
+      "mae": 8.304835145606798,
+      "width": 2667,
+      "height": 1500
+    },
+    "servicenow-q2-fy25": {
+      "similarity": 0.9726668656614001,
+      "mae": 6.969949256342957,
+      "width": 2667,
+      "height": 1500
+    },
+    "servicenow-q3-fy22": {
+      "similarity": 0.9672025036086176,
+      "mae": 8.363361579802525,
+      "width": 2667,
+      "height": 1500
+    },
+    "servicenow-q3-fy23": {
+      "similarity": 0.9663088401531508,
+      "mae": 8.59124576094655,
+      "width": 2667,
+      "height": 1500
+    },
+    "servicenow-q3-fy24": {
+      "similarity": 0.9716717397253448,
+      "mae": 7.223706370037078,
+      "width": 2667,
+      "height": 1500
+    },
+    "servicenow-q3-fy25": {
+      "similarity": 0.9687424565393378,
+      "mae": 7.970673582468858,
+      "width": 2667,
+      "height": 1500
+    },
+    "servicenow-q4-fy22": {
+      "similarity": 0.9674574096538586,
+      "mae": 8.29836053826605,
+      "width": 2667,
+      "height": 1500
+    },
+    "servicenow-q4-fy23": {
+      "similarity": 0.9699870862547411,
+      "mae": 7.653293005041037,
+      "width": 2667,
+      "height": 1500
+    },
+    "servicenow-q4-fy24": {
+      "similarity": 0.9680947348901648,
+      "mae": 8.135842603007957,
+      "width": 2667,
+      "height": 1500
+    },
+    "zoom-q1-fy24": {
+      "similarity": 0.9714507144123324,
+      "mae": 7.280067824855227,
+      "width": 2667,
+      "height": 1500
+    },
+    "zoom-q1-fy25": {
+      "similarity": 0.9732903021109289,
+      "mae": 6.810972961713119,
+      "width": 2667,
+      "height": 1500
+    },
+    "zoom-q1-fy26": {
+      "similarity": 0.9753516993382363,
+      "mae": 6.28531666874974,
+      "width": 2667,
+      "height": 1500
+    },
+    "zoom-q2-fy24": {
+      "similarity": 0.9759950718578478,
+      "mae": 6.1212566762488025,
+      "width": 2667,
+      "height": 1500
+    },
+    "zoom-q2-fy25": {
+      "similarity": 0.9727709320648644,
+      "mae": 6.943412323459568,
+      "width": 2667,
+      "height": 1500
+    },
+    "zoom-q2-fy26": {
+      "similarity": 0.9778152871413949,
+      "mae": 5.657101778944298,
+      "width": 2667,
+      "height": 1500
+    },
+    "zoom-q3-fy23": {
+      "similarity": 0.9731137908415043,
+      "mae": 6.855983335416406,
+      "width": 2667,
+      "height": 1500
+    },
+    "zoom-q3-fy24": {
+      "similarity": 0.9742904551963685,
+      "mae": 6.555933924926051,
+      "width": 2667,
+      "height": 1500
+    },
+    "zoom-q3-fy25": {
+      "similarity": 0.9738428748693995,
+      "mae": 6.670066908303129,
+      "width": 2667,
+      "height": 1500
+    },
+    "zoom-q4-fy23": {
+      "similarity": 0.9776115681618229,
+      "mae": 5.709050118735158,
+      "width": 2667,
+      "height": 1500
+    },
+    "zoom-q4-fy24": {
+      "similarity": 0.978923349613978,
+      "mae": 5.374545848435612,
+      "width": 2667,
+      "height": 1500
+    },
+    "zoom-q4-fy25": {
+      "similarity": 0.9769018555687075,
+      "mae": 5.890026829979586,
+      "width": 2667,
+      "height": 1500
     }
   }
 }

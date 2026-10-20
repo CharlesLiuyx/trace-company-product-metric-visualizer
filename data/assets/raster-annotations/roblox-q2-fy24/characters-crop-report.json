@@ -1,0 +1,120 @@
+{
+  "source": "input/processed/roblox-q2-fy24.png",
+  "spec": "input/icon-crop-specs/roblox-q2-fy24-characters.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-20T09:38:16.649916+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/roblox-q2-fy24",
+  "crops": [
+    {
+      "key": "roblox-q2-fy24-characters",
+      "output": "data/assets/raster-annotations/roblox-q2-fy24/characters.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 96995,
+        "losslessBytes": 96995,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 28210,
+        "transparentPixelRatio": 0.3917
+      },
+      "searchBox": {
+        "x": 712,
+        "y": 913,
+        "width": 353,
+        "height": 204
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 725,
+        "y0": 921,
+        "x1": 1053,
+        "y1": 1109
+      },
+      "cropBox": {
+        "x0": 712,
+        "y0": 913,
+        "x1": 1065,
+        "y1": 1117
+      },
+      "validation": {
+        "width": 353,
+        "height": 204,
+        "foregroundPixels": 36323,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 13,
+          "right": 12,
+          "top": 8,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0014,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Characters only. Transparent exclusions remove blue and pink chart fragments including antialiasing. Source padding preserves all character edges. Runtime placement and dimensions remain unchanged.",
+      "excludedPixels": 6448,
+      "runtimeOutput": "data/assets/raster-annotations/roblox-q2-fy24/characters.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 96995,
+        "losslessBytes": 96995,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "output/asset-validation/roblox-q2-fy24/roblox-q2-fy24-characters.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 364464,
+        "losslessBytes": 364464,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

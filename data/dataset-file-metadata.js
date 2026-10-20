@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-10-19T13:37:29.000Z",
+  "generatedAt": "2026-10-20T06:56:45.164Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -8519,6 +8519,444 @@
       "path": "data/datasets/snap-q4-fy24.js",
       "updatedAtMs": 1792383826913,
       "updatedAt": "2026-10-19T04:23:46.913Z",
+      "timeSource": "publication"
+    },
+    "cloudflare-q1-fy23": {
+      "path": "data/datasets/cloudflare-q1-fy23.js",
+      "updatedAtMs": 1792479152780,
+      "updatedAt": "2026-10-20T06:52:32.780Z",
+      "timeSource": "publication"
+    },
+    "cloudflare-q1-fy24": {
+      "path": "data/datasets/cloudflare-q1-fy24.js",
+      "updatedAtMs": 1792479258563,
+      "updatedAt": "2026-10-20T06:54:18.563Z",
+      "timeSource": "publication"
+    },
+    "cloudflare-q1-fy25": {
+      "path": "data/datasets/cloudflare-q1-fy25.js",
+      "updatedAtMs": 1792479361920,
+      "updatedAt": "2026-10-20T06:56:01.920Z",
+      "timeSource": "publication"
+    },
+    "cloudflare-q2-fy24": {
+      "path": "data/datasets/cloudflare-q2-fy24.js",
+      "updatedAtMs": 1792479326532,
+      "updatedAt": "2026-10-20T06:55:26.532Z",
+      "timeSource": "publication"
+    },
+    "cloudflare-q2-fy25": {
+      "path": "data/datasets/cloudflare-q2-fy25.js",
+      "updatedAtMs": 1792479318496,
+      "updatedAt": "2026-10-20T06:55:18.496Z",
+      "timeSource": "publication"
+    },
+    "cloudflare-q3-fy22": {
+      "path": "data/datasets/cloudflare-q3-fy22.js",
+      "updatedAtMs": 1792479159088,
+      "updatedAt": "2026-10-20T06:52:39.088Z",
+      "timeSource": "publication"
+    },
+    "cloudflare-q3-fy23": {
+      "path": "data/datasets/cloudflare-q3-fy23.js",
+      "updatedAtMs": 1792479291086,
+      "updatedAt": "2026-10-20T06:54:51.086Z",
+      "timeSource": "publication"
+    },
+    "cloudflare-q3-fy24": {
+      "path": "data/datasets/cloudflare-q3-fy24.js",
+      "updatedAtMs": 1792479329063,
+      "updatedAt": "2026-10-20T06:55:29.063Z",
+      "timeSource": "publication"
+    },
+    "cloudflare-q3-fy25": {
+      "path": "data/datasets/cloudflare-q3-fy25.js",
+      "updatedAtMs": 1792479305805,
+      "updatedAt": "2026-10-20T06:55:05.805Z",
+      "timeSource": "publication"
+    },
+    "cloudflare-q4-fy22": {
+      "path": "data/datasets/cloudflare-q4-fy22.js",
+      "updatedAtMs": 1792479209720,
+      "updatedAt": "2026-10-20T06:53:29.720Z",
+      "timeSource": "publication"
+    },
+    "cloudflare-q4-fy23": {
+      "path": "data/datasets/cloudflare-q4-fy23.js",
+      "updatedAtMs": 1792479357651,
+      "updatedAt": "2026-10-20T06:55:57.651Z",
+      "timeSource": "publication"
+    },
+    "cloudflare-q4-fy24": {
+      "path": "data/datasets/cloudflare-q4-fy24.js",
+      "updatedAtMs": 1792479369361,
+      "updatedAt": "2026-10-20T06:56:09.361Z",
+      "timeSource": "publication"
+    },
+    "datadog-q1-fy23": {
+      "path": "data/datasets/datadog-q1-fy23.js",
+      "updatedAtMs": 1792479264381,
+      "updatedAt": "2026-10-20T06:54:24.381Z",
+      "timeSource": "publication"
+    },
+    "datadog-q1-fy24": {
+      "path": "data/datasets/datadog-q1-fy24.js",
+      "updatedAtMs": 1792479339732,
+      "updatedAt": "2026-10-20T06:55:39.732Z",
+      "timeSource": "publication"
+    },
+    "datadog-q1-fy25": {
+      "path": "data/datasets/datadog-q1-fy25.js",
+      "updatedAtMs": 1792479391709,
+      "updatedAt": "2026-10-20T06:56:31.709Z",
+      "timeSource": "publication"
+    },
+    "datadog-q2-fy23": {
+      "path": "data/datasets/datadog-q2-fy23.js",
+      "updatedAtMs": 1792479322094,
+      "updatedAt": "2026-10-20T06:55:22.094Z",
+      "timeSource": "publication"
+    },
+    "datadog-q2-fy24": {
+      "path": "data/datasets/datadog-q2-fy24.js",
+      "updatedAtMs": 1792479347314,
+      "updatedAt": "2026-10-20T06:55:47.314Z",
+      "timeSource": "publication"
+    },
+    "datadog-q2-fy25": {
+      "path": "data/datasets/datadog-q2-fy25.js",
+      "updatedAtMs": 1792479366031,
+      "updatedAt": "2026-10-20T06:56:06.031Z",
+      "timeSource": "publication"
+    },
+    "datadog-q3-fy22": {
+      "path": "data/datasets/datadog-q3-fy22.js",
+      "updatedAtMs": 1792479139656,
+      "updatedAt": "2026-10-20T06:52:19.656Z",
+      "timeSource": "publication"
+    },
+    "datadog-q3-fy23": {
+      "path": "data/datasets/datadog-q3-fy23.js",
+      "updatedAtMs": 1792479301098,
+      "updatedAt": "2026-10-20T06:55:01.098Z",
+      "timeSource": "publication"
+    },
+    "datadog-q3-fy24": {
+      "path": "data/datasets/datadog-q3-fy24.js",
+      "updatedAtMs": 1792479351312,
+      "updatedAt": "2026-10-20T06:55:51.312Z",
+      "timeSource": "publication"
+    },
+    "datadog-q4-fy22": {
+      "path": "data/datasets/datadog-q4-fy22.js",
+      "updatedAtMs": 1792479226083,
+      "updatedAt": "2026-10-20T06:53:46.083Z",
+      "timeSource": "publication"
+    },
+    "datadog-q4-fy23": {
+      "path": "data/datasets/datadog-q4-fy23.js",
+      "updatedAtMs": 1792479377351,
+      "updatedAt": "2026-10-20T06:56:17.351Z",
+      "timeSource": "publication"
+    },
+    "datadog-q4-fy24": {
+      "path": "data/datasets/datadog-q4-fy24.js",
+      "updatedAtMs": 1792479395648,
+      "updatedAt": "2026-10-20T06:56:35.648Z",
+      "timeSource": "publication"
+    },
+    "pinterest-q1-fy23": {
+      "path": "data/datasets/pinterest-q1-fy23.js",
+      "updatedAtMs": 1792479093866,
+      "updatedAt": "2026-10-20T06:51:33.866Z",
+      "timeSource": "publication"
+    },
+    "pinterest-q1-fy24": {
+      "path": "data/datasets/pinterest-q1-fy24.js",
+      "updatedAtMs": 1792479114202,
+      "updatedAt": "2026-10-20T06:51:54.202Z",
+      "timeSource": "publication"
+    },
+    "pinterest-q1-fy25": {
+      "path": "data/datasets/pinterest-q1-fy25.js",
+      "updatedAtMs": 1792479250036,
+      "updatedAt": "2026-10-20T06:54:10.036Z",
+      "timeSource": "publication"
+    },
+    "pinterest-q2-fy23": {
+      "path": "data/datasets/pinterest-q2-fy23.js",
+      "updatedAtMs": 1792479134082,
+      "updatedAt": "2026-10-20T06:52:14.082Z",
+      "timeSource": "publication"
+    },
+    "pinterest-q2-fy24": {
+      "path": "data/datasets/pinterest-q2-fy24.js",
+      "updatedAtMs": 1792479090734,
+      "updatedAt": "2026-10-20T06:51:30.734Z",
+      "timeSource": "publication"
+    },
+    "pinterest-q2-fy25": {
+      "path": "data/datasets/pinterest-q2-fy25.js",
+      "updatedAtMs": 1792479195433,
+      "updatedAt": "2026-10-20T06:53:15.433Z",
+      "timeSource": "publication"
+    },
+    "pinterest-q3-fy22": {
+      "path": "data/datasets/pinterest-q3-fy22.js",
+      "updatedAtMs": 1792479142612,
+      "updatedAt": "2026-10-20T06:52:22.612Z",
+      "timeSource": "publication"
+    },
+    "pinterest-q3-fy23": {
+      "path": "data/datasets/pinterest-q3-fy23.js",
+      "updatedAtMs": 1792479126353,
+      "updatedAt": "2026-10-20T06:52:06.353Z",
+      "timeSource": "publication"
+    },
+    "pinterest-q3-fy24": {
+      "path": "data/datasets/pinterest-q3-fy24.js",
+      "updatedAtMs": 1792479178677,
+      "updatedAt": "2026-10-20T06:52:58.677Z",
+      "timeSource": "publication"
+    },
+    "pinterest-q4-fy22": {
+      "path": "data/datasets/pinterest-q4-fy22.js",
+      "updatedAtMs": 1792479104888,
+      "updatedAt": "2026-10-20T06:51:44.888Z",
+      "timeSource": "publication"
+    },
+    "pinterest-q4-fy23": {
+      "path": "data/datasets/pinterest-q4-fy23.js",
+      "updatedAtMs": 1792479204773,
+      "updatedAt": "2026-10-20T06:53:24.773Z",
+      "timeSource": "publication"
+    },
+    "pinterest-q4-fy24": {
+      "path": "data/datasets/pinterest-q4-fy24.js",
+      "updatedAtMs": 1792479235960,
+      "updatedAt": "2026-10-20T06:53:55.960Z",
+      "timeSource": "publication"
+    },
+    "roblox-q1-fy23": {
+      "path": "data/datasets/roblox-q1-fy23.js",
+      "updatedAtMs": 1792479139016,
+      "updatedAt": "2026-10-20T06:52:19.016Z",
+      "timeSource": "publication"
+    },
+    "roblox-q1-fy24": {
+      "path": "data/datasets/roblox-q1-fy24.js",
+      "updatedAtMs": 1792479113588,
+      "updatedAt": "2026-10-20T06:51:53.588Z",
+      "timeSource": "publication"
+    },
+    "roblox-q1-fy25": {
+      "path": "data/datasets/roblox-q1-fy25.js",
+      "updatedAtMs": 1792479239119,
+      "updatedAt": "2026-10-20T06:53:59.119Z",
+      "timeSource": "publication"
+    },
+    "roblox-q2-fy23": {
+      "path": "data/datasets/roblox-q2-fy23.js",
+      "updatedAtMs": 1792479217021,
+      "updatedAt": "2026-10-20T06:53:37.021Z",
+      "timeSource": "publication"
+    },
+    "roblox-q2-fy24": {
+      "path": "data/datasets/roblox-q2-fy24.js",
+      "updatedAtMs": 1792479121696,
+      "updatedAt": "2026-10-20T06:52:01.696Z",
+      "timeSource": "publication"
+    },
+    "roblox-q2-fy25": {
+      "path": "data/datasets/roblox-q2-fy25.js",
+      "updatedAtMs": 1792479177053,
+      "updatedAt": "2026-10-20T06:52:57.053Z",
+      "timeSource": "publication"
+    },
+    "roblox-q3-fy22": {
+      "path": "data/datasets/roblox-q3-fy22.js",
+      "updatedAtMs": 1792479131993,
+      "updatedAt": "2026-10-20T06:52:11.993Z",
+      "timeSource": "publication"
+    },
+    "roblox-q3-fy23": {
+      "path": "data/datasets/roblox-q3-fy23.js",
+      "updatedAtMs": 1792479247372,
+      "updatedAt": "2026-10-20T06:54:07.372Z",
+      "timeSource": "publication"
+    },
+    "roblox-q3-fy24": {
+      "path": "data/datasets/roblox-q3-fy24.js",
+      "updatedAtMs": 1792479183682,
+      "updatedAt": "2026-10-20T06:53:03.682Z",
+      "timeSource": "publication"
+    },
+    "roblox-q3-fy25": {
+      "path": "data/datasets/roblox-q3-fy25.js",
+      "updatedAtMs": 1792479170770,
+      "updatedAt": "2026-10-20T06:52:50.770Z",
+      "timeSource": "publication"
+    },
+    "roblox-q4-fy22": {
+      "path": "data/datasets/roblox-q4-fy22.js",
+      "updatedAtMs": 1792479127597,
+      "updatedAt": "2026-10-20T06:52:07.597Z",
+      "timeSource": "publication"
+    },
+    "roblox-q4-fy23": {
+      "path": "data/datasets/roblox-q4-fy23.js",
+      "updatedAtMs": 1792479268220,
+      "updatedAt": "2026-10-20T06:54:28.220Z",
+      "timeSource": "publication"
+    },
+    "servicenow-q1-fy23": {
+      "path": "data/datasets/servicenow-q1-fy23.js",
+      "updatedAtMs": 1792479149450,
+      "updatedAt": "2026-10-20T06:52:29.450Z",
+      "timeSource": "publication"
+    },
+    "servicenow-q1-fy24": {
+      "path": "data/datasets/servicenow-q1-fy24.js",
+      "updatedAtMs": 1792479310335,
+      "updatedAt": "2026-10-20T06:55:10.335Z",
+      "timeSource": "publication"
+    },
+    "servicenow-q1-fy25": {
+      "path": "data/datasets/servicenow-q1-fy25.js",
+      "updatedAtMs": 1792479233830,
+      "updatedAt": "2026-10-20T06:53:53.830Z",
+      "timeSource": "publication"
+    },
+    "servicenow-q2-fy23": {
+      "path": "data/datasets/servicenow-q2-fy23.js",
+      "updatedAtMs": 1792479165764,
+      "updatedAt": "2026-10-20T06:52:45.764Z",
+      "timeSource": "publication"
+    },
+    "servicenow-q2-fy24": {
+      "path": "data/datasets/servicenow-q2-fy24.js",
+      "updatedAtMs": 1792479254032,
+      "updatedAt": "2026-10-20T06:54:14.032Z",
+      "timeSource": "publication"
+    },
+    "servicenow-q2-fy25": {
+      "path": "data/datasets/servicenow-q2-fy25.js",
+      "updatedAtMs": 1792479314659,
+      "updatedAt": "2026-10-20T06:55:14.659Z",
+      "timeSource": "publication"
+    },
+    "servicenow-q3-fy22": {
+      "path": "data/datasets/servicenow-q3-fy22.js",
+      "updatedAtMs": 1792479122738,
+      "updatedAt": "2026-10-20T06:52:02.738Z",
+      "timeSource": "publication"
+    },
+    "servicenow-q3-fy23": {
+      "path": "data/datasets/servicenow-q3-fy23.js",
+      "updatedAtMs": 1792479189595,
+      "updatedAt": "2026-10-20T06:53:09.595Z",
+      "timeSource": "publication"
+    },
+    "servicenow-q3-fy24": {
+      "path": "data/datasets/servicenow-q3-fy24.js",
+      "updatedAtMs": 1792479271390,
+      "updatedAt": "2026-10-20T06:54:31.390Z",
+      "timeSource": "publication"
+    },
+    "servicenow-q3-fy25": {
+      "path": "data/datasets/servicenow-q3-fy25.js",
+      "updatedAtMs": 1792479279889,
+      "updatedAt": "2026-10-20T06:54:39.889Z",
+      "timeSource": "publication"
+    },
+    "servicenow-q4-fy22": {
+      "path": "data/datasets/servicenow-q4-fy22.js",
+      "updatedAtMs": 1792479097785,
+      "updatedAt": "2026-10-20T06:51:37.785Z",
+      "timeSource": "publication"
+    },
+    "servicenow-q4-fy23": {
+      "path": "data/datasets/servicenow-q4-fy23.js",
+      "updatedAtMs": 1792479219558,
+      "updatedAt": "2026-10-20T06:53:39.558Z",
+      "timeSource": "publication"
+    },
+    "servicenow-q4-fy24": {
+      "path": "data/datasets/servicenow-q4-fy24.js",
+      "updatedAtMs": 1792479203105,
+      "updatedAt": "2026-10-20T06:53:23.105Z",
+      "timeSource": "publication"
+    },
+    "zoom-q1-fy24": {
+      "path": "data/datasets/zoom-q1-fy24.js",
+      "updatedAtMs": 1792479285942,
+      "updatedAt": "2026-10-20T06:54:45.942Z",
+      "timeSource": "publication"
+    },
+    "zoom-q1-fy25": {
+      "path": "data/datasets/zoom-q1-fy25.js",
+      "updatedAtMs": 1792479380290,
+      "updatedAt": "2026-10-20T06:56:20.290Z",
+      "timeSource": "publication"
+    },
+    "zoom-q1-fy26": {
+      "path": "data/datasets/zoom-q1-fy26.js",
+      "updatedAtMs": 1792479405164,
+      "updatedAt": "2026-10-20T06:56:45.164Z",
+      "timeSource": "publication"
+    },
+    "zoom-q2-fy24": {
+      "path": "data/datasets/zoom-q2-fy24.js",
+      "updatedAtMs": 1792479344354,
+      "updatedAt": "2026-10-20T06:55:44.354Z",
+      "timeSource": "publication"
+    },
+    "zoom-q2-fy25": {
+      "path": "data/datasets/zoom-q2-fy25.js",
+      "updatedAtMs": 1792479397979,
+      "updatedAt": "2026-10-20T06:56:37.979Z",
+      "timeSource": "publication"
+    },
+    "zoom-q2-fy26": {
+      "path": "data/datasets/zoom-q2-fy26.js",
+      "updatedAtMs": 1792479386410,
+      "updatedAt": "2026-10-20T06:56:26.410Z",
+      "timeSource": "publication"
+    },
+    "zoom-q3-fy23": {
+      "path": "data/datasets/zoom-q3-fy23.js",
+      "updatedAtMs": 1792479161873,
+      "updatedAt": "2026-10-20T06:52:41.873Z",
+      "timeSource": "publication"
+    },
+    "zoom-q3-fy24": {
+      "path": "data/datasets/zoom-q3-fy24.js",
+      "updatedAtMs": 1792479354558,
+      "updatedAt": "2026-10-20T06:55:54.558Z",
+      "timeSource": "publication"
+    },
+    "zoom-q3-fy25": {
+      "path": "data/datasets/zoom-q3-fy25.js",
+      "updatedAtMs": 1792479373186,
+      "updatedAt": "2026-10-20T06:56:13.186Z",
+      "timeSource": "publication"
+    },
+    "zoom-q4-fy23": {
+      "path": "data/datasets/zoom-q4-fy23.js",
+      "updatedAtMs": 1792479224168,
+      "updatedAt": "2026-10-20T06:53:44.168Z",
+      "timeSource": "publication"
+    },
+    "zoom-q4-fy24": {
+      "path": "data/datasets/zoom-q4-fy24.js",
+      "updatedAtMs": 1792479383507,
+      "updatedAt": "2026-10-20T06:56:23.507Z",
+      "timeSource": "publication"
+    },
+    "zoom-q4-fy25": {
+      "path": "data/datasets/zoom-q4-fy25.js",
+      "updatedAtMs": 1792479402075,
+      "updatedAt": "2026-10-20T06:56:42.075Z",
       "timeSource": "publication"
     },
     "data/revenue-metrics.js": {

@@ -1,0 +1,24 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Roblox Q2 FY24 characters illustration",
+  "artifact": {
+    "path": "data/assets/raster-annotations/roblox-q2-fy24/characters.png",
+    "digest": "sha256:50ee4b18eb2471cf6dbd6f76c92293d59d3b4e54809ab2b1730073bef49ba315"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/roblox-q2-fy24-characters.json",
+    "digest": "sha256:fac90111ec842390d3513ddc6f2c0d69a895081db04f92107b04644853f6bf8b"
+  },
+  "source": {
+    "path": "input/processed/roblox-q2-fy24.png",
+    "digest": "sha256:77c3a9a1c70fff8ab7dd6c0728402ecc2e2067db3039539a8df740e944b0f34e"
+  },
+  "review": {
+    "reviewer": "Codex asset visual comparison",
+    "decision": "accepted",
+    "artifactDigest": "sha256:50ee4b18eb2471cf6dbd6f76c92293d59d3b4e54809ab2b1730073bef49ba315",
+    "date": "2026-10-20",
+    "note": "Compared the script-generated source/crop validation sheet. Removed both source flow fragments and their antialiased edge pixels through explicit exclusion regions. Characters, sword and raised tool remain complete; transparent border audit reports zero foreground edge pixels. Dataset human acceptance remains pending."
+  },
+  "versionDigest": "sha256:744c661b0738d716fdbc8e156fc968024db96e26b928a43c5228a7fa575d293f"
+}

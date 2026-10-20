@@ -3391,15 +3391,39 @@
       "digest": "sha256:acaadd797140b1ef9488a886857708077784a433756a728dd9dca57b64010d09",
       "provenance": [],
       "directConsumers": [
+        "datadog-q1-fy23",
+        "datadog-q1-fy24",
+        "datadog-q1-fy25",
         "datadog-q1-fy26",
+        "datadog-q2-fy23",
+        "datadog-q2-fy24",
+        "datadog-q2-fy25",
         "datadog-q2-fy26",
+        "datadog-q3-fy22",
+        "datadog-q3-fy23",
+        "datadog-q3-fy24",
         "datadog-q3-fy25",
+        "datadog-q4-fy22",
+        "datadog-q4-fy23",
+        "datadog-q4-fy24",
         "datadog-q4-fy25"
       ],
       "consumers": [
+        "datadog-q1-fy23",
+        "datadog-q1-fy24",
+        "datadog-q1-fy25",
         "datadog-q1-fy26",
+        "datadog-q2-fy23",
+        "datadog-q2-fy24",
+        "datadog-q2-fy25",
         "datadog-q2-fy26",
+        "datadog-q3-fy22",
+        "datadog-q3-fy23",
+        "datadog-q3-fy24",
         "datadog-q3-fy25",
+        "datadog-q4-fy22",
+        "datadog-q4-fy23",
+        "datadog-q4-fy24",
         "datadog-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -11547,6 +11571,76 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/roblox-q2-fy24/characters.png",
+      "digest": "sha256:50ee4b18eb2471cf6dbd6f76c92293d59d3b4e54809ab2b1730073bef49ba315",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/roblox-q2-fy24-characters.json",
+          "recipeDigest": "sha256:fac90111ec842390d3513ddc6f2c0d69a895081db04f92107b04644853f6bf8b",
+          "source": "input/processed/roblox-q2-fy24.png",
+          "cropKey": "roblox-q2-fy24-characters"
+        }
+      ],
+      "directConsumers": [
+        "roblox-q2-fy24"
+      ],
+      "consumers": [
+        "roblox-q2-fy24"
+      ],
+      "acceptedVersions": [
+        "sha256:744c661b0738d716fdbc8e156fc968024db96e26b928a43c5228a7fa575d293f"
+      ],
+      "reusable": true
+    },
+    {
+      "path": "data/assets/raster-annotations/roblox-q2-fy24/wordmark.png",
+      "digest": "sha256:2365c276446b01ce9405573874cc6c4f727cec16de5edcb16ba076a2ab8df593",
+      "provenance": [],
+      "directConsumers": [
+        "roblox-q2-fy24"
+      ],
+      "consumers": [
+        "roblox-q2-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/roblox-q3-fy22/characters.png",
+      "digest": "sha256:2f2ff15f87223477163bda6fde892e13f651d8b76f6744a96d007a57d53011e6",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/roblox-q3-fy22-characters.json",
+          "recipeDigest": "sha256:018af6e409a1cee170a1b00b8a189067fd81d8ebceef594502f0b2f2d6a18032",
+          "source": "input/processed/roblox-q3-fy22.png",
+          "cropKey": "roblox-q3-fy22-characters"
+        }
+      ],
+      "directConsumers": [
+        "roblox-q3-fy22"
+      ],
+      "consumers": [
+        "roblox-q3-fy22"
+      ],
+      "acceptedVersions": [
+        "sha256:e424c53c131858e3dfb168be622e8df9cf505f7185993858f9f3e63eacb5a46e"
+      ],
+      "reusable": true
+    },
+    {
+      "path": "data/assets/raster-annotations/roblox-q3-fy22/wordmark.png",
+      "digest": "sha256:1eaaab48094d13f57daf7539e2ba2bb7061ff716aba9b00ecd5b958a77a81260",
+      "provenance": [],
+      "directConsumers": [
+        "roblox-q3-fy22"
+      ],
+      "consumers": [
+        "roblox-q3-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/roku/company-wordmark.png",
       "digest": "sha256:0dc8d052eaf684fae3445b6ac6be3e6df02a8d100e2260ef4a9a15af57b096bf",
       "provenance": [
@@ -15943,10 +16037,16 @@
         }
       ],
       "directConsumers": [
-        "zoom-q2-fy27"
+        "zoom-q2-fy24",
+        "zoom-q2-fy27",
+        "zoom-q4-fy23",
+        "zoom-q4-fy24"
       ],
       "consumers": [
-        "zoom-q2-fy27"
+        "zoom-q2-fy24",
+        "zoom-q2-fy27",
+        "zoom-q4-fy23",
+        "zoom-q4-fy24"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -17087,6 +17187,16 @@
       "path": "input/icon-crop-specs/roblox-q1-fy26.json",
       "digest": "sha256:b0024503ccf62df661fb2e08b0690256a1e9ec8a2bee539224f1cea2d4ef71c0",
       "source": "input/processed/roblox-q1-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/roblox-q2-fy24-characters.json",
+      "digest": "sha256:fac90111ec842390d3513ddc6f2c0d69a895081db04f92107b04644853f6bf8b",
+      "source": "input/processed/roblox-q2-fy24.png"
+    },
+    {
+      "path": "input/icon-crop-specs/roblox-q3-fy22-characters.json",
+      "digest": "sha256:018af6e409a1cee170a1b00b8a189067fd81d8ebceef594502f0b2f2d6a18032",
+      "source": "input/processed/roblox-q3-fy22.png"
     },
     {
       "path": "input/icon-crop-specs/roku-q4-fy25.json",

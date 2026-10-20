@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Roblox Q3 FY22 characters illustration — cleaned source ribbon residue",
+  "artifact": {
+    "path": "data/assets/raster-annotations/roblox-q3-fy22/characters.png",
+    "digest": "sha256:2f2ff15f87223477163bda6fde892e13f651d8b76f6744a96d007a57d53011e6"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/roblox-q3-fy22-characters.json",
+    "digest": "sha256:018af6e409a1cee170a1b00b8a189067fd81d8ebceef594502f0b2f2d6a18032"
+  },
+  "source": {
+    "path": "input/processed/roblox-q3-fy22.png",
+    "digest": "sha256:0feb754dd8e74d8ff256a83a58555c7264d3e42005dc9f0f24800afd584d8e15"
+  },
+  "review": {
+    "reviewer": "Codex model visual asset inspection",
+    "decision": "accepted",
+    "artifactDigest": "sha256:2f2ff15f87223477163bda6fde892e13f651d8b76f6744a96d007a57d53011e6",
+    "note": "2026-10-20: Compared the Source crop, previous runtime image and generated validation sheet. The isolated top-left blue connector triangle is removed by a crop-local 24×28 transparent exclusion; all existing pixels outside that corner are byte-identical in RGBA, including every avatar. Added 8 blank source pixels below to retain the full shadow and pass the edge gate; matched runtime canvas height so character scale and top-left position stay fixed. Crop validation passes; no chart text, ribbon or publisher residue remains. This records the asset inspection only; the Dataset remains waiting for operator review."
+  },
+  "versionDigest": "sha256:e424c53c131858e3dfb168be622e8df9cf505f7185993858f9f3e63eacb5a46e"
+}

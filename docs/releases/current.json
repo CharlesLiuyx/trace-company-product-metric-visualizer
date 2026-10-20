@@ -1,9 +1,9 @@
 {
   "schema": "reviewed-git-release/v1",
-  "id": "transport-6f4dfccc-df64-4bd2-9f07-5d1601200ae9",
-  "baseHead": "e4892dfaa2b9342f07135d6bdeff831901d61591",
-  "planDigest": "sha256:92e13d831f7d410ef4a3a4aeae30cbcc2bbde0509845c6dd5eab0f365db77e3d",
-  "publishedDigest": "sha256:23ab8504274279582d4a7e0fafeba7ec7cb84af9e13bfe5f2270d5b2a71d138a",
+  "id": "transport-f50c3e08-935e-4ab1-9adf-a979e20fa6cb",
+  "baseHead": "54487d5628fc0bae8b5af0ab1519ed746964d43b",
+  "planDigest": "sha256:e695bf61a909e5cdc7d6a1b8910083f36348f5f9b1ba5a2506a5e1c1bb2f238d",
+  "publishedDigest": "sha256:74bea08ca1335b4feed56a9953b4e3788581ffb25613a8abab7203aba50e8495",
   "builds": [
     {
       "buildId": "build-fbe573ad-5128-4025-b987-54dfc2707ba0",
@@ -189,1807 +189,871 @@
       "buildId": "build-e638158b-8f64-4419-a409-b23a1ae6252d",
       "key": "snap-q4-fy24",
       "sealDigest": "sha256:0a7bd331a663281bc01150c3e04e90fdec658b0429e7f3c7208f888fc8e265ff"
+    },
+    {
+      "buildId": "build-fe1d1d39-0c2a-417e-9df5-672174e60ce0",
+      "key": "cloudflare-q1-fy23",
+      "sealDigest": "sha256:9c7e47b4561dfa0bb2fd023e67fff3fe9e6005f61b10ba045691c3957c5e5ca4"
+    },
+    {
+      "buildId": "build-ad05b73b-e5db-4935-89a5-77299aeeb61a",
+      "key": "cloudflare-q1-fy24",
+      "sealDigest": "sha256:7048df324902f551fe3689bcb3fd51459d0691b7cc059bd5f82ecd9a31c08355"
+    },
+    {
+      "buildId": "build-7b3aafce-5171-409c-8a6f-25cbc30a8fd7",
+      "key": "cloudflare-q1-fy25",
+      "sealDigest": "sha256:f01734b2709c55c459a1c6c1ff444ce081d60ada7ecd7bb012549865a034dd3f"
+    },
+    {
+      "buildId": "build-57e3a073-54da-4cbf-b2d4-1c74eafbb669",
+      "key": "cloudflare-q2-fy24",
+      "sealDigest": "sha256:18255fc10235a088bc4c883c3d5daad1327e9ac4bc2b9736e7b7888c238f6948"
+    },
+    {
+      "buildId": "build-bd3ad77a-decb-4d40-848c-d0de292f59be",
+      "key": "cloudflare-q2-fy25",
+      "sealDigest": "sha256:f526d0e987463fa55986c1e3ea49bf452eaad74036ef970815ccd42db0e65d8a"
+    },
+    {
+      "buildId": "build-8f84aa1c-eec4-40a7-8aa5-906765fdf3e5",
+      "key": "cloudflare-q3-fy22",
+      "sealDigest": "sha256:895686de6d27c02411043549ccf659fc197f2530c636802a3b832beb987212f2"
+    },
+    {
+      "buildId": "build-3ef56feb-8369-44af-8bc1-3aa8b55d462b",
+      "key": "cloudflare-q3-fy23",
+      "sealDigest": "sha256:2667f54a40e2884e23de540b22848bebbda14843460bbe672ba9f263e4472630"
+    },
+    {
+      "buildId": "build-71d61764-2857-44a0-89bc-38ced84d5e1d",
+      "key": "cloudflare-q3-fy24",
+      "sealDigest": "sha256:d8a472ec67b7f76735981f8c62e73af7073c427f598b7119aaee2719fcd418fd"
+    },
+    {
+      "buildId": "build-67c2a77c-970f-4a58-baa7-b5fabcfa98d4",
+      "key": "cloudflare-q3-fy25",
+      "sealDigest": "sha256:dd3dada6b2f5f760932ad2fbf7f0fc9c096fa3cac08cb6a48b3eaf77ab724e79"
+    },
+    {
+      "buildId": "build-e9cdbdb0-908b-4c3f-8c1f-45125483a6eb",
+      "key": "cloudflare-q4-fy22",
+      "sealDigest": "sha256:3cbb3857a9674ad98e576a11c4be1581ecd84b8b6fb0b09b036868fc40a9d58b"
+    },
+    {
+      "buildId": "build-bd9bc90d-9f25-4c21-8b73-46adcea78b27",
+      "key": "cloudflare-q4-fy23",
+      "sealDigest": "sha256:64910910946f0cccb4e1a3f296e3bc667488feeceb42580db1e4e4a2966e8797"
+    },
+    {
+      "buildId": "build-5e420ba3-de93-4bb2-9b7c-60f54e4dcc36",
+      "key": "cloudflare-q4-fy24",
+      "sealDigest": "sha256:dff4309bbf54707820ce18a966a378c0a360aa61ac93d07dd29f6877da6c9adc"
+    },
+    {
+      "buildId": "build-fc13c516-e5e9-4599-81de-c89420655b42",
+      "key": "datadog-q1-fy23",
+      "sealDigest": "sha256:dfef329b409194b701c97ddac0eee17b9b27a8b00abc868487db70c312c39a51"
+    },
+    {
+      "buildId": "build-285e21f5-326a-4a7e-9522-64be4f6fb662",
+      "key": "datadog-q1-fy24",
+      "sealDigest": "sha256:afcc78d4ae32f98d61362bddeed5a66f5d8ad62f94b8a058110bce4502e6f6ab"
+    },
+    {
+      "buildId": "build-e51757b2-822c-4d73-91f3-757c47adee1f",
+      "key": "datadog-q1-fy25",
+      "sealDigest": "sha256:a992159f1ce3e807b5870a2b3ad1865b27cea9a5518fc30929c7117dd06985e7"
+    },
+    {
+      "buildId": "build-69d62c26-9f99-4e03-b50f-c050bb3699e0",
+      "key": "datadog-q2-fy23",
+      "sealDigest": "sha256:5764bcc526d664f24bd9a36a1646f1579dca57abcb4206e5d2786d2d3db9d64c"
+    },
+    {
+      "buildId": "build-45120427-e092-4eab-99f3-ba8d7440a380",
+      "key": "datadog-q2-fy24",
+      "sealDigest": "sha256:5d783499d03d2177765db039fbad94e0902560aae98110ba7e107433db5f05e0"
+    },
+    {
+      "buildId": "build-1dc8d654-6fde-432e-80ce-fdbd7a6a66e3",
+      "key": "datadog-q2-fy25",
+      "sealDigest": "sha256:ec25d4b63b739dbefc72671a1eb490931d041222de19dbac2d92b33c6bbe37f1"
+    },
+    {
+      "buildId": "build-c4dc80e5-55bb-4219-8f22-53f0db0920cf",
+      "key": "datadog-q3-fy22",
+      "sealDigest": "sha256:8c1dcc7cfba0e77a5aa0ef0d2fdca4ca58766e9a526b01ea84996d3b60ae8bce"
+    },
+    {
+      "buildId": "build-11dafcd8-9f30-4c08-a09f-6880cd404670",
+      "key": "datadog-q3-fy23",
+      "sealDigest": "sha256:90c2c3657f621d1e03fae22680a92d7f0bcce5d874835878dbd77231aee8d077"
+    },
+    {
+      "buildId": "build-8dff5ea0-0eb5-4c69-ab8b-1baf82e8d2ca",
+      "key": "datadog-q3-fy24",
+      "sealDigest": "sha256:b087554a85f4a41506ccfba414a399909907fa422d92c068e73116dd853823c0"
+    },
+    {
+      "buildId": "build-61ad3860-6359-41ba-bb00-441e543353db",
+      "key": "datadog-q4-fy22",
+      "sealDigest": "sha256:65ca451ee6eca8c95ed976a4a25d3e92596a40e6d254f37f113d35e262a2e6b5"
+    },
+    {
+      "buildId": "build-b2710c69-b8eb-478e-9b46-aaade66f6f67",
+      "key": "datadog-q4-fy23",
+      "sealDigest": "sha256:ed1bd36bc7aeba83ac08d845c677e1b1619e2ba8cbbd1cbbb6b4d08f1fa00f0f"
+    },
+    {
+      "buildId": "build-76fb97df-2315-4b7d-bde7-35df8d647db6",
+      "key": "datadog-q4-fy24",
+      "sealDigest": "sha256:ba3f3b0e481fea60aa9b6cd7d02a9bf460faaf2b5d5399c6c3819657062eb366"
+    },
+    {
+      "buildId": "build-c1e9e1bc-696a-45ca-80c1-9e6eba53f59f",
+      "key": "pinterest-q1-fy23",
+      "sealDigest": "sha256:f547bd2462955ccb2204626e1a51d9340f4646162a91cee8a2a16e26157389ae"
+    },
+    {
+      "buildId": "build-59a74451-7f0d-446e-8ba0-36895b986037",
+      "key": "pinterest-q1-fy24",
+      "sealDigest": "sha256:c8e75df15ff031433847dcf230c8bfeb0bce6dfb7ff98918b3f2417aa519953a"
+    },
+    {
+      "buildId": "build-6bb4821b-e8dd-4073-a90b-bc8a813d84de",
+      "key": "pinterest-q1-fy25",
+      "sealDigest": "sha256:611770d1a86da6d7cc46a90d4018ec9b2cd30c02d4764a348ef6f7f21b36090d"
+    },
+    {
+      "buildId": "build-771a4ab3-adfb-4e84-96f1-ced5ee3f5261",
+      "key": "pinterest-q2-fy23",
+      "sealDigest": "sha256:7aaf12e9fec331aa04a7ab528a771c5075061c9013658f15dae1a0e16019b4d5"
+    },
+    {
+      "buildId": "build-0cabf038-948b-4d39-bd1b-cd78b0da4382",
+      "key": "pinterest-q2-fy24",
+      "sealDigest": "sha256:bb97d368a1851779fb3bdc4c233bf3bd8b810b94469fb9b9d7ad72c39462db14"
+    },
+    {
+      "buildId": "build-3589a801-dcde-4892-a5bb-712687b6c08f",
+      "key": "pinterest-q2-fy25",
+      "sealDigest": "sha256:75f72cb9c0741a4fe0ac239e5cef43a976d2d235c9cbb3825173e120927ae0e9"
+    },
+    {
+      "buildId": "build-bec168e2-e725-4bd2-ada9-ecab99f4c67b",
+      "key": "pinterest-q3-fy22",
+      "sealDigest": "sha256:c887c1eeac8c0e5aa8cecc3f4944fdbf41eb0bab4e6835e81d3e57ed0e488bf0"
+    },
+    {
+      "buildId": "build-3f6e10a4-fe24-4c5d-b8f6-c2072fa892e7",
+      "key": "pinterest-q3-fy23",
+      "sealDigest": "sha256:cd6af940c2677fced7ccd0f123c72f33cfacd50c55695f4c8e03421d813484e0"
+    },
+    {
+      "buildId": "build-06efc66a-e891-42c1-ab1f-216fd4e5ce6a",
+      "key": "pinterest-q3-fy24",
+      "sealDigest": "sha256:788c4f893733d0dc62cfb40b4c52a6dda70bc70a4164c19f3a177973533f14f6"
+    },
+    {
+      "buildId": "build-eab0dd9c-fb9c-4ead-b7da-2f167031bb2f",
+      "key": "pinterest-q4-fy22",
+      "sealDigest": "sha256:b3233daeca0bba0e7b73211ef233ea5f77196c54c16d9d08541bb02e67637600"
+    },
+    {
+      "buildId": "build-487bef87-ee06-45cd-bd0d-03275b3004c3",
+      "key": "pinterest-q4-fy23",
+      "sealDigest": "sha256:a86b5ce85aa88dc3fb5c268f6d3d9dd050965672260881e7d806b5f1a3167992"
+    },
+    {
+      "buildId": "build-be4c9776-3280-4da6-939d-13c09aa612b0",
+      "key": "pinterest-q4-fy24",
+      "sealDigest": "sha256:a491357d9a919a4dff07072c3dd2b132766ba3ad068e578125489433bc59790c"
+    },
+    {
+      "buildId": "build-3d93ed0c-0c78-4cef-8725-0f38308a15f8",
+      "key": "roblox-q1-fy23",
+      "sealDigest": "sha256:69f9a063e740bd861e6ed05df0e11ee7d832b6a147f6a99215820860db0ea2af"
+    },
+    {
+      "buildId": "build-1601107d-8c1b-4439-a8e4-68b4ad11da43",
+      "key": "roblox-q1-fy24",
+      "sealDigest": "sha256:a76af8510fb2ebb12a452ca4b0ed2078c0bb62e8f7bf8636f1f85528b9bc6d7d"
+    },
+    {
+      "buildId": "build-b9a684ab-bcae-45e4-a13f-92ac1c253959",
+      "key": "roblox-q1-fy25",
+      "sealDigest": "sha256:94f1eb0b116fefc19f3136e3c0a8fdbc28cce78f81a034d7d7c4cd4027afd806"
+    },
+    {
+      "buildId": "build-b46b88b7-7818-4ee0-9b87-bf252d4b7dbb",
+      "key": "roblox-q2-fy23",
+      "sealDigest": "sha256:ef66c57baed815271355fd1013214b709cd2047dfad3f0d4a4f7474b42c1acda"
+    },
+    {
+      "buildId": "build-ea41b563-36ad-4a9f-a856-0b828eca7df5",
+      "key": "roblox-q2-fy24",
+      "sealDigest": "sha256:2b3fbd20f619a518bf09b110bca1851f492badabc445759e2a21170f26ba3163"
+    },
+    {
+      "buildId": "build-7268302a-9b9e-4ef9-9fe1-bce399726b03",
+      "key": "roblox-q2-fy25",
+      "sealDigest": "sha256:a25a57276fe35d1e5b6f1cd9ee1082bfe70eaaefb174432de033d3ccff4785a1"
+    },
+    {
+      "buildId": "build-5c0adfa7-6bad-48d1-899d-f35ac9752950",
+      "key": "roblox-q3-fy22",
+      "sealDigest": "sha256:d5837cf1ac18309a2f9eaa4d07d263f1cf7e387808b2ccc1238b5d881516f3fe"
+    },
+    {
+      "buildId": "build-7b5ddd70-704f-49a8-a143-3b4acde310a5",
+      "key": "roblox-q3-fy23",
+      "sealDigest": "sha256:ddc3a21090473b6c681075e0db4d1503fd0d7c3cced80a369763b9bf9f6bae02"
+    },
+    {
+      "buildId": "build-6bec53e4-ab1e-482b-8383-c9dca314a73b",
+      "key": "roblox-q3-fy24",
+      "sealDigest": "sha256:8bd79b04850c2665417a183be9354da90572b7bce9cf68f85867ef2b85e06813"
+    },
+    {
+      "buildId": "build-8c7be482-49e4-4f28-bd2d-560221bc6a69",
+      "key": "roblox-q3-fy25",
+      "sealDigest": "sha256:24d8f291d39947a371566e1406e07bea00f4ddf975f251453a68ecc42799855a"
+    },
+    {
+      "buildId": "build-e401adbf-4b21-470a-92d8-1ebc8c3a8e6d",
+      "key": "roblox-q4-fy22",
+      "sealDigest": "sha256:c0f81c6be8ed7e29e7f492dd7661d25cafea314640944d9315d1489883507131"
+    },
+    {
+      "buildId": "build-c72a703f-f4e8-4ad8-80cc-b61d4e8feb64",
+      "key": "roblox-q4-fy23",
+      "sealDigest": "sha256:0e831fccd37a01b003962d91dc703c115c5acf7b3f775aaeeef12a05a08e6d89"
+    },
+    {
+      "buildId": "build-043fa850-217a-42a5-b922-41e296d421eb",
+      "key": "servicenow-q1-fy23",
+      "sealDigest": "sha256:8754db0eacc448a3e3f4f8fbaf0a6a8d61bc7e16ae8346900c64037df8593894"
+    },
+    {
+      "buildId": "build-5205e993-234c-4490-b298-82ecf6da81ff",
+      "key": "servicenow-q1-fy24",
+      "sealDigest": "sha256:fd9ea2e9a8db9ac20902ca1e302f473690c8e6f18a35bf499e2dd34acc40df4f"
+    },
+    {
+      "buildId": "build-c2646cc1-9e89-4996-812a-c27e5d6c99b6",
+      "key": "servicenow-q1-fy25",
+      "sealDigest": "sha256:abaca6bde6038d258dd5e01c89e04e5ef08d6e81e32a1a554480236aa3036359"
+    },
+    {
+      "buildId": "build-af9394ed-f5e4-4a59-8962-ed9bb22c589d",
+      "key": "servicenow-q2-fy23",
+      "sealDigest": "sha256:ff053b6aceaf93042268184e24ed2f3af8f6aacb06f57a482fd7a9bebe8bd3ac"
+    },
+    {
+      "buildId": "build-b67d19f3-0d84-4da1-a716-21a2edffe9a9",
+      "key": "servicenow-q2-fy24",
+      "sealDigest": "sha256:5e88e393f07fb2dfebcbd22b1293e9115bae12a274f0ced393484c95bda3f30b"
+    },
+    {
+      "buildId": "build-ab1d3356-67d8-4709-a2de-ed74dcaac709",
+      "key": "servicenow-q2-fy25",
+      "sealDigest": "sha256:280ae68a4c55c741a73a457999ff1d7a19bf605cb541c0e2b2d229690457cc50"
+    },
+    {
+      "buildId": "build-e23ac3c0-42c3-477f-a01e-d746050cfcb2",
+      "key": "servicenow-q3-fy22",
+      "sealDigest": "sha256:c82c6f69f10cac934acb8e229bf4d66a9600edeb324d36cdf964ebe6cebd3ab3"
+    },
+    {
+      "buildId": "build-81aea890-e55b-4d92-92e7-7ae6e6aab1a6",
+      "key": "servicenow-q3-fy23",
+      "sealDigest": "sha256:c2c35a22bc4bd56ed7e8051fa34f5d5ee2e70026db6b0985a589be559d1201b7"
+    },
+    {
+      "buildId": "build-8c3713a7-cc37-44ca-a74e-be057d7d6562",
+      "key": "servicenow-q3-fy24",
+      "sealDigest": "sha256:19ceaaeb03e567250236d8a9063f4dba6b275b7458ae0990ef4d27a6d8572419"
+    },
+    {
+      "buildId": "build-10e6181b-66b3-46ab-a980-66f9272f3712",
+      "key": "servicenow-q3-fy25",
+      "sealDigest": "sha256:71219ef547c99dd5a3c232af024ec8179d6b1830c5db6bd16444d8cde56829a7"
+    },
+    {
+      "buildId": "build-5b3c6999-f652-478f-90bc-cec09285fd57",
+      "key": "servicenow-q4-fy22",
+      "sealDigest": "sha256:dee3c2906f47725908355f28b2fd570d0b3c64c00bed170c033b726ffe2c25e4"
+    },
+    {
+      "buildId": "build-5914e832-7e11-4679-89ef-d3277938ebd8",
+      "key": "servicenow-q4-fy23",
+      "sealDigest": "sha256:1eed59badb696d17740d970c76c54d253a7584292664990ac054e2534edf4c85"
+    },
+    {
+      "buildId": "build-13a3407b-4d16-41b4-a3d2-93fad5067a53",
+      "key": "servicenow-q4-fy24",
+      "sealDigest": "sha256:4d6c96734bbb1984674c5c1f897bd56a8d2950ddd7dab424556dcf2e36b006ec"
+    },
+    {
+      "buildId": "build-20ac90b6-a836-465e-936c-a2d137d874f7",
+      "key": "zoom-q1-fy24",
+      "sealDigest": "sha256:f01b0d184725ccdae903a08f143747b6e442fa683184b6904241d6386cd4eee0"
+    },
+    {
+      "buildId": "build-cc40c547-67a2-4d45-8b15-ed9c37bef887",
+      "key": "zoom-q1-fy25",
+      "sealDigest": "sha256:7cdccf362e19e560be12f2a7a28d223e72ef6a8b7b5b9701e3f16982cb829d47"
+    },
+    {
+      "buildId": "build-bdf52ac8-7b82-4deb-aef7-c814a0b28cf5",
+      "key": "zoom-q1-fy26",
+      "sealDigest": "sha256:446a10d228578e11b2b5ac78e8f5282def735406755ffbb05d691439d2fe8cc1"
+    },
+    {
+      "buildId": "build-708988db-aaed-45f9-b513-52d863c929d3",
+      "key": "zoom-q2-fy24",
+      "sealDigest": "sha256:b2db269d20896ae0fcf8b6a99c1a96c7b24fcb69c0f58047fc48b6c2a0615b9e"
+    },
+    {
+      "buildId": "build-80a4b71a-e82f-4bf2-82b4-860a51b0b626",
+      "key": "zoom-q2-fy25",
+      "sealDigest": "sha256:cc385f649f01c734b19a069d49662b8088dd928ce9f8c3d622cfa28b6a399ce6"
+    },
+    {
+      "buildId": "build-e5cd0098-f292-434b-b793-1df5c18b620f",
+      "key": "zoom-q2-fy26",
+      "sealDigest": "sha256:ebedb3f0cbffcba5e2f34ac06ce3ebdf98ab5e81ab39cd451e3060bfae812074"
+    },
+    {
+      "buildId": "build-6f47ab09-ca4c-4426-bc4e-61d27604d8ab",
+      "key": "zoom-q3-fy23",
+      "sealDigest": "sha256:13b4b6d54d55b1f6969d529f5b819cff3e19a6e4bdc9b7b83c395cc30d6bd678"
+    },
+    {
+      "buildId": "build-aff1da31-3a64-4acd-9aa2-28f14a05760d",
+      "key": "zoom-q3-fy24",
+      "sealDigest": "sha256:66b9944077f0a333be639bfc995b864b3c30c8a0ce4b2831727b9846f48cdaa6"
+    },
+    {
+      "buildId": "build-e864f6dc-d533-46e7-963b-8e08873baf98",
+      "key": "zoom-q3-fy25",
+      "sealDigest": "sha256:356cf80e655ae37176f24abbb9cade21e85fe93ab58b9d82a94c8ed9ec6aacaa"
+    },
+    {
+      "buildId": "build-39add8a0-defd-4dbc-962b-ce38c0901825",
+      "key": "zoom-q4-fy23",
+      "sealDigest": "sha256:dd85f39907488594f00838f8354d75d6dd3238e541c80af11dc1fc2e7b786742"
+    },
+    {
+      "buildId": "build-8855676c-feba-4354-b76e-b263cea7c826",
+      "key": "zoom-q4-fy24",
+      "sealDigest": "sha256:f5491bb2730fd962d9b56fb7f22b7810e6e7a29d28fbe80098f0c8c280ed5847"
+    },
+    {
+      "buildId": "build-184e87cc-337b-442e-a6b3-41eae2e8c618",
+      "key": "zoom-q4-fy25",
+      "sealDigest": "sha256:d03fd55f83d35d1a8f7ce50fc93b5e83b0602a6b739d807f0049bdd1283c2dd2"
     }
   ],
-  "candidateDigest": "sha256:69d4fc9c4f20a6c492e28b1655b512d88fb201fb83c7271245d5ec93856a7b87",
+  "candidateDigest": "sha256:8df44c166ee384ff268e450d0747f7daa463f48eee0299eb4d747d25582e8434",
   "paths": [
     {
       "path": "data/assets/catalog.json",
-      "digest": "sha256:91a00e164cb12099446fae5e60e874aeafa3a5ad693f8770b74d96972ba16474",
-      "before": "sha256:6124b22388acd0549eccb44c4ce8a9155e1f93a90a6fef68f67817321f0979c5"
+      "digest": "sha256:b49bc98ffca4940c6462cc16939f0f02b2d6521811fd1b29e8fd1131d816e43c",
+      "before": "sha256:4adc61306f1f41b8409cc9b07c88e1c4c75e670d3846aea84b96a156339a771b"
     },
     {
-      "path": "data/assets/icon-references/salesforce/q1-fy24/crop-report.json",
-      "digest": "sha256:6620cb3d866989894e0b18ab853a98d14f23d0bf12fda31af9d997c69068b42d",
+      "path": "data/assets/icon-references/roblox/crop-report-q3-fy22-characters.json",
+      "digest": "sha256:3280993dfd05abcfaa93df0d349fa8f27a8715bb25b292674d6a77cb3cb26648",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/salesforce/q1-fy24/crops/q1-fy24-company-logo.png",
-      "digest": "sha256:fdf5dfc22cbe897bc109d4d4bdf77c0625f7d11908a4ed8b10feca57e8a72422",
+      "path": "data/assets/icon-references/roblox/crops/q3-fy22-characters.png",
+      "digest": "sha256:2f2ff15f87223477163bda6fde892e13f651d8b76f6744a96d007a57d53011e6",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/salesforce/q1-fy24/crops/q1-fy24-marketing-commerce.png",
-      "digest": "sha256:2ebd476fea11494044dad75bfa589c2f131faa695584d3b5d55730bcfe6e230f",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q1-fy24/crops/q1-fy24-mulesoft.png",
-      "digest": "sha256:bb486eda9b7d3b2d757a48b834b4eff755b5c08bce73fc165b776bef4db01897",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q1-fy24/crops/q1-fy24-sales.png",
-      "digest": "sha256:de5c28d9cd0675483454ca16380f25d378744fb3bd303e715f038573aa202584",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q1-fy24/crops/q1-fy24-service.png",
-      "digest": "sha256:578d00722d1c9f23e9bd0768d5893e915aa0cd0c7835a28dae6c70d614c16504",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q1-fy24/crops/q1-fy24-slack.png",
-      "digest": "sha256:7a55b98c659e780ce2a3f8dfbe223724373777ece64b1823952f8e40b4010e4e",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q1-fy24/crops/q1-fy24-tableau.png",
-      "digest": "sha256:e6cd1854720e98b5f195beca8880541548bdd1bc880ef3dc4c102b23edca2ba8",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q1-fy24/model-validation.md",
-      "digest": "sha256:25c87ac7c26f05d1e7c2d770059b0d0082f27784bbca03cb5089266085962805",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q1-fy25/crop-report.json",
-      "digest": "sha256:afdb44d5014a3889dfce25b804f27006a88653c22dfe5afccc134f5de58f090a",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q1-fy25/crops/q1-fy25-company-logo.png",
-      "digest": "sha256:9033d47a29a4cacde145d84f32059d02b2abb2358cb891fb6a3d6606f1c05744",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q1-fy25/crops/q1-fy25-marketing-commerce.png",
-      "digest": "sha256:82df3d7ce8d767e526e5ba43731f404c1c5789b6aae2a3da7e10c8501bde2352",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q1-fy25/crops/q1-fy25-mulesoft.png",
-      "digest": "sha256:59f28c21e7b16df1ae550a650448f196f33810f037898300d657d312be0cdfcf",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q1-fy25/crops/q1-fy25-sales.png",
-      "digest": "sha256:2d91f6995255657ced483d0a89129d7f958e926bcf1a050adf745702beea2995",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q1-fy25/crops/q1-fy25-service.png",
-      "digest": "sha256:e4f457fcd05063d2106b83888ce193ee33b163f44b44a835a944912393d3d85c",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q1-fy25/crops/q1-fy25-slack.png",
-      "digest": "sha256:3eac471e8f9ea8585ab1b74099066229d8c39869d0ba61d06cfca67d89682af4",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q1-fy25/crops/q1-fy25-tableau.png",
-      "digest": "sha256:f689b41245b48d9f767338495cedfb3e4e54b6528fcb4ae21025b84c19475b83",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q1-fy25/model-validation.md",
-      "digest": "sha256:2b5a053a2a29f1cfdfd55700172158446c3cb12e4db685d3f67c9b1af445bce1",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q1-fy26/crop-report.json",
-      "digest": "sha256:c10172cdf9bcfca22927545a0d20017dfccd16b2b4ed4be6dbea3f5dba6ab7a3",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q1-fy26/crops/q1-fy26-company-logo.png",
-      "digest": "sha256:a5a28c572b62c67c18a6f1c10401aff0622ad5b32b99801cf6e32c471bbda1df",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q1-fy26/crops/q1-fy26-marketing-commerce.png",
-      "digest": "sha256:675270ae53470e36a4a6fc9074da3266182c63c587a4e38023424799c3bd9a0c",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q1-fy26/crops/q1-fy26-mulesoft.png",
-      "digest": "sha256:6b86eca0298d4cb72866d06849281112913ad3e2cd6feb366425aa6ea598c403",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q1-fy26/crops/q1-fy26-sales.png",
-      "digest": "sha256:215ad1c89469efb715b55d86b97c79413d5d1af4656c2867c84abf93bab7d69f",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q1-fy26/crops/q1-fy26-service.png",
-      "digest": "sha256:d204b381563549b6f81370dd52e9296902f3dbebf429ea8991461e11b661838b",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q1-fy26/crops/q1-fy26-slack.png",
-      "digest": "sha256:79d23c8dcc65670d640e5a33694206e9d36f19eb794eecc99d362dc3954e29e8",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q1-fy26/crops/q1-fy26-tableau.png",
-      "digest": "sha256:ed22aec05d35eeefb366be420b168a8c8d95f9079b3e6bf7bd490c945d5273a6",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q1-fy26/model-validation.md",
-      "digest": "sha256:3ce3b7d0a064d000676dc0fe586aec2bdfd9eb350625011e47295b6f65c693eb",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q2-fy24/crop-report.json",
-      "digest": "sha256:0b7c2d66b3e76c6f6788063d19c8dc9dc2d0bc9a0bce7fcea9673e914f402517",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q2-fy24/crops/q2-fy24-company-logo.png",
-      "digest": "sha256:962980b5098ee460fa9e595629e421a4a5f7fe46b191750b152f916f28634725",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q2-fy24/crops/q2-fy24-marketing-commerce.png",
-      "digest": "sha256:9551381678b87ca6c9d549489794a2bf0fd6cee5db2fef1f15d7332d06b01347",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q2-fy24/crops/q2-fy24-mulesoft.png",
-      "digest": "sha256:b9b36eb95c99168a8f2484202337f694ef91058e7af34a6d957a64d1e8644bd0",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q2-fy24/crops/q2-fy24-sales.png",
-      "digest": "sha256:4fa4f8c4b20ad9d8406aa55e49b6d672fe5d0e4166396433b4ad5d97c381c504",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q2-fy24/crops/q2-fy24-service.png",
-      "digest": "sha256:4ce24f99d84e1cb69d851760e72992e5d1b79bb48f94c9b0db48781bc9d213c6",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q2-fy24/crops/q2-fy24-slack.png",
-      "digest": "sha256:d450fc1d64382f1ae0d6d43563db1702842a7004e8b38e4d1eedcfe52fb619f1",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q2-fy24/crops/q2-fy24-tableau.png",
-      "digest": "sha256:d41f13b3f1afd3a22edb5dafea35f9812863965d631ed3d0e9a6b06cf9543c51",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q2-fy24/model-validation.md",
-      "digest": "sha256:7285e26abe88ac4a056d43e4e609f39dc797f4b13380951b05650bfbbac0e537",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q2-fy25/crop-report.json",
-      "digest": "sha256:9f8d434aa7983fa5b1f43023a14bcd45c4037797df6272a3215d509b12dc6067",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q2-fy25/crops/q2-fy25-company-logo.png",
-      "digest": "sha256:330ed2a13bdcc535b2348d55f046e4a8778963b4f869a847bb4085b222544f50",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q2-fy25/crops/q2-fy25-marketing-commerce-icon.png",
-      "digest": "sha256:432de16e6eb2189b1c8be7d996cba3f13686d4ffa006e0959fcc3ed1363cbee6",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q2-fy25/crops/q2-fy25-mulesoft-icon.png",
-      "digest": "sha256:4fe5f0a04481ebecf17608b9afd7f94a5d8d74708343bc78ace53e03023131ff",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q2-fy25/crops/q2-fy25-sales-icon.png",
-      "digest": "sha256:10f25df3cd5ac379db4478b41f9f6fd778665c9c1dbc4b3d4a2810fa303b322d",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q2-fy25/crops/q2-fy25-service-icon.png",
-      "digest": "sha256:e4f457fcd05063d2106b83888ce193ee33b163f44b44a835a944912393d3d85c",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q2-fy25/crops/q2-fy25-slack-icon.png",
-      "digest": "sha256:08cc88e424278d124c9ad0e1ea44bfab27fffbce05be58b04e469cd6011e5271",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q2-fy25/crops/q2-fy25-tableau-icon.png",
-      "digest": "sha256:ca6026a8f8bb8318cd74dcd841f1b867acef6db4c0d9ceb42a35f62c1f7ec7e4",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q2-fy25/model-validation.md",
-      "digest": "sha256:7f88b64b83d8bcad76a8fa212cb12d3139757def33c903526699a10cad710e2f",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q2-fy26/crop-report.json",
-      "digest": "sha256:ae86ccf35dd95afd0eb0f287c81397d7056b535d11373ae22e986fd79563a3d2",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q2-fy26/crops/q2-fy26-company-logo.png",
-      "digest": "sha256:666a042cc68756ea5035c5496e1c742f2bae7b985f894f5146f1aa57650695af",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q2-fy26/crops/q2-fy26-marketing-commerce.png",
-      "digest": "sha256:ebd4e702631bdea68dfd032f69fb1ba2c76a87e95b4ea379e4d5b53f6513a5cb",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q2-fy26/crops/q2-fy26-mulesoft.png",
-      "digest": "sha256:47e1a72906a1e74a437c8f291b690069bce8c44274b5ae62d3178ba8ae288774",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q2-fy26/crops/q2-fy26-sales.png",
-      "digest": "sha256:a3c84a0a523aed3715dd1f95fb67bd742e544372834b5e1d55263611070e7f7e",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q2-fy26/crops/q2-fy26-service.png",
-      "digest": "sha256:baa39d49eddcf2eaa71e8554fef77ba34e58956d24f1dd5a9875aee59e4bc403",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q2-fy26/crops/q2-fy26-slack.png",
-      "digest": "sha256:10411cce945b4223646bc24f9a9ba65298455278b97dc0028cc2d9fbcc9c0d07",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q2-fy26/crops/q2-fy26-tableau.png",
-      "digest": "sha256:65b2dee7ab1f7cc143918940e5ae995907ab3f737bc9c3ec7ebcd0a16c97b48b",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q2-fy26/model-validation.md",
-      "digest": "sha256:83d14f09794529309eb99375577a65cc80a23054cd3d1dd1579e3b99de134c5c",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy23/crop-report.json",
-      "digest": "sha256:bd38da3162fdfed7235899668f8deb5e0f01e414bd0bd3923ceaafdfafc44201",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy23/crops/q3-fy23-company-logo.png",
-      "digest": "sha256:42eaa9227bce48c5cbbf9dc978ee42b148e345169ca99178f25422026242976f",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy23/crops/q3-fy23-marketing-commerce-icon.png",
-      "digest": "sha256:a26d44dc2b44e24ae041b1da82c83ed27dbb1c384b19864dcc8f969778e2dc9f",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy23/crops/q3-fy23-mulesoft-icon.png",
-      "digest": "sha256:156e19246a905c4cc2fbb74ff5a6024ad6a0c9df9c0930552417838a34a7bb08",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy23/crops/q3-fy23-sales-icon.png",
-      "digest": "sha256:d420177f91fcedc31762a49d281aca0d9f7e84adb059e666223c6cc07c8df3ee",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy23/crops/q3-fy23-service-icon.png",
-      "digest": "sha256:e9d711ffd2903615c049f93b9b555df84ae85b6360a200a79593f80e2c7a949f",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy23/crops/q3-fy23-slack-icon.png",
-      "digest": "sha256:1d1e7afcd3ea442e66676be2e9913c768d7f41193a6d9248abe17f9b22fcbc21",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy23/crops/q3-fy23-tableau-icon.png",
-      "digest": "sha256:d77bfdc07b610e58bb2de9ef20a2cf57baec5c759f4f937d029f8ff793325bdd",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy23/model-validation.md",
-      "digest": "sha256:36c75930d3eb4dca337a7752d0c811ff52eb07916cf5300da74fd0dd68bba23b",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy24/crop-report.json",
-      "digest": "sha256:0b4db94fc551adee87b7f77c1f03c00dba755be6f55609c5999e6d3f7e7d813b",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy24/crops/q3-fy24-company-logo.png",
-      "digest": "sha256:ce16607b257c52ae00fd12e1f809251dd695ba9d8c552e17395ea04c06f7d2e0",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy24/crops/q3-fy24-marketing-icon.png",
-      "digest": "sha256:9f3440832b97b10431fb928326ffcf4b78f3ad00a682b508bbfad3ec782b52a6",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy24/crops/q3-fy24-mulesoft-icon.png",
-      "digest": "sha256:6cb8223459e53cbf991837279888b2ab71fb4c851505ba715b80d6961d3f286d",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy24/crops/q3-fy24-sales-icon.png",
-      "digest": "sha256:088ae38ba6508b90e09399767965a2115ea7d42277987af782b812550e32b391",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy24/crops/q3-fy24-service-icon.png",
-      "digest": "sha256:3bfe87b3d843696eda36ead6427fc9263630ffdb6b95a70241cc8385ab480bae",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy24/crops/q3-fy24-slack-icon.png",
-      "digest": "sha256:71c7af8ce41c469e7cd8b5482c6ad86183177c21ef20ee4cd0bee8df226dfabb",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy24/crops/q3-fy24-tableau-icon.png",
-      "digest": "sha256:967d49ac17568425082dedf39f25b995c2aad1b150557ef1cbebdb221c1819ae",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy24/model-validation.md",
-      "digest": "sha256:9752ecad6cc8e39cd510fd248c81cf2cd301a8d261b48b8363a16bf9b1afd0b3",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy25/crop-report.json",
-      "digest": "sha256:3b0becf888ac5f0562d51da23c8c48641ed47071541c8a916c82fc95d254a904",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy25/crops/q3-fy25-company-logo.png",
-      "digest": "sha256:530aa7126ef2cf68b6c7092222d329710108e1bf50d1365c8a8eec1ee27f863a",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy25/crops/q3-fy25-marketing-commerce.png",
-      "digest": "sha256:72990fce6bf1270ed8eeaa30fc94b09743a712782aaf932d8d45394767251d8c",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy25/crops/q3-fy25-mulesoft.png",
-      "digest": "sha256:372888c2d37cbd0c39a1eb31a5b9202a8d3a049921adfbd19e0861f9cf99d2f1",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy25/crops/q3-fy25-sales.png",
-      "digest": "sha256:f201526b81af7ad02ad52054946f79b74c23f5dfaa2c480d15a09fa6acd752df",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy25/crops/q3-fy25-service.png",
-      "digest": "sha256:d204b381563549b6f81370dd52e9296902f3dbebf429ea8991461e11b661838b",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy25/crops/q3-fy25-slack.png",
-      "digest": "sha256:a1b01a4e69487740154b64525bb691288887fac48eb4aa450491ec76cb510509",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy25/crops/q3-fy25-tableau.png",
-      "digest": "sha256:24bf14ff8a58a15cbab28145a53d6e6b90082f73c57edbd644ce2d7dae18d517",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy25/model-validation.md",
-      "digest": "sha256:7627fbbdde9ef2704097a67db9b69f6289f1b6b52ffc2219b6e84dc627921af7",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy26/crop-report.json",
-      "digest": "sha256:c1a4a1a6f9676da7bb452a27faa86d513d325500ba0b27a33a7befc350cd4bd1",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy26/crops/q3-fy26-company-logo.png",
-      "digest": "sha256:9b8d225634ef279a59023c607325bcf7c80292972daf8f8efa8ba2ae64cb19ab",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy26/crops/q3-fy26-marketing-commerce.png",
-      "digest": "sha256:1aa0de6977ea2021e702635ed09e603f119e8d920735f55d06ceadc90eef762a",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy26/crops/q3-fy26-mulesoft.png",
-      "digest": "sha256:3ebb06dfb5992f825088d81bd8d64cea81ee96917df29b3dcf6921683fea4332",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy26/crops/q3-fy26-sales.png",
-      "digest": "sha256:8ab89c0d68ef67da75984769f4c4b459ec712b2694d4b8a1937404ec62d1a018",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy26/crops/q3-fy26-service.png",
-      "digest": "sha256:1f7a439fcb2fb121bf36115a7c989775e688a6f5a6e500bd43ac76a2a5b72aaa",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy26/crops/q3-fy26-slack.png",
-      "digest": "sha256:a9b1252bf8eb39dd97159b199ad89296944a366ab29eb40a3f0da56ea3c0d29b",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy26/crops/q3-fy26-tableau.png",
-      "digest": "sha256:46e633f8e1ca400c7c2c3a888dd0bc8bc764db6be10816d36529d045a7bedff3",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q3-fy26/model-validation.md",
-      "digest": "sha256:4d87b830c719ed83a2cc15e7debcd5eddb46a120f8570829db97438d1bbe19f1",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q4-fy23/crop-report.json",
-      "digest": "sha256:2389e826b42cfcf0b0d5344e0a0bcdb59f696a8d9111f8962a42d9bdef70b4b8",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q4-fy23/crops/q4-fy23-company-logo.png",
-      "digest": "sha256:2f190615c34ca83b62b7be2780a1c60d9e624fcc915330047c9872b37341a634",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q4-fy23/crops/q4-fy23-marketing-commerce.png",
-      "digest": "sha256:1d4db0c0d85874b2c5b66b3717c7255ad0edfb5032820f7dfd35f4a1ce839e4d",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q4-fy23/crops/q4-fy23-mulesoft.png",
-      "digest": "sha256:5b5e950e30ca1ca9cc86d0d88d9674c510b237216c0ce2c5a8c6f0804056d79e",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q4-fy23/crops/q4-fy23-sales.png",
-      "digest": "sha256:9f8eb798983322129b68d028e9b670ac822b644d661b95d0be39c6b7c0a0f06c",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q4-fy23/crops/q4-fy23-service.png",
-      "digest": "sha256:db6ddbe46e9c5c48122e1675b4c288cbf143458ed40211a1dcf630c5177e8783",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q4-fy23/crops/q4-fy23-slack.png",
-      "digest": "sha256:10411cce945b4223646bc24f9a9ba65298455278b97dc0028cc2d9fbcc9c0d07",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q4-fy23/crops/q4-fy23-tableau.png",
-      "digest": "sha256:e9b8d8e52650de9c6b06bca21741f8e40fa97e06778abcd44f96d9c7c754a451",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q4-fy23/model-validation.md",
-      "digest": "sha256:1abda224ddbf826834a97a79b2d0db0e3ceb377abcb383f3ff080f4cf49d64be",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q4-fy24/crop-report.json",
-      "digest": "sha256:e84c38291af90bc8881f5a2a5cdbe954280e30b1abc59efaad8558f3b59085ba",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q4-fy24/crops/q4-fy24-company-logo.png",
-      "digest": "sha256:c8e799aebbeedc9c7323a1d83b43911c2aef59ee3f61cd1dda00febad4f7b8bb",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q4-fy24/crops/q4-fy24-marketing-commerce.png",
-      "digest": "sha256:d08ed2c8607c6774bcd6ec5dcab1d133723b3fb2171350019f471aac88a2aa70",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q4-fy24/crops/q4-fy24-mulesoft.png",
-      "digest": "sha256:e7a969202bd81482e052e57737b3bb987ccdabec3f91504b7242eba8e6024978",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q4-fy24/crops/q4-fy24-sales.png",
-      "digest": "sha256:4bdd9ab6aa9ff475e42e900920fa66dd6fa7e587df7175c99a9fbc3f9c48e47d",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q4-fy24/crops/q4-fy24-service.png",
-      "digest": "sha256:76700c6c338375fbe7cf24a1e6e53ada0e4e611a3bf3db240089a4fd09651d37",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q4-fy24/crops/q4-fy24-slack.png",
-      "digest": "sha256:bbc693fd6aaa14ac5caf0c3018e37f7848f36c4ac000535bf14fe0b9e81c4631",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q4-fy24/crops/q4-fy24-tableau.png",
-      "digest": "sha256:e38d20d1d562ba83e9a3ebe3bd91461b949cde7b7b431e8c99e3a159f995d974",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q4-fy24/model-validation.md",
-      "digest": "sha256:d9e5c8f16ac56b19e7e4c3dd128a202fe1b15984c84057cfb5e51608771cb636",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q4-fy25/crop-report.json",
-      "digest": "sha256:b0880b58a38fd6307f043231d0089f7a019fb90247080735f5cfe63d58ba4470",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q4-fy25/crops/q4-fy25-company-logo.png",
-      "digest": "sha256:190e317515df3aa02dd0c8d22d4baa41e369b8b58e6874af58f43d39f61cf388",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q4-fy25/crops/q4-fy25-marketing-commerce.png",
-      "digest": "sha256:ad09af26e92c2b13b4bbb342eca2a948a5a67ac08d2c5e9de0944b7fd3ee688e",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q4-fy25/crops/q4-fy25-mulesoft.png",
-      "digest": "sha256:04e5964e4e75633b6a8e98a43c538ec401e0b2aec8b24d727c0b9d5bfa997845",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q4-fy25/crops/q4-fy25-sales.png",
-      "digest": "sha256:dcfdaa23a076f49e530826e88ef7173bdb87668386b04c24c85d191b69ea4945",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q4-fy25/crops/q4-fy25-service.png",
-      "digest": "sha256:84d785e843b65c0a78f2a938e83f65c1d850c3d177fc5e2ac4a2a94d83f18f53",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q4-fy25/crops/q4-fy25-slack.png",
-      "digest": "sha256:79d23c8dcc65670d640e5a33694206e9d36f19eb794eecc99d362dc3954e29e8",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q4-fy25/crops/q4-fy25-tableau.png",
-      "digest": "sha256:f6189873290e7b9aa0286c08793965195a4e2461430a5e2f03fd28d94dba5c2f",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/salesforce/q4-fy25/model-validation.md",
-      "digest": "sha256:fa20bd3008e781d9caf8983fbf5659683a675dc5528f76ad61ea124d327505b6",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q1-fy24-company-logo.png",
-      "digest": "sha256:fdf5dfc22cbe897bc109d4d4bdf77c0625f7d11908a4ed8b10feca57e8a72422",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q1-fy24-marketing-commerce.png",
-      "digest": "sha256:2ebd476fea11494044dad75bfa589c2f131faa695584d3b5d55730bcfe6e230f",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q1-fy24-mulesoft.png",
-      "digest": "sha256:bb486eda9b7d3b2d757a48b834b4eff755b5c08bce73fc165b776bef4db01897",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q1-fy24-sales.png",
-      "digest": "sha256:de5c28d9cd0675483454ca16380f25d378744fb3bd303e715f038573aa202584",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q1-fy24-service.png",
-      "digest": "sha256:578d00722d1c9f23e9bd0768d5893e915aa0cd0c7835a28dae6c70d614c16504",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q1-fy24-slack.png",
-      "digest": "sha256:7a55b98c659e780ce2a3f8dfbe223724373777ece64b1823952f8e40b4010e4e",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q1-fy24-tableau.png",
-      "digest": "sha256:e6cd1854720e98b5f195beca8880541548bdd1bc880ef3dc4c102b23edca2ba8",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q1-fy25-company-logo.png",
-      "digest": "sha256:9033d47a29a4cacde145d84f32059d02b2abb2358cb891fb6a3d6606f1c05744",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q1-fy25-marketing-commerce.png",
-      "digest": "sha256:82df3d7ce8d767e526e5ba43731f404c1c5789b6aae2a3da7e10c8501bde2352",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q1-fy25-mulesoft.png",
-      "digest": "sha256:59f28c21e7b16df1ae550a650448f196f33810f037898300d657d312be0cdfcf",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q1-fy25-sales.png",
-      "digest": "sha256:2d91f6995255657ced483d0a89129d7f958e926bcf1a050adf745702beea2995",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q1-fy25-service.png",
-      "digest": "sha256:e4f457fcd05063d2106b83888ce193ee33b163f44b44a835a944912393d3d85c",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q1-fy25-slack.png",
-      "digest": "sha256:3eac471e8f9ea8585ab1b74099066229d8c39869d0ba61d06cfca67d89682af4",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q1-fy25-tableau.png",
-      "digest": "sha256:f689b41245b48d9f767338495cedfb3e4e54b6528fcb4ae21025b84c19475b83",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q1-fy26-company-logo.png",
-      "digest": "sha256:a5a28c572b62c67c18a6f1c10401aff0622ad5b32b99801cf6e32c471bbda1df",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q1-fy26-marketing-commerce.png",
-      "digest": "sha256:675270ae53470e36a4a6fc9074da3266182c63c587a4e38023424799c3bd9a0c",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q1-fy26-mulesoft.png",
-      "digest": "sha256:6b86eca0298d4cb72866d06849281112913ad3e2cd6feb366425aa6ea598c403",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q1-fy26-sales.png",
-      "digest": "sha256:215ad1c89469efb715b55d86b97c79413d5d1af4656c2867c84abf93bab7d69f",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q1-fy26-service.png",
-      "digest": "sha256:d204b381563549b6f81370dd52e9296902f3dbebf429ea8991461e11b661838b",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q1-fy26-slack.png",
-      "digest": "sha256:79d23c8dcc65670d640e5a33694206e9d36f19eb794eecc99d362dc3954e29e8",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q1-fy26-tableau.png",
-      "digest": "sha256:ed22aec05d35eeefb366be420b168a8c8d95f9079b3e6bf7bd490c945d5273a6",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q2-fy24-company-logo.png",
-      "digest": "sha256:962980b5098ee460fa9e595629e421a4a5f7fe46b191750b152f916f28634725",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q2-fy24-marketing-commerce.png",
-      "digest": "sha256:9551381678b87ca6c9d549489794a2bf0fd6cee5db2fef1f15d7332d06b01347",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q2-fy24-mulesoft.png",
-      "digest": "sha256:b9b36eb95c99168a8f2484202337f694ef91058e7af34a6d957a64d1e8644bd0",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q2-fy24-sales.png",
-      "digest": "sha256:4fa4f8c4b20ad9d8406aa55e49b6d672fe5d0e4166396433b4ad5d97c381c504",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q2-fy24-service.png",
-      "digest": "sha256:4ce24f99d84e1cb69d851760e72992e5d1b79bb48f94c9b0db48781bc9d213c6",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q2-fy24-slack.png",
-      "digest": "sha256:d450fc1d64382f1ae0d6d43563db1702842a7004e8b38e4d1eedcfe52fb619f1",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q2-fy24-tableau.png",
-      "digest": "sha256:d41f13b3f1afd3a22edb5dafea35f9812863965d631ed3d0e9a6b06cf9543c51",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q2-fy25-company-logo.png",
-      "digest": "sha256:330ed2a13bdcc535b2348d55f046e4a8778963b4f869a847bb4085b222544f50",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q2-fy25-marketing-commerce-icon.png",
-      "digest": "sha256:432de16e6eb2189b1c8be7d996cba3f13686d4ffa006e0959fcc3ed1363cbee6",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q2-fy25-mulesoft-icon.png",
-      "digest": "sha256:4fe5f0a04481ebecf17608b9afd7f94a5d8d74708343bc78ace53e03023131ff",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q2-fy25-sales-icon.png",
-      "digest": "sha256:10f25df3cd5ac379db4478b41f9f6fd778665c9c1dbc4b3d4a2810fa303b322d",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q2-fy25-service-icon.png",
-      "digest": "sha256:e4f457fcd05063d2106b83888ce193ee33b163f44b44a835a944912393d3d85c",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q2-fy25-slack-icon.png",
-      "digest": "sha256:08cc88e424278d124c9ad0e1ea44bfab27fffbce05be58b04e469cd6011e5271",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q2-fy25-tableau-icon.png",
-      "digest": "sha256:ca6026a8f8bb8318cd74dcd841f1b867acef6db4c0d9ceb42a35f62c1f7ec7e4",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q2-fy26-company-logo.png",
-      "digest": "sha256:666a042cc68756ea5035c5496e1c742f2bae7b985f894f5146f1aa57650695af",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q2-fy26-marketing-commerce.png",
-      "digest": "sha256:ebd4e702631bdea68dfd032f69fb1ba2c76a87e95b4ea379e4d5b53f6513a5cb",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q2-fy26-mulesoft.png",
-      "digest": "sha256:47e1a72906a1e74a437c8f291b690069bce8c44274b5ae62d3178ba8ae288774",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q2-fy26-sales.png",
-      "digest": "sha256:a3c84a0a523aed3715dd1f95fb67bd742e544372834b5e1d55263611070e7f7e",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q2-fy26-service.png",
-      "digest": "sha256:baa39d49eddcf2eaa71e8554fef77ba34e58956d24f1dd5a9875aee59e4bc403",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q2-fy26-slack.png",
-      "digest": "sha256:10411cce945b4223646bc24f9a9ba65298455278b97dc0028cc2d9fbcc9c0d07",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q2-fy26-tableau.png",
-      "digest": "sha256:65b2dee7ab1f7cc143918940e5ae995907ab3f737bc9c3ec7ebcd0a16c97b48b",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q3-fy23-company-logo.png",
-      "digest": "sha256:42eaa9227bce48c5cbbf9dc978ee42b148e345169ca99178f25422026242976f",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q3-fy23-marketing-commerce-icon.png",
-      "digest": "sha256:a26d44dc2b44e24ae041b1da82c83ed27dbb1c384b19864dcc8f969778e2dc9f",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q3-fy23-mulesoft-icon.png",
-      "digest": "sha256:156e19246a905c4cc2fbb74ff5a6024ad6a0c9df9c0930552417838a34a7bb08",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q3-fy23-sales-icon.png",
-      "digest": "sha256:d420177f91fcedc31762a49d281aca0d9f7e84adb059e666223c6cc07c8df3ee",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q3-fy23-service-icon.png",
-      "digest": "sha256:e9d711ffd2903615c049f93b9b555df84ae85b6360a200a79593f80e2c7a949f",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q3-fy23-slack-icon.png",
-      "digest": "sha256:1d1e7afcd3ea442e66676be2e9913c768d7f41193a6d9248abe17f9b22fcbc21",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q3-fy23-tableau-icon.png",
-      "digest": "sha256:d77bfdc07b610e58bb2de9ef20a2cf57baec5c759f4f937d029f8ff793325bdd",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q3-fy24-company-logo.png",
-      "digest": "sha256:ce16607b257c52ae00fd12e1f809251dd695ba9d8c552e17395ea04c06f7d2e0",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q3-fy24-marketing-icon.png",
-      "digest": "sha256:9f3440832b97b10431fb928326ffcf4b78f3ad00a682b508bbfad3ec782b52a6",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q3-fy24-mulesoft-icon.png",
-      "digest": "sha256:6cb8223459e53cbf991837279888b2ab71fb4c851505ba715b80d6961d3f286d",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q3-fy24-sales-icon.png",
-      "digest": "sha256:088ae38ba6508b90e09399767965a2115ea7d42277987af782b812550e32b391",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q3-fy24-service-icon.png",
-      "digest": "sha256:3bfe87b3d843696eda36ead6427fc9263630ffdb6b95a70241cc8385ab480bae",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q3-fy24-slack-icon.png",
-      "digest": "sha256:71c7af8ce41c469e7cd8b5482c6ad86183177c21ef20ee4cd0bee8df226dfabb",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q3-fy24-tableau-icon.png",
-      "digest": "sha256:967d49ac17568425082dedf39f25b995c2aad1b150557ef1cbebdb221c1819ae",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q3-fy25-company-logo.png",
-      "digest": "sha256:530aa7126ef2cf68b6c7092222d329710108e1bf50d1365c8a8eec1ee27f863a",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q3-fy25-marketing-commerce.png",
-      "digest": "sha256:72990fce6bf1270ed8eeaa30fc94b09743a712782aaf932d8d45394767251d8c",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q3-fy25-mulesoft.png",
-      "digest": "sha256:372888c2d37cbd0c39a1eb31a5b9202a8d3a049921adfbd19e0861f9cf99d2f1",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q3-fy25-sales.png",
-      "digest": "sha256:f201526b81af7ad02ad52054946f79b74c23f5dfaa2c480d15a09fa6acd752df",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q3-fy25-service.png",
-      "digest": "sha256:d204b381563549b6f81370dd52e9296902f3dbebf429ea8991461e11b661838b",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q3-fy25-slack.png",
-      "digest": "sha256:a1b01a4e69487740154b64525bb691288887fac48eb4aa450491ec76cb510509",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q3-fy25-tableau.png",
-      "digest": "sha256:24bf14ff8a58a15cbab28145a53d6e6b90082f73c57edbd644ce2d7dae18d517",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q3-fy26-company-logo.png",
-      "digest": "sha256:9b8d225634ef279a59023c607325bcf7c80292972daf8f8efa8ba2ae64cb19ab",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q3-fy26-marketing-commerce.png",
-      "digest": "sha256:1aa0de6977ea2021e702635ed09e603f119e8d920735f55d06ceadc90eef762a",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q3-fy26-mulesoft.png",
-      "digest": "sha256:3ebb06dfb5992f825088d81bd8d64cea81ee96917df29b3dcf6921683fea4332",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q3-fy26-sales.png",
-      "digest": "sha256:8ab89c0d68ef67da75984769f4c4b459ec712b2694d4b8a1937404ec62d1a018",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q3-fy26-service.png",
-      "digest": "sha256:1f7a439fcb2fb121bf36115a7c989775e688a6f5a6e500bd43ac76a2a5b72aaa",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q3-fy26-slack.png",
-      "digest": "sha256:a9b1252bf8eb39dd97159b199ad89296944a366ab29eb40a3f0da56ea3c0d29b",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q3-fy26-tableau.png",
-      "digest": "sha256:46e633f8e1ca400c7c2c3a888dd0bc8bc764db6be10816d36529d045a7bedff3",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q4-fy23-company-logo.png",
-      "digest": "sha256:2f190615c34ca83b62b7be2780a1c60d9e624fcc915330047c9872b37341a634",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q4-fy23-marketing-commerce.png",
-      "digest": "sha256:1d4db0c0d85874b2c5b66b3717c7255ad0edfb5032820f7dfd35f4a1ce839e4d",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q4-fy23-mulesoft.png",
-      "digest": "sha256:5b5e950e30ca1ca9cc86d0d88d9674c510b237216c0ce2c5a8c6f0804056d79e",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q4-fy23-sales.png",
-      "digest": "sha256:9f8eb798983322129b68d028e9b670ac822b644d661b95d0be39c6b7c0a0f06c",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q4-fy23-service.png",
-      "digest": "sha256:db6ddbe46e9c5c48122e1675b4c288cbf143458ed40211a1dcf630c5177e8783",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q4-fy23-slack.png",
-      "digest": "sha256:10411cce945b4223646bc24f9a9ba65298455278b97dc0028cc2d9fbcc9c0d07",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q4-fy23-tableau.png",
-      "digest": "sha256:e9b8d8e52650de9c6b06bca21741f8e40fa97e06778abcd44f96d9c7c754a451",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q4-fy24-company-logo.png",
-      "digest": "sha256:c8e799aebbeedc9c7323a1d83b43911c2aef59ee3f61cd1dda00febad4f7b8bb",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q4-fy24-marketing-commerce.png",
-      "digest": "sha256:d08ed2c8607c6774bcd6ec5dcab1d133723b3fb2171350019f471aac88a2aa70",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q4-fy24-mulesoft.png",
-      "digest": "sha256:e7a969202bd81482e052e57737b3bb987ccdabec3f91504b7242eba8e6024978",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q4-fy24-sales.png",
-      "digest": "sha256:4bdd9ab6aa9ff475e42e900920fa66dd6fa7e587df7175c99a9fbc3f9c48e47d",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q4-fy24-service.png",
-      "digest": "sha256:76700c6c338375fbe7cf24a1e6e53ada0e4e611a3bf3db240089a4fd09651d37",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q4-fy24-slack.png",
-      "digest": "sha256:bbc693fd6aaa14ac5caf0c3018e37f7848f36c4ac000535bf14fe0b9e81c4631",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q4-fy24-tableau.png",
-      "digest": "sha256:e38d20d1d562ba83e9a3ebe3bd91461b949cde7b7b431e8c99e3a159f995d974",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q4-fy25-company-logo.png",
-      "digest": "sha256:190e317515df3aa02dd0c8d22d4baa41e369b8b58e6874af58f43d39f61cf388",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q4-fy25-marketing-commerce.png",
-      "digest": "sha256:ad09af26e92c2b13b4bbb342eca2a948a5a67ac08d2c5e9de0944b7fd3ee688e",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q4-fy25-mulesoft.png",
-      "digest": "sha256:04e5964e4e75633b6a8e98a43c538ec401e0b2aec8b24d727c0b9d5bfa997845",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q4-fy25-sales.png",
-      "digest": "sha256:dcfdaa23a076f49e530826e88ef7173bdb87668386b04c24c85d191b69ea4945",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q4-fy25-service.png",
-      "digest": "sha256:84d785e843b65c0a78f2a938e83f65c1d850c3d177fc5e2ac4a2a94d83f18f53",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q4-fy25-slack.png",
-      "digest": "sha256:79d23c8dcc65670d640e5a33694206e9d36f19eb794eecc99d362dc3954e29e8",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/salesforce/q4-fy25-tableau.png",
-      "digest": "sha256:f6189873290e7b9aa0286c08793965195a4e2461430a5e2f03fd28d94dba5c2f",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/02b28aff506730ba56f273f7d7892604dd190f72acfe74c220cfd44ba6e00f15.json",
-      "digest": "sha256:f8c6443698ad7aee92fac4f344cc24bfaf3ecfebd4a9ea21361f9548728e70ae",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/042fdb6f4ce81915cafcbd12cda1c7b9e89912a9c4a0710c9bde4248d6f26fd1.json",
-      "digest": "sha256:0ea2336b78e1c6ada8a5a82d7308696995cbf98926a53fe628b5e3b3b74173ff",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/0720ca97639d14abb65ceaba9e02d79c52516865955b36a14dfe1894c50f768f.json",
-      "digest": "sha256:9b5d7b74d4fd8458369833e24d26ddd75bc993b42aeb92ffdb3a919a93d2931a",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/0798bb3bb2f173233805efd77ad11c713cbefc5c2ba3273356f011873d6c4374.json",
-      "digest": "sha256:90ab3b677e3e796c517294e6df20ceebb571d6280794f7f138aebe13898794dc",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/08b17d5158f3ae2fb523157ce0aff723968567f13431c6b73cbffcd2d6f58876.json",
-      "digest": "sha256:40ae6975e1459430c8ce1791a55763700acf2577096de90d307de4595f3a073d",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/0a58c4f17a701aa9227d4c9ad775ef4db786168187bd87d1b3cae8300b5c310f.json",
-      "digest": "sha256:b265a3ba5cb28f7fadc44a5dd54373e7f26efe8cb2d3b1a399972bc114453d5b",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/0b113b3b8ab6c07a4baed60805803bc8eecef479c580cd605418b80b73caac4c.json",
-      "digest": "sha256:865f5c02d50c226b5e503adc911be55d30e3ab0ab2d8e517abfa4025c91da3d7",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/0bf56667021756903a945b992dbf8e693368b29ecdaa288abeb9ba6bf4d5635e.json",
-      "digest": "sha256:bcd69b89e36ff396d8d28989883a54f7310e85f7d469c7ed3f3b66d162b732a3",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/0f3380438cf7c051e02f159722291cbced860023ca4491bdb936f89fa2dd781a.json",
-      "digest": "sha256:d95c5f5ab18661523c28e5260678ccd5420cae3d36a5e2abf6db6bb16929737d",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/143b05121fb5821c0a48a33fc43f318479d270f81ba8c5e9b4a62f8ac69b285c.json",
-      "digest": "sha256:d6cb84cb5030b291c5282b2bbcdc72a18b72f0d6561b6802da1904e1097a2d35",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/15e1bbb31c5ad45e5985f8171e7cb4d6908b79b7c7cf0f7166c115b45c8e0bf1.json",
-      "digest": "sha256:185cd70eae5ecdd0b447fbba3d5616de5cd104acfbf15c4a15cdc5e6e2d57774",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/20ececf6bbe5cd0a4e3c5547bdd8577881560f154c4ebcc1c27e2f5bc8e20d28.json",
-      "digest": "sha256:002ea2834e507e3ce47bbc16a35167dec33206b769a207b0171a59814b6eb02d",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/2133b2fbbdd7120f3d8c10215bebbcf201bf576d5710dfec8537db7d768961ac.json",
-      "digest": "sha256:0f5a4ea8dd5e7eb65eaf1b9671f302928a4b66ff877dda8b04b4d6478ee4317e",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/21b8dafc8135853cc92e3504b5678f5f211cc2aa3a1a1d0c92022b780af6c3af.json",
-      "digest": "sha256:a19f8ef3bc93b9fe81b8068c630e2d5cdcb672e570fe1021b4038f0749714def",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/2ae96d1d191502c7346f716db9dc223b5b53bb1935662f8a36d39407059abedd.json",
-      "digest": "sha256:593736afa0672a0a09116c672238deeafc9a9bbe9033a0205eba2a1794a16e0d",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/2e70a1f9bf2098fa05a1e6ff2ce44c12ef60d1403c25294f233fc9fda7f9b018.json",
-      "digest": "sha256:378e0e190a406029ff9080ae02795d9faaa8e417bacac0a9a099b487dc9619c3",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/2fddf38138eda055d0680245bd441483c38e7cb860628848723a0a68e0b02977.json",
-      "digest": "sha256:d29702639a3d0cdb3ec8a75988ecb80e6d2dbe26fc7e3a59056072fffe7ca891",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/32348309d4d7252405f6ae9b1059837ed0039cd143a14e9679890836212a9820.json",
-      "digest": "sha256:a5330eb0b878c849ce12f9ff2bc31973a45125691e136e7ddb41e62f481b4be4",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/3629a0bd4b5171f3d49fedfbc7d3f044ed56ec6e032b799aa552885a20f92b93.json",
-      "digest": "sha256:a89c18fe80630c51d904216eb54c0d725565fc344c77ff4c05162752ee69c0e4",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/385ba7a8afe559f9ad4861dd37d8966a1f3d921398a4f7a7169de4b0b5f8319e.json",
-      "digest": "sha256:4032f55397fa5fc9a2dd793d73e0bef3f9e8489631315cf8dfbaf3da8abb261c",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/3a09cfb383fd1672b663ec04c4ef8ca2159ed8a339b00eb3489f966dda5d8841.json",
-      "digest": "sha256:cca7e967ee62a422c027755d24da93417929052646c7bec08ab9c262f02f2745",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/4013aae2910674548c10994cc82ccadbb5ae97b1849179a92b3c1b062e8d9c66.json",
-      "digest": "sha256:b39e58e6da007919133cb184fb8092249c8cc90d2cf80f908880eccea3cb86f9",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/41120ff2bcc8c9861dcbc59c942c8d8ddb75db85499328b410fb529f49db888d.json",
-      "digest": "sha256:05970ef6b24400be93c27b1321287b88278c31080490dcd2f9c9d949f128cfe4",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/42ca284af6ae0563948fa375caafe3a1ae1eef7ed93469c28802c4c3a66dec11.json",
-      "digest": "sha256:9982f5676a15e44f8c04a1bed874f8fb33de1bb73276047200f60817030e9ba5",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/43e53bb2cb3ccb19cd3ddbfdc331e58b44ca52b89a89b007e62f00250f218c5a.json",
-      "digest": "sha256:c634a1fcd1924915c45da4e0f4d3f8cfc8b452366f20c09814a3bbc05e9daba5",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/43e84a9d3dd2a92906d27fd43df350ecc7059dab6c199dcb18f62fc069508e35.json",
-      "digest": "sha256:04dcae94105a13c0a509843d086acad2671884ce08475cb634c038dfa68c4a01",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/442ddc96e1f39da855c3915609f665a0842096a9e491d0c74d05b905bde2d933.json",
-      "digest": "sha256:6cbb3dc57b0d2ce4f93f149f14c9b25a2fe8f73f347c0379b3aebbe666ddf631",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/47c7ea32c56be72974a41053b37f19b9ec0a959a87e498728bddcdb8d37fd7ff.json",
-      "digest": "sha256:3ab514a5fa71d063b79311c3f026e0c4621701f6e852a61af748c7413bda9d13",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/4971583000d6707aa8a67a30bd679b5dcfeb8081b3b64863465b0bf985a661f6.json",
-      "digest": "sha256:e1d95504cbe7f9b0e4d385c50e554c3b24817906448012dfb829c00b7847b408",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/4ec291f225232f858a5c2cf66bd8fa37017fc69f795e250491929183373450af.json",
-      "digest": "sha256:52c3085d316f4d5ef487113395cd47ff41fe9c2e426ef835bc866cd4859ac4bf",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/501373d7fb7ca446a92f2c9b2dabae3675349f677e0cef2e6a8ec106809d6770.json",
-      "digest": "sha256:6e0b06f5aaeb906100b412ddbfa6360264e5ced8aebb2878087ae21fe02a9838",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/51f5c02e99fbdec7518fe2528a0a5bdac9bbc863f47d62ddb7f75b7cc8fd8f54.json",
-      "digest": "sha256:baca427219c043894a7b5b4b08d1e8a090a874d20ae6c7cbb2dbd15be9a7934f",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/54a7204f8c8e8a4d34bb890f7ef5f0e5dacd8103fc6c4b3c42fb69e7beeb4245.json",
-      "digest": "sha256:b6d804f1b9acff952b649a409d75405ff4a4b5da304605c1920755e96fae592c",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/555c25edc924f6cc3832f03e0d50229f0f97a5f586637f219a1cce40eac71127.json",
-      "digest": "sha256:de6b3a1d49afd4aaec99feda1f58a40d030f112de6866b5dafbb30b825a30feb",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/5670078e76abd37b024131474b07d673052081d2f560322fa7349da57ed264c9.json",
-      "digest": "sha256:f170bf0c8d6865bde909e0140f09d2e1f578a09c04ffe90fa055d5cd5ed5de77",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/571f36528bd347d148e3dc4cfc177fe2e0f59858f559239eab8e6777ede93af4.json",
-      "digest": "sha256:e70867e3e1bb9c443300b113d52c1633c9872170a568d206b832f7da3375634e",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/587261fbd70ce59fdd4fe205a0f0e6828576cd0017be3bf804b41100b4cd807d.json",
-      "digest": "sha256:e177ce7f83a9cbc7c7ff6a5b7582b77f99ea901d41c0febbe58558ecf4f8713d",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/5f2f6e7737a65ddaa9729c815219957fbd5500066ae664c3a87ca477fe7d3d28.json",
-      "digest": "sha256:905b3d41985ae2aa9be5556edb5dba8f7beb67dcb7188f6064fbcada5280ad8a",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/5fcb2e0b2551087d42f0c332132d245e99a969b6bd9409ed349b6757b04dfd37.json",
-      "digest": "sha256:9e01d5e0980299410ccfec6dc5a54429c9be18e1a7905995038074ca7140e604",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/6272e0b5c8d7c7d1ba902d5080470bff8a34e5514c3d8f17606a010d2d7fc28f.json",
-      "digest": "sha256:f8d78fc507e90656761c29473cf9e21c78281daf5acf9ce1a76e044072b0cbea",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/679ca5cb9dc8a731b07ce74b6c050d22d0be4218c0540d9a01f65d2da3e1b4e4.json",
-      "digest": "sha256:c075c66a6f1ad30743346bf5db596c49153ac9f8fa798c4f7b499d35808cf4a4",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/68d536b2f13da119c505b864abb4b18eaed943aafc45319fff6f559561c83606.json",
-      "digest": "sha256:d71e94e1d9d3d0ae4881632a6565f2907ce038b331122d20da4416aa4d83eab2",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/692a39e072ebbd81378fea659a903106922e24fcc59ac82eb195f1866895ddb2.json",
-      "digest": "sha256:c440643a3da6d78103d45d74f862123bcbaf533fbbea758730d157611ce6c758",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/6bfefe8babc41c7bb94864f01ed11e1492a1ed33ca398f1fe5e5be3987761839.json",
-      "digest": "sha256:4d611e996c00032ef124ecf3de310c42ecc087cf70236d19ef6706214fb0470f",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/6e9a2a4d6f34480c1d9694afc837029a4dcf2ebca535d5d15a6a6481b92f5842.json",
-      "digest": "sha256:f9baa52421a8651c66f7226b27826e68c8d08421a9522e24b71c52578281b8d4",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/6f7e5195e02517ee3bd621e73ff342d911475433fd78598fbc7cdd8c39b1ba72.json",
-      "digest": "sha256:287114a51bd2f1df25de7e9e39231c58de12b5cc2ff0fd35aa44aa39a134bb60",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/72aa34e71495f990df1824520005924891651e314d5f3c28ea93c9efd991f895.json",
-      "digest": "sha256:4fb4f0c4652e0846df12a4e8602719928899a6e7260fe77c14668df06439562e",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/73552dd98edb0962b5b113d8329c7e08c37805ee5fbcccb0289bae659b8737c9.json",
-      "digest": "sha256:29443b5ed73f7187cc50178bb6b8d1f320ad6e1a1c04f8baf0a5d418c5a0d7a1",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/76a5f03e6aa7dd16fad9193b50008d1967dd22472d1ff071a2ddfc94fa988c39.json",
-      "digest": "sha256:2dda3fc6424b577972b12b4b61cb0b191d985decc410ac389f17b5121c57363a",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/77a5f8081d6f1dc78490e3bcc88da676255fe02c2f26b351d3f2f16de0538b5c.json",
-      "digest": "sha256:02aff96b2ea9292c1cebc6ede068a9e565f344f391785880f1f0962f91a6e442",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/7929c25a8eca7a51792c6b1338839f004a73751150954a482b0fbb57a6ff36b1.json",
-      "digest": "sha256:eb7eb17516df6cc7b9670792068f765cd07be6f658c0030ad6a8b64b2a671cf9",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/7c5336888d3d3e6840f63f73a0822f2e197d56a4a49ce507127b85c883da7ddf.json",
-      "digest": "sha256:f31df7d87785b27320595120c709d4980b6a970344f6a20e8fde8e7148beb21d",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/7f9952597222455f0633ce76f3cc542f414cf92a52bdb560724394386c324dc7.json",
-      "digest": "sha256:ae88d427da1d720d7583035d0f958d8206547af67715c03cb1ebc526191003ef",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/834ddd997b17b2de6e4e6ffbc685c92a04798d01d1caad229a714ddffc7b9768.json",
-      "digest": "sha256:f61ced6003cb42301de7bb08f89c6c35212605f7b73e2513bdcb12a303f86c30",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/8ed7cc23ee3e24b65dbd1d747b1ac74326c2c88db4f7b6c94c922804e7c33dcc.json",
-      "digest": "sha256:0a917bf332d115d00a6ec8c1363c2b20d0b1acdd757014d9abaffd4b11fadf37",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/902cefa964a142943b38798216e88b1743c583c5250cc99832eb68323bfeff00.json",
-      "digest": "sha256:d0047b8e32c883f2a0a8bef3898debf21d3a65f956bd357802826c5f82d67529",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/91c31c31f37bf9295cdfce92e661c8c8d8f959faabb8636033467603a5ab696b.json",
-      "digest": "sha256:0ebc2e373fccf89a4d5d4849770f12854fb12ad77e52b8f2ae409ddec4686e11",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/95a25cc267d93fb00d30d8f27a6d246d5894408ff11462f230d4e1d54f77e955.json",
-      "digest": "sha256:14f9d5bbf3e58ff517cde53b20d6b62e90a1b1700b397abed1d8d18934e892e1",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/95ce111ce30547049113e44aca8f0cdc37f15c2a36f83dfb34d14d5b881dc121.json",
-      "digest": "sha256:1837a274c0dd26206c7ff23fcbd722d950a77df9e3e98c7965202a397fa34ca9",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/a424c50c0817df2fdd7daefda0af2728358ecb355b5e8cf91c8815490239bcbd.json",
-      "digest": "sha256:a5fbb8804c0cf9dc4b469da2bbdc549d218a8e7b009cbd086f94194d7e762adc",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/a4ffb4d4ec78548a88d816be75e231a8916b9fd47b536b72dad28b2daa82ec38.json",
-      "digest": "sha256:69fa8ed2f77dacc04c9367c3866e657e194e5716fb8bdcd418a10c9ae9861312",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/a5e9cd435d32b00f85671bd05d0a33e4d519a0e863ce5974cdb0eb875baa4fc7.json",
-      "digest": "sha256:6ca345b7f3901b485834344c6a1dbe4554865387a55fd1778f1f61dedaea6f2b",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/a82a9350d3e91467d695a75ce5e4b351f6ec7a3c5b6cd09bcea4a9e7d448e408.json",
-      "digest": "sha256:f3cdb3db66c1dde01cfe3d64b5eb8896ec19de512bf1abd68c3d0b7b139553f3",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/a8ffeb09614d5a679ce126d626a9f2d0b68aaca4a161200d1a0f94292930ee2f.json",
-      "digest": "sha256:92c8745f0d70d56aefd01d2d9ca8a00a6ca532a6f0ee637302a9099f7dd011c6",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/adbc39b5df83fbd265cff2aab75309dbe4b08cc84285c844f56266b201738b0a.json",
-      "digest": "sha256:24079ca302356941aa0d93ceee12146bbf82489b30c619150e39f1f9098893d2",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/b3cae5587686e11bb53fde53218044fb2ef70b789c77a068bc84f80bc790d0f8.json",
-      "digest": "sha256:2328843bccfaf32c161bf8d25a6483065d66256a4367bd0ea0b25ab8ef50d23d",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/b6d93871396adbec56c4851c46fff519f4973190875185862915ab871f3db09e.json",
-      "digest": "sha256:0e6e47e78c61a9c7f491139ebd31fd29edd9abb9669e0645108c6c5595944d52",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/b779e1ac7d47b408d90cc6e98f4e8e7e0008b53d250d7bafb548f4d92b9efee2.json",
-      "digest": "sha256:89aec0cbbf08dbeec32bc75be72cde48ad1d0fffded1ab3ab5e3a3fece65de2f",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/bb37db0260c168895fbd9b0a5592b33c891f6d8f513db17b11dcc27c9ff84045.json",
-      "digest": "sha256:df079d48ca52b431a293d0c1c51899920ee706ff2bdd331816819c561725d1bd",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/bc0d57f752e7c466011462e3f7cd36612bc260e9654a50c88760f54b6308996b.json",
-      "digest": "sha256:ffc53c93df8eb19beda6f846bd343467ca6e660defc36a18e898647ec5a623ee",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/bd1ea8e4617cf48969e2bd4c40945c0cc36fd856058878c04ff555691aaece70.json",
-      "digest": "sha256:12958840b9e9bd06777216e1e9f08bed39cd2f2fed7ba40983fde476db3dfefc",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/bd65501f04c28ce5db5413bad4caf38d3dbc872b286f3fdb7ee4de106bf33974.json",
-      "digest": "sha256:fd4927abeb2cc9fac6a516b8ff1af2a141b8744754ab8657b83f1656a3c95ba6",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/be376f6c67e441ca148ceabcde544f95505d815b704c0770776c4462c56febf7.json",
-      "digest": "sha256:ac8997968d001ec5172d9d60293bf372fc8f9a6823c3d4482e5c41192d46533c",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/be6aa159a686f48f08d91574b77ad5860686ad97f5742afcada65618890195eb.json",
-      "digest": "sha256:7c913d16d953ad612386c36c1cc78df9f750701c9b5a263eb3f28fe90df085ac",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/bf79f79405ed6a55ffa497f3fdac9b566d24812ff7c893c67723483981b92efc.json",
-      "digest": "sha256:49b471fedc5ccf29d37c4c9b9f9300fdc87936f7a6c4907f26e6caaff87a5e85",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/c2b80c661e579ef204d48eaba80b56c5c26a0acb2000184616286177b39d4993.json",
-      "digest": "sha256:3773c5ffce8c6be71497756bcf7ff864653d6cb5a8d07fa378213173e0be4734",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/c4086abc7db4642418b44b61b0d69c4e6a16d1ebaf955bbf51135daf3b429f28.json",
-      "digest": "sha256:1f3eaeca02464aa9a387505cded1aeba5077d4224867ea6efce19ea847cb00a3",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/c8c9f8a0603329d22d99aa2b1ff5afddf1e65346c718100b1eb4eb88d9ebcd31.json",
-      "digest": "sha256:bba2aa9d6bd36d1768e290e148d3074b199a31dfc6d90540bd5d54165336dab0",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/c9e99db317170e89998f4379d98143bd9daeabfe7b0c0957e361120a025351fc.json",
-      "digest": "sha256:a57a1f5816437ab5594f92ec51e5eb176d95262231811c04dc318df1e7f0290b",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/ca7c8093d6fd2b6388ef0fc7e24328710cb37cd57015e58b48fea257ff9c9445.json",
-      "digest": "sha256:876c21fadd5b8c6536357cb40ae09190f69e5834f5024048078b4a48bc96990c",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/cc4102334a0edd262d4c2b5be065dbb3efbb9d8da5302e056d1b092f3656388c.json",
-      "digest": "sha256:d4e549e5b4e263aeb3fe5b924b37ad07a830b522155ddc8726b9631d5aeb40dd",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/d111b27c2c5b3e175d3ad748dc631ee2b8787d9fce914b99fcc8b8c4a9a560a6.json",
-      "digest": "sha256:076c7453c1c7f28e5a9639431aaf4c9635e20936058fc9a7731b0b48b9c7ae1f",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/d3925bc5e980bb107462a387f3a762015a2f9e061f1d9b693ec11efb0e8b0636.json",
-      "digest": "sha256:6860a81a6eb2a44d50f9fc3a13e398d8efd4728c7c24e90e9ca0de1b9cd502d0",
-      "before": null
+      "path": "data/assets/icon-references/roblox/model-validation.md",
+      "digest": "sha256:a13d8f5f809a701d031fc72d63fd477936b8ea8df26037879211856a7341d3f8",
+      "before": "sha256:eb7a94741760cc831256b6da98b50cb50643f5ed1cd4600d3cc93dc37d84eb24"
     },
     {
-      "path": "data/assets/versions/d5568ca55f4db0a49723632bbae3848b6cb90a7c5d4e67dc140433745f2ec638.json",
-      "digest": "sha256:dab0d96e8d1a46c6ff078899314168beaa51c1107766839ad3b2e876a4f3eb3a",
+      "path": "data/assets/raster-annotations/roblox-q2-fy24/characters-crop-report.json",
+      "digest": "sha256:cf44943af5907ddacec392c981cc201b8bff87cfa629a3cde46dc8d8abbfe543",
       "before": null
     },
     {
-      "path": "data/assets/versions/d9f937b03ec3287551c8838c3329eca9b0d853e1d5dbe721fa32d2abd12d106b.json",
-      "digest": "sha256:77bf0b6de9aed9bd4cbc5a29085f6e1dfa11225315b85fef43ab0b20a3e06f36",
+      "path": "data/assets/raster-annotations/roblox-q2-fy24/characters.png",
+      "digest": "sha256:50ee4b18eb2471cf6dbd6f76c92293d59d3b4e54809ab2b1730073bef49ba315",
       "before": null
     },
     {
-      "path": "data/assets/versions/dffe8c3d12f59cce1eadd98ab3a807213abbe5561ee474e4dd54fdfb495cc389.json",
-      "digest": "sha256:61b9131e678c0f884dfaffb953cc542930dcc8d081c6f3bca869ccc4aff5c21a",
+      "path": "data/assets/raster-annotations/roblox-q2-fy24/model-validation.md",
+      "digest": "sha256:cda7c642288c21d24c4e6d5086be4b3f8cd79c5a71cf669b85eba05ad6ce8bea",
       "before": null
     },
     {
-      "path": "data/assets/versions/e0665ce984c968735a2951b3a1a7b75eb4bc1f43693d5490c6bfc40eec9d74d0.json",
-      "digest": "sha256:2c8584b63865c1c2c68528b6f26e8d5440ecb530dc9562847f8383edf41d48d4",
+      "path": "data/assets/raster-annotations/roblox-q2-fy24/wordmark.png",
+      "digest": "sha256:2365c276446b01ce9405573874cc6c4f727cec16de5edcb16ba076a2ab8df593",
       "before": null
     },
     {
-      "path": "data/assets/versions/e0f5150aa23aca503556f0de870b84dfdf2548a3e88799cfee0067f4f865767a.json",
-      "digest": "sha256:cfeb80be05904ec6a0b256ae9288b0e2830ee02974ab78bbf378288c9428bd1c",
+      "path": "data/assets/raster-annotations/roblox-q3-fy22/characters.png",
+      "digest": "sha256:2f2ff15f87223477163bda6fde892e13f651d8b76f6744a96d007a57d53011e6",
       "before": null
     },
     {
-      "path": "data/assets/versions/e17374f55c2c3a6a894b79774ffbf00d472cb313b14733c3cfb18a64fc595f20.json",
-      "digest": "sha256:4591332e03da8d6ff134c700531c5b87ad19ec7ff9a668ebb46dd96bfecd5f0b",
+      "path": "data/assets/raster-annotations/roblox-q3-fy22/wordmark.png",
+      "digest": "sha256:1eaaab48094d13f57daf7539e2ba2bb7061ff716aba9b00ecd5b958a77a81260",
       "before": null
     },
     {
-      "path": "data/assets/versions/e3a65a322b9e5230dfd3af4ed1f98a46503395e8568e946666e8403476e65a0b.json",
-      "digest": "sha256:6a77c874bcc4b6718c2420d4ec1e3aa46bc9a89e9e7aeaf70563b3048ea3ddd4",
+      "path": "data/assets/versions/744c661b0738d716fdbc8e156fc968024db96e26b928a43c5228a7fa575d293f.json",
+      "digest": "sha256:e3db481fd08ebe414c28993b45e8a8b926c6292940e7f4a26119080708572c2b",
       "before": null
     },
     {
-      "path": "data/assets/versions/ff4656dca2f29d89998cb37f882dc6c2b1682ef9f8c62af0394eaf52cf55b762.json",
-      "digest": "sha256:34f538c3ad873683848b829e2bc48a3eabd5c6414fcf33c20f03edd94b099066",
+      "path": "data/assets/versions/e424c53c131858e3dfb168be622e8df9cf505f7185993858f9f3e63eacb5a46e.json",
+      "digest": "sha256:a374facd91f659843ab2a527bfeca5c9cf4b6f628904a3714b6ba687a3e94cfd",
       "before": null
     },
     {
       "path": "data/dataset-file-metadata.js",
-      "digest": "sha256:39e2f9bd98f117c97d755f15c07b5cf24ecbebac1f7a5189636b7b2a4aab7b05",
-      "before": "sha256:67da10a6100a74ce0c0b35e1e55a4a55f0164910ce160f70ea2a51e52332af36"
+      "digest": "sha256:62b06fc6d23bab3d676eb9843928cad4018ca350b4385d40bf69337cc8294aea",
+      "before": "sha256:6d5e34c5826f3b45cfbb5c1f233467a85430ebf0573f57303b9d88e196e3baea"
     },
     {
       "path": "data/dataset-manifest.js",
-      "digest": "sha256:8696833ca086113bee3a1947a64b90a6c6afdb5d42adaa7321802bbc3456982c",
-      "before": "sha256:50159a2243420c2fd65503bb237be3fa3756319c8fd8941219d95e25ce0f0829"
+      "digest": "sha256:db130fefb0da4f836ac407d815d6a639d27d6b51455dccec0e160cedac90d1f2",
+      "before": "sha256:8696833ca086113bee3a1947a64b90a6c6afdb5d42adaa7321802bbc3456982c"
     },
     {
-      "path": "data/datasets/salesforce-q1-fy24.js",
-      "digest": "sha256:15b2a24ccb90bbce1a221c988099c27c3e55961557fb3dd2c30bce013e755dd4",
+      "path": "data/datasets/cloudflare-q1-fy23.js",
+      "digest": "sha256:fd5c5a2c32dd356bbac9c983d19e1d09327975c6c88751df74c5aa5b66d360ce",
       "before": null
     },
     {
-      "path": "data/datasets/salesforce-q1-fy25.js",
-      "digest": "sha256:4921279e41c5e4f240117310ea7310e6af3f054306277e906446e5306cac7595",
+      "path": "data/datasets/cloudflare-q1-fy24.js",
+      "digest": "sha256:919b1a1532790994e92834fd5fcb63e91a4b162021889feaaed24d82fffa8543",
       "before": null
     },
     {
-      "path": "data/datasets/salesforce-q1-fy26.js",
-      "digest": "sha256:ccf12cdf36b266f36932a242b7cb2d3d8de3c1f8a53769a7ccbc7f984caf8739",
+      "path": "data/datasets/cloudflare-q1-fy25.js",
+      "digest": "sha256:7d00643db64969b7c7691b42cf05164243614b549fdfdea3eb526ab7f09c5f10",
       "before": null
     },
     {
-      "path": "data/datasets/salesforce-q2-fy24.js",
-      "digest": "sha256:efceaa8d018dba83911fe27416e7dfc8b288f9e3aa0541376c8de4c10d136a8b",
+      "path": "data/datasets/cloudflare-q2-fy24.js",
+      "digest": "sha256:cad6b4ebad44e02b68024dd467ed38cb49980e6ee3efd0fb6d5532de4b23ee31",
       "before": null
     },
     {
-      "path": "data/datasets/salesforce-q2-fy25.js",
-      "digest": "sha256:9332bbae8432a4843e3cf9204afa055d13e67ac8d84dbfbd00e42195a9a3a7ae",
+      "path": "data/datasets/cloudflare-q2-fy25.js",
+      "digest": "sha256:0cbc7af89df84bdf4e3b452559283d634aec1a07bb8a5b013f7c3b6072dc3385",
       "before": null
     },
     {
-      "path": "data/datasets/salesforce-q2-fy26.js",
-      "digest": "sha256:8fd9cac5c380e94781a76c698bd814e1ad712e34f2fd4d5adb731d53e1d0b162",
+      "path": "data/datasets/cloudflare-q3-fy22.js",
+      "digest": "sha256:8556384e8c7e170a06a95da2214041719ae0cd70ce782c6b06ef25d8bb727226",
       "before": null
     },
     {
-      "path": "data/datasets/salesforce-q3-fy23.js",
-      "digest": "sha256:d76287e1fd1ab67a2f085d74e3e679f04d74546232ae047e672b7549f07a2c9b",
+      "path": "data/datasets/cloudflare-q3-fy23.js",
+      "digest": "sha256:70291df4324715f877408fc12774c54253faffa6d7b14b839af2e8010aa00c8d",
       "before": null
     },
     {
-      "path": "data/datasets/salesforce-q3-fy24.js",
-      "digest": "sha256:d08844a830e0722a5e98c0977078c362d8cd0fbd56d880783a7d52fe336287f2",
+      "path": "data/datasets/cloudflare-q3-fy24.js",
+      "digest": "sha256:68799fd4d2726e907be0b195063c15a4cced036b9bc1006dce3ec1eaa6e19d7a",
       "before": null
     },
     {
-      "path": "data/datasets/salesforce-q3-fy25.js",
-      "digest": "sha256:196470d20f925702d3013f52bb609ba9606d5adb6326b62b7e248b3f10c7aeba",
+      "path": "data/datasets/cloudflare-q3-fy25.js",
+      "digest": "sha256:7111ec1e010adeb497f9b56420878a69d0a450d4ead6a07dc91606dab1fe9429",
       "before": null
     },
     {
-      "path": "data/datasets/salesforce-q3-fy26.js",
-      "digest": "sha256:c9871d3e9915912dfe9b219633eff5972646bbdf3419305cf3c604d48fa2ceb4",
+      "path": "data/datasets/cloudflare-q4-fy22.js",
+      "digest": "sha256:74ab3a5504bd0dbaa3dca45090fd1fe7a3140b17693dc0d9a55504d7fce32290",
       "before": null
     },
     {
-      "path": "data/datasets/salesforce-q4-fy23.js",
-      "digest": "sha256:8784ad0baf904390933b41a746faadf74b9dd33013af0626fdebb8b93c7faf8b",
+      "path": "data/datasets/cloudflare-q4-fy23.js",
+      "digest": "sha256:8aecb668665687da491a1f29d8c83862940ac926457e802bd80a211e61dd56c2",
       "before": null
     },
     {
-      "path": "data/datasets/salesforce-q4-fy24.js",
-      "digest": "sha256:9eed80bc013ba1c1899d9d616f06cf599e44de4daacaac40f4bd2c6dfbd3ceda",
+      "path": "data/datasets/cloudflare-q4-fy24.js",
+      "digest": "sha256:d9da03eaa281bf326f8d8b25ba9d98d4de40ac81ff0de0a6e2562d1506b4c718",
       "before": null
     },
     {
-      "path": "data/datasets/salesforce-q4-fy25.js",
-      "digest": "sha256:c0837675ae7f750200dfbb35e0500160ccbd8fd5e28a2809f27b9836c0e96979",
+      "path": "data/datasets/datadog-q1-fy23.js",
+      "digest": "sha256:30ce37857a9a02d27ad905ada220f8e8113e8772360dd44f337d1d26fae8f4c8",
       "before": null
     },
     {
-      "path": "data/datasets/shopify-q1-fy23.js",
-      "digest": "sha256:624418318de985115dc11a04e75b2785117d347781428615a79ac59f7dd99693",
+      "path": "data/datasets/datadog-q1-fy24.js",
+      "digest": "sha256:6a6348d376a3b36482fafd59f8baa75e2cf6aa1b33b47addf48e9251b167e6d2",
       "before": null
     },
     {
-      "path": "data/datasets/shopify-q1-fy24.js",
-      "digest": "sha256:0a6ad3f1094c2d6713d20536ef0ac35293678e4397c2bc544b4412cbe5578ce2",
+      "path": "data/datasets/datadog-q1-fy25.js",
+      "digest": "sha256:e36f2e8f6bc606d7474e2f3a1bd28392f17c65fbe8f041515459c8a515909a66",
       "before": null
     },
     {
-      "path": "data/datasets/shopify-q1-fy25.js",
-      "digest": "sha256:a62efc9989c0dd552bed3d26aedbba5341b2aea7ca6600f2228d14aed358b985",
+      "path": "data/datasets/datadog-q2-fy23.js",
+      "digest": "sha256:fa598657fa1be36d0d79805e9c86318f5a3dd9db4b579564f24028e5a1d41edf",
       "before": null
     },
     {
-      "path": "data/datasets/shopify-q2-fy23.js",
-      "digest": "sha256:5419f53b612d0336bc85c2732d7e62b58cd895f5e33b91698373721e5ccf3170",
+      "path": "data/datasets/datadog-q2-fy24.js",
+      "digest": "sha256:73e5e306b5d38d03bc76a3e549629fff435ba24bf0b9d54b6baa21403175a4e4",
       "before": null
     },
     {
-      "path": "data/datasets/shopify-q2-fy24.js",
-      "digest": "sha256:c883e7440bf760d9feda7c31b2610e362392e7c7d2fb8b576725e37992b632e8",
+      "path": "data/datasets/datadog-q2-fy25.js",
+      "digest": "sha256:f9fa44ef1e5c21d1efb44d046f4819765dc977d0d0d6131236261a7821a436e7",
       "before": null
     },
     {
-      "path": "data/datasets/shopify-q2-fy25.js",
-      "digest": "sha256:8554b257a8a64b24c370a90f58aa1dde361b18ffcadd83154f058539935129d5",
+      "path": "data/datasets/datadog-q3-fy22.js",
+      "digest": "sha256:f84d81ec9b486bfcf4e88409c357f5a630e10dfccaee2647e78d6dfa780fade1",
       "before": null
     },
     {
-      "path": "data/datasets/shopify-q3-fy22.js",
-      "digest": "sha256:62aa9dfd324cdf035ac588046ae12fd14c80c99634df275a5acb30bd6449d004",
+      "path": "data/datasets/datadog-q3-fy23.js",
+      "digest": "sha256:6f3ef708c97e7165221ff6860a81258123aada80529156d4cc3530c2123605c4",
       "before": null
     },
     {
-      "path": "data/datasets/shopify-q3-fy23.js",
-      "digest": "sha256:b42d68ecf2efeb4a702dacb7280a9abeb3e1dc73c8579427ee258a66da9729f7",
+      "path": "data/datasets/datadog-q3-fy24.js",
+      "digest": "sha256:1c3d115c3f80dfb9c3d43614f4f903c4741024b864690c1fcc8d5527b450f44c",
       "before": null
     },
     {
-      "path": "data/datasets/shopify-q3-fy24.js",
-      "digest": "sha256:4c9f62b78f75f3ec02f3ef0905f6916515b0308b805938e9de34b5932d08fca5",
+      "path": "data/datasets/datadog-q4-fy22.js",
+      "digest": "sha256:23f1864685a9c6d3f0445ad2433acb33d7295543984b4b9a954a60c1ab268e55",
       "before": null
     },
     {
-      "path": "data/datasets/shopify-q4-fy22.js",
-      "digest": "sha256:c81e41ea3d1a712edb7cb361db545fd8603454c79c9fe9203d17f763b1ab2da1",
+      "path": "data/datasets/datadog-q4-fy23.js",
+      "digest": "sha256:d728314117b0c6e39185df2dbb7152b63096bd34613ecffbf6e0d4005fd12704",
       "before": null
     },
     {
-      "path": "data/datasets/shopify-q4-fy23.js",
-      "digest": "sha256:b5083ca103de3f9a5095e59bc443e4d2beff1bd498fa3efe9ca22218c3b294bd",
+      "path": "data/datasets/datadog-q4-fy24.js",
+      "digest": "sha256:dd4485cd37d7be6ef3f6f341a25eb21cc5434dbad5336240d0addc5b416a4b0c",
       "before": null
     },
     {
-      "path": "data/datasets/shopify-q4-fy24.js",
-      "digest": "sha256:c187ccd872f712d3c073176070b5d5dd5693f612564569ab7bd76c5b8e40a73c",
+      "path": "data/datasets/pinterest-q1-fy23.js",
+      "digest": "sha256:cc31a634db566b0d0757207b93f190bb65941ac26fb3ef2c4403b9ac68a9861c",
       "before": null
     },
     {
-      "path": "data/datasets/snap-q1-fy23.js",
-      "digest": "sha256:b3257b8d00d13ad6a4eb2017da813c8f9a8332221ce623ea80f1f0d571f2436b",
+      "path": "data/datasets/pinterest-q1-fy24.js",
+      "digest": "sha256:f5a7abecfff4f53c159bae0ead9567ef0c4f63be20321f6676324f067239fac5",
       "before": null
     },
     {
-      "path": "data/datasets/snap-q1-fy24.js",
-      "digest": "sha256:b2943342232938d2cd3e27d3742a01935523225b066684fd70f3cdaf120ac383",
+      "path": "data/datasets/pinterest-q1-fy25.js",
+      "digest": "sha256:fcf0ac91a55cb1c03cacb036f40501423e6b5f8fbc04884b742316013c7eb34f",
       "before": null
     },
     {
-      "path": "data/datasets/snap-q1-fy25.js",
-      "digest": "sha256:abf8c607b40e634d333602ce67dfde26ea86b3cd80a423c881c3236da5c5db20",
+      "path": "data/datasets/pinterest-q2-fy23.js",
+      "digest": "sha256:aee2f030177ee609b30b29aa5aec6341c2b0844b00cda564219e8f009b73374a",
       "before": null
     },
     {
-      "path": "data/datasets/snap-q2-fy23.js",
-      "digest": "sha256:83981ad77306ca93dc2b4502ffe3559d76a30bb31a10c617f3c08ec2920f95fd",
+      "path": "data/datasets/pinterest-q2-fy24.js",
+      "digest": "sha256:746b684f179cd5635f8def4c2bec3e25e094970f2b01669118494961692c56ca",
       "before": null
     },
     {
-      "path": "data/datasets/snap-q2-fy24.js",
-      "digest": "sha256:cedcca15bb297d7865bb6d3e8ac8ac6a2937d196cecf8ac0302a7b4da7a188df",
+      "path": "data/datasets/pinterest-q2-fy25.js",
+      "digest": "sha256:7e1c0e73d098e93b5d08e0e77a4d28afba7bb1cc71f5ed59469f852cc9c8ec1e",
       "before": null
     },
     {
-      "path": "data/datasets/snap-q2-fy25.js",
-      "digest": "sha256:a7fa2505e22cd150390e223201fd9a3a70bad06942f1e188d37b79b4967fad69",
+      "path": "data/datasets/pinterest-q3-fy22.js",
+      "digest": "sha256:751fc7c0190fd0d0c3f8da32eecb70be132b34c9442499e2e6a26c883aa804b6",
       "before": null
     },
     {
-      "path": "data/datasets/snap-q3-fy22.js",
-      "digest": "sha256:85137788f48a1e61b6159541c4bc953901ec1a2c5a93b9740214424d12fb349b",
+      "path": "data/datasets/pinterest-q3-fy23.js",
+      "digest": "sha256:a207c499e8c6943b02448faaaad92633fdba3a5fc0f55e27d1c0f3e1eb234f15",
       "before": null
     },
     {
-      "path": "data/datasets/snap-q3-fy23.js",
-      "digest": "sha256:3ac6018ecb192acaab05476569a70d8588f98a02afeb0febb4cbe59567085e96",
+      "path": "data/datasets/pinterest-q3-fy24.js",
+      "digest": "sha256:b3da3499c2f644e00419bbe7e9fcbeebc84b89b2e963c74a3030fabeb5faedf0",
       "before": null
     },
     {
-      "path": "data/datasets/snap-q3-fy24.js",
-      "digest": "sha256:8ceacfb7398ba29a905094a16d45fbde0f558ca34228bf5fffeb23ee6feda8d4",
+      "path": "data/datasets/pinterest-q4-fy22.js",
+      "digest": "sha256:2a6f6bb72ed1b72f43cc81fbc5c3c885130b4345de4147c347423d3beaf399b1",
       "before": null
     },
     {
-      "path": "data/datasets/snap-q4-fy22.js",
-      "digest": "sha256:c67eae9ffc4a81695a0acf13669c2ed3b7af90ddac3fb8ceee0f03a39cf0a504",
+      "path": "data/datasets/pinterest-q4-fy23.js",
+      "digest": "sha256:0d5234a8b20b3be9644e839cef92168057f788f61d7fd971442adeae023ce7fe",
       "before": null
     },
     {
-      "path": "data/datasets/snap-q4-fy23.js",
-      "digest": "sha256:e4c90347464818b113b812dc83e7b411971153ec90e30d90ffcc01ae8696d7c1",
+      "path": "data/datasets/pinterest-q4-fy24.js",
+      "digest": "sha256:f1ef3c0cd67a2daab0cfa512d2e5da556363043345715cb9eb67c34030c79fe3",
       "before": null
     },
     {
-      "path": "data/datasets/snap-q4-fy24.js",
-      "digest": "sha256:a1fc717bbeec34f156ff20551140769ce5f63995ce7bd389ca62d5e77da62170",
+      "path": "data/datasets/roblox-q1-fy23.js",
+      "digest": "sha256:6fd43201ae8d355beb36363994b03b850f8a89edbbe5351339e7d52c9c964587",
       "before": null
     },
     {
-      "path": "data/income-statements/salesforce.js",
-      "digest": "sha256:93c4959b6d38755a75d1c84e46e7deb0f71a96293f52d6c343ac3feec368ec1f",
-      "before": "sha256:b2083c43b392b31158fb7b945c0f7a50fcbd96dc998bdbc603a446bb60c30227"
+      "path": "data/datasets/roblox-q1-fy24.js",
+      "digest": "sha256:ab324f054abb6e82e7a4f1f1e24c1a66bfcf20627515a97ded5e6a847ad500ce",
+      "before": null
     },
     {
-      "path": "data/income-statements/shopify.js",
-      "digest": "sha256:1e673ce99bf2d1e51d32e44f9827e0c2c8a118b2cb581c3688fa1a2478bea49d",
-      "before": "sha256:3a4b6faeb6790491c8a8b0f4d31ee6d81130a3b6cbb0022c7d5438b5c0bf69d0"
+      "path": "data/datasets/roblox-q1-fy25.js",
+      "digest": "sha256:1b846c6c1f106a62f90c568c0d01ad3688c83ee3a830a6ab3f6ea6dcef39b5c0",
+      "before": null
     },
     {
-      "path": "data/income-statements/snap.js",
-      "digest": "sha256:98cfdf539f84c9e5dcb69733cd286ae979d8954ea1df8a755a38741953c8b641",
-      "before": "sha256:175ed32d74408f711cea9547e8825735956650fae35960e39875505fede38cee"
+      "path": "data/datasets/roblox-q2-fy23.js",
+      "digest": "sha256:23230f5a76e3c163625f4cdaab4fe0cdfff4fd8ad049d86e2c62184974dcef91",
+      "before": null
+    },
+    {
+      "path": "data/datasets/roblox-q2-fy24.js",
+      "digest": "sha256:b106887902fc2bf938ee1a23fa48ceaf9804d2b3ba2129844cb5e392c492075e",
+      "before": null
+    },
+    {
+      "path": "data/datasets/roblox-q2-fy25.js",
+      "digest": "sha256:fe5119662c34dac4eb3eaa1790df1cb6d471346b6437f1b12a3a9df29a751357",
+      "before": null
+    },
+    {
+      "path": "data/datasets/roblox-q3-fy22.js",
+      "digest": "sha256:cc4c09c21f0d28fc10ee3b91040febd5350737886b07dd0c4fa0a75f95c62edb",
+      "before": null
+    },
+    {
+      "path": "data/datasets/roblox-q3-fy23.js",
+      "digest": "sha256:17ed312eff25ef29d45d634b52a08518f594282f0d9149603e3b9c9e715d48a2",
+      "before": null
+    },
+    {
+      "path": "data/datasets/roblox-q3-fy24.js",
+      "digest": "sha256:fe28ec731644f6f8fa121ede90c352666c000279708e3eea5af245b179e35038",
+      "before": null
+    },
+    {
+      "path": "data/datasets/roblox-q3-fy25.js",
+      "digest": "sha256:e82d34768e325f8d7f4c61703c5637302c9f29cef618b8ad71a85ea156d9c062",
+      "before": null
+    },
+    {
+      "path": "data/datasets/roblox-q4-fy22.js",
+      "digest": "sha256:21df51048d3f113f9be879a59416a95708cc6140903a9ccaeb6cf75623ed3403",
+      "before": null
+    },
+    {
+      "path": "data/datasets/roblox-q4-fy23.js",
+      "digest": "sha256:783ae559326b9be3e19ae1f6d3d922c873c2bfc4d6cef31a2596aded3d98843e",
+      "before": null
+    },
+    {
+      "path": "data/datasets/servicenow-q1-fy23.js",
+      "digest": "sha256:78fe442b494212d4e2cc3afb80a6491ba3426e7d30a378632a779c0c510bbfcf",
+      "before": null
+    },
+    {
+      "path": "data/datasets/servicenow-q1-fy24.js",
+      "digest": "sha256:a98e6d32be82450849b678aaabaeab8e1154796695408cb47dbdd3527e6c8e96",
+      "before": null
+    },
+    {
+      "path": "data/datasets/servicenow-q1-fy25.js",
+      "digest": "sha256:84a38988b3e034e3b5e54c2bc82b1ebd9e3dc24cfa3ef8771a2fc1d861d8adf9",
+      "before": null
+    },
+    {
+      "path": "data/datasets/servicenow-q2-fy23.js",
+      "digest": "sha256:e380a24192a8c7c98514a38e208f53f94bd2fc9ffadaedebe4feb9605c2c7fef",
+      "before": null
+    },
+    {
+      "path": "data/datasets/servicenow-q2-fy24.js",
+      "digest": "sha256:ff16a8b2bed474a6fe1360886086d33806994b7a5a8ee91ab04564d698619766",
+      "before": null
+    },
+    {
+      "path": "data/datasets/servicenow-q2-fy25.js",
+      "digest": "sha256:9a43a337e0cae02d4f9c5f366f07d98db9d6f2fa7c85ccecebd70125fafd27e4",
+      "before": null
+    },
+    {
+      "path": "data/datasets/servicenow-q3-fy22.js",
+      "digest": "sha256:2b23fa007c1c30eeedb64d6b280a57910cac616e0f4b126d836bdc18d9f007d5",
+      "before": null
+    },
+    {
+      "path": "data/datasets/servicenow-q3-fy23.js",
+      "digest": "sha256:535e82460c8a75804bb2b0d373885e7cf694182e99af38d5a88ed50600aefcc1",
+      "before": null
+    },
+    {
+      "path": "data/datasets/servicenow-q3-fy24.js",
+      "digest": "sha256:02e1df3796071dcc270ff2bcce635110dffd35d55b8fdfc5fd7b3ab6e80a55bb",
+      "before": null
+    },
+    {
+      "path": "data/datasets/servicenow-q3-fy25.js",
+      "digest": "sha256:0f26217fe364cbb5f2512606e23977e647bc2d8d05c498d8945e8927a9765567",
+      "before": null
+    },
+    {
+      "path": "data/datasets/servicenow-q4-fy22.js",
+      "digest": "sha256:fb73a8f1c9281b6008e1f2239d8b15b0538be0cc5268ece900f6615d7eebb3a2",
+      "before": null
+    },
+    {
+      "path": "data/datasets/servicenow-q4-fy23.js",
+      "digest": "sha256:5db033576d469eb751af8f7fac75d56894d1d803b30315ceec79d34a3e8a918e",
+      "before": null
+    },
+    {
+      "path": "data/datasets/servicenow-q4-fy24.js",
+      "digest": "sha256:9c6cabf203c76eab411df955c2ca25e9858d7aa4711796f84f4c277eeaaf17ee",
+      "before": null
+    },
+    {
+      "path": "data/datasets/zoom-q1-fy24.js",
+      "digest": "sha256:e7642961b63c8129d01d9957fa25ff6a6b8085214dc2e979bb860dbed18b19ef",
+      "before": null
+    },
+    {
+      "path": "data/datasets/zoom-q1-fy25.js",
+      "digest": "sha256:185fc42c49ca8307221137db6d11fdbe693182e1910f28a42a8ad5f85ebba936",
+      "before": null
+    },
+    {
+      "path": "data/datasets/zoom-q1-fy26.js",
+      "digest": "sha256:583e471bc267fface120b2edfdadaecc0ab5981093f49d49942f63c7ebe9650a",
+      "before": null
+    },
+    {
+      "path": "data/datasets/zoom-q2-fy24.js",
+      "digest": "sha256:4b68468920823509e2ce787e7c322c1a64a5bbde3d8d70700b45e523eef951e3",
+      "before": null
+    },
+    {
+      "path": "data/datasets/zoom-q2-fy25.js",
+      "digest": "sha256:dc62af9130669ef1a274de9c7c2f9a3124c334a833063142bed4625e2e3111b9",
+      "before": null
+    },
+    {
+      "path": "data/datasets/zoom-q2-fy26.js",
+      "digest": "sha256:0a2e6e03e86f54e17e3062de310f7262a1d758b228ceecdf572994cc1a80a7ec",
+      "before": null
+    },
+    {
+      "path": "data/datasets/zoom-q3-fy23.js",
+      "digest": "sha256:64b7b8feb65d649d9b4cd85b786a51e92ac42e473f31f709ff7f9bba9a8e7aac",
+      "before": null
+    },
+    {
+      "path": "data/datasets/zoom-q3-fy24.js",
+      "digest": "sha256:5aff9488763d863a5711cd185dce7548d59a0309d8ff44081ea6921d8014106b",
+      "before": null
+    },
+    {
+      "path": "data/datasets/zoom-q3-fy25.js",
+      "digest": "sha256:af1468c800a225187c0792a3c4f6238caef9e49d375e7f7b90b10b5e75b2fcf8",
+      "before": null
+    },
+    {
+      "path": "data/datasets/zoom-q4-fy23.js",
+      "digest": "sha256:f08dd3d39c29f036ff2d5ba0e8d3c02026fa0410c334a3fae518d55b98808692",
+      "before": null
+    },
+    {
+      "path": "data/datasets/zoom-q4-fy24.js",
+      "digest": "sha256:363c271b0183fc4542b5ac959644480c55341f4bb5469682ed403fb399113e2b",
+      "before": null
+    },
+    {
+      "path": "data/datasets/zoom-q4-fy25.js",
+      "digest": "sha256:ed261f8c177aa6b4e4783f0935736a02ec88130d303e62028c63e0d783f8192b",
+      "before": null
+    },
+    {
+      "path": "data/income-statements/cloudflare.js",
+      "digest": "sha256:325121280062fa7a53e32d1bfa6bf45904edc036afc77e0568569e8dbde57102",
+      "before": "sha256:4b8b7aa21325c6ee1d5ccd55996f21e6a670aee47868bb641e6495d96c5e9d33"
+    },
+    {
+      "path": "data/income-statements/datadog.js",
+      "digest": "sha256:7ba2fafd4402e01b994b379e67720eb463b76ef1261a00ef137baf2eae0ca265",
+      "before": "sha256:cd4fd05ef0647d3d816ac884dc5c185d106e835520bca284957a975c8f447318"
+    },
+    {
+      "path": "data/income-statements/pinterest.js",
+      "digest": "sha256:1e773f3a805fc16c187c4589656bedd2993a900458fb1ea9d9de58ce69b36170",
+      "before": "sha256:262f9a2cb51daa12893444123432748f2e75ac9c6e2ec793d4daa717b84562a0"
+    },
+    {
+      "path": "data/income-statements/roblox.js",
+      "digest": "sha256:90cc31da62251d5eee82c17b54cc8078cacc0728c370488e696acf15a2e187e2",
+      "before": "sha256:3ea73254ea98eda9f6f53a8942b42f55e38f30224daad8fceaf0f5b864763221"
+    },
+    {
+      "path": "data/income-statements/servicenow.js",
+      "digest": "sha256:4f93fa801037bb20fc43c0de424ac91e8bb3e405b7c9898e3dc196b3216b5ab3",
+      "before": "sha256:0be39a3486c9aea359b7223dcb0e511da08f837e770a65b82c723fe716e6819c"
+    },
+    {
+      "path": "data/income-statements/zoom.js",
+      "digest": "sha256:7ac924c3aed8e32a73a99a18d8883257e85e151c21d678e78927d857d1d5c396",
+      "before": "sha256:568a17a35921d2b825a566da07b8dda00de56489f50630047caf7b95f30a8ac6"
     },
     {
       "path": "data/render-baselines.json",
-      "digest": "sha256:0e639d314d248271e06828aec3fb6650559a74047f3c2f656b24a521d3a7e29a",
-      "before": "sha256:a1ddd83d8dec86f410b24362788e3d90e5496335468ad277333e7367eee4e6f9"
+      "digest": "sha256:62cf4184bfb984d3b732c216e46c3351083951c394d83b86c3469b1084b143b9",
+      "before": "sha256:0e639d314d248271e06828aec3fb6650559a74047f3c2f656b24a521d3a7e29a"
     },
     {
       "path": "data/workflow-timestamps.json",
-      "digest": "sha256:6dec1090c823f6336e62148510dc9bffb481ca3bfa959733ea9fc6a914e35f43",
-      "before": "sha256:7402ab41c2a625eb9ec31f8b0ca409b4847fc770db3c21f91fa70313c2364812"
+      "digest": "sha256:c1762f273ba400c71ac0c402623b648df1656dc255b29171847824c17e551ba0",
+      "before": "sha256:6dec1090c823f6336e62148510dc9bffb481ca3bfa959733ea9fc6a914e35f43"
     },
     {
-      "path": "input/icon-crop-specs/salesforce-q1-fy24.json",
-      "digest": "sha256:89aaa05a46c1d19b2519ffbadc64edf1972e8ef3b56d2890b01e1a38e46614ae",
+      "path": "input/icon-crop-specs/roblox-q2-fy24-characters.json",
+      "digest": "sha256:fac90111ec842390d3513ddc6f2c0d69a895081db04f92107b04644853f6bf8b",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/salesforce-q1-fy25.json",
-      "digest": "sha256:f1bc1a633530632a44b661768ec39137483f49f1759ae7b02abed401f4b93352",
-      "before": null
-    },
-    {
-      "path": "input/icon-crop-specs/salesforce-q1-fy26.json",
-      "digest": "sha256:0d6a253f450131708d7bc3de4d452293b3cc0835c963abbd119ec39cdf9dc98e",
-      "before": null
-    },
-    {
-      "path": "input/icon-crop-specs/salesforce-q2-fy24.json",
-      "digest": "sha256:efb1c12aa16a951fad0d27659ae02bf8cf5beb388a7e4439a686f30daceebe23",
-      "before": null
-    },
-    {
-      "path": "input/icon-crop-specs/salesforce-q2-fy25.json",
-      "digest": "sha256:424e73d31f68c18f78c22adf653ffd2abdca5a994c73522003bf2750add52c06",
-      "before": null
-    },
-    {
-      "path": "input/icon-crop-specs/salesforce-q2-fy26.json",
-      "digest": "sha256:f6c799a177b701536925051bdc9d23e3d329edc5aa2e357889e18e6562d9846f",
-      "before": null
-    },
-    {
-      "path": "input/icon-crop-specs/salesforce-q3-fy23.json",
-      "digest": "sha256:f90d4317f8c9028006d4d547d36081d8595787f1758afd0646c7e9caab0778ee",
-      "before": null
-    },
-    {
-      "path": "input/icon-crop-specs/salesforce-q3-fy24.json",
-      "digest": "sha256:136aabba89024615d4613f1e5db9ba9a554cb67d80b325dc8bb0beda2406b4fe",
-      "before": null
-    },
-    {
-      "path": "input/icon-crop-specs/salesforce-q3-fy25.json",
-      "digest": "sha256:3f030c9ca6b751f78747729d6009d8f7518cce2bc5f5bc8ca0b39c94794b1501",
-      "before": null
-    },
-    {
-      "path": "input/icon-crop-specs/salesforce-q3-fy26.json",
-      "digest": "sha256:362bdd3935bb6a5751a5fbfbff85510f67cba0d53b7ccdff387be0f29c597476",
-      "before": null
-    },
-    {
-      "path": "input/icon-crop-specs/salesforce-q4-fy23.json",
-      "digest": "sha256:4c43f457f030fe4ecbafb5f0267a7f353b93c8bc18275bf4f3101eb8c7223d84",
-      "before": null
-    },
-    {
-      "path": "input/icon-crop-specs/salesforce-q4-fy24.json",
-      "digest": "sha256:0312b851918d5b103c7fd960e161b08214b91a1b4f8dfa728f4878515405d03f",
-      "before": null
-    },
-    {
-      "path": "input/icon-crop-specs/salesforce-q4-fy25.json",
-      "digest": "sha256:8cf54a95b1f28caee19fd86fde0b879c2a86930aced0d9648e5798a51bddc255",
+      "path": "input/icon-crop-specs/roblox-q3-fy22-characters.json",
+      "digest": "sha256:018af6e409a1cee170a1b00b8a189067fd81d8ebceef594502f0b2f2d6a18032",
       "before": null
     }
   ],
   "release": {
-    "version": "5eb30954692a537f99aaa3f72aaa670e257bf0928df794304daa47e33a3fa7fa",
-    "contentDigest": "sha256:e44cee598c5f6558e8b5442df50606bc9d08a2394549e93d540339e98388d99b"
+    "version": "b27c1ebddfb11596b9883e924f63e388be2cfcb00801279b6cc6411f1c68eda1",
+    "contentDigest": "sha256:a77283700ac3c13be8fcf99aa9e9a5bf29d3d54556b8ebe4bd76b156db5eb657"
   },
   "approval": {
     "operator": "Charles Liu",
     "accepted": true,
-    "candidateDigest": "sha256:69d4fc9c4f20a6c492e28b1655b512d88fb201fb83c7271245d5ec93856a7b87",
+    "candidateDigest": "sha256:8df44c166ee384ff268e450d0747f7daa463f48eee0299eb4d747d25582e8434",
     "basis": "inherited-build-acceptance",
-    "note": "操作员原话：我已经验收全通过了~ 可以开始推送远端并合入（2026-10-19）",
-    "planDigest": "sha256:92e13d831f7d410ef4a3a4aeae30cbcc2bbde0509845c6dd5eab0f365db77e3d",
-    "recordedAt": "2026-10-19T13:36:06.342Z"
+    "planDigest": "sha256:e695bf61a909e5cdc7d6a1b8910083f36348f5f9b1ba5a2506a5e1c1bb2f238d",
+    "recordedAt": "2026-10-20T20:24:01.437Z"
   }
 }

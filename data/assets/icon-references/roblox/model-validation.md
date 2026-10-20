@@ -27,3 +27,12 @@ Source: `input/processed/roblox-q4-fy25.png`
 - The Q4 FY25 Roblox wordmark has the same semantic form and placement role as the accepted Q1 FY26 vector. It is recreated as a pure-SVG wordmark in the dataset annotation; no runtime raster is used.
 - The Q4 FY25 product/avatar artwork remains decorative platform artwork rather than a separately reported business or segment icon. It overlaps a source flow, so it is intentionally not cropped, vectorized, or rendered.
 - Publisher marks, URL, social badge, and attribution remain intentional skips.
+
+
+## 2026-10-20 · Q3 FY22 characters cleanup
+
+- Source: `input/processed/roblox-q3-fy22.png`. Recipe: `input/icon-crop-specs/roblox-q3-fy22-characters.json`.
+- Runtime: `data/assets/raster-annotations/roblox-q3-fy22/characters.png`.
+- Visually compared Source/crop validation sheet: complete avatar cluster retained; top-left connector triangle excluded to transparency. Every original pixel outside the 24×28 exclusion is unchanged. An 8px bottom canvas extension retains the complete shadow and blank border.
+- Crop gate passed. Placement and character scale preserved. Asset inspected by Codex; Dataset remains review-pending.
+- Artifact digest: `sha256:2f2ff15f87223477163bda6fde892e13f651d8b76f6744a96d007a57d53011e6`.
