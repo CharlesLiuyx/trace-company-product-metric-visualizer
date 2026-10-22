@@ -1,0 +1,125 @@
+{
+  "source": "input/processing/sea-q2-fy24.png",
+  "outputDir": "data/assets/icon-references/sea-q2-fy24",
+  "validationSheetDir": "data/assets/icon-references/sea-q2-fy24/validation-sheets",
+  "runtimeOutputDir": "data/assets/raster-annotations/sea-q2-fy24",
+  "report": "crop-report.json",
+  "crops": [
+    {
+      "key": "company",
+      "output": "crops/company.png",
+      "searchBox": {
+        "x": 693,
+        "y": 332,
+        "width": 422,
+        "height": 169
+      },
+      "cropBox": {
+        "x": 693,
+        "y": 332,
+        "width": 422,
+        "height": 169
+      },
+      "threshold": 18,
+      "minComponentArea": 15,
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10
+      },
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Native brand cluster only; excludes financial values and explanatory copy."
+    },
+    {
+      "key": "shopee",
+      "output": "crops/shopee.png",
+      "searchBox": {
+        "x": 120,
+        "y": 569,
+        "width": 288,
+        "height": 107
+      },
+      "cropBox": {
+        "x": 120,
+        "y": 569,
+        "width": 288,
+        "height": 107
+      },
+      "threshold": 18,
+      "minComponentArea": 15,
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10
+      },
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Native brand cluster only; excludes financial values and explanatory copy."
+    },
+    {
+      "key": "garena",
+      "output": "crops/garena.png",
+      "searchBox": {
+        "x": 108,
+        "y": 839,
+        "width": 289,
+        "height": 85
+      },
+      "cropBox": {
+        "x": 108,
+        "y": 839,
+        "width": 289,
+        "height": 85
+      },
+      "threshold": 18,
+      "minComponentArea": 15,
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10
+      },
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Native brand cluster only; excludes financial values and explanatory copy."
+    },
+    {
+      "key": "seamoney",
+      "output": "crops/seamoney.png",
+      "searchBox": {
+        "x": 104,
+        "y": 1004,
+        "width": 316,
+        "height": 73
+      },
+      "cropBox": {
+        "x": 104,
+        "y": 1004,
+        "width": 316,
+        "height": 73
+      },
+      "threshold": 18,
+      "minComponentArea": 15,
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10
+      },
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Native brand cluster only; excludes financial values and explanatory copy."
+    }
+  ]
+}

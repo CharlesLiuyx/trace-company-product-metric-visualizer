@@ -1,0 +1,426 @@
+{
+  "source": "input/processing/netease-q1-fy23.png",
+  "spec": "input/icon-crop-specs/netease-q1-fy23.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-22T08:18:01.306192+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/netease/q1-fy23",
+  "crops": [
+    {
+      "key": "company-wordmark",
+      "output": "data/assets/icon-references/netease/q1-fy23/crops/company-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 4617,
+        "losslessBytes": 19524,
+        "savingsVsLossless": 0.7635,
+        "metrics": {
+          "meanAbsoluteError": 0.4225,
+          "rootMeanSquareError": 1.5364,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 21,
+          "changedPixelRatio": 0.1719
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 24435,
+        "transparentPixelRatio": 0.6245
+      },
+      "searchBox": {
+        "x": 690,
+        "y": 339,
+        "width": 475,
+        "height": 96
+      },
+      "componentCount": 15,
+      "subjectBox": {
+        "x0": 697,
+        "y0": 345,
+        "x1": 1152,
+        "y1": 431
+      },
+      "cropBox": {
+        "x0": 697,
+        "y0": 345,
+        "x1": 1152,
+        "y1": 431
+      },
+      "validation": {
+        "width": 455,
+        "height": 86,
+        "foregroundPixels": 13031,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/netease/q1-fy23/company-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 4617,
+        "losslessBytes": 19524,
+        "savingsVsLossless": 0.7635,
+        "metrics": {
+          "meanAbsoluteError": 0.4225,
+          "rootMeanSquareError": 1.5364,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 21,
+          "changedPixelRatio": 0.1719
+        }
+      }
+    },
+    {
+      "key": "business-games-cluster",
+      "output": "data/assets/icon-references/netease/q1-fy23/crops/business-games-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 137977,
+        "losslessBytes": 137977,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 68936,
+        "transparentPixelRatio": 0.5602
+      },
+      "searchBox": {
+        "x": 20,
+        "y": 456,
+        "width": 430,
+        "height": 301
+      },
+      "componentCount": 35,
+      "subjectBox": {
+        "x0": 25,
+        "y0": 461,
+        "x1": 445,
+        "y1": 754
+      },
+      "cropBox": {
+        "x0": 25,
+        "y0": 461,
+        "x1": 445,
+        "y1": 754
+      },
+      "validation": {
+        "width": 420,
+        "height": 293,
+        "foregroundPixels": 50420,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/netease/q1-fy23/business-games-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 137977,
+        "losslessBytes": 137977,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "business-cloud-music",
+      "output": "data/assets/icon-references/netease/q1-fy23/crops/business-cloud-music.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 9902,
+        "losslessBytes": 9902,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          226,
+          94,
+          94
+        ],
+        "transparentPixels": 0,
+        "transparentPixelRatio": 0.0
+      },
+      "searchBox": {
+        "x": 156,
+        "y": 888,
+        "width": 247,
+        "height": 105
+      },
+      "componentCount": 13,
+      "subjectBox": {
+        "x0": 158,
+        "y0": 891,
+        "x1": 389,
+        "y1": 989
+      },
+      "cropBox": {
+        "x0": 158,
+        "y0": 891,
+        "x1": 389,
+        "y1": 989
+      },
+      "validation": {
+        "width": 231,
+        "height": 98,
+        "foregroundPixels": 10550,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/netease/q1-fy23/business-cloud-music.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 9902,
+        "losslessBytes": 9902,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "business-youdao-wordmark",
+      "output": "data/assets/icon-references/netease/q1-fy23/crops/business-youdao-wordmark.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 3227,
+        "losslessBytes": 15183,
+        "savingsVsLossless": 0.7875,
+        "metrics": {
+          "meanAbsoluteError": 0.7059,
+          "rootMeanSquareError": 2.2723,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 53,
+          "changedPixelRatio": 0.2467
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 9736,
+        "transparentPixelRatio": 0.5559
+      },
+      "searchBox": {
+        "x": 141,
+        "y": 1096,
+        "width": 286,
+        "height": 74
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 142,
+        "y0": 1100,
+        "x1": 420,
+        "y1": 1163
+      },
+      "cropBox": {
+        "x0": 142,
+        "y0": 1100,
+        "x1": 420,
+        "y1": 1163
+      },
+      "validation": {
+        "width": 278,
+        "height": 63,
+        "foregroundPixels": 6966,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/netease/q1-fy23/business-youdao-wordmark.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 3227,
+        "losslessBytes": 15183,
+        "savingsVsLossless": 0.7875,
+        "metrics": {
+          "meanAbsoluteError": 0.7059,
+          "rootMeanSquareError": 2.2723,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 53,
+          "changedPixelRatio": 0.2467
+        }
+      }
+    },
+    {
+      "key": "business-innovative-cluster",
+      "output": "data/assets/icon-references/netease/q1-fy23/crops/business-innovative-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 11784,
+        "losslessBytes": 11784,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          236,
+          235,
+          234
+        ],
+        "transparentPixels": 2046,
+        "transparentPixelRatio": 0.1687
+      },
+      "searchBox": {
+        "x": 63,
+        "y": 1231,
+        "width": 134,
+        "height": 109
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 67,
+        "y0": 1238,
+        "x1": 192,
+        "y1": 1335
+      },
+      "cropBox": {
+        "x0": 67,
+        "y0": 1238,
+        "x1": 192,
+        "y1": 1335
+      },
+      "validation": {
+        "width": 125,
+        "height": 97,
+        "foregroundPixels": 4870,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/netease/q1-fy23/business-innovative-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 11784,
+        "losslessBytes": 11784,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

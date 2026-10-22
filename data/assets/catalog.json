@@ -6018,15 +6018,39 @@
       "digest": "sha256:3e851d69797146b388f919b7b047d2251c407bfc6e883c1836e6a3fd243399e5",
       "provenance": [],
       "directConsumers": [
+        "jd-com-q1-fy23",
+        "jd-com-q1-fy24",
+        "jd-com-q1-fy25",
         "jd-com-q1-fy26",
+        "jd-com-q2-fy23",
+        "jd-com-q2-fy24",
+        "jd-com-q2-fy25",
         "jd-com-q2-fy26",
+        "jd-com-q3-fy22",
+        "jd-com-q3-fy23",
+        "jd-com-q3-fy24",
         "jd-com-q3-fy25",
+        "jd-com-q4-fy22",
+        "jd-com-q4-fy23",
+        "jd-com-q4-fy24",
         "jd-com-q4-fy25"
       ],
       "consumers": [
+        "jd-com-q1-fy23",
+        "jd-com-q1-fy24",
+        "jd-com-q1-fy25",
         "jd-com-q1-fy26",
+        "jd-com-q2-fy23",
+        "jd-com-q2-fy24",
+        "jd-com-q2-fy25",
         "jd-com-q2-fy26",
+        "jd-com-q3-fy22",
+        "jd-com-q3-fy23",
+        "jd-com-q3-fy24",
         "jd-com-q3-fy25",
+        "jd-com-q4-fy22",
+        "jd-com-q4-fy23",
+        "jd-com-q4-fy24",
         "jd-com-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -6037,15 +6061,39 @@
       "digest": "sha256:4517c0be17eaa898be6fe43955d5c62420083e2af727128a2b82dfbb5c3db2d0",
       "provenance": [],
       "directConsumers": [
+        "jd-com-q1-fy23",
+        "jd-com-q1-fy24",
+        "jd-com-q1-fy25",
         "jd-com-q1-fy26",
+        "jd-com-q2-fy23",
+        "jd-com-q2-fy24",
+        "jd-com-q2-fy25",
         "jd-com-q2-fy26",
+        "jd-com-q3-fy22",
+        "jd-com-q3-fy23",
+        "jd-com-q3-fy24",
         "jd-com-q3-fy25",
+        "jd-com-q4-fy22",
+        "jd-com-q4-fy23",
+        "jd-com-q4-fy24",
         "jd-com-q4-fy25"
       ],
       "consumers": [
+        "jd-com-q1-fy23",
+        "jd-com-q1-fy24",
+        "jd-com-q1-fy25",
         "jd-com-q1-fy26",
+        "jd-com-q2-fy23",
+        "jd-com-q2-fy24",
+        "jd-com-q2-fy25",
         "jd-com-q2-fy26",
+        "jd-com-q3-fy22",
+        "jd-com-q3-fy23",
+        "jd-com-q3-fy24",
         "jd-com-q3-fy25",
+        "jd-com-q4-fy22",
+        "jd-com-q4-fy23",
+        "jd-com-q4-fy24",
         "jd-com-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -6056,15 +6104,39 @@
       "digest": "sha256:158339433a58393cbbdc2e7eab597ad544bd423abdfb0b79b733a87c52734935",
       "provenance": [],
       "directConsumers": [
+        "jd-com-q1-fy23",
+        "jd-com-q1-fy24",
+        "jd-com-q1-fy25",
         "jd-com-q1-fy26",
+        "jd-com-q2-fy23",
+        "jd-com-q2-fy24",
+        "jd-com-q2-fy25",
         "jd-com-q2-fy26",
+        "jd-com-q3-fy22",
+        "jd-com-q3-fy23",
+        "jd-com-q3-fy24",
         "jd-com-q3-fy25",
+        "jd-com-q4-fy22",
+        "jd-com-q4-fy23",
+        "jd-com-q4-fy24",
         "jd-com-q4-fy25"
       ],
       "consumers": [
+        "jd-com-q1-fy23",
+        "jd-com-q1-fy24",
+        "jd-com-q1-fy25",
         "jd-com-q1-fy26",
+        "jd-com-q2-fy23",
+        "jd-com-q2-fy24",
+        "jd-com-q2-fy25",
         "jd-com-q2-fy26",
+        "jd-com-q3-fy22",
+        "jd-com-q3-fy23",
+        "jd-com-q3-fy24",
         "jd-com-q3-fy25",
+        "jd-com-q4-fy22",
+        "jd-com-q4-fy23",
+        "jd-com-q4-fy24",
         "jd-com-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -6075,15 +6147,39 @@
       "digest": "sha256:e9fdff254a8ee7429c71f1aff558f492153cadc23bf18e486de6c958636264ad",
       "provenance": [],
       "directConsumers": [
+        "jd-com-q1-fy23",
+        "jd-com-q1-fy24",
+        "jd-com-q1-fy25",
         "jd-com-q1-fy26",
+        "jd-com-q2-fy23",
+        "jd-com-q2-fy24",
+        "jd-com-q2-fy25",
         "jd-com-q2-fy26",
+        "jd-com-q3-fy22",
+        "jd-com-q3-fy23",
+        "jd-com-q3-fy24",
         "jd-com-q3-fy25",
+        "jd-com-q4-fy22",
+        "jd-com-q4-fy23",
+        "jd-com-q4-fy24",
         "jd-com-q4-fy25"
       ],
       "consumers": [
+        "jd-com-q1-fy23",
+        "jd-com-q1-fy24",
+        "jd-com-q1-fy25",
         "jd-com-q1-fy26",
+        "jd-com-q2-fy23",
+        "jd-com-q2-fy24",
+        "jd-com-q2-fy25",
         "jd-com-q2-fy26",
+        "jd-com-q3-fy22",
+        "jd-com-q3-fy23",
+        "jd-com-q3-fy24",
         "jd-com-q3-fy25",
+        "jd-com-q4-fy22",
+        "jd-com-q4-fy23",
+        "jd-com-q4-fy24",
         "jd-com-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -6094,15 +6190,39 @@
       "digest": "sha256:f9f168acd144e70dc83ccaa4b5dd79e1ce97fa0b5c381c420ed43e7ce9c295f6",
       "provenance": [],
       "directConsumers": [
+        "jd-com-q1-fy23",
+        "jd-com-q1-fy24",
+        "jd-com-q1-fy25",
         "jd-com-q1-fy26",
+        "jd-com-q2-fy23",
+        "jd-com-q2-fy24",
+        "jd-com-q2-fy25",
         "jd-com-q2-fy26",
+        "jd-com-q3-fy22",
+        "jd-com-q3-fy23",
+        "jd-com-q3-fy24",
         "jd-com-q3-fy25",
+        "jd-com-q4-fy22",
+        "jd-com-q4-fy23",
+        "jd-com-q4-fy24",
         "jd-com-q4-fy25"
       ],
       "consumers": [
+        "jd-com-q1-fy23",
+        "jd-com-q1-fy24",
+        "jd-com-q1-fy25",
         "jd-com-q1-fy26",
+        "jd-com-q2-fy23",
+        "jd-com-q2-fy24",
+        "jd-com-q2-fy25",
         "jd-com-q2-fy26",
+        "jd-com-q3-fy22",
+        "jd-com-q3-fy23",
+        "jd-com-q3-fy24",
         "jd-com-q3-fy25",
+        "jd-com-q4-fy22",
+        "jd-com-q4-fy23",
+        "jd-com-q4-fy24",
         "jd-com-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -7930,19 +8050,100 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/netease-q3-fy22/cloud-music.png",
+      "digest": "sha256:252fb4ee8aa88ba500aad471c537cb87f4cddd8c9caaad2492dd98d65a971442",
+      "provenance": [],
+      "directConsumers": [
+        "netease-q3-fy22"
+      ],
+      "consumers": [
+        "netease-q3-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/netease-q3-fy22/company-wordmark.png",
+      "digest": "sha256:9b5f1a8ea626db886d10416af4c7ad0feb7810fd52d3616222dd06ead00ab93b",
+      "provenance": [],
+      "directConsumers": [
+        "netease-q3-fy22"
+      ],
+      "consumers": [
+        "netease-q3-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/netease-q3-fy22/games-cluster.png",
+      "digest": "sha256:152f465e9b003bdfd2efc6dfc2f09fa1159c74381d99d5fa8a4f9378aacf8e34",
+      "provenance": [],
+      "directConsumers": [
+        "netease-q3-fy22"
+      ],
+      "consumers": [
+        "netease-q3-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/netease-q3-fy22/innovative-cluster.png",
+      "digest": "sha256:962d4cadf3acc3e74b53f027327e09506b935e1d1ed51db4fb26e963501e086b",
+      "provenance": [],
+      "directConsumers": [
+        "netease-q3-fy22"
+      ],
+      "consumers": [
+        "netease-q3-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/netease-q3-fy22/youdao-wordmark.png",
+      "digest": "sha256:7e0c617310eda1782dc1ec0cf477a3d87f34d58c306547408313639e3ac3cc4f",
+      "provenance": [],
+      "directConsumers": [
+        "netease-q3-fy22"
+      ],
+      "consumers": [
+        "netease-q3-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/netease/business-cloud-music.png",
       "digest": "sha256:76f93e9554d4e1fdcdf77c004655ac07d04c3a5c85ef2991da25daead253efd2",
       "provenance": [],
       "directConsumers": [
+        "netease-q1-fy24",
+        "netease-q1-fy25",
         "netease-q1-fy26",
+        "netease-q2-fy24",
+        "netease-q2-fy25",
         "netease-q2-fy26",
+        "netease-q3-fy23",
+        "netease-q3-fy24",
         "netease-q3-fy25",
+        "netease-q4-fy23",
+        "netease-q4-fy24",
         "netease-q4-fy25"
       ],
       "consumers": [
+        "netease-q1-fy24",
+        "netease-q1-fy25",
         "netease-q1-fy26",
+        "netease-q2-fy24",
+        "netease-q2-fy25",
         "netease-q2-fy26",
+        "netease-q3-fy23",
+        "netease-q3-fy24",
         "netease-q3-fy25",
+        "netease-q4-fy23",
+        "netease-q4-fy24",
         "netease-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -7953,16 +8154,52 @@
       "digest": "sha256:bd9ebec093cc96b28fd14a2a64c79da8f63c7ae561803139468d1ec487759340",
       "provenance": [],
       "directConsumers": [
+        "netease-q1-fy25",
         "netease-q1-fy26",
+        "netease-q2-fy25",
         "netease-q2-fy26",
+        "netease-q3-fy24",
         "netease-q3-fy25",
+        "netease-q4-fy23",
+        "netease-q4-fy24",
         "netease-q4-fy25"
       ],
       "consumers": [
+        "netease-q1-fy25",
         "netease-q1-fy26",
+        "netease-q2-fy25",
         "netease-q2-fy26",
+        "netease-q3-fy24",
         "netease-q3-fy25",
+        "netease-q4-fy23",
+        "netease-q4-fy24",
         "netease-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/business-games-q2-fy24.png",
+      "digest": "sha256:4983b781659da5f760dbedd2173c397279ec70b6d93add4bfededa1a7f57b198",
+      "provenance": [],
+      "directConsumers": [
+        "netease-q2-fy24"
+      ],
+      "consumers": [
+        "netease-q2-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/business-games-q3-fy23.png",
+      "digest": "sha256:e1ccac76151c3d4cbc9951e0331e0adf138f77d46bfb4f2efdef1347ceb16616",
+      "provenance": [],
+      "directConsumers": [
+        "netease-q3-fy23"
+      ],
+      "consumers": [
+        "netease-q3-fy23"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -7972,15 +8209,31 @@
       "digest": "sha256:57e3cc248f2938ae4c3a23bbe4f6b098fd106353bc138e1c6f395557f6dee311",
       "provenance": [],
       "directConsumers": [
+        "netease-q1-fy24",
+        "netease-q1-fy25",
         "netease-q1-fy26",
+        "netease-q2-fy24",
+        "netease-q2-fy25",
         "netease-q2-fy26",
+        "netease-q3-fy23",
+        "netease-q3-fy24",
         "netease-q3-fy25",
+        "netease-q4-fy23",
+        "netease-q4-fy24",
         "netease-q4-fy25"
       ],
       "consumers": [
+        "netease-q1-fy24",
+        "netease-q1-fy25",
         "netease-q1-fy26",
+        "netease-q2-fy24",
+        "netease-q2-fy25",
         "netease-q2-fy26",
+        "netease-q3-fy23",
+        "netease-q3-fy24",
         "netease-q3-fy25",
+        "netease-q4-fy23",
+        "netease-q4-fy24",
         "netease-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -7991,15 +8244,31 @@
       "digest": "sha256:6b8636e7a8d41f78babe42012c33c0f96b090c2d7e22a5567dc483ade095d2fe",
       "provenance": [],
       "directConsumers": [
+        "netease-q1-fy24",
+        "netease-q1-fy25",
         "netease-q1-fy26",
+        "netease-q2-fy24",
+        "netease-q2-fy25",
         "netease-q2-fy26",
+        "netease-q3-fy23",
+        "netease-q3-fy24",
         "netease-q3-fy25",
+        "netease-q4-fy23",
+        "netease-q4-fy24",
         "netease-q4-fy25"
       ],
       "consumers": [
+        "netease-q1-fy24",
+        "netease-q1-fy25",
         "netease-q1-fy26",
+        "netease-q2-fy24",
+        "netease-q2-fy25",
         "netease-q2-fy26",
+        "netease-q3-fy23",
+        "netease-q3-fy24",
         "netease-q3-fy25",
+        "netease-q4-fy23",
+        "netease-q4-fy24",
         "netease-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -8010,16 +8279,240 @@
       "digest": "sha256:a0d892529ec843a6b7707df65d3d63da99b6d9a7095917e11504481aa1757d60",
       "provenance": [],
       "directConsumers": [
+        "netease-q1-fy24",
+        "netease-q1-fy25",
         "netease-q1-fy26",
+        "netease-q2-fy24",
+        "netease-q2-fy25",
         "netease-q2-fy26",
+        "netease-q3-fy23",
+        "netease-q3-fy24",
         "netease-q3-fy25",
+        "netease-q4-fy23",
+        "netease-q4-fy24",
         "netease-q4-fy25"
       ],
       "consumers": [
+        "netease-q1-fy24",
+        "netease-q1-fy25",
         "netease-q1-fy26",
+        "netease-q2-fy24",
+        "netease-q2-fy25",
         "netease-q2-fy26",
+        "netease-q3-fy23",
+        "netease-q3-fy24",
         "netease-q3-fy25",
+        "netease-q4-fy23",
+        "netease-q4-fy24",
         "netease-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/netease-q2-fy23-cloud-music-logo.png",
+      "digest": "sha256:07aa56ff4d4d09ae7cdcc98a245b3b2af12d34e6b068571775f906fca98e26b5",
+      "provenance": [],
+      "directConsumers": [
+        "netease-q2-fy23"
+      ],
+      "consumers": [
+        "netease-q2-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/netease-q2-fy23-company-wordmark.png",
+      "digest": "sha256:2f090bea03dff3dc809ff87d9c8730d6df4ecd596abbda943af6bbd09e902c01",
+      "provenance": [],
+      "directConsumers": [
+        "netease-q2-fy23"
+      ],
+      "consumers": [
+        "netease-q2-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/netease-q2-fy23-games-brand-and-game-icons.png",
+      "digest": "sha256:f5c5211ec884e329c3aa53f3947450420d62b75701cfe64c4d8fab7d21ff430c",
+      "provenance": [],
+      "directConsumers": [
+        "netease-q2-fy23"
+      ],
+      "consumers": [
+        "netease-q2-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/netease-q2-fy23-innovative-business-icons.png",
+      "digest": "sha256:cebfc83f274bfc634bdd8e6156f6bc9748071dab86de4e8af34cd7b06812815a",
+      "provenance": [],
+      "directConsumers": [
+        "netease-q2-fy23"
+      ],
+      "consumers": [
+        "netease-q2-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/netease-q2-fy23-youdao-wordmark.png",
+      "digest": "sha256:788d81c353623daf2c5a041d79d661da43ea2790664933b43d4f6c84e5c3866e",
+      "provenance": [],
+      "directConsumers": [
+        "netease-q2-fy23"
+      ],
+      "consumers": [
+        "netease-q2-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/q1-fy23/business-cloud-music.png",
+      "digest": "sha256:1ba517a1f60123e2f1959e82ab52fc919630fe9e6ff2228738bd43234b44fbee",
+      "provenance": [],
+      "directConsumers": [
+        "netease-q1-fy23"
+      ],
+      "consumers": [
+        "netease-q1-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/q1-fy23/business-games-cluster.png",
+      "digest": "sha256:454949763998ec446ce2495409262f0ef41420e4ecb7baef4a8d6d6767413465",
+      "provenance": [],
+      "directConsumers": [
+        "netease-q1-fy23"
+      ],
+      "consumers": [
+        "netease-q1-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/q1-fy23/business-innovative-cluster.png",
+      "digest": "sha256:1d03f75f37809a92183899aa39036eaf308a5b41dd7cdd02a6a95e1f06791f59",
+      "provenance": [],
+      "directConsumers": [
+        "netease-q1-fy23"
+      ],
+      "consumers": [
+        "netease-q1-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/q1-fy23/business-youdao-wordmark.png",
+      "digest": "sha256:63849a4a93d167222d63bdb5d4d81f0688ae165bd3ad9e1255329eda3676c0a0",
+      "provenance": [],
+      "directConsumers": [
+        "netease-q1-fy23"
+      ],
+      "consumers": [
+        "netease-q1-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/q1-fy23/company-wordmark.png",
+      "digest": "sha256:f9dc7130f90ee39c945bc23092d2f26d01366b462f1d3f705994a2b69933afff",
+      "provenance": [],
+      "directConsumers": [
+        "netease-q1-fy23"
+      ],
+      "consumers": [
+        "netease-q1-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/q1-fy24-games-cluster.png",
+      "digest": "sha256:9c17c5ef7e17d06522ea36f63180f8a14d355e0c14b6a8e80f2b18a3392baf82",
+      "provenance": [],
+      "directConsumers": [
+        "netease-q1-fy24"
+      ],
+      "consumers": [
+        "netease-q1-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/q4-fy22/cloud-music.png",
+      "digest": "sha256:e8c99dc4a838c8614915dee2498d02c6a107737582078354c234d977d66fa19b",
+      "provenance": [],
+      "directConsumers": [
+        "netease-q4-fy22"
+      ],
+      "consumers": [
+        "netease-q4-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/q4-fy22/company-wordmark.png",
+      "digest": "sha256:469c34741d587132184f85565f91150476f4089dfda03092e63b80f06caf052d",
+      "provenance": [],
+      "directConsumers": [
+        "netease-q4-fy22"
+      ],
+      "consumers": [
+        "netease-q4-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/q4-fy22/games-cluster.png",
+      "digest": "sha256:243cf3bbae23964a9c242f304d9d32fd8195c1b4ab3fba39d915dec7bcf4b8e4",
+      "provenance": [],
+      "directConsumers": [
+        "netease-q4-fy22"
+      ],
+      "consumers": [
+        "netease-q4-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/q4-fy22/innovative-cluster.png",
+      "digest": "sha256:39466d70367379ddaf7e25cdfcc0fdb48b9df8b92ae54870b9a17591ec7eae8d",
+      "provenance": [],
+      "directConsumers": [
+        "netease-q4-fy22"
+      ],
+      "consumers": [
+        "netease-q4-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/q4-fy22/youdao.png",
+      "digest": "sha256:662f7f768108867946798fdd38e16fee86486f942ef691c9dc54cd40c6e98562",
+      "provenance": [],
+      "directConsumers": [
+        "netease-q4-fy22"
+      ],
+      "consumers": [
+        "netease-q4-fy22"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -14312,13 +14805,107 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/sea-q2-fy23/seamoney.png",
+      "digest": "sha256:9e54d99f479fb8af14f1b6f2ecec48340e84e83b09fc5612e5e7314d42ab8fe6",
+      "provenance": [],
+      "directConsumers": [
+        "sea-q2-fy23"
+      ],
+      "consumers": [
+        "sea-q2-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q2-fy24/callout-garena.png",
+      "digest": "sha256:7e682f30f8008ad7c5264f4d1b611d40af403645fde717a51c1607f6dfcb29c9",
+      "provenance": [],
+      "directConsumers": [],
+      "consumers": [],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q2-fy24/callout-seamoney.png",
+      "digest": "sha256:9a86219f1fc3ef07529c9ceff138f43db3c05135d6881c2abff633b27e940e03",
+      "provenance": [],
+      "directConsumers": [],
+      "consumers": [],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q2-fy24/callout-shopee.png",
+      "digest": "sha256:4ef6ab23ade39c9cf9e219c5a5fbf0de0c802b1703cb83bc85ffea8f8dfc4d2c",
+      "provenance": [],
+      "directConsumers": [],
+      "consumers": [],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q2-fy24/company.png",
+      "digest": "sha256:54901b45111aea5125db42a8e6cba04ebd3d0f37ff07f03cf8d71c3085fa73ee",
+      "provenance": [],
+      "directConsumers": [
+        "sea-q2-fy24"
+      ],
+      "consumers": [
+        "sea-q2-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q2-fy24/garena.png",
+      "digest": "sha256:11a071ac47581dcd561cae28f5698502f49beb23f3ef606a98aed45cd7ed801f",
+      "provenance": [],
+      "directConsumers": [
+        "sea-q2-fy24"
+      ],
+      "consumers": [
+        "sea-q2-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q2-fy24/seamoney.png",
+      "digest": "sha256:08d2efe80bdc7a30130649691d014f1297844258157b3a846ba3a999a5f3dabc",
+      "provenance": [],
+      "directConsumers": [
+        "sea-q2-fy24"
+      ],
+      "consumers": [
+        "sea-q2-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q2-fy24/shopee.png",
+      "digest": "sha256:d97429cd7a4492833c29dc3d3457c66d9349acc3e264d85572d5f4c4a04ecd5e",
+      "provenance": [],
+      "directConsumers": [
+        "sea-q2-fy24"
+      ],
+      "consumers": [
+        "sea-q2-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/sea-q2-fy26/callout-garena.png",
       "digest": "sha256:306ee26107662b80b7dab9cfda38858a681871741b1df6573768d344ec73bae6",
       "provenance": [],
       "directConsumers": [
+        "sea-q2-fy23",
         "sea-q2-fy26"
       ],
       "consumers": [
+        "sea-q2-fy23",
         "sea-q2-fy26"
       ],
       "acceptedVersions": [],
@@ -14342,9 +14929,11 @@
       "digest": "sha256:2f923e5566d55502600daf008014073669e45911fa3a0624c6f98c45c0a8e38a",
       "provenance": [],
       "directConsumers": [
+        "sea-q2-fy23",
         "sea-q2-fy26"
       ],
       "consumers": [
+        "sea-q2-fy23",
         "sea-q2-fy26"
       ],
       "acceptedVersions": [],
@@ -14355,9 +14944,11 @@
       "digest": "sha256:d0fd7b683af19b3a63ba329e89a965d7f1c142fc9cbf3ec2830f9037745f3fe7",
       "provenance": [],
       "directConsumers": [
+        "sea-q2-fy23",
         "sea-q2-fy26"
       ],
       "consumers": [
+        "sea-q2-fy23",
         "sea-q2-fy26"
       ],
       "acceptedVersions": [],
@@ -14368,9 +14959,11 @@
       "digest": "sha256:684714d297cfdf0219f4501e53c9f0fe27eca2a12a20d37b83b884dada303f33",
       "provenance": [],
       "directConsumers": [
+        "sea-q2-fy23",
         "sea-q2-fy26"
       ],
       "consumers": [
+        "sea-q2-fy23",
         "sea-q2-fy26"
       ],
       "acceptedVersions": [],
@@ -14394,10 +14987,125 @@
       "digest": "sha256:fd1baa2fcbe19903b7e355299a6ff7803ea4b2db977a81ecdd480883d6724d3a",
       "provenance": [],
       "directConsumers": [
+        "sea-q2-fy23",
         "sea-q2-fy26"
       ],
       "consumers": [
+        "sea-q2-fy23",
         "sea-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q4-fy23/callout-garena.png",
+      "digest": "sha256:ed2fc2fc49306a99e1a4472fd35f11c2aafa96788483c90bdaec7f039c286480",
+      "provenance": [],
+      "directConsumers": [
+        "sea-q4-fy23"
+      ],
+      "consumers": [
+        "sea-q4-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q4-fy23/callout-seamoney.png",
+      "digest": "sha256:9891720568816d1f2642ab76841179918a09b7ffeff20f6cf47531c4b04f6770",
+      "provenance": [],
+      "directConsumers": [
+        "sea-q4-fy23"
+      ],
+      "consumers": [
+        "sea-q4-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q4-fy23/callout-shopee.png",
+      "digest": "sha256:523573ed555706daf234923d8752882062d1a43d73760aaeeb116279dabd1c14",
+      "provenance": [],
+      "directConsumers": [
+        "sea-q4-fy23"
+      ],
+      "consumers": [
+        "sea-q4-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q4-fy23/company.png",
+      "digest": "sha256:7e6b21a6eee3892bd0b0ce14afe5c979521aeef5c7bc25139c8e9ae3fc857dd5",
+      "provenance": [],
+      "directConsumers": [
+        "sea-q4-fy23"
+      ],
+      "consumers": [
+        "sea-q4-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q4-fy23/garena.png",
+      "digest": "sha256:f72c91c0407424b44b5cf1dc40fcefc0ec7b1150c5a52a5fd12635a1df68ea11",
+      "provenance": [],
+      "directConsumers": [
+        "sea-q4-fy23"
+      ],
+      "consumers": [
+        "sea-q4-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q4-fy23/seamoney.png",
+      "digest": "sha256:73c3ede245596e4aaebd60d214178c585a56f8923d1819aa35539c03d522efb8",
+      "provenance": [],
+      "directConsumers": [
+        "sea-q4-fy23"
+      ],
+      "consumers": [
+        "sea-q4-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q4-fy23/shopee.png",
+      "digest": "sha256:12dac274392d3164342d422aab5338e267cfd172f7aa4429ee8ea0de7420d206",
+      "provenance": [],
+      "directConsumers": [
+        "sea-q4-fy23"
+      ],
+      "consumers": [
+        "sea-q4-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/semrush/company-logo.png",
+      "digest": "sha256:f910f5659309226eaf54bace95493d5f503671d1f4960d8a9b242958e5902d98",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/semrush-q1-fy24.json",
+          "recipeDigest": "sha256:2129fbd324eb4afd7717a5fd8c27223de16a1fed46691c6c680e5a1f37d7f77b",
+          "source": "input/processed/semrush-q1-fy24.png",
+          "cropKey": "semrush-company-logo"
+        }
+      ],
+      "directConsumers": [
+        "semrush-q1-fy24",
+        "semrush-q2-fy23"
+      ],
+      "consumers": [
+        "semrush-q1-fy24",
+        "semrush-q2-fy23"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -16909,9 +17617,44 @@
       "source": "input/processed/nestle-h1-fy23.png"
     },
     {
+      "path": "input/icon-crop-specs/netease-q1-fy23.json",
+      "digest": "sha256:f6dcc7ef5702eff832b8e0a5e126ae86926f4df09dba7c141256de9340643be1",
+      "source": "input/processing/netease-q1-fy23.png"
+    },
+    {
+      "path": "input/icon-crop-specs/netease-q1-fy24.json",
+      "digest": "sha256:bdc9015d1d4b3f3124eb596d450680b7f38f5ead155f27c3d68b5d3234481eb2",
+      "source": "input/processing/netease-q1-fy24.png"
+    },
+    {
       "path": "input/icon-crop-specs/netease-q1-fy26.json",
       "digest": "sha256:3f2ad705a5d3ce3ae3e5fe89e6022e386c9ef715d1c8369b9c19d2d2e27296cb",
       "source": "input/processed/netease-q1-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/netease-q2-fy23.json",
+      "digest": "sha256:58233695df37c3b6ba1e96cab697f061e1e845233d863c84a0e56981bb52ee19",
+      "source": "input/processed/netease-q2-fy23.png"
+    },
+    {
+      "path": "input/icon-crop-specs/netease-q2-fy24.json",
+      "digest": "sha256:1a9aece8700b3e2938f0ebe3368c3155f9e2a0480e6e916d4efd165a857b4821",
+      "source": "input/processing/netease-q2-fy24.png"
+    },
+    {
+      "path": "input/icon-crop-specs/netease-q3-fy22.json",
+      "digest": "sha256:a8a29ced6f022bc6b353b27e1e1a0276723ddfa481490069107031edc113985c",
+      "source": "input/processed/netease-q3-fy22.png"
+    },
+    {
+      "path": "input/icon-crop-specs/netease-q3-fy23.json",
+      "digest": "sha256:f87953c4b56c54e68d2725f890cd34564f4e7ac9609c07461b9958bba2480d5a",
+      "source": "input/processed/netease-q3-fy23.png"
+    },
+    {
+      "path": "input/icon-crop-specs/netease-q4-fy22.json",
+      "digest": "sha256:f1a2fbbbbd3e4c527bfd7fd4b57c0b26a73c0e78d78cb1ca6f99c1af4a07336c",
+      "source": "input/processing/netease-q4-fy22.png"
     },
     {
       "path": "input/icon-crop-specs/netflix-q1-fy26.json",
@@ -17319,14 +18062,29 @@
       "source": "input/processed/sap-q1-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/sea-q2-fy24.json",
+      "digest": "sha256:036e6d3ec478c18f2706ade323eef2a76c454327d65b10b9cbf71a7c31994696",
+      "source": "input/processing/sea-q2-fy24.png"
+    },
+    {
       "path": "input/icon-crop-specs/sea-q2-fy26.json",
       "digest": "sha256:628d70719ab1a44cc003158c2291be104f27eee12e35a31eb439abe6465fbe30",
       "source": "input/processing/sea-q2-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/sea-q4-fy23.json",
+      "digest": "sha256:854864bd7a1bce534b43525ee5c57eec217886537e0c4eda1e63342c1b3c19c0",
+      "source": "input/processing/sea-q4-fy23.png"
+    },
+    {
       "path": "input/icon-crop-specs/sea-q4-fy25.json",
       "digest": "sha256:1818b9bdb28d958d8bbd7a86249f9262815d1add57d196fd15d9c1500668cf37",
       "source": "input/processed/sea-q4-fy25.png"
+    },
+    {
+      "path": "input/icon-crop-specs/semrush-q1-fy24.json",
+      "digest": "sha256:2129fbd324eb4afd7717a5fd8c27223de16a1fed46691c6c680e5a1f37d7f77b",
+      "source": "input/processed/semrush-q1-fy24.png"
     },
     {
       "path": "input/icon-crop-specs/sentinelone-q2-fy27.json",

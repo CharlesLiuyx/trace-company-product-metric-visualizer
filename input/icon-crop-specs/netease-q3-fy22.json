@@ -1,0 +1,131 @@
+{
+  "source": "input/processed/netease-q3-fy22.png",
+  "outputDir": "data/assets/icon-references/netease-q3-fy22",
+  "runtimeOutputDir": "data/assets/raster-annotations/netease-q3-fy22",
+  "report": "crop-report.json",
+  "backgroundSampleBlocks": [
+    [
+      0,
+      0,
+      40,
+      40
+    ]
+  ],
+  "crops": [
+    {
+      "key": "company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "searchBox": {
+        "x": 657,
+        "y": 261,
+        "width": 472,
+        "height": 100
+      },
+      "cropBox": {
+        "x": 657,
+        "y": 261,
+        "width": 472,
+        "height": 100
+      },
+      "threshold": 18,
+      "minComponentArea": 8,
+      "validation": {
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Isolated original company or business artwork, excluding values and flows."
+    },
+    {
+      "key": "games-cluster",
+      "output": "crops/games-cluster.png",
+      "searchBox": {
+        "x": 31,
+        "y": 405,
+        "width": 427,
+        "height": 300
+      },
+      "cropBox": {
+        "x": 31,
+        "y": 405,
+        "width": 427,
+        "height": 300
+      },
+      "threshold": 18,
+      "minComponentArea": 8,
+      "validation": {
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Isolated original company or business artwork, excluding values and flows."
+    },
+    {
+      "key": "cloud-music",
+      "output": "crops/cloud-music.png",
+      "searchBox": {
+        "x": 189,
+        "y": 848,
+        "width": 244,
+        "height": 105
+      },
+      "cropBox": {
+        "x": 189,
+        "y": 848,
+        "width": 244,
+        "height": 105
+      },
+      "threshold": 18,
+      "minComponentArea": 8,
+      "validation": {
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Isolated original company or business artwork, excluding values and flows."
+    },
+    {
+      "key": "youdao-wordmark",
+      "output": "crops/youdao-wordmark.png",
+      "searchBox": {
+        "x": 169,
+        "y": 1055,
+        "width": 289,
+        "height": 73
+      },
+      "cropBox": {
+        "x": 169,
+        "y": 1055,
+        "width": 289,
+        "height": 73
+      },
+      "threshold": 18,
+      "minComponentArea": 8,
+      "validation": {
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Isolated original company or business artwork, excluding values and flows."
+    },
+    {
+      "key": "innovative-cluster",
+      "output": "crops/innovative-cluster.png",
+      "searchBox": {
+        "x": 96,
+        "y": 1205,
+        "width": 132,
+        "height": 108
+      },
+      "cropBox": {
+        "x": 96,
+        "y": 1205,
+        "width": 132,
+        "height": 108
+      },
+      "threshold": 18,
+      "minComponentArea": 8,
+      "validation": {
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Isolated original company or business artwork, excluding values and flows."
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+Validated games cluster against the complete native source: NetEase Games wordmark and all eight game icons are present. No amounts, Sankey geometry, or publisher marks are included. Existing company, Cloud Music, Youdao, and innovative-business assets are reused.

@@ -1,0 +1,110 @@
+{
+  "source": "input/processing/netease-q1-fy24.png",
+  "spec": "input/icon-crop-specs/netease-q1-fy24.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-22T08:17:59.603985+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/netease",
+  "crops": [
+    {
+      "key": "netease-q1-fy24-games",
+      "output": "data/assets/icon-references/netease-q1-fy24/crops/q1-fy24-games-cluster.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 138146,
+        "losslessBytes": 138146,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 73250,
+        "transparentPixelRatio": 0.5751
+      },
+      "searchBox": {
+        "x": 20,
+        "y": 482,
+        "width": 430,
+        "height": 301
+      },
+      "componentCount": 35,
+      "subjectBox": {
+        "x0": 25,
+        "y0": 486,
+        "x1": 445,
+        "y1": 779
+      },
+      "cropBox": {
+        "x0": 22,
+        "y0": 483,
+        "x1": 448,
+        "y1": 782
+      },
+      "validation": {
+        "width": 426,
+        "height": 299,
+        "foregroundPixels": 50420,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 3,
+          "right": 3,
+          "top": 3,
+          "bottom": 3
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Games wordmark and eight game icons only.",
+      "runtimeOutput": "data/assets/raster-annotations/netease/q1-fy24-games-cluster.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 138146,
+        "losslessBytes": 138146,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

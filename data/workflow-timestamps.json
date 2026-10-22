@@ -2410,6 +2410,366 @@
       "digest": "sha256:ed261f8c177aa6b4e4783f0935736a02ec88130d303e62028c63e0d783f8192b",
       "updatedAt": "2026-10-20T06:56:42.075Z",
       "publishedDigest": "sha256:74bea08ca1335b4feed56a9953b4e3788581ffb25613a8abab7203aba50e8495"
+    },
+    "data/datasets/atlassian-q1-fy23.js": {
+      "digest": "sha256:20958b9a66754b0035ba4e54869908cf6d299202685c4f007215b0f58ae6190a",
+      "updatedAt": "2026-10-22T08:17:21.913Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/atlassian-q1-fy24.js": {
+      "digest": "sha256:07f2d2cc8622b5d54d54d45fc0380e872124f9f79768e593897e77c8c268a33d",
+      "updatedAt": "2026-10-22T08:20:17.888Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/atlassian-q1-fy25.js": {
+      "digest": "sha256:15b84cbc73ab15342b9969c26619d3d368e1dbda3b763f1482225963a1a03135",
+      "updatedAt": "2026-10-22T08:19:12.925Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/atlassian-q1-fy26.js": {
+      "digest": "sha256:a9c28b1b8c4c154df66821c896c0b290e90471da46b7203d6d2f849ab63f63b7",
+      "updatedAt": "2026-10-22T08:19:28.967Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/atlassian-q2-fy23.js": {
+      "digest": "sha256:21e1398fe50ecd982170e9d1d23486537d4fed8f03dd77ec0f1d96208e780cc6",
+      "updatedAt": "2026-10-22T08:16:21.924Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/atlassian-q2-fy24.js": {
+      "digest": "sha256:6c75d14009067f67d9735bdc5f78aa30692707cd9a1dde6776d74cc94849c37f",
+      "updatedAt": "2026-10-22T08:22:17.138Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/atlassian-q2-fy25.js": {
+      "digest": "sha256:7313f211b8b1dd3c9851417d009267aeaccf3bbb6a5f07c54c743a98636c3b21",
+      "updatedAt": "2026-10-22T08:17:41.894Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/atlassian-q3-fy23.js": {
+      "digest": "sha256:24bfd0e70ab24d682589fc1aeea1ff6e614e90b07f6e152b5e5c3ca6a63827f7",
+      "updatedAt": "2026-10-22T08:17:45.062Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/atlassian-q3-fy24.js": {
+      "digest": "sha256:e7047492d6fa6e5c97b4a9df92174f1a26efa1bcbb0975fbaf1acd39a20c99a8",
+      "updatedAt": "2026-10-22T08:20:03.785Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/atlassian-q3-fy25.js": {
+      "digest": "sha256:0b0005f409df5bed6f7f4a3bfc01d202b8710895b1e18ec3a0a17705317489d6",
+      "updatedAt": "2026-10-22T08:20:58.528Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/atlassian-q4-fy23.js": {
+      "digest": "sha256:4173a1252c2ca4a9c14e0b45263cee7272096c31cb05b3f16acb03ccd70412e8",
+      "updatedAt": "2026-10-22T08:20:12.884Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/atlassian-q4-fy24.js": {
+      "digest": "sha256:c8afd3b621fa4cf3cd0da35ccb7153c1b8777a84e5385c8b41f6e51c5e50e5bc",
+      "updatedAt": "2026-10-22T08:21:46.475Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/atlassian-q4-fy25.js": {
+      "digest": "sha256:f774733ffb5c9f9e8fadce1b1a2f24cabf092e91df1c498971a04fdb4f2066bd",
+      "updatedAt": "2026-10-22T08:19:55.256Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/jd-com-q1-fy23.js": {
+      "digest": "sha256:4dce7b2cb179887830c236306abb36b1368445cbcedadbe9f8478ffe1233ae6b",
+      "updatedAt": "2026-10-22T08:17:58.101Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/jd-com-q1-fy24.js": {
+      "digest": "sha256:107687bbbdf21172f8204595d34a8146738c8fe3311b8ccd52ef9cf4510c8616",
+      "updatedAt": "2026-10-22T08:20:42.618Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/jd-com-q1-fy25.js": {
+      "digest": "sha256:cdf47ae31350d6d70da61769f693d458b4697a7532f58a7de2ef5a618b4617d0",
+      "updatedAt": "2026-10-22T08:21:51.460Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/jd-com-q2-fy23.js": {
+      "digest": "sha256:cd10f0eb6fac4721f6e557e5b53f0666ba6d72595a64754216b0a189703f8d29",
+      "updatedAt": "2026-10-22T08:19:46.042Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/jd-com-q2-fy24.js": {
+      "digest": "sha256:7211eb5a37dadeb8e60cc0bb5139c9af0d86f1c21e41198b567019e63769a2aa",
+      "updatedAt": "2026-10-22T08:23:06.697Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/jd-com-q2-fy25.js": {
+      "digest": "sha256:db3ea328e6f15cecbe156e70c707661dbec92d02d14d9858679acf46bc98e430",
+      "updatedAt": "2026-10-22T08:21:14.756Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/jd-com-q3-fy22.js": {
+      "digest": "sha256:2b45bff3c7e95e124e96d545ed502f904e3279aea81c627aea48e51df48df4f3",
+      "updatedAt": "2026-10-22T08:19:09.254Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/jd-com-q3-fy23.js": {
+      "digest": "sha256:14ad97151cb5db61a0ed8e46d5d43dd98beebd8f4c860f6f80b51044fe7f0111",
+      "updatedAt": "2026-10-22T08:19:58.400Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/jd-com-q3-fy24.js": {
+      "digest": "sha256:4db70fce6eb1abfb883dd4dd13ff366e2453fc75a928a576f008687ddd6ea668",
+      "updatedAt": "2026-10-22T08:21:10.547Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/jd-com-q4-fy22.js": {
+      "digest": "sha256:93acfe5b7064e50d92155b3873a96e00498e983c8abc82053750a25c9f09e7ca",
+      "updatedAt": "2026-10-22T08:16:43.490Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/jd-com-q4-fy23.js": {
+      "digest": "sha256:1df004ee3032016c927e1235bee3d0818059453e70f48be9d4842e6cad315333",
+      "updatedAt": "2026-10-22T08:16:56.461Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/jd-com-q4-fy24.js": {
+      "digest": "sha256:9e5cafd5d016bff44436e2b5cd2ded0613c6c4adbd7f8528060767a4dcb6200f",
+      "updatedAt": "2026-10-22T08:16:58.417Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/netease-q1-fy23.js": {
+      "digest": "sha256:69863f6e8952707eaf7f825a47f2e5fd34fd6d54abedfdcce88f0e6bb7c4f178",
+      "updatedAt": "2026-10-22T08:16:45.174Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/netease-q1-fy24.js": {
+      "digest": "sha256:9fbb00a7139774f5fed660fd079c9a63022037d2dd52798a4db555a367a45191",
+      "updatedAt": "2026-10-22T08:16:28.864Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/netease-q1-fy25.js": {
+      "digest": "sha256:1369026af6df5c3d61c8528f07b34564fd5f3103d3983a356fcee3d21e7e2d5f",
+      "updatedAt": "2026-10-22T08:18:07.441Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/netease-q2-fy23.js": {
+      "digest": "sha256:eec9d903889406177b353a07195ff4470831507ad6a0c555a23a669cd62cfa6f",
+      "updatedAt": "2026-10-22T08:18:11.502Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/netease-q2-fy24.js": {
+      "digest": "sha256:f8662c0ff805d640b0e263d964bb814bf39ec70c09063733540f2d1fbcaea0d0",
+      "updatedAt": "2026-10-22T08:16:29.420Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/netease-q2-fy25.js": {
+      "digest": "sha256:bd50ac20d250e32a548ba69730915859f7d7293e7abc56df3a1dc8c21a425a5c",
+      "updatedAt": "2026-10-22T08:17:01.320Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/netease-q3-fy22.js": {
+      "digest": "sha256:076f0a48cf72257bc1b7afa4b517b636bd756c4565081314135c85e2cfb55fc9",
+      "updatedAt": "2026-10-22T08:18:49.872Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/netease-q3-fy23.js": {
+      "digest": "sha256:4b946852b62779ea926baf2495e4ab4f013a7652196e7234a980a4260a076460",
+      "updatedAt": "2026-10-22T08:18:23.384Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/netease-q3-fy24.js": {
+      "digest": "sha256:adfd26a6a3f8d895673992f0e29e356b3ca072808dc9a481a9f47261991aefe4",
+      "updatedAt": "2026-10-22T08:17:09.199Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/netease-q4-fy22.js": {
+      "digest": "sha256:c79e2b2ca79ab4aed85805afdf2d53951967340224c698162e046f8b615932c9",
+      "updatedAt": "2026-10-22T08:17:07.358Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/netease-q4-fy23.js": {
+      "digest": "sha256:b8c30fb06644594fb1ad9f22ede87080dec7863481568380e553b8084dbd6fcf",
+      "updatedAt": "2026-10-22T08:19:15.837Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/netease-q4-fy24.js": {
+      "digest": "sha256:dab979d41cfab28043eeb5b9d8c7c7782eac2613e50b2e0fcf8cb6a56b55da8c",
+      "updatedAt": "2026-10-22T08:17:49.207Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/sea-q1-fy23.js": {
+      "digest": "sha256:ad33dcfb5f5a366345372003c0de6daa0d8ab072155acad849b486c5643c1f1c",
+      "updatedAt": "2026-10-22T08:18:16.736Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/sea-q1-fy24.js": {
+      "digest": "sha256:a0b379b82a2b35bc41bb48284157625920ab576bcd2c24d30552a67283e2312b",
+      "updatedAt": "2026-10-22T08:21:07.639Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/sea-q1-fy25.js": {
+      "digest": "sha256:0dbbb8dcf3d9e91d5b471af417ef9b2dccd4d24d0f94638724b0e7efa3cd4a36",
+      "updatedAt": "2026-10-22T08:18:54.209Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/sea-q2-fy23.js": {
+      "digest": "sha256:52240eda47135ba7d5961477224ee59e728a56a4c6189f4b37196a21a0c02929",
+      "updatedAt": "2026-10-22T08:17:34.358Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/sea-q2-fy24.js": {
+      "digest": "sha256:3cfaff6695f5990d5b1c10c20e4edd6fe383fdf043b28499622aca12ee81d747",
+      "updatedAt": "2026-10-22T08:22:07.673Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/sea-q2-fy25.js": {
+      "digest": "sha256:38458fdc32501642368668a523c165f6345967baa11030dc5c91f15330e89493",
+      "updatedAt": "2026-10-22T08:17:42.853Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/sea-q3-fy22.js": {
+      "digest": "sha256:2c1273bd1b6baaa762c32906c46595231898d53d8f60e5a2f45c4cbd34b45301",
+      "updatedAt": "2026-10-22T08:18:15.245Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/sea-q3-fy23.js": {
+      "digest": "sha256:ed245ca714f816c2bf4e63e92eb2b3d3374e52f4a152dbad04ae2b3b38384d85",
+      "updatedAt": "2026-10-22T08:18:28.293Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/sea-q3-fy24.js": {
+      "digest": "sha256:7e77036f7d1ff5006d5726a74d8b24ed4ea66fb11c784bac18465f543ab8ade6",
+      "updatedAt": "2026-10-22T08:21:21.629Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/sea-q4-fy22.js": {
+      "digest": "sha256:f01a4b487a3a6e7b7e7374f3070dac29e730cd98090b4a71dee94a3abd217260",
+      "updatedAt": "2026-10-22T08:16:35.425Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/sea-q4-fy23.js": {
+      "digest": "sha256:e95bbf41cd9aa19db297aebdbb7f943f294022949d0d0ba70bcab0433a9a304d",
+      "updatedAt": "2026-10-22T08:17:17.444Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/sea-q4-fy24.js": {
+      "digest": "sha256:7082bb4a1fef61fbc8de9cc30b072589b3c04392beb5b8babd01ac091c108f0c",
+      "updatedAt": "2026-10-22T08:16:51.292Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/semrush-q1-fy24.js": {
+      "digest": "sha256:2770a9a026be392fff0c10f1c675b08a239fdad7f3230cce391ac23013f94964",
+      "updatedAt": "2026-10-22T08:22:45.184Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/semrush-q1-fy25.js": {
+      "digest": "sha256:4b40d579bd526f28f70fcf706006d3bd32e289fb20fcd2df9c87dbb8de5e2202",
+      "updatedAt": "2026-10-22T08:22:12.319Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/semrush-q2-fy23.js": {
+      "digest": "sha256:67b410cfbc695b2e78d5bb12b57ab39a1beaaacda8808996149daba89b1c8f3b",
+      "updatedAt": "2026-10-22T08:20:08.041Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/semrush-q2-fy24.js": {
+      "digest": "sha256:4b3fdc0b300a2a6df559b4653e303f2474add0334c8e49203eb8e356c0810030",
+      "updatedAt": "2026-10-22T08:22:01.830Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/semrush-q2-fy25.js": {
+      "digest": "sha256:4fbbb61ad5735a86d6940c587b5716300730baba817c8c03184cd62a58df1a6b",
+      "updatedAt": "2026-10-22T08:21:44.224Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/semrush-q3-fy22.js": {
+      "digest": "sha256:fa97afc2ef1a5d5e4e0b57ccbff159d98bb094be38bacb24aa164001fdf16212",
+      "updatedAt": "2026-10-22T08:18:33.615Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/semrush-q3-fy23.js": {
+      "digest": "sha256:c1ab1b9c8a6437d4f2b444fe0de019e08630b80819e7a30d39d8c5be4f329656",
+      "updatedAt": "2026-10-22T08:20:27.759Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/semrush-q3-fy24.js": {
+      "digest": "sha256:f9d29e300d9e96a75bea1b367205941020391e4680b34e94ad6d0fb4a197c31f",
+      "updatedAt": "2026-10-22T08:22:53.132Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/semrush-q4-fy22.js": {
+      "digest": "sha256:d59d6685a190403a7ef03b48b70f68d82c9b992da4ce0bc2660b4618ce9e6176",
+      "updatedAt": "2026-10-22T08:17:39.168Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/semrush-q4-fy23.js": {
+      "digest": "sha256:56fc072270a5a83e369e2c81a856857ee9b2525a90d1278a95932f76e3f2d8d1",
+      "updatedAt": "2026-10-22T08:18:59.102Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/snowflake-q1-fy24.js": {
+      "digest": "sha256:35e5f6574b739fce37fe71d65b62f5191d6dbe27ea193735dc9fcfeebb1f5f39",
+      "updatedAt": "2026-10-22T08:18:46.370Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/snowflake-q1-fy25.js": {
+      "digest": "sha256:0cb9dac8b72772c77e05be84aeef6a7571e6c9fef60860ec349eae661d7dc0f9",
+      "updatedAt": "2026-10-22T08:20:22.166Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/snowflake-q1-fy26.js": {
+      "digest": "sha256:dd209430d2af550bb3948c66b24b2aa02fd3bef65f9b712f286882c784d5df6c",
+      "updatedAt": "2026-10-22T08:21:56.390Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/snowflake-q2-fy24.js": {
+      "digest": "sha256:e377951df167e80b01e1944dceb4134869f96e927e8d493f8aeda3b39daf5bd9",
+      "updatedAt": "2026-10-22T08:19:01.502Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/snowflake-q2-fy25.js": {
+      "digest": "sha256:41f7cd5ea147ee183e92e16faec3d418a4654ff3a78c12f93f8742b24d6cb37d",
+      "updatedAt": "2026-10-22T08:20:38.408Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/snowflake-q2-fy26.js": {
+      "digest": "sha256:9c6975445ebdaad306fe16021b5ad4e0f365d797576b655c6058ef2c8e242ea6",
+      "updatedAt": "2026-10-22T08:21:18.617Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/snowflake-q3-fy23.js": {
+      "digest": "sha256:43a1a87353df37b575e2606770143bfb24a49f56fbce8376a7331fd7d86a70df",
+      "updatedAt": "2026-10-22T08:17:38.429Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/snowflake-q3-fy24.js": {
+      "digest": "sha256:172464acf6a7241fc88d825755178b2ff7e946369af942b83a8df020c9620b16",
+      "updatedAt": "2026-10-22T08:19:42.891Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/snowflake-q3-fy25.js": {
+      "digest": "sha256:4013cc9c0509eee429034982a786411338a229518ceadddc08ce8f9a1e8f2d0d",
+      "updatedAt": "2026-10-22T08:20:31.640Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/snowflake-q3-fy26.js": {
+      "digest": "sha256:3610abe12552063e92c9cf02670adc699c4a7af1c854d1b6550be24897835d21",
+      "updatedAt": "2026-10-22T08:17:26.290Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/snowflake-q4-fy23.js": {
+      "digest": "sha256:d47dd4a8fd5373a5687b884e19e61fde8871f9e8d054a5ef9e13030ef45b0073",
+      "updatedAt": "2026-10-22T08:17:19.927Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/snowflake-q4-fy24.js": {
+      "digest": "sha256:08392e68daad3a20e15634fb5b769308094333d056590abf7b02b8df9c231de4",
+      "updatedAt": "2026-10-22T08:21:02.200Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
+    },
+    "data/datasets/snowflake-q4-fy25.js": {
+      "digest": "sha256:f6018ce65c128121b9d737fc914068302f2845767a2cd8372811fd9dd280bb41",
+      "updatedAt": "2026-10-22T08:22:32.107Z",
+      "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617"
     }
   }
 }

@@ -1,0 +1,106 @@
+{
+  "source": "input/processing/netease-q1-fy23.png",
+  "outputDir": "data/assets/icon-references/netease/q1-fy23",
+  "runtimeOutputDir": "data/assets/raster-annotations/netease/q1-fy23",
+  "report": "crop-report.json",
+  "backgroundSampleBlocks": [
+    [
+      0,
+      0,
+      60,
+      60
+    ]
+  ],
+  "crops": [
+    {
+      "key": "company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "searchBox": {
+        "x": 690,
+        "y": 339,
+        "width": 475,
+        "height": 96
+      },
+      "threshold": 18,
+      "minComponentArea": 15,
+      "padding": 0,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.06,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "business-games-cluster",
+      "output": "crops/business-games-cluster.png",
+      "searchBox": {
+        "x": 20,
+        "y": 456,
+        "width": 430,
+        "height": 301
+      },
+      "threshold": 18,
+      "minComponentArea": 15,
+      "padding": 0,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.06,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "business-cloud-music",
+      "output": "crops/business-cloud-music.png",
+      "searchBox": {
+        "x": 156,
+        "y": 888,
+        "width": 247,
+        "height": 105
+      },
+      "threshold": 18,
+      "minComponentArea": 15,
+      "padding": 0,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.06,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "business-youdao-wordmark",
+      "output": "crops/business-youdao-wordmark.png",
+      "searchBox": {
+        "x": 141,
+        "y": 1096,
+        "width": 286,
+        "height": 74
+      },
+      "threshold": 18,
+      "minComponentArea": 15,
+      "padding": 0,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.06,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "business-innovative-cluster",
+      "output": "crops/business-innovative-cluster.png",
+      "searchBox": {
+        "x": 63,
+        "y": 1231,
+        "width": 134,
+        "height": 109
+      },
+      "threshold": 18,
+      "minComponentArea": 15,
+      "padding": 0,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.06,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+{
+  "source": "input/processing/sea-q4-fy23.png",
+  "outputDir": "data/assets/icon-references/sea-q4-fy23",
+  "validationSheetDir": "data/assets/icon-references/sea-q4-fy23/validation-sheets",
+  "runtimeOutputDir": "data/assets/raster-annotations/sea-q4-fy23",
+  "report": "crop-report.json",
+  "crops": [
+    {
+      "key": "sea-q4-fy23-company",
+      "output": "crops/company.png",
+      "searchBox": {
+        "x": 689,
+        "y": 252,
+        "width": 433,
+        "height": 174
+      },
+      "cropBox": {
+        "x": 689,
+        "y": 252,
+        "width": 433,
+        "height": 174
+      },
+      "threshold": 18,
+      "minComponentArea": 5,
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10
+      },
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.35,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Brand-only crop; excludes financial text and chart geometry."
+    },
+    {
+      "key": "sea-q4-fy23-shopee",
+      "output": "crops/shopee.png",
+      "searchBox": {
+        "x": 116,
+        "y": 478,
+        "width": 289,
+        "height": 106
+      },
+      "cropBox": {
+        "x": 116,
+        "y": 478,
+        "width": 289,
+        "height": 106
+      },
+      "threshold": 18,
+      "minComponentArea": 5,
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10
+      },
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.35,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Brand-only crop; excludes financial text and chart geometry."
+    },
+    {
+      "key": "sea-q4-fy23-garena",
+      "output": "crops/garena.png",
+      "searchBox": {
+        "x": 106,
+        "y": 788,
+        "width": 290,
+        "height": 88
+      },
+      "cropBox": {
+        "x": 106,
+        "y": 788,
+        "width": 290,
+        "height": 88
+      },
+      "threshold": 18,
+      "minComponentArea": 5,
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10
+      },
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.35,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Brand-only crop; excludes financial text and chart geometry."
+    },
+    {
+      "key": "sea-q4-fy23-seamoney",
+      "output": "crops/seamoney.png",
+      "searchBox": {
+        "x": 103,
+        "y": 990,
+        "width": 320,
+        "height": 75
+      },
+      "cropBox": {
+        "x": 103,
+        "y": 990,
+        "width": 320,
+        "height": 75
+      },
+      "threshold": 18,
+      "minComponentArea": 5,
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10
+      },
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.35,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Brand-only crop; excludes financial text and chart geometry."
+    },
+    {
+      "key": "sea-q4-fy23-callout-shopee",
+      "output": "crops/callout-shopee.png",
+      "searchBox": {
+        "x": 1650,
+        "y": 904,
+        "width": 166,
+        "height": 65
+      },
+      "cropBox": {
+        "x": 1650,
+        "y": 904,
+        "width": 166,
+        "height": 65
+      },
+      "threshold": 18,
+      "minComponentArea": 5,
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10
+      },
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.35,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Brand-only crop; excludes financial text and chart geometry."
+    },
+    {
+      "key": "sea-q4-fy23-callout-garena",
+      "output": "crops/callout-garena.png",
+      "searchBox": {
+        "x": 1650,
+        "y": 970,
+        "width": 166,
+        "height": 56
+      },
+      "cropBox": {
+        "x": 1650,
+        "y": 970,
+        "width": 166,
+        "height": 56
+      },
+      "threshold": 18,
+      "minComponentArea": 5,
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10
+      },
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.35,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Brand-only crop; excludes financial text and chart geometry."
+    },
+    {
+      "key": "sea-q4-fy23-callout-seamoney",
+      "output": "crops/callout-seamoney.png",
+      "searchBox": {
+        "x": 1650,
+        "y": 1032,
+        "width": 166,
+        "height": 45
+      },
+      "cropBox": {
+        "x": 1650,
+        "y": 1032,
+        "width": 166,
+        "height": 45
+      },
+      "threshold": 18,
+      "minComponentArea": 5,
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10
+      },
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.35,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Brand-only crop; excludes financial text and chart geometry."
+    }
+  ]
+}

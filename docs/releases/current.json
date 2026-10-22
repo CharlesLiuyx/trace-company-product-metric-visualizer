@@ -1,9 +1,9 @@
 {
   "schema": "reviewed-git-release/v1",
-  "id": "transport-f50c3e08-935e-4ab1-9adf-a979e20fa6cb",
-  "baseHead": "54487d5628fc0bae8b5af0ab1519ed746964d43b",
-  "planDigest": "sha256:e695bf61a909e5cdc7d6a1b8910083f36348f5f9b1ba5a2506a5e1c1bb2f238d",
-  "publishedDigest": "sha256:74bea08ca1335b4feed56a9953b4e3788581ffb25613a8abab7203aba50e8495",
+  "id": "transport-f97091dd-0c9f-4933-b9bd-0c4e9a9e6927",
+  "baseHead": "74a82368610ed9b7adb2b0713afdd63b294f9040",
+  "planDigest": "sha256:b259dd128a307a851259b59f8041c7aa4810c44912500fd0b1b9b227a180f921",
+  "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617",
   "builds": [
     {
       "buildId": "build-fbe573ad-5128-4025-b987-54dfc2707ba0",
@@ -554,506 +554,1296 @@
       "buildId": "build-184e87cc-337b-442e-a6b3-41eae2e8c618",
       "key": "zoom-q4-fy25",
       "sealDigest": "sha256:d03fd55f83d35d1a8f7ce50fc93b5e83b0602a6b739d807f0049bdd1283c2dd2"
+    },
+    {
+      "buildId": "build-1da49bc2-5020-43e1-af70-38d0e6908668",
+      "key": "atlassian-q1-fy23",
+      "sealDigest": "sha256:9ca1ac8bfc799f7db19fe5adecbf810bb2b15d6c9b2dd2153eeafb5cb3168fde"
+    },
+    {
+      "buildId": "build-0a9ca198-6520-4c40-8a73-301d3920eb32",
+      "key": "atlassian-q1-fy24",
+      "sealDigest": "sha256:11124ac181181001daaaaf0e66b4725aeb9b7e0fd07d0d12f3a834b3f8f63e1f"
+    },
+    {
+      "buildId": "build-98b072fd-91a7-4890-b245-fbd316216d42",
+      "key": "atlassian-q1-fy25",
+      "sealDigest": "sha256:cc2c35b1acdeb958caa05ed827e010260244fb9fce0a29287bd8ac9398a6634f"
+    },
+    {
+      "buildId": "build-4384267f-5a80-4943-8330-ce50d16dac52",
+      "key": "atlassian-q1-fy26",
+      "sealDigest": "sha256:225d10b9427426d5fb1a6e28a3afc3102312dd41deb41f53e83ac4896957a1f1"
+    },
+    {
+      "buildId": "build-11e264c0-fa44-4b7b-a116-0f41fa60c98c",
+      "key": "atlassian-q2-fy23",
+      "sealDigest": "sha256:920069a76245377d05ec7ecd9c97261f18c0a15027244e1120142153913e4bcf"
+    },
+    {
+      "buildId": "build-54e5a332-e613-4266-9dd8-64c8dfed6010",
+      "key": "atlassian-q2-fy24",
+      "sealDigest": "sha256:26aee9e897c9d0482b18302bf65e78db80307516c1f99411273cc2df66c49568"
+    },
+    {
+      "buildId": "build-4caf132c-89e7-4d44-aadf-88d48dfabd15",
+      "key": "atlassian-q2-fy25",
+      "sealDigest": "sha256:39f93b1f892d0a552ce23381333f246cb2fac0f21bad865c21653ca6d3688d9e"
+    },
+    {
+      "buildId": "build-412c2985-0adc-45be-a505-b12a4c4c1087",
+      "key": "atlassian-q3-fy23",
+      "sealDigest": "sha256:0ecff296c2904a0fc37c4496316310787ff25629e1cc659ec2e3b442337c31a8"
+    },
+    {
+      "buildId": "build-22ba0215-643b-41d3-94b8-6091e98bbb75",
+      "key": "atlassian-q3-fy24",
+      "sealDigest": "sha256:202908f93b4a4aae9df8e01cb5355e88a9e9344f34e815bdd3227e6dc444f773"
+    },
+    {
+      "buildId": "build-47ac87ac-33a4-4b7c-b95d-13b336dbc181",
+      "key": "atlassian-q3-fy25",
+      "sealDigest": "sha256:c907bcb6774faf5065a0f46cb21c47423f710472f2232c3dcb502914067e237d"
+    },
+    {
+      "buildId": "build-93ef9fd7-e729-4287-b2c2-29a83cd17400",
+      "key": "atlassian-q4-fy23",
+      "sealDigest": "sha256:0901e0486183d1f9c5aa9eb06a7c621c59a2984f49b18dffbc9e763e78a5b590"
+    },
+    {
+      "buildId": "build-ab7c7668-9e20-4cdc-a62b-e5cd014aab6d",
+      "key": "atlassian-q4-fy24",
+      "sealDigest": "sha256:c65562b929b3464a56012e699771eec22341c6b210ef2674c6b94d6bef402495"
+    },
+    {
+      "buildId": "build-6d525438-9586-4ac2-ad84-b6bd21c6447b",
+      "key": "atlassian-q4-fy25",
+      "sealDigest": "sha256:d678cd99c8dc797ae28c5cfd394dcbd6c2d98750d7325c2d5549b676086efc15"
+    },
+    {
+      "buildId": "build-c7d6fcc3-0b5a-46dc-b834-70de2c46e79b",
+      "key": "jd-com-q1-fy23",
+      "sealDigest": "sha256:be60aae89efd813f5274760b5033350a719ed843289c7de2cb47e94c9220c8d0"
+    },
+    {
+      "buildId": "build-6e7cdb6c-1480-4654-a01e-c8d0cada1c65",
+      "key": "jd-com-q1-fy24",
+      "sealDigest": "sha256:dcf8f72af07f9d726cb7b13f4f51848ad11f55a884a3863bc16e33ba0175eb01"
+    },
+    {
+      "buildId": "build-42656249-ea73-4bbe-8f9a-3d872a570f78",
+      "key": "jd-com-q1-fy25",
+      "sealDigest": "sha256:fbb67890833b63a3eba90c4b928553226eb1ea5899590319247f1e78770830b4"
+    },
+    {
+      "buildId": "build-a9eb21a9-78c1-4a06-9993-fb66e3e6434f",
+      "key": "jd-com-q2-fy23",
+      "sealDigest": "sha256:7d2df483cacbc9de91e2ccde0b169afb6eb3355700f5207b7fa59996ec200ac4"
+    },
+    {
+      "buildId": "build-5a4eff16-fcd0-47d9-b8ab-2cabe63856af",
+      "key": "jd-com-q2-fy24",
+      "sealDigest": "sha256:09bebf8858039d8d4eba0cdfc3e8f80eebb5f54ce405a6e7174288ee2220d590"
+    },
+    {
+      "buildId": "build-736c11fe-9e35-41c5-8925-59dc275f10ae",
+      "key": "jd-com-q2-fy25",
+      "sealDigest": "sha256:732c5da2bd3f8bbe8b3a63c1f015b1997a2d0962615010cc500d00eb8827db28"
+    },
+    {
+      "buildId": "build-deb3d140-741e-4c2a-92c1-c380d33cf770",
+      "key": "jd-com-q3-fy22",
+      "sealDigest": "sha256:a4d164da2465af5c2d243ab0278ef5059e5f7fc61bfc884eccb8741ee66266bb"
+    },
+    {
+      "buildId": "build-cd1a611b-61a2-4f48-9a57-1b0734511224",
+      "key": "jd-com-q3-fy23",
+      "sealDigest": "sha256:6c325eaa7f2728f874f8b9962344553439d2cd1394b19b7ba63debc599017d18"
+    },
+    {
+      "buildId": "build-23ac18bd-2612-4e6d-9e1c-5dc7a43677e3",
+      "key": "jd-com-q3-fy24",
+      "sealDigest": "sha256:f639b9f8212ae4bb3fc3e0ae1cab167913d7bec1e7432859324e68a6e8bfbeb0"
+    },
+    {
+      "buildId": "build-559327c5-e977-404b-aa20-9cc6bc2cfe18",
+      "key": "jd-com-q4-fy22",
+      "sealDigest": "sha256:9f37e8a1fd1fde09ea3bf1b5024cf993ecd6bad9e4d6aab1a9e4fffcca2efaac"
+    },
+    {
+      "buildId": "build-99e61571-6efc-4118-b261-135b1b971e51",
+      "key": "jd-com-q4-fy23",
+      "sealDigest": "sha256:cfcb584920f1bb7985303fd64df6f03214ab4e5ce775a7d98b8cfe3fcb5f8549"
+    },
+    {
+      "buildId": "build-394217d8-e247-4010-b1b2-e21cff012ec6",
+      "key": "jd-com-q4-fy24",
+      "sealDigest": "sha256:eafd1442c68e670a44b2dadbfbcda4614a93250e0d39e89af2880ccc98e34a18"
+    },
+    {
+      "buildId": "build-87c1ed60-d454-42a8-ab1c-19a53944506d",
+      "key": "netease-q1-fy23",
+      "sealDigest": "sha256:053438abba1daadfc91a5fd58affa8ec707c4ac82217dbd104885b05fa3e4972"
+    },
+    {
+      "buildId": "build-10fd8c46-4d01-4a82-90bb-c4af439784e1",
+      "key": "netease-q1-fy24",
+      "sealDigest": "sha256:cf72150114948d29eed3e9c1370119c42a579be6ee6713e5c511a364f32412df"
+    },
+    {
+      "buildId": "build-37878a21-a057-4261-a8c1-0df72c19c25e",
+      "key": "netease-q1-fy25",
+      "sealDigest": "sha256:9385d63ffa5dd63fb6fb3f6d3d3d9a8f6f00c51b53357252b07d6f48bd884f85"
+    },
+    {
+      "buildId": "build-d924f680-df28-4f6e-898c-b6ae7111704c",
+      "key": "netease-q2-fy23",
+      "sealDigest": "sha256:04c88becae063f167ecaee0f18a61d2d34c5b12c52e45816b06cddf2602af921"
+    },
+    {
+      "buildId": "build-ebe2a850-150b-47ee-bd5d-95424141ed02",
+      "key": "netease-q2-fy24",
+      "sealDigest": "sha256:b53e7840057ceba3e81d1df0d5b6bacfcdf1abb47f7fe61032014e88f6b1891e"
+    },
+    {
+      "buildId": "build-21b5d23c-d61b-4a2a-b304-acfc67d21a19",
+      "key": "netease-q2-fy25",
+      "sealDigest": "sha256:1dea3dc9b531d5b6c9752048ac3810cc82a283272e1e3ac486ef69ec17bbc927"
+    },
+    {
+      "buildId": "build-81df82d9-b6f8-410b-8775-602b5494a4c0",
+      "key": "netease-q3-fy22",
+      "sealDigest": "sha256:fe56ea61abc8ff6fa2229f9ec00015dde8803ca7fd34b9a9a3cda53d1f63e735"
+    },
+    {
+      "buildId": "build-93d8d6ed-8d9f-40fb-92ed-887e22058c2d",
+      "key": "netease-q3-fy23",
+      "sealDigest": "sha256:b18ad1c67b7e559606e212c25170f8be81a42914075f5aff19a0e95cfe0ba39d"
+    },
+    {
+      "buildId": "build-f5fc1872-522e-4fa7-8b27-2758423b6dd4",
+      "key": "netease-q3-fy24",
+      "sealDigest": "sha256:4e103d361bb64549b5f9aa447628f6fad2491081c4b67c29a224aba335f780e9"
+    },
+    {
+      "buildId": "build-a921d6f5-d310-4bd8-8bae-84bac678b0e0",
+      "key": "netease-q4-fy22",
+      "sealDigest": "sha256:0a6dfe61e9b286d1eeb6347ecbef5b418555c9b8706d56831ddba5431a458282"
+    },
+    {
+      "buildId": "build-1e7b21f7-eda5-41b2-900d-416a044b0b50",
+      "key": "netease-q4-fy23",
+      "sealDigest": "sha256:244ac7f1c14f850704ac10d762f6dd16a5dbfd0535b7b1d4fab26c9a4d1aafdd"
+    },
+    {
+      "buildId": "build-0f803ca4-546b-4192-8c07-11d958851984",
+      "key": "netease-q4-fy24",
+      "sealDigest": "sha256:35832fc2620d67dee39d6164ab9898f2620ad4a9ccc0c831ab04358b9e674db3"
+    },
+    {
+      "buildId": "build-3031dda9-67a6-4803-852c-688ce3a52743",
+      "key": "sea-q1-fy23",
+      "sealDigest": "sha256:7cbfa1145132ffe559bbd67a3980802e235f93ca3e162a82d5eb410e41ce92e7"
+    },
+    {
+      "buildId": "build-e93e698e-46c0-48bc-85ce-1bf8803c53c8",
+      "key": "sea-q1-fy24",
+      "sealDigest": "sha256:4b32bf9ed7c6ed30a0d70881f30aaf8fbbfe7f3d442eb96131bad51392774705"
+    },
+    {
+      "buildId": "build-b6e7e99f-167e-4b6a-800c-c25da9074135",
+      "key": "sea-q1-fy25",
+      "sealDigest": "sha256:3419b1e09287b969e459c5f0e44abbda854699c533df93a308a69a35e3ab05e1"
+    },
+    {
+      "buildId": "build-5fd58391-c2d5-49ff-bfd7-f164a1751862",
+      "key": "sea-q2-fy23",
+      "sealDigest": "sha256:fc86ab556c7de17cb42e5b0fdc33167874a56fb260e9f6cf0f4241d8352448d7"
+    },
+    {
+      "buildId": "build-efbb0b98-2f36-47ba-9d7c-07b4b12b4f7f",
+      "key": "sea-q2-fy24",
+      "sealDigest": "sha256:93ae90b31d0b0e5e946b2bb1431c7cd1bd59f5461055e6134d4a6e2b67a6a7b9"
+    },
+    {
+      "buildId": "build-aa0da46e-3c04-4da4-8416-d8a2ea587278",
+      "key": "sea-q2-fy25",
+      "sealDigest": "sha256:2fd1bd6e438ce9f53ae7fd3aa55fbbdb1e478d528b27cbb83d493d1066121349"
+    },
+    {
+      "buildId": "build-d995f661-276e-454a-93e6-c48d4b4c9053",
+      "key": "sea-q3-fy22",
+      "sealDigest": "sha256:dd316fdf36bfa5ba6efa1e57cd9cf17dfce390bbb775d12c2c00d1e78055d8f5"
+    },
+    {
+      "buildId": "build-c626d572-8d91-4ba5-ab27-e10e664e0a6e",
+      "key": "sea-q3-fy23",
+      "sealDigest": "sha256:7c9542cd436f2c7b40e435395d71e9a6eeefc8d584623b14cca3e0b70bc693a4"
+    },
+    {
+      "buildId": "build-1c3dc98d-97c8-4213-8acc-c2aa09625f46",
+      "key": "sea-q3-fy24",
+      "sealDigest": "sha256:16262258517fa76c76b91038399a4f3ea94c358cd90d2ddbcc55cb43dcb6bd79"
+    },
+    {
+      "buildId": "build-dcaacf2b-ca5a-427c-8fa5-6fd5f3ba6038",
+      "key": "sea-q4-fy22",
+      "sealDigest": "sha256:c2404c8000c87db22386b7d21e86283beecbf3c98ff1e20c4f2510744f2e94cf"
+    },
+    {
+      "buildId": "build-b54eb5db-bb35-498d-b6ac-2cf8e9d1c0a8",
+      "key": "sea-q4-fy23",
+      "sealDigest": "sha256:5d9f04d686cddc23e37168836c39dab1fbc7d72b5d20d7d93109d62b66638174"
+    },
+    {
+      "buildId": "build-64dbe17d-3b16-4d9d-903c-5cb54e3e35c4",
+      "key": "sea-q4-fy24",
+      "sealDigest": "sha256:45b919887fa2bf8a477e11a1c547541ae316c8052911f3b291b143943e8846bf"
+    },
+    {
+      "buildId": "build-6c9f9935-db1e-4bd3-ae04-d1b9a9b8881b",
+      "key": "semrush-q1-fy24",
+      "sealDigest": "sha256:b336ca9f2da3401d6355f092eaef2c3ccd0bff91dea5d95b21e7671cdb653cea"
+    },
+    {
+      "buildId": "build-0a84b23e-7d5f-40b4-9c0e-c9add9060979",
+      "key": "semrush-q1-fy25",
+      "sealDigest": "sha256:672bd9ce78db74b339e6efcad0f9e94095a5bdcf17496c1b3bbf72e8e9f1189e"
+    },
+    {
+      "buildId": "build-cd7c404a-113e-41cc-964b-5655f789324e",
+      "key": "semrush-q2-fy23",
+      "sealDigest": "sha256:d918c95fd0ddc66a3c2db60d533f5c783e26c40a47eb6952ff98e570c3fbc708"
+    },
+    {
+      "buildId": "build-6d6aa78c-07b5-40b6-acf1-af5cb4b1e112",
+      "key": "semrush-q2-fy24",
+      "sealDigest": "sha256:1457542b0949c22a5bbdeec6593f35d8f17535ece236725bd653666b94cd8081"
+    },
+    {
+      "buildId": "build-6116c38d-12b3-4edb-8f27-f96c11fe9ec9",
+      "key": "semrush-q2-fy25",
+      "sealDigest": "sha256:a7985cd92c3695b0ddaf349265f98bb37ee2c4e4682667dfb0a87a3513d6f714"
+    },
+    {
+      "buildId": "build-ee3cfb71-0ad4-4197-b7d3-d146df338047",
+      "key": "semrush-q3-fy22",
+      "sealDigest": "sha256:6d6185741a7878afa5e6e399e03645b5e1ba9dd984d96826df8ed418baa5fcf6"
+    },
+    {
+      "buildId": "build-91c4c306-e5ea-439e-b8d6-3e3304b22e1c",
+      "key": "semrush-q3-fy23",
+      "sealDigest": "sha256:24d2e52113cd5b262a477d6a43a0463df3df72996500ce67ee9703907d6e9144"
+    },
+    {
+      "buildId": "build-71c92fbd-7a44-4d84-be8d-79a9e992378b",
+      "key": "semrush-q3-fy24",
+      "sealDigest": "sha256:34206ab091cc761325e12455914b741afcb6c29cc631243cc7e9a970621b1099"
+    },
+    {
+      "buildId": "build-ef8a0033-7238-46c3-9b95-5ab22a59bd44",
+      "key": "semrush-q4-fy22",
+      "sealDigest": "sha256:88ed87eee11c8514f52f68ac8b299fae552c5b7ddbfc549640c19e6a96144b7a"
+    },
+    {
+      "buildId": "build-21b85eb4-55f7-45b5-9218-dbb0536207a5",
+      "key": "semrush-q4-fy23",
+      "sealDigest": "sha256:2d3544d456c0bf4a1f6fa3a5bf0a90215f8b17ded2cb2dc1f78787562f5abf0f"
+    },
+    {
+      "buildId": "build-cdb6769d-a5e3-48d9-b507-7695e38fb6df",
+      "key": "snowflake-q1-fy24",
+      "sealDigest": "sha256:b0567f60d66e84f39edf9ab3448ee5130e7c332d3c8470c1f8cdcacdca7a3326"
+    },
+    {
+      "buildId": "build-3275254a-55a7-4a59-8c62-4f83cadc7224",
+      "key": "snowflake-q1-fy25",
+      "sealDigest": "sha256:9b0a1c7e9a455382823cd77822b7c38bfd7bb155be8769a91eb17ac428b42f18"
+    },
+    {
+      "buildId": "build-61d537ee-9906-4b1c-a992-71a5bfb4197c",
+      "key": "snowflake-q1-fy26",
+      "sealDigest": "sha256:9849681d707b2492b4124b10bbdbadd15504d9c3aa3fb638ba6f68e4c796ba3e"
+    },
+    {
+      "buildId": "build-df17c1e5-adf0-4550-9c11-e99923bcb787",
+      "key": "snowflake-q2-fy24",
+      "sealDigest": "sha256:b6d6d05672c2e3dc2518c7ee0da0c07a8ba95b2cab32783ddc55923b8619b0ba"
+    },
+    {
+      "buildId": "build-db5717f9-687e-43f9-9102-91a21d038ad4",
+      "key": "snowflake-q2-fy25",
+      "sealDigest": "sha256:8e3f0a7a29fb8f69f5a98a3f03e6d48fc0aa2af123c53d8bcc481918cd8d3bd5"
+    },
+    {
+      "buildId": "build-831ca070-1084-47c3-b255-ca01b6ea143e",
+      "key": "snowflake-q2-fy26",
+      "sealDigest": "sha256:d7ffa63ee0925abaa2df698e86196c85f13b88a876322cc8a1805bb98c921a5c"
+    },
+    {
+      "buildId": "build-10c5ab5d-3369-4ccc-b40f-d74cf90dde20",
+      "key": "snowflake-q3-fy23",
+      "sealDigest": "sha256:eae43c07b9af6d571cd5be88b49ef9ad14c71afb991c63f9635c2c65f14ee8cc"
+    },
+    {
+      "buildId": "build-91f63a2f-a3fb-4bcf-9b00-d99bd2d6b66f",
+      "key": "snowflake-q3-fy24",
+      "sealDigest": "sha256:73afd5c3c3ea1094e8f84e929df3f57e6e10e8bd7ce4865abd1d4bd6497e9f9a"
+    },
+    {
+      "buildId": "build-ae328787-814b-4a1d-ae0f-ad568dbeae2d",
+      "key": "snowflake-q3-fy25",
+      "sealDigest": "sha256:ca4e22c1e8be0ff37607844c9e1cb3065215ccca18a0ade60f720e1c717c4e72"
+    },
+    {
+      "buildId": "build-67c4927e-9faa-4254-8031-dbad77e37d23",
+      "key": "snowflake-q3-fy26",
+      "sealDigest": "sha256:59c61a8d521eb34a32b7315dc7e32c41bf6006d2895a8216bd6fa90a48de5982"
+    },
+    {
+      "buildId": "build-6239d2ea-8106-4704-89cf-739b497f33c3",
+      "key": "snowflake-q4-fy23",
+      "sealDigest": "sha256:f1d7a39a6784ac0db1795f3370bb84faefdb41e2148465675604b4099e620a6b"
+    },
+    {
+      "buildId": "build-712eb02b-820e-4314-99c5-db21dd80d361",
+      "key": "snowflake-q4-fy24",
+      "sealDigest": "sha256:7672802d70744a8cf437989806fa2fee9d813cfa4708d7e0caf5e67d837950cd"
+    },
+    {
+      "buildId": "build-3e63d566-9f67-4e65-943d-9e8a22af600e",
+      "key": "snowflake-q4-fy25",
+      "sealDigest": "sha256:f57c2d9abaaad58e974ef4bcd6fdc023cf0fcc7c3d3f8bf239b4cfb94b7ba945"
     }
   ],
-  "candidateDigest": "sha256:8df44c166ee384ff268e450d0747f7daa463f48eee0299eb4d747d25582e8434",
+  "candidateDigest": "sha256:e71340e856a437293a1f3af20717526e2f7b1ba6128d8ae175c6dcbaa382c1f5",
   "paths": [
     {
       "path": "data/assets/catalog.json",
-      "digest": "sha256:b49bc98ffca4940c6462cc16939f0f02b2d6521811fd1b29e8fd1131d816e43c",
-      "before": "sha256:4adc61306f1f41b8409cc9b07c88e1c4c75e670d3846aea84b96a156339a771b"
+      "digest": "sha256:c0caaf9b5872d11cb554aff1c60b7ef1e36eaa2d76d118f1aeb6342ee3f58a8c",
+      "before": "sha256:b49bc98ffca4940c6462cc16939f0f02b2d6521811fd1b29e8fd1131d816e43c"
     },
     {
-      "path": "data/assets/icon-references/roblox/crop-report-q3-fy22-characters.json",
-      "digest": "sha256:3280993dfd05abcfaa93df0d349fa8f27a8715bb25b292674d6a77cb3cb26648",
+      "path": "data/assets/icon-references/netease-q1-fy24/crop-report.json",
+      "digest": "sha256:040143021cd6a86498206183965793e019d85335b5caca1ade93194da9f3afe1",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/roblox/crops/q3-fy22-characters.png",
-      "digest": "sha256:2f2ff15f87223477163bda6fde892e13f651d8b76f6744a96d007a57d53011e6",
+      "path": "data/assets/icon-references/netease-q1-fy24/crops/q1-fy24-games-cluster.png",
+      "digest": "sha256:9c17c5ef7e17d06522ea36f63180f8a14d355e0c14b6a8e80f2b18a3392baf82",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/roblox/model-validation.md",
-      "digest": "sha256:a13d8f5f809a701d031fc72d63fd477936b8ea8df26037879211856a7341d3f8",
-      "before": "sha256:eb7a94741760cc831256b6da98b50cb50643f5ed1cd4600d3cc93dc37d84eb24"
-    },
-    {
-      "path": "data/assets/raster-annotations/roblox-q2-fy24/characters-crop-report.json",
-      "digest": "sha256:cf44943af5907ddacec392c981cc201b8bff87cfa629a3cde46dc8d8abbfe543",
+      "path": "data/assets/icon-references/netease-q1-fy24/model-validation.md",
+      "digest": "sha256:f0d73fcdd9631d4a3e336f4797c7f7c3b239e8bbc967971c7ccf1bfbe31dda59",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/roblox-q2-fy24/characters.png",
-      "digest": "sha256:50ee4b18eb2471cf6dbd6f76c92293d59d3b4e54809ab2b1730073bef49ba315",
+      "path": "data/assets/icon-references/netease-q2-fy23/model-validation.md",
+      "digest": "sha256:285465dcab8750bdd5ff553ce0e3cbbaec73aa99ad45b79dbb7d99e83bdc89c1",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/roblox-q2-fy24/model-validation.md",
-      "digest": "sha256:cda7c642288c21d24c4e6d5086be4b3f8cd79c5a71cf669b85eba05ad6ce8bea",
+      "path": "data/assets/icon-references/netease-q2-fy24/crop-report.json",
+      "digest": "sha256:b9c56e151cdbc8bf08f9bba582feb957788d0804b339c741450d75a03a57be8d",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/roblox-q2-fy24/wordmark.png",
-      "digest": "sha256:2365c276446b01ce9405573874cc6c4f727cec16de5edcb16ba076a2ab8df593",
+      "path": "data/assets/icon-references/netease-q2-fy24/crops/business-games-q2-fy24.png",
+      "digest": "sha256:4983b781659da5f760dbedd2173c397279ec70b6d93add4bfededa1a7f57b198",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/roblox-q3-fy22/characters.png",
-      "digest": "sha256:2f2ff15f87223477163bda6fde892e13f651d8b76f6744a96d007a57d53011e6",
+      "path": "data/assets/icon-references/netease-q2-fy24/model-validation.md",
+      "digest": "sha256:751332bc5db6925e65ad4ae264ce36839b2912584fc49834805386edf1593d04",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/roblox-q3-fy22/wordmark.png",
-      "digest": "sha256:1eaaab48094d13f57daf7539e2ba2bb7061ff716aba9b00ecd5b958a77a81260",
+      "path": "data/assets/icon-references/netease-q3-fy22/crop-report.json",
+      "digest": "sha256:98dbd03ec67445395714ae037d8c4c24baa229eb389891d63ea12987abeb9422",
       "before": null
     },
     {
-      "path": "data/assets/versions/744c661b0738d716fdbc8e156fc968024db96e26b928a43c5228a7fa575d293f.json",
-      "digest": "sha256:e3db481fd08ebe414c28993b45e8a8b926c6292940e7f4a26119080708572c2b",
+      "path": "data/assets/icon-references/netease-q3-fy22/crops/cloud-music.png",
+      "digest": "sha256:252fb4ee8aa88ba500aad471c537cb87f4cddd8c9caaad2492dd98d65a971442",
       "before": null
     },
     {
-      "path": "data/assets/versions/e424c53c131858e3dfb168be622e8df9cf505f7185993858f9f3e63eacb5a46e.json",
-      "digest": "sha256:a374facd91f659843ab2a527bfeca5c9cf4b6f628904a3714b6ba687a3e94cfd",
+      "path": "data/assets/icon-references/netease-q3-fy22/crops/company-wordmark.png",
+      "digest": "sha256:9b5f1a8ea626db886d10416af4c7ad0feb7810fd52d3616222dd06ead00ab93b",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/netease-q3-fy22/crops/games-cluster.png",
+      "digest": "sha256:152f465e9b003bdfd2efc6dfc2f09fa1159c74381d99d5fa8a4f9378aacf8e34",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/netease-q3-fy22/crops/innovative-cluster.png",
+      "digest": "sha256:962d4cadf3acc3e74b53f027327e09506b935e1d1ed51db4fb26e963501e086b",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/netease-q3-fy22/crops/youdao-wordmark.png",
+      "digest": "sha256:7e0c617310eda1782dc1ec0cf477a3d87f34d58c306547408313639e3ac3cc4f",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/netease-q3-fy22/model-validation.md",
+      "digest": "sha256:71989ca01eade3f6460dce57fe691941b826d423401d204b2de288f71ee90d56",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/netease/q1-fy23/crop-report.json",
+      "digest": "sha256:b677943ed8c6a972968372537b5abd7dde0af08d17b8d88e3f0c9ec0d3f69e17",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/netease/q1-fy23/crops/business-cloud-music.png",
+      "digest": "sha256:1ba517a1f60123e2f1959e82ab52fc919630fe9e6ff2228738bd43234b44fbee",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/netease/q1-fy23/crops/business-games-cluster.png",
+      "digest": "sha256:454949763998ec446ce2495409262f0ef41420e4ecb7baef4a8d6d6767413465",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/netease/q1-fy23/crops/business-innovative-cluster.png",
+      "digest": "sha256:1d03f75f37809a92183899aa39036eaf308a5b41dd7cdd02a6a95e1f06791f59",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/netease/q1-fy23/crops/business-youdao-wordmark.png",
+      "digest": "sha256:63849a4a93d167222d63bdb5d4d81f0688ae165bd3ad9e1255329eda3676c0a0",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/netease/q1-fy23/crops/company-wordmark.png",
+      "digest": "sha256:f9dc7130f90ee39c945bc23092d2f26d01366b462f1d3f705994a2b69933afff",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/netease/q1-fy23/model-validation.md",
+      "digest": "sha256:c034952a52f72bc1f2e989a4ca4af0abbc9e5f1da257c1e668363392d0d30d4c",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/netease/q4-fy22/crop-report.json",
+      "digest": "sha256:5f939f9a4ccd7835813912e4f21ac2c816c80c58a591e85b75069d112cfe5dfb",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/netease/q4-fy22/crops/cloud-music.png",
+      "digest": "sha256:e8c99dc4a838c8614915dee2498d02c6a107737582078354c234d977d66fa19b",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/netease/q4-fy22/crops/company-wordmark.png",
+      "digest": "sha256:469c34741d587132184f85565f91150476f4089dfda03092e63b80f06caf052d",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/netease/q4-fy22/crops/games-cluster.png",
+      "digest": "sha256:243cf3bbae23964a9c242f304d9d32fd8195c1b4ab3fba39d915dec7bcf4b8e4",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/netease/q4-fy22/crops/innovative-cluster.png",
+      "digest": "sha256:39466d70367379ddaf7e25cdfcc0fdb48b9df8b92ae54870b9a17591ec7eae8d",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/netease/q4-fy22/crops/youdao.png",
+      "digest": "sha256:662f7f768108867946798fdd38e16fee86486f942ef691c9dc54cd40c6e98562",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/netease/q4-fy22/model-validation.md",
+      "digest": "sha256:6611026d714d161184ec7ba58079c04cbd30bb8286e5157413fe21294abcae23",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/sea-q2-fy24/crop-report.json",
+      "digest": "sha256:31003eb0b806985547147f1802b719d45995ba7a6f30b774cb2cfcee45d84432",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/sea-q2-fy24/crops/callout-garena.png",
+      "digest": "sha256:7e682f30f8008ad7c5264f4d1b611d40af403645fde717a51c1607f6dfcb29c9",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/sea-q2-fy24/crops/callout-seamoney.png",
+      "digest": "sha256:9a86219f1fc3ef07529c9ceff138f43db3c05135d6881c2abff633b27e940e03",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/sea-q2-fy24/crops/callout-shopee.png",
+      "digest": "sha256:4ef6ab23ade39c9cf9e219c5a5fbf0de0c802b1703cb83bc85ffea8f8dfc4d2c",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/sea-q2-fy24/crops/company.png",
+      "digest": "sha256:54901b45111aea5125db42a8e6cba04ebd3d0f37ff07f03cf8d71c3085fa73ee",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/sea-q2-fy24/crops/garena.png",
+      "digest": "sha256:11a071ac47581dcd561cae28f5698502f49beb23f3ef606a98aed45cd7ed801f",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/sea-q2-fy24/crops/seamoney.png",
+      "digest": "sha256:08d2efe80bdc7a30130649691d014f1297844258157b3a846ba3a999a5f3dabc",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/sea-q2-fy24/crops/shopee.png",
+      "digest": "sha256:d97429cd7a4492833c29dc3d3457c66d9349acc3e264d85572d5f4c4a04ecd5e",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/sea-q2-fy24/model-validation.md",
+      "digest": "sha256:797136a16ea608426f29c57ac8adfcd26b0b8660a586d40d64cf117f53d81e51",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/sea-q4-fy23/crop-report.json",
+      "digest": "sha256:7faa141854c5d5689361ac45546f702d8a004a9c7420cf951dfdf9149824ce8e",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/sea-q4-fy23/crops/callout-garena.png",
+      "digest": "sha256:ed2fc2fc49306a99e1a4472fd35f11c2aafa96788483c90bdaec7f039c286480",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/sea-q4-fy23/crops/callout-seamoney.png",
+      "digest": "sha256:9891720568816d1f2642ab76841179918a09b7ffeff20f6cf47531c4b04f6770",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/sea-q4-fy23/crops/callout-shopee.png",
+      "digest": "sha256:523573ed555706daf234923d8752882062d1a43d73760aaeeb116279dabd1c14",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/sea-q4-fy23/crops/company.png",
+      "digest": "sha256:7e6b21a6eee3892bd0b0ce14afe5c979521aeef5c7bc25139c8e9ae3fc857dd5",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/sea-q4-fy23/crops/garena.png",
+      "digest": "sha256:f72c91c0407424b44b5cf1dc40fcefc0ec7b1150c5a52a5fd12635a1df68ea11",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/sea-q4-fy23/crops/seamoney.png",
+      "digest": "sha256:73c3ede245596e4aaebd60d214178c585a56f8923d1819aa35539c03d522efb8",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/sea-q4-fy23/crops/shopee.png",
+      "digest": "sha256:12dac274392d3164342d422aab5338e267cfd172f7aa4429ee8ea0de7420d206",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/sea-q4-fy23/model-validation.md",
+      "digest": "sha256:ac14fb41f752866eaef9bff4a610a3b6530d199588daf0c347b561c00798d274",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/semrush/crop-report.json",
+      "digest": "sha256:fc6a84b38a6ddd3ef49741a36e9d86f9f72cd2fad3124a14baaad9ea3a455612",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/semrush/crops/company-logo.png",
+      "digest": "sha256:f910f5659309226eaf54bace95493d5f503671d1f4960d8a9b242958e5902d98",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/semrush/model-validation.md",
+      "digest": "sha256:13812010c3ffec19f213eecb583ec468a2a8754e5b91a769daeb2e0c745f00f8",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/netease-q3-fy22/cloud-music.png",
+      "digest": "sha256:252fb4ee8aa88ba500aad471c537cb87f4cddd8c9caaad2492dd98d65a971442",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/netease-q3-fy22/company-wordmark.png",
+      "digest": "sha256:9b5f1a8ea626db886d10416af4c7ad0feb7810fd52d3616222dd06ead00ab93b",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/netease-q3-fy22/games-cluster.png",
+      "digest": "sha256:152f465e9b003bdfd2efc6dfc2f09fa1159c74381d99d5fa8a4f9378aacf8e34",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/netease-q3-fy22/innovative-cluster.png",
+      "digest": "sha256:962d4cadf3acc3e74b53f027327e09506b935e1d1ed51db4fb26e963501e086b",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/netease-q3-fy22/youdao-wordmark.png",
+      "digest": "sha256:7e0c617310eda1782dc1ec0cf477a3d87f34d58c306547408313639e3ac3cc4f",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/business-games-q2-fy24.png",
+      "digest": "sha256:4983b781659da5f760dbedd2173c397279ec70b6d93add4bfededa1a7f57b198",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/business-games-q3-fy23.png",
+      "digest": "sha256:e1ccac76151c3d4cbc9951e0331e0adf138f77d46bfb4f2efdef1347ceb16616",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/netease-q2-fy23-cloud-music-logo.png",
+      "digest": "sha256:07aa56ff4d4d09ae7cdcc98a245b3b2af12d34e6b068571775f906fca98e26b5",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/netease-q2-fy23-company-wordmark.png",
+      "digest": "sha256:2f090bea03dff3dc809ff87d9c8730d6df4ecd596abbda943af6bbd09e902c01",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/netease-q2-fy23-games-brand-and-game-icons.png",
+      "digest": "sha256:f5c5211ec884e329c3aa53f3947450420d62b75701cfe64c4d8fab7d21ff430c",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/netease-q2-fy23-innovative-business-icons.png",
+      "digest": "sha256:cebfc83f274bfc634bdd8e6156f6bc9748071dab86de4e8af34cd7b06812815a",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/netease-q2-fy23-youdao-wordmark.png",
+      "digest": "sha256:788d81c353623daf2c5a041d79d661da43ea2790664933b43d4f6c84e5c3866e",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/q1-fy23/business-cloud-music.png",
+      "digest": "sha256:1ba517a1f60123e2f1959e82ab52fc919630fe9e6ff2228738bd43234b44fbee",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/q1-fy23/business-games-cluster.png",
+      "digest": "sha256:454949763998ec446ce2495409262f0ef41420e4ecb7baef4a8d6d6767413465",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/q1-fy23/business-innovative-cluster.png",
+      "digest": "sha256:1d03f75f37809a92183899aa39036eaf308a5b41dd7cdd02a6a95e1f06791f59",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/q1-fy23/business-youdao-wordmark.png",
+      "digest": "sha256:63849a4a93d167222d63bdb5d4d81f0688ae165bd3ad9e1255329eda3676c0a0",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/q1-fy23/company-wordmark.png",
+      "digest": "sha256:f9dc7130f90ee39c945bc23092d2f26d01366b462f1d3f705994a2b69933afff",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/q1-fy24-games-cluster.png",
+      "digest": "sha256:9c17c5ef7e17d06522ea36f63180f8a14d355e0c14b6a8e80f2b18a3392baf82",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/q4-fy22/cloud-music.png",
+      "digest": "sha256:e8c99dc4a838c8614915dee2498d02c6a107737582078354c234d977d66fa19b",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/q4-fy22/company-wordmark.png",
+      "digest": "sha256:469c34741d587132184f85565f91150476f4089dfda03092e63b80f06caf052d",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/q4-fy22/games-cluster.png",
+      "digest": "sha256:243cf3bbae23964a9c242f304d9d32fd8195c1b4ab3fba39d915dec7bcf4b8e4",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/q4-fy22/innovative-cluster.png",
+      "digest": "sha256:39466d70367379ddaf7e25cdfcc0fdb48b9df8b92ae54870b9a17591ec7eae8d",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/netease/q4-fy22/youdao.png",
+      "digest": "sha256:662f7f768108867946798fdd38e16fee86486f942ef691c9dc54cd40c6e98562",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q2-fy23/seamoney.png",
+      "digest": "sha256:9e54d99f479fb8af14f1b6f2ecec48340e84e83b09fc5612e5e7314d42ab8fe6",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q2-fy24/callout-garena.png",
+      "digest": "sha256:7e682f30f8008ad7c5264f4d1b611d40af403645fde717a51c1607f6dfcb29c9",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q2-fy24/callout-seamoney.png",
+      "digest": "sha256:9a86219f1fc3ef07529c9ceff138f43db3c05135d6881c2abff633b27e940e03",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q2-fy24/callout-shopee.png",
+      "digest": "sha256:4ef6ab23ade39c9cf9e219c5a5fbf0de0c802b1703cb83bc85ffea8f8dfc4d2c",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q2-fy24/company.png",
+      "digest": "sha256:54901b45111aea5125db42a8e6cba04ebd3d0f37ff07f03cf8d71c3085fa73ee",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q2-fy24/garena.png",
+      "digest": "sha256:11a071ac47581dcd561cae28f5698502f49beb23f3ef606a98aed45cd7ed801f",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q2-fy24/seamoney.png",
+      "digest": "sha256:08d2efe80bdc7a30130649691d014f1297844258157b3a846ba3a999a5f3dabc",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q2-fy24/shopee.png",
+      "digest": "sha256:d97429cd7a4492833c29dc3d3457c66d9349acc3e264d85572d5f4c4a04ecd5e",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q4-fy23/callout-garena.png",
+      "digest": "sha256:ed2fc2fc49306a99e1a4472fd35f11c2aafa96788483c90bdaec7f039c286480",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q4-fy23/callout-seamoney.png",
+      "digest": "sha256:9891720568816d1f2642ab76841179918a09b7ffeff20f6cf47531c4b04f6770",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q4-fy23/callout-shopee.png",
+      "digest": "sha256:523573ed555706daf234923d8752882062d1a43d73760aaeeb116279dabd1c14",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q4-fy23/company.png",
+      "digest": "sha256:7e6b21a6eee3892bd0b0ce14afe5c979521aeef5c7bc25139c8e9ae3fc857dd5",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q4-fy23/garena.png",
+      "digest": "sha256:f72c91c0407424b44b5cf1dc40fcefc0ec7b1150c5a52a5fd12635a1df68ea11",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q4-fy23/seamoney.png",
+      "digest": "sha256:73c3ede245596e4aaebd60d214178c585a56f8923d1819aa35539c03d522efb8",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/sea-q4-fy23/shopee.png",
+      "digest": "sha256:12dac274392d3164342d422aab5338e267cfd172f7aa4429ee8ea0de7420d206",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/semrush/company-logo.png",
+      "digest": "sha256:f910f5659309226eaf54bace95493d5f503671d1f4960d8a9b242958e5902d98",
+      "before": null
+    },
+    {
+      "path": "data/company-metadata/semrush.js",
+      "digest": "sha256:da5dd9b759224e00427e23915372410c5777c66f3c6252b53f36686165aa6ef1",
       "before": null
     },
     {
       "path": "data/dataset-file-metadata.js",
-      "digest": "sha256:62b06fc6d23bab3d676eb9843928cad4018ca350b4385d40bf69337cc8294aea",
-      "before": "sha256:6d5e34c5826f3b45cfbb5c1f233467a85430ebf0573f57303b9d88e196e3baea"
+      "digest": "sha256:54ea4e7f9dd4f606678c2cab0b457090191a4850b8cf31f4febcf1bc0fa00669",
+      "before": "sha256:62b06fc6d23bab3d676eb9843928cad4018ca350b4385d40bf69337cc8294aea"
     },
     {
       "path": "data/dataset-manifest.js",
-      "digest": "sha256:db130fefb0da4f836ac407d815d6a639d27d6b51455dccec0e160cedac90d1f2",
-      "before": "sha256:8696833ca086113bee3a1947a64b90a6c6afdb5d42adaa7321802bbc3456982c"
+      "digest": "sha256:c252aa6d8ddfda2594a73a9ee10569a69442bc00956bcb482d529d7dce5d5ad1",
+      "before": "sha256:db130fefb0da4f836ac407d815d6a639d27d6b51455dccec0e160cedac90d1f2"
     },
     {
-      "path": "data/datasets/cloudflare-q1-fy23.js",
-      "digest": "sha256:fd5c5a2c32dd356bbac9c983d19e1d09327975c6c88751df74c5aa5b66d360ce",
+      "path": "data/datasets/atlassian-q1-fy23.js",
+      "digest": "sha256:20958b9a66754b0035ba4e54869908cf6d299202685c4f007215b0f58ae6190a",
       "before": null
     },
     {
-      "path": "data/datasets/cloudflare-q1-fy24.js",
-      "digest": "sha256:919b1a1532790994e92834fd5fcb63e91a4b162021889feaaed24d82fffa8543",
+      "path": "data/datasets/atlassian-q1-fy24.js",
+      "digest": "sha256:07f2d2cc8622b5d54d54d45fc0380e872124f9f79768e593897e77c8c268a33d",
       "before": null
     },
     {
-      "path": "data/datasets/cloudflare-q1-fy25.js",
-      "digest": "sha256:7d00643db64969b7c7691b42cf05164243614b549fdfdea3eb526ab7f09c5f10",
+      "path": "data/datasets/atlassian-q1-fy25.js",
+      "digest": "sha256:15b84cbc73ab15342b9969c26619d3d368e1dbda3b763f1482225963a1a03135",
       "before": null
     },
     {
-      "path": "data/datasets/cloudflare-q2-fy24.js",
-      "digest": "sha256:cad6b4ebad44e02b68024dd467ed38cb49980e6ee3efd0fb6d5532de4b23ee31",
+      "path": "data/datasets/atlassian-q1-fy26.js",
+      "digest": "sha256:a9c28b1b8c4c154df66821c896c0b290e90471da46b7203d6d2f849ab63f63b7",
       "before": null
     },
     {
-      "path": "data/datasets/cloudflare-q2-fy25.js",
-      "digest": "sha256:0cbc7af89df84bdf4e3b452559283d634aec1a07bb8a5b013f7c3b6072dc3385",
+      "path": "data/datasets/atlassian-q2-fy23.js",
+      "digest": "sha256:21e1398fe50ecd982170e9d1d23486537d4fed8f03dd77ec0f1d96208e780cc6",
       "before": null
     },
     {
-      "path": "data/datasets/cloudflare-q3-fy22.js",
-      "digest": "sha256:8556384e8c7e170a06a95da2214041719ae0cd70ce782c6b06ef25d8bb727226",
+      "path": "data/datasets/atlassian-q2-fy24.js",
+      "digest": "sha256:6c75d14009067f67d9735bdc5f78aa30692707cd9a1dde6776d74cc94849c37f",
       "before": null
     },
     {
-      "path": "data/datasets/cloudflare-q3-fy23.js",
-      "digest": "sha256:70291df4324715f877408fc12774c54253faffa6d7b14b839af2e8010aa00c8d",
+      "path": "data/datasets/atlassian-q2-fy25.js",
+      "digest": "sha256:7313f211b8b1dd3c9851417d009267aeaccf3bbb6a5f07c54c743a98636c3b21",
       "before": null
     },
     {
-      "path": "data/datasets/cloudflare-q3-fy24.js",
-      "digest": "sha256:68799fd4d2726e907be0b195063c15a4cced036b9bc1006dce3ec1eaa6e19d7a",
+      "path": "data/datasets/atlassian-q3-fy23.js",
+      "digest": "sha256:24bfd0e70ab24d682589fc1aeea1ff6e614e90b07f6e152b5e5c3ca6a63827f7",
       "before": null
     },
     {
-      "path": "data/datasets/cloudflare-q3-fy25.js",
-      "digest": "sha256:7111ec1e010adeb497f9b56420878a69d0a450d4ead6a07dc91606dab1fe9429",
+      "path": "data/datasets/atlassian-q3-fy24.js",
+      "digest": "sha256:e7047492d6fa6e5c97b4a9df92174f1a26efa1bcbb0975fbaf1acd39a20c99a8",
       "before": null
     },
     {
-      "path": "data/datasets/cloudflare-q4-fy22.js",
-      "digest": "sha256:74ab3a5504bd0dbaa3dca45090fd1fe7a3140b17693dc0d9a55504d7fce32290",
+      "path": "data/datasets/atlassian-q3-fy25.js",
+      "digest": "sha256:0b0005f409df5bed6f7f4a3bfc01d202b8710895b1e18ec3a0a17705317489d6",
       "before": null
     },
     {
-      "path": "data/datasets/cloudflare-q4-fy23.js",
-      "digest": "sha256:8aecb668665687da491a1f29d8c83862940ac926457e802bd80a211e61dd56c2",
+      "path": "data/datasets/atlassian-q4-fy23.js",
+      "digest": "sha256:4173a1252c2ca4a9c14e0b45263cee7272096c31cb05b3f16acb03ccd70412e8",
       "before": null
     },
     {
-      "path": "data/datasets/cloudflare-q4-fy24.js",
-      "digest": "sha256:d9da03eaa281bf326f8d8b25ba9d98d4de40ac81ff0de0a6e2562d1506b4c718",
+      "path": "data/datasets/atlassian-q4-fy24.js",
+      "digest": "sha256:c8afd3b621fa4cf3cd0da35ccb7153c1b8777a84e5385c8b41f6e51c5e50e5bc",
       "before": null
     },
     {
-      "path": "data/datasets/datadog-q1-fy23.js",
-      "digest": "sha256:30ce37857a9a02d27ad905ada220f8e8113e8772360dd44f337d1d26fae8f4c8",
+      "path": "data/datasets/atlassian-q4-fy25.js",
+      "digest": "sha256:f774733ffb5c9f9e8fadce1b1a2f24cabf092e91df1c498971a04fdb4f2066bd",
       "before": null
     },
     {
-      "path": "data/datasets/datadog-q1-fy24.js",
-      "digest": "sha256:6a6348d376a3b36482fafd59f8baa75e2cf6aa1b33b47addf48e9251b167e6d2",
+      "path": "data/datasets/jd-com-q1-fy23.js",
+      "digest": "sha256:4dce7b2cb179887830c236306abb36b1368445cbcedadbe9f8478ffe1233ae6b",
       "before": null
     },
     {
-      "path": "data/datasets/datadog-q1-fy25.js",
-      "digest": "sha256:e36f2e8f6bc606d7474e2f3a1bd28392f17c65fbe8f041515459c8a515909a66",
+      "path": "data/datasets/jd-com-q1-fy24.js",
+      "digest": "sha256:107687bbbdf21172f8204595d34a8146738c8fe3311b8ccd52ef9cf4510c8616",
       "before": null
     },
     {
-      "path": "data/datasets/datadog-q2-fy23.js",
-      "digest": "sha256:fa598657fa1be36d0d79805e9c86318f5a3dd9db4b579564f24028e5a1d41edf",
+      "path": "data/datasets/jd-com-q1-fy25.js",
+      "digest": "sha256:cdf47ae31350d6d70da61769f693d458b4697a7532f58a7de2ef5a618b4617d0",
       "before": null
     },
     {
-      "path": "data/datasets/datadog-q2-fy24.js",
-      "digest": "sha256:73e5e306b5d38d03bc76a3e549629fff435ba24bf0b9d54b6baa21403175a4e4",
+      "path": "data/datasets/jd-com-q2-fy23.js",
+      "digest": "sha256:cd10f0eb6fac4721f6e557e5b53f0666ba6d72595a64754216b0a189703f8d29",
       "before": null
     },
     {
-      "path": "data/datasets/datadog-q2-fy25.js",
-      "digest": "sha256:f9fa44ef1e5c21d1efb44d046f4819765dc977d0d0d6131236261a7821a436e7",
+      "path": "data/datasets/jd-com-q2-fy24.js",
+      "digest": "sha256:7211eb5a37dadeb8e60cc0bb5139c9af0d86f1c21e41198b567019e63769a2aa",
       "before": null
     },
     {
-      "path": "data/datasets/datadog-q3-fy22.js",
-      "digest": "sha256:f84d81ec9b486bfcf4e88409c357f5a630e10dfccaee2647e78d6dfa780fade1",
+      "path": "data/datasets/jd-com-q2-fy25.js",
+      "digest": "sha256:db3ea328e6f15cecbe156e70c707661dbec92d02d14d9858679acf46bc98e430",
       "before": null
     },
     {
-      "path": "data/datasets/datadog-q3-fy23.js",
-      "digest": "sha256:6f3ef708c97e7165221ff6860a81258123aada80529156d4cc3530c2123605c4",
+      "path": "data/datasets/jd-com-q3-fy22.js",
+      "digest": "sha256:2b45bff3c7e95e124e96d545ed502f904e3279aea81c627aea48e51df48df4f3",
       "before": null
     },
     {
-      "path": "data/datasets/datadog-q3-fy24.js",
-      "digest": "sha256:1c3d115c3f80dfb9c3d43614f4f903c4741024b864690c1fcc8d5527b450f44c",
+      "path": "data/datasets/jd-com-q3-fy23.js",
+      "digest": "sha256:14ad97151cb5db61a0ed8e46d5d43dd98beebd8f4c860f6f80b51044fe7f0111",
       "before": null
     },
     {
-      "path": "data/datasets/datadog-q4-fy22.js",
-      "digest": "sha256:23f1864685a9c6d3f0445ad2433acb33d7295543984b4b9a954a60c1ab268e55",
+      "path": "data/datasets/jd-com-q3-fy24.js",
+      "digest": "sha256:4db70fce6eb1abfb883dd4dd13ff366e2453fc75a928a576f008687ddd6ea668",
       "before": null
     },
     {
-      "path": "data/datasets/datadog-q4-fy23.js",
-      "digest": "sha256:d728314117b0c6e39185df2dbb7152b63096bd34613ecffbf6e0d4005fd12704",
+      "path": "data/datasets/jd-com-q4-fy22.js",
+      "digest": "sha256:93acfe5b7064e50d92155b3873a96e00498e983c8abc82053750a25c9f09e7ca",
       "before": null
     },
     {
-      "path": "data/datasets/datadog-q4-fy24.js",
-      "digest": "sha256:dd4485cd37d7be6ef3f6f341a25eb21cc5434dbad5336240d0addc5b416a4b0c",
+      "path": "data/datasets/jd-com-q4-fy23.js",
+      "digest": "sha256:1df004ee3032016c927e1235bee3d0818059453e70f48be9d4842e6cad315333",
       "before": null
     },
     {
-      "path": "data/datasets/pinterest-q1-fy23.js",
-      "digest": "sha256:cc31a634db566b0d0757207b93f190bb65941ac26fb3ef2c4403b9ac68a9861c",
+      "path": "data/datasets/jd-com-q4-fy24.js",
+      "digest": "sha256:9e5cafd5d016bff44436e2b5cd2ded0613c6c4adbd7f8528060767a4dcb6200f",
       "before": null
     },
     {
-      "path": "data/datasets/pinterest-q1-fy24.js",
-      "digest": "sha256:f5a7abecfff4f53c159bae0ead9567ef0c4f63be20321f6676324f067239fac5",
+      "path": "data/datasets/netease-q1-fy23.js",
+      "digest": "sha256:69863f6e8952707eaf7f825a47f2e5fd34fd6d54abedfdcce88f0e6bb7c4f178",
       "before": null
     },
     {
-      "path": "data/datasets/pinterest-q1-fy25.js",
-      "digest": "sha256:fcf0ac91a55cb1c03cacb036f40501423e6b5f8fbc04884b742316013c7eb34f",
+      "path": "data/datasets/netease-q1-fy24.js",
+      "digest": "sha256:9fbb00a7139774f5fed660fd079c9a63022037d2dd52798a4db555a367a45191",
       "before": null
     },
     {
-      "path": "data/datasets/pinterest-q2-fy23.js",
-      "digest": "sha256:aee2f030177ee609b30b29aa5aec6341c2b0844b00cda564219e8f009b73374a",
+      "path": "data/datasets/netease-q1-fy25.js",
+      "digest": "sha256:1369026af6df5c3d61c8528f07b34564fd5f3103d3983a356fcee3d21e7e2d5f",
       "before": null
     },
     {
-      "path": "data/datasets/pinterest-q2-fy24.js",
-      "digest": "sha256:746b684f179cd5635f8def4c2bec3e25e094970f2b01669118494961692c56ca",
+      "path": "data/datasets/netease-q2-fy23.js",
+      "digest": "sha256:eec9d903889406177b353a07195ff4470831507ad6a0c555a23a669cd62cfa6f",
       "before": null
     },
     {
-      "path": "data/datasets/pinterest-q2-fy25.js",
-      "digest": "sha256:7e1c0e73d098e93b5d08e0e77a4d28afba7bb1cc71f5ed59469f852cc9c8ec1e",
+      "path": "data/datasets/netease-q2-fy24.js",
+      "digest": "sha256:f8662c0ff805d640b0e263d964bb814bf39ec70c09063733540f2d1fbcaea0d0",
       "before": null
     },
     {
-      "path": "data/datasets/pinterest-q3-fy22.js",
-      "digest": "sha256:751fc7c0190fd0d0c3f8da32eecb70be132b34c9442499e2e6a26c883aa804b6",
+      "path": "data/datasets/netease-q2-fy25.js",
+      "digest": "sha256:bd50ac20d250e32a548ba69730915859f7d7293e7abc56df3a1dc8c21a425a5c",
       "before": null
     },
     {
-      "path": "data/datasets/pinterest-q3-fy23.js",
-      "digest": "sha256:a207c499e8c6943b02448faaaad92633fdba3a5fc0f55e27d1c0f3e1eb234f15",
+      "path": "data/datasets/netease-q3-fy22.js",
+      "digest": "sha256:076f0a48cf72257bc1b7afa4b517b636bd756c4565081314135c85e2cfb55fc9",
       "before": null
     },
     {
-      "path": "data/datasets/pinterest-q3-fy24.js",
-      "digest": "sha256:b3da3499c2f644e00419bbe7e9fcbeebc84b89b2e963c74a3030fabeb5faedf0",
+      "path": "data/datasets/netease-q3-fy23.js",
+      "digest": "sha256:4b946852b62779ea926baf2495e4ab4f013a7652196e7234a980a4260a076460",
       "before": null
     },
     {
-      "path": "data/datasets/pinterest-q4-fy22.js",
-      "digest": "sha256:2a6f6bb72ed1b72f43cc81fbc5c3c885130b4345de4147c347423d3beaf399b1",
+      "path": "data/datasets/netease-q3-fy24.js",
+      "digest": "sha256:adfd26a6a3f8d895673992f0e29e356b3ca072808dc9a481a9f47261991aefe4",
       "before": null
     },
     {
-      "path": "data/datasets/pinterest-q4-fy23.js",
-      "digest": "sha256:0d5234a8b20b3be9644e839cef92168057f788f61d7fd971442adeae023ce7fe",
+      "path": "data/datasets/netease-q4-fy22.js",
+      "digest": "sha256:c79e2b2ca79ab4aed85805afdf2d53951967340224c698162e046f8b615932c9",
       "before": null
     },
     {
-      "path": "data/datasets/pinterest-q4-fy24.js",
-      "digest": "sha256:f1ef3c0cd67a2daab0cfa512d2e5da556363043345715cb9eb67c34030c79fe3",
+      "path": "data/datasets/netease-q4-fy23.js",
+      "digest": "sha256:b8c30fb06644594fb1ad9f22ede87080dec7863481568380e553b8084dbd6fcf",
       "before": null
     },
     {
-      "path": "data/datasets/roblox-q1-fy23.js",
-      "digest": "sha256:6fd43201ae8d355beb36363994b03b850f8a89edbbe5351339e7d52c9c964587",
+      "path": "data/datasets/netease-q4-fy24.js",
+      "digest": "sha256:dab979d41cfab28043eeb5b9d8c7c7782eac2613e50b2e0fcf8cb6a56b55da8c",
       "before": null
     },
     {
-      "path": "data/datasets/roblox-q1-fy24.js",
-      "digest": "sha256:ab324f054abb6e82e7a4f1f1e24c1a66bfcf20627515a97ded5e6a847ad500ce",
+      "path": "data/datasets/sea-q1-fy23.js",
+      "digest": "sha256:ad33dcfb5f5a366345372003c0de6daa0d8ab072155acad849b486c5643c1f1c",
       "before": null
     },
     {
-      "path": "data/datasets/roblox-q1-fy25.js",
-      "digest": "sha256:1b846c6c1f106a62f90c568c0d01ad3688c83ee3a830a6ab3f6ea6dcef39b5c0",
+      "path": "data/datasets/sea-q1-fy24.js",
+      "digest": "sha256:a0b379b82a2b35bc41bb48284157625920ab576bcd2c24d30552a67283e2312b",
       "before": null
     },
     {
-      "path": "data/datasets/roblox-q2-fy23.js",
-      "digest": "sha256:23230f5a76e3c163625f4cdaab4fe0cdfff4fd8ad049d86e2c62184974dcef91",
+      "path": "data/datasets/sea-q1-fy25.js",
+      "digest": "sha256:0dbbb8dcf3d9e91d5b471af417ef9b2dccd4d24d0f94638724b0e7efa3cd4a36",
       "before": null
     },
     {
-      "path": "data/datasets/roblox-q2-fy24.js",
-      "digest": "sha256:b106887902fc2bf938ee1a23fa48ceaf9804d2b3ba2129844cb5e392c492075e",
+      "path": "data/datasets/sea-q2-fy23.js",
+      "digest": "sha256:52240eda47135ba7d5961477224ee59e728a56a4c6189f4b37196a21a0c02929",
       "before": null
     },
     {
-      "path": "data/datasets/roblox-q2-fy25.js",
-      "digest": "sha256:fe5119662c34dac4eb3eaa1790df1cb6d471346b6437f1b12a3a9df29a751357",
+      "path": "data/datasets/sea-q2-fy24.js",
+      "digest": "sha256:3cfaff6695f5990d5b1c10c20e4edd6fe383fdf043b28499622aca12ee81d747",
       "before": null
     },
     {
-      "path": "data/datasets/roblox-q3-fy22.js",
-      "digest": "sha256:cc4c09c21f0d28fc10ee3b91040febd5350737886b07dd0c4fa0a75f95c62edb",
+      "path": "data/datasets/sea-q2-fy25.js",
+      "digest": "sha256:38458fdc32501642368668a523c165f6345967baa11030dc5c91f15330e89493",
       "before": null
     },
     {
-      "path": "data/datasets/roblox-q3-fy23.js",
-      "digest": "sha256:17ed312eff25ef29d45d634b52a08518f594282f0d9149603e3b9c9e715d48a2",
+      "path": "data/datasets/sea-q3-fy22.js",
+      "digest": "sha256:2c1273bd1b6baaa762c32906c46595231898d53d8f60e5a2f45c4cbd34b45301",
       "before": null
     },
     {
-      "path": "data/datasets/roblox-q3-fy24.js",
-      "digest": "sha256:fe28ec731644f6f8fa121ede90c352666c000279708e3eea5af245b179e35038",
+      "path": "data/datasets/sea-q3-fy23.js",
+      "digest": "sha256:ed245ca714f816c2bf4e63e92eb2b3d3374e52f4a152dbad04ae2b3b38384d85",
       "before": null
     },
     {
-      "path": "data/datasets/roblox-q3-fy25.js",
-      "digest": "sha256:e82d34768e325f8d7f4c61703c5637302c9f29cef618b8ad71a85ea156d9c062",
+      "path": "data/datasets/sea-q3-fy24.js",
+      "digest": "sha256:7e77036f7d1ff5006d5726a74d8b24ed4ea66fb11c784bac18465f543ab8ade6",
       "before": null
     },
     {
-      "path": "data/datasets/roblox-q4-fy22.js",
-      "digest": "sha256:21df51048d3f113f9be879a59416a95708cc6140903a9ccaeb6cf75623ed3403",
+      "path": "data/datasets/sea-q4-fy22.js",
+      "digest": "sha256:f01a4b487a3a6e7b7e7374f3070dac29e730cd98090b4a71dee94a3abd217260",
       "before": null
     },
     {
-      "path": "data/datasets/roblox-q4-fy23.js",
-      "digest": "sha256:783ae559326b9be3e19ae1f6d3d922c873c2bfc4d6cef31a2596aded3d98843e",
+      "path": "data/datasets/sea-q4-fy23.js",
+      "digest": "sha256:e95bbf41cd9aa19db297aebdbb7f943f294022949d0d0ba70bcab0433a9a304d",
       "before": null
     },
     {
-      "path": "data/datasets/servicenow-q1-fy23.js",
-      "digest": "sha256:78fe442b494212d4e2cc3afb80a6491ba3426e7d30a378632a779c0c510bbfcf",
+      "path": "data/datasets/sea-q4-fy24.js",
+      "digest": "sha256:7082bb4a1fef61fbc8de9cc30b072589b3c04392beb5b8babd01ac091c108f0c",
       "before": null
     },
     {
-      "path": "data/datasets/servicenow-q1-fy24.js",
-      "digest": "sha256:a98e6d32be82450849b678aaabaeab8e1154796695408cb47dbdd3527e6c8e96",
+      "path": "data/datasets/semrush-q1-fy24.js",
+      "digest": "sha256:2770a9a026be392fff0c10f1c675b08a239fdad7f3230cce391ac23013f94964",
       "before": null
     },
     {
-      "path": "data/datasets/servicenow-q1-fy25.js",
-      "digest": "sha256:84a38988b3e034e3b5e54c2bc82b1ebd9e3dc24cfa3ef8771a2fc1d861d8adf9",
+      "path": "data/datasets/semrush-q1-fy25.js",
+      "digest": "sha256:4b40d579bd526f28f70fcf706006d3bd32e289fb20fcd2df9c87dbb8de5e2202",
       "before": null
     },
     {
-      "path": "data/datasets/servicenow-q2-fy23.js",
-      "digest": "sha256:e380a24192a8c7c98514a38e208f53f94bd2fc9ffadaedebe4feb9605c2c7fef",
+      "path": "data/datasets/semrush-q2-fy23.js",
+      "digest": "sha256:67b410cfbc695b2e78d5bb12b57ab39a1beaaacda8808996149daba89b1c8f3b",
       "before": null
     },
     {
-      "path": "data/datasets/servicenow-q2-fy24.js",
-      "digest": "sha256:ff16a8b2bed474a6fe1360886086d33806994b7a5a8ee91ab04564d698619766",
+      "path": "data/datasets/semrush-q2-fy24.js",
+      "digest": "sha256:4b3fdc0b300a2a6df559b4653e303f2474add0334c8e49203eb8e356c0810030",
       "before": null
     },
     {
-      "path": "data/datasets/servicenow-q2-fy25.js",
-      "digest": "sha256:9a43a337e0cae02d4f9c5f366f07d98db9d6f2fa7c85ccecebd70125fafd27e4",
+      "path": "data/datasets/semrush-q2-fy25.js",
+      "digest": "sha256:4fbbb61ad5735a86d6940c587b5716300730baba817c8c03184cd62a58df1a6b",
       "before": null
     },
     {
-      "path": "data/datasets/servicenow-q3-fy22.js",
-      "digest": "sha256:2b23fa007c1c30eeedb64d6b280a57910cac616e0f4b126d836bdc18d9f007d5",
+      "path": "data/datasets/semrush-q3-fy22.js",
+      "digest": "sha256:fa97afc2ef1a5d5e4e0b57ccbff159d98bb094be38bacb24aa164001fdf16212",
       "before": null
     },
     {
-      "path": "data/datasets/servicenow-q3-fy23.js",
-      "digest": "sha256:535e82460c8a75804bb2b0d373885e7cf694182e99af38d5a88ed50600aefcc1",
+      "path": "data/datasets/semrush-q3-fy23.js",
+      "digest": "sha256:c1ab1b9c8a6437d4f2b444fe0de019e08630b80819e7a30d39d8c5be4f329656",
       "before": null
     },
     {
-      "path": "data/datasets/servicenow-q3-fy24.js",
-      "digest": "sha256:02e1df3796071dcc270ff2bcce635110dffd35d55b8fdfc5fd7b3ab6e80a55bb",
+      "path": "data/datasets/semrush-q3-fy24.js",
+      "digest": "sha256:f9d29e300d9e96a75bea1b367205941020391e4680b34e94ad6d0fb4a197c31f",
       "before": null
     },
     {
-      "path": "data/datasets/servicenow-q3-fy25.js",
-      "digest": "sha256:0f26217fe364cbb5f2512606e23977e647bc2d8d05c498d8945e8927a9765567",
+      "path": "data/datasets/semrush-q4-fy22.js",
+      "digest": "sha256:d59d6685a190403a7ef03b48b70f68d82c9b992da4ce0bc2660b4618ce9e6176",
       "before": null
     },
     {
-      "path": "data/datasets/servicenow-q4-fy22.js",
-      "digest": "sha256:fb73a8f1c9281b6008e1f2239d8b15b0538be0cc5268ece900f6615d7eebb3a2",
+      "path": "data/datasets/semrush-q4-fy23.js",
+      "digest": "sha256:56fc072270a5a83e369e2c81a856857ee9b2525a90d1278a95932f76e3f2d8d1",
       "before": null
     },
     {
-      "path": "data/datasets/servicenow-q4-fy23.js",
-      "digest": "sha256:5db033576d469eb751af8f7fac75d56894d1d803b30315ceec79d34a3e8a918e",
+      "path": "data/datasets/snowflake-q1-fy24.js",
+      "digest": "sha256:35e5f6574b739fce37fe71d65b62f5191d6dbe27ea193735dc9fcfeebb1f5f39",
       "before": null
     },
     {
-      "path": "data/datasets/servicenow-q4-fy24.js",
-      "digest": "sha256:9c6cabf203c76eab411df955c2ca25e9858d7aa4711796f84f4c277eeaaf17ee",
+      "path": "data/datasets/snowflake-q1-fy25.js",
+      "digest": "sha256:0cb9dac8b72772c77e05be84aeef6a7571e6c9fef60860ec349eae661d7dc0f9",
       "before": null
     },
     {
-      "path": "data/datasets/zoom-q1-fy24.js",
-      "digest": "sha256:e7642961b63c8129d01d9957fa25ff6a6b8085214dc2e979bb860dbed18b19ef",
+      "path": "data/datasets/snowflake-q1-fy26.js",
+      "digest": "sha256:dd209430d2af550bb3948c66b24b2aa02fd3bef65f9b712f286882c784d5df6c",
       "before": null
     },
     {
-      "path": "data/datasets/zoom-q1-fy25.js",
-      "digest": "sha256:185fc42c49ca8307221137db6d11fdbe693182e1910f28a42a8ad5f85ebba936",
+      "path": "data/datasets/snowflake-q2-fy24.js",
+      "digest": "sha256:e377951df167e80b01e1944dceb4134869f96e927e8d493f8aeda3b39daf5bd9",
       "before": null
     },
     {
-      "path": "data/datasets/zoom-q1-fy26.js",
-      "digest": "sha256:583e471bc267fface120b2edfdadaecc0ab5981093f49d49942f63c7ebe9650a",
+      "path": "data/datasets/snowflake-q2-fy25.js",
+      "digest": "sha256:41f7cd5ea147ee183e92e16faec3d418a4654ff3a78c12f93f8742b24d6cb37d",
       "before": null
     },
     {
-      "path": "data/datasets/zoom-q2-fy24.js",
-      "digest": "sha256:4b68468920823509e2ce787e7c322c1a64a5bbde3d8d70700b45e523eef951e3",
+      "path": "data/datasets/snowflake-q2-fy26.js",
+      "digest": "sha256:9c6975445ebdaad306fe16021b5ad4e0f365d797576b655c6058ef2c8e242ea6",
       "before": null
     },
     {
-      "path": "data/datasets/zoom-q2-fy25.js",
-      "digest": "sha256:dc62af9130669ef1a274de9c7c2f9a3124c334a833063142bed4625e2e3111b9",
+      "path": "data/datasets/snowflake-q3-fy23.js",
+      "digest": "sha256:43a1a87353df37b575e2606770143bfb24a49f56fbce8376a7331fd7d86a70df",
       "before": null
     },
     {
-      "path": "data/datasets/zoom-q2-fy26.js",
-      "digest": "sha256:0a2e6e03e86f54e17e3062de310f7262a1d758b228ceecdf572994cc1a80a7ec",
+      "path": "data/datasets/snowflake-q3-fy24.js",
+      "digest": "sha256:172464acf6a7241fc88d825755178b2ff7e946369af942b83a8df020c9620b16",
       "before": null
     },
     {
-      "path": "data/datasets/zoom-q3-fy23.js",
-      "digest": "sha256:64b7b8feb65d649d9b4cd85b786a51e92ac42e473f31f709ff7f9bba9a8e7aac",
+      "path": "data/datasets/snowflake-q3-fy25.js",
+      "digest": "sha256:4013cc9c0509eee429034982a786411338a229518ceadddc08ce8f9a1e8f2d0d",
       "before": null
     },
     {
-      "path": "data/datasets/zoom-q3-fy24.js",
-      "digest": "sha256:5aff9488763d863a5711cd185dce7548d59a0309d8ff44081ea6921d8014106b",
+      "path": "data/datasets/snowflake-q3-fy26.js",
+      "digest": "sha256:3610abe12552063e92c9cf02670adc699c4a7af1c854d1b6550be24897835d21",
       "before": null
     },
     {
-      "path": "data/datasets/zoom-q3-fy25.js",
-      "digest": "sha256:af1468c800a225187c0792a3c4f6238caef9e49d375e7f7b90b10b5e75b2fcf8",
+      "path": "data/datasets/snowflake-q4-fy23.js",
+      "digest": "sha256:d47dd4a8fd5373a5687b884e19e61fde8871f9e8d054a5ef9e13030ef45b0073",
       "before": null
     },
     {
-      "path": "data/datasets/zoom-q4-fy23.js",
-      "digest": "sha256:f08dd3d39c29f036ff2d5ba0e8d3c02026fa0410c334a3fae518d55b98808692",
+      "path": "data/datasets/snowflake-q4-fy24.js",
+      "digest": "sha256:08392e68daad3a20e15634fb5b769308094333d056590abf7b02b8df9c231de4",
       "before": null
     },
     {
-      "path": "data/datasets/zoom-q4-fy24.js",
-      "digest": "sha256:363c271b0183fc4542b5ac959644480c55341f4bb5469682ed403fb399113e2b",
+      "path": "data/datasets/snowflake-q4-fy25.js",
+      "digest": "sha256:f6018ce65c128121b9d737fc914068302f2845767a2cd8372811fd9dd280bb41",
       "before": null
     },
     {
-      "path": "data/datasets/zoom-q4-fy25.js",
-      "digest": "sha256:ed261f8c177aa6b4e4783f0935736a02ec88130d303e62028c63e0d783f8192b",
-      "before": null
-    },
-    {
-      "path": "data/income-statements/cloudflare.js",
-      "digest": "sha256:325121280062fa7a53e32d1bfa6bf45904edc036afc77e0568569e8dbde57102",
-      "before": "sha256:4b8b7aa21325c6ee1d5ccd55996f21e6a670aee47868bb641e6495d96c5e9d33"
+      "path": "data/income-statements/atlassian.js",
+      "digest": "sha256:7acf34245350a0f3b7199d1aeed9e8cad3f8a8209fe9efc86624e75eef2336fa",
+      "before": "sha256:ba9c7c3239ac9c5ee7fa483c13cff6392e897a4d3bb0521ff350419354c00254"
     },
     {
-      "path": "data/income-statements/datadog.js",
-      "digest": "sha256:7ba2fafd4402e01b994b379e67720eb463b76ef1261a00ef137baf2eae0ca265",
-      "before": "sha256:cd4fd05ef0647d3d816ac884dc5c185d106e835520bca284957a975c8f447318"
+      "path": "data/income-statements/jd-com.js",
+      "digest": "sha256:8c253ff19bb6e8bb7a8f066c3fcab0ef7f47b718e802b2eb231a1520187c06b8",
+      "before": "sha256:387ab4c63b20daa64ff07f54ecb859de6189e45f039113abd9f6c6f1c1a4772c"
     },
     {
-      "path": "data/income-statements/pinterest.js",
-      "digest": "sha256:1e773f3a805fc16c187c4589656bedd2993a900458fb1ea9d9de58ce69b36170",
-      "before": "sha256:262f9a2cb51daa12893444123432748f2e75ac9c6e2ec793d4daa717b84562a0"
+      "path": "data/income-statements/netease.js",
+      "digest": "sha256:1adc36cf6d5a98767b61136b84792b00cd78321e8ddaa4a6c0870332f1a3be52",
+      "before": "sha256:ecdc6fa4e943400cb91ffc009115d7d5336096039c5aa5228574adaff05e7545"
     },
     {
-      "path": "data/income-statements/roblox.js",
-      "digest": "sha256:90cc31da62251d5eee82c17b54cc8078cacc0728c370488e696acf15a2e187e2",
-      "before": "sha256:3ea73254ea98eda9f6f53a8942b42f55e38f30224daad8fceaf0f5b864763221"
+      "path": "data/income-statements/sea.js",
+      "digest": "sha256:edce411fc41ef18e2fc0022d6a983435a75021cfd60f10697a5435e99b32712b",
+      "before": "sha256:36a3320187d842d96fd72612015e21644849fe11fc6690614865d9d2d08f6631"
     },
     {
-      "path": "data/income-statements/servicenow.js",
-      "digest": "sha256:4f93fa801037bb20fc43c0de424ac91e8bb3e405b7c9898e3dc196b3216b5ab3",
-      "before": "sha256:0be39a3486c9aea359b7223dcb0e511da08f837e770a65b82c723fe716e6819c"
+      "path": "data/income-statements/semrush.js",
+      "digest": "sha256:f54e8dd95b0d573003f9b43e2756772db84b345160bfc643c517d7b73d74743b",
+      "before": null
     },
     {
-      "path": "data/income-statements/zoom.js",
-      "digest": "sha256:7ac924c3aed8e32a73a99a18d8883257e85e151c21d678e78927d857d1d5c396",
-      "before": "sha256:568a17a35921d2b825a566da07b8dda00de56489f50630047caf7b95f30a8ac6"
+      "path": "data/income-statements/snowflake.js",
+      "digest": "sha256:a5772203eeb933b4de616de3cd95a46901c51b3a97dbfa860f31437d71f4f334",
+      "before": "sha256:d17a20c6793f698dec7f012c3520cfea5ea29036a9319cb3af36be8819803a35"
     },
     {
       "path": "data/render-baselines.json",
-      "digest": "sha256:62cf4184bfb984d3b732c216e46c3351083951c394d83b86c3469b1084b143b9",
-      "before": "sha256:0e639d314d248271e06828aec3fb6650559a74047f3c2f656b24a521d3a7e29a"
+      "digest": "sha256:a1b297578bc20fea02939f19d79482ebe3e6dba6de7b39ce397f4c53f96e1485",
+      "before": "sha256:62cf4184bfb984d3b732c216e46c3351083951c394d83b86c3469b1084b143b9"
     },
     {
       "path": "data/workflow-timestamps.json",
-      "digest": "sha256:c1762f273ba400c71ac0c402623b648df1656dc255b29171847824c17e551ba0",
-      "before": "sha256:6dec1090c823f6336e62148510dc9bffb481ca3bfa959733ea9fc6a914e35f43"
+      "digest": "sha256:363b142af0ac5703fea928213ea96e677fe38d2644e28b75cc4d62783eaf6d1d",
+      "before": "sha256:c1762f273ba400c71ac0c402623b648df1656dc255b29171847824c17e551ba0"
     },
     {
-      "path": "input/icon-crop-specs/roblox-q2-fy24-characters.json",
-      "digest": "sha256:fac90111ec842390d3513ddc6f2c0d69a895081db04f92107b04644853f6bf8b",
+      "path": "index.html",
+      "digest": "sha256:05199f566673d3661452f889b131b1c99382d052ee3cda4bdff295f738412641",
+      "before": "sha256:0c543678342209a175a9c0b847d0c915af170f34bdedc4e90ff163d1cee25aeb"
+    },
+    {
+      "path": "input/icon-crop-specs/netease-q1-fy23.json",
+      "digest": "sha256:f6dcc7ef5702eff832b8e0a5e126ae86926f4df09dba7c141256de9340643be1",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/roblox-q3-fy22-characters.json",
-      "digest": "sha256:018af6e409a1cee170a1b00b8a189067fd81d8ebceef594502f0b2f2d6a18032",
+      "path": "input/icon-crop-specs/netease-q1-fy24.json",
+      "digest": "sha256:bdc9015d1d4b3f3124eb596d450680b7f38f5ead155f27c3d68b5d3234481eb2",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/netease-q2-fy23.json",
+      "digest": "sha256:58233695df37c3b6ba1e96cab697f061e1e845233d863c84a0e56981bb52ee19",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/netease-q2-fy24.json",
+      "digest": "sha256:1a9aece8700b3e2938f0ebe3368c3155f9e2a0480e6e916d4efd165a857b4821",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/netease-q3-fy22.json",
+      "digest": "sha256:a8a29ced6f022bc6b353b27e1e1a0276723ddfa481490069107031edc113985c",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/netease-q3-fy23.json",
+      "digest": "sha256:f87953c4b56c54e68d2725f890cd34564f4e7ac9609c07461b9958bba2480d5a",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/netease-q4-fy22.json",
+      "digest": "sha256:f1a2fbbbbd3e4c527bfd7fd4b57c0b26a73c0e78d78cb1ca6f99c1af4a07336c",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/sea-q2-fy24.json",
+      "digest": "sha256:036e6d3ec478c18f2706ade323eef2a76c454327d65b10b9cbf71a7c31994696",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/sea-q4-fy23.json",
+      "digest": "sha256:854864bd7a1bce534b43525ee5c57eec217886537e0c4eda1e63342c1b3c19c0",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/semrush-q1-fy24.json",
+      "digest": "sha256:2129fbd324eb4afd7717a5fd8c27223de16a1fed46691c6c680e5a1f37d7f77b",
       "before": null
     }
   ],
   "release": {
-    "version": "b27c1ebddfb11596b9883e924f63e388be2cfcb00801279b6cc6411f1c68eda1",
-    "contentDigest": "sha256:a77283700ac3c13be8fcf99aa9e9a5bf29d3d54556b8ebe4bd76b156db5eb657"
+    "version": "5fc23395b6a9647762882cb07ce66b6fa8848897a82e5f48b1f890df6b20f88e",
+    "contentDigest": "sha256:f1128e7e512ba5c19a21051fd4f80c7cfc45c2b2b46859255bc3c56ad5469e6d"
   },
   "approval": {
-    "operator": "Charles Liu",
+    "operator": "操作员原话：“好了，72 个我都人工审阅通过，推送远端合入并发布”（2026-10-22）",
     "accepted": true,
-    "candidateDigest": "sha256:8df44c166ee384ff268e450d0747f7daa463f48eee0299eb4d747d25582e8434",
+    "candidateDigest": "sha256:e71340e856a437293a1f3af20717526e2f7b1ba6128d8ae175c6dcbaa382c1f5",
     "basis": "inherited-build-acceptance",
-    "planDigest": "sha256:e695bf61a909e5cdc7d6a1b8910083f36348f5f9b1ba5a2506a5e1c1bb2f238d",
-    "recordedAt": "2026-10-20T20:24:01.437Z"
+    "planDigest": "sha256:b259dd128a307a851259b59f8041c7aa4810c44912500fd0b1b9b227a180f921",
+    "recordedAt": "2026-10-22T15:28:23.635Z"
   }
 }

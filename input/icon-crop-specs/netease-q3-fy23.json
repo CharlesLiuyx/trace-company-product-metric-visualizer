@@ -1,0 +1,18 @@
+{
+  "source": "input/processed/netease-q3-fy23.png",
+  "outputDir": "data/assets/icon-references/netease-q3-fy23",
+  "runtimeOutputDir": "data/assets/raster-annotations/netease",
+  "crops": [
+    {
+      "key": "netease-games-q3-fy23",
+      "output": "crops/business-games-q3-fy23.png",
+      "searchBox": {
+        "x": 22,
+        "y": 458,
+        "width": 425,
+        "height": 299
+      },
+      "note": "Game wordmark and eight game icons; excludes values, node faces and links."
+    }
+  ]
+}

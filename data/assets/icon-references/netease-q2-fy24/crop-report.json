@@ -1,0 +1,119 @@
+{
+  "source": "input/processing/netease-q2-fy24.png",
+  "spec": "input/icon-crop-specs/netease-q2-fy24.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-22T08:17:55.932351+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/netease",
+  "crops": [
+    {
+      "key": "netease-business-games-q2-fy24",
+      "output": "data/assets/icon-references/netease-q2-fy24/crops/business-games-q2-fy24.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 138207,
+        "losslessBytes": 138207,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 71752,
+        "transparentPixelRatio": 0.5698
+      },
+      "searchBox": {
+        "x": 23,
+        "y": 422,
+        "width": 423,
+        "height": 294
+      },
+      "componentCount": 35,
+      "subjectBox": {
+        "x0": 25,
+        "y0": 422,
+        "x1": 445,
+        "y1": 715
+      },
+      "cropBox": {
+        "x0": 23,
+        "y0": 420,
+        "x1": 447,
+        "y1": 717
+      },
+      "validation": {
+        "width": 424,
+        "height": 297,
+        "foregroundPixels": 50494,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 2,
+          "right": 2,
+          "top": 2,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "NetEase Games logo and eight game icons; excludes all financial text and links.",
+      "runtimeOutput": "data/assets/raster-annotations/netease/business-games-q2-fy24.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 138207,
+        "losslessBytes": 138207,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/netease-q2-fy24/validation-sheets/netease-business-games-q2-fy24.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 381768,
+        "losslessBytes": 381768,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

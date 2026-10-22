@@ -1,0 +1,55 @@
+{
+  "source": "input/processed/semrush-q1-fy24.png",
+  "outputDir": "data/assets/icon-references/semrush",
+  "runtimeOutputDir": "data/assets/raster-annotations/semrush",
+  "validationSheetDir": "data/assets/icon-references/semrush/validation-sheets/semrush-q1-fy24",
+  "report": "crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [
+      242,
+      242,
+      242
+    ],
+    "tolerance": 8
+  },
+  "skipped": [
+    {
+      "key": "publisher-marks",
+      "reason": "Non-semantic creator, website and publication branding are excluded."
+    }
+  ],
+  "crops": [
+    {
+      "key": "semrush-company-logo",
+      "output": "crops/company-logo.png",
+      "runtimeOutput": "company-logo.png",
+      "searchBox": {
+        "x": 685,
+        "y": 236,
+        "width": 378,
+        "height": 172
+      },
+      "cropBox": {
+        "x": 685,
+        "y": 236,
+        "width": 378,
+        "height": 172
+      },
+      "threshold": 15,
+      "minComponentArea": 2,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Only the company wordmark and its integral symbol; excludes financial values, labels, flows, and publisher content."
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "source": "input/processing/netease-q4-fy22.png",
+  "outputDir": "data/assets/icon-references/netease/q4-fy22",
+  "runtimeOutputDir": "data/assets/raster-annotations/netease/q4-fy22",
+  "validationSheetDir": "data/assets/icon-references/netease/q4-fy22/validation-sheets",
+  "report": "crop-report.json",
+  "crops": [
+    {
+      "key": "company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "searchBox": {
+        "x": 693,
+        "y": 356,
+        "width": 466,
+        "height": 99
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "padding": 8,
+      "note": "Source brand cluster only; excludes financial labels and connectors."
+    },
+    {
+      "key": "games-cluster",
+      "output": "crops/games-cluster.png",
+      "searchBox": {
+        "x": 21,
+        "y": 457,
+        "width": 426,
+        "height": 298
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "padding": 8,
+      "note": "Source brand cluster only; excludes financial labels and connectors."
+    },
+    {
+      "key": "cloud-music",
+      "output": "crops/cloud-music.png",
+      "searchBox": {
+        "x": 184,
+        "y": 889,
+        "width": 236,
+        "height": 102
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "padding": 8,
+      "note": "Source brand cluster only; excludes financial labels and connectors."
+    },
+    {
+      "key": "youdao",
+      "output": "crops/youdao.png",
+      "searchBox": {
+        "x": 168,
+        "y": 1099,
+        "width": 281,
+        "height": 68
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "padding": 8,
+      "note": "Source brand cluster only; excludes financial labels and connectors."
+    },
+    {
+      "key": "innovative-cluster",
+      "output": "crops/innovative-cluster.png",
+      "searchBox": {
+        "x": 91,
+        "y": 1231,
+        "width": 133,
+        "height": 107
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "padding": 8,
+      "note": "Source brand cluster only; excludes financial labels and connectors."
+    }
+  ],
+  "backgroundSampleBlocks": [
+    [
+      0,
+      0,
+      80,
+      80
+    ],
+    [
+      2587,
+      0,
+      80,
+      80
+    ]
+  ]
+}

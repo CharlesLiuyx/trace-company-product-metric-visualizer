@@ -1,0 +1,55 @@
+{
+  "source": "input/processed/netease-q2-fy23.png",
+  "crops": [
+    {
+      "key": "company-wordmark",
+      "cropBox": {
+        "x": 691,
+        "y": 339,
+        "width": 468,
+        "height": 96
+      },
+      "output": "data/assets/raster-annotations/netease/netease-q2-fy23-company-wordmark.png"
+    },
+    {
+      "key": "games-brand-and-game-icons",
+      "cropBox": {
+        "x": 20,
+        "y": 456,
+        "width": 428,
+        "height": 301
+      },
+      "output": "data/assets/raster-annotations/netease/netease-q2-fy23-games-brand-and-game-icons.png"
+    },
+    {
+      "key": "cloud-music-logo",
+      "cropBox": {
+        "x": 155,
+        "y": 917,
+        "width": 103,
+        "height": 111
+      },
+      "output": "data/assets/raster-annotations/netease/netease-q2-fy23-cloud-music-logo.png"
+    },
+    {
+      "key": "youdao-wordmark",
+      "cropBox": {
+        "x": 141,
+        "y": 1095,
+        "width": 288,
+        "height": 74
+      },
+      "output": "data/assets/raster-annotations/netease/netease-q2-fy23-youdao-wordmark.png"
+    },
+    {
+      "key": "innovative-business-icons",
+      "cropBox": {
+        "x": 61,
+        "y": 1232,
+        "width": 135,
+        "height": 108
+      },
+      "output": "data/assets/raster-annotations/netease/netease-q2-fy23-innovative-business-icons.png"
+    }
+  ]
+}

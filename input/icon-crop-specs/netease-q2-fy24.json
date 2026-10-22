@@ -1,0 +1,36 @@
+{
+  "source": "input/processing/netease-q2-fy24.png",
+  "outputDir": "data/assets/icon-references/netease-q2-fy24",
+  "runtimeOutputDir": "data/assets/raster-annotations/netease",
+  "validationSheetDir": "data/assets/icon-references/netease-q2-fy24/validation-sheets",
+  "report": "crop-report.json",
+  "backgroundSampleBlocks": [
+    [
+      0,
+      0,
+      50,
+      50
+    ]
+  ],
+  "crops": [
+    {
+      "key": "netease-business-games-q2-fy24",
+      "output": "crops/business-games-q2-fy24.png",
+      "searchBox": {
+        "x": 23,
+        "y": 422,
+        "width": 423,
+        "height": 294
+      },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "padding": 2,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.015,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "NetEase Games logo and eight game icons; excludes all financial text and links."
+    }
+  ]
+}

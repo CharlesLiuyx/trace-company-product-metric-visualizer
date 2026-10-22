@@ -1,0 +1,446 @@
+{
+  "source": "input/processing/sea-q2-fy24.png",
+  "spec": "input/icon-crop-specs/sea-q2-fy24.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-22T08:26:16.428588+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/sea-q2-fy24",
+  "crops": [
+    {
+      "key": "company",
+      "output": "data/assets/icon-references/sea-q2-fy24/crops/company.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 4937,
+        "losslessBytes": 23534,
+        "savingsVsLossless": 0.7902,
+        "metrics": {
+          "meanAbsoluteError": 0.4845,
+          "rootMeanSquareError": 2.1146,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 51,
+          "changedPixelRatio": 0.2911
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 37455,
+        "transparentPixelRatio": 0.5252
+      },
+      "searchBox": {
+        "x": 693,
+        "y": 332,
+        "width": 422,
+        "height": 169
+      },
+      "componentCount": 14,
+      "subjectBox": {
+        "x0": 695,
+        "y0": 335,
+        "x1": 1108,
+        "y1": 498
+      },
+      "cropBox": {
+        "x0": 693,
+        "y0": 332,
+        "x1": 1115,
+        "y1": 501
+      },
+      "validation": {
+        "width": 422,
+        "height": 169,
+        "foregroundPixels": 32043,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 2,
+          "right": 7,
+          "top": 3,
+          "bottom": 3
+        },
+        "centerOffset": {
+          "x": -0.0059,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Native brand cluster only; excludes financial values and explanatory copy.",
+      "runtimeOutput": "data/assets/raster-annotations/sea-q2-fy24/company.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 4937,
+        "losslessBytes": 23534,
+        "savingsVsLossless": 0.7902,
+        "metrics": {
+          "meanAbsoluteError": 0.4845,
+          "rootMeanSquareError": 2.1146,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 51,
+          "changedPixelRatio": 0.2911
+        }
+      },
+      "validationSheet": "data/assets/icon-references/sea-q2-fy24/validation-sheets/company.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 99553,
+        "losslessBytes": 274969,
+        "savingsVsLossless": 0.6379,
+        "metrics": {
+          "meanAbsoluteError": 0.3128,
+          "rootMeanSquareError": 2.1552,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 71,
+          "changedPixelRatio": 0.0777
+        }
+      }
+    },
+    {
+      "key": "shopee",
+      "output": "data/assets/icon-references/sea-q2-fy24/crops/shopee.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2600,
+        "losslessBytes": 12206,
+        "savingsVsLossless": 0.787,
+        "metrics": {
+          "meanAbsoluteError": 0.469,
+          "rootMeanSquareError": 2.0916,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.3137
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 21343,
+        "transparentPixelRatio": 0.6926
+      },
+      "searchBox": {
+        "x": 120,
+        "y": 569,
+        "width": 288,
+        "height": 107
+      },
+      "componentCount": 7,
+      "subjectBox": {
+        "x0": 123,
+        "y0": 574,
+        "x1": 398,
+        "y1": 670
+      },
+      "cropBox": {
+        "x0": 120,
+        "y0": 569,
+        "x1": 408,
+        "y1": 676
+      },
+      "validation": {
+        "width": 288,
+        "height": 107,
+        "foregroundPixels": 8213,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 3,
+          "right": 10,
+          "top": 5,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": -0.0122,
+          "y": -0.0047
+        },
+        "passes": true
+      },
+      "note": "Native brand cluster only; excludes financial values and explanatory copy.",
+      "runtimeOutput": "data/assets/raster-annotations/sea-q2-fy24/shopee.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2600,
+        "losslessBytes": 12206,
+        "savingsVsLossless": 0.787,
+        "metrics": {
+          "meanAbsoluteError": 0.469,
+          "rootMeanSquareError": 2.0916,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.3137
+        }
+      },
+      "validationSheet": "data/assets/icon-references/sea-q2-fy24/validation-sheets/shopee.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 99549,
+        "losslessBytes": 273512,
+        "savingsVsLossless": 0.636,
+        "metrics": {
+          "meanAbsoluteError": 0.3243,
+          "rootMeanSquareError": 2.0536,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 71,
+          "changedPixelRatio": 0.0806
+        }
+      }
+    },
+    {
+      "key": "garena",
+      "output": "data/assets/icon-references/sea-q2-fy24/crops/garena.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2765,
+        "losslessBytes": 12848,
+        "savingsVsLossless": 0.7848,
+        "metrics": {
+          "meanAbsoluteError": 0.5235,
+          "rootMeanSquareError": 1.9583,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.2939
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 17749,
+        "transparentPixelRatio": 0.7225
+      },
+      "searchBox": {
+        "x": 108,
+        "y": 839,
+        "width": 289,
+        "height": 85
+      },
+      "componentCount": 7,
+      "subjectBox": {
+        "x0": 111,
+        "y0": 843,
+        "x1": 386,
+        "y1": 917
+      },
+      "cropBox": {
+        "x0": 108,
+        "y0": 839,
+        "x1": 397,
+        "y1": 924
+      },
+      "validation": {
+        "width": 289,
+        "height": 85,
+        "foregroundPixels": 5688,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 3,
+          "right": 11,
+          "top": 4,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": -0.0138,
+          "y": -0.0176
+        },
+        "passes": true
+      },
+      "note": "Native brand cluster only; excludes financial values and explanatory copy.",
+      "runtimeOutput": "data/assets/raster-annotations/sea-q2-fy24/garena.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2765,
+        "losslessBytes": 12848,
+        "savingsVsLossless": 0.7848,
+        "metrics": {
+          "meanAbsoluteError": 0.5235,
+          "rootMeanSquareError": 1.9583,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.2939
+        }
+      },
+      "validationSheet": "data/assets/icon-references/sea-q2-fy24/validation-sheets/garena.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 100821,
+        "losslessBytes": 275162,
+        "savingsVsLossless": 0.6336,
+        "metrics": {
+          "meanAbsoluteError": 0.3105,
+          "rootMeanSquareError": 1.979,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 72,
+          "changedPixelRatio": 0.0799
+        }
+      }
+    },
+    {
+      "key": "seamoney",
+      "output": "data/assets/icon-references/sea-q2-fy24/crops/seamoney.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2679,
+        "losslessBytes": 11929,
+        "savingsVsLossless": 0.7754,
+        "metrics": {
+          "meanAbsoluteError": 0.5444,
+          "rootMeanSquareError": 2.2042,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 34,
+          "changedPixelRatio": 0.2222
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 15375,
+        "transparentPixelRatio": 0.6665
+      },
+      "searchBox": {
+        "x": 104,
+        "y": 1004,
+        "width": 316,
+        "height": 73
+      },
+      "componentCount": 11,
+      "subjectBox": {
+        "x0": 110,
+        "y0": 1009,
+        "x1": 417,
+        "y1": 1073
+      },
+      "cropBox": {
+        "x0": 104,
+        "y0": 1004,
+        "x1": 420,
+        "y1": 1077
+      },
+      "validation": {
+        "width": 316,
+        "height": 73,
+        "foregroundPixels": 7028,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 3,
+          "top": 5,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": 0.0047,
+          "y": 0.0068
+        },
+        "passes": true
+      },
+      "note": "Native brand cluster only; excludes financial values and explanatory copy.",
+      "runtimeOutput": "data/assets/raster-annotations/sea-q2-fy24/seamoney.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2679,
+        "losslessBytes": 11929,
+        "savingsVsLossless": 0.7754,
+        "metrics": {
+          "meanAbsoluteError": 0.5444,
+          "rootMeanSquareError": 2.2042,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 34,
+          "changedPixelRatio": 0.2222
+        }
+      },
+      "validationSheet": "data/assets/icon-references/sea-q2-fy24/validation-sheets/seamoney.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 97559,
+        "losslessBytes": 269422,
+        "savingsVsLossless": 0.6379,
+        "metrics": {
+          "meanAbsoluteError": 0.3449,
+          "rootMeanSquareError": 2.2968,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 72,
+          "changedPixelRatio": 0.0788
+        }
+      }
+    }
+  ]
+}

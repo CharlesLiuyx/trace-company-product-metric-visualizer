@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-10-20T06:56:45.164Z",
+  "generatedAt": "2026-10-22T08:23:06.697Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -8957,6 +8957,438 @@
       "path": "data/datasets/zoom-q4-fy25.js",
       "updatedAtMs": 1792479402075,
       "updatedAt": "2026-10-20T06:56:42.075Z",
+      "timeSource": "publication"
+    },
+    "atlassian-q1-fy23": {
+      "path": "data/datasets/atlassian-q1-fy23.js",
+      "updatedAtMs": 1792657041913,
+      "updatedAt": "2026-10-22T08:17:21.913Z",
+      "timeSource": "publication"
+    },
+    "atlassian-q1-fy24": {
+      "path": "data/datasets/atlassian-q1-fy24.js",
+      "updatedAtMs": 1792657217888,
+      "updatedAt": "2026-10-22T08:20:17.888Z",
+      "timeSource": "publication"
+    },
+    "atlassian-q1-fy25": {
+      "path": "data/datasets/atlassian-q1-fy25.js",
+      "updatedAtMs": 1792657152925,
+      "updatedAt": "2026-10-22T08:19:12.925Z",
+      "timeSource": "publication"
+    },
+    "atlassian-q1-fy26": {
+      "path": "data/datasets/atlassian-q1-fy26.js",
+      "updatedAtMs": 1792657168967,
+      "updatedAt": "2026-10-22T08:19:28.967Z",
+      "timeSource": "publication"
+    },
+    "atlassian-q2-fy23": {
+      "path": "data/datasets/atlassian-q2-fy23.js",
+      "updatedAtMs": 1792656981924,
+      "updatedAt": "2026-10-22T08:16:21.924Z",
+      "timeSource": "publication"
+    },
+    "atlassian-q2-fy24": {
+      "path": "data/datasets/atlassian-q2-fy24.js",
+      "updatedAtMs": 1792657337138,
+      "updatedAt": "2026-10-22T08:22:17.138Z",
+      "timeSource": "publication"
+    },
+    "atlassian-q2-fy25": {
+      "path": "data/datasets/atlassian-q2-fy25.js",
+      "updatedAtMs": 1792657061894,
+      "updatedAt": "2026-10-22T08:17:41.894Z",
+      "timeSource": "publication"
+    },
+    "atlassian-q3-fy23": {
+      "path": "data/datasets/atlassian-q3-fy23.js",
+      "updatedAtMs": 1792657065062,
+      "updatedAt": "2026-10-22T08:17:45.062Z",
+      "timeSource": "publication"
+    },
+    "atlassian-q3-fy24": {
+      "path": "data/datasets/atlassian-q3-fy24.js",
+      "updatedAtMs": 1792657203785,
+      "updatedAt": "2026-10-22T08:20:03.785Z",
+      "timeSource": "publication"
+    },
+    "atlassian-q3-fy25": {
+      "path": "data/datasets/atlassian-q3-fy25.js",
+      "updatedAtMs": 1792657258528,
+      "updatedAt": "2026-10-22T08:20:58.528Z",
+      "timeSource": "publication"
+    },
+    "atlassian-q4-fy23": {
+      "path": "data/datasets/atlassian-q4-fy23.js",
+      "updatedAtMs": 1792657212884,
+      "updatedAt": "2026-10-22T08:20:12.884Z",
+      "timeSource": "publication"
+    },
+    "atlassian-q4-fy24": {
+      "path": "data/datasets/atlassian-q4-fy24.js",
+      "updatedAtMs": 1792657306475,
+      "updatedAt": "2026-10-22T08:21:46.475Z",
+      "timeSource": "publication"
+    },
+    "atlassian-q4-fy25": {
+      "path": "data/datasets/atlassian-q4-fy25.js",
+      "updatedAtMs": 1792657195256,
+      "updatedAt": "2026-10-22T08:19:55.256Z",
+      "timeSource": "publication"
+    },
+    "jd-com-q1-fy23": {
+      "path": "data/datasets/jd-com-q1-fy23.js",
+      "updatedAtMs": 1792657078101,
+      "updatedAt": "2026-10-22T08:17:58.101Z",
+      "timeSource": "publication"
+    },
+    "jd-com-q1-fy24": {
+      "path": "data/datasets/jd-com-q1-fy24.js",
+      "updatedAtMs": 1792657242618,
+      "updatedAt": "2026-10-22T08:20:42.618Z",
+      "timeSource": "publication"
+    },
+    "jd-com-q1-fy25": {
+      "path": "data/datasets/jd-com-q1-fy25.js",
+      "updatedAtMs": 1792657311460,
+      "updatedAt": "2026-10-22T08:21:51.460Z",
+      "timeSource": "publication"
+    },
+    "jd-com-q2-fy23": {
+      "path": "data/datasets/jd-com-q2-fy23.js",
+      "updatedAtMs": 1792657186042,
+      "updatedAt": "2026-10-22T08:19:46.042Z",
+      "timeSource": "publication"
+    },
+    "jd-com-q2-fy24": {
+      "path": "data/datasets/jd-com-q2-fy24.js",
+      "updatedAtMs": 1792657386697,
+      "updatedAt": "2026-10-22T08:23:06.697Z",
+      "timeSource": "publication"
+    },
+    "jd-com-q2-fy25": {
+      "path": "data/datasets/jd-com-q2-fy25.js",
+      "updatedAtMs": 1792657274756,
+      "updatedAt": "2026-10-22T08:21:14.756Z",
+      "timeSource": "publication"
+    },
+    "jd-com-q3-fy22": {
+      "path": "data/datasets/jd-com-q3-fy22.js",
+      "updatedAtMs": 1792657149254,
+      "updatedAt": "2026-10-22T08:19:09.254Z",
+      "timeSource": "publication"
+    },
+    "jd-com-q3-fy23": {
+      "path": "data/datasets/jd-com-q3-fy23.js",
+      "updatedAtMs": 1792657198400,
+      "updatedAt": "2026-10-22T08:19:58.400Z",
+      "timeSource": "publication"
+    },
+    "jd-com-q3-fy24": {
+      "path": "data/datasets/jd-com-q3-fy24.js",
+      "updatedAtMs": 1792657270547,
+      "updatedAt": "2026-10-22T08:21:10.547Z",
+      "timeSource": "publication"
+    },
+    "jd-com-q4-fy22": {
+      "path": "data/datasets/jd-com-q4-fy22.js",
+      "updatedAtMs": 1792657003490,
+      "updatedAt": "2026-10-22T08:16:43.490Z",
+      "timeSource": "publication"
+    },
+    "jd-com-q4-fy23": {
+      "path": "data/datasets/jd-com-q4-fy23.js",
+      "updatedAtMs": 1792657016461,
+      "updatedAt": "2026-10-22T08:16:56.461Z",
+      "timeSource": "publication"
+    },
+    "jd-com-q4-fy24": {
+      "path": "data/datasets/jd-com-q4-fy24.js",
+      "updatedAtMs": 1792657018417,
+      "updatedAt": "2026-10-22T08:16:58.417Z",
+      "timeSource": "publication"
+    },
+    "netease-q1-fy23": {
+      "path": "data/datasets/netease-q1-fy23.js",
+      "updatedAtMs": 1792657005174,
+      "updatedAt": "2026-10-22T08:16:45.174Z",
+      "timeSource": "publication"
+    },
+    "netease-q1-fy24": {
+      "path": "data/datasets/netease-q1-fy24.js",
+      "updatedAtMs": 1792656988864,
+      "updatedAt": "2026-10-22T08:16:28.864Z",
+      "timeSource": "publication"
+    },
+    "netease-q1-fy25": {
+      "path": "data/datasets/netease-q1-fy25.js",
+      "updatedAtMs": 1792657087441,
+      "updatedAt": "2026-10-22T08:18:07.441Z",
+      "timeSource": "publication"
+    },
+    "netease-q2-fy23": {
+      "path": "data/datasets/netease-q2-fy23.js",
+      "updatedAtMs": 1792657091502,
+      "updatedAt": "2026-10-22T08:18:11.502Z",
+      "timeSource": "publication"
+    },
+    "netease-q2-fy24": {
+      "path": "data/datasets/netease-q2-fy24.js",
+      "updatedAtMs": 1792656989420,
+      "updatedAt": "2026-10-22T08:16:29.420Z",
+      "timeSource": "publication"
+    },
+    "netease-q2-fy25": {
+      "path": "data/datasets/netease-q2-fy25.js",
+      "updatedAtMs": 1792657021320,
+      "updatedAt": "2026-10-22T08:17:01.320Z",
+      "timeSource": "publication"
+    },
+    "netease-q3-fy22": {
+      "path": "data/datasets/netease-q3-fy22.js",
+      "updatedAtMs": 1792657129872,
+      "updatedAt": "2026-10-22T08:18:49.872Z",
+      "timeSource": "publication"
+    },
+    "netease-q3-fy23": {
+      "path": "data/datasets/netease-q3-fy23.js",
+      "updatedAtMs": 1792657103384,
+      "updatedAt": "2026-10-22T08:18:23.384Z",
+      "timeSource": "publication"
+    },
+    "netease-q3-fy24": {
+      "path": "data/datasets/netease-q3-fy24.js",
+      "updatedAtMs": 1792657029199,
+      "updatedAt": "2026-10-22T08:17:09.199Z",
+      "timeSource": "publication"
+    },
+    "netease-q4-fy22": {
+      "path": "data/datasets/netease-q4-fy22.js",
+      "updatedAtMs": 1792657027358,
+      "updatedAt": "2026-10-22T08:17:07.358Z",
+      "timeSource": "publication"
+    },
+    "netease-q4-fy23": {
+      "path": "data/datasets/netease-q4-fy23.js",
+      "updatedAtMs": 1792657155837,
+      "updatedAt": "2026-10-22T08:19:15.837Z",
+      "timeSource": "publication"
+    },
+    "netease-q4-fy24": {
+      "path": "data/datasets/netease-q4-fy24.js",
+      "updatedAtMs": 1792657069207,
+      "updatedAt": "2026-10-22T08:17:49.207Z",
+      "timeSource": "publication"
+    },
+    "sea-q1-fy23": {
+      "path": "data/datasets/sea-q1-fy23.js",
+      "updatedAtMs": 1792657096736,
+      "updatedAt": "2026-10-22T08:18:16.736Z",
+      "timeSource": "publication"
+    },
+    "sea-q1-fy24": {
+      "path": "data/datasets/sea-q1-fy24.js",
+      "updatedAtMs": 1792657267639,
+      "updatedAt": "2026-10-22T08:21:07.639Z",
+      "timeSource": "publication"
+    },
+    "sea-q1-fy25": {
+      "path": "data/datasets/sea-q1-fy25.js",
+      "updatedAtMs": 1792657134209,
+      "updatedAt": "2026-10-22T08:18:54.209Z",
+      "timeSource": "publication"
+    },
+    "sea-q2-fy23": {
+      "path": "data/datasets/sea-q2-fy23.js",
+      "updatedAtMs": 1792657054358,
+      "updatedAt": "2026-10-22T08:17:34.358Z",
+      "timeSource": "publication"
+    },
+    "sea-q2-fy24": {
+      "path": "data/datasets/sea-q2-fy24.js",
+      "updatedAtMs": 1792657327673,
+      "updatedAt": "2026-10-22T08:22:07.673Z",
+      "timeSource": "publication"
+    },
+    "sea-q2-fy25": {
+      "path": "data/datasets/sea-q2-fy25.js",
+      "updatedAtMs": 1792657062853,
+      "updatedAt": "2026-10-22T08:17:42.853Z",
+      "timeSource": "publication"
+    },
+    "sea-q3-fy22": {
+      "path": "data/datasets/sea-q3-fy22.js",
+      "updatedAtMs": 1792657095245,
+      "updatedAt": "2026-10-22T08:18:15.245Z",
+      "timeSource": "publication"
+    },
+    "sea-q3-fy23": {
+      "path": "data/datasets/sea-q3-fy23.js",
+      "updatedAtMs": 1792657108293,
+      "updatedAt": "2026-10-22T08:18:28.293Z",
+      "timeSource": "publication"
+    },
+    "sea-q3-fy24": {
+      "path": "data/datasets/sea-q3-fy24.js",
+      "updatedAtMs": 1792657281629,
+      "updatedAt": "2026-10-22T08:21:21.629Z",
+      "timeSource": "publication"
+    },
+    "sea-q4-fy22": {
+      "path": "data/datasets/sea-q4-fy22.js",
+      "updatedAtMs": 1792656995425,
+      "updatedAt": "2026-10-22T08:16:35.425Z",
+      "timeSource": "publication"
+    },
+    "sea-q4-fy23": {
+      "path": "data/datasets/sea-q4-fy23.js",
+      "updatedAtMs": 1792657037444,
+      "updatedAt": "2026-10-22T08:17:17.444Z",
+      "timeSource": "publication"
+    },
+    "sea-q4-fy24": {
+      "path": "data/datasets/sea-q4-fy24.js",
+      "updatedAtMs": 1792657011292,
+      "updatedAt": "2026-10-22T08:16:51.292Z",
+      "timeSource": "publication"
+    },
+    "semrush-q1-fy24": {
+      "path": "data/datasets/semrush-q1-fy24.js",
+      "updatedAtMs": 1792657365184,
+      "updatedAt": "2026-10-22T08:22:45.184Z",
+      "timeSource": "publication"
+    },
+    "semrush-q1-fy25": {
+      "path": "data/datasets/semrush-q1-fy25.js",
+      "updatedAtMs": 1792657332319,
+      "updatedAt": "2026-10-22T08:22:12.319Z",
+      "timeSource": "publication"
+    },
+    "semrush-q2-fy23": {
+      "path": "data/datasets/semrush-q2-fy23.js",
+      "updatedAtMs": 1792657208041,
+      "updatedAt": "2026-10-22T08:20:08.041Z",
+      "timeSource": "publication"
+    },
+    "semrush-q2-fy24": {
+      "path": "data/datasets/semrush-q2-fy24.js",
+      "updatedAtMs": 1792657321830,
+      "updatedAt": "2026-10-22T08:22:01.830Z",
+      "timeSource": "publication"
+    },
+    "semrush-q2-fy25": {
+      "path": "data/datasets/semrush-q2-fy25.js",
+      "updatedAtMs": 1792657304224,
+      "updatedAt": "2026-10-22T08:21:44.224Z",
+      "timeSource": "publication"
+    },
+    "semrush-q3-fy22": {
+      "path": "data/datasets/semrush-q3-fy22.js",
+      "updatedAtMs": 1792657113615,
+      "updatedAt": "2026-10-22T08:18:33.615Z",
+      "timeSource": "publication"
+    },
+    "semrush-q3-fy23": {
+      "path": "data/datasets/semrush-q3-fy23.js",
+      "updatedAtMs": 1792657227759,
+      "updatedAt": "2026-10-22T08:20:27.759Z",
+      "timeSource": "publication"
+    },
+    "semrush-q3-fy24": {
+      "path": "data/datasets/semrush-q3-fy24.js",
+      "updatedAtMs": 1792657373132,
+      "updatedAt": "2026-10-22T08:22:53.132Z",
+      "timeSource": "publication"
+    },
+    "semrush-q4-fy22": {
+      "path": "data/datasets/semrush-q4-fy22.js",
+      "updatedAtMs": 1792657059168,
+      "updatedAt": "2026-10-22T08:17:39.168Z",
+      "timeSource": "publication"
+    },
+    "semrush-q4-fy23": {
+      "path": "data/datasets/semrush-q4-fy23.js",
+      "updatedAtMs": 1792657139102,
+      "updatedAt": "2026-10-22T08:18:59.102Z",
+      "timeSource": "publication"
+    },
+    "snowflake-q1-fy24": {
+      "path": "data/datasets/snowflake-q1-fy24.js",
+      "updatedAtMs": 1792657126370,
+      "updatedAt": "2026-10-22T08:18:46.370Z",
+      "timeSource": "publication"
+    },
+    "snowflake-q1-fy25": {
+      "path": "data/datasets/snowflake-q1-fy25.js",
+      "updatedAtMs": 1792657222166,
+      "updatedAt": "2026-10-22T08:20:22.166Z",
+      "timeSource": "publication"
+    },
+    "snowflake-q1-fy26": {
+      "path": "data/datasets/snowflake-q1-fy26.js",
+      "updatedAtMs": 1792657316390,
+      "updatedAt": "2026-10-22T08:21:56.390Z",
+      "timeSource": "publication"
+    },
+    "snowflake-q2-fy24": {
+      "path": "data/datasets/snowflake-q2-fy24.js",
+      "updatedAtMs": 1792657141502,
+      "updatedAt": "2026-10-22T08:19:01.502Z",
+      "timeSource": "publication"
+    },
+    "snowflake-q2-fy25": {
+      "path": "data/datasets/snowflake-q2-fy25.js",
+      "updatedAtMs": 1792657238408,
+      "updatedAt": "2026-10-22T08:20:38.408Z",
+      "timeSource": "publication"
+    },
+    "snowflake-q2-fy26": {
+      "path": "data/datasets/snowflake-q2-fy26.js",
+      "updatedAtMs": 1792657278617,
+      "updatedAt": "2026-10-22T08:21:18.617Z",
+      "timeSource": "publication"
+    },
+    "snowflake-q3-fy23": {
+      "path": "data/datasets/snowflake-q3-fy23.js",
+      "updatedAtMs": 1792657058429,
+      "updatedAt": "2026-10-22T08:17:38.429Z",
+      "timeSource": "publication"
+    },
+    "snowflake-q3-fy24": {
+      "path": "data/datasets/snowflake-q3-fy24.js",
+      "updatedAtMs": 1792657182891,
+      "updatedAt": "2026-10-22T08:19:42.891Z",
+      "timeSource": "publication"
+    },
+    "snowflake-q3-fy25": {
+      "path": "data/datasets/snowflake-q3-fy25.js",
+      "updatedAtMs": 1792657231640,
+      "updatedAt": "2026-10-22T08:20:31.640Z",
+      "timeSource": "publication"
+    },
+    "snowflake-q3-fy26": {
+      "path": "data/datasets/snowflake-q3-fy26.js",
+      "updatedAtMs": 1792657046290,
+      "updatedAt": "2026-10-22T08:17:26.290Z",
+      "timeSource": "publication"
+    },
+    "snowflake-q4-fy23": {
+      "path": "data/datasets/snowflake-q4-fy23.js",
+      "updatedAtMs": 1792657039927,
+      "updatedAt": "2026-10-22T08:17:19.927Z",
+      "timeSource": "publication"
+    },
+    "snowflake-q4-fy24": {
+      "path": "data/datasets/snowflake-q4-fy24.js",
+      "updatedAtMs": 1792657262200,
+      "updatedAt": "2026-10-22T08:21:02.200Z",
+      "timeSource": "publication"
+    },
+    "snowflake-q4-fy25": {
+      "path": "data/datasets/snowflake-q4-fy25.js",
+      "updatedAtMs": 1792657352107,
+      "updatedAt": "2026-10-22T08:22:32.107Z",
       "timeSource": "publication"
     },
     "data/revenue-metrics.js": {

@@ -1,0 +1,27 @@
+{
+  "source": "input/processing/netease-q1-fy24.png",
+  "outputDir": "data/assets/icon-references/netease-q1-fy24",
+  "runtimeOutputDir": "data/assets/raster-annotations/netease",
+  "report": "crop-report.json",
+  "crops": [
+    {
+      "key": "netease-q1-fy24-games",
+      "output": "crops/q1-fy24-games-cluster.png",
+      "searchBox": {
+        "x": 20,
+        "y": 482,
+        "width": 430,
+        "height": 301
+      },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "padding": 3,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.05,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Games wordmark and eight game icons only."
+    }
+  ]
+}

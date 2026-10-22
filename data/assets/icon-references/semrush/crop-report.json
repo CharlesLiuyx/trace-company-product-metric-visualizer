@@ -1,0 +1,140 @@
+{
+  "source": "input/processed/semrush-q1-fy24.png",
+  "spec": "input/icon-crop-specs/semrush-q1-fy24.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-22T08:25:35.479993+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/semrush",
+  "crops": [
+    {
+      "key": "semrush-company-logo",
+      "output": "data/assets/icon-references/semrush/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3202,
+        "losslessBytes": 16859,
+        "savingsVsLossless": 0.8101,
+        "metrics": {
+          "meanAbsoluteError": 0.3967,
+          "rootMeanSquareError": 2.0318,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 35,
+          "changedPixelRatio": 0.2144
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 45231,
+        "transparentPixelRatio": 0.6957
+      },
+      "searchBox": {
+        "x": 685,
+        "y": 236,
+        "width": 378,
+        "height": 172
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 695,
+        "y0": 242,
+        "x1": 1054,
+        "y1": 403
+      },
+      "cropBox": {
+        "x0": 685,
+        "y0": 236,
+        "x1": 1063,
+        "y1": 408
+      },
+      "validation": {
+        "width": 378,
+        "height": 172,
+        "foregroundPixels": 16926,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 10,
+          "right": 9,
+          "top": 6,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0013,
+          "y": 0.0029
+        },
+        "passes": true
+      },
+      "note": "Only the company wordmark and its integral symbol; excludes financial values, labels, flows, and publisher content.",
+      "runtimeOutput": "data/assets/raster-annotations/semrush/company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3202,
+        "losslessBytes": 16859,
+        "savingsVsLossless": 0.8101,
+        "metrics": {
+          "meanAbsoluteError": 0.3967,
+          "rootMeanSquareError": 2.0318,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 35,
+          "changedPixelRatio": 0.2144
+        }
+      },
+      "validationSheet": "data/assets/icon-references/semrush/validation-sheets/semrush-q1-fy24/semrush-company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 128,
+        "bytes": 77581,
+        "losslessBytes": 232109,
+        "savingsVsLossless": 0.6658,
+        "metrics": {
+          "meanAbsoluteError": 0.317,
+          "rootMeanSquareError": 2.0106,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 54,
+          "changedPixelRatio": 0.0767
+        }
+      }
+    }
+  ]
+}
