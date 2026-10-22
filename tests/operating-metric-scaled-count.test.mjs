@@ -25,3 +25,15 @@ test('counts reject false scale, currency, negative values and lost inequalities
     assert.throws(() => normalizeOperatingObservation({ ...observation, ...update }));
   }
 });
+
+test('a trailing plus is a Source-printed lower bound', () => {
+  for (const [literal, value, unit] of [['265K+', '265000', 'count'], ['1,000+', '1000', 'count'], ['120%+', '120', '%']]) {
+    const observation = { literal, value, unit, currency: null, comparison: 'gte' };
+    assert.deepEqual(normalizeOperatingObservation(observation), observation);
+  }
+  for (const update of [{ comparison: 'eq' }, { comparison: 'gt' }, { value: '265' }, { literal: '>=265K+' }, { literal: '+' }]) {
+    assert.throws(() => normalizeOperatingObservation({ literal: '265K+', value: '265000', unit: 'count', currency: null, comparison: 'gte', ...update }));
+  }
+  const growth = { literal: '+5%', value: '5', unit: '%', currency: null, comparison: 'eq' };
+  assert.deepEqual(normalizeOperatingObservation(growth), growth);
+});

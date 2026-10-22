@@ -26,9 +26,12 @@ export function normalizeOperatingObservation(raw) {
   requireThat(MONEY.has(raw.unit) ? Object.hasOwn(CURRENCY_PREFIX, raw.currency) : raw.currency === null, 'Operating metric currency disagrees with its dimension');
   requireThat(typeof raw.literal === 'string' && raw.literal.trim(), 'Operating metric literal is required');
   let literal = raw.literal.replaceAll(',', '').replace(/\s/g, '');
-  const comparison = literal.match(/^(>=|<=|>|<)/)?.[0] || '';
+  const prefixComparison = literal.match(/^(>=|<=|>|<)/)?.[0] || '';
+  // Sources also print a lower bound as a trailing plus ("265K+" = at least 265K).
+  const trailingPlus = !prefixComparison && /\d[^\d+]*\+$/.test(literal);
+  const comparison = trailingPlus ? '>=' : prefixComparison;
   requireThat(comparison === COMPARISONS[raw.comparison], 'Operating metric comparison disagrees with its literal');
-  literal = literal.slice(comparison.length);
+  literal = trailingPlus ? literal.slice(0, -1) : literal.slice(comparison.length);
   // Accounting parentheses retain a negative supplemental monetary amount.
   if (MONEY.has(raw.unit) && /^\([^()]+\)$/.test(literal)) {
     const accountingPrefix = literalPrefix(raw.currency, literal);

@@ -802,7 +802,9 @@ operatingMetrics: [{
 Values use exact decimal strings. Units are `K/M/B/T` with an explicit supported
 ISO currency (`USD/EUR/GBP/JPY/CNY/HKD/BRL`), or `%/count` with `currency: null`.
 Comparison is explicit: `eq/gt/gte/lt/lte`; literal must carry the same value,
-unit, currency and inequality. Counts are nonnegative exact decimals, covering
+unit, currency and inequality. A Source lower bound printed with a trailing plus
+is `gte` and keeps its literal: `value: '265000', unit: 'count', currency: null,
+comparison: 'gte', literal: '265K+'`. Counts are nonnegative exact decimals, covering
 whole quantities and Source-stated ratios such as transactions per account
 (`value: '59.4', unit: 'count', currency: null, literal: '59.4'`). A count
 literal may preserve a Source `K/M/B/T` suffix: `value: '112000000', unit:
