@@ -256,7 +256,7 @@ function validateDatasetParity(record, dataset, domain, errors) {
 
   for (const item of flattenItems(record.revenue.items)) checkNode(item, 'revenue item');
   for (const item of flattenItems(record.costs.costOfRevenue?.items)) checkNode(item, 'cost of revenue item', 'cost');
-  for (const item of record.costs.operatingExpenses.items || []) checkNode(item, 'operating expense item');
+  for (const item of flattenItems(record.costs.operatingExpenses.items)) checkNode(item, 'operating expense item');
   for (const item of record.operatingOtherIncome?.items || []) checkNode(item, 'operating other income item');
   for (const item of record.operatingOtherExpenses?.items || []) checkNode(item, 'operating other expense item');
   for (const item of record.otherIncome?.items || []) checkNode(item, 'other income item');
