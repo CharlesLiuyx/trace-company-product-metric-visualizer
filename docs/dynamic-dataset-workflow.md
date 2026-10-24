@@ -100,6 +100,11 @@ Invariants checked by `prepare`:
   "user-directed-source-correction" }`, where `literal` is the corrected display
   and the reason names the authoritative source. It is never inferred or
   combined with precision recovery.
+- Net labels: when a Source label prints a node's net amount while other
+  Source amounts flow into that node (Expenses `($9.2B)` fed by Other income
+  `$0.5B`), the value entry declares `netOfInflows: [<inflow node ids>]`; SSOT
+  and node values stay gross and `valueText` prints the net literal
+  (`data/schema.md`).
 - Topology absent from the exported raster: only when the operator directs
   restoring it, author the node and its `value` entry as usual; the human
   review records that decision.

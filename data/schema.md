@@ -373,7 +373,19 @@ Optional value fields have these shapes:
     approval: 'user-directed-source-correction',
     reason: 'The Source suffix conflicts with the official filing ($3,334M) and chart geometry.',
   } }
+
+{ id: 'expenses', class: 'value', literal: '($9.2B)', value: '9.2', unit: 'B',
+  ssotRef: { family: 'income-statement', path: 'costs.operatingExpenses.total' },
+  node: 'operating_expenses', netOfInflows: ['other_income'] }
 ```
+
+`netOfInflows` is for a Source label that prints a node's net amount while
+other Source amounts flow into that node (here "Other income $0.5B" feeds
+"Expenses ($9.2B)", whose items sum to $9.7B). The literal reconciles against
+the SSOT value and Adapter node value minus the Adapter link values from the
+named nodes; each named node must be its own Source value entry with a link into
+the target, and the target node's `valueText` must print the net literal. It
+cannot combine with `precisionRecovery` or `authoritativeCorrection`.
 
 | Adapter | typed reference | resolved authored value |
 | --- | --- | --- |

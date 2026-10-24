@@ -456,6 +456,60 @@ test('a painted value node cannot reconcile to zero', () => {
   );
 });
 
+test('a net Source label reconciles as node value minus its declared Source inflows', () => {
+  const loaded = ({ valueText = '($9.2B)', links = [{ source: 'gross_profit', target: 'operating_expenses', value: 9.2 }, { source: 'other_income', target: 'operating_expenses', value: 0.5 }] } = {}) => ({
+    records: [{
+      key: DATASET_KEY,
+      unit: 'B',
+      decimals: 1,
+      costs: { operatingExpenses: { total: 9.7, items: [] } },
+      operatingOtherIncome: { total: 0.5, items: [{ id: 'other_income', value: 0.5 }] },
+    }],
+    datasets: [{
+      key: DATASET_KEY,
+      meta: { unit: 'B', decimals: 1 },
+      nodes: [
+        { id: 'operating_expenses', type: 'cost', value: 9.7, ...(valueText == null ? {} : { valueText }) },
+        { id: 'other_income', type: 'profit', value: 0.5 },
+      ],
+      links,
+    }],
+  });
+  const expenses = (overrides = {}) => ({
+    id: 'expenses',
+    class: 'value',
+    literal: '($9.2B)',
+    value: '9.2',
+    unit: 'B',
+    ssotRef: { family: 'income-statement', path: 'costs.operatingExpenses.total' },
+    node: 'operating_expenses',
+    netOfInflows: ['other_income'],
+    ...overrides,
+  });
+  const income = {
+    id: 'other-income',
+    class: 'value',
+    literal: '$0.5B',
+    value: '0.5',
+    unit: 'B',
+    ssotRef: { family: 'income-statement', path: 'operatingOtherIncome.items', id: 'other_income' },
+    node: 'other_income',
+  };
+  assert.equal(create([expenses(), income], { loadedData: loaded() }).reconciliation.checked, 2);
+  assert.throws(() => create([expenses({ netOfInflows: undefined }), income], { loadedData: loaded() }), (error) => error.code === 'SOURCE_OBJECTS_SSOT_VALUE_MISMATCH');
+  assert.throws(() => create([expenses(), income], { loadedData: loaded({ valueText: null }) }), (error) => error.code === 'SOURCE_OBJECTS_NET_INFLOWS_DISPLAY_REQUIRED');
+  assert.throws(() => create([expenses(), income], { loadedData: loaded({ valueText: '($9.7B)' }) }), (error) => error.code === 'SOURCE_OBJECTS_ADAPTER_DISPLAY_MISMATCH');
+  assert.throws(() => create([expenses(), income], { loadedData: loaded({ links: [] }) }), (error) => error.code === 'SOURCE_OBJECTS_NET_INFLOWS_INVALID');
+  assert.throws(() => create([expenses()], { loadedData: loaded() }), (error) => error.code === 'SOURCE_OBJECTS_NET_INFLOWS_INVALID');
+  for (const invalid of [[], ['operating_expenses'], ['other_income', 'other_income']]) {
+    assert.throws(() => create([expenses({ netOfInflows: invalid }), income]), (error) => error.code === 'SOURCE_OBJECTS_NET_INFLOWS_INVALID');
+  }
+  assert.throws(
+    () => create([expenses({ node: undefined, nonNodeMetric: 'operating_expenses' }), income]),
+    (error) => error.code === 'SOURCE_OBJECTS_NET_INFLOWS_INVALID'
+  );
+});
+
 test('Revenue Metric values reconcile against dated observations without Sankey targets', () => {
   const objects = [{
     id: 'arr-2026-01-01',

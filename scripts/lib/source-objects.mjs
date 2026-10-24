@@ -86,6 +86,7 @@ const CLASS_FIELDS = Object.freeze({
   value: Object.freeze([
     'value', 'unit', 'ssotRef', 'node', 'nonNodeMetric', 'precisionRecovery',
     'authoritativeCorrection', 'currency', 'comparison', 'quote', 'referenceBBox', 'labelGroup',
+    'netOfInflows',
   ]),
   label: Object.freeze(['referenceBBox', 'labelGroup']),
   flow: Object.freeze([]),
@@ -495,8 +496,27 @@ function normalizeValueEntry(raw, base, context) {
     ssotRef,
     ...(raw.node != null ? { node: normalizeAdapterId(raw.node, `${id} node`) } : {}),
     ...(raw.nonNodeMetric != null ? { nonNodeMetric: normalizeAdapterId(raw.nonNodeMetric, `${id} nonNodeMetric`) } : {}),
+    ...normalizeNetOfInflows(raw, amount, id),
     ...position,
   };
+}
+
+// A Source label may print a node's net amount while other Source amounts
+// flow into the same node (e.g. "Expenses ($9.2B)" with "Other income $0.5B"
+// feeding it). The literal then reconciles as node value minus those inflows.
+function normalizeNetOfInflows(raw, amount, id) {
+  if (raw.netOfInflows == null) return {};
+  const sources = raw.netOfInflows;
+  invariant(Array.isArray(sources) && sources.length > 0, 'SOURCE_OBJECTS_NET_INFLOWS_INVALID', `${id} netOfInflows must be a non-empty array of Adapter node ids`);
+  invariant(raw.node != null, 'SOURCE_OBJECTS_NET_INFLOWS_INVALID', `${id} netOfInflows applies only to a painted Adapter node`);
+  invariant(
+    !amount.precisionRecovery && !amount.authoritativeCorrection,
+    'SOURCE_OBJECTS_NET_INFLOWS_INVALID',
+    `${id} cannot combine netOfInflows with precisionRecovery or authoritativeCorrection`
+  );
+  const ids = sources.map((source, index) => normalizeAdapterId(source, `${id} netOfInflows[${index}]`));
+  invariant(new Set(ids).size === ids.length && !ids.includes(raw.node), 'SOURCE_OBJECTS_NET_INFLOWS_INVALID', `${id} netOfInflows must name distinct nodes other than its own`);
+  return { netOfInflows: ids };
 }
 
 function normalizeEntry(raw, index, context) {
@@ -809,6 +829,7 @@ function reconcileIncomeStatement(sourceObjects, values, loaded) {
   const nonNodeMetrics = new Map((dataset.nonNodeMetrics || []).map((metric) => [metric.id, metric]));
   const linkedAnnotations = linkedAnnotationMetricIds(dataset);
   const valueNodes = new Set();
+  const valueTargets = new Set(values.map((entry) => entry.node).filter(Boolean));
   const operatingMetrics = assertOperatingMetricView(record, dataset);
   const operating = values.filter((entry) => entry.ssotRef.path === OPERATING_METRIC_SSOT_PATH);
   if (operatingMetrics.length !== operating.length) {
@@ -845,15 +866,19 @@ function reconcileIncomeStatement(sourceObjects, values, loaded) {
       throw sourceObjectsError('SOURCE_OBJECTS_VALUE_NODE_REQUIRED', `${entry.id} is drawn as annotation ${target} with data-link-numerator; map the Source amount to a painted node and a real link (custom curve for a leader shape) and declare a thin face in shortNodes`);
     }
     const type = metric.type;
-    if (!equalAmount(normalizeSankeyMetricValue(actualSsot, type), normalizeSankeyMetricValue(expected, type))) {
-      throw sourceObjectsError('SOURCE_OBJECTS_SSOT_VALUE_MISMATCH', `${entry.id} Source amount ${entry.value}${entry.unit} does not match SSOT ${entry.ssotRef.path}/${entry.ssotRef.id}: ${actualSsot}`);
+    const gross = entry.netOfInflows ? grossOfNetInflows(entry, expected, dataset, valueTargets) : expected;
+    if (!equalAmount(normalizeSankeyMetricValue(actualSsot, type), normalizeSankeyMetricValue(gross, type))) {
+      throw sourceObjectsError('SOURCE_OBJECTS_SSOT_VALUE_MISMATCH', `${entry.id} Source amount ${entry.value}${entry.unit}${gross === expected ? '' : ` plus netOfInflows (${gross})`} does not match SSOT ${entry.ssotRef.path}/${entry.ssotRef.id}: ${actualSsot}`);
     }
     assertRecordDisplayPrecision(record, expected, entry.id);
-    if (!equalAmount(normalizeSankeyMetricValue(metric.value, type), normalizeSankeyMetricValue(expected, type))) {
+    if (!equalAmount(normalizeSankeyMetricValue(metric.value, type), normalizeSankeyMetricValue(gross, type))) {
       throw sourceObjectsError('SOURCE_OBJECTS_ADAPTER_VALUE_MISMATCH', `${entry.id} Source amount ${entry.value}${entry.unit} does not match Adapter metric ${target}: ${metric.value}`);
     }
     if (entry.node) {
       valueNodes.add(entry.node);
+      if (entry.netOfInflows && metric.valueText == null) {
+        throw sourceObjectsError('SOURCE_OBJECTS_NET_INFLOWS_DISPLAY_REQUIRED', `${entry.id} prints a net amount; Adapter node ${target} needs valueText showing ${entry.literal}`);
+      }
       assertNodeDisplayPrecision(dataset, metric, expected, record.unit, entry.id);
       if (expected === 0) {
         throw sourceObjectsError('SOURCE_OBJECTS_NODE_ZERO_VALUE', `${entry.id} maps to painted node ${target} but reconciles to zero`);
@@ -868,6 +893,23 @@ function reconcileIncomeStatement(sourceObjects, values, loaded) {
     }
   }
   return { checked: values.length, unit: record.unit };
+}
+
+// Node value implied by a net Source literal: each named inflow must be its own
+// Source amount and reach the node through Adapter links.
+function grossOfNetInflows(entry, expected, dataset, valueTargets) {
+  let inflow = 0;
+  for (const source of entry.netOfInflows) {
+    if (!valueTargets.has(source)) {
+      throw sourceObjectsError('SOURCE_OBJECTS_NET_INFLOWS_INVALID', `${entry.id} netOfInflows names ${source}, which no Source value entry maps to a node`);
+    }
+    const links = (dataset.links || []).filter((link) => link.source === source && link.target === entry.node);
+    if (!links.length) {
+      throw sourceObjectsError('SOURCE_OBJECTS_NET_INFLOWS_INVALID', `${entry.id} netOfInflows names ${source}, which has no Adapter link into ${entry.node}`);
+    }
+    for (const link of links) inflow += Math.abs(Number(link.value));
+  }
+  return expected < 0 ? expected - inflow : expected + inflow;
 }
 
 // Metric ids that any locale's annotationsSvg presents as a link numerator.
