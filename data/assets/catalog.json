@@ -5909,12 +5909,16 @@
       ],
       "directConsumers": [
         "j-j-q1-fy26",
+        "j-j-q2-fy25",
         "j-j-q2-fy26",
+        "j-j-q3-fy25",
         "j-j-q4-fy25"
       ],
       "consumers": [
         "j-j-q1-fy26",
+        "j-j-q2-fy25",
         "j-j-q2-fy26",
+        "j-j-q3-fy25",
         "j-j-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -5934,11 +5938,13 @@
       "directConsumers": [
         "j-j-q1-fy26",
         "j-j-q2-fy26",
+        "j-j-q3-fy25",
         "j-j-q4-fy25"
       ],
       "consumers": [
         "j-j-q1-fy26",
         "j-j-q2-fy26",
+        "j-j-q3-fy25",
         "j-j-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -5958,12 +5964,27 @@
       "directConsumers": [
         "j-j-q1-fy26",
         "j-j-q2-fy26",
+        "j-j-q3-fy25",
         "j-j-q4-fy25"
       ],
       "consumers": [
         "j-j-q1-fy26",
         "j-j-q2-fy26",
+        "j-j-q3-fy25",
         "j-j-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/j-j/q1-fy23-consumer-brands.png",
+      "digest": "sha256:c67639910e3ec9626e5eab0cc5f18fecb9d7e1bea56387b7e31e23a013fa48bd",
+      "provenance": [],
+      "directConsumers": [
+        "j-j-q1-fy23"
+      ],
+      "consumers": [
+        "j-j-q1-fy23"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -5973,11 +5994,27 @@
       "digest": "sha256:c6f8362629f43a83c7d539123eff912e2134ab3eb577720e6f9b0ea5a6ed78c4",
       "provenance": [],
       "directConsumers": [
+        "j-j-q1-fy23",
+        "j-j-q1-fy24",
         "j-j-q1-fy25",
+        "j-j-q2-fy23",
+        "j-j-q2-fy24",
+        "j-j-q3-fy23",
+        "j-j-q3-fy24",
+        "j-j-q4-fy22",
+        "j-j-q4-fy23",
         "j-j-q4-fy24"
       ],
       "consumers": [
+        "j-j-q1-fy23",
+        "j-j-q1-fy24",
         "j-j-q1-fy25",
+        "j-j-q2-fy23",
+        "j-j-q2-fy24",
+        "j-j-q3-fy23",
+        "j-j-q3-fy24",
+        "j-j-q4-fy22",
+        "j-j-q4-fy23",
         "j-j-q4-fy24"
       ],
       "acceptedVersions": [],
@@ -5988,11 +6025,29 @@
       "digest": "sha256:4d2f282761bc4e71423117c20ae0a21f254a5d5435342365d60a263e176a9ede",
       "provenance": [],
       "directConsumers": [
+        "j-j-q1-fy23",
+        "j-j-q1-fy24",
         "j-j-q1-fy25",
+        "j-j-q2-fy23",
+        "j-j-q2-fy24",
+        "j-j-q2-fy25",
+        "j-j-q3-fy23",
+        "j-j-q3-fy24",
+        "j-j-q4-fy22",
+        "j-j-q4-fy23",
         "j-j-q4-fy24"
       ],
       "consumers": [
+        "j-j-q1-fy23",
+        "j-j-q1-fy24",
         "j-j-q1-fy25",
+        "j-j-q2-fy23",
+        "j-j-q2-fy24",
+        "j-j-q2-fy25",
+        "j-j-q3-fy23",
+        "j-j-q3-fy24",
+        "j-j-q4-fy22",
+        "j-j-q4-fy23",
         "j-j-q4-fy24"
       ],
       "acceptedVersions": [],
@@ -6003,12 +6058,56 @@
       "digest": "sha256:daf2ba86d42de1859a0ac16ef2abb3d85f4578f6a4742d303023a86bb665b838",
       "provenance": [],
       "directConsumers": [
+        "j-j-q1-fy23",
+        "j-j-q1-fy24",
         "j-j-q1-fy25",
+        "j-j-q2-fy23",
+        "j-j-q2-fy24",
+        "j-j-q2-fy25",
+        "j-j-q3-fy23",
+        "j-j-q3-fy24",
+        "j-j-q4-fy22",
+        "j-j-q4-fy23",
         "j-j-q4-fy24"
       ],
       "consumers": [
+        "j-j-q1-fy23",
+        "j-j-q1-fy24",
         "j-j-q1-fy25",
+        "j-j-q2-fy23",
+        "j-j-q2-fy24",
+        "j-j-q2-fy25",
+        "j-j-q3-fy23",
+        "j-j-q3-fy24",
+        "j-j-q4-fy22",
+        "j-j-q4-fy23",
         "j-j-q4-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/j-j/q2-fy23-consumer-health.png",
+      "digest": "sha256:34303a22f833ad8e331d92618d22bc43a33784ec297119c21d61e827c8637646",
+      "provenance": [],
+      "directConsumers": [
+        "j-j-q2-fy23"
+      ],
+      "consumers": [
+        "j-j-q2-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/j-j/q4-fy22-consumer-brands.png",
+      "digest": "sha256:f1c93d61184853542de96bd4895116a388c92812952393f009f8bb9b303c4b7a",
+      "provenance": [],
+      "directConsumers": [
+        "j-j-q4-fy22"
+      ],
+      "consumers": [
+        "j-j-q4-fy22"
       ],
       "acceptedVersions": [],
       "reusable": false

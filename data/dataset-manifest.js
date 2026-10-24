@@ -34589,6 +34589,491 @@
             }
           }
         }
+      },
+      {
+        "key": "j-j-q1-fy23",
+        "src": "data/datasets/j-j-q1-fy23.js",
+        "data": {
+          "name": "J&J · Q1 FY23",
+          "company": "Johnson & Johnson",
+          "meta": {
+            "title": "J&J Q1 FY23 Income Statement",
+            "period": "Q1 FY23"
+          },
+          "i18n": {
+            "zh": {
+              "name": "J&J · 2023 财年第一季度",
+              "meta": {
+                "title": "J&J 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "j-j-q1-fy24",
+        "src": "data/datasets/j-j-q1-fy24.js",
+        "data": {
+          "name": "J&J · Q1 FY24",
+          "company": "Johnson & Johnson",
+          "meta": {
+            "title": "J&J Q1 FY24 Income Statement",
+            "period": "Q1 FY24"
+          },
+          "i18n": {
+            "zh": {
+              "name": "强生 · 2024 财年第一季度",
+              "meta": {
+                "title": "强生 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "j-j-q2-fy23",
+        "src": "data/datasets/j-j-q2-fy23.js",
+        "data": {
+          "name": "J&J · Q2 FY23",
+          "company": "Johnson & Johnson",
+          "meta": {
+            "title": "J&J Q2 FY23 Income Statement",
+            "period": "Q2 FY23"
+          },
+          "i18n": {
+            "zh": {
+              "name": "强生 · 2023 财年第二季度",
+              "meta": {
+                "title": "强生 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "j-j-q2-fy24",
+        "src": "data/datasets/j-j-q2-fy24.js",
+        "data": {
+          "name": "J&J · Q2 FY24",
+          "company": "Johnson & Johnson",
+          "meta": {
+            "title": "J&J Q2 FY24 Income Statement",
+            "period": "Q2 FY24"
+          },
+          "i18n": {
+            "zh": {
+              "name": "强生 · 2024 财年第二季度",
+              "meta": {
+                "title": "强生 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "j-j-q2-fy25",
+        "src": "data/datasets/j-j-q2-fy25.js",
+        "data": {
+          "name": "J&J · Q2 FY25",
+          "company": "Johnson & Johnson",
+          "meta": {
+            "title": "J&J Q2 FY25 Income Statement",
+            "period": "Q2 FY25"
+          },
+          "i18n": {
+            "zh": {
+              "name": "强生 · 2025 财年第二季度",
+              "meta": {
+                "title": "强生 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "j-j-q3-fy23",
+        "src": "data/datasets/j-j-q3-fy23.js",
+        "data": {
+          "name": "J&J · Q3 FY23",
+          "company": "Johnson & Johnson",
+          "meta": {
+            "title": "J&J Q3 FY23 Income Statement",
+            "period": "Q3 FY23"
+          },
+          "i18n": {
+            "zh": {
+              "name": "强生 · 2023 财年第三季度",
+              "meta": {
+                "title": "强生 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "j-j-q3-fy24",
+        "src": "data/datasets/j-j-q3-fy24.js",
+        "data": {
+          "name": "J&J · Q3 FY24",
+          "company": "Johnson & Johnson",
+          "meta": {
+            "title": "J&J Q3 FY24 Income Statement",
+            "period": "Q3 FY24"
+          },
+          "i18n": {
+            "zh": {
+              "name": "强生 · 2024 财年第三季度",
+              "meta": {
+                "title": "强生 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "j-j-q3-fy25",
+        "src": "data/datasets/j-j-q3-fy25.js",
+        "data": {
+          "name": "J&J · Q3 FY25",
+          "company": "Johnson & Johnson",
+          "meta": {
+            "title": "J&J Q3 FY25 Income Statement",
+            "period": "Q3 FY25"
+          },
+          "i18n": {
+            "zh": {
+              "name": "强生 · 2025 财年第三季度",
+              "meta": {
+                "title": "强生 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "j-j-q4-fy22",
+        "src": "data/datasets/j-j-q4-fy22.js",
+        "data": {
+          "name": "J&J · Q4 FY22",
+          "company": "Johnson & Johnson",
+          "meta": {
+            "title": "J&J Q4 FY22 Income Statement",
+            "period": "Q4 FY22"
+          },
+          "i18n": {
+            "zh": {
+              "name": "强生 · 2022 财年第四季度",
+              "meta": {
+                "title": "强生 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "j-j-q4-fy23",
+        "src": "data/datasets/j-j-q4-fy23.js",
+        "data": {
+          "name": "J&J · Q4 FY23",
+          "company": "Johnson & Johnson",
+          "meta": {
+            "title": "J&J Q4 FY23 Income Statement",
+            "period": "Q4 FY23"
+          },
+          "i18n": {
+            "zh": {
+              "name": "强生 · 2023 财年第四季度",
+              "meta": {
+                "title": "强生 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "visa-q1-fy23",
+        "src": "data/datasets/visa-q1-fy23.js",
+        "data": {
+          "name": "Visa · Q1 FY23",
+          "company": "Visa",
+          "meta": {
+            "title": "Visa Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending Dec. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Visa · 2023 财年第一季度",
+              "meta": {
+                "title": "Visa 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2022 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "visa-q1-fy24",
+        "src": "data/datasets/visa-q1-fy24.js",
+        "data": {
+          "name": "Visa · Q1 FY24",
+          "company": "Visa",
+          "meta": {
+            "title": "Visa Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "meta": {
+                "title": "Visa 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "visa-q1-fy25",
+        "src": "data/datasets/visa-q1-fy25.js",
+        "data": {
+          "name": "Visa · Q1 FY25",
+          "company": "Visa",
+          "meta": {
+            "title": "Visa Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Visa · 2025 财年第一季度",
+              "meta": {
+                "title": "Visa 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "visa-q2-fy23",
+        "src": "data/datasets/visa-q2-fy23.js",
+        "data": {
+          "name": "Visa · Q2 FY23",
+          "company": "Visa",
+          "meta": {
+            "title": "Visa Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Mar. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Visa · 2023 财年第二季度",
+              "meta": {
+                "title": "Visa 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "visa-q2-fy24",
+        "src": "data/datasets/visa-q2-fy24.js",
+        "data": {
+          "name": "Visa · Q2 FY24",
+          "company": "Visa",
+          "meta": {
+            "title": "Visa Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Visa · 2024 财年第二季度",
+              "meta": {
+                "title": "Visa 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "visa-q3-fy23",
+        "src": "data/datasets/visa-q3-fy23.js",
+        "data": {
+          "name": "Visa · Q3 FY23",
+          "company": "Visa",
+          "meta": {
+            "title": "Visa Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending June 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Visa · 2023 财年第三季度",
+              "meta": {
+                "title": "Visa 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "visa-q3-fy24",
+        "src": "data/datasets/visa-q3-fy24.js",
+        "data": {
+          "name": "Visa · Q3 FY24",
+          "company": "Visa",
+          "meta": {
+            "title": "Visa Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Visa · 2024 财年第三季度",
+              "meta": {
+                "title": "Visa 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "visa-q3-fy25",
+        "src": "data/datasets/visa-q3-fy25.js",
+        "data": {
+          "name": "Visa · Q3 FY25",
+          "company": "Visa",
+          "meta": {
+            "title": "Visa Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending June 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Visa · 2025 财年第三季度",
+              "meta": {
+                "title": "Visa 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "visa-q4-fy22",
+        "src": "data/datasets/visa-q4-fy22.js",
+        "data": {
+          "name": "Visa · Q4 FY22",
+          "company": "Visa",
+          "meta": {
+            "title": "Visa Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Ending Sept. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Visa · 2022 财年第四季度",
+              "meta": {
+                "title": "Visa 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2022 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "visa-q4-fy23",
+        "src": "data/datasets/visa-q4-fy23.js",
+        "data": {
+          "name": "Visa · Q4 FY23",
+          "company": "Visa",
+          "meta": {
+            "title": "Visa Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Sept. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Visa · 2023 财年第四季度",
+              "meta": {
+                "title": "Visa 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "visa-q4-fy24",
+        "src": "data/datasets/visa-q4-fy24.js",
+        "data": {
+          "name": "Visa · Q4 FY24",
+          "company": "Visa",
+          "meta": {
+            "title": "Visa Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Visa · 2024 财年第四季度",
+              "meta": {
+                "title": "Visa 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "visa-q4-fy25",
+        "src": "data/datasets/visa-q4-fy25.js",
+        "data": {
+          "name": "Visa · Q4 FY25",
+          "company": "Visa",
+          "meta": {
+            "title": "Visa Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Sept. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Visa · 2025 财年第四季度",
+              "meta": {
+                "title": "Visa 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

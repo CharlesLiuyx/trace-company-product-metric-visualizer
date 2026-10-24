@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-10-22T08:23:06.697Z",
+  "generatedAt": "2026-10-24T05:38:41.824Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -9389,6 +9389,138 @@
       "path": "data/datasets/snowflake-q4-fy25.js",
       "updatedAtMs": 1792657352107,
       "updatedAt": "2026-10-22T08:22:32.107Z",
+      "timeSource": "publication"
+    },
+    "j-j-q1-fy23": {
+      "path": "data/datasets/j-j-q1-fy23.js",
+      "updatedAtMs": 1792820280516,
+      "updatedAt": "2026-10-24T05:38:00.516Z",
+      "timeSource": "publication"
+    },
+    "j-j-q1-fy24": {
+      "path": "data/datasets/j-j-q1-fy24.js",
+      "updatedAtMs": 1792820306204,
+      "updatedAt": "2026-10-24T05:38:26.204Z",
+      "timeSource": "publication"
+    },
+    "j-j-q2-fy23": {
+      "path": "data/datasets/j-j-q2-fy23.js",
+      "updatedAtMs": 1792820279839,
+      "updatedAt": "2026-10-24T05:37:59.839Z",
+      "timeSource": "publication"
+    },
+    "j-j-q2-fy24": {
+      "path": "data/datasets/j-j-q2-fy24.js",
+      "updatedAtMs": 1792820297410,
+      "updatedAt": "2026-10-24T05:38:17.410Z",
+      "timeSource": "publication"
+    },
+    "j-j-q2-fy25": {
+      "path": "data/datasets/j-j-q2-fy25.js",
+      "updatedAtMs": 1792820316458,
+      "updatedAt": "2026-10-24T05:38:36.458Z",
+      "timeSource": "publication"
+    },
+    "j-j-q3-fy23": {
+      "path": "data/datasets/j-j-q3-fy23.js",
+      "updatedAtMs": 1792820299463,
+      "updatedAt": "2026-10-24T05:38:19.463Z",
+      "timeSource": "publication"
+    },
+    "j-j-q3-fy24": {
+      "path": "data/datasets/j-j-q3-fy24.js",
+      "updatedAtMs": 1792820302431,
+      "updatedAt": "2026-10-24T05:38:22.431Z",
+      "timeSource": "publication"
+    },
+    "j-j-q3-fy25": {
+      "path": "data/datasets/j-j-q3-fy25.js",
+      "updatedAtMs": 1792820321824,
+      "updatedAt": "2026-10-24T05:38:41.824Z",
+      "timeSource": "publication"
+    },
+    "j-j-q4-fy22": {
+      "path": "data/datasets/j-j-q4-fy22.js",
+      "updatedAtMs": 1792820263457,
+      "updatedAt": "2026-10-24T05:37:43.457Z",
+      "timeSource": "publication"
+    },
+    "j-j-q4-fy23": {
+      "path": "data/datasets/j-j-q4-fy23.js",
+      "updatedAtMs": 1792820291901,
+      "updatedAt": "2026-10-24T05:38:11.901Z",
+      "timeSource": "publication"
+    },
+    "visa-q1-fy23": {
+      "path": "data/datasets/visa-q1-fy23.js",
+      "updatedAtMs": 1792820244628,
+      "updatedAt": "2026-10-24T05:37:24.628Z",
+      "timeSource": "publication"
+    },
+    "visa-q1-fy24": {
+      "path": "data/datasets/visa-q1-fy24.js",
+      "updatedAtMs": 1792820273144,
+      "updatedAt": "2026-10-24T05:37:53.144Z",
+      "timeSource": "publication"
+    },
+    "visa-q1-fy25": {
+      "path": "data/datasets/visa-q1-fy25.js",
+      "updatedAtMs": 1792820255648,
+      "updatedAt": "2026-10-24T05:37:35.648Z",
+      "timeSource": "publication"
+    },
+    "visa-q2-fy23": {
+      "path": "data/datasets/visa-q2-fy23.js",
+      "updatedAtMs": 1792820254237,
+      "updatedAt": "2026-10-24T05:37:34.237Z",
+      "timeSource": "publication"
+    },
+    "visa-q2-fy24": {
+      "path": "data/datasets/visa-q2-fy24.js",
+      "updatedAtMs": 1792820268326,
+      "updatedAt": "2026-10-24T05:37:48.326Z",
+      "timeSource": "publication"
+    },
+    "visa-q3-fy23": {
+      "path": "data/datasets/visa-q3-fy23.js",
+      "updatedAtMs": 1792820249971,
+      "updatedAt": "2026-10-24T05:37:29.971Z",
+      "timeSource": "publication"
+    },
+    "visa-q3-fy24": {
+      "path": "data/datasets/visa-q3-fy24.js",
+      "updatedAtMs": 1792820282742,
+      "updatedAt": "2026-10-24T05:38:02.742Z",
+      "timeSource": "publication"
+    },
+    "visa-q3-fy25": {
+      "path": "data/datasets/visa-q3-fy25.js",
+      "updatedAtMs": 1792820312924,
+      "updatedAt": "2026-10-24T05:38:32.924Z",
+      "timeSource": "publication"
+    },
+    "visa-q4-fy22": {
+      "path": "data/datasets/visa-q4-fy22.js",
+      "updatedAtMs": 1792820242509,
+      "updatedAt": "2026-10-24T05:37:22.509Z",
+      "timeSource": "publication"
+    },
+    "visa-q4-fy23": {
+      "path": "data/datasets/visa-q4-fy23.js",
+      "updatedAtMs": 1792820271007,
+      "updatedAt": "2026-10-24T05:37:51.007Z",
+      "timeSource": "publication"
+    },
+    "visa-q4-fy24": {
+      "path": "data/datasets/visa-q4-fy24.js",
+      "updatedAtMs": 1792820274537,
+      "updatedAt": "2026-10-24T05:37:54.537Z",
+      "timeSource": "publication"
+    },
+    "visa-q4-fy25": {
+      "path": "data/datasets/visa-q4-fy25.js",
+      "updatedAtMs": 1792820310600,
+      "updatedAt": "2026-10-24T05:38:30.600Z",
       "timeSource": "publication"
     },
     "data/revenue-metrics.js": {

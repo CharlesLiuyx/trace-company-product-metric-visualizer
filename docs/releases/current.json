@@ -1,9 +1,9 @@
 {
   "schema": "reviewed-git-release/v1",
-  "id": "transport-f97091dd-0c9f-4933-b9bd-0c4e9a9e6927",
-  "baseHead": "74a82368610ed9b7adb2b0713afdd63b294f9040",
-  "planDigest": "sha256:b259dd128a307a851259b59f8041c7aa4810c44912500fd0b1b9b227a180f921",
-  "publishedDigest": "sha256:a8bf4670f98e8ef6e94b2af1e476293e73af8093b49bd1e368b1d48cad0a6617",
+  "id": "transport-a0a44d5e-ddfd-4d2b-b65a-e7340e8fbb4c",
+  "baseHead": "2aa0d7210d00c7847adabffb12bc7dda03a82ccb",
+  "planDigest": "sha256:0e7fdd5f89727667b2f256f3c22fc3ad59bd93e7ad4844514dfc1459b9a7c391",
+  "publishedDigest": "sha256:f775c4e4a415a96cd2b134fa85172ced248c51b810430ba7a591e302a6e5fb96",
   "builds": [
     {
       "buildId": "build-fbe573ad-5128-4025-b987-54dfc2707ba0",
@@ -914,936 +914,423 @@
       "buildId": "build-3e63d566-9f67-4e65-943d-9e8a22af600e",
       "key": "snowflake-q4-fy25",
       "sealDigest": "sha256:f57c2d9abaaad58e974ef4bcd6fdc023cf0fcc7c3d3f8bf239b4cfb94b7ba945"
+    },
+    {
+      "buildId": "build-1801c2b2-6c26-4de5-aeb6-7cbf66faf8fe",
+      "key": "j-j-q1-fy23",
+      "sealDigest": "sha256:22a28077cc4253b0334f7f7f049852b43aed07ee21d473002f980b3ea9eb043d"
+    },
+    {
+      "buildId": "build-e191bd9e-64fc-46c8-a0f6-99561b22750f",
+      "key": "j-j-q1-fy24",
+      "sealDigest": "sha256:3415133c349df7e9b420f5326adc76826a4ed0f9197aee262c0582bf72e1737b"
+    },
+    {
+      "buildId": "build-3d084084-95c6-4d82-acf8-ab3966e981de",
+      "key": "j-j-q2-fy23",
+      "sealDigest": "sha256:86061c09e8cb9ad6115c147148fe0add73d9b96fef10e148b5f71e35629c931f"
+    },
+    {
+      "buildId": "build-aaef0366-f88a-4dc0-a5f3-8d2745981df6",
+      "key": "j-j-q2-fy24",
+      "sealDigest": "sha256:1bc8418ad20213320f993f71474359e9435d0a3e1d475fc89d0382514ce7a8d2"
+    },
+    {
+      "buildId": "build-a7e522a8-c739-42a3-8d66-292fec9b6b26",
+      "key": "j-j-q2-fy25",
+      "sealDigest": "sha256:320f86d2b063ba2cd5a5e3f9926fc38fac10817a6b8c5d6b2d2fe1c22871ab0f"
+    },
+    {
+      "buildId": "build-c26705c6-85d7-4349-9806-6524942659b5",
+      "key": "j-j-q3-fy23",
+      "sealDigest": "sha256:897d966b8af3b03b2465122165adf8fb3222c2cd3a9f2ed4e00b00ac29ce0148"
+    },
+    {
+      "buildId": "build-c0129614-c68a-42b7-88da-009a07364fdd",
+      "key": "j-j-q3-fy24",
+      "sealDigest": "sha256:398a30024750e9e3c650b488c38d40cfce79c608a63f22dcd96797bde07ac817"
+    },
+    {
+      "buildId": "build-d114be4f-4004-4c58-a523-045567db8e55",
+      "key": "j-j-q3-fy25",
+      "sealDigest": "sha256:5e456f8253eecdc8770e065f2fa13526f494f9dabfeedf6f83eb2074a3028979"
+    },
+    {
+      "buildId": "build-be85c6c9-841b-492f-98a6-63d220e92293",
+      "key": "j-j-q4-fy22",
+      "sealDigest": "sha256:aa73b2ae237e883d6c38f3398b51c476d7b609269e36034ef950a809270d8297"
+    },
+    {
+      "buildId": "build-5efd10ae-7bde-44f8-9ec7-1984ac9aa427",
+      "key": "j-j-q4-fy23",
+      "sealDigest": "sha256:0bce670074608ce1d56301cfe4922880291879447d777b22ca2a4ec20ec31f3a"
+    },
+    {
+      "buildId": "build-806d5686-9f52-43c1-9d72-fbd0084f2700",
+      "key": "visa-q1-fy23",
+      "sealDigest": "sha256:81da607bc924cadcd393f031102a080039f46e84b9cb2bcefea182d79ec7eea1"
+    },
+    {
+      "buildId": "build-a290e20c-119a-45c9-b29a-31c2d9d47e5c",
+      "key": "visa-q1-fy24",
+      "sealDigest": "sha256:1c4a01b9fe337d7d2da654eac2586da5fef02a1f818ace4fc4730ab9ca3ad322"
+    },
+    {
+      "buildId": "build-560a1851-99e4-41ae-bc73-ec272f4dc8b0",
+      "key": "visa-q1-fy25",
+      "sealDigest": "sha256:c16ef134e6996fb98eac9e8af32cd8e49c6aef98ae16bf2307c1b57cde41b2d3"
+    },
+    {
+      "buildId": "build-8bdebe99-086a-47de-8405-85b4083b4c00",
+      "key": "visa-q2-fy23",
+      "sealDigest": "sha256:8218a251fbb0bb0cbca5a3f7de0a2eb60704073d23110973cc9bd7e7f2b1c0d9"
+    },
+    {
+      "buildId": "build-9fb203c2-5d77-4f5b-9f7f-0ed37b2c4166",
+      "key": "visa-q2-fy24",
+      "sealDigest": "sha256:24069f887f419216b23e19e3c51906fe62bef16573fba5ef0a7ed6d6962aa1b6"
+    },
+    {
+      "buildId": "build-c0fb409a-b329-4c26-b5c5-48e421232799",
+      "key": "visa-q3-fy23",
+      "sealDigest": "sha256:a033907b0757b2dbb3a289bf78e9b0b6f56402897ced40eb4403dc18050e6eb8"
+    },
+    {
+      "buildId": "build-80873fcb-1298-4e44-9700-d18292e418d0",
+      "key": "visa-q3-fy24",
+      "sealDigest": "sha256:b806bdc14189df9a2fbf9565fc146cdf357d266391985db864d5693f7944870e"
+    },
+    {
+      "buildId": "build-54ac3a99-09e0-4bd6-9677-ed0b13bb6334",
+      "key": "visa-q3-fy25",
+      "sealDigest": "sha256:8d152392257e0a47461bf7429808d2795e6d8fa284f3ef08c8706d629ff8f2a5"
+    },
+    {
+      "buildId": "build-f968a425-c415-43a0-933f-ad948adb13dd",
+      "key": "visa-q4-fy22",
+      "sealDigest": "sha256:8bcda6bd8851c398a9c76418c5b50a4cc1441a72dcc43121689985cf5451e21f"
+    },
+    {
+      "buildId": "build-56616644-dada-49ec-a3e4-ecb971b76e8b",
+      "key": "visa-q4-fy23",
+      "sealDigest": "sha256:3721ad696948f305758a7f60ad1bbdebc77e221f74d3d637ff3ba8e71551daf6"
+    },
+    {
+      "buildId": "build-9bbbdd4e-09d5-498f-8095-8cd63ce7bca2",
+      "key": "visa-q4-fy24",
+      "sealDigest": "sha256:7530c5ca9ea31906fbc6539b0b84ba8198f136445766ee4914e2272829d3570f"
+    },
+    {
+      "buildId": "build-7ce67d8f-6c39-4afd-aec3-21be5c25ee15",
+      "key": "visa-q4-fy25",
+      "sealDigest": "sha256:245a257b55736bc06b92748dcb3c546219be5086506ed4be623d10fe37636b7c"
     }
   ],
-  "candidateDigest": "sha256:e71340e856a437293a1f3af20717526e2f7b1ba6128d8ae175c6dcbaa382c1f5",
+  "candidateDigest": "sha256:dea359bf2cce6214d2b13952324953971a3b2f9fb071ca0a92479ab4778d916f",
   "paths": [
     {
       "path": "data/assets/catalog.json",
-      "digest": "sha256:c0caaf9b5872d11cb554aff1c60b7ef1e36eaa2d76d118f1aeb6342ee3f58a8c",
-      "before": "sha256:b49bc98ffca4940c6462cc16939f0f02b2d6521811fd1b29e8fd1131d816e43c"
+      "digest": "sha256:a6e7b754baae28eabdf30ae419cecdba591bbc58adee713456e6ed9d8cf961ef",
+      "before": "sha256:c0caaf9b5872d11cb554aff1c60b7ef1e36eaa2d76d118f1aeb6342ee3f58a8c"
     },
     {
-      "path": "data/assets/icon-references/netease-q1-fy24/crop-report.json",
-      "digest": "sha256:040143021cd6a86498206183965793e019d85335b5caca1ade93194da9f3afe1",
+      "path": "data/assets/raster-annotations/j-j/q1-fy23-consumer-brands.png",
+      "digest": "sha256:c67639910e3ec9626e5eab0cc5f18fecb9d7e1bea56387b7e31e23a013fa48bd",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/netease-q1-fy24/crops/q1-fy24-games-cluster.png",
-      "digest": "sha256:9c17c5ef7e17d06522ea36f63180f8a14d355e0c14b6a8e80f2b18a3392baf82",
+      "path": "data/assets/raster-annotations/j-j/q2-fy23-consumer-health.png",
+      "digest": "sha256:34303a22f833ad8e331d92618d22bc43a33784ec297119c21d61e827c8637646",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/netease-q1-fy24/model-validation.md",
-      "digest": "sha256:f0d73fcdd9631d4a3e336f4797c7f7c3b239e8bbc967971c7ccf1bfbe31dda59",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/netease-q2-fy23/model-validation.md",
-      "digest": "sha256:285465dcab8750bdd5ff553ce0e3cbbaec73aa99ad45b79dbb7d99e83bdc89c1",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/netease-q2-fy24/crop-report.json",
-      "digest": "sha256:b9c56e151cdbc8bf08f9bba582feb957788d0804b339c741450d75a03a57be8d",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/netease-q2-fy24/crops/business-games-q2-fy24.png",
-      "digest": "sha256:4983b781659da5f760dbedd2173c397279ec70b6d93add4bfededa1a7f57b198",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/netease-q2-fy24/model-validation.md",
-      "digest": "sha256:751332bc5db6925e65ad4ae264ce36839b2912584fc49834805386edf1593d04",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/netease-q3-fy22/crop-report.json",
-      "digest": "sha256:98dbd03ec67445395714ae037d8c4c24baa229eb389891d63ea12987abeb9422",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/netease-q3-fy22/crops/cloud-music.png",
-      "digest": "sha256:252fb4ee8aa88ba500aad471c537cb87f4cddd8c9caaad2492dd98d65a971442",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/netease-q3-fy22/crops/company-wordmark.png",
-      "digest": "sha256:9b5f1a8ea626db886d10416af4c7ad0feb7810fd52d3616222dd06ead00ab93b",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/netease-q3-fy22/crops/games-cluster.png",
-      "digest": "sha256:152f465e9b003bdfd2efc6dfc2f09fa1159c74381d99d5fa8a4f9378aacf8e34",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/netease-q3-fy22/crops/innovative-cluster.png",
-      "digest": "sha256:962d4cadf3acc3e74b53f027327e09506b935e1d1ed51db4fb26e963501e086b",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/netease-q3-fy22/crops/youdao-wordmark.png",
-      "digest": "sha256:7e0c617310eda1782dc1ec0cf477a3d87f34d58c306547408313639e3ac3cc4f",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/netease-q3-fy22/model-validation.md",
-      "digest": "sha256:71989ca01eade3f6460dce57fe691941b826d423401d204b2de288f71ee90d56",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/netease/q1-fy23/crop-report.json",
-      "digest": "sha256:b677943ed8c6a972968372537b5abd7dde0af08d17b8d88e3f0c9ec0d3f69e17",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/netease/q1-fy23/crops/business-cloud-music.png",
-      "digest": "sha256:1ba517a1f60123e2f1959e82ab52fc919630fe9e6ff2228738bd43234b44fbee",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/netease/q1-fy23/crops/business-games-cluster.png",
-      "digest": "sha256:454949763998ec446ce2495409262f0ef41420e4ecb7baef4a8d6d6767413465",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/netease/q1-fy23/crops/business-innovative-cluster.png",
-      "digest": "sha256:1d03f75f37809a92183899aa39036eaf308a5b41dd7cdd02a6a95e1f06791f59",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/netease/q1-fy23/crops/business-youdao-wordmark.png",
-      "digest": "sha256:63849a4a93d167222d63bdb5d4d81f0688ae165bd3ad9e1255329eda3676c0a0",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/netease/q1-fy23/crops/company-wordmark.png",
-      "digest": "sha256:f9dc7130f90ee39c945bc23092d2f26d01366b462f1d3f705994a2b69933afff",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/netease/q1-fy23/model-validation.md",
-      "digest": "sha256:c034952a52f72bc1f2e989a4ca4af0abbc9e5f1da257c1e668363392d0d30d4c",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/netease/q4-fy22/crop-report.json",
-      "digest": "sha256:5f939f9a4ccd7835813912e4f21ac2c816c80c58a591e85b75069d112cfe5dfb",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/netease/q4-fy22/crops/cloud-music.png",
-      "digest": "sha256:e8c99dc4a838c8614915dee2498d02c6a107737582078354c234d977d66fa19b",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/netease/q4-fy22/crops/company-wordmark.png",
-      "digest": "sha256:469c34741d587132184f85565f91150476f4089dfda03092e63b80f06caf052d",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/netease/q4-fy22/crops/games-cluster.png",
-      "digest": "sha256:243cf3bbae23964a9c242f304d9d32fd8195c1b4ab3fba39d915dec7bcf4b8e4",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/netease/q4-fy22/crops/innovative-cluster.png",
-      "digest": "sha256:39466d70367379ddaf7e25cdfcc0fdb48b9df8b92ae54870b9a17591ec7eae8d",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/netease/q4-fy22/crops/youdao.png",
-      "digest": "sha256:662f7f768108867946798fdd38e16fee86486f942ef691c9dc54cd40c6e98562",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/netease/q4-fy22/model-validation.md",
-      "digest": "sha256:6611026d714d161184ec7ba58079c04cbd30bb8286e5157413fe21294abcae23",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/sea-q2-fy24/crop-report.json",
-      "digest": "sha256:31003eb0b806985547147f1802b719d45995ba7a6f30b774cb2cfcee45d84432",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/sea-q2-fy24/crops/callout-garena.png",
-      "digest": "sha256:7e682f30f8008ad7c5264f4d1b611d40af403645fde717a51c1607f6dfcb29c9",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/sea-q2-fy24/crops/callout-seamoney.png",
-      "digest": "sha256:9a86219f1fc3ef07529c9ceff138f43db3c05135d6881c2abff633b27e940e03",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/sea-q2-fy24/crops/callout-shopee.png",
-      "digest": "sha256:4ef6ab23ade39c9cf9e219c5a5fbf0de0c802b1703cb83bc85ffea8f8dfc4d2c",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/sea-q2-fy24/crops/company.png",
-      "digest": "sha256:54901b45111aea5125db42a8e6cba04ebd3d0f37ff07f03cf8d71c3085fa73ee",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/sea-q2-fy24/crops/garena.png",
-      "digest": "sha256:11a071ac47581dcd561cae28f5698502f49beb23f3ef606a98aed45cd7ed801f",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/sea-q2-fy24/crops/seamoney.png",
-      "digest": "sha256:08d2efe80bdc7a30130649691d014f1297844258157b3a846ba3a999a5f3dabc",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/sea-q2-fy24/crops/shopee.png",
-      "digest": "sha256:d97429cd7a4492833c29dc3d3457c66d9349acc3e264d85572d5f4c4a04ecd5e",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/sea-q2-fy24/model-validation.md",
-      "digest": "sha256:797136a16ea608426f29c57ac8adfcd26b0b8660a586d40d64cf117f53d81e51",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/sea-q4-fy23/crop-report.json",
-      "digest": "sha256:7faa141854c5d5689361ac45546f702d8a004a9c7420cf951dfdf9149824ce8e",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/sea-q4-fy23/crops/callout-garena.png",
-      "digest": "sha256:ed2fc2fc49306a99e1a4472fd35f11c2aafa96788483c90bdaec7f039c286480",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/sea-q4-fy23/crops/callout-seamoney.png",
-      "digest": "sha256:9891720568816d1f2642ab76841179918a09b7ffeff20f6cf47531c4b04f6770",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/sea-q4-fy23/crops/callout-shopee.png",
-      "digest": "sha256:523573ed555706daf234923d8752882062d1a43d73760aaeeb116279dabd1c14",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/sea-q4-fy23/crops/company.png",
-      "digest": "sha256:7e6b21a6eee3892bd0b0ce14afe5c979521aeef5c7bc25139c8e9ae3fc857dd5",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/sea-q4-fy23/crops/garena.png",
-      "digest": "sha256:f72c91c0407424b44b5cf1dc40fcefc0ec7b1150c5a52a5fd12635a1df68ea11",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/sea-q4-fy23/crops/seamoney.png",
-      "digest": "sha256:73c3ede245596e4aaebd60d214178c585a56f8923d1819aa35539c03d522efb8",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/sea-q4-fy23/crops/shopee.png",
-      "digest": "sha256:12dac274392d3164342d422aab5338e267cfd172f7aa4429ee8ea0de7420d206",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/sea-q4-fy23/model-validation.md",
-      "digest": "sha256:ac14fb41f752866eaef9bff4a610a3b6530d199588daf0c347b561c00798d274",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/semrush/crop-report.json",
-      "digest": "sha256:fc6a84b38a6ddd3ef49741a36e9d86f9f72cd2fad3124a14baaad9ea3a455612",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/semrush/crops/company-logo.png",
-      "digest": "sha256:f910f5659309226eaf54bace95493d5f503671d1f4960d8a9b242958e5902d98",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/semrush/model-validation.md",
-      "digest": "sha256:13812010c3ffec19f213eecb583ec468a2a8754e5b91a769daeb2e0c745f00f8",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/netease-q3-fy22/cloud-music.png",
-      "digest": "sha256:252fb4ee8aa88ba500aad471c537cb87f4cddd8c9caaad2492dd98d65a971442",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/netease-q3-fy22/company-wordmark.png",
-      "digest": "sha256:9b5f1a8ea626db886d10416af4c7ad0feb7810fd52d3616222dd06ead00ab93b",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/netease-q3-fy22/games-cluster.png",
-      "digest": "sha256:152f465e9b003bdfd2efc6dfc2f09fa1159c74381d99d5fa8a4f9378aacf8e34",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/netease-q3-fy22/innovative-cluster.png",
-      "digest": "sha256:962d4cadf3acc3e74b53f027327e09506b935e1d1ed51db4fb26e963501e086b",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/netease-q3-fy22/youdao-wordmark.png",
-      "digest": "sha256:7e0c617310eda1782dc1ec0cf477a3d87f34d58c306547408313639e3ac3cc4f",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/netease/business-games-q2-fy24.png",
-      "digest": "sha256:4983b781659da5f760dbedd2173c397279ec70b6d93add4bfededa1a7f57b198",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/netease/business-games-q3-fy23.png",
-      "digest": "sha256:e1ccac76151c3d4cbc9951e0331e0adf138f77d46bfb4f2efdef1347ceb16616",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/netease/netease-q2-fy23-cloud-music-logo.png",
-      "digest": "sha256:07aa56ff4d4d09ae7cdcc98a245b3b2af12d34e6b068571775f906fca98e26b5",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/netease/netease-q2-fy23-company-wordmark.png",
-      "digest": "sha256:2f090bea03dff3dc809ff87d9c8730d6df4ecd596abbda943af6bbd09e902c01",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/netease/netease-q2-fy23-games-brand-and-game-icons.png",
-      "digest": "sha256:f5c5211ec884e329c3aa53f3947450420d62b75701cfe64c4d8fab7d21ff430c",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/netease/netease-q2-fy23-innovative-business-icons.png",
-      "digest": "sha256:cebfc83f274bfc634bdd8e6156f6bc9748071dab86de4e8af34cd7b06812815a",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/netease/netease-q2-fy23-youdao-wordmark.png",
-      "digest": "sha256:788d81c353623daf2c5a041d79d661da43ea2790664933b43d4f6c84e5c3866e",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/netease/q1-fy23/business-cloud-music.png",
-      "digest": "sha256:1ba517a1f60123e2f1959e82ab52fc919630fe9e6ff2228738bd43234b44fbee",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/netease/q1-fy23/business-games-cluster.png",
-      "digest": "sha256:454949763998ec446ce2495409262f0ef41420e4ecb7baef4a8d6d6767413465",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/netease/q1-fy23/business-innovative-cluster.png",
-      "digest": "sha256:1d03f75f37809a92183899aa39036eaf308a5b41dd7cdd02a6a95e1f06791f59",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/netease/q1-fy23/business-youdao-wordmark.png",
-      "digest": "sha256:63849a4a93d167222d63bdb5d4d81f0688ae165bd3ad9e1255329eda3676c0a0",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/netease/q1-fy23/company-wordmark.png",
-      "digest": "sha256:f9dc7130f90ee39c945bc23092d2f26d01366b462f1d3f705994a2b69933afff",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/netease/q1-fy24-games-cluster.png",
-      "digest": "sha256:9c17c5ef7e17d06522ea36f63180f8a14d355e0c14b6a8e80f2b18a3392baf82",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/netease/q4-fy22/cloud-music.png",
-      "digest": "sha256:e8c99dc4a838c8614915dee2498d02c6a107737582078354c234d977d66fa19b",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/netease/q4-fy22/company-wordmark.png",
-      "digest": "sha256:469c34741d587132184f85565f91150476f4089dfda03092e63b80f06caf052d",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/netease/q4-fy22/games-cluster.png",
-      "digest": "sha256:243cf3bbae23964a9c242f304d9d32fd8195c1b4ab3fba39d915dec7bcf4b8e4",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/netease/q4-fy22/innovative-cluster.png",
-      "digest": "sha256:39466d70367379ddaf7e25cdfcc0fdb48b9df8b92ae54870b9a17591ec7eae8d",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/netease/q4-fy22/youdao.png",
-      "digest": "sha256:662f7f768108867946798fdd38e16fee86486f942ef691c9dc54cd40c6e98562",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/sea-q2-fy23/seamoney.png",
-      "digest": "sha256:9e54d99f479fb8af14f1b6f2ecec48340e84e83b09fc5612e5e7314d42ab8fe6",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/sea-q2-fy24/callout-garena.png",
-      "digest": "sha256:7e682f30f8008ad7c5264f4d1b611d40af403645fde717a51c1607f6dfcb29c9",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/sea-q2-fy24/callout-seamoney.png",
-      "digest": "sha256:9a86219f1fc3ef07529c9ceff138f43db3c05135d6881c2abff633b27e940e03",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/sea-q2-fy24/callout-shopee.png",
-      "digest": "sha256:4ef6ab23ade39c9cf9e219c5a5fbf0de0c802b1703cb83bc85ffea8f8dfc4d2c",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/sea-q2-fy24/company.png",
-      "digest": "sha256:54901b45111aea5125db42a8e6cba04ebd3d0f37ff07f03cf8d71c3085fa73ee",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/sea-q2-fy24/garena.png",
-      "digest": "sha256:11a071ac47581dcd561cae28f5698502f49beb23f3ef606a98aed45cd7ed801f",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/sea-q2-fy24/seamoney.png",
-      "digest": "sha256:08d2efe80bdc7a30130649691d014f1297844258157b3a846ba3a999a5f3dabc",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/sea-q2-fy24/shopee.png",
-      "digest": "sha256:d97429cd7a4492833c29dc3d3457c66d9349acc3e264d85572d5f4c4a04ecd5e",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/sea-q4-fy23/callout-garena.png",
-      "digest": "sha256:ed2fc2fc49306a99e1a4472fd35f11c2aafa96788483c90bdaec7f039c286480",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/sea-q4-fy23/callout-seamoney.png",
-      "digest": "sha256:9891720568816d1f2642ab76841179918a09b7ffeff20f6cf47531c4b04f6770",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/sea-q4-fy23/callout-shopee.png",
-      "digest": "sha256:523573ed555706daf234923d8752882062d1a43d73760aaeeb116279dabd1c14",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/sea-q4-fy23/company.png",
-      "digest": "sha256:7e6b21a6eee3892bd0b0ce14afe5c979521aeef5c7bc25139c8e9ae3fc857dd5",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/sea-q4-fy23/garena.png",
-      "digest": "sha256:f72c91c0407424b44b5cf1dc40fcefc0ec7b1150c5a52a5fd12635a1df68ea11",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/sea-q4-fy23/seamoney.png",
-      "digest": "sha256:73c3ede245596e4aaebd60d214178c585a56f8923d1819aa35539c03d522efb8",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/sea-q4-fy23/shopee.png",
-      "digest": "sha256:12dac274392d3164342d422aab5338e267cfd172f7aa4429ee8ea0de7420d206",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/semrush/company-logo.png",
-      "digest": "sha256:f910f5659309226eaf54bace95493d5f503671d1f4960d8a9b242958e5902d98",
-      "before": null
-    },
-    {
-      "path": "data/company-metadata/semrush.js",
-      "digest": "sha256:da5dd9b759224e00427e23915372410c5777c66f3c6252b53f36686165aa6ef1",
+      "path": "data/assets/raster-annotations/j-j/q4-fy22-consumer-brands.png",
+      "digest": "sha256:f1c93d61184853542de96bd4895116a388c92812952393f009f8bb9b303c4b7a",
       "before": null
     },
     {
       "path": "data/dataset-file-metadata.js",
-      "digest": "sha256:54ea4e7f9dd4f606678c2cab0b457090191a4850b8cf31f4febcf1bc0fa00669",
-      "before": "sha256:62b06fc6d23bab3d676eb9843928cad4018ca350b4385d40bf69337cc8294aea"
+      "digest": "sha256:59465e59faeb8a9eaed0ed185d91db9ab22228a5a9cf317bb355002ae0766f7a",
+      "before": "sha256:54ea4e7f9dd4f606678c2cab0b457090191a4850b8cf31f4febcf1bc0fa00669"
     },
     {
       "path": "data/dataset-manifest.js",
-      "digest": "sha256:c252aa6d8ddfda2594a73a9ee10569a69442bc00956bcb482d529d7dce5d5ad1",
-      "before": "sha256:db130fefb0da4f836ac407d815d6a639d27d6b51455dccec0e160cedac90d1f2"
+      "digest": "sha256:c995471aed0210ec56e83fd50649e8b1babc2e197def5efe3723004e45931f0f",
+      "before": "sha256:c252aa6d8ddfda2594a73a9ee10569a69442bc00956bcb482d529d7dce5d5ad1"
     },
     {
-      "path": "data/datasets/atlassian-q1-fy23.js",
-      "digest": "sha256:20958b9a66754b0035ba4e54869908cf6d299202685c4f007215b0f58ae6190a",
+      "path": "data/datasets/j-j-q1-fy23.js",
+      "digest": "sha256:247b36a5e08e5dcf8c4a7952191e93eb459ee7de47598b40bd1ce6895d2415ab",
       "before": null
     },
     {
-      "path": "data/datasets/atlassian-q1-fy24.js",
-      "digest": "sha256:07f2d2cc8622b5d54d54d45fc0380e872124f9f79768e593897e77c8c268a33d",
+      "path": "data/datasets/j-j-q1-fy24.js",
+      "digest": "sha256:32dcb70ee92a468c26593b7d2d85a05dcd85b8416b008d05e57798767c03c0af",
       "before": null
     },
     {
-      "path": "data/datasets/atlassian-q1-fy25.js",
-      "digest": "sha256:15b84cbc73ab15342b9969c26619d3d368e1dbda3b763f1482225963a1a03135",
+      "path": "data/datasets/j-j-q2-fy23.js",
+      "digest": "sha256:51c949b86e34429d4730c7631c0aeb6a59da90dc0eb7b2b38d548da8412d2316",
       "before": null
     },
     {
-      "path": "data/datasets/atlassian-q1-fy26.js",
-      "digest": "sha256:a9c28b1b8c4c154df66821c896c0b290e90471da46b7203d6d2f849ab63f63b7",
+      "path": "data/datasets/j-j-q2-fy24.js",
+      "digest": "sha256:c151f9428122df2079261042ac4b15276d9600b388de6f094bbe937e185e89f8",
       "before": null
     },
     {
-      "path": "data/datasets/atlassian-q2-fy23.js",
-      "digest": "sha256:21e1398fe50ecd982170e9d1d23486537d4fed8f03dd77ec0f1d96208e780cc6",
+      "path": "data/datasets/j-j-q2-fy25.js",
+      "digest": "sha256:c36b8f7e4289cdd834c58edbc4391d3713baddf2ed51ec7e2bcbce8b544f7075",
       "before": null
     },
     {
-      "path": "data/datasets/atlassian-q2-fy24.js",
-      "digest": "sha256:6c75d14009067f67d9735bdc5f78aa30692707cd9a1dde6776d74cc94849c37f",
+      "path": "data/datasets/j-j-q3-fy23.js",
+      "digest": "sha256:a39a425e7e4c8cfd455462b09b598cdc190458f33b54d12e47e9ec50bf359c32",
       "before": null
     },
     {
-      "path": "data/datasets/atlassian-q2-fy25.js",
-      "digest": "sha256:7313f211b8b1dd3c9851417d009267aeaccf3bbb6a5f07c54c743a98636c3b21",
+      "path": "data/datasets/j-j-q3-fy24.js",
+      "digest": "sha256:4fbea405d41b02111808a19fc42f33fc20a6e31aa8a60c84c8b60792b8637908",
       "before": null
     },
     {
-      "path": "data/datasets/atlassian-q3-fy23.js",
-      "digest": "sha256:24bfd0e70ab24d682589fc1aeea1ff6e614e90b07f6e152b5e5c3ca6a63827f7",
+      "path": "data/datasets/j-j-q3-fy25.js",
+      "digest": "sha256:3073e9a8fdcd82851d645f6ee2d978361c9166273fad807a7fd07f8c9a54dfaf",
       "before": null
     },
     {
-      "path": "data/datasets/atlassian-q3-fy24.js",
-      "digest": "sha256:e7047492d6fa6e5c97b4a9df92174f1a26efa1bcbb0975fbaf1acd39a20c99a8",
+      "path": "data/datasets/j-j-q4-fy22.js",
+      "digest": "sha256:b1d8de2ea94acea2726c086d657fc013b17363f4cd09d10f05625b08c338cbe4",
       "before": null
     },
     {
-      "path": "data/datasets/atlassian-q3-fy25.js",
-      "digest": "sha256:0b0005f409df5bed6f7f4a3bfc01d202b8710895b1e18ec3a0a17705317489d6",
+      "path": "data/datasets/j-j-q4-fy23.js",
+      "digest": "sha256:d666299391838f961bdc6097d1923d9600f4b7652dd79a048ce76521e795ad78",
       "before": null
     },
     {
-      "path": "data/datasets/atlassian-q4-fy23.js",
-      "digest": "sha256:4173a1252c2ca4a9c14e0b45263cee7272096c31cb05b3f16acb03ccd70412e8",
+      "path": "data/datasets/visa-q1-fy23.js",
+      "digest": "sha256:ddc5ce5549fe9196ac51c4e0939fc8c8b6c6098e23f9ba19ff42c6d5c3867e68",
       "before": null
     },
     {
-      "path": "data/datasets/atlassian-q4-fy24.js",
-      "digest": "sha256:c8afd3b621fa4cf3cd0da35ccb7153c1b8777a84e5385c8b41f6e51c5e50e5bc",
+      "path": "data/datasets/visa-q1-fy24.js",
+      "digest": "sha256:386607a8a2c4967b695dd9115f42207fced29a2370ceb7aa9256bac28ab33063",
       "before": null
     },
     {
-      "path": "data/datasets/atlassian-q4-fy25.js",
-      "digest": "sha256:f774733ffb5c9f9e8fadce1b1a2f24cabf092e91df1c498971a04fdb4f2066bd",
+      "path": "data/datasets/visa-q1-fy25.js",
+      "digest": "sha256:b24a9914568739093217ed5966ae9bda3008b3f7f2b35dd1dfb6d567f6847c06",
       "before": null
     },
     {
-      "path": "data/datasets/jd-com-q1-fy23.js",
-      "digest": "sha256:4dce7b2cb179887830c236306abb36b1368445cbcedadbe9f8478ffe1233ae6b",
+      "path": "data/datasets/visa-q2-fy23.js",
+      "digest": "sha256:b0dbadf4e5cfa167e45656ef4a0e65225f5119d1ffc70f3b8669d855307428ec",
       "before": null
     },
     {
-      "path": "data/datasets/jd-com-q1-fy24.js",
-      "digest": "sha256:107687bbbdf21172f8204595d34a8146738c8fe3311b8ccd52ef9cf4510c8616",
+      "path": "data/datasets/visa-q2-fy24.js",
+      "digest": "sha256:b1ef4c7091148d5b4736e2adb4a3cf2e82a673d7a152784f9bf243a90a1de631",
       "before": null
     },
     {
-      "path": "data/datasets/jd-com-q1-fy25.js",
-      "digest": "sha256:cdf47ae31350d6d70da61769f693d458b4697a7532f58a7de2ef5a618b4617d0",
+      "path": "data/datasets/visa-q3-fy23.js",
+      "digest": "sha256:2ffa078731ad8d2fc4ba1dd3f8b6558fbd19e154a5f637327ee964d5e1462298",
       "before": null
     },
     {
-      "path": "data/datasets/jd-com-q2-fy23.js",
-      "digest": "sha256:cd10f0eb6fac4721f6e557e5b53f0666ba6d72595a64754216b0a189703f8d29",
+      "path": "data/datasets/visa-q3-fy24.js",
+      "digest": "sha256:4cff5c2a87f12af50342875fe5d4374574130659be0e765b9e91e0c2bafcdef2",
       "before": null
     },
     {
-      "path": "data/datasets/jd-com-q2-fy24.js",
-      "digest": "sha256:7211eb5a37dadeb8e60cc0bb5139c9af0d86f1c21e41198b567019e63769a2aa",
+      "path": "data/datasets/visa-q3-fy25.js",
+      "digest": "sha256:0650f64c046ce0194d578e4b9dd0a2e0152676c2fb10b4dec029d9415dd74c4a",
       "before": null
     },
     {
-      "path": "data/datasets/jd-com-q2-fy25.js",
-      "digest": "sha256:db3ea328e6f15cecbe156e70c707661dbec92d02d14d9858679acf46bc98e430",
+      "path": "data/datasets/visa-q4-fy22.js",
+      "digest": "sha256:8655011b17a6baa7e4c8742bd2a885d713b67f1e768ac8a1fb3c0c785acbdd55",
       "before": null
     },
     {
-      "path": "data/datasets/jd-com-q3-fy22.js",
-      "digest": "sha256:2b45bff3c7e95e124e96d545ed502f904e3279aea81c627aea48e51df48df4f3",
+      "path": "data/datasets/visa-q4-fy23.js",
+      "digest": "sha256:6756361ed6ebdbd1b864527c210037da2a48081e3d4700f5f0c964b967508486",
       "before": null
     },
     {
-      "path": "data/datasets/jd-com-q3-fy23.js",
-      "digest": "sha256:14ad97151cb5db61a0ed8e46d5d43dd98beebd8f4c860f6f80b51044fe7f0111",
+      "path": "data/datasets/visa-q4-fy24.js",
+      "digest": "sha256:49785f5fda6c57b4aa421753834bb95fac78183fb35cbb294ff8390f7d139c74",
       "before": null
     },
     {
-      "path": "data/datasets/jd-com-q3-fy24.js",
-      "digest": "sha256:4db70fce6eb1abfb883dd4dd13ff366e2453fc75a928a576f008687ddd6ea668",
+      "path": "data/datasets/visa-q4-fy25.js",
+      "digest": "sha256:3ff7ad2ed35e42fc848dbdf03dfcaa50d13aa9fb4c33dbb8f1d4f4ca380272ab",
       "before": null
     },
     {
-      "path": "data/datasets/jd-com-q4-fy22.js",
-      "digest": "sha256:93acfe5b7064e50d92155b3873a96e00498e983c8abc82053750a25c9f09e7ca",
-      "before": null
-    },
-    {
-      "path": "data/datasets/jd-com-q4-fy23.js",
-      "digest": "sha256:1df004ee3032016c927e1235bee3d0818059453e70f48be9d4842e6cad315333",
-      "before": null
-    },
-    {
-      "path": "data/datasets/jd-com-q4-fy24.js",
-      "digest": "sha256:9e5cafd5d016bff44436e2b5cd2ded0613c6c4adbd7f8528060767a4dcb6200f",
-      "before": null
-    },
-    {
-      "path": "data/datasets/netease-q1-fy23.js",
-      "digest": "sha256:69863f6e8952707eaf7f825a47f2e5fd34fd6d54abedfdcce88f0e6bb7c4f178",
-      "before": null
-    },
-    {
-      "path": "data/datasets/netease-q1-fy24.js",
-      "digest": "sha256:9fbb00a7139774f5fed660fd079c9a63022037d2dd52798a4db555a367a45191",
-      "before": null
-    },
-    {
-      "path": "data/datasets/netease-q1-fy25.js",
-      "digest": "sha256:1369026af6df5c3d61c8528f07b34564fd5f3103d3983a356fcee3d21e7e2d5f",
-      "before": null
-    },
-    {
-      "path": "data/datasets/netease-q2-fy23.js",
-      "digest": "sha256:eec9d903889406177b353a07195ff4470831507ad6a0c555a23a669cd62cfa6f",
-      "before": null
-    },
-    {
-      "path": "data/datasets/netease-q2-fy24.js",
-      "digest": "sha256:f8662c0ff805d640b0e263d964bb814bf39ec70c09063733540f2d1fbcaea0d0",
-      "before": null
-    },
-    {
-      "path": "data/datasets/netease-q2-fy25.js",
-      "digest": "sha256:bd50ac20d250e32a548ba69730915859f7d7293e7abc56df3a1dc8c21a425a5c",
-      "before": null
-    },
-    {
-      "path": "data/datasets/netease-q3-fy22.js",
-      "digest": "sha256:076f0a48cf72257bc1b7afa4b517b636bd756c4565081314135c85e2cfb55fc9",
-      "before": null
-    },
-    {
-      "path": "data/datasets/netease-q3-fy23.js",
-      "digest": "sha256:4b946852b62779ea926baf2495e4ab4f013a7652196e7234a980a4260a076460",
-      "before": null
-    },
-    {
-      "path": "data/datasets/netease-q3-fy24.js",
-      "digest": "sha256:adfd26a6a3f8d895673992f0e29e356b3ca072808dc9a481a9f47261991aefe4",
-      "before": null
-    },
-    {
-      "path": "data/datasets/netease-q4-fy22.js",
-      "digest": "sha256:c79e2b2ca79ab4aed85805afdf2d53951967340224c698162e046f8b615932c9",
-      "before": null
-    },
-    {
-      "path": "data/datasets/netease-q4-fy23.js",
-      "digest": "sha256:b8c30fb06644594fb1ad9f22ede87080dec7863481568380e553b8084dbd6fcf",
-      "before": null
-    },
-    {
-      "path": "data/datasets/netease-q4-fy24.js",
-      "digest": "sha256:dab979d41cfab28043eeb5b9d8c7c7782eac2613e50b2e0fcf8cb6a56b55da8c",
-      "before": null
-    },
-    {
-      "path": "data/datasets/sea-q1-fy23.js",
-      "digest": "sha256:ad33dcfb5f5a366345372003c0de6daa0d8ab072155acad849b486c5643c1f1c",
-      "before": null
-    },
-    {
-      "path": "data/datasets/sea-q1-fy24.js",
-      "digest": "sha256:a0b379b82a2b35bc41bb48284157625920ab576bcd2c24d30552a67283e2312b",
-      "before": null
-    },
-    {
-      "path": "data/datasets/sea-q1-fy25.js",
-      "digest": "sha256:0dbbb8dcf3d9e91d5b471af417ef9b2dccd4d24d0f94638724b0e7efa3cd4a36",
-      "before": null
-    },
-    {
-      "path": "data/datasets/sea-q2-fy23.js",
-      "digest": "sha256:52240eda47135ba7d5961477224ee59e728a56a4c6189f4b37196a21a0c02929",
-      "before": null
-    },
-    {
-      "path": "data/datasets/sea-q2-fy24.js",
-      "digest": "sha256:3cfaff6695f5990d5b1c10c20e4edd6fe383fdf043b28499622aca12ee81d747",
-      "before": null
-    },
-    {
-      "path": "data/datasets/sea-q2-fy25.js",
-      "digest": "sha256:38458fdc32501642368668a523c165f6345967baa11030dc5c91f15330e89493",
-      "before": null
-    },
-    {
-      "path": "data/datasets/sea-q3-fy22.js",
-      "digest": "sha256:2c1273bd1b6baaa762c32906c46595231898d53d8f60e5a2f45c4cbd34b45301",
-      "before": null
-    },
-    {
-      "path": "data/datasets/sea-q3-fy23.js",
-      "digest": "sha256:ed245ca714f816c2bf4e63e92eb2b3d3374e52f4a152dbad04ae2b3b38384d85",
-      "before": null
-    },
-    {
-      "path": "data/datasets/sea-q3-fy24.js",
-      "digest": "sha256:7e77036f7d1ff5006d5726a74d8b24ed4ea66fb11c784bac18465f543ab8ade6",
-      "before": null
-    },
-    {
-      "path": "data/datasets/sea-q4-fy22.js",
-      "digest": "sha256:f01a4b487a3a6e7b7e7374f3070dac29e730cd98090b4a71dee94a3abd217260",
-      "before": null
-    },
-    {
-      "path": "data/datasets/sea-q4-fy23.js",
-      "digest": "sha256:e95bbf41cd9aa19db297aebdbb7f943f294022949d0d0ba70bcab0433a9a304d",
-      "before": null
-    },
-    {
-      "path": "data/datasets/sea-q4-fy24.js",
-      "digest": "sha256:7082bb4a1fef61fbc8de9cc30b072589b3c04392beb5b8babd01ac091c108f0c",
-      "before": null
-    },
-    {
-      "path": "data/datasets/semrush-q1-fy24.js",
-      "digest": "sha256:2770a9a026be392fff0c10f1c675b08a239fdad7f3230cce391ac23013f94964",
-      "before": null
-    },
-    {
-      "path": "data/datasets/semrush-q1-fy25.js",
-      "digest": "sha256:4b40d579bd526f28f70fcf706006d3bd32e289fb20fcd2df9c87dbb8de5e2202",
-      "before": null
-    },
-    {
-      "path": "data/datasets/semrush-q2-fy23.js",
-      "digest": "sha256:67b410cfbc695b2e78d5bb12b57ab39a1beaaacda8808996149daba89b1c8f3b",
-      "before": null
-    },
-    {
-      "path": "data/datasets/semrush-q2-fy24.js",
-      "digest": "sha256:4b3fdc0b300a2a6df559b4653e303f2474add0334c8e49203eb8e356c0810030",
-      "before": null
-    },
-    {
-      "path": "data/datasets/semrush-q2-fy25.js",
-      "digest": "sha256:4fbbb61ad5735a86d6940c587b5716300730baba817c8c03184cd62a58df1a6b",
-      "before": null
-    },
-    {
-      "path": "data/datasets/semrush-q3-fy22.js",
-      "digest": "sha256:fa97afc2ef1a5d5e4e0b57ccbff159d98bb094be38bacb24aa164001fdf16212",
-      "before": null
-    },
-    {
-      "path": "data/datasets/semrush-q3-fy23.js",
-      "digest": "sha256:c1ab1b9c8a6437d4f2b444fe0de019e08630b80819e7a30d39d8c5be4f329656",
-      "before": null
-    },
-    {
-      "path": "data/datasets/semrush-q3-fy24.js",
-      "digest": "sha256:f9d29e300d9e96a75bea1b367205941020391e4680b34e94ad6d0fb4a197c31f",
-      "before": null
-    },
-    {
-      "path": "data/datasets/semrush-q4-fy22.js",
-      "digest": "sha256:d59d6685a190403a7ef03b48b70f68d82c9b992da4ce0bc2660b4618ce9e6176",
-      "before": null
-    },
-    {
-      "path": "data/datasets/semrush-q4-fy23.js",
-      "digest": "sha256:56fc072270a5a83e369e2c81a856857ee9b2525a90d1278a95932f76e3f2d8d1",
-      "before": null
-    },
-    {
-      "path": "data/datasets/snowflake-q1-fy24.js",
-      "digest": "sha256:35e5f6574b739fce37fe71d65b62f5191d6dbe27ea193735dc9fcfeebb1f5f39",
-      "before": null
-    },
-    {
-      "path": "data/datasets/snowflake-q1-fy25.js",
-      "digest": "sha256:0cb9dac8b72772c77e05be84aeef6a7571e6c9fef60860ec349eae661d7dc0f9",
-      "before": null
-    },
-    {
-      "path": "data/datasets/snowflake-q1-fy26.js",
-      "digest": "sha256:dd209430d2af550bb3948c66b24b2aa02fd3bef65f9b712f286882c784d5df6c",
-      "before": null
-    },
-    {
-      "path": "data/datasets/snowflake-q2-fy24.js",
-      "digest": "sha256:e377951df167e80b01e1944dceb4134869f96e927e8d493f8aeda3b39daf5bd9",
-      "before": null
-    },
-    {
-      "path": "data/datasets/snowflake-q2-fy25.js",
-      "digest": "sha256:41f7cd5ea147ee183e92e16faec3d418a4654ff3a78c12f93f8742b24d6cb37d",
-      "before": null
-    },
-    {
-      "path": "data/datasets/snowflake-q2-fy26.js",
-      "digest": "sha256:9c6975445ebdaad306fe16021b5ad4e0f365d797576b655c6058ef2c8e242ea6",
-      "before": null
-    },
-    {
-      "path": "data/datasets/snowflake-q3-fy23.js",
-      "digest": "sha256:43a1a87353df37b575e2606770143bfb24a49f56fbce8376a7331fd7d86a70df",
-      "before": null
-    },
-    {
-      "path": "data/datasets/snowflake-q3-fy24.js",
-      "digest": "sha256:172464acf6a7241fc88d825755178b2ff7e946369af942b83a8df020c9620b16",
-      "before": null
-    },
-    {
-      "path": "data/datasets/snowflake-q3-fy25.js",
-      "digest": "sha256:4013cc9c0509eee429034982a786411338a229518ceadddc08ce8f9a1e8f2d0d",
-      "before": null
-    },
-    {
-      "path": "data/datasets/snowflake-q3-fy26.js",
-      "digest": "sha256:3610abe12552063e92c9cf02670adc699c4a7af1c854d1b6550be24897835d21",
-      "before": null
-    },
-    {
-      "path": "data/datasets/snowflake-q4-fy23.js",
-      "digest": "sha256:d47dd4a8fd5373a5687b884e19e61fde8871f9e8d054a5ef9e13030ef45b0073",
-      "before": null
-    },
-    {
-      "path": "data/datasets/snowflake-q4-fy24.js",
-      "digest": "sha256:08392e68daad3a20e15634fb5b769308094333d056590abf7b02b8df9c231de4",
-      "before": null
-    },
-    {
-      "path": "data/datasets/snowflake-q4-fy25.js",
-      "digest": "sha256:f6018ce65c128121b9d737fc914068302f2845767a2cd8372811fd9dd280bb41",
-      "before": null
-    },
-    {
-      "path": "data/income-statements/atlassian.js",
-      "digest": "sha256:7acf34245350a0f3b7199d1aeed9e8cad3f8a8209fe9efc86624e75eef2336fa",
-      "before": "sha256:ba9c7c3239ac9c5ee7fa483c13cff6392e897a4d3bb0521ff350419354c00254"
-    },
-    {
-      "path": "data/income-statements/jd-com.js",
-      "digest": "sha256:8c253ff19bb6e8bb7a8f066c3fcab0ef7f47b718e802b2eb231a1520187c06b8",
-      "before": "sha256:387ab4c63b20daa64ff07f54ecb859de6189e45f039113abd9f6c6f1c1a4772c"
-    },
-    {
-      "path": "data/income-statements/netease.js",
-      "digest": "sha256:1adc36cf6d5a98767b61136b84792b00cd78321e8ddaa4a6c0870332f1a3be52",
-      "before": "sha256:ecdc6fa4e943400cb91ffc009115d7d5336096039c5aa5228574adaff05e7545"
-    },
-    {
-      "path": "data/income-statements/sea.js",
-      "digest": "sha256:edce411fc41ef18e2fc0022d6a983435a75021cfd60f10697a5435e99b32712b",
-      "before": "sha256:36a3320187d842d96fd72612015e21644849fe11fc6690614865d9d2d08f6631"
-    },
-    {
-      "path": "data/income-statements/semrush.js",
-      "digest": "sha256:f54e8dd95b0d573003f9b43e2756772db84b345160bfc643c517d7b73d74743b",
-      "before": null
+      "path": "data/income-statements/j-j.js",
+      "digest": "sha256:e937c543e3bbe1dfa34d9799f9d13ec0569052f4ef238e5bbf140a5233b5238c",
+      "before": "sha256:103676834950992375f89c1a6573239c914cb4a7a5ab7c38443923a5467136fc"
     },
     {
-      "path": "data/income-statements/snowflake.js",
-      "digest": "sha256:a5772203eeb933b4de616de3cd95a46901c51b3a97dbfa860f31437d71f4f334",
-      "before": "sha256:d17a20c6793f698dec7f012c3520cfea5ea29036a9319cb3af36be8819803a35"
+      "path": "data/income-statements/visa.js",
+      "digest": "sha256:0c479f4ee3be63ba640528043e992510a8339ae560349df1ab2a5d8cf278c4a0",
+      "before": "sha256:36657809a1aee5a11b97b1069b3bce2c69d467ba31fdeaf0f4a66fed85a6f48d"
     },
     {
       "path": "data/render-baselines.json",
-      "digest": "sha256:a1b297578bc20fea02939f19d79482ebe3e6dba6de7b39ce397f4c53f96e1485",
-      "before": "sha256:62cf4184bfb984d3b732c216e46c3351083951c394d83b86c3469b1084b143b9"
+      "digest": "sha256:97081326da97692010f7682991bbba79ca0b838ead8ea8dd0602332f73181bf8",
+      "before": "sha256:a1b297578bc20fea02939f19d79482ebe3e6dba6de7b39ce397f4c53f96e1485"
     },
     {
       "path": "data/workflow-timestamps.json",
-      "digest": "sha256:363b142af0ac5703fea928213ea96e677fe38d2644e28b75cc4d62783eaf6d1d",
-      "before": "sha256:c1762f273ba400c71ac0c402623b648df1656dc255b29171847824c17e551ba0"
+      "digest": "sha256:036f40ef7ef036287ec9be38308fb747bc36f1578dff36ba722ddc752624ceac",
+      "before": "sha256:363b142af0ac5703fea928213ea96e677fe38d2644e28b75cc4d62783eaf6d1d"
     },
     {
-      "path": "index.html",
-      "digest": "sha256:05199f566673d3661452f889b131b1c99382d052ee3cda4bdff295f738412641",
-      "before": "sha256:0c543678342209a175a9c0b847d0c915af170f34bdedc4e90ff163d1cee25aeb"
+      "path": "input/pending/page-0046-J-J-Q1-FY23-Income-Statement.png",
+      "before": "sha256:17556a897339cf61daefb4dc87a412dbe305ca7492ae9fba2fce7e9047950228",
+      "digest": null,
+      "intakeOwned": true
     },
     {
-      "path": "input/icon-crop-specs/netease-q1-fy23.json",
-      "digest": "sha256:f6dcc7ef5702eff832b8e0a5e126ae86926f4df09dba7c141256de9340643be1",
-      "before": null
+      "path": "input/pending/page-0092-J-J-Q1-FY24-Income-Statement.png",
+      "before": "sha256:40a8ed2ce271ab5b34a69485b9404a2030a0b5cde842fb6f2aa8b48ca2305148",
+      "digest": null,
+      "intakeOwned": true
     },
     {
-      "path": "input/icon-crop-specs/netease-q1-fy24.json",
-      "digest": "sha256:bdc9015d1d4b3f3124eb596d450680b7f38f5ead155f27c3d68b5d3234481eb2",
-      "before": null
+      "path": "input/pending/page-0048-J-J-Q2-FY23-Income-Statement.png",
+      "before": "sha256:e263d57e7ccf623d7c3c47e1ca67170d11d1ac6947226869b27c091e3002efea",
+      "digest": null,
+      "intakeOwned": true
     },
     {
-      "path": "input/icon-crop-specs/netease-q2-fy23.json",
-      "digest": "sha256:58233695df37c3b6ba1e96cab697f061e1e845233d863c84a0e56981bb52ee19",
-      "before": null
+      "path": "input/pending/page-0082-J-J-Q2-FY24-Income-Statement.png",
+      "before": "sha256:fa7fcfbf1d31591ee41c4546c5895a590c709414b88897a7c09c8384ecd12a9d",
+      "digest": null,
+      "intakeOwned": true
     },
     {
-      "path": "input/icon-crop-specs/netease-q2-fy24.json",
-      "digest": "sha256:1a9aece8700b3e2938f0ebe3368c3155f9e2a0480e6e916d4efd165a857b4821",
-      "before": null
+      "path": "input/pending/page-0104-J-J-Q2-FY25-Income-Statement.png",
+      "before": "sha256:4fee3a9bb70edb6725a71a233d2e26d6c4c77e855fb5c889ec4a8012d2a07b16",
+      "digest": null,
+      "intakeOwned": true
     },
     {
-      "path": "input/icon-crop-specs/netease-q3-fy22.json",
-      "digest": "sha256:a8a29ced6f022bc6b353b27e1e1a0276723ddfa481490069107031edc113985c",
-      "before": null
+      "path": "input/pending/page-0060-J-J-Q3-FY23-Income-Statement.png",
+      "before": "sha256:7228c68552864fdd735af1e225a344c4e00893c44d271592a24202a9eaa99348",
+      "digest": null,
+      "intakeOwned": true
     },
     {
-      "path": "input/icon-crop-specs/netease-q3-fy23.json",
-      "digest": "sha256:f87953c4b56c54e68d2725f890cd34564f4e7ac9609c07461b9958bba2480d5a",
-      "before": null
+      "path": "input/pending/page-0091-J-J-Q3-FY24-Income-Statement.png",
+      "before": "sha256:3402bfb802d23f65e51d2ef18387e49626674359cbd88ebfc5c5e41fca65edee",
+      "digest": null,
+      "intakeOwned": true
     },
     {
-      "path": "input/icon-crop-specs/netease-q4-fy22.json",
-      "digest": "sha256:f1a2fbbbbd3e4c527bfd7fd4b57c0b26a73c0e78d78cb1ca6f99c1af4a07336c",
-      "before": null
+      "path": "input/pending/page-0097-J-J-Q3-FY25-Income-Statement.png",
+      "before": "sha256:af84117937d30ffd935d8652d5d8271c4b12931f24ee80e0a95fd4fd60d903df",
+      "digest": null,
+      "intakeOwned": true
     },
     {
-      "path": "input/icon-crop-specs/sea-q2-fy24.json",
-      "digest": "sha256:036e6d3ec478c18f2706ade323eef2a76c454327d65b10b9cbf71a7c31994696",
-      "before": null
+      "path": "input/pending/page-0036-J-J-Q4-FY22-Income-Statement.png",
+      "before": "sha256:4bb4866ccf229d24529baf5a04e7eafe166d5eb39ee3cf4448fb665e50f5422c",
+      "digest": null,
+      "intakeOwned": true
     },
     {
-      "path": "input/icon-crop-specs/sea-q4-fy23.json",
-      "digest": "sha256:854864bd7a1bce534b43525ee5c57eec217886537e0c4eda1e63342c1b3c19c0",
-      "before": null
+      "path": "input/pending/page-0064-J-J-Q4-FY23-Income-Statement.png",
+      "before": "sha256:87059407a39570f6c95d9585b4d4c9e92aa20b9c05ca13e94ec8658c4a5e7fd9",
+      "digest": null,
+      "intakeOwned": true
     },
     {
-      "path": "input/icon-crop-specs/semrush-q1-fy24.json",
-      "digest": "sha256:2129fbd324eb4afd7717a5fd8c27223de16a1fed46691c6c680e5a1f37d7f77b",
-      "before": null
+      "path": "input/pending/page-0010-Visa-Q1-FY23-Income-Statement.png",
+      "before": "sha256:92c05da9f4fd74115aab3701d8dfbd018dd704c039007d371b85df913317ee09",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0011-Visa-Q1-FY24-Income-Statement.png",
+      "before": "sha256:a73c713ef56a2a69fa044316ee1e09e0f43fb68de16e44d613862c9e9ad9cfa3",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0028-Visa-Q1-FY25-Income-Statement.png",
+      "before": "sha256:3419d8b7c669cda1c55a2e095509d55cd625a1f4c3681c6bec46b07c62073de8",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0015-Visa-Q2-FY23-Income-Statement.png",
+      "before": "sha256:c92d29cc04554e6575e5c5c3c72e0227b870323add0a7bfaf36383f9b7dca88b",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0027-Visa-Q2-FY24-Income-Statement.png",
+      "before": "sha256:41bc62046f0a18db9380428101bcfc900b37d2667298446edcd99427ecd0c027",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0011-Visa-Q3-FY23-Income-Statement.png",
+      "before": "sha256:e60c529ad2a39adf1549c0464d91ce45eee4de673e4a8877c16a0abba1f194e6",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0039-Visa-Q3-FY24-Income-Statement.png",
+      "before": "sha256:0b0b2b735a89a5b01f8acdfa2b2608461c7d21be177c4d5a26e3b14c6fdc27a9",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0058-Visa-Q3-FY25-Income-Statement.png",
+      "before": "sha256:2287470ae5746a74020a0056e2a914a7146193d719593cfc18862d5978039698",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0004-Visa-Q4-FY22-Income-Statement.png",
+      "before": "sha256:eae50a5f4882a8990ed9132bf5421a868258ebc61f45e21eba60b9f4940cde8b",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0021-Visa-Q4-FY23-Income-Statement.png",
+      "before": "sha256:85e2f7c0fa90deddb435cd2b9c3150426eed5877623a1f7edecfc3fd5ddea35b",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0043-Visa-Q4-FY24-Income-Statement.png",
+      "before": "sha256:4ffd92dc6b3a49936e7c96b7cf4db692713093b42265af69857e18cad12f4481",
+      "digest": null,
+      "intakeOwned": true
+    },
+    {
+      "path": "input/pending/page-0052-Visa-Q4-FY25-Income-Statement.png",
+      "before": "sha256:f5bc2fbb9f2896e17f6dba7b74c4f27e2ac20d12b286f51116828211574966d9",
+      "digest": null,
+      "intakeOwned": true
     }
   ],
   "release": {
-    "version": "5fc23395b6a9647762882cb07ce66b6fa8848897a82e5f48b1f890df6b20f88e",
-    "contentDigest": "sha256:f1128e7e512ba5c19a21051fd4f80c7cfc45c2b2b46859255bc3c56ad5469e6d"
+    "version": "99cac73aafa278e00311083c7a66460317ddb91b63837b27040e9a124f66a9ae",
+    "contentDigest": "sha256:a8c416593d60ccc3f67fa5fbb5a19527aca6212c5daf49df836acaaeaceaf595"
   },
   "approval": {
-    "operator": "操作员原话：“好了，72 个我都人工审阅通过，推送远端合入并发布”（2026-10-22）",
+    "operator": "Charles Liu",
     "accepted": true,
-    "candidateDigest": "sha256:e71340e856a437293a1f3af20717526e2f7b1ba6128d8ae175c6dcbaa382c1f5",
+    "candidateDigest": "sha256:dea359bf2cce6214d2b13952324953971a3b2f9fb071ca0a92479ab4778d916f",
     "basis": "inherited-build-acceptance",
-    "planDigest": "sha256:b259dd128a307a851259b59f8041c7aa4810c44912500fd0b1b9b227a180f921",
-    "recordedAt": "2026-10-22T15:28:23.635Z"
+    "planDigest": "sha256:0e7fdd5f89727667b2f256f3c22fc3ad59bd93e7ad4844514dfc1459b9a7c391",
+    "recordedAt": "2026-10-24T08:50:17.232Z"
   }
 }
