@@ -5713,15 +5713,37 @@
       "digest": "sha256:0763354f2f095fb66560597a0c5df0600866ed260cd6f1297e7cdcbe5e14d49a",
       "provenance": [],
       "directConsumers": [
+        "hubspot-q1-fy23",
+        "hubspot-q1-fy24",
+        "hubspot-q1-fy25",
         "hubspot-q1-fy26",
+        "hubspot-q2-fy23",
+        "hubspot-q2-fy24",
+        "hubspot-q2-fy25",
         "hubspot-q2-fy26",
+        "hubspot-q3-fy22",
+        "hubspot-q3-fy23",
+        "hubspot-q3-fy24",
         "hubspot-q3-fy25",
+        "hubspot-q4-fy23",
+        "hubspot-q4-fy24",
         "hubspot-q4-fy25"
       ],
       "consumers": [
+        "hubspot-q1-fy23",
+        "hubspot-q1-fy24",
+        "hubspot-q1-fy25",
         "hubspot-q1-fy26",
+        "hubspot-q2-fy23",
+        "hubspot-q2-fy24",
+        "hubspot-q2-fy25",
         "hubspot-q2-fy26",
+        "hubspot-q3-fy22",
+        "hubspot-q3-fy23",
+        "hubspot-q3-fy24",
         "hubspot-q3-fy25",
+        "hubspot-q4-fy23",
+        "hubspot-q4-fy24",
         "hubspot-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -15612,15 +15634,37 @@
         }
       ],
       "directConsumers": [
+        "take-two-fy24",
+        "take-two-q1-fy25",
+        "take-two-q1-fy26",
         "take-two-q1-fy27",
+        "take-two-q2-fy23",
+        "take-two-q2-fy24",
+        "take-two-q2-fy25",
         "take-two-q2-fy26",
+        "take-two-q3-fy23",
+        "take-two-q3-fy24",
+        "take-two-q3-fy25",
         "take-two-q3-fy26",
+        "take-two-q4-fy23",
+        "take-two-q4-fy25",
         "take-two-q4-fy26"
       ],
       "consumers": [
+        "take-two-fy24",
+        "take-two-q1-fy25",
+        "take-two-q1-fy26",
         "take-two-q1-fy27",
+        "take-two-q2-fy23",
+        "take-two-q2-fy24",
+        "take-two-q2-fy25",
         "take-two-q2-fy26",
+        "take-two-q3-fy23",
+        "take-two-q3-fy24",
+        "take-two-q3-fy25",
         "take-two-q3-fy26",
+        "take-two-q4-fy23",
+        "take-two-q4-fy25",
         "take-two-q4-fy26"
       ],
       "acceptedVersions": [],
@@ -15638,15 +15682,37 @@
         }
       ],
       "directConsumers": [
+        "take-two-fy24",
+        "take-two-q1-fy25",
+        "take-two-q1-fy26",
         "take-two-q1-fy27",
+        "take-two-q2-fy23",
+        "take-two-q2-fy24",
+        "take-two-q2-fy25",
         "take-two-q2-fy26",
+        "take-two-q3-fy23",
+        "take-two-q3-fy24",
+        "take-two-q3-fy25",
         "take-two-q3-fy26",
+        "take-two-q4-fy23",
+        "take-two-q4-fy25",
         "take-two-q4-fy26"
       ],
       "consumers": [
+        "take-two-fy24",
+        "take-two-q1-fy25",
+        "take-two-q1-fy26",
         "take-two-q1-fy27",
+        "take-two-q2-fy23",
+        "take-two-q2-fy24",
+        "take-two-q2-fy25",
         "take-two-q2-fy26",
+        "take-two-q3-fy23",
+        "take-two-q3-fy24",
+        "take-two-q3-fy25",
         "take-two-q3-fy26",
+        "take-two-q4-fy23",
+        "take-two-q4-fy25",
         "take-two-q4-fy26"
       ],
       "acceptedVersions": [],
@@ -15664,15 +15730,37 @@
         }
       ],
       "directConsumers": [
+        "take-two-fy24",
+        "take-two-q1-fy25",
+        "take-two-q1-fy26",
         "take-two-q1-fy27",
+        "take-two-q2-fy23",
+        "take-two-q2-fy24",
+        "take-two-q2-fy25",
         "take-two-q2-fy26",
+        "take-two-q3-fy23",
+        "take-two-q3-fy24",
+        "take-two-q3-fy25",
         "take-two-q3-fy26",
+        "take-two-q4-fy23",
+        "take-two-q4-fy25",
         "take-two-q4-fy26"
       ],
       "consumers": [
+        "take-two-fy24",
+        "take-two-q1-fy25",
+        "take-two-q1-fy26",
         "take-two-q1-fy27",
+        "take-two-q2-fy23",
+        "take-two-q2-fy24",
+        "take-two-q2-fy25",
         "take-two-q2-fy26",
+        "take-two-q3-fy23",
+        "take-two-q3-fy24",
+        "take-two-q3-fy25",
         "take-two-q3-fy26",
+        "take-two-q4-fy23",
+        "take-two-q4-fy25",
         "take-two-q4-fy26"
       ],
       "acceptedVersions": [],
@@ -15690,15 +15778,37 @@
         }
       ],
       "directConsumers": [
+        "take-two-fy24",
+        "take-two-q1-fy25",
+        "take-two-q1-fy26",
         "take-two-q1-fy27",
+        "take-two-q2-fy23",
+        "take-two-q2-fy24",
+        "take-two-q2-fy25",
         "take-two-q2-fy26",
+        "take-two-q3-fy23",
+        "take-two-q3-fy24",
+        "take-two-q3-fy25",
         "take-two-q3-fy26",
+        "take-two-q4-fy23",
+        "take-two-q4-fy25",
         "take-two-q4-fy26"
       ],
       "consumers": [
+        "take-two-fy24",
+        "take-two-q1-fy25",
+        "take-two-q1-fy26",
         "take-two-q1-fy27",
+        "take-two-q2-fy23",
+        "take-two-q2-fy24",
+        "take-two-q2-fy25",
         "take-two-q2-fy26",
+        "take-two-q3-fy23",
+        "take-two-q3-fy24",
+        "take-two-q3-fy25",
         "take-two-q3-fy26",
+        "take-two-q4-fy23",
+        "take-two-q4-fy25",
         "take-two-q4-fy26"
       ],
       "acceptedVersions": [],
@@ -15716,15 +15826,37 @@
         }
       ],
       "directConsumers": [
+        "take-two-fy24",
+        "take-two-q1-fy25",
+        "take-two-q1-fy26",
         "take-two-q1-fy27",
+        "take-two-q2-fy23",
+        "take-two-q2-fy24",
+        "take-two-q2-fy25",
         "take-two-q2-fy26",
+        "take-two-q3-fy23",
+        "take-two-q3-fy24",
+        "take-two-q3-fy25",
         "take-two-q3-fy26",
+        "take-two-q4-fy23",
+        "take-two-q4-fy25",
         "take-two-q4-fy26"
       ],
       "consumers": [
+        "take-two-fy24",
+        "take-two-q1-fy25",
+        "take-two-q1-fy26",
         "take-two-q1-fy27",
+        "take-two-q2-fy23",
+        "take-two-q2-fy24",
+        "take-two-q2-fy25",
         "take-two-q2-fy26",
+        "take-two-q3-fy23",
+        "take-two-q3-fy24",
+        "take-two-q3-fy25",
         "take-two-q3-fy26",
+        "take-two-q4-fy23",
+        "take-two-q4-fy25",
         "take-two-q4-fy26"
       ],
       "acceptedVersions": [],
@@ -16187,6 +16319,228 @@
         "united-q1-fy26",
         "united-q2-fy26",
         "united-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/unity/company-logo.png",
+      "digest": "sha256:4609db8f9e3fb558a97d1481be56c1aaf64d5e785cf7dda1459f07c1048e743c",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/unity-q4-fy22.json",
+          "recipeDigest": "sha256:4d6dfc22bcd21c067a5f944e4e7eee730db0b927ca0541f7243d0b8f86591617",
+          "source": "input/processed/unity-q4-fy22.png",
+          "cropKey": "company-logo"
+        }
+      ],
+      "directConsumers": [
+        "unity-q1-fy23",
+        "unity-q2-fy23",
+        "unity-q3-fy22",
+        "unity-q3-fy23",
+        "unity-q4-fy22"
+      ],
+      "consumers": [
+        "unity-q1-fy23",
+        "unity-q2-fy23",
+        "unity-q3-fy22",
+        "unity-q3-fy23",
+        "unity-q4-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/unity/ironsource.png",
+      "digest": "sha256:502745fdedd611b3127ff15c997267f863f0735a3d828450f445401a1964348d",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/unity-q4-fy22.json",
+          "recipeDigest": "sha256:4d6dfc22bcd21c067a5f944e4e7eee730db0b927ca0541f7243d0b8f86591617",
+          "source": "input/processed/unity-q4-fy22.png",
+          "cropKey": "ironsource"
+        }
+      ],
+      "directConsumers": [
+        "unity-q1-fy23",
+        "unity-q2-fy23",
+        "unity-q3-fy23",
+        "unity-q4-fy22"
+      ],
+      "consumers": [
+        "unity-q1-fy23",
+        "unity-q2-fy23",
+        "unity-q3-fy23",
+        "unity-q4-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/unity/speedtree.png",
+      "digest": "sha256:28d936d173fbc33efe0b78545f158ecd568fd2e672e50567fb63ef8061c30f6e",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/unity-q4-fy22.json",
+          "recipeDigest": "sha256:4d6dfc22bcd21c067a5f944e4e7eee730db0b927ca0541f7243d0b8f86591617",
+          "source": "input/processed/unity-q4-fy22.png",
+          "cropKey": "speedtree"
+        }
+      ],
+      "directConsumers": [
+        "unity-q1-fy23",
+        "unity-q2-fy23",
+        "unity-q3-fy22",
+        "unity-q3-fy23",
+        "unity-q4-fy22"
+      ],
+      "consumers": [
+        "unity-q1-fy23",
+        "unity-q2-fy23",
+        "unity-q3-fy22",
+        "unity-q3-fy23",
+        "unity-q4-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/unity/syncsketch.png",
+      "digest": "sha256:426c0d73ba7f5374db7f2b50306daeea14e768ab00eb79b75e775cf2f450f236",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/unity-q4-fy22.json",
+          "recipeDigest": "sha256:4d6dfc22bcd21c067a5f944e4e7eee730db0b927ca0541f7243d0b8f86591617",
+          "source": "input/processed/unity-q4-fy22.png",
+          "cropKey": "syncsketch"
+        }
+      ],
+      "directConsumers": [
+        "unity-q1-fy23",
+        "unity-q2-fy23",
+        "unity-q3-fy22",
+        "unity-q3-fy23",
+        "unity-q4-fy22"
+      ],
+      "consumers": [
+        "unity-q1-fy23",
+        "unity-q2-fy23",
+        "unity-q3-fy22",
+        "unity-q3-fy23",
+        "unity-q4-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/unity/unity-enterprise.png",
+      "digest": "sha256:d9ecbfc87360673f201a6a7dd9fbe081f0ae1a7cee1d99c85069fd251c21153a",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/unity-q4-fy22.json",
+          "recipeDigest": "sha256:4d6dfc22bcd21c067a5f944e4e7eee730db0b927ca0541f7243d0b8f86591617",
+          "source": "input/processed/unity-q4-fy22.png",
+          "cropKey": "unity-enterprise"
+        }
+      ],
+      "directConsumers": [
+        "unity-q1-fy23",
+        "unity-q2-fy23",
+        "unity-q3-fy22",
+        "unity-q3-fy23",
+        "unity-q4-fy22"
+      ],
+      "consumers": [
+        "unity-q1-fy23",
+        "unity-q2-fy23",
+        "unity-q3-fy22",
+        "unity-q3-fy23",
+        "unity-q4-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/unity/unity-pro.png",
+      "digest": "sha256:795207005efe168064689dd9e972ebbddb6c0f68d0db5e2b8918688be1c640db",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/unity-q4-fy22.json",
+          "recipeDigest": "sha256:4d6dfc22bcd21c067a5f944e4e7eee730db0b927ca0541f7243d0b8f86591617",
+          "source": "input/processed/unity-q4-fy22.png",
+          "cropKey": "unity-pro"
+        }
+      ],
+      "directConsumers": [
+        "unity-q1-fy23",
+        "unity-q2-fy23",
+        "unity-q3-fy22",
+        "unity-q3-fy23",
+        "unity-q4-fy22"
+      ],
+      "consumers": [
+        "unity-q1-fy23",
+        "unity-q2-fy23",
+        "unity-q3-fy22",
+        "unity-q3-fy23",
+        "unity-q4-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/unity/weta-digital.png",
+      "digest": "sha256:a9731ddda0efcded53518e6fed4c344d6cc1f083d3367b74fbe601cb648db7b7",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/unity-q4-fy22.json",
+          "recipeDigest": "sha256:4d6dfc22bcd21c067a5f944e4e7eee730db0b927ca0541f7243d0b8f86591617",
+          "source": "input/processed/unity-q4-fy22.png",
+          "cropKey": "weta-digital"
+        }
+      ],
+      "directConsumers": [
+        "unity-q1-fy23",
+        "unity-q2-fy23",
+        "unity-q3-fy22",
+        "unity-q3-fy23",
+        "unity-q4-fy22"
+      ],
+      "consumers": [
+        "unity-q1-fy23",
+        "unity-q2-fy23",
+        "unity-q3-fy22",
+        "unity-q3-fy23",
+        "unity-q4-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/unity/ziva.png",
+      "digest": "sha256:862629ca2fbac4e144b813ddc7540d82eaca943850b4804874b30ed980a7d600",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/unity-q4-fy22.json",
+          "recipeDigest": "sha256:4d6dfc22bcd21c067a5f944e4e7eee730db0b927ca0541f7243d0b8f86591617",
+          "source": "input/processed/unity-q4-fy22.png",
+          "cropKey": "ziva"
+        }
+      ],
+      "directConsumers": [
+        "unity-q1-fy23",
+        "unity-q2-fy23",
+        "unity-q3-fy22",
+        "unity-q3-fy23",
+        "unity-q4-fy22"
+      ],
+      "consumers": [
+        "unity-q1-fy23",
+        "unity-q2-fy23",
+        "unity-q3-fy22",
+        "unity-q3-fy23",
+        "unity-q4-fy22"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -18314,6 +18668,11 @@
       "path": "input/icon-crop-specs/united-q4-fy25.json",
       "digest": "sha256:5fec46d76e9f95a7cd0e3182c2bea09a7fbf85a08ee1b34e238edb41a7bd35ae",
       "source": "input/processed/united-q4-fy25.png"
+    },
+    {
+      "path": "input/icon-crop-specs/unity-q4-fy22.json",
+      "digest": "sha256:4d6dfc22bcd21c067a5f944e4e7eee730db0b927ca0541f7243d0b8f86591617",
+      "source": "input/processed/unity-q4-fy22.png"
     },
     {
       "path": "input/icon-crop-specs/vail-resorts-q3-fy26.json",

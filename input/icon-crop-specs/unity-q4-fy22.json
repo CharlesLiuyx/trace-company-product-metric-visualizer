@@ -1,0 +1,210 @@
+{
+  "source": "input/processed/unity-q4-fy22.png",
+  "outputDir": "data/assets/icon-references/unity",
+  "runtimeOutputDir": "data/assets/raster-annotations/unity",
+  "validationSheetDir": "data/assets/icon-references/unity/validation-sheets",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "company-logo",
+      "output": "crops/company-logo.png",
+      "runtimeOutput": "company-logo.png",
+      "searchBox": {
+        "x": 589,
+        "y": 230,
+        "width": 576,
+        "height": 217
+      },
+      "cropBox": {
+        "x": 589,
+        "y": 230,
+        "width": 576,
+        "height": 217
+      },
+      "threshold": 15,
+      "minComponentArea": 2,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "weta-digital",
+      "output": "crops/weta-digital.png",
+      "runtimeOutput": "weta-digital.png",
+      "searchBox": {
+        "x": 40,
+        "y": 432,
+        "width": 141,
+        "height": 57
+      },
+      "cropBox": {
+        "x": 40,
+        "y": 432,
+        "width": 141,
+        "height": 57
+      },
+      "threshold": 15,
+      "minComponentArea": 2,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "ziva",
+      "output": "crops/ziva.png",
+      "runtimeOutput": "ziva.png",
+      "searchBox": {
+        "x": 44,
+        "y": 488,
+        "width": 129,
+        "height": 42
+      },
+      "cropBox": {
+        "x": 44,
+        "y": 488,
+        "width": 129,
+        "height": 42
+      },
+      "threshold": 15,
+      "minComponentArea": 2,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "speedtree",
+      "output": "crops/speedtree.png",
+      "runtimeOutput": "speedtree.png",
+      "searchBox": {
+        "x": 22,
+        "y": 533,
+        "width": 176,
+        "height": 36
+      },
+      "cropBox": {
+        "x": 22,
+        "y": 533,
+        "width": 176,
+        "height": 36
+      },
+      "threshold": 15,
+      "minComponentArea": 2,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "syncsketch",
+      "output": "crops/syncsketch.png",
+      "runtimeOutput": "syncsketch.png",
+      "searchBox": {
+        "x": 44,
+        "y": 570,
+        "width": 129,
+        "height": 40
+      },
+      "cropBox": {
+        "x": 44,
+        "y": 570,
+        "width": 129,
+        "height": 40
+      },
+      "threshold": 15,
+      "minComponentArea": 2,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "unity-pro",
+      "output": "crops/unity-pro.png",
+      "runtimeOutput": "unity-pro.png",
+      "searchBox": {
+        "x": 10,
+        "y": 844,
+        "width": 141,
+        "height": 53
+      },
+      "cropBox": {
+        "x": 10,
+        "y": 844,
+        "width": 141,
+        "height": 53
+      },
+      "threshold": 15,
+      "minComponentArea": 2,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "unity-enterprise",
+      "output": "crops/unity-enterprise.png",
+      "runtimeOutput": "unity-enterprise.png",
+      "searchBox": {
+        "x": 10,
+        "y": 915,
+        "width": 199,
+        "height": 53
+      },
+      "cropBox": {
+        "x": 10,
+        "y": 915,
+        "width": 199,
+        "height": 53
+      },
+      "threshold": 15,
+      "minComponentArea": 2,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "ironsource",
+      "output": "crops/ironsource.png",
+      "runtimeOutput": "ironsource.png",
+      "searchBox": {
+        "x": 9,
+        "y": 986,
+        "width": 197,
+        "height": 60
+      },
+      "cropBox": {
+        "x": 9,
+        "y": 986,
+        "width": 197,
+        "height": 60
+      },
+      "threshold": 15,
+      "minComponentArea": 2,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ]
+}

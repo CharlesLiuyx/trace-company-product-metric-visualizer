@@ -1,0 +1,833 @@
+{
+  "source": "input/processed/unity-q4-fy22.png",
+  "spec": "input/icon-crop-specs/unity-q4-fy22.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-25T04:42:23.017510+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/unity",
+  "crops": [
+    {
+      "key": "company-logo",
+      "output": "data/assets/icon-references/unity/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4157,
+        "losslessBytes": 20572,
+        "savingsVsLossless": 0.7979,
+        "metrics": {
+          "meanAbsoluteError": 0.2468,
+          "rootMeanSquareError": 1.1897,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.1117
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 84983,
+        "transparentPixelRatio": 0.6799
+      },
+      "searchBox": {
+        "x": 589,
+        "y": 230,
+        "width": 576,
+        "height": 217
+      },
+      "componentCount": 7,
+      "subjectBox": {
+        "x0": 596,
+        "y0": 236,
+        "x1": 1155,
+        "y1": 442
+      },
+      "cropBox": {
+        "x0": 589,
+        "y0": 230,
+        "x1": 1165,
+        "y1": 447
+      },
+      "validation": {
+        "width": 576,
+        "height": 217,
+        "foregroundPixels": 39547,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 10,
+          "top": 6,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": -0.0026,
+          "y": 0.0023
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/unity/company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4157,
+        "losslessBytes": 20572,
+        "savingsVsLossless": 0.7979,
+        "metrics": {
+          "meanAbsoluteError": 0.2468,
+          "rootMeanSquareError": 1.1897,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.1117
+        }
+      },
+      "validationSheet": "data/assets/icon-references/unity/validation-sheets/company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 85513,
+        "losslessBytes": 221087,
+        "savingsVsLossless": 0.6132,
+        "metrics": {
+          "meanAbsoluteError": 0.1493,
+          "rootMeanSquareError": 1.3597,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 69,
+          "changedPixelRatio": 0.0513
+        }
+      }
+    },
+    {
+      "key": "weta-digital",
+      "output": "data/assets/icon-references/unity/crops/weta-digital.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1242,
+        "losslessBytes": 5279,
+        "savingsVsLossless": 0.7647,
+        "metrics": {
+          "meanAbsoluteError": 0.6431,
+          "rootMeanSquareError": 2.0,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.2057
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 4150,
+        "transparentPixelRatio": 0.5164
+      },
+      "searchBox": {
+        "x": 40,
+        "y": 432,
+        "width": 141,
+        "height": 57
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 46,
+        "y0": 439,
+        "x1": 174,
+        "y1": 485
+      },
+      "cropBox": {
+        "x0": 40,
+        "y0": 432,
+        "x1": 181,
+        "y1": 489
+      },
+      "validation": {
+        "width": 141,
+        "height": 57,
+        "foregroundPixels": 3660,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 7,
+          "top": 7,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": -0.0035,
+          "y": 0.0263
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/unity/weta-digital.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1242,
+        "losslessBytes": 5279,
+        "savingsVsLossless": 0.7647,
+        "metrics": {
+          "meanAbsoluteError": 0.6431,
+          "rootMeanSquareError": 2.0,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.2057
+        }
+      },
+      "validationSheet": "data/assets/icon-references/unity/validation-sheets/weta-digital.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 96428,
+        "losslessBytes": 235867,
+        "savingsVsLossless": 0.5912,
+        "metrics": {
+          "meanAbsoluteError": 0.1621,
+          "rootMeanSquareError": 1.4546,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 69,
+          "changedPixelRatio": 0.0567
+        }
+      }
+    },
+    {
+      "key": "ziva",
+      "output": "data/assets/icon-references/unity/crops/ziva.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 794,
+        "losslessBytes": 3249,
+        "savingsVsLossless": 0.7556,
+        "metrics": {
+          "meanAbsoluteError": 0.4747,
+          "rootMeanSquareError": 1.5897,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 20,
+          "changedPixelRatio": 0.2523
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 4189,
+        "transparentPixelRatio": 0.7732
+      },
+      "searchBox": {
+        "x": 44,
+        "y": 488,
+        "width": 129,
+        "height": 42
+      },
+      "componentCount": 5,
+      "subjectBox": {
+        "x0": 52,
+        "y0": 492,
+        "x1": 163,
+        "y1": 526
+      },
+      "cropBox": {
+        "x0": 44,
+        "y0": 488,
+        "x1": 173,
+        "y1": 530
+      },
+      "validation": {
+        "width": 129,
+        "height": 42,
+        "foregroundPixels": 1050,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 8,
+          "right": 10,
+          "top": 4,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": -0.0078,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/unity/ziva.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 794,
+        "losslessBytes": 3249,
+        "savingsVsLossless": 0.7556,
+        "metrics": {
+          "meanAbsoluteError": 0.4747,
+          "rootMeanSquareError": 1.5897,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 20,
+          "changedPixelRatio": 0.2523
+        }
+      },
+      "validationSheet": "data/assets/icon-references/unity/validation-sheets/ziva.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 230000,
+        "losslessBytes": 230000,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "speedtree",
+      "output": "data/assets/icon-references/unity/crops/speedtree.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1239,
+        "losslessBytes": 5946,
+        "savingsVsLossless": 0.7916,
+        "metrics": {
+          "meanAbsoluteError": 0.7077,
+          "rootMeanSquareError": 1.858,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.3895
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 4001,
+        "transparentPixelRatio": 0.6315
+      },
+      "searchBox": {
+        "x": 22,
+        "y": 533,
+        "width": 176,
+        "height": 36
+      },
+      "componentCount": 11,
+      "subjectBox": {
+        "x0": 29,
+        "y0": 535,
+        "x1": 191,
+        "y1": 564
+      },
+      "cropBox": {
+        "x0": 22,
+        "y0": 533,
+        "x1": 198,
+        "y1": 569
+      },
+      "validation": {
+        "width": 176,
+        "height": 36,
+        "foregroundPixels": 2135,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 7,
+          "top": 2,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0417
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/unity/speedtree.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1239,
+        "losslessBytes": 5946,
+        "savingsVsLossless": 0.7916,
+        "metrics": {
+          "meanAbsoluteError": 0.7077,
+          "rootMeanSquareError": 1.858,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.3895
+        }
+      },
+      "validationSheet": "data/assets/icon-references/unity/validation-sheets/speedtree.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 233866,
+        "losslessBytes": 233866,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "syncsketch",
+      "output": "data/assets/icon-references/unity/crops/syncsketch.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 1234,
+        "losslessBytes": 4544,
+        "savingsVsLossless": 0.7284,
+        "metrics": {
+          "meanAbsoluteError": 0.6906,
+          "rootMeanSquareError": 1.9902,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 30,
+          "changedPixelRatio": 0.2835
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 3434,
+        "transparentPixelRatio": 0.6655
+      },
+      "searchBox": {
+        "x": 44,
+        "y": 570,
+        "width": 129,
+        "height": 40
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 51,
+        "y0": 576,
+        "x1": 163,
+        "y1": 605
+      },
+      "cropBox": {
+        "x0": 44,
+        "y0": 570,
+        "x1": 173,
+        "y1": 610
+      },
+      "validation": {
+        "width": 129,
+        "height": 40,
+        "foregroundPixels": 1539,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 10,
+          "top": 6,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": -0.0116,
+          "y": 0.0125
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/unity/syncsketch.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 1234,
+        "losslessBytes": 4544,
+        "savingsVsLossless": 0.7284,
+        "metrics": {
+          "meanAbsoluteError": 0.6906,
+          "rootMeanSquareError": 1.9902,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 30,
+          "changedPixelRatio": 0.2835
+        }
+      },
+      "validationSheet": "data/assets/icon-references/unity/validation-sheets/syncsketch.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 241025,
+        "losslessBytes": 241025,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "unity-pro",
+      "output": "data/assets/icon-references/unity/crops/unity-pro.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1077,
+        "losslessBytes": 4673,
+        "savingsVsLossless": 0.7695,
+        "metrics": {
+          "meanAbsoluteError": 0.6598,
+          "rootMeanSquareError": 1.8721,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 14,
+          "changedPixelRatio": 0.2762
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 5407,
+        "transparentPixelRatio": 0.7235
+      },
+      "searchBox": {
+        "x": 10,
+        "y": 844,
+        "width": 141,
+        "height": 53
+      },
+      "componentCount": 5,
+      "subjectBox": {
+        "x0": 17,
+        "y0": 849,
+        "x1": 145,
+        "y1": 892
+      },
+      "cropBox": {
+        "x0": 10,
+        "y0": 844,
+        "x1": 151,
+        "y1": 897
+      },
+      "validation": {
+        "width": 141,
+        "height": 53,
+        "foregroundPixels": 1909,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 6,
+          "top": 5,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0035,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/unity/unity-pro.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1077,
+        "losslessBytes": 4673,
+        "savingsVsLossless": 0.7695,
+        "metrics": {
+          "meanAbsoluteError": 0.6598,
+          "rootMeanSquareError": 1.8721,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 14,
+          "changedPixelRatio": 0.2762
+        }
+      },
+      "validationSheet": "data/assets/icon-references/unity/validation-sheets/unity-pro.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 92626,
+        "losslessBytes": 230580,
+        "savingsVsLossless": 0.5983,
+        "metrics": {
+          "meanAbsoluteError": 0.1648,
+          "rootMeanSquareError": 1.5067,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 68,
+          "changedPixelRatio": 0.0562
+        }
+      }
+    },
+    {
+      "key": "unity-enterprise",
+      "output": "data/assets/icon-references/unity/crops/unity-enterprise.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1377,
+        "losslessBytes": 6284,
+        "savingsVsLossless": 0.7809,
+        "metrics": {
+          "meanAbsoluteError": 0.7271,
+          "rootMeanSquareError": 1.9651,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 12,
+          "changedPixelRatio": 0.2558
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 8003,
+        "transparentPixelRatio": 0.7588
+      },
+      "searchBox": {
+        "x": 10,
+        "y": 915,
+        "width": 199,
+        "height": 53
+      },
+      "componentCount": 11,
+      "subjectBox": {
+        "x0": 18,
+        "y0": 921,
+        "x1": 204,
+        "y1": 963
+      },
+      "cropBox": {
+        "x0": 10,
+        "y0": 915,
+        "x1": 209,
+        "y1": 968
+      },
+      "validation": {
+        "width": 199,
+        "height": 53,
+        "foregroundPixels": 2363,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 8,
+          "right": 5,
+          "top": 6,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0075,
+          "y": 0.0094
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/unity/unity-enterprise.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1377,
+        "losslessBytes": 6284,
+        "savingsVsLossless": 0.7809,
+        "metrics": {
+          "meanAbsoluteError": 0.7271,
+          "rootMeanSquareError": 1.9651,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 12,
+          "changedPixelRatio": 0.2558
+        }
+      },
+      "validationSheet": "data/assets/icon-references/unity/validation-sheets/unity-enterprise.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 89026,
+        "losslessBytes": 226710,
+        "savingsVsLossless": 0.6073,
+        "metrics": {
+          "meanAbsoluteError": 0.1555,
+          "rootMeanSquareError": 1.471,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 69,
+          "changedPixelRatio": 0.0529
+        }
+      }
+    },
+    {
+      "key": "ironsource",
+      "output": "data/assets/icon-references/unity/crops/ironsource.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1510,
+        "losslessBytes": 6914,
+        "savingsVsLossless": 0.7816,
+        "metrics": {
+          "meanAbsoluteError": 0.6368,
+          "rootMeanSquareError": 2.491,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.3119
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 8262,
+        "transparentPixelRatio": 0.699
+      },
+      "searchBox": {
+        "x": 9,
+        "y": 986,
+        "width": 197,
+        "height": 60
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 15,
+        "y0": 992,
+        "x1": 200,
+        "y1": 1039
+      },
+      "cropBox": {
+        "x0": 9,
+        "y0": 986,
+        "x1": 206,
+        "y1": 1046
+      },
+      "validation": {
+        "width": 197,
+        "height": 60,
+        "foregroundPixels": 3099,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 6,
+          "top": 6,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0083
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/unity/ironsource.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1510,
+        "losslessBytes": 6914,
+        "savingsVsLossless": 0.7816,
+        "metrics": {
+          "meanAbsoluteError": 0.6368,
+          "rootMeanSquareError": 2.491,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.3119
+        }
+      },
+      "validationSheet": "data/assets/icon-references/unity/validation-sheets/ironsource.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 89455,
+        "losslessBytes": 236592,
+        "savingsVsLossless": 0.6219,
+        "metrics": {
+          "meanAbsoluteError": 0.2243,
+          "rootMeanSquareError": 1.7521,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 70,
+          "changedPixelRatio": 0.0621
+        }
+      }
+    }
+  ]
+}

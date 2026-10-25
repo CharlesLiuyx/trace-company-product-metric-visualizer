@@ -2880,6 +2880,271 @@
       "digest": "sha256:3ff7ad2ed35e42fc848dbdf03dfcaa50d13aa9fb4c33dbb8f1d4f4ca380272ab",
       "updatedAt": "2026-10-24T05:38:30.600Z",
       "publishedDigest": "sha256:f775c4e4a415a96cd2b134fa85172ced248c51b810430ba7a591e302a6e5fb96"
+    },
+    "data/datasets/hubspot-q1-fy23.js": {
+      "digest": "sha256:cffbaae7e31bf37dd36fb3f51a8f1d91c32ea6c42342aa394fc53498414467f7",
+      "updatedAt": "2026-10-25T04:40:22.662Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/hubspot-q1-fy24.js": {
+      "digest": "sha256:6c0355c6e545118dc580b9b5f35a6c719e94f25abace7bf634ca69df0135a345",
+      "updatedAt": "2026-10-25T04:40:18.393Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/hubspot-q1-fy25.js": {
+      "digest": "sha256:cbbf99ec1542bf80a588183e4e2da10e615d6da6ea362491c8278af22c18fc3c",
+      "updatedAt": "2026-10-25T04:42:54.525Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/hubspot-q2-fy23.js": {
+      "digest": "sha256:cb63536fc207d37132945d6d8b0e6b36e58412075a57d5dfe3c8a1078a9f99fb",
+      "updatedAt": "2026-10-25T04:39:35.972Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/hubspot-q2-fy24.js": {
+      "digest": "sha256:5f6098cd63dbd39916280d75f3f453197ed772712f6c64c6129779799907eeaa",
+      "updatedAt": "2026-10-25T04:40:45.349Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/hubspot-q2-fy25.js": {
+      "digest": "sha256:2d7ac5180f52e71d71aaa2084680cb2f92a84a5867bdc9bbd1a810f113e92d97",
+      "updatedAt": "2026-10-25T04:42:21.509Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/hubspot-q3-fy22.js": {
+      "digest": "sha256:c768aaeb7ef486186204970a3c0e7b40120c19adeac5ab6f0f3bc7fef4f98ef4",
+      "updatedAt": "2026-10-25T04:44:06.289Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/hubspot-q3-fy23.js": {
+      "digest": "sha256:5c0608601ee479e05ffd0f4935af74ed46d3c3179e40f662a0763489c34b7fd1",
+      "updatedAt": "2026-10-25T04:39:35.242Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/hubspot-q3-fy24.js": {
+      "digest": "sha256:27810ef24f5229d1b28f5cf3e1c7c1ac82c85f6c0db3c3e88501ee8066f3f724",
+      "updatedAt": "2026-10-25T04:42:34.750Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/hubspot-q4-fy23.js": {
+      "digest": "sha256:75374e5a8b9cb0e988bbffa15de02023532f831a032ae20939dde251e49f48b5",
+      "updatedAt": "2026-10-25T04:39:11.694Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/hubspot-q4-fy24.js": {
+      "digest": "sha256:24130ead5c1a7767f3a1c81c07c62039ac9e798ec0cdf2d042889fa79bb8b46f",
+      "updatedAt": "2026-10-25T04:42:48.984Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/sap-q1-fy23.js": {
+      "digest": "sha256:ad77fd125b41c30ba4fd06b5d963e8bb2e71bf47cbff690a9d283133c18542db",
+      "updatedAt": "2026-10-25T04:44:10.928Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/sap-q1-fy24.js": {
+      "digest": "sha256:ce3fdbbb156bd9f735971522fa61d07b453933ab0192eff9b00f81c4bb90db4c",
+      "updatedAt": "2026-10-25T04:42:06.832Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/sap-q1-fy25.js": {
+      "digest": "sha256:8a8c4ef815cbbc4e97cf1baab5034c627e4cafb36ed45168314db7cf8b40b12e",
+      "updatedAt": "2026-10-25T04:41:19.601Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/sap-q2-fy23.js": {
+      "digest": "sha256:850605e874f0635a64ce3b3e57aeb0fc3fee8e4ddbee34a79e19899c5972cd6d",
+      "updatedAt": "2026-10-25T04:44:08.492Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/sap-q2-fy24.js": {
+      "digest": "sha256:a7260f3fd0c9f77fec4f30b082aacbecbb813737c7170ec88175f9c92b136304",
+      "updatedAt": "2026-10-25T04:41:35.020Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/sap-q2-fy25.js": {
+      "digest": "sha256:797154eccfbc2e351f9a26a8a0f41bba2a03a29f5483640d1e2efa00678a0d90",
+      "updatedAt": "2026-10-25T04:42:14.510Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/sap-q3-fy22.js": {
+      "digest": "sha256:90a5424a869c44134fdecc70fe345578eaa89eba05e3b6d0dd996a56a9488293",
+      "updatedAt": "2026-10-25T04:39:03.970Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/sap-q3-fy23.js": {
+      "digest": "sha256:54df64b64b4f8d139a0325fbc35a94f8a08686bbcb1162aa1bb9a8cd11999570",
+      "updatedAt": "2026-10-25T04:41:01.457Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/sap-q3-fy24.js": {
+      "digest": "sha256:7a2932a820d3f8a2a39fc412b2bea53d40b621cc9d710d678b3ef277aa261e15",
+      "updatedAt": "2026-10-25T04:41:54.068Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/sap-q3-fy25.js": {
+      "digest": "sha256:8bb54d2d6ae7d7ee403b1618a41520a203996594cea2e30015fc9e1dd79f13cd",
+      "updatedAt": "2026-10-25T04:42:05.233Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/sap-q4-fy22.js": {
+      "digest": "sha256:d10c0f0cb818350bf0a11d62fd4767e45d64427fb504984384348a7857d2f8ba",
+      "updatedAt": "2026-10-25T04:41:04.023Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/sap-q4-fy23.js": {
+      "digest": "sha256:af6178b9a96f65eb17a0d6f4c505a73b1f4580cfc6e1484b680f2f117f334781",
+      "updatedAt": "2026-10-25T04:41:12.060Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/sap-q4-fy24.js": {
+      "digest": "sha256:38dc399697d63997282b35370b75da7fbb42e2c96af8111ed638703ca9a9820c",
+      "updatedAt": "2026-10-25T04:41:14.415Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/take-two-fy24.js": {
+      "digest": "sha256:3caad7112dff25cbc4261913fb801eeee4dd2613e37febcaa6121bd337b91560",
+      "updatedAt": "2026-10-25T04:39:10.399Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/take-two-q1-fy25.js": {
+      "digest": "sha256:6e3bc5243eec9a4f26b71e8a42939075e2c93776cb1805e5a5b0b8599fb586e8",
+      "updatedAt": "2026-10-25T04:39:39.185Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/take-two-q1-fy26.js": {
+      "digest": "sha256:accbc751f0e08069614696489fba33f7b27295654c6e7c045d902a2bde092946",
+      "updatedAt": "2026-10-25T04:40:43.174Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/take-two-q2-fy23.js": {
+      "digest": "sha256:d1039c47173fea14c13b1d38bd820d538a9dbcc46e11bc377008be4ee0e525d5",
+      "updatedAt": "2026-10-25T04:40:09.781Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/take-two-q2-fy24.js": {
+      "digest": "sha256:6c9ca4e774f7f951fe11c8cbe2a4975ed28889b9c3c0d0cbf8fbf699e64cdf18",
+      "updatedAt": "2026-10-25T04:39:23.258Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/take-two-q2-fy25.js": {
+      "digest": "sha256:1faa109ad533b33d9082f085241dcbc547316647711647f96599e311dfa0ab9e",
+      "updatedAt": "2026-10-25T04:40:40.860Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/take-two-q3-fy23.js": {
+      "digest": "sha256:336f78bebbdf0db0f503bd6bb09bbe7b0f7742e2a956e87c63da06d0f09de117",
+      "updatedAt": "2026-10-25T04:39:50.678Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/take-two-q3-fy24.js": {
+      "digest": "sha256:e04b5918f0853d71523da4228e4dd500bdaf847b38e872231c9c2cec30fd76ae",
+      "updatedAt": "2026-10-25T04:41:42.313Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/take-two-q3-fy25.js": {
+      "digest": "sha256:20d9b1c18afd1d62399e0656e4561925cc0e8be5a8fd03647fec562214ac6daa",
+      "updatedAt": "2026-10-25T04:41:21.586Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/take-two-q4-fy23.js": {
+      "digest": "sha256:1e9965313d272ce4904a7e498ab1deea8c265324b07c998a4b4fe9b5d7430794",
+      "updatedAt": "2026-10-25T04:40:02.435Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/take-two-q4-fy25.js": {
+      "digest": "sha256:6e893a56c1ae1a664d15402bd6cd47a5fd34c312551f2d974d0c4143ad364128",
+      "updatedAt": "2026-10-25T04:41:32.667Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/uipath-q1-fy24.js": {
+      "digest": "sha256:558acd689db0bb5986365361df0635559ebb1198f4cd1d6715ce061b7680b3cb",
+      "updatedAt": "2026-10-25T04:42:16.866Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/uipath-q1-fy25.js": {
+      "digest": "sha256:c3026e279d098dfd227233107ead2523bc89e18cf5ed554b528168cfa425e720",
+      "updatedAt": "2026-10-25T04:42:27.773Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/uipath-q1-fy26.js": {
+      "digest": "sha256:5ad7f3536f60f1a2f675793b1e289c2e45fe1794d89356852c1dab95b0343d78",
+      "updatedAt": "2026-10-25T04:42:52.057Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/uipath-q2-fy24.js": {
+      "digest": "sha256:35a40d16d18ad7bf6a2c2874a9398642a693fbb594e149ee5a4b15085edb1928",
+      "updatedAt": "2026-10-25T04:40:50.409Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/uipath-q2-fy25.js": {
+      "digest": "sha256:b62dff0996e6c2d0e89d6fd94bd94f205eb82930abf31ef10d90e9f4429b8c9d",
+      "updatedAt": "2026-10-25T04:40:15.806Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/uipath-q2-fy26.js": {
+      "digest": "sha256:009473b2cb1c45180e13fb48ac01344faad756af1495b87f5965f6a7919a8b49",
+      "updatedAt": "2026-10-25T04:39:42.126Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/uipath-q3-fy23.js": {
+      "digest": "sha256:aa66a62a3b0feae7d01d0eb9ca48376412b160ec22bd4165ac36835b87662e6c",
+      "updatedAt": "2026-10-25T04:39:20.019Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/uipath-q3-fy24.js": {
+      "digest": "sha256:625950752a5727a98a03d79ea76bd6dfa8412d8ce39d831977298058a8f9c0c0",
+      "updatedAt": "2026-10-25T04:42:24.558Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/uipath-q3-fy25.js": {
+      "digest": "sha256:a9ebfeca897f17bfd2a55f0bd25f95903ecb649e08b0a1e8b4b2e50f22689ded",
+      "updatedAt": "2026-10-25T04:39:24.716Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/uipath-q3-fy26.js": {
+      "digest": "sha256:1e18a6b0d01db0d833575bde587ab7cc2e3e9f33170fbcbe7ba14fc22e55e9be",
+      "updatedAt": "2026-10-25T04:39:51.406Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/uipath-q4-fy23.js": {
+      "digest": "sha256:9bbc2885dbc5dfb493fde34eb215abd5da30d091a0155d4e12d9692a208bd5b8",
+      "updatedAt": "2026-10-25T04:40:33.387Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/uipath-q4-fy24.js": {
+      "digest": "sha256:4bffc10413637d0b13bdf97124519ff333a3f0e6d597fcf129e3ba7550fddd11",
+      "updatedAt": "2026-10-25T04:41:39.473Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/uipath-q4-fy25.js": {
+      "digest": "sha256:4e599f8794938cc7f467a881a2ad33e32209ebde5c868e9f14f9646e14d41816",
+      "updatedAt": "2026-10-25T04:40:13.153Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/unity-q1-fy23.js": {
+      "digest": "sha256:466531258f87aff81922dd44f47eb27120a16ccb69f476241d8fbe0d268e85fd",
+      "updatedAt": "2026-10-25T04:41:49.498Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/unity-q2-fy23.js": {
+      "digest": "sha256:524a23ea6bb7a898123c424b1424593fd5c26d82e3362505e4d29401588824fb",
+      "updatedAt": "2026-10-25T04:41:17.729Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/unity-q3-fy22.js": {
+      "digest": "sha256:bd65da43f67430755fb4409412578c0aebd8f9608a69606dc41e44b275289643",
+      "updatedAt": "2026-10-25T04:40:00.430Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/unity-q3-fy23.js": {
+      "digest": "sha256:4982ce75e6521eff40a01f8f18480fe9b25cfa2c281d552e89831e32bc517638",
+      "updatedAt": "2026-10-25T04:41:36.801Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
+    },
+    "data/datasets/unity-q4-fy22.js": {
+      "digest": "sha256:771ddc711d3edc5d93f654202c0d1ef6ec35f5752bcc6333398e556738f4a639",
+      "updatedAt": "2026-10-25T04:41:06.029Z",
+      "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0"
     }
   }
 }

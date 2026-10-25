@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-10-24T05:38:41.824Z",
+  "generatedAt": "2026-10-25T04:44:10.928Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -9521,6 +9521,324 @@
       "path": "data/datasets/visa-q4-fy25.js",
       "updatedAtMs": 1792820310600,
       "updatedAt": "2026-10-24T05:38:30.600Z",
+      "timeSource": "publication"
+    },
+    "hubspot-q1-fy23": {
+      "path": "data/datasets/hubspot-q1-fy23.js",
+      "updatedAtMs": 1792903222662,
+      "updatedAt": "2026-10-25T04:40:22.662Z",
+      "timeSource": "publication"
+    },
+    "hubspot-q1-fy24": {
+      "path": "data/datasets/hubspot-q1-fy24.js",
+      "updatedAtMs": 1792903218393,
+      "updatedAt": "2026-10-25T04:40:18.393Z",
+      "timeSource": "publication"
+    },
+    "hubspot-q1-fy25": {
+      "path": "data/datasets/hubspot-q1-fy25.js",
+      "updatedAtMs": 1792903374525,
+      "updatedAt": "2026-10-25T04:42:54.525Z",
+      "timeSource": "publication"
+    },
+    "hubspot-q2-fy23": {
+      "path": "data/datasets/hubspot-q2-fy23.js",
+      "updatedAtMs": 1792903175972,
+      "updatedAt": "2026-10-25T04:39:35.972Z",
+      "timeSource": "publication"
+    },
+    "hubspot-q2-fy24": {
+      "path": "data/datasets/hubspot-q2-fy24.js",
+      "updatedAtMs": 1792903245349,
+      "updatedAt": "2026-10-25T04:40:45.349Z",
+      "timeSource": "publication"
+    },
+    "hubspot-q2-fy25": {
+      "path": "data/datasets/hubspot-q2-fy25.js",
+      "updatedAtMs": 1792903341509,
+      "updatedAt": "2026-10-25T04:42:21.509Z",
+      "timeSource": "publication"
+    },
+    "hubspot-q3-fy22": {
+      "path": "data/datasets/hubspot-q3-fy22.js",
+      "updatedAtMs": 1792903446289,
+      "updatedAt": "2026-10-25T04:44:06.289Z",
+      "timeSource": "publication"
+    },
+    "hubspot-q3-fy23": {
+      "path": "data/datasets/hubspot-q3-fy23.js",
+      "updatedAtMs": 1792903175242,
+      "updatedAt": "2026-10-25T04:39:35.242Z",
+      "timeSource": "publication"
+    },
+    "hubspot-q3-fy24": {
+      "path": "data/datasets/hubspot-q3-fy24.js",
+      "updatedAtMs": 1792903354750,
+      "updatedAt": "2026-10-25T04:42:34.750Z",
+      "timeSource": "publication"
+    },
+    "hubspot-q4-fy23": {
+      "path": "data/datasets/hubspot-q4-fy23.js",
+      "updatedAtMs": 1792903151694,
+      "updatedAt": "2026-10-25T04:39:11.694Z",
+      "timeSource": "publication"
+    },
+    "hubspot-q4-fy24": {
+      "path": "data/datasets/hubspot-q4-fy24.js",
+      "updatedAtMs": 1792903368984,
+      "updatedAt": "2026-10-25T04:42:48.984Z",
+      "timeSource": "publication"
+    },
+    "sap-q1-fy23": {
+      "path": "data/datasets/sap-q1-fy23.js",
+      "updatedAtMs": 1792903450928,
+      "updatedAt": "2026-10-25T04:44:10.928Z",
+      "timeSource": "publication"
+    },
+    "sap-q1-fy24": {
+      "path": "data/datasets/sap-q1-fy24.js",
+      "updatedAtMs": 1792903326832,
+      "updatedAt": "2026-10-25T04:42:06.832Z",
+      "timeSource": "publication"
+    },
+    "sap-q1-fy25": {
+      "path": "data/datasets/sap-q1-fy25.js",
+      "updatedAtMs": 1792903279601,
+      "updatedAt": "2026-10-25T04:41:19.601Z",
+      "timeSource": "publication"
+    },
+    "sap-q2-fy23": {
+      "path": "data/datasets/sap-q2-fy23.js",
+      "updatedAtMs": 1792903448492,
+      "updatedAt": "2026-10-25T04:44:08.492Z",
+      "timeSource": "publication"
+    },
+    "sap-q2-fy24": {
+      "path": "data/datasets/sap-q2-fy24.js",
+      "updatedAtMs": 1792903295020,
+      "updatedAt": "2026-10-25T04:41:35.020Z",
+      "timeSource": "publication"
+    },
+    "sap-q2-fy25": {
+      "path": "data/datasets/sap-q2-fy25.js",
+      "updatedAtMs": 1792903334510,
+      "updatedAt": "2026-10-25T04:42:14.510Z",
+      "timeSource": "publication"
+    },
+    "sap-q3-fy22": {
+      "path": "data/datasets/sap-q3-fy22.js",
+      "updatedAtMs": 1792903143970,
+      "updatedAt": "2026-10-25T04:39:03.970Z",
+      "timeSource": "publication"
+    },
+    "sap-q3-fy23": {
+      "path": "data/datasets/sap-q3-fy23.js",
+      "updatedAtMs": 1792903261457,
+      "updatedAt": "2026-10-25T04:41:01.457Z",
+      "timeSource": "publication"
+    },
+    "sap-q3-fy24": {
+      "path": "data/datasets/sap-q3-fy24.js",
+      "updatedAtMs": 1792903314068,
+      "updatedAt": "2026-10-25T04:41:54.068Z",
+      "timeSource": "publication"
+    },
+    "sap-q3-fy25": {
+      "path": "data/datasets/sap-q3-fy25.js",
+      "updatedAtMs": 1792903325233,
+      "updatedAt": "2026-10-25T04:42:05.233Z",
+      "timeSource": "publication"
+    },
+    "sap-q4-fy22": {
+      "path": "data/datasets/sap-q4-fy22.js",
+      "updatedAtMs": 1792903264023,
+      "updatedAt": "2026-10-25T04:41:04.023Z",
+      "timeSource": "publication"
+    },
+    "sap-q4-fy23": {
+      "path": "data/datasets/sap-q4-fy23.js",
+      "updatedAtMs": 1792903272060,
+      "updatedAt": "2026-10-25T04:41:12.060Z",
+      "timeSource": "publication"
+    },
+    "sap-q4-fy24": {
+      "path": "data/datasets/sap-q4-fy24.js",
+      "updatedAtMs": 1792903274415,
+      "updatedAt": "2026-10-25T04:41:14.415Z",
+      "timeSource": "publication"
+    },
+    "take-two-fy24": {
+      "path": "data/datasets/take-two-fy24.js",
+      "updatedAtMs": 1792903150399,
+      "updatedAt": "2026-10-25T04:39:10.399Z",
+      "timeSource": "publication"
+    },
+    "take-two-q1-fy25": {
+      "path": "data/datasets/take-two-q1-fy25.js",
+      "updatedAtMs": 1792903179185,
+      "updatedAt": "2026-10-25T04:39:39.185Z",
+      "timeSource": "publication"
+    },
+    "take-two-q1-fy26": {
+      "path": "data/datasets/take-two-q1-fy26.js",
+      "updatedAtMs": 1792903243174,
+      "updatedAt": "2026-10-25T04:40:43.174Z",
+      "timeSource": "publication"
+    },
+    "take-two-q2-fy23": {
+      "path": "data/datasets/take-two-q2-fy23.js",
+      "updatedAtMs": 1792903209781,
+      "updatedAt": "2026-10-25T04:40:09.781Z",
+      "timeSource": "publication"
+    },
+    "take-two-q2-fy24": {
+      "path": "data/datasets/take-two-q2-fy24.js",
+      "updatedAtMs": 1792903163258,
+      "updatedAt": "2026-10-25T04:39:23.258Z",
+      "timeSource": "publication"
+    },
+    "take-two-q2-fy25": {
+      "path": "data/datasets/take-two-q2-fy25.js",
+      "updatedAtMs": 1792903240860,
+      "updatedAt": "2026-10-25T04:40:40.860Z",
+      "timeSource": "publication"
+    },
+    "take-two-q3-fy23": {
+      "path": "data/datasets/take-two-q3-fy23.js",
+      "updatedAtMs": 1792903190678,
+      "updatedAt": "2026-10-25T04:39:50.678Z",
+      "timeSource": "publication"
+    },
+    "take-two-q3-fy24": {
+      "path": "data/datasets/take-two-q3-fy24.js",
+      "updatedAtMs": 1792903302313,
+      "updatedAt": "2026-10-25T04:41:42.313Z",
+      "timeSource": "publication"
+    },
+    "take-two-q3-fy25": {
+      "path": "data/datasets/take-two-q3-fy25.js",
+      "updatedAtMs": 1792903281586,
+      "updatedAt": "2026-10-25T04:41:21.586Z",
+      "timeSource": "publication"
+    },
+    "take-two-q4-fy23": {
+      "path": "data/datasets/take-two-q4-fy23.js",
+      "updatedAtMs": 1792903202435,
+      "updatedAt": "2026-10-25T04:40:02.435Z",
+      "timeSource": "publication"
+    },
+    "take-two-q4-fy25": {
+      "path": "data/datasets/take-two-q4-fy25.js",
+      "updatedAtMs": 1792903292667,
+      "updatedAt": "2026-10-25T04:41:32.667Z",
+      "timeSource": "publication"
+    },
+    "uipath-q1-fy24": {
+      "path": "data/datasets/uipath-q1-fy24.js",
+      "updatedAtMs": 1792903336866,
+      "updatedAt": "2026-10-25T04:42:16.866Z",
+      "timeSource": "publication"
+    },
+    "uipath-q1-fy25": {
+      "path": "data/datasets/uipath-q1-fy25.js",
+      "updatedAtMs": 1792903347773,
+      "updatedAt": "2026-10-25T04:42:27.773Z",
+      "timeSource": "publication"
+    },
+    "uipath-q1-fy26": {
+      "path": "data/datasets/uipath-q1-fy26.js",
+      "updatedAtMs": 1792903372057,
+      "updatedAt": "2026-10-25T04:42:52.057Z",
+      "timeSource": "publication"
+    },
+    "uipath-q2-fy24": {
+      "path": "data/datasets/uipath-q2-fy24.js",
+      "updatedAtMs": 1792903250409,
+      "updatedAt": "2026-10-25T04:40:50.409Z",
+      "timeSource": "publication"
+    },
+    "uipath-q2-fy25": {
+      "path": "data/datasets/uipath-q2-fy25.js",
+      "updatedAtMs": 1792903215806,
+      "updatedAt": "2026-10-25T04:40:15.806Z",
+      "timeSource": "publication"
+    },
+    "uipath-q2-fy26": {
+      "path": "data/datasets/uipath-q2-fy26.js",
+      "updatedAtMs": 1792903182126,
+      "updatedAt": "2026-10-25T04:39:42.126Z",
+      "timeSource": "publication"
+    },
+    "uipath-q3-fy23": {
+      "path": "data/datasets/uipath-q3-fy23.js",
+      "updatedAtMs": 1792903160019,
+      "updatedAt": "2026-10-25T04:39:20.019Z",
+      "timeSource": "publication"
+    },
+    "uipath-q3-fy24": {
+      "path": "data/datasets/uipath-q3-fy24.js",
+      "updatedAtMs": 1792903344558,
+      "updatedAt": "2026-10-25T04:42:24.558Z",
+      "timeSource": "publication"
+    },
+    "uipath-q3-fy25": {
+      "path": "data/datasets/uipath-q3-fy25.js",
+      "updatedAtMs": 1792903164716,
+      "updatedAt": "2026-10-25T04:39:24.716Z",
+      "timeSource": "publication"
+    },
+    "uipath-q3-fy26": {
+      "path": "data/datasets/uipath-q3-fy26.js",
+      "updatedAtMs": 1792903191406,
+      "updatedAt": "2026-10-25T04:39:51.406Z",
+      "timeSource": "publication"
+    },
+    "uipath-q4-fy23": {
+      "path": "data/datasets/uipath-q4-fy23.js",
+      "updatedAtMs": 1792903233387,
+      "updatedAt": "2026-10-25T04:40:33.387Z",
+      "timeSource": "publication"
+    },
+    "uipath-q4-fy24": {
+      "path": "data/datasets/uipath-q4-fy24.js",
+      "updatedAtMs": 1792903299473,
+      "updatedAt": "2026-10-25T04:41:39.473Z",
+      "timeSource": "publication"
+    },
+    "uipath-q4-fy25": {
+      "path": "data/datasets/uipath-q4-fy25.js",
+      "updatedAtMs": 1792903213153,
+      "updatedAt": "2026-10-25T04:40:13.153Z",
+      "timeSource": "publication"
+    },
+    "unity-q1-fy23": {
+      "path": "data/datasets/unity-q1-fy23.js",
+      "updatedAtMs": 1792903309498,
+      "updatedAt": "2026-10-25T04:41:49.498Z",
+      "timeSource": "publication"
+    },
+    "unity-q2-fy23": {
+      "path": "data/datasets/unity-q2-fy23.js",
+      "updatedAtMs": 1792903277729,
+      "updatedAt": "2026-10-25T04:41:17.729Z",
+      "timeSource": "publication"
+    },
+    "unity-q3-fy22": {
+      "path": "data/datasets/unity-q3-fy22.js",
+      "updatedAtMs": 1792903200430,
+      "updatedAt": "2026-10-25T04:40:00.430Z",
+      "timeSource": "publication"
+    },
+    "unity-q3-fy23": {
+      "path": "data/datasets/unity-q3-fy23.js",
+      "updatedAtMs": 1792903296801,
+      "updatedAt": "2026-10-25T04:41:36.801Z",
+      "timeSource": "publication"
+    },
+    "unity-q4-fy22": {
+      "path": "data/datasets/unity-q4-fy22.js",
+      "updatedAtMs": 1792903266029,
+      "updatedAt": "2026-10-25T04:41:06.029Z",
       "timeSource": "publication"
     },
     "data/revenue-metrics.js": {

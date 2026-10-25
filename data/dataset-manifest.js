@@ -35074,6 +35074,1209 @@
             }
           }
         }
+      },
+      {
+        "key": "hubspot-q1-fy23",
+        "src": "data/datasets/hubspot-q1-fy23.js",
+        "data": {
+          "name": "HubSpot · Q1 FY23",
+          "company": "HubSpot",
+          "meta": {
+            "title": "HubSpot Q1 FY23 Income Statement",
+            "period": "Q1 FY23"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HubSpot · 2023 财年第一季度",
+              "meta": {
+                "title": "HubSpot 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hubspot-q1-fy24",
+        "src": "data/datasets/hubspot-q1-fy24.js",
+        "data": {
+          "name": "HubSpot · Q1 FY24",
+          "company": "HubSpot",
+          "meta": {
+            "title": "HubSpot Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HubSpot · 2024 财年第一季度",
+              "meta": {
+                "title": "HubSpot 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hubspot-q1-fy25",
+        "src": "data/datasets/hubspot-q1-fy25.js",
+        "data": {
+          "name": "HubSpot · Q1 FY25",
+          "company": "HubSpot",
+          "meta": {
+            "title": "HubSpot Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Mar. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HubSpot · 2025 财年第一季度",
+              "meta": {
+                "title": "HubSpot 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hubspot-q2-fy23",
+        "src": "data/datasets/hubspot-q2-fy23.js",
+        "data": {
+          "name": "HubSpot · Q2 FY23",
+          "company": "HubSpot",
+          "meta": {
+            "title": "HubSpot Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Jun. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HubSpot · 2023 财年第二季度",
+              "meta": {
+                "title": "HubSpot 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hubspot-q2-fy24",
+        "src": "data/datasets/hubspot-q2-fy24.js",
+        "data": {
+          "name": "HubSpot · Q2 FY24",
+          "company": "HubSpot",
+          "meta": {
+            "title": "HubSpot Q2 FY24 Income Statement",
+            "period": "Q2 FY24"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HubSpot · 2024 财年第二季度",
+              "meta": {
+                "title": "HubSpot 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hubspot-q2-fy25",
+        "src": "data/datasets/hubspot-q2-fy25.js",
+        "data": {
+          "name": "HubSpot · Q2 FY25",
+          "company": "HubSpot",
+          "meta": {
+            "title": "HubSpot Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Jun. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HubSpot · 2025 财年第二季度",
+              "meta": {
+                "title": "HubSpot 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hubspot-q3-fy22",
+        "src": "data/datasets/hubspot-q3-fy22.js",
+        "data": {
+          "name": "HubSpot · Q3 FY22",
+          "company": "HubSpot",
+          "meta": {
+            "title": "HubSpot Q3 FY22 Income Statement",
+            "period": "Q3 FY22",
+            "periodNote": "Ending Sep. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HubSpot · 2022 财年第三季度",
+              "meta": {
+                "title": "HubSpot 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度",
+                "periodNote": "截至 2022 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hubspot-q3-fy23",
+        "src": "data/datasets/hubspot-q3-fy23.js",
+        "data": {
+          "name": "HubSpot · Q3 FY23",
+          "company": "HubSpot",
+          "meta": {
+            "title": "HubSpot Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Sep. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HubSpot · 2023 财年第三季度",
+              "meta": {
+                "title": "HubSpot 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hubspot-q3-fy24",
+        "src": "data/datasets/hubspot-q3-fy24.js",
+        "data": {
+          "name": "HubSpot · Q3 FY24",
+          "company": "HubSpot",
+          "meta": {
+            "title": "HubSpot Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HubSpot · 2024 财年第三季度",
+              "meta": {
+                "title": "HubSpot 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hubspot-q4-fy23",
+        "src": "data/datasets/hubspot-q4-fy23.js",
+        "data": {
+          "name": "HubSpot · Q4 FY23",
+          "company": "HubSpot",
+          "meta": {
+            "title": "HubSpot Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HubSpot · 2023 财年第四季度",
+              "meta": {
+                "title": "HubSpot 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hubspot-q4-fy24",
+        "src": "data/datasets/hubspot-q4-fy24.js",
+        "data": {
+          "name": "HubSpot · Q4 FY24",
+          "company": "HubSpot",
+          "meta": {
+            "title": "HubSpot Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HubSpot · 2024 财年第四季度",
+              "meta": {
+                "title": "HubSpot 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sap-q1-fy23",
+        "src": "data/datasets/sap-q1-fy23.js",
+        "data": {
+          "name": "SAP · Q1 FY23",
+          "company": "SAP",
+          "meta": {
+            "title": "SAP Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending Mar. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "SAP · 2023 财年第一季度",
+              "meta": {
+                "title": "SAP 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2023 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sap-q1-fy24",
+        "src": "data/datasets/sap-q1-fy24.js",
+        "data": {
+          "name": "SAP · Q1 FY24",
+          "company": "SAP",
+          "meta": {
+            "title": "SAP Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "SAP · 2024 财年第一季度",
+              "meta": {
+                "title": "SAP 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sap-q1-fy25",
+        "src": "data/datasets/sap-q1-fy25.js",
+        "data": {
+          "name": "SAP · Q1 FY25",
+          "company": "SAP",
+          "meta": {
+            "title": "SAP Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Mar. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "SAP · 2025 财年第一季度",
+              "meta": {
+                "title": "SAP 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sap-q2-fy23",
+        "src": "data/datasets/sap-q2-fy23.js",
+        "data": {
+          "name": "SAP · Q2 FY23",
+          "company": "SAP",
+          "meta": {
+            "title": "SAP Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Jun. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "SAP · 2023 财年第二季度",
+              "meta": {
+                "title": "SAP 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sap-q2-fy24",
+        "src": "data/datasets/sap-q2-fy24.js",
+        "data": {
+          "name": "SAP · Q2 FY24",
+          "company": "SAP",
+          "meta": {
+            "title": "SAP Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "SAP · 2024 财年第二季度",
+              "meta": {
+                "title": "SAP 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sap-q2-fy25",
+        "src": "data/datasets/sap-q2-fy25.js",
+        "data": {
+          "name": "SAP · Q2 FY25",
+          "company": "SAP",
+          "meta": {
+            "title": "SAP Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Jun. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "SAP · 2025 财年第二季度",
+              "meta": {
+                "title": "SAP 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sap-q3-fy22",
+        "src": "data/datasets/sap-q3-fy22.js",
+        "data": {
+          "name": "SAP · Q3 FY22",
+          "company": "SAP",
+          "meta": {
+            "title": "SAP Q3 FY22 Income Statement",
+            "period": "Q3 FY22",
+            "periodNote": "Ending Sep. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "SAP · 2022 财年第三季度",
+              "meta": {
+                "title": "SAP 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度",
+                "periodNote": "截至 2022 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sap-q3-fy23",
+        "src": "data/datasets/sap-q3-fy23.js",
+        "data": {
+          "name": "SAP · Q3 FY23",
+          "company": "SAP",
+          "meta": {
+            "title": "SAP Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Sep. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "SAP · 2023 财年第三季度",
+              "meta": {
+                "title": "SAP 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sap-q3-fy24",
+        "src": "data/datasets/sap-q3-fy24.js",
+        "data": {
+          "name": "SAP · Q3 FY24",
+          "company": "SAP",
+          "meta": {
+            "title": "SAP Q3 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "SAP · 2024 财年第三季度",
+              "meta": {
+                "title": "SAP 2024 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sap-q3-fy25",
+        "src": "data/datasets/sap-q3-fy25.js",
+        "data": {
+          "name": "SAP · Q3 FY25",
+          "company": "SAP",
+          "meta": {
+            "title": "SAP Q3 FY25 Income Statement",
+            "period": "Q3 FY25"
+          },
+          "i18n": {
+            "zh": {
+              "name": "SAP · 2025 财年第三季度",
+              "meta": {
+                "title": "SAP 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sap-q4-fy22",
+        "src": "data/datasets/sap-q4-fy22.js",
+        "data": {
+          "name": "SAP · Q4 FY22",
+          "company": "SAP",
+          "meta": {
+            "title": "SAP Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Ending Dec. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "SAP · 2022 财年第四季度",
+              "meta": {
+                "title": "SAP 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2022 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sap-q4-fy23",
+        "src": "data/datasets/sap-q4-fy23.js",
+        "data": {
+          "name": "SAP · Q4 FY23",
+          "company": "SAP",
+          "meta": {
+            "title": "SAP Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "SAP · 2023 财年第四季度",
+              "meta": {
+                "title": "SAP 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sap-q4-fy24",
+        "src": "data/datasets/sap-q4-fy24.js",
+        "data": {
+          "name": "SAP · Q4 FY24",
+          "company": "SAP",
+          "meta": {
+            "title": "SAP Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "SAP · 2024 财年第四季度",
+              "meta": {
+                "title": "SAP 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "take-two-fy24",
+        "src": "data/datasets/take-two-fy24.js",
+        "data": {
+          "name": "Take-Two · FY24",
+          "company": "Take-Two",
+          "meta": {
+            "title": "Take-Two FY24 Income Statement",
+            "period": "FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Take-Two · 2024 财年",
+              "meta": {
+                "title": "Take-Two 2024 财年利润表",
+                "period": "2024 财年",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "take-two-q1-fy25",
+        "src": "data/datasets/take-two-q1-fy25.js",
+        "data": {
+          "name": "Take-Two · Q1 FY25",
+          "company": "Take-Two",
+          "meta": {
+            "title": "Take-Two Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Take-Two · 2025 财年第一季度",
+              "meta": {
+                "title": "Take-Two 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "take-two-q1-fy26",
+        "src": "data/datasets/take-two-q1-fy26.js",
+        "data": {
+          "name": "Take-Two · Q1 FY26",
+          "company": "Take-Two",
+          "meta": {
+            "title": "Take-Two Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending June 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Take-Two · 2026 财年第一季度",
+              "meta": {
+                "title": "Take-Two 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "take-two-q2-fy23",
+        "src": "data/datasets/take-two-q2-fy23.js",
+        "data": {
+          "name": "Take-Two · Q2 FY23",
+          "company": "Take-Two",
+          "meta": {
+            "title": "Take-Two Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Sept. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Take-Two · 2023 财年第二季度",
+              "meta": {
+                "title": "Take-Two 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2022 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "take-two-q2-fy24",
+        "src": "data/datasets/take-two-q2-fy24.js",
+        "data": {
+          "name": "Take-Two · Q2 FY24",
+          "company": "Take-Two",
+          "meta": {
+            "title": "Take-Two Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Sep. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Take-Two · 2024 财年第二季度",
+              "meta": {
+                "title": "Take-Two 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "take-two-q2-fy25",
+        "src": "data/datasets/take-two-q2-fy25.js",
+        "data": {
+          "name": "Take-Two · Q2 FY25",
+          "company": "Take-Two",
+          "meta": {
+            "title": "Take-Two Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Take-Two · 2025 财年第二季度",
+              "meta": {
+                "title": "Take-Two 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "take-two-q3-fy23",
+        "src": "data/datasets/take-two-q3-fy23.js",
+        "data": {
+          "name": "Take-Two · Q3 FY23",
+          "company": "Take-Two",
+          "meta": {
+            "title": "Take-Two Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Dec. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Take-Two · 2023 财年第三季度",
+              "meta": {
+                "title": "Take-Two 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2022 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "take-two-q3-fy24",
+        "src": "data/datasets/take-two-q3-fy24.js",
+        "data": {
+          "name": "Take-Two · Q3 FY24",
+          "company": "Take-Two",
+          "meta": {
+            "title": "Take-Two Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Take-Two · 2024 财年第三季度",
+              "meta": {
+                "title": "Take-Two 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "take-two-q3-fy25",
+        "src": "data/datasets/take-two-q3-fy25.js",
+        "data": {
+          "name": "Take-Two · Q3 FY25",
+          "company": "Take-Two",
+          "meta": {
+            "title": "Take-Two Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Take-Two · 2025 财年第三季度",
+              "meta": {
+                "title": "Take-Two 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "take-two-q4-fy23",
+        "src": "data/datasets/take-two-q4-fy23.js",
+        "data": {
+          "name": "Take-Two · Q4 FY23",
+          "company": "Take-Two",
+          "meta": {
+            "title": "Take-Two Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Mar. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Take-Two · 2023 财年第四季度",
+              "meta": {
+                "title": "Take-Two 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "take-two-q4-fy25",
+        "src": "data/datasets/take-two-q4-fy25.js",
+        "data": {
+          "name": "Take-Two · Q4 FY25",
+          "company": "Take-Two",
+          "meta": {
+            "title": "Take-Two Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Mar. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Take-Two · 2025 财年第四季度",
+              "meta": {
+                "title": "Take-Two 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "uipath-q1-fy24",
+        "src": "data/datasets/uipath-q1-fy24.js",
+        "data": {
+          "name": "UiPath · Q1 FY24",
+          "company": "UiPath",
+          "meta": {
+            "title": "UiPath Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Apr. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "UiPath · 2024 财年第一季度",
+              "meta": {
+                "title": "UiPath 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2023 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "uipath-q1-fy25",
+        "src": "data/datasets/uipath-q1-fy25.js",
+        "data": {
+          "name": "UiPath · Q1 FY25",
+          "company": "UiPath",
+          "meta": {
+            "title": "UiPath Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Apr. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "UiPath · 2025 财年第一季度",
+              "meta": {
+                "title": "UiPath 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2024 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "uipath-q1-fy26",
+        "src": "data/datasets/uipath-q1-fy26.js",
+        "data": {
+          "name": "UiPath · Q1 FY26",
+          "company": "UiPath",
+          "meta": {
+            "title": "UiPath Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Apr. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "UiPath · 2026 财年第一季度",
+              "meta": {
+                "title": "UiPath 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "uipath-q2-fy24",
+        "src": "data/datasets/uipath-q2-fy24.js",
+        "data": {
+          "name": "UiPath · Q2 FY24",
+          "company": "UiPath",
+          "meta": {
+            "title": "UiPath Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending July 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "UiPath · 2024 财年第二季度",
+              "meta": {
+                "title": "UiPath 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2023 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "uipath-q2-fy25",
+        "src": "data/datasets/uipath-q2-fy25.js",
+        "data": {
+          "name": "UiPath · Q2 FY25",
+          "company": "UiPath",
+          "meta": {
+            "title": "UiPath Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending July 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "UiPath · 2025 财年第二季度",
+              "meta": {
+                "title": "UiPath 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2024 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "uipath-q2-fy26",
+        "src": "data/datasets/uipath-q2-fy26.js",
+        "data": {
+          "name": "UiPath · Q2 FY26",
+          "company": "UiPath",
+          "meta": {
+            "title": "UiPath Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending July 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "UiPath · 2026 财年第二季度",
+              "meta": {
+                "title": "UiPath 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2025 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "uipath-q3-fy23",
+        "src": "data/datasets/uipath-q3-fy23.js",
+        "data": {
+          "name": "UiPath · Q3 FY23",
+          "company": "UiPath",
+          "meta": {
+            "title": "UiPath Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending October 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "UiPath · 2023 财年第三季度",
+              "meta": {
+                "title": "UiPath 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2022 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "uipath-q3-fy24",
+        "src": "data/datasets/uipath-q3-fy24.js",
+        "data": {
+          "name": "UiPath · Q3 FY24",
+          "company": "UiPath",
+          "meta": {
+            "title": "UiPath Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Oct. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "UiPath · 2024 财年第三季度",
+              "meta": {
+                "title": "UiPath 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2023 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "uipath-q3-fy25",
+        "src": "data/datasets/uipath-q3-fy25.js",
+        "data": {
+          "name": "UiPath · Q3 FY25",
+          "company": "UiPath",
+          "meta": {
+            "title": "UiPath Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Oct. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "UiPath · 2025 财年第三季度",
+              "meta": {
+                "title": "UiPath 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2024 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "uipath-q3-fy26",
+        "src": "data/datasets/uipath-q3-fy26.js",
+        "data": {
+          "name": "UiPath · Q3 FY26",
+          "company": "UiPath",
+          "meta": {
+            "title": "UiPath Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Oct. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "UiPath · 2026 财年第三季度",
+              "meta": {
+                "title": "UiPath 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2025 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "uipath-q4-fy23",
+        "src": "data/datasets/uipath-q4-fy23.js",
+        "data": {
+          "name": "UiPath · Q4 FY23",
+          "company": "UiPath",
+          "meta": {
+            "title": "UiPath Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Jan. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "UiPath · 2023 财年第四季度",
+              "meta": {
+                "title": "UiPath 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "uipath-q4-fy24",
+        "src": "data/datasets/uipath-q4-fy24.js",
+        "data": {
+          "name": "UiPath · Q4 FY24",
+          "company": "UiPath",
+          "meta": {
+            "title": "UiPath Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Jan. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "UiPath · 2024 财年第四季度",
+              "meta": {
+                "title": "UiPath 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "uipath-q4-fy25",
+        "src": "data/datasets/uipath-q4-fy25.js",
+        "data": {
+          "name": "UiPath · Q4 FY25",
+          "company": "UiPath",
+          "meta": {
+            "title": "UiPath Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Jan. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "UiPath · 2025 财年第四季度",
+              "meta": {
+                "title": "UiPath 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "unity-q1-fy23",
+        "src": "data/datasets/unity-q1-fy23.js",
+        "data": {
+          "name": "Unity · Q1 FY23",
+          "company": "Unity",
+          "meta": {
+            "title": "Unity Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending Mar. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Unity · 2023 财年第一季度",
+              "meta": {
+                "title": "Unity 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2023 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "unity-q2-fy23",
+        "src": "data/datasets/unity-q2-fy23.js",
+        "data": {
+          "name": "Unity · Q2 FY23",
+          "company": "Unity",
+          "meta": {
+            "title": "Unity Q2 FY23 Income Statement",
+            "period": "Q2 FY23"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Unity · 2023 财年第二季度",
+              "meta": {
+                "title": "Unity 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "unity-q3-fy22",
+        "src": "data/datasets/unity-q3-fy22.js",
+        "data": {
+          "name": "Unity · Q3 FY22",
+          "company": "Unity",
+          "meta": {
+            "title": "Unity Q3 FY22 Income Statement",
+            "period": "Q3 FY22"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Unity · 2022 财年第三季度",
+              "meta": {
+                "title": "Unity 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "unity-q3-fy23",
+        "src": "data/datasets/unity-q3-fy23.js",
+        "data": {
+          "name": "Unity · Q3 FY23",
+          "company": "Unity",
+          "meta": {
+            "title": "Unity Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Sep. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Unity · 2023 财年第三季度",
+              "meta": {
+                "title": "Unity 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "unity-q4-fy22",
+        "src": "data/datasets/unity-q4-fy22.js",
+        "data": {
+          "name": "Unity · Q4 FY22",
+          "company": "Unity",
+          "meta": {
+            "title": "Unity Q4 FY22 Income Statement",
+            "period": "Q4 FY22"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Unity · 2022 财年第四季度",
+              "meta": {
+                "title": "Unity 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度"
+              }
+            }
+          }
+        }
       }
     ]
   };

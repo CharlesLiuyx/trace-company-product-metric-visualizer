@@ -1,9 +1,9 @@
 {
   "schema": "reviewed-git-release/v1",
-  "id": "transport-a0a44d5e-ddfd-4d2b-b65a-e7340e8fbb4c",
-  "baseHead": "2aa0d7210d00c7847adabffb12bc7dda03a82ccb",
-  "planDigest": "sha256:0e7fdd5f89727667b2f256f3c22fc3ad59bd93e7ad4844514dfc1459b9a7c391",
-  "publishedDigest": "sha256:f775c4e4a415a96cd2b134fa85172ced248c51b810430ba7a591e302a6e5fb96",
+  "id": "transport-aed378ff-b67c-4350-a69b-f3963d73c6cf",
+  "baseHead": "3bc6a318bf93ba88de9c7c0c5c3fe01bc2c7e3ce",
+  "planDigest": "sha256:2b18fb6abc44b2cacfc411fa23ae650484bf8f697cbd0154c7ce2b16b2d1f4ae",
+  "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0",
   "builds": [
     {
       "buildId": "build-fbe573ad-5128-4025-b987-54dfc2707ba0",
@@ -1024,313 +1024,706 @@
       "buildId": "build-7ce67d8f-6c39-4afd-aec3-21be5c25ee15",
       "key": "visa-q4-fy25",
       "sealDigest": "sha256:245a257b55736bc06b92748dcb3c546219be5086506ed4be623d10fe37636b7c"
+    },
+    {
+      "buildId": "build-b3f94ddf-ba37-4285-9515-72f2f650f571",
+      "key": "hubspot-q1-fy23",
+      "sealDigest": "sha256:b9d3a2e3324cd4c6fac7442b9a2fc17518414ebce1db7b8924f1e3d3486b9ee3"
+    },
+    {
+      "buildId": "build-21dd1b29-8e6b-4f71-b362-095cb3f2ca6d",
+      "key": "hubspot-q1-fy24",
+      "sealDigest": "sha256:e933119af8bf247e2f10133be709c70674eee7ffffbb72058a182095313c71a7"
+    },
+    {
+      "buildId": "build-0b071b74-be8d-497f-9fcc-ebb7f1906212",
+      "key": "hubspot-q1-fy25",
+      "sealDigest": "sha256:f447b7ef757c4a4075277f88e39932f6ae243b7a44f95a952a9f7e235fc11328"
+    },
+    {
+      "buildId": "build-775ab624-3c94-4f17-b48e-084d2eeb9088",
+      "key": "hubspot-q2-fy23",
+      "sealDigest": "sha256:c48af3092d193c7a7e2e35b43cbcf6c7b25d45bb703fddbf39be78936db7c58a"
+    },
+    {
+      "buildId": "build-55112bf5-90b4-4dd3-af7a-359cf49e1039",
+      "key": "hubspot-q2-fy24",
+      "sealDigest": "sha256:d50c9a67d56ef8c7f6bd7585f350501dd5dad279ab6acf489ab0ba901d1efe62"
+    },
+    {
+      "buildId": "build-0952c6c1-8ae7-4eee-9d3d-2c76d19abd54",
+      "key": "hubspot-q2-fy25",
+      "sealDigest": "sha256:1a7889e96ac234e4496ad15e49997b6684c716ab51545f9cefb1faf1ae61f0c9"
+    },
+    {
+      "buildId": "build-57a6f4d7-9cd7-4747-972b-75329cb60299",
+      "key": "hubspot-q3-fy22",
+      "sealDigest": "sha256:eaf825d67f2105389c921475e3b09d4390312db496759165af2692ae87ce1919"
+    },
+    {
+      "buildId": "build-6ebbcbe2-f11b-4ba9-b448-9b848f1a311b",
+      "key": "hubspot-q3-fy23",
+      "sealDigest": "sha256:850dcc0887652b37d079373d905caf53c0dc1bb5ee98439c69648e62ae8c73ad"
+    },
+    {
+      "buildId": "build-fb773666-0af0-431c-8056-5bd81f7eb8ee",
+      "key": "hubspot-q3-fy24",
+      "sealDigest": "sha256:533ae2419c021ccd70f77a45cc29f0e9570e3d8e17f388f4d6b9dbeff02f0679"
+    },
+    {
+      "buildId": "build-d3e4bb16-1a7f-4f33-b7d7-fa9255a54d3b",
+      "key": "hubspot-q4-fy23",
+      "sealDigest": "sha256:9d9edcd5242a80694e2089b335988407313584e359e2a3da441b37086b100656"
+    },
+    {
+      "buildId": "build-2bd7dd71-f77a-465a-abd5-6f08165e42a8",
+      "key": "hubspot-q4-fy24",
+      "sealDigest": "sha256:6484b559f3195bf1c27edad7fc2e41eef25d8efc02a3df983aa9a22abe7e0745"
+    },
+    {
+      "buildId": "build-4d8fd3f2-9e82-43b5-b595-fca3ca1c351f",
+      "key": "sap-q1-fy23",
+      "sealDigest": "sha256:e4ff5146f666f689a49c7ec043cb41e579f7bf11c45320a1c64a35f403f2db4e"
+    },
+    {
+      "buildId": "build-ed66e668-7aca-4352-abf8-29716d4ebeed",
+      "key": "sap-q1-fy24",
+      "sealDigest": "sha256:4d75012acbe9fe346860be91e7cd209b568b4ac636da851f20037fb3ba7875bf"
+    },
+    {
+      "buildId": "build-6864cb0c-de91-4f79-879e-75de3546a5e2",
+      "key": "sap-q1-fy25",
+      "sealDigest": "sha256:550fc77b81e299fc9b4c540fa708cb2472112b7cfead304a76200da8bed32426"
+    },
+    {
+      "buildId": "build-c94b910b-c151-43b8-813b-023868797270",
+      "key": "sap-q2-fy23",
+      "sealDigest": "sha256:fbda9d4d62aa8bc0dfffa9b9349fcf8b9cd52d62ba004da3c1b65131f672c513"
+    },
+    {
+      "buildId": "build-00175c8a-d082-40a0-91ce-e86c507a71cb",
+      "key": "sap-q2-fy24",
+      "sealDigest": "sha256:a4f7c594f690c748eba47d327727f8bfef612399f19463793802fd9ba8190d90"
+    },
+    {
+      "buildId": "build-8493d026-c644-48e1-90d7-7a3eeed106a2",
+      "key": "sap-q2-fy25",
+      "sealDigest": "sha256:6b1a509b5a51745badb08caf0483163823a2d0885e814261ad9538fea77dc3f1"
+    },
+    {
+      "buildId": "build-24b0aba4-08be-4b87-9977-181407188f8b",
+      "key": "sap-q3-fy22",
+      "sealDigest": "sha256:2cdb1c4e0d2983b3728dfc2990403e0c9ee7b6055892bbf9dd888d759118c5c1"
+    },
+    {
+      "buildId": "build-a25ed2a6-b93a-41fd-a58e-4b52dd5d8d20",
+      "key": "sap-q3-fy23",
+      "sealDigest": "sha256:8c9d01725a7bd4fcfbf059c4f3eb6c6486d93fc56adc9fcfb43425b0878f772f"
+    },
+    {
+      "buildId": "build-5e852066-d432-427c-8e6d-3e761be4b31c",
+      "key": "sap-q3-fy24",
+      "sealDigest": "sha256:6943c48311992a4785a4feaffa618f539a4527c6995267922e88e59d4f37e5f1"
+    },
+    {
+      "buildId": "build-f3fb6765-597f-48b6-ab25-8a7571af80ff",
+      "key": "sap-q3-fy25",
+      "sealDigest": "sha256:ba5976be499d4a14010b391c5a661a02dc250c6c3f06c77f4cbe933711f5fd61"
+    },
+    {
+      "buildId": "build-b3dbc7a8-b12b-4929-aaeb-3876e708a41a",
+      "key": "sap-q4-fy22",
+      "sealDigest": "sha256:2438e03b39cdea71b7ede70ac0d32b08faca7b32762baa7aabf5e465708a7194"
+    },
+    {
+      "buildId": "build-32926d35-5402-4c83-905e-f3efbc999b91",
+      "key": "sap-q4-fy23",
+      "sealDigest": "sha256:b5e1503bab70e0a59afcd2b7dab8c694b7529b6d845cd154a1659b3a5ef8a4bf"
+    },
+    {
+      "buildId": "build-db24bfb5-8e69-4b14-bfe4-b33f1138017d",
+      "key": "sap-q4-fy24",
+      "sealDigest": "sha256:bbfc7eced73d8f331eee20392f47c6edc00609e770e4fc3d65dfb2e707bc2324"
+    },
+    {
+      "buildId": "build-6e604553-6158-44ff-9927-0f4d430c45c7",
+      "key": "take-two-fy24",
+      "sealDigest": "sha256:0da8ad38216a5e8f54ec43f21689aa8dca3acb9c511afbadbcb724e01eba938b"
+    },
+    {
+      "buildId": "build-1b23b36f-3a59-49ec-bfe0-a4d882c29bb2",
+      "key": "take-two-q1-fy25",
+      "sealDigest": "sha256:a7165fc01d95dc78d61a17e066e8b8da18d8a852704f0063c63d64b62fd18807"
+    },
+    {
+      "buildId": "build-ccdb0f6e-85e9-417a-9209-72d3a01402d9",
+      "key": "take-two-q1-fy26",
+      "sealDigest": "sha256:3c8248b10502d095aee4dbfda689eb8db59668519d0df7a5ecef09559dbc9a86"
+    },
+    {
+      "buildId": "build-960bb287-f82e-4118-81d5-958775fa2a90",
+      "key": "take-two-q2-fy23",
+      "sealDigest": "sha256:2bb019fd6cdc96ca03038a523ac59b657c60cb6e4117a6ce2299595b7766932f"
+    },
+    {
+      "buildId": "build-f667c1a2-6eca-4dc6-9e92-aa88c37213ca",
+      "key": "take-two-q2-fy24",
+      "sealDigest": "sha256:e6837b895b80e951a07c46a8ce28cf9f325dfcf51828a12ec6bdc6c8bbfdf410"
+    },
+    {
+      "buildId": "build-e25fc149-23a1-4332-9e12-614f939d8df6",
+      "key": "take-two-q2-fy25",
+      "sealDigest": "sha256:27755512bfd27b3e0dd461088289748d63d04e5beb7dd6a8e7f48ea4a687442d"
+    },
+    {
+      "buildId": "build-922f0f7f-6276-48c0-a050-e0a6a2bfaf0e",
+      "key": "take-two-q3-fy23",
+      "sealDigest": "sha256:032c57439a9acb4938e32db396e06006d9fb9659ac61418661234f9b9ee11f7b"
+    },
+    {
+      "buildId": "build-43b9b176-bd7d-43b2-ba87-6cbacd855549",
+      "key": "take-two-q3-fy24",
+      "sealDigest": "sha256:ecf7921ed3f2e5c77aa75856c36748219213bd64fe7745f47d3e7de67bd052c8"
+    },
+    {
+      "buildId": "build-45180920-9307-4717-ab3f-686b6d1bc752",
+      "key": "take-two-q3-fy25",
+      "sealDigest": "sha256:c93f0300e83b3ee971eae59e767178998b1afd478160d888fad10ff3d8fc8040"
+    },
+    {
+      "buildId": "build-05d44ef7-28dc-4679-a28a-b2f6a16d6b0e",
+      "key": "take-two-q4-fy23",
+      "sealDigest": "sha256:efccc24a9df1fbe00f6306aa14c482fea4076b32ede8722fc05750fdd013483a"
+    },
+    {
+      "buildId": "build-29852414-8a93-4092-bd0d-c2208b5526d0",
+      "key": "take-two-q4-fy25",
+      "sealDigest": "sha256:769d385e1077ffe7073792b51771a90c151729b00b87b31dd2e1cead18fc5d1d"
+    },
+    {
+      "buildId": "build-439dec87-2a41-4315-9dc7-f77fb7e5d193",
+      "key": "uipath-q1-fy24",
+      "sealDigest": "sha256:29df71c975f4c5df32f506ff5a2798763ae959bfb9be28fe8e52d59b46ca50b6"
+    },
+    {
+      "buildId": "build-64a654a3-3fac-4391-91d8-0009c585c91c",
+      "key": "uipath-q1-fy25",
+      "sealDigest": "sha256:d126122fb1d806511a6f0c40848bb1ffd16ed37898b73e2dd52e915cd44a046e"
+    },
+    {
+      "buildId": "build-2eb47735-d4f6-4f59-9f58-471f2aa63bf9",
+      "key": "uipath-q1-fy26",
+      "sealDigest": "sha256:a33bce88cc7c8386be1595fb503f4529ae6590769225c5e94c2a23e4df0886bf"
+    },
+    {
+      "buildId": "build-2662768c-36e7-4d61-bf1b-c851d530d848",
+      "key": "uipath-q2-fy24",
+      "sealDigest": "sha256:d3c47a30ad7d56e0fc86a2f7dfe77f33105fc8964f31e9d629e36903e7f2e639"
+    },
+    {
+      "buildId": "build-89e02f85-d1ad-41e4-872b-89c13702ee76",
+      "key": "uipath-q2-fy25",
+      "sealDigest": "sha256:277cf8bc08619879d7f97ce14f6515c86cc0cc6c5b41d23938212d0e4cc52b39"
+    },
+    {
+      "buildId": "build-6843630d-ca52-47a4-9212-8590a1055083",
+      "key": "uipath-q2-fy26",
+      "sealDigest": "sha256:51e91556cd76e7042b2181c554198a745021c495af7c2b3f543b770609f666f2"
+    },
+    {
+      "buildId": "build-ed5acee8-222d-42d0-86c3-211736d2e551",
+      "key": "uipath-q3-fy23",
+      "sealDigest": "sha256:9f3c3eea1990af467ef130350f8e2e6423cf63f47dfb36f78f5450ff08b284c7"
+    },
+    {
+      "buildId": "build-ae337726-ed1a-48a7-9536-79a47245c0f7",
+      "key": "uipath-q3-fy24",
+      "sealDigest": "sha256:465e2dff51064659bccf85bcf72bf88d11bfab729117b1678f4041f0b596b67a"
+    },
+    {
+      "buildId": "build-8180d7dc-f831-48f6-9533-ab30ea28893e",
+      "key": "uipath-q3-fy25",
+      "sealDigest": "sha256:b63c6993b784c50d6341dcc6ebedc20ee23c1d8cc11f7e5d5478658b05213a8f"
+    },
+    {
+      "buildId": "build-cf0e88d3-bf6a-4634-b415-0cf35977931a",
+      "key": "uipath-q3-fy26",
+      "sealDigest": "sha256:40a6d9da7e5989224a1f2e401d73db9049bc87e2a40ae5e149c3254b6a531049"
+    },
+    {
+      "buildId": "build-d2eddf17-9cdf-43cb-940e-77ffeb6933d2",
+      "key": "uipath-q4-fy23",
+      "sealDigest": "sha256:9bcf98b6535dfe09f6fceb30759d463d5bf3333892ea86705287cd18d18ac548"
+    },
+    {
+      "buildId": "build-a72e8dcf-e442-4ff1-a36e-2688c22a4a1a",
+      "key": "uipath-q4-fy24",
+      "sealDigest": "sha256:bef01098e781fc0c2818bcc6daf94c6ea8a74f07fc9bdf364ed911d6250d5470"
+    },
+    {
+      "buildId": "build-b14d06ee-fd32-45bc-9b4c-fddacc47ed3d",
+      "key": "uipath-q4-fy25",
+      "sealDigest": "sha256:2dac58baa387066350dfe6ec83a75ee0a6b5c2f16340c84cee98c456a7ad4b7d"
+    },
+    {
+      "buildId": "build-bd211844-e93b-47ae-8c85-7dc52c2b1d53",
+      "key": "unity-q1-fy23",
+      "sealDigest": "sha256:c26a6521fd0360962c532682d46413fb1772b34e76384598c649abd70c100741"
+    },
+    {
+      "buildId": "build-18f7121d-e640-4e37-b88d-c96205ae880d",
+      "key": "unity-q2-fy23",
+      "sealDigest": "sha256:384d5a41a418f1ceaa89649c92cce2e19ab6baafd95907b771c12d8c67cac5b3"
+    },
+    {
+      "buildId": "build-6931725a-5c2f-4e6a-823b-bbc486607f11",
+      "key": "unity-q3-fy22",
+      "sealDigest": "sha256:09b24abe4435e669bc4131a960b34812be08a288a794d5e127306b5c4ccbfa2c"
+    },
+    {
+      "buildId": "build-28fb9ad1-bf89-4b37-9ff1-19818acd0a44",
+      "key": "unity-q3-fy23",
+      "sealDigest": "sha256:edef81e534edd8743ab9746f5c5bc1a95273fb2cef56dc333d1e9adbfc0906df"
+    },
+    {
+      "buildId": "build-ddcd34e0-7906-42cf-883e-018968bf9c87",
+      "key": "unity-q4-fy22",
+      "sealDigest": "sha256:d4c8a516e6686eb9ee346789c7a1ae2995c3c0e4504f843d5b67c841ba93030d"
     }
   ],
-  "candidateDigest": "sha256:dea359bf2cce6214d2b13952324953971a3b2f9fb071ca0a92479ab4778d916f",
+  "candidateDigest": "sha256:2c62a873ca0fd9528f98edc9e0daec853bcffa4da74dc2badf9782d5c604c297",
   "paths": [
     {
       "path": "data/assets/catalog.json",
-      "digest": "sha256:a6e7b754baae28eabdf30ae419cecdba591bbc58adee713456e6ed9d8cf961ef",
-      "before": "sha256:c0caaf9b5872d11cb554aff1c60b7ef1e36eaa2d76d118f1aeb6342ee3f58a8c"
+      "digest": "sha256:28052e6c3aafdeed4fcb82a0d0a0ed06b0e0ae666524496a5ac7b0a316abf48c",
+      "before": "sha256:a6e7b754baae28eabdf30ae419cecdba591bbc58adee713456e6ed9d8cf961ef"
     },
     {
-      "path": "data/assets/raster-annotations/j-j/q1-fy23-consumer-brands.png",
-      "digest": "sha256:c67639910e3ec9626e5eab0cc5f18fecb9d7e1bea56387b7e31e23a013fa48bd",
+      "path": "data/assets/icon-references/unity/crop-report.json",
+      "digest": "sha256:e7486db502ad10a3986b6f346189322595b019343a32e7f7a1627c2e4f4d3ca2",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/j-j/q2-fy23-consumer-health.png",
-      "digest": "sha256:34303a22f833ad8e331d92618d22bc43a33784ec297119c21d61e827c8637646",
+      "path": "data/assets/icon-references/unity/crops/company-logo.png",
+      "digest": "sha256:4609db8f9e3fb558a97d1481be56c1aaf64d5e785cf7dda1459f07c1048e743c",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/j-j/q4-fy22-consumer-brands.png",
-      "digest": "sha256:f1c93d61184853542de96bd4895116a388c92812952393f009f8bb9b303c4b7a",
+      "path": "data/assets/icon-references/unity/crops/ironsource.png",
+      "digest": "sha256:502745fdedd611b3127ff15c997267f863f0735a3d828450f445401a1964348d",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/unity/crops/speedtree.png",
+      "digest": "sha256:28d936d173fbc33efe0b78545f158ecd568fd2e672e50567fb63ef8061c30f6e",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/unity/crops/syncsketch.png",
+      "digest": "sha256:426c0d73ba7f5374db7f2b50306daeea14e768ab00eb79b75e775cf2f450f236",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/unity/crops/unity-enterprise.png",
+      "digest": "sha256:d9ecbfc87360673f201a6a7dd9fbe081f0ae1a7cee1d99c85069fd251c21153a",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/unity/crops/unity-pro.png",
+      "digest": "sha256:795207005efe168064689dd9e972ebbddb6c0f68d0db5e2b8918688be1c640db",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/unity/crops/weta-digital.png",
+      "digest": "sha256:a9731ddda0efcded53518e6fed4c344d6cc1f083d3367b74fbe601cb648db7b7",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/unity/crops/ziva.png",
+      "digest": "sha256:862629ca2fbac4e144b813ddc7540d82eaca943850b4804874b30ed980a7d600",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/unity/model-validation.md",
+      "digest": "sha256:e78e4303241f5cfbe5f425b92c6ea29240b179583e40f91983341f2cc006a84a",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/unity/company-logo.png",
+      "digest": "sha256:4609db8f9e3fb558a97d1481be56c1aaf64d5e785cf7dda1459f07c1048e743c",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/unity/ironsource.png",
+      "digest": "sha256:502745fdedd611b3127ff15c997267f863f0735a3d828450f445401a1964348d",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/unity/speedtree.png",
+      "digest": "sha256:28d936d173fbc33efe0b78545f158ecd568fd2e672e50567fb63ef8061c30f6e",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/unity/syncsketch.png",
+      "digest": "sha256:426c0d73ba7f5374db7f2b50306daeea14e768ab00eb79b75e775cf2f450f236",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/unity/unity-enterprise.png",
+      "digest": "sha256:d9ecbfc87360673f201a6a7dd9fbe081f0ae1a7cee1d99c85069fd251c21153a",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/unity/unity-pro.png",
+      "digest": "sha256:795207005efe168064689dd9e972ebbddb6c0f68d0db5e2b8918688be1c640db",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/unity/weta-digital.png",
+      "digest": "sha256:a9731ddda0efcded53518e6fed4c344d6cc1f083d3367b74fbe601cb648db7b7",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/unity/ziva.png",
+      "digest": "sha256:862629ca2fbac4e144b813ddc7540d82eaca943850b4804874b30ed980a7d600",
+      "before": null
+    },
+    {
+      "path": "data/company-metadata/unity.js",
+      "digest": "sha256:04e15af51fd1654e3cd49df6e749cecb0f59fdb44fe90d1dd2ae57c4ccec141f",
       "before": null
     },
     {
       "path": "data/dataset-file-metadata.js",
-      "digest": "sha256:59465e59faeb8a9eaed0ed185d91db9ab22228a5a9cf317bb355002ae0766f7a",
-      "before": "sha256:54ea4e7f9dd4f606678c2cab0b457090191a4850b8cf31f4febcf1bc0fa00669"
+      "digest": "sha256:b9345c29811d56b3291cf3091025abc8c7a97614060c771364843c53b9757a43",
+      "before": "sha256:59465e59faeb8a9eaed0ed185d91db9ab22228a5a9cf317bb355002ae0766f7a"
     },
     {
       "path": "data/dataset-manifest.js",
-      "digest": "sha256:c995471aed0210ec56e83fd50649e8b1babc2e197def5efe3723004e45931f0f",
-      "before": "sha256:c252aa6d8ddfda2594a73a9ee10569a69442bc00956bcb482d529d7dce5d5ad1"
+      "digest": "sha256:33f4add37325b4a0d4bb4feb3e689185860011893fe68c4d08046c39e97345f7",
+      "before": "sha256:c995471aed0210ec56e83fd50649e8b1babc2e197def5efe3723004e45931f0f"
     },
     {
-      "path": "data/datasets/j-j-q1-fy23.js",
-      "digest": "sha256:247b36a5e08e5dcf8c4a7952191e93eb459ee7de47598b40bd1ce6895d2415ab",
+      "path": "data/datasets/hubspot-q1-fy23.js",
+      "digest": "sha256:cffbaae7e31bf37dd36fb3f51a8f1d91c32ea6c42342aa394fc53498414467f7",
       "before": null
     },
     {
-      "path": "data/datasets/j-j-q1-fy24.js",
-      "digest": "sha256:32dcb70ee92a468c26593b7d2d85a05dcd85b8416b008d05e57798767c03c0af",
+      "path": "data/datasets/hubspot-q1-fy24.js",
+      "digest": "sha256:6c0355c6e545118dc580b9b5f35a6c719e94f25abace7bf634ca69df0135a345",
       "before": null
     },
     {
-      "path": "data/datasets/j-j-q2-fy23.js",
-      "digest": "sha256:51c949b86e34429d4730c7631c0aeb6a59da90dc0eb7b2b38d548da8412d2316",
+      "path": "data/datasets/hubspot-q1-fy25.js",
+      "digest": "sha256:cbbf99ec1542bf80a588183e4e2da10e615d6da6ea362491c8278af22c18fc3c",
       "before": null
     },
     {
-      "path": "data/datasets/j-j-q2-fy24.js",
-      "digest": "sha256:c151f9428122df2079261042ac4b15276d9600b388de6f094bbe937e185e89f8",
+      "path": "data/datasets/hubspot-q2-fy23.js",
+      "digest": "sha256:cb63536fc207d37132945d6d8b0e6b36e58412075a57d5dfe3c8a1078a9f99fb",
       "before": null
     },
     {
-      "path": "data/datasets/j-j-q2-fy25.js",
-      "digest": "sha256:c36b8f7e4289cdd834c58edbc4391d3713baddf2ed51ec7e2bcbce8b544f7075",
+      "path": "data/datasets/hubspot-q2-fy24.js",
+      "digest": "sha256:5f6098cd63dbd39916280d75f3f453197ed772712f6c64c6129779799907eeaa",
       "before": null
     },
     {
-      "path": "data/datasets/j-j-q3-fy23.js",
-      "digest": "sha256:a39a425e7e4c8cfd455462b09b598cdc190458f33b54d12e47e9ec50bf359c32",
+      "path": "data/datasets/hubspot-q2-fy25.js",
+      "digest": "sha256:2d7ac5180f52e71d71aaa2084680cb2f92a84a5867bdc9bbd1a810f113e92d97",
       "before": null
     },
     {
-      "path": "data/datasets/j-j-q3-fy24.js",
-      "digest": "sha256:4fbea405d41b02111808a19fc42f33fc20a6e31aa8a60c84c8b60792b8637908",
+      "path": "data/datasets/hubspot-q3-fy22.js",
+      "digest": "sha256:c768aaeb7ef486186204970a3c0e7b40120c19adeac5ab6f0f3bc7fef4f98ef4",
       "before": null
     },
     {
-      "path": "data/datasets/j-j-q3-fy25.js",
-      "digest": "sha256:3073e9a8fdcd82851d645f6ee2d978361c9166273fad807a7fd07f8c9a54dfaf",
+      "path": "data/datasets/hubspot-q3-fy23.js",
+      "digest": "sha256:5c0608601ee479e05ffd0f4935af74ed46d3c3179e40f662a0763489c34b7fd1",
       "before": null
     },
     {
-      "path": "data/datasets/j-j-q4-fy22.js",
-      "digest": "sha256:b1d8de2ea94acea2726c086d657fc013b17363f4cd09d10f05625b08c338cbe4",
+      "path": "data/datasets/hubspot-q3-fy24.js",
+      "digest": "sha256:27810ef24f5229d1b28f5cf3e1c7c1ac82c85f6c0db3c3e88501ee8066f3f724",
       "before": null
     },
     {
-      "path": "data/datasets/j-j-q4-fy23.js",
-      "digest": "sha256:d666299391838f961bdc6097d1923d9600f4b7652dd79a048ce76521e795ad78",
+      "path": "data/datasets/hubspot-q4-fy23.js",
+      "digest": "sha256:75374e5a8b9cb0e988bbffa15de02023532f831a032ae20939dde251e49f48b5",
       "before": null
     },
     {
-      "path": "data/datasets/visa-q1-fy23.js",
-      "digest": "sha256:ddc5ce5549fe9196ac51c4e0939fc8c8b6c6098e23f9ba19ff42c6d5c3867e68",
+      "path": "data/datasets/hubspot-q4-fy24.js",
+      "digest": "sha256:24130ead5c1a7767f3a1c81c07c62039ac9e798ec0cdf2d042889fa79bb8b46f",
       "before": null
     },
     {
-      "path": "data/datasets/visa-q1-fy24.js",
-      "digest": "sha256:386607a8a2c4967b695dd9115f42207fced29a2370ceb7aa9256bac28ab33063",
+      "path": "data/datasets/sap-q1-fy23.js",
+      "digest": "sha256:ad77fd125b41c30ba4fd06b5d963e8bb2e71bf47cbff690a9d283133c18542db",
       "before": null
     },
     {
-      "path": "data/datasets/visa-q1-fy25.js",
-      "digest": "sha256:b24a9914568739093217ed5966ae9bda3008b3f7f2b35dd1dfb6d567f6847c06",
+      "path": "data/datasets/sap-q1-fy24.js",
+      "digest": "sha256:ce3fdbbb156bd9f735971522fa61d07b453933ab0192eff9b00f81c4bb90db4c",
       "before": null
     },
     {
-      "path": "data/datasets/visa-q2-fy23.js",
-      "digest": "sha256:b0dbadf4e5cfa167e45656ef4a0e65225f5119d1ffc70f3b8669d855307428ec",
+      "path": "data/datasets/sap-q1-fy25.js",
+      "digest": "sha256:8a8c4ef815cbbc4e97cf1baab5034c627e4cafb36ed45168314db7cf8b40b12e",
       "before": null
     },
     {
-      "path": "data/datasets/visa-q2-fy24.js",
-      "digest": "sha256:b1ef4c7091148d5b4736e2adb4a3cf2e82a673d7a152784f9bf243a90a1de631",
+      "path": "data/datasets/sap-q2-fy23.js",
+      "digest": "sha256:850605e874f0635a64ce3b3e57aeb0fc3fee8e4ddbee34a79e19899c5972cd6d",
       "before": null
     },
     {
-      "path": "data/datasets/visa-q3-fy23.js",
-      "digest": "sha256:2ffa078731ad8d2fc4ba1dd3f8b6558fbd19e154a5f637327ee964d5e1462298",
+      "path": "data/datasets/sap-q2-fy24.js",
+      "digest": "sha256:a7260f3fd0c9f77fec4f30b082aacbecbb813737c7170ec88175f9c92b136304",
       "before": null
     },
     {
-      "path": "data/datasets/visa-q3-fy24.js",
-      "digest": "sha256:4cff5c2a87f12af50342875fe5d4374574130659be0e765b9e91e0c2bafcdef2",
+      "path": "data/datasets/sap-q2-fy25.js",
+      "digest": "sha256:797154eccfbc2e351f9a26a8a0f41bba2a03a29f5483640d1e2efa00678a0d90",
       "before": null
     },
     {
-      "path": "data/datasets/visa-q3-fy25.js",
-      "digest": "sha256:0650f64c046ce0194d578e4b9dd0a2e0152676c2fb10b4dec029d9415dd74c4a",
+      "path": "data/datasets/sap-q3-fy22.js",
+      "digest": "sha256:90a5424a869c44134fdecc70fe345578eaa89eba05e3b6d0dd996a56a9488293",
       "before": null
     },
     {
-      "path": "data/datasets/visa-q4-fy22.js",
-      "digest": "sha256:8655011b17a6baa7e4c8742bd2a885d713b67f1e768ac8a1fb3c0c785acbdd55",
+      "path": "data/datasets/sap-q3-fy23.js",
+      "digest": "sha256:54df64b64b4f8d139a0325fbc35a94f8a08686bbcb1162aa1bb9a8cd11999570",
       "before": null
     },
     {
-      "path": "data/datasets/visa-q4-fy23.js",
-      "digest": "sha256:6756361ed6ebdbd1b864527c210037da2a48081e3d4700f5f0c964b967508486",
+      "path": "data/datasets/sap-q3-fy24.js",
+      "digest": "sha256:7a2932a820d3f8a2a39fc412b2bea53d40b621cc9d710d678b3ef277aa261e15",
       "before": null
     },
     {
-      "path": "data/datasets/visa-q4-fy24.js",
-      "digest": "sha256:49785f5fda6c57b4aa421753834bb95fac78183fb35cbb294ff8390f7d139c74",
+      "path": "data/datasets/sap-q3-fy25.js",
+      "digest": "sha256:8bb54d2d6ae7d7ee403b1618a41520a203996594cea2e30015fc9e1dd79f13cd",
       "before": null
     },
     {
-      "path": "data/datasets/visa-q4-fy25.js",
-      "digest": "sha256:3ff7ad2ed35e42fc848dbdf03dfcaa50d13aa9fb4c33dbb8f1d4f4ca380272ab",
+      "path": "data/datasets/sap-q4-fy22.js",
+      "digest": "sha256:d10c0f0cb818350bf0a11d62fd4767e45d64427fb504984384348a7857d2f8ba",
       "before": null
     },
     {
-      "path": "data/income-statements/j-j.js",
-      "digest": "sha256:e937c543e3bbe1dfa34d9799f9d13ec0569052f4ef238e5bbf140a5233b5238c",
-      "before": "sha256:103676834950992375f89c1a6573239c914cb4a7a5ab7c38443923a5467136fc"
+      "path": "data/datasets/sap-q4-fy23.js",
+      "digest": "sha256:af6178b9a96f65eb17a0d6f4c505a73b1f4580cfc6e1484b680f2f117f334781",
+      "before": null
     },
     {
-      "path": "data/income-statements/visa.js",
-      "digest": "sha256:0c479f4ee3be63ba640528043e992510a8339ae560349df1ab2a5d8cf278c4a0",
-      "before": "sha256:36657809a1aee5a11b97b1069b3bce2c69d467ba31fdeaf0f4a66fed85a6f48d"
+      "path": "data/datasets/sap-q4-fy24.js",
+      "digest": "sha256:38dc399697d63997282b35370b75da7fbb42e2c96af8111ed638703ca9a9820c",
+      "before": null
+    },
+    {
+      "path": "data/datasets/take-two-fy24.js",
+      "digest": "sha256:3caad7112dff25cbc4261913fb801eeee4dd2613e37febcaa6121bd337b91560",
+      "before": null
+    },
+    {
+      "path": "data/datasets/take-two-q1-fy25.js",
+      "digest": "sha256:6e3bc5243eec9a4f26b71e8a42939075e2c93776cb1805e5a5b0b8599fb586e8",
+      "before": null
+    },
+    {
+      "path": "data/datasets/take-two-q1-fy26.js",
+      "digest": "sha256:accbc751f0e08069614696489fba33f7b27295654c6e7c045d902a2bde092946",
+      "before": null
+    },
+    {
+      "path": "data/datasets/take-two-q2-fy23.js",
+      "digest": "sha256:d1039c47173fea14c13b1d38bd820d538a9dbcc46e11bc377008be4ee0e525d5",
+      "before": null
+    },
+    {
+      "path": "data/datasets/take-two-q2-fy24.js",
+      "digest": "sha256:6c9ca4e774f7f951fe11c8cbe2a4975ed28889b9c3c0d0cbf8fbf699e64cdf18",
+      "before": null
+    },
+    {
+      "path": "data/datasets/take-two-q2-fy25.js",
+      "digest": "sha256:1faa109ad533b33d9082f085241dcbc547316647711647f96599e311dfa0ab9e",
+      "before": null
+    },
+    {
+      "path": "data/datasets/take-two-q3-fy23.js",
+      "digest": "sha256:336f78bebbdf0db0f503bd6bb09bbe7b0f7742e2a956e87c63da06d0f09de117",
+      "before": null
+    },
+    {
+      "path": "data/datasets/take-two-q3-fy24.js",
+      "digest": "sha256:e04b5918f0853d71523da4228e4dd500bdaf847b38e872231c9c2cec30fd76ae",
+      "before": null
+    },
+    {
+      "path": "data/datasets/take-two-q3-fy25.js",
+      "digest": "sha256:20d9b1c18afd1d62399e0656e4561925cc0e8be5a8fd03647fec562214ac6daa",
+      "before": null
+    },
+    {
+      "path": "data/datasets/take-two-q4-fy23.js",
+      "digest": "sha256:1e9965313d272ce4904a7e498ab1deea8c265324b07c998a4b4fe9b5d7430794",
+      "before": null
+    },
+    {
+      "path": "data/datasets/take-two-q4-fy25.js",
+      "digest": "sha256:6e893a56c1ae1a664d15402bd6cd47a5fd34c312551f2d974d0c4143ad364128",
+      "before": null
+    },
+    {
+      "path": "data/datasets/uipath-q1-fy24.js",
+      "digest": "sha256:558acd689db0bb5986365361df0635559ebb1198f4cd1d6715ce061b7680b3cb",
+      "before": null
+    },
+    {
+      "path": "data/datasets/uipath-q1-fy25.js",
+      "digest": "sha256:c3026e279d098dfd227233107ead2523bc89e18cf5ed554b528168cfa425e720",
+      "before": null
+    },
+    {
+      "path": "data/datasets/uipath-q1-fy26.js",
+      "digest": "sha256:5ad7f3536f60f1a2f675793b1e289c2e45fe1794d89356852c1dab95b0343d78",
+      "before": null
+    },
+    {
+      "path": "data/datasets/uipath-q2-fy24.js",
+      "digest": "sha256:35a40d16d18ad7bf6a2c2874a9398642a693fbb594e149ee5a4b15085edb1928",
+      "before": null
+    },
+    {
+      "path": "data/datasets/uipath-q2-fy25.js",
+      "digest": "sha256:b62dff0996e6c2d0e89d6fd94bd94f205eb82930abf31ef10d90e9f4429b8c9d",
+      "before": null
+    },
+    {
+      "path": "data/datasets/uipath-q2-fy26.js",
+      "digest": "sha256:009473b2cb1c45180e13fb48ac01344faad756af1495b87f5965f6a7919a8b49",
+      "before": null
+    },
+    {
+      "path": "data/datasets/uipath-q3-fy23.js",
+      "digest": "sha256:aa66a62a3b0feae7d01d0eb9ca48376412b160ec22bd4165ac36835b87662e6c",
+      "before": null
+    },
+    {
+      "path": "data/datasets/uipath-q3-fy24.js",
+      "digest": "sha256:625950752a5727a98a03d79ea76bd6dfa8412d8ce39d831977298058a8f9c0c0",
+      "before": null
+    },
+    {
+      "path": "data/datasets/uipath-q3-fy25.js",
+      "digest": "sha256:a9ebfeca897f17bfd2a55f0bd25f95903ecb649e08b0a1e8b4b2e50f22689ded",
+      "before": null
+    },
+    {
+      "path": "data/datasets/uipath-q3-fy26.js",
+      "digest": "sha256:1e18a6b0d01db0d833575bde587ab7cc2e3e9f33170fbcbe7ba14fc22e55e9be",
+      "before": null
+    },
+    {
+      "path": "data/datasets/uipath-q4-fy23.js",
+      "digest": "sha256:9bbc2885dbc5dfb493fde34eb215abd5da30d091a0155d4e12d9692a208bd5b8",
+      "before": null
+    },
+    {
+      "path": "data/datasets/uipath-q4-fy24.js",
+      "digest": "sha256:4bffc10413637d0b13bdf97124519ff333a3f0e6d597fcf129e3ba7550fddd11",
+      "before": null
+    },
+    {
+      "path": "data/datasets/uipath-q4-fy25.js",
+      "digest": "sha256:4e599f8794938cc7f467a881a2ad33e32209ebde5c868e9f14f9646e14d41816",
+      "before": null
+    },
+    {
+      "path": "data/datasets/unity-q1-fy23.js",
+      "digest": "sha256:466531258f87aff81922dd44f47eb27120a16ccb69f476241d8fbe0d268e85fd",
+      "before": null
+    },
+    {
+      "path": "data/datasets/unity-q2-fy23.js",
+      "digest": "sha256:524a23ea6bb7a898123c424b1424593fd5c26d82e3362505e4d29401588824fb",
+      "before": null
+    },
+    {
+      "path": "data/datasets/unity-q3-fy22.js",
+      "digest": "sha256:bd65da43f67430755fb4409412578c0aebd8f9608a69606dc41e44b275289643",
+      "before": null
+    },
+    {
+      "path": "data/datasets/unity-q3-fy23.js",
+      "digest": "sha256:4982ce75e6521eff40a01f8f18480fe9b25cfa2c281d552e89831e32bc517638",
+      "before": null
+    },
+    {
+      "path": "data/datasets/unity-q4-fy22.js",
+      "digest": "sha256:771ddc711d3edc5d93f654202c0d1ef6ec35f5752bcc6333398e556738f4a639",
+      "before": null
+    },
+    {
+      "path": "data/income-statements/hubspot.js",
+      "digest": "sha256:9c70d767f20a90cc6ef0cb1ed1723b4d35a78c1c5f3c2b9b77bf78739eb8c446",
+      "before": "sha256:a4e04c7db54147a6d536de362f0d61c084eada3075471f4d82a5ca6d2be7d8d4"
+    },
+    {
+      "path": "data/income-statements/sap.js",
+      "digest": "sha256:20fb3602a5a9f4c243843497c3036d44ac645c5d69bf43ae20612e59b00aa544",
+      "before": "sha256:8f11db368be7f14ed4344a2ab27fb5fb8fcb6f356210b0ae95572d1e933a13c3"
+    },
+    {
+      "path": "data/income-statements/take-two.js",
+      "digest": "sha256:d53873521e23452e3088815088ad2a398b48f2dd9c808a2262bbc44b16a1c395",
+      "before": "sha256:7641e55eee27f0ac3f52ce67af39eb2cc520c1ca103b8874ad4aef909b90af06"
+    },
+    {
+      "path": "data/income-statements/uipath.js",
+      "digest": "sha256:9c72fc36a1c45f44658c9baa3cbb3a1dd8d6a1ffb399feed79cadfcb387e060c",
+      "before": "sha256:8aa34ea7e5b5c8405ec3a5086efbf8e5dcd7712314fa3a43080d103632febec2"
+    },
+    {
+      "path": "data/income-statements/unity.js",
+      "digest": "sha256:955be88457211bc6d167cb1ec8fb0086f09b0105cfc20663fd9c97a21f6c1015",
+      "before": null
     },
     {
       "path": "data/render-baselines.json",
-      "digest": "sha256:97081326da97692010f7682991bbba79ca0b838ead8ea8dd0602332f73181bf8",
-      "before": "sha256:a1b297578bc20fea02939f19d79482ebe3e6dba6de7b39ce397f4c53f96e1485"
+      "digest": "sha256:d507bdabf4e44c23c9ed0eb0320323fb2becc9e20f617dfbd441d80190e2169d",
+      "before": "sha256:97081326da97692010f7682991bbba79ca0b838ead8ea8dd0602332f73181bf8"
     },
     {
       "path": "data/workflow-timestamps.json",
-      "digest": "sha256:036f40ef7ef036287ec9be38308fb747bc36f1578dff36ba722ddc752624ceac",
-      "before": "sha256:363b142af0ac5703fea928213ea96e677fe38d2644e28b75cc4d62783eaf6d1d"
+      "digest": "sha256:89741087b5d29237cda6e724fb40791b9462228cce13faac5f0d205cb2dca57b",
+      "before": "sha256:036f40ef7ef036287ec9be38308fb747bc36f1578dff36ba722ddc752624ceac"
     },
     {
-      "path": "input/pending/page-0046-J-J-Q1-FY23-Income-Statement.png",
-      "before": "sha256:17556a897339cf61daefb4dc87a412dbe305ca7492ae9fba2fce7e9047950228",
-      "digest": null,
-      "intakeOwned": true
+      "path": "index.html",
+      "digest": "sha256:e9bcb59111daf4df642766d3cd69473194d0a8d095b1a1fd59b5914fe6be89fd",
+      "before": "sha256:05199f566673d3661452f889b131b1c99382d052ee3cda4bdff295f738412641"
     },
     {
-      "path": "input/pending/page-0092-J-J-Q1-FY24-Income-Statement.png",
-      "before": "sha256:40a8ed2ce271ab5b34a69485b9404a2030a0b5cde842fb6f2aa8b48ca2305148",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0048-J-J-Q2-FY23-Income-Statement.png",
-      "before": "sha256:e263d57e7ccf623d7c3c47e1ca67170d11d1ac6947226869b27c091e3002efea",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0082-J-J-Q2-FY24-Income-Statement.png",
-      "before": "sha256:fa7fcfbf1d31591ee41c4546c5895a590c709414b88897a7c09c8384ecd12a9d",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0104-J-J-Q2-FY25-Income-Statement.png",
-      "before": "sha256:4fee3a9bb70edb6725a71a233d2e26d6c4c77e855fb5c889ec4a8012d2a07b16",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0060-J-J-Q3-FY23-Income-Statement.png",
-      "before": "sha256:7228c68552864fdd735af1e225a344c4e00893c44d271592a24202a9eaa99348",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0091-J-J-Q3-FY24-Income-Statement.png",
-      "before": "sha256:3402bfb802d23f65e51d2ef18387e49626674359cbd88ebfc5c5e41fca65edee",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0097-J-J-Q3-FY25-Income-Statement.png",
-      "before": "sha256:af84117937d30ffd935d8652d5d8271c4b12931f24ee80e0a95fd4fd60d903df",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0036-J-J-Q4-FY22-Income-Statement.png",
-      "before": "sha256:4bb4866ccf229d24529baf5a04e7eafe166d5eb39ee3cf4448fb665e50f5422c",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0064-J-J-Q4-FY23-Income-Statement.png",
-      "before": "sha256:87059407a39570f6c95d9585b4d4c9e92aa20b9c05ca13e94ec8658c4a5e7fd9",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0010-Visa-Q1-FY23-Income-Statement.png",
-      "before": "sha256:92c05da9f4fd74115aab3701d8dfbd018dd704c039007d371b85df913317ee09",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0011-Visa-Q1-FY24-Income-Statement.png",
-      "before": "sha256:a73c713ef56a2a69fa044316ee1e09e0f43fb68de16e44d613862c9e9ad9cfa3",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0028-Visa-Q1-FY25-Income-Statement.png",
-      "before": "sha256:3419d8b7c669cda1c55a2e095509d55cd625a1f4c3681c6bec46b07c62073de8",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0015-Visa-Q2-FY23-Income-Statement.png",
-      "before": "sha256:c92d29cc04554e6575e5c5c3c72e0227b870323add0a7bfaf36383f9b7dca88b",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0027-Visa-Q2-FY24-Income-Statement.png",
-      "before": "sha256:41bc62046f0a18db9380428101bcfc900b37d2667298446edcd99427ecd0c027",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0011-Visa-Q3-FY23-Income-Statement.png",
-      "before": "sha256:e60c529ad2a39adf1549c0464d91ce45eee4de673e4a8877c16a0abba1f194e6",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0039-Visa-Q3-FY24-Income-Statement.png",
-      "before": "sha256:0b0b2b735a89a5b01f8acdfa2b2608461c7d21be177c4d5a26e3b14c6fdc27a9",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0058-Visa-Q3-FY25-Income-Statement.png",
-      "before": "sha256:2287470ae5746a74020a0056e2a914a7146193d719593cfc18862d5978039698",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0004-Visa-Q4-FY22-Income-Statement.png",
-      "before": "sha256:eae50a5f4882a8990ed9132bf5421a868258ebc61f45e21eba60b9f4940cde8b",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0021-Visa-Q4-FY23-Income-Statement.png",
-      "before": "sha256:85e2f7c0fa90deddb435cd2b9c3150426eed5877623a1f7edecfc3fd5ddea35b",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0043-Visa-Q4-FY24-Income-Statement.png",
-      "before": "sha256:4ffd92dc6b3a49936e7c96b7cf4db692713093b42265af69857e18cad12f4481",
-      "digest": null,
-      "intakeOwned": true
-    },
-    {
-      "path": "input/pending/page-0052-Visa-Q4-FY25-Income-Statement.png",
-      "before": "sha256:f5bc2fbb9f2896e17f6dba7b74c4f27e2ac20d12b286f51116828211574966d9",
-      "digest": null,
-      "intakeOwned": true
+      "path": "input/icon-crop-specs/unity-q4-fy22.json",
+      "digest": "sha256:4d6dfc22bcd21c067a5f944e4e7eee730db0b927ca0541f7243d0b8f86591617",
+      "before": null
     }
   ],
   "release": {
-    "version": "99cac73aafa278e00311083c7a66460317ddb91b63837b27040e9a124f66a9ae",
-    "contentDigest": "sha256:a8c416593d60ccc3f67fa5fbb5a19527aca6212c5daf49df836acaaeaceaf595"
+    "version": "552e70088e730c52764f09d88798f7c899de49db356231af831b3667627da25f",
+    "contentDigest": "sha256:f164b1109c94f5dcd1f5929cee6bea18f280cc5a55893ee1b4cd883a68796925"
   },
   "approval": {
-    "operator": "Charles Liu",
+    "operator": "YaoXing Liu",
     "accepted": true,
-    "candidateDigest": "sha256:dea359bf2cce6214d2b13952324953971a3b2f9fb071ca0a92479ab4778d916f",
+    "candidateDigest": "sha256:2c62a873ca0fd9528f98edc9e0daec853bcffa4da74dc2badf9782d5c604c297",
     "basis": "inherited-build-acceptance",
-    "planDigest": "sha256:0e7fdd5f89727667b2f256f3c22fc3ad59bd93e7ad4844514dfc1459b9a7c391",
-    "recordedAt": "2026-10-24T08:50:17.232Z"
+    "planDigest": "sha256:2b18fb6abc44b2cacfc411fa23ae650484bf8f697cbd0154c7ce2b16b2d1f4ae",
+    "recordedAt": "2026-10-25T13:55:22.182Z"
   }
 }
