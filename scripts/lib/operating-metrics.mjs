@@ -25,7 +25,31 @@ export function normalizeOperatingObservation(raw) {
   requireThat(Object.hasOwn(COMPARISONS, raw.comparison), 'Operating metric needs an explicit comparison');
   requireThat(MONEY.has(raw.unit) ? Object.hasOwn(CURRENCY_PREFIX, raw.currency) : raw.currency === null, 'Operating metric currency disagrees with its dimension');
   requireThat(typeof raw.literal === 'string' && raw.literal.trim(), 'Operating metric literal is required');
-  let literal = raw.literal.replaceAll(',', '').replace(/\s/g, '');
+  reconcileLiteral(raw, value, raw.literal);
+  const observation = { value, unit: raw.unit, currency: raw.currency, comparison: raw.comparison, literal: raw.literal };
+  if (raw.authoritativeCorrection == null) return observation;
+  return { ...observation, authoritativeCorrection: normalizeCorrection(raw, value) };
+}
+// A user-directed correction keeps the misprinted Source literal for audit
+// while `literal` carries the corrected text every view displays.
+function normalizeCorrection(raw, value) {
+  const correction = raw.authoritativeCorrection;
+  requireThat(correction && typeof correction === 'object' && !Array.isArray(correction), 'Operating metric authoritativeCorrection must be an object');
+  // Same approval token as Source-object amount corrections (source-objects.mjs).
+  requireThat(correction.approval === 'user-directed-source-correction', 'Operating metric authoritativeCorrection needs explicit user-directed-source-correction approval');
+  const sourceLiteral = typeof correction.sourceLiteral === 'string' ? correction.sourceLiteral.trim() : '';
+  const reason = typeof correction.reason === 'string' ? correction.reason.trim() : '';
+  requireThat(sourceLiteral && reason, 'Operating metric authoritativeCorrection needs the Source literal and a reason naming the authoritative source');
+  let reconciles = true;
+  try { reconcileLiteral(raw, value, sourceLiteral); } catch { reconciles = false; }
+  requireThat(!reconciles, 'Operating metric authoritativeCorrection is unnecessary: its Source literal already equals the value');
+  return { sourceLiteral, reason, approval: correction.approval };
+}
+export function operatingMetricSourceLiteral(metric) {
+  return metric.authoritativeCorrection?.sourceLiteral ?? metric.literal;
+}
+function reconcileLiteral(raw, value, text) {
+  let literal = text.replaceAll(',', '').replace(/\s/g, '');
   const prefixComparison = literal.match(/^(>=|<=|>|<)/)?.[0] || '';
   // Sources also print a lower bound as a trailing plus ("265K+" = at least 265K).
   const trailingPlus = !prefixComparison && /\d[^\d+]*\+$/.test(literal);
@@ -49,7 +73,7 @@ export function normalizeOperatingObservation(raw) {
     const denominator = 10n ** BigInt(fraction.length);
     const [whole, valueFraction = ''] = value.split('.');
     requireThat(numerator * (10n ** BigInt(valueFraction.length)) === BigInt(whole + valueFraction) * denominator, 'Count literal does not equal its exact value');
-    return { value, unit: raw.unit, currency: raw.currency, comparison: raw.comparison, literal: raw.literal };
+    return;
   }
   const prefix = MONEY.has(raw.unit) ? literalPrefix(raw.currency, literal) : '';
   if (MONEY.has(raw.unit) && literal.startsWith(prefix) && /^-?\d+(?:\.\d+)?$/.test(literal.slice(prefix.length))) {
@@ -64,7 +88,7 @@ export function normalizeOperatingObservation(raw) {
     const right = exact(value);
     const scale = 10n ** BigInt({ K: 3, M: 6, B: 9, T: 12 }[raw.unit]);
     requireThat(left.numerator * right.denominator === right.numerator * scale * left.denominator, 'Operating metric base-currency literal does not equal its scaled value');
-    return { value, unit: raw.unit, currency: raw.currency, comparison: raw.comparison, literal: raw.literal };
+    return;
   }
   const suffix = raw.unit;
   requireThat(literal.startsWith(prefix) && literal.endsWith(suffix), 'Operating metric unit/currency disagrees with its literal');
@@ -73,7 +97,6 @@ export function normalizeOperatingObservation(raw) {
   // comparing its magnitude with the canonical, unsigned positive value.
   const magnitude = /^\+(?:0|[1-9]\d*)(?:\.\d+)?$/.test(numeric) ? numeric.slice(1) : numeric;
   requireThat(decimal(magnitude) === value, 'Operating metric value disagrees with its literal');
-  return { value, unit: raw.unit, currency: raw.currency, comparison: raw.comparison, literal: raw.literal };
 }
 export function validateOperatingMetrics(record) {
   const metrics = record.operatingMetrics ?? [];
@@ -82,18 +105,21 @@ export function validateOperatingMetrics(record) {
   for (const metric of metrics) {
     requireThat(ID.test(metric?.id || '') && !ids.has(metric.id), 'Operating metric ids must be unique and stable');
     ids.add(metric.id);
-    normalizeOperatingObservation(metric);
+    const observation = normalizeOperatingObservation(metric);
     requireThat(typeof metric.label === 'string' && metric.label.trim(), 'Operating metric label is required');
     requireThat(typeof metric.basis === 'string' && metric.basis.trim(), 'Operating metric basis is required (use unspecified when unstated)');
-    requireThat(typeof metric.quote === 'string' && metric.quote.includes(metric.label) && metric.quote.includes(metric.literal), 'Operating metric quote must preserve its label and literal');
+    requireThat(typeof metric.quote === 'string' && metric.quote.includes(metric.label) && metric.quote.includes(operatingMetricSourceLiteral(observation)), 'Operating metric quote must preserve its label and Source literal');
     const box = metric.anchor?.box;
     requireThat(metric.anchor?.type === 'image-box' && Array.isArray(box) && box.length === 4 && box.every(Number.isInteger) && box[0] >= 0 && box[1] >= 0 && box[2] > 0 && box[3] > 0, 'Operating metric needs a native image anchor');
     requireThat(Array.isArray(metric.notes) && metric.notes.every((note) => typeof note === 'string' && metric.quote.includes(note)), 'Operating metric notes must be retained in the Source quote');
   }
   return metrics;
 }
+// Views mirror only the five value fields; a correction's audit record stays
+// with the SSOT and its Source value entry.
 export function sameOperatingObservation(left, right) {
-  return JSON.stringify(normalizeOperatingObservation(left)) === JSON.stringify(normalizeOperatingObservation(right));
+  const fields = ({ value, unit, currency, comparison, literal }) => JSON.stringify({ value, unit, currency, comparison, literal });
+  return fields(normalizeOperatingObservation(left)) === fields(normalizeOperatingObservation(right));
 }
 function decodeText(value) {
   return value.replace(/&(?:gt|lt|amp|quot|apos);/g, (entity) => ({ '&gt;': '>', '&lt;': '<', '&amp;': '&', '&quot;': '"', '&apos;': "'" })[entity]);

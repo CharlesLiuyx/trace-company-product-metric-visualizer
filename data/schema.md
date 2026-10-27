@@ -827,8 +827,15 @@ Money literals may omit a scale suffix when the Source reports base-currency
 amounts, such as `value: '0.301', unit: 'K', currency: 'USD', literal: '$301'`.
 Exact decimal arithmetic reconciles the base amount with the declared scale;
 the original literal stays unchanged in SVG, Table and CSV.
+A numeric Source misprint the operator corrects keeps the corrected text in
+`literal` (what SVG, Table and CSV show) and records the printed text in
+`authoritativeCorrection: { sourceLiteral: '672M', reason, approval:
+'user-directed-source-correction' }` on both the SSOT item and its Source value
+entry; `sourceLiteral` must fail to reconcile with `value`. The View mirrors
+only the five value fields.
 Quotes retain
-the label, literal and all notes; anchors use native Source pixels.
+the label, the Source literal (`sourceLiteral` when corrected) and all notes;
+anchors use native Source pixels.
 `basis: "unspecified"` preserves an unstated Source basis.
 
 Each card is one `value` Source object with the five value fields (`value`,

@@ -113,3 +113,27 @@ test('accepts the RMB code prefix for CNY amounts', () => {
   assert.equal(normalizeOperatingObservation({ ...base, literal: 'CN¥133.9B' }).value, '133.9');
   assert.throws(() => normalizeOperatingObservation({ ...base, literal: 'HK$133.9B' }));
 });
+test('a user-directed correction displays the corrected literal and keeps the misprint in the quote', () => {
+  const correction = { sourceLiteral: '672M', reason: 'Paramount Q3 2024 earnings release: 72M subscribers', approval: 'user-directed-source-correction' };
+  const card = { id: 'subscribers', label: 'Subscribers', value: '72000000', unit: 'count', currency: null, comparison: 'eq', literal: '72M', authoritativeCorrection: correction };
+  assert.deepEqual(normalizeOperatingObservation(card).authoritativeCorrection, correction);
+  assert.throws(() => normalizeOperatingObservation({ ...card, authoritativeCorrection: undefined, literal: '672M' }), /Count literal/);
+  assert.throws(() => normalizeOperatingObservation({ ...card, authoritativeCorrection: { ...correction, approval: 'self' } }), /approval/);
+  assert.throws(() => normalizeOperatingObservation({ ...card, authoritativeCorrection: { ...correction, sourceLiteral: '72M' } }), /unnecessary/);
+  assert.throws(() => normalizeOperatingObservation({ ...card, literal: '73M' }), /Count literal/);
+
+  const f = fixture();
+  const quote = 'Subscribers\n672M';
+  f.record.operatingMetrics.push({ ...card, basis: 'unspecified', quote, notes: [], anchor: { type: 'image-box', box: [600, 500, 180, 100] } });
+  f.dataset.operatingMetrics.push({ id: card.id, value: card.value, unit: card.unit, currency: null, comparison: 'eq', literal: '72M' });
+  f.dataset.annotationsSvg += '<text data-operating-metric="subscribers">72M</text>';
+  f.dataset.i18n.zh.annotationsSvg = f.dataset.annotationsSvg;
+  f.input.objects.push({ id: card.id, class: 'value', label: card.label, literal: '72M', value: card.value, unit: 'count', currency: null, comparison: 'eq', quote, authoritativeCorrection: correction, ssotRef: { family: 'income-statement', path: 'operatingMetrics', id: card.id } });
+  const sourceObjects = createSourceObjects(f.input, f.context);
+  assert.deepEqual(reconcileSourceObjects(sourceObjects, f), { status: 'passed', checked: 4, unit: 'M' });
+  f.input.objects.at(-1).authoritativeCorrection = undefined;
+  assert.throws(() => reconcileSourceObjects(createSourceObjects(f.input, f.context), f), /differs from its Source value entry/);
+  f.input.objects.at(-1).authoritativeCorrection = correction;
+  f.input.objects.at(-1).quote = 'Subscribers';
+  assert.throws(() => createSourceObjects(f.input, f.context), /quote/);
+});

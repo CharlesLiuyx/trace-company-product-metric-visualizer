@@ -10,6 +10,7 @@ import {
   OPERATING_METRIC_SIGNAL,
   assertOperatingMetricView,
   normalizeOperatingObservation,
+  operatingMetricSourceLiteral,
   sameOperatingObservation,
 } from './operating-metrics.mjs';
 import { loadClassicScripts } from './vm-browser.mjs';
@@ -468,11 +469,12 @@ function normalizeValueEntry(raw, base, context) {
       currency: raw.currency,
       comparison: raw.comparison,
       literal: raw.literal,
+      authoritativeCorrection: raw.authoritativeCorrection,
     });
     const label = nonEmptyString(raw.label);
     invariant(label, 'SOURCE_OBJECTS_OPERATING_INVALID', `${id} operating metric needs its Source label`);
     invariant(
-      typeof raw.quote === 'string' && raw.quote.includes(label) && raw.quote.includes(observation.literal),
+      typeof raw.quote === 'string' && raw.quote.includes(label) && raw.quote.includes(operatingMetricSourceLiteral(observation)),
       'SOURCE_OBJECTS_OPERATING_INVALID',
       `${id} operating metric must retain a Source quote containing its label and literal`
     );
@@ -838,7 +840,8 @@ function reconcileIncomeStatement(sourceObjects, values, loaded) {
   for (const metric of operatingMetrics) {
     const matches = operating.filter((entry) => entry.ssotRef.id === metric.id);
     const entry = matches[0];
-    if (matches.length !== 1 || !sameOperatingObservation(metric, entry) || metric.quote !== entry.quote || metric.label !== entry.label) {
+    const correction = (item) => JSON.stringify(normalizeOperatingObservation(item).authoritativeCorrection ?? null);
+    if (matches.length !== 1 || !sameOperatingObservation(metric, entry) || correction(metric) !== correction(entry) || metric.quote !== entry.quote || metric.label !== entry.label) {
       throw sourceObjectsError('SOURCE_OBJECTS_SSOT_VALUE_MISMATCH', `Supplemental operating metric ${metric.id} differs from its Source value entry`);
     }
   }
