@@ -30,9 +30,9 @@ function classification(adapter = 'income-statement', extraSignals = []) {
   });
 }
 
-function create(objects, { adapter = 'income-statement', shortNodes, loadedData, reconcile = Boolean(loadedData), extraSignals } = {}) {
+function create(objects, { adapter = 'income-statement', shortNodes, interfaceCorrections, loadedData, reconcile = Boolean(loadedData), extraSignals } = {}) {
   return createSourceObjects(
-    { objects, ...(shortNodes ? { shortNodes } : {}) },
+    { objects, ...(shortNodes ? { shortNodes } : {}), ...(interfaceCorrections ? { interfaceCorrections } : {}) },
     {
       datasetKey: DATASET_KEY,
       adapter,
@@ -267,6 +267,24 @@ test('shortNodes names a value node and its Source reason', () => {
     () => create([otherIncome()], { shortNodes: [{ node: 'other_income', reason: 'x', observedBBox: [1, 2, 3, 1] }] }),
     (error) => error.code === 'SOURCE_OBJECTS_SHORT_NODES_INVALID'
   );
+});
+
+test('interfaceCorrections declares a user-approved corrected face of a value node', () => {
+  const correction = { interface: 'other_income:left', reason: 'Operator: 改为税费流出', approval: 'user-directed-source-correction' };
+  const sourceObjects = create([otherIncome()], { interfaceCorrections: [correction] });
+  assert.deepEqual(sourceObjects.interfaceCorrections, [correction]);
+  assert.deepEqual(sourceObjects.summary.interfaceCorrectionIds, ['other_income:left']);
+  assert.equal(Object.hasOwn(create([otherIncome()]), 'interfaceCorrections'), false);
+  for (const bad of [
+    { ...correction, approval: 'self' },
+    { ...correction, interface: 'tax:left' },
+    { ...correction, interface: 'other_income:top' },
+    { ...correction, reason: '' },
+    { ...correction, extra: true },
+  ]) {
+    assert.throws(() => create([otherIncome()], { interfaceCorrections: [bad] }), (error) => error.code === 'SOURCE_OBJECTS_INTERFACE_CORRECTIONS_INVALID');
+  }
+  assert.throws(() => create([otherIncome()], { interfaceCorrections: [correction, correction] }), /repeats/);
 });
 
 test('a declared referenceBBox opts one label group into T18', () => {

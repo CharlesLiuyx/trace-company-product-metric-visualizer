@@ -396,11 +396,18 @@ export function buildInterfaceAuditFromPngs({
   candidatePng = null,
   referencePng = null,
   thresholds: thresholdOverrides = {},
+  referenceExceptions = [],
 }) {
   const { interfaces, violations: geometryViolations, thresholds } = auditInterfaceGeometry(
     geometry,
     thresholdOverrides
   );
+  // Build-declared interfaceCorrections: the face exists only because of a
+  // user-directed Source correction, so its raster reference is skipped while
+  // every candidate geometry check still applies. A declaration must match a
+  // rendered interface, or the stale declaration fails the reference phase.
+  const exceptions = new Map(referenceExceptions.map((item) => [item.interface, item]));
+  const renderedIds = new Set(interfaces.map((item) => item.id));
   const candidateBackground = candidatePng ? estimateBackgroundColor(candidatePng) : null;
   const referenceBackground = referencePng ? estimateBackgroundColor(referencePng) : null;
   const violations = [...geometryViolations];
@@ -460,7 +467,8 @@ export function buildInterfaceAuditFromPngs({
           },
         }
       : null;
-    if (referenceComparison && !referenceComparison.passed) {
+    const referenceException = exceptions.get(item.id) || null;
+    if (referenceComparison && !referenceComparison.passed && !referenceException) {
       referenceComparison.violations.forEach((violation) => {
         violations.push({ ...violation, phase: 'reference', interface: item.id });
       });
@@ -476,14 +484,22 @@ export function buildInterfaceAuditFromPngs({
       renderedComparison,
       reference,
       referenceComparison,
+      ...(referenceException ? { referenceException } : {}),
       result:
         [...violations].some((violation) => violation.interface === item.id)
           ? 'fail'
-          : referencePng
-            ? 'pass'
-            : 'not-scored',
+          : !referencePng
+            ? 'not-scored'
+            : referenceException
+              ? 'documented-exception'
+              : 'pass',
     };
   });
+  for (const id of exceptions.keys()) {
+    if (!renderedIds.has(id)) {
+      violations.push({ code: 'unused-reference-exception', phase: 'reference', interface: id, message: `${id} is declared in interfaceCorrections but no such interface is rendered` });
+    }
+  }
 
   const mode = normalizeInterfaceAuditMode(geometry.mode);
   const enforced = mode === 'error';
@@ -517,7 +533,7 @@ export function buildInterfaceAuditFromPngs({
   const passedInterfaces = auditedInterfaces.filter((item) => item.result === 'pass').length;
   const failedInterfaces = auditedInterfaces.filter((item) => item.result === 'fail').length;
   const notScoredInterfaces = auditedInterfaces.filter((item) => item.result === 'not-scored').length;
-  const documentedExceptions = 0;
+  const documentedExceptions = auditedInterfaces.filter((item) => item.result === 'documented-exception').length;
   const pendingInterfaces = 0;
   return {
     version: 3,
@@ -557,10 +573,10 @@ export function buildInterfaceAuditFromPngs({
   };
 }
 
-export function buildInterfaceAudit({ geometry, candidatePath = null, referencePath = null, thresholds = {} }) {
+export function buildInterfaceAudit({ geometry, candidatePath = null, referencePath = null, thresholds = {}, referenceExceptions = [] }) {
   const candidatePng = candidatePath && existsSync(candidatePath) ? readPng(candidatePath) : null;
   const referencePng = referencePath && existsSync(referencePath) ? readPng(referencePath) : null;
-  return buildInterfaceAuditFromPngs({ geometry, candidatePng, referencePng, thresholds });
+  return buildInterfaceAuditFromPngs({ geometry, candidatePng, referencePng, thresholds, referenceExceptions });
 }
 
 export function assertInterfaceAudit(report) {

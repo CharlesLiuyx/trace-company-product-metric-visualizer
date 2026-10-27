@@ -89,6 +89,14 @@ Invariants checked by `prepare`:
   facts: `"shortNodes": [{ "node": "other", "reason": "Source paints a 1px bar" }]`.
   B15 then accepts that node below the floor while it still paints a face; it is
   never inflated or suppressed.
+- When the operator directs a topology correction (for example a misdrawn
+  "Tax benefit" inflow corrected to a Tax outflow), the corrected node face has
+  no Source counterpart. Declare each such face at the top level:
+  `"interfaceCorrections": [{ "interface": "tax:left", "reason": "<operator
+  words and authoritative source>", "approval": "user-directed-source-correction" }]`.
+  G12 then skips only that face's raster reference comparison; place the node
+  as close to the Source drawing as the corrected flow allows and never use the
+  declaration for a face the Source does paint.
 - Zero-looking literals: if `$0.0B` represents a non-zero object and the true
   value lies inside the literal's rounding interval, `precisionRecovery:
   { literal, reason }` is mandatory (a higher-precision K/M/B/T literal that

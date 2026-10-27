@@ -123,7 +123,11 @@ async function authoredFacts(build, root, input) {
   if (input.questions?.length) throw new Error(`Please resolve these Source questions: ${input.questions.join('; ')}`);
   if (build.adapter !== 'metric-observation') {
     if (!Array.isArray(input.objects) || !input.objects.length) throw new Error('Sankey/revenue facts need the complete flat Source object list (source-facts/v1 objects[])');
-    return { sourceObjects: { objects: input.objects, ...(input.shortNodes == null ? {} : { shortNodes: input.shortNodes }) } };
+    return { sourceObjects: {
+      objects: input.objects,
+      ...(input.shortNodes == null ? {} : { shortNodes: input.shortNodes }),
+      ...(input.interfaceCorrections == null ? {} : { interfaceCorrections: input.interfaceCorrections }),
+    } };
   }
   const source = build.sources[0];
   const descriptor = { locator: source.processedUri, digest: source.digest, availability: source.availability,

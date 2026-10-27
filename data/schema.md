@@ -393,7 +393,10 @@ cannot combine with `precisionRecovery` or `authoritativeCorrection`.
 | Revenue Metric | `{ family: 'revenue-metric', path: 'observations', date }` | the matching record's observation at the exact `YYYY-MM-DD` date |
 
 A genuine Source face thinner than 3px is declared at the top level of the
-facts as `shortNodes: [{ node, reason }]`. When and how these fields may be
+facts as `shortNodes: [{ node, reason }]`; a node face that exists only because
+of a user-directed topology correction is declared as `interfaceCorrections:
+[{ interface: '<node>:left|right', reason, approval:
+'user-directed-source-correction' }]`. When and how these fields may be
 used (rounding interval, precision recovery, authoritative correction, Other,
 `shortNodes`, reconciliation against the loaded SSOT/View) is owned by
 [`docs/dynamic-dataset-workflow.md`](../docs/dynamic-dataset-workflow.md);

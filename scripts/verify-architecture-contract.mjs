@@ -198,6 +198,7 @@ async function main() {
   );
   assert.equal(sourceObjects.adapterTargetOwnership, 'exactly-once', 'an Adapter target belongs to one value entry');
   assert.equal(sourceObjects.subFloorNodeDeclaration, 'shortNodes', 'sub-floor faces are declared through shortNodes');
+  assert.equal(sourceObjects.correctedInterfaceDeclaration, 'interfaceCorrections', 'G12 reference exceptions are declared through interfaceCorrections');
   assert.equal(sourceObjects.labelPositionAudit, 'opt-in-referenceBBox', 'T18 runs only for declared label positions');
   assert.deepEqual(
     sourceObjects.incomeStatementReconciliationTargets,

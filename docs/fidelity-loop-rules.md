@@ -110,7 +110,7 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 
 - 触发：每个可见候选接口。
 - 检查：自动检查 candidate-rendered ID、path endpoint、link interval containment 与每个端面的 occupancy union：先判 binary union，再拆 per-link interval；`Σlink.width` 和颜色都不是分类器，双端宽度独立建模。连接竖直 node edge 的 link 必须水平进入/离开。
-- 通过：SVG 几何容差 0.5px（endpoint 与上下边界均 `<=0.5px`），已确认 raster 边缘容差 1px，归一化后新增/缺失的连续 `>=2px` 空档失败；连续端面不得留缝，间隔端面保留真实 gap。diagnostic 可用 warning/off，但 Build-bound evidence 必须 `mode=error`，且总 `status`、candidate、reference、enforcement 均为 `passed`，audited 等于 expected，failed/pending/not-scored 接口都为 0；`fullFaceIds` 只在有 provenance 时要求 union 贴满 node top/bottom。
+- 通过：SVG 几何容差 0.5px（endpoint 与上下边界均 `<=0.5px`），已确认 raster 边缘容差 1px，归一化后新增/缺失的连续 `>=2px` 空档失败；连续端面不得留缝，间隔端面保留真实 gap。diagnostic 可用 warning/off，但 Build-bound evidence 必须 `mode=error`，且总 `status`、candidate、reference、enforcement 均为 `passed`，audited 等于 expected，failed/pending/not-scored 接口都为 0；`fullFaceIds` 只在有 provenance 时要求 union 贴满 node top/bottom。用户授权的拓扑更正（如误画的流入改为流出）产生原图没有的端面时，只接受 source-facts 顶层 `interfaceCorrections` 中写明接口、理由与授权的声明：该接口跳过 raster reference 比对、计为 documented exception，候选几何检查照常；声明的接口未渲染即失败。
 - 证据：`interfaceAudit` 分别保留 `mode`、`candidateStatus`、`referenceStatus`、`status` 与 `enforcementStatus`；coverage 只来自候选已渲染接口，不声称发现了 reference-only 接口。
 
 #### <a id="rule-b6"></a>B6 · hard-gate · 文本在画布内

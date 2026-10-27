@@ -180,6 +180,7 @@
     "adapterTargetOwnership": "exactly-once",
     "sourcePixelEvidence": false,
     "subFloorNodeDeclaration": "shortNodes",
+    "correctedInterfaceDeclaration": "interfaceCorrections",
     "labelPositionAudit": "opt-in-referenceBBox",
     "incomeStatementReconciliationTargets": [
       "metric-ssot",

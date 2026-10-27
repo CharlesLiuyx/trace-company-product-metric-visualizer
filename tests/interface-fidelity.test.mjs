@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { PNG } from 'pngjs';
 import {
   assertInterfaceAudit,
+  assertInterfaceEvidenceReady,
   auditInterfaceGeometry,
   buildInterfaceAuditFromPngs,
   compareOccupancyIntervals,
@@ -324,4 +325,28 @@ test('missing reference is explicitly not-scored when candidate geometry and ras
   const legacy = buildInterfaceAuditFromPngs({ geometry: geometry('warning'), candidatePng: candidate });
   assert.equal(legacy.status, 'not-scored');
   assert.equal(legacy.enforcementStatus, 'not-scored');
+});
+
+test('EA Q3 FY24: a declared user-directed topology correction skips only the raster reference of its face', () => {
+  // The Source drew Tax as an inflow, so the corrected outflow face has no reference counterpart.
+  const candidate = paintBand(solidPng(), { top: 5, bottom: 20 });
+  const reference = solidPng();
+  const undeclared = buildInterfaceAuditFromPngs({ geometry: geometry('error'), candidatePng: candidate, referencePng: reference });
+  assert.equal(undeclared.referenceStatus, 'failed');
+
+  const exception = { interface: 'a:right', reason: 'operator: 改为税费流出', approval: 'user-directed-source-correction' };
+  const declared = buildInterfaceAuditFromPngs({ geometry: geometry('error'), candidatePng: candidate, referencePng: reference, referenceExceptions: [exception] });
+  assert.equal(declared.status, 'passed');
+  assert.equal(declared.summary.documentedExceptions, 1);
+  assert.equal(declared.summary.passedInterfaces, 0);
+  assert.equal(declared.interfaces[0].result, 'documented-exception');
+  assert.deepEqual(declared.interfaces[0].referenceException, exception);
+  assert.doesNotThrow(() => assertInterfaceEvidenceReady(declared));
+
+  const detached = buildInterfaceAuditFromPngs({ geometry: geometry('error', { endpointX: 12, edgeDelta: 2 }), candidatePng: candidate, referencePng: reference, referenceExceptions: [exception] });
+  assert.equal(detached.candidateStatus, 'failed');
+
+  const stale = buildInterfaceAuditFromPngs({ geometry: geometry('error'), candidatePng: candidate, referencePng: candidate, referenceExceptions: [{ ...exception, interface: 'b:left' }] });
+  assert.equal(stale.referenceStatus, 'failed');
+  assert.match(stale.violations[0].message, /b:left is declared in interfaceCorrections/);
 });

@@ -590,6 +590,35 @@ function normalizeShortNodes(raw, valueNodeIds) {
   }).sort((left, right) => left.node.localeCompare(right.node));
 }
 
+// A user-directed topology correction (e.g. a misdrawn inflow corrected to
+// an outflow) renders a node face the Source never painted. Declaring that
+// face lets G12 skip only its raster reference comparison.
+function normalizeInterfaceCorrections(raw, valueNodeIds) {
+  if (raw == null) return [];
+  invariant(Array.isArray(raw), 'SOURCE_OBJECTS_INTERFACE_CORRECTIONS_INVALID', 'interfaceCorrections must be an array');
+  const seen = new Set();
+  return raw.map((item, index) => {
+    invariant(item && typeof item === 'object' && !Array.isArray(item), 'SOURCE_OBJECTS_INTERFACE_CORRECTIONS_INVALID', `interfaceCorrections[${index}] must be an object`);
+    const unknown = Object.keys(item).filter((key) => !['interface', 'reason', 'approval'].includes(key));
+    invariant(unknown.length === 0, 'SOURCE_OBJECTS_INTERFACE_CORRECTIONS_INVALID', `interfaceCorrections[${index}] has unsupported field(s): ${unknown.join(', ')}`);
+    const match = typeof item.interface === 'string' ? item.interface.match(/^(.+):(left|right)$/) : null;
+    invariant(match, 'SOURCE_OBJECTS_INTERFACE_CORRECTIONS_INVALID', `interfaceCorrections[${index}].interface must be <node>:left or <node>:right`);
+    const node = normalizeAdapterId(match[1], `interfaceCorrections[${index}].interface`);
+    invariant(valueNodeIds.has(node), 'SOURCE_OBJECTS_INTERFACE_CORRECTIONS_INVALID', `interfaceCorrections ${item.interface} must name the node of a value entry`);
+    invariant(
+      item.approval === AUTHORITATIVE_CORRECTION_APPROVAL,
+      'SOURCE_OBJECTS_INTERFACE_CORRECTIONS_INVALID',
+      `interfaceCorrections ${item.interface} needs explicit ${AUTHORITATIVE_CORRECTION_APPROVAL} approval`
+    );
+    const reason = nonEmptyString(item.reason);
+    invariant(reason, 'SOURCE_OBJECTS_INTERFACE_CORRECTIONS_INVALID', `interfaceCorrections ${item.interface} needs a reason`);
+    const id = `${node}:${match[2]}`;
+    invariant(!seen.has(id), 'SOURCE_OBJECTS_INTERFACE_CORRECTIONS_INVALID', `interfaceCorrections repeats ${id}`);
+    seen.add(id);
+    return { interface: id, reason, approval: item.approval };
+  }).sort((left, right) => left.interface.localeCompare(right.interface));
+}
+
 function normalizedAmountMagnitude(entry) {
   return Math.abs(Number(entry.value) * (UNIT_MULTIPLIERS[entry.unit] || 1));
 }
@@ -602,7 +631,7 @@ function normalizedAmountMagnitude(entry) {
  */
 export function createSourceObjects(input, context = {}) {
   invariant(input && typeof input === 'object' && !Array.isArray(input), 'SOURCE_OBJECTS_REQUIRED', 'Source objects are required before review preparation');
-  const unknown = Object.keys(input).filter((key) => !['objects', 'shortNodes'].includes(key));
+  const unknown = Object.keys(input).filter((key) => !['objects', 'shortNodes', 'interfaceCorrections'].includes(key));
   invariant(unknown.length === 0, 'SOURCE_OBJECTS_FIELD_UNSUPPORTED', `Source objects input has unsupported field(s): ${unknown.join(', ')}`);
   const adapter = context.adapter;
   invariant(DATASET_ADAPTERS.includes(adapter), 'SOURCE_OBJECTS_ADAPTER_INVALID', `Unsupported Source objects Adapter: ${adapter}`);
@@ -652,6 +681,8 @@ export function createSourceObjects(input, context = {}) {
   const valueNodeIds = new Set(objects.filter((entry) => entry.node).map((entry) => entry.node));
   invariant(adapter === 'income-statement' || input.shortNodes == null, 'SOURCE_OBJECTS_SHORT_NODES_INVALID', 'shortNodes apply only to Income Statement Sankey Sources');
   const shortNodes = normalizeShortNodes(input.shortNodes, valueNodeIds);
+  invariant(adapter === 'income-statement' || input.interfaceCorrections == null, 'SOURCE_OBJECTS_INTERFACE_CORRECTIONS_INVALID', 'interfaceCorrections apply only to Income Statement Sankey Sources');
+  const interfaceCorrections = normalizeInterfaceCorrections(input.interfaceCorrections, valueNodeIds);
   const amounts = objects.filter((entry) => entry.class === 'value' && entry.ssotRef?.path !== OPERATING_METRIC_SSOT_PATH && Number(entry.value) !== 0);
 
   const value = {
@@ -664,6 +695,7 @@ export function createSourceObjects(input, context = {}) {
     source,
     objects,
     shortNodes,
+    ...(interfaceCorrections.length ? { interfaceCorrections } : {}),
     summary: {
       objects: objects.length,
       classes: Object.fromEntries(SOURCE_OBJECT_CLASSES.map((name) => [name, objects.filter((entry) => entry.class === name).length])),
@@ -671,6 +703,7 @@ export function createSourceObjects(input, context = {}) {
       valueNodeIds: [...valueNodeIds].sort(),
       nonNodeMetricIds: objects.filter((entry) => entry.nonNodeMetric).map((entry) => entry.nonNodeMetric).sort(),
       shortNodeIds: shortNodes.map((item) => item.node),
+      ...(interfaceCorrections.length ? { interfaceCorrectionIds: interfaceCorrections.map((item) => item.interface) } : {}),
       labelGroups: [...labelGroups.keys()].sort(),
       correctedIds: objects.filter((entry) => entry.authoritativeCorrection).map((entry) => entry.id),
       smallestNonZero: amounts

@@ -391,6 +391,7 @@ async function renderLocaleRun({
       geometry: interfaceGeometry,
       candidatePath,
       referencePath,
+      referenceExceptions: planBound ? reviewSourceObjects?.interfaceCorrections || [] : [],
     });
     await writeFile(interfaceAuditPath, `${JSON.stringify(interfaceAudit, null, 2)}\n`);
 
