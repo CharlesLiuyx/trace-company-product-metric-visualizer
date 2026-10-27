@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-10-25T04:44:10.928Z",
+  "generatedAt": "2026-10-26T07:03:42.528Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -9839,6 +9839,444 @@
       "path": "data/datasets/unity-q4-fy22.js",
       "updatedAtMs": 1792903266029,
       "updatedAt": "2026-10-25T04:41:06.029Z",
+      "timeSource": "publication"
+    },
+    "booking-q1-fy23": {
+      "path": "data/datasets/booking-q1-fy23.js",
+      "updatedAtMs": 1792996074001,
+      "updatedAt": "2026-10-26T06:27:54.001Z",
+      "timeSource": "publication"
+    },
+    "booking-q1-fy24": {
+      "path": "data/datasets/booking-q1-fy24.js",
+      "updatedAtMs": 1792996140417,
+      "updatedAt": "2026-10-26T06:29:00.417Z",
+      "timeSource": "publication"
+    },
+    "booking-q1-fy25": {
+      "path": "data/datasets/booking-q1-fy25.js",
+      "updatedAtMs": 1792996337801,
+      "updatedAt": "2026-10-26T06:32:17.801Z",
+      "timeSource": "publication"
+    },
+    "booking-q2-fy23": {
+      "path": "data/datasets/booking-q2-fy23.js",
+      "updatedAtMs": 1792996096443,
+      "updatedAt": "2026-10-26T06:28:16.443Z",
+      "timeSource": "publication"
+    },
+    "booking-q2-fy24": {
+      "path": "data/datasets/booking-q2-fy24.js",
+      "updatedAtMs": 1792996165222,
+      "updatedAt": "2026-10-26T06:29:25.222Z",
+      "timeSource": "publication"
+    },
+    "booking-q2-fy25": {
+      "path": "data/datasets/booking-q2-fy25.js",
+      "updatedAtMs": 1792996327719,
+      "updatedAt": "2026-10-26T06:32:07.719Z",
+      "timeSource": "publication"
+    },
+    "booking-q3-fy22": {
+      "path": "data/datasets/booking-q3-fy22.js",
+      "updatedAtMs": 1792996006204,
+      "updatedAt": "2026-10-26T06:26:46.204Z",
+      "timeSource": "publication"
+    },
+    "booking-q3-fy23": {
+      "path": "data/datasets/booking-q3-fy23.js",
+      "updatedAtMs": 1792996135805,
+      "updatedAt": "2026-10-26T06:28:55.805Z",
+      "timeSource": "publication"
+    },
+    "booking-q3-fy24": {
+      "path": "data/datasets/booking-q3-fy24.js",
+      "updatedAtMs": 1792996226374,
+      "updatedAt": "2026-10-26T06:30:26.374Z",
+      "timeSource": "publication"
+    },
+    "booking-q3-fy25": {
+      "path": "data/datasets/booking-q3-fy25.js",
+      "updatedAtMs": 1792996304655,
+      "updatedAt": "2026-10-26T06:31:44.655Z",
+      "timeSource": "publication"
+    },
+    "booking-q4-fy22": {
+      "path": "data/datasets/booking-q4-fy22.js",
+      "updatedAtMs": 1792996048415,
+      "updatedAt": "2026-10-26T06:27:28.415Z",
+      "timeSource": "publication"
+    },
+    "booking-q4-fy23": {
+      "path": "data/datasets/booking-q4-fy23.js",
+      "updatedAtMs": 1792996383507,
+      "updatedAt": "2026-10-26T06:33:03.507Z",
+      "timeSource": "publication"
+    },
+    "booking-q4-fy24": {
+      "path": "data/datasets/booking-q4-fy24.js",
+      "updatedAtMs": 1792996277672,
+      "updatedAt": "2026-10-26T06:31:17.672Z",
+      "timeSource": "publication"
+    },
+    "electronic-arts-fy24": {
+      "path": "data/datasets/electronic-arts-fy24.js",
+      "updatedAtMs": 1792996024942,
+      "updatedAt": "2026-10-26T06:27:04.942Z",
+      "timeSource": "publication"
+    },
+    "electronic-arts-q1-fy24": {
+      "path": "data/datasets/electronic-arts-q1-fy24.js",
+      "updatedAtMs": 1792996094963,
+      "updatedAt": "2026-10-26T06:28:14.963Z",
+      "timeSource": "publication"
+    },
+    "electronic-arts-q1-fy25": {
+      "path": "data/datasets/electronic-arts-q1-fy25.js",
+      "updatedAtMs": 1792996062052,
+      "updatedAt": "2026-10-26T06:27:42.052Z",
+      "timeSource": "publication"
+    },
+    "electronic-arts-q1-fy26": {
+      "path": "data/datasets/electronic-arts-q1-fy26.js",
+      "updatedAtMs": 1792996063098,
+      "updatedAt": "2026-10-26T06:27:43.098Z",
+      "timeSource": "publication"
+    },
+    "electronic-arts-q2-fy23": {
+      "path": "data/datasets/electronic-arts-q2-fy23.js",
+      "updatedAtMs": 1792996022982,
+      "updatedAt": "2026-10-26T06:27:02.982Z",
+      "timeSource": "publication"
+    },
+    "electronic-arts-q2-fy24": {
+      "path": "data/datasets/electronic-arts-q2-fy24.js",
+      "updatedAtMs": 1792996148234,
+      "updatedAt": "2026-10-26T06:29:08.234Z",
+      "timeSource": "publication"
+    },
+    "electronic-arts-q2-fy25": {
+      "path": "data/datasets/electronic-arts-q2-fy25.js",
+      "updatedAtMs": 1792996085549,
+      "updatedAt": "2026-10-26T06:28:05.549Z",
+      "timeSource": "publication"
+    },
+    "electronic-arts-q3-fy23": {
+      "path": "data/datasets/electronic-arts-q3-fy23.js",
+      "updatedAtMs": 1792996037418,
+      "updatedAt": "2026-10-26T06:27:17.418Z",
+      "timeSource": "publication"
+    },
+    "electronic-arts-q3-fy24": {
+      "path": "data/datasets/electronic-arts-q3-fy24.js",
+      "updatedAtMs": 1792996066066,
+      "updatedAt": "2026-10-26T06:27:46.066Z",
+      "timeSource": "publication"
+    },
+    "electronic-arts-q3-fy25": {
+      "path": "data/datasets/electronic-arts-q3-fy25.js",
+      "updatedAtMs": 1792996111437,
+      "updatedAt": "2026-10-26T06:28:31.437Z",
+      "timeSource": "publication"
+    },
+    "electronic-arts-q4-fy23": {
+      "path": "data/datasets/electronic-arts-q4-fy23.js",
+      "updatedAtMs": 1792996039317,
+      "updatedAt": "2026-10-26T06:27:19.317Z",
+      "timeSource": "publication"
+    },
+    "electronic-arts-q4-fy25": {
+      "path": "data/datasets/electronic-arts-q4-fy25.js",
+      "updatedAtMs": 1792996142687,
+      "updatedAt": "2026-10-26T06:29:02.687Z",
+      "timeSource": "publication"
+    },
+    "expedia-q1-fy23": {
+      "path": "data/datasets/expedia-q1-fy23.js",
+      "updatedAtMs": 1792996086267,
+      "updatedAt": "2026-10-26T06:28:06.267Z",
+      "timeSource": "publication"
+    },
+    "expedia-q1-fy24": {
+      "path": "data/datasets/expedia-q1-fy24.js",
+      "updatedAtMs": 1792996145962,
+      "updatedAt": "2026-10-26T06:29:05.962Z",
+      "timeSource": "publication"
+    },
+    "expedia-q1-fy25": {
+      "path": "data/datasets/expedia-q1-fy25.js",
+      "updatedAtMs": 1792996355791,
+      "updatedAt": "2026-10-26T06:32:35.791Z",
+      "timeSource": "publication"
+    },
+    "expedia-q2-fy22": {
+      "path": "data/datasets/expedia-q2-fy22.js",
+      "updatedAtMs": 1792996119305,
+      "updatedAt": "2026-10-26T06:28:39.305Z",
+      "timeSource": "publication"
+    },
+    "expedia-q2-fy24": {
+      "path": "data/datasets/expedia-q2-fy24.js",
+      "updatedAtMs": 1792996201884,
+      "updatedAt": "2026-10-26T06:30:01.884Z",
+      "timeSource": "publication"
+    },
+    "expedia-q2-fy25": {
+      "path": "data/datasets/expedia-q2-fy25.js",
+      "updatedAtMs": 1792996243797,
+      "updatedAt": "2026-10-26T06:30:43.797Z",
+      "timeSource": "publication"
+    },
+    "expedia-q3-fy22": {
+      "path": "data/datasets/expedia-q3-fy22.js",
+      "updatedAtMs": 1792996007936,
+      "updatedAt": "2026-10-26T06:26:47.936Z",
+      "timeSource": "publication"
+    },
+    "expedia-q3-fy23": {
+      "path": "data/datasets/expedia-q3-fy23.js",
+      "updatedAtMs": 1792996152818,
+      "updatedAt": "2026-10-26T06:29:12.818Z",
+      "timeSource": "publication"
+    },
+    "expedia-q3-fy24": {
+      "path": "data/datasets/expedia-q3-fy24.js",
+      "updatedAtMs": 1792996221484,
+      "updatedAt": "2026-10-26T06:30:21.484Z",
+      "timeSource": "publication"
+    },
+    "expedia-q4-fy22": {
+      "path": "data/datasets/expedia-q4-fy22.js",
+      "updatedAtMs": 1792996050139,
+      "updatedAt": "2026-10-26T06:27:30.139Z",
+      "timeSource": "publication"
+    },
+    "expedia-q4-fy23": {
+      "path": "data/datasets/expedia-q4-fy23.js",
+      "updatedAtMs": 1792996249968,
+      "updatedAt": "2026-10-26T06:30:49.968Z",
+      "timeSource": "publication"
+    },
+    "expedia-q4-fy24": {
+      "path": "data/datasets/expedia-q4-fy24.js",
+      "updatedAtMs": 1792996310195,
+      "updatedAt": "2026-10-26T06:31:50.195Z",
+      "timeSource": "publication"
+    },
+    "paramount-q1-fy23": {
+      "path": "data/datasets/paramount-q1-fy23.js",
+      "updatedAtMs": 1792996130537,
+      "updatedAt": "2026-10-26T06:28:50.537Z",
+      "timeSource": "publication"
+    },
+    "paramount-q1-fy24": {
+      "path": "data/datasets/paramount-q1-fy24.js",
+      "updatedAtMs": 1792996105203,
+      "updatedAt": "2026-10-26T06:28:25.203Z",
+      "timeSource": "publication"
+    },
+    "paramount-q1-fy25": {
+      "path": "data/datasets/paramount-q1-fy25.js",
+      "updatedAtMs": 1792996333444,
+      "updatedAt": "2026-10-26T06:32:13.444Z",
+      "timeSource": "publication"
+    },
+    "paramount-q2-fy23": {
+      "path": "data/datasets/paramount-q2-fy23.js",
+      "updatedAtMs": 1792996193131,
+      "updatedAt": "2026-10-26T06:29:53.131Z",
+      "timeSource": "publication"
+    },
+    "paramount-q2-fy24": {
+      "path": "data/datasets/paramount-q2-fy24.js",
+      "updatedAtMs": 1792996273193,
+      "updatedAt": "2026-10-26T06:31:13.193Z",
+      "timeSource": "publication"
+    },
+    "paramount-q2-fy25": {
+      "path": "data/datasets/paramount-q2-fy25.js",
+      "updatedAtMs": 1792996061440,
+      "updatedAt": "2026-10-26T06:27:41.440Z",
+      "timeSource": "publication"
+    },
+    "paramount-q3-fy22": {
+      "path": "data/datasets/paramount-q3-fy22.js",
+      "updatedAtMs": 1792996036005,
+      "updatedAt": "2026-10-26T06:27:16.005Z",
+      "timeSource": "publication"
+    },
+    "paramount-q3-fy23": {
+      "path": "data/datasets/paramount-q3-fy23.js",
+      "updatedAtMs": 1792998222528,
+      "updatedAt": "2026-10-26T07:03:42.528Z",
+      "timeSource": "publication"
+    },
+    "paramount-q3-fy24": {
+      "path": "data/datasets/paramount-q3-fy24.js",
+      "updatedAtMs": 1792996307294,
+      "updatedAt": "2026-10-26T06:31:47.294Z",
+      "timeSource": "publication"
+    },
+    "paramount-q4-fy22": {
+      "path": "data/datasets/paramount-q4-fy22.js",
+      "updatedAtMs": 1792996091845,
+      "updatedAt": "2026-10-26T06:28:11.845Z",
+      "timeSource": "publication"
+    },
+    "paramount-q4-fy23": {
+      "path": "data/datasets/paramount-q4-fy23.js",
+      "updatedAtMs": 1792996268043,
+      "updatedAt": "2026-10-26T06:31:08.043Z",
+      "timeSource": "publication"
+    },
+    "paramount-q4-fy24": {
+      "path": "data/datasets/paramount-q4-fy24.js",
+      "updatedAtMs": 1792996326005,
+      "updatedAt": "2026-10-26T06:32:06.005Z",
+      "timeSource": "publication"
+    },
+    "tripadvisor-q1-fy23": {
+      "path": "data/datasets/tripadvisor-q1-fy23.js",
+      "updatedAtMs": 1792996090954,
+      "updatedAt": "2026-10-26T06:28:10.954Z",
+      "timeSource": "publication"
+    },
+    "tripadvisor-q1-fy24": {
+      "path": "data/datasets/tripadvisor-q1-fy24.js",
+      "updatedAtMs": 1792996144087,
+      "updatedAt": "2026-10-26T06:29:04.087Z",
+      "timeSource": "publication"
+    },
+    "tripadvisor-q1-fy25": {
+      "path": "data/datasets/tripadvisor-q1-fy25.js",
+      "updatedAtMs": 1792996314787,
+      "updatedAt": "2026-10-26T06:31:54.787Z",
+      "timeSource": "publication"
+    },
+    "tripadvisor-q2-fy23": {
+      "path": "data/datasets/tripadvisor-q2-fy23.js",
+      "updatedAtMs": 1792996120466,
+      "updatedAt": "2026-10-26T06:28:40.466Z",
+      "timeSource": "publication"
+    },
+    "tripadvisor-q2-fy24": {
+      "path": "data/datasets/tripadvisor-q2-fy24.js",
+      "updatedAtMs": 1792996189538,
+      "updatedAt": "2026-10-26T06:29:49.538Z",
+      "timeSource": "publication"
+    },
+    "tripadvisor-q2-fy25": {
+      "path": "data/datasets/tripadvisor-q2-fy25.js",
+      "updatedAtMs": 1792996238258,
+      "updatedAt": "2026-10-26T06:30:38.258Z",
+      "timeSource": "publication"
+    },
+    "tripadvisor-q3-fy22": {
+      "path": "data/datasets/tripadvisor-q3-fy22.js",
+      "updatedAtMs": 1792996018461,
+      "updatedAt": "2026-10-26T06:26:58.461Z",
+      "timeSource": "publication"
+    },
+    "tripadvisor-q3-fy23": {
+      "path": "data/datasets/tripadvisor-q3-fy23.js",
+      "updatedAtMs": 1792996169150,
+      "updatedAt": "2026-10-26T06:29:29.150Z",
+      "timeSource": "publication"
+    },
+    "tripadvisor-q3-fy24": {
+      "path": "data/datasets/tripadvisor-q3-fy24.js",
+      "updatedAtMs": 1792996216713,
+      "updatedAt": "2026-10-26T06:30:16.713Z",
+      "timeSource": "publication"
+    },
+    "tripadvisor-q4-fy22": {
+      "path": "data/datasets/tripadvisor-q4-fy22.js",
+      "updatedAtMs": 1792996065406,
+      "updatedAt": "2026-10-26T06:27:45.406Z",
+      "timeSource": "publication"
+    },
+    "tripadvisor-q4-fy23": {
+      "path": "data/datasets/tripadvisor-q4-fy23.js",
+      "updatedAtMs": 1792996253101,
+      "updatedAt": "2026-10-26T06:30:53.101Z",
+      "timeSource": "publication"
+    },
+    "tripadvisor-q4-fy24": {
+      "path": "data/datasets/tripadvisor-q4-fy24.js",
+      "updatedAtMs": 1792996346601,
+      "updatedAt": "2026-10-26T06:32:26.601Z",
+      "timeSource": "publication"
+    },
+    "warner-bros-q1-fy23": {
+      "path": "data/datasets/warner-bros-q1-fy23.js",
+      "updatedAtMs": 1792996115105,
+      "updatedAt": "2026-10-26T06:28:35.105Z",
+      "timeSource": "publication"
+    },
+    "warner-bros-q1-fy24": {
+      "path": "data/datasets/warner-bros-q1-fy24.js",
+      "updatedAtMs": 1792996176910,
+      "updatedAt": "2026-10-26T06:29:36.910Z",
+      "timeSource": "publication"
+    },
+    "warner-bros-q1-fy25": {
+      "path": "data/datasets/warner-bros-q1-fy25.js",
+      "updatedAtMs": 1792996317541,
+      "updatedAt": "2026-10-26T06:31:57.541Z",
+      "timeSource": "publication"
+    },
+    "warner-bros-q2-fy23": {
+      "path": "data/datasets/warner-bros-q2-fy23.js",
+      "updatedAtMs": 1792996196569,
+      "updatedAt": "2026-10-26T06:29:56.569Z",
+      "timeSource": "publication"
+    },
+    "warner-bros-q2-fy24": {
+      "path": "data/datasets/warner-bros-q2-fy24.js",
+      "updatedAtMs": 1792996263237,
+      "updatedAt": "2026-10-26T06:31:03.237Z",
+      "timeSource": "publication"
+    },
+    "warner-bros-q2-fy25": {
+      "path": "data/datasets/warner-bros-q2-fy25.js",
+      "updatedAtMs": 1792996322601,
+      "updatedAt": "2026-10-26T06:32:02.601Z",
+      "timeSource": "publication"
+    },
+    "warner-bros-q3-fy22": {
+      "path": "data/datasets/warner-bros-q3-fy22.js",
+      "updatedAtMs": 1792996028408,
+      "updatedAt": "2026-10-26T06:27:08.408Z",
+      "timeSource": "publication"
+    },
+    "warner-bros-q3-fy23": {
+      "path": "data/datasets/warner-bros-q3-fy23.js",
+      "updatedAtMs": 1792996257996,
+      "updatedAt": "2026-10-26T06:30:57.996Z",
+      "timeSource": "publication"
+    },
+    "warner-bros-q3-fy24": {
+      "path": "data/datasets/warner-bros-q3-fy24.js",
+      "updatedAtMs": 1792996351785,
+      "updatedAt": "2026-10-26T06:32:31.785Z",
+      "timeSource": "publication"
+    },
+    "warner-bros-q4-fy22": {
+      "path": "data/datasets/warner-bros-q4-fy22.js",
+      "updatedAtMs": 1792996087035,
+      "updatedAt": "2026-10-26T06:28:07.035Z",
+      "timeSource": "publication"
+    },
+    "warner-bros-q4-fy23": {
+      "path": "data/datasets/warner-bros-q4-fy23.js",
+      "updatedAtMs": 1792996387629,
+      "updatedAt": "2026-10-26T06:33:07.629Z",
+      "timeSource": "publication"
+    },
+    "warner-bros-q4-fy24": {
+      "path": "data/datasets/warner-bros-q4-fy24.js",
+      "updatedAtMs": 1792996342194,
+      "updatedAt": "2026-10-26T06:32:22.194Z",
       "timeSource": "publication"
     },
     "data/revenue-metrics.js": {

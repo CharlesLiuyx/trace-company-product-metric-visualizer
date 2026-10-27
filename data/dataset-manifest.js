@@ -36277,6 +36277,1620 @@
             }
           }
         }
+      },
+      {
+        "key": "booking-q1-fy23",
+        "src": "data/datasets/booking-q1-fy23.js",
+        "data": {
+          "name": "Booking Holdings · Q1 FY23",
+          "company": "Booking Holdings",
+          "meta": {
+            "title": "Booking Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending Mar. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "缤客控股 · 2023 财年第一季度",
+              "meta": {
+                "title": "缤客控股 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2023 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "booking-q1-fy24",
+        "src": "data/datasets/booking-q1-fy24.js",
+        "data": {
+          "name": "Booking Holdings · Q1 FY24",
+          "company": "Booking Holdings",
+          "meta": {
+            "title": "Booking Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "缤客控股 · 2024 财年第一季度",
+              "meta": {
+                "title": "缤客控股 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "booking-q1-fy25",
+        "src": "data/datasets/booking-q1-fy25.js",
+        "data": {
+          "name": "Booking Holdings · Q1 FY25",
+          "company": "Booking Holdings",
+          "meta": {
+            "title": "Booking Q1 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "缤客控股 · 2025 财年第一季度",
+              "meta": {
+                "title": "缤客控股 2025 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "booking-q2-fy23",
+        "src": "data/datasets/booking-q2-fy23.js",
+        "data": {
+          "name": "Booking Holdings · Q2 FY23",
+          "company": "Booking Holdings",
+          "meta": {
+            "title": "Booking Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Quarter ended June 30, 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "缤客控股 · 2023 财年第二季度",
+              "meta": {
+                "title": "缤客控股 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 6 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "booking-q2-fy24",
+        "src": "data/datasets/booking-q2-fy24.js",
+        "data": {
+          "name": "Booking Holdings · Q2 FY24",
+          "company": "Booking Holdings",
+          "meta": {
+            "title": "Booking Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Quarter ended June 30, 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "缤客控股 · 2024 财年第二季度",
+              "meta": {
+                "title": "缤客控股 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 6 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "booking-q2-fy25",
+        "src": "data/datasets/booking-q2-fy25.js",
+        "data": {
+          "name": "Booking Holdings · Q2 FY25",
+          "company": "Booking Holdings",
+          "meta": {
+            "title": "Booking Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Quarter ended June 30, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "缤客控股 · 2025 财年第二季度",
+              "meta": {
+                "title": "缤客控股 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 6 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "booking-q3-fy22",
+        "src": "data/datasets/booking-q3-fy22.js",
+        "data": {
+          "name": "Booking Holdings · Q3 FY22",
+          "company": "Booking Holdings",
+          "meta": {
+            "title": "Booking Q3 FY22 Income Statement",
+            "period": "Q3 FY22",
+            "periodNote": "Ending Sep. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "缤客控股 · 2022 财年第三季度",
+              "meta": {
+                "title": "缤客控股 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度",
+                "periodNote": "截至 2022 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "booking-q3-fy23",
+        "src": "data/datasets/booking-q3-fy23.js",
+        "data": {
+          "name": "Booking Holdings · Q3 FY23",
+          "company": "Booking Holdings",
+          "meta": {
+            "title": "Booking Q3 FY23 Income Statement",
+            "period": "Q3 FY23"
+          },
+          "i18n": {
+            "zh": {
+              "name": "缤客控股 · 2023 财年第三季度",
+              "meta": {
+                "title": "缤客控股 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "booking-q3-fy24",
+        "src": "data/datasets/booking-q3-fy24.js",
+        "data": {
+          "name": "Booking Holdings · Q3 FY24",
+          "company": "Booking Holdings",
+          "meta": {
+            "title": "Booking Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "缤客控股 · 2024 财年第三季度",
+              "meta": {
+                "title": "缤客控股 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "booking-q3-fy25",
+        "src": "data/datasets/booking-q3-fy25.js",
+        "data": {
+          "name": "Booking Holdings · Q3 FY25",
+          "company": "Booking Holdings",
+          "meta": {
+            "title": "Booking Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "缤客控股 · 2025 财年第三季度",
+              "meta": {
+                "title": "缤客控股 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "booking-q4-fy22",
+        "src": "data/datasets/booking-q4-fy22.js",
+        "data": {
+          "name": "Booking Holdings · Q4 FY22",
+          "company": "Booking Holdings",
+          "meta": {
+            "title": "Booking Q4 FY22 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "缤客控股 · 2022 财年第四季度",
+              "meta": {
+                "title": "缤客控股 2022 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "booking-q4-fy23",
+        "src": "data/datasets/booking-q4-fy23.js",
+        "data": {
+          "name": "Booking Holdings · Q4 FY23",
+          "company": "Booking Holdings",
+          "meta": {
+            "title": "Booking Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Quarter ended Dec. 31, 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "缤客控股 · 2023 财年第四季度",
+              "meta": {
+                "title": "缤客控股 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "booking-q4-fy24",
+        "src": "data/datasets/booking-q4-fy24.js",
+        "data": {
+          "name": "Booking Holdings · Q4 FY24",
+          "company": "Booking Holdings",
+          "meta": {
+            "title": "Booking Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "缤客控股 · 2024 财年第四季度",
+              "meta": {
+                "title": "缤客控股 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "electronic-arts-fy24",
+        "src": "data/datasets/electronic-arts-fy24.js",
+        "data": {
+          "name": "Electronic Arts · FY24",
+          "company": "Electronic Arts",
+          "meta": {
+            "title": "Electronic Arts FY24 Income Statement",
+            "period": "FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Electronic Arts · 2024 财年",
+              "meta": {
+                "title": "Electronic Arts 2024 财年利润表",
+                "period": "2024 财年",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "electronic-arts-q1-fy24",
+        "src": "data/datasets/electronic-arts-q1-fy24.js",
+        "data": {
+          "name": "Electronic Arts · Q1 FY24",
+          "company": "Electronic Arts",
+          "meta": {
+            "title": "Electronic Arts Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending June 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Electronic Arts · 2024 财年第一季度",
+              "meta": {
+                "title": "Electronic Arts 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2023 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "electronic-arts-q1-fy25",
+        "src": "data/datasets/electronic-arts-q1-fy25.js",
+        "data": {
+          "name": "Electronic Arts · Q1 FY25",
+          "company": "Electronic Arts",
+          "meta": {
+            "title": "Electronic Arts Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Electronic Arts · 2025 财年第一季度",
+              "meta": {
+                "title": "Electronic Arts 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "electronic-arts-q1-fy26",
+        "src": "data/datasets/electronic-arts-q1-fy26.js",
+        "data": {
+          "name": "Electronic Arts · Q1 FY26",
+          "company": "Electronic Arts",
+          "meta": {
+            "title": "Electronic Arts Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending June 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Electronic Arts · 2026 财年第一季度",
+              "meta": {
+                "title": "Electronic Arts 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "electronic-arts-q2-fy23",
+        "src": "data/datasets/electronic-arts-q2-fy23.js",
+        "data": {
+          "name": "Electronic Arts · Q2 FY23",
+          "company": "Electronic Arts",
+          "meta": {
+            "title": "Electronic Arts Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Sept. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "艺电 · Q2 FY23",
+              "meta": {
+                "title": "艺电 Q2 FY23 利润表",
+                "periodNote": "截至 2022 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "electronic-arts-q2-fy24",
+        "src": "data/datasets/electronic-arts-q2-fy24.js",
+        "data": {
+          "name": "Electronic Arts · Q2 FY24",
+          "company": "Electronic Arts",
+          "meta": {
+            "title": "Electronic Arts Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Sep. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Electronic Arts · 2024 财年第二季度",
+              "meta": {
+                "title": "Electronic Arts 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "electronic-arts-q2-fy25",
+        "src": "data/datasets/electronic-arts-q2-fy25.js",
+        "data": {
+          "name": "Electronic Arts · Q2 FY25",
+          "company": "Electronic Arts",
+          "meta": {
+            "title": "Electronic Arts Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Electronic Arts · 2025 财年第二季度",
+              "meta": {
+                "title": "Electronic Arts 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "electronic-arts-q3-fy23",
+        "src": "data/datasets/electronic-arts-q3-fy23.js",
+        "data": {
+          "name": "Electronic Arts · Q3 FY23",
+          "company": "Electronic Arts",
+          "meta": {
+            "title": "Electronic Arts Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Dec. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Electronic Arts · 2023 财年第三季度",
+              "meta": {
+                "title": "Electronic Arts 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2022 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "electronic-arts-q3-fy24",
+        "src": "data/datasets/electronic-arts-q3-fy24.js",
+        "data": {
+          "name": "Electronic Arts · Q3 FY24",
+          "company": "Electronic Arts",
+          "meta": {
+            "title": "Electronic Arts Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Electronic Arts · 2024 财年第三季度",
+              "meta": {
+                "title": "Electronic Arts 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "electronic-arts-q3-fy25",
+        "src": "data/datasets/electronic-arts-q3-fy25.js",
+        "data": {
+          "name": "Electronic Arts · Q3 FY25",
+          "company": "Electronic Arts",
+          "meta": {
+            "title": "Electronic Arts Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Electronic Arts · 2025 财年第三季度",
+              "meta": {
+                "title": "Electronic Arts 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "electronic-arts-q4-fy23",
+        "src": "data/datasets/electronic-arts-q4-fy23.js",
+        "data": {
+          "name": "Electronic Arts · Q4 FY23",
+          "company": "Electronic Arts",
+          "meta": {
+            "title": "Electronic Arts Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Mar. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Electronic Arts · 2023 财年第四季度",
+              "meta": {
+                "title": "Electronic Arts 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "electronic-arts-q4-fy25",
+        "src": "data/datasets/electronic-arts-q4-fy25.js",
+        "data": {
+          "name": "Electronic Arts · Q4 FY25",
+          "company": "Electronic Arts",
+          "meta": {
+            "title": "Electronic Arts Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Mar. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Electronic Arts · 2025 财年第四季度",
+              "meta": {
+                "title": "Electronic Arts 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "expedia-q1-fy23",
+        "src": "data/datasets/expedia-q1-fy23.js",
+        "data": {
+          "name": "Expedia · Q1 FY23",
+          "company": "Expedia",
+          "meta": {
+            "title": "Expedia Q1 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Expedia · 2023 财年第一季度",
+              "meta": {
+                "title": "Expedia 2023 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "expedia-q1-fy24",
+        "src": "data/datasets/expedia-q1-fy24.js",
+        "data": {
+          "name": "Expedia · Q1 FY24",
+          "company": "Expedia",
+          "meta": {
+            "title": "Expedia Q1 FY24 Income Statement",
+            "period": "Q1 FY24"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Expedia · 2024 财年第一季度",
+              "meta": {
+                "title": "Expedia 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "expedia-q1-fy25",
+        "src": "data/datasets/expedia-q1-fy25.js",
+        "data": {
+          "name": "Expedia · Q1 FY25",
+          "company": "Expedia",
+          "meta": {
+            "title": "Expedia Q1 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Expedia · 2025 财年第一季度",
+              "meta": {
+                "title": "Expedia 2025 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "expedia-q2-fy22",
+        "src": "data/datasets/expedia-q2-fy22.js",
+        "data": {
+          "name": "Expedia · Q2 FY22",
+          "company": "Expedia",
+          "meta": {
+            "title": "Expedia Q2 FY22 Income Statement",
+            "period": "Q2 FY22"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Expedia · 2022 财年第二季度",
+              "meta": {
+                "title": "Expedia 2022 财年第二季度利润表",
+                "period": "2022 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "expedia-q2-fy24",
+        "src": "data/datasets/expedia-q2-fy24.js",
+        "data": {
+          "name": "Expedia · Q2 FY24",
+          "company": "Expedia",
+          "meta": {
+            "title": "Expedia Q2 FY24 Income Statement",
+            "period": "Q2 FY24"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Expedia · 2024 财年第二季度",
+              "meta": {
+                "title": "Expedia 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "expedia-q2-fy25",
+        "src": "data/datasets/expedia-q2-fy25.js",
+        "data": {
+          "name": "Expedia · Q2 FY25",
+          "company": "Expedia",
+          "meta": {
+            "title": "Expedia Q2 FY25 Income Statement",
+            "period": "Q2 FY25"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Expedia · 2025 财年第二季度",
+              "meta": {
+                "title": "Expedia 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "expedia-q3-fy22",
+        "src": "data/datasets/expedia-q3-fy22.js",
+        "data": {
+          "name": "Expedia · Q3 FY22",
+          "company": "Expedia",
+          "meta": {
+            "title": "Expedia Q3 FY22 Income Statement",
+            "period": "Q3 FY22",
+            "periodNote": "Ending Sep. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Expedia · 2022 财年第三季度",
+              "meta": {
+                "title": "Expedia 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度",
+                "periodNote": "截至 2022 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "expedia-q3-fy23",
+        "src": "data/datasets/expedia-q3-fy23.js",
+        "data": {
+          "name": "Expedia · Q3 FY23",
+          "company": "Expedia",
+          "meta": {
+            "title": "Expedia Q3 FY23 Income Statement",
+            "period": "Q3 FY23"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Expedia · 2023 财年第三季度",
+              "meta": {
+                "title": "Expedia 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "expedia-q3-fy24",
+        "src": "data/datasets/expedia-q3-fy24.js",
+        "data": {
+          "name": "Expedia · Q3 FY24",
+          "company": "Expedia",
+          "meta": {
+            "title": "Expedia Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Expedia · 2024 财年第三季度",
+              "meta": {
+                "title": "Expedia 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "expedia-q4-fy22",
+        "src": "data/datasets/expedia-q4-fy22.js",
+        "data": {
+          "name": "Expedia · Q4 FY22",
+          "company": "Expedia",
+          "meta": {
+            "title": "Expedia Q4 FY22 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Expedia · 2022 财年第四季度",
+              "meta": {
+                "title": "Expedia 2022 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "expedia-q4-fy23",
+        "src": "data/datasets/expedia-q4-fy23.js",
+        "data": {
+          "name": "Expedia · Q4 FY23",
+          "company": "Expedia",
+          "meta": {
+            "title": "Expedia Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Expedia · 2023 财年第四季度",
+              "meta": {
+                "title": "Expedia 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "expedia-q4-fy24",
+        "src": "data/datasets/expedia-q4-fy24.js",
+        "data": {
+          "name": "Expedia · Q4 FY24",
+          "company": "Expedia",
+          "meta": {
+            "title": "Expedia Q4 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Expedia · 2024 财年第四季度",
+              "meta": {
+                "title": "Expedia 2024 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "paramount-q1-fy23",
+        "src": "data/datasets/paramount-q1-fy23.js",
+        "data": {
+          "name": "Paramount · Q1 FY23",
+          "company": "Paramount",
+          "meta": {
+            "title": "Paramount Q1 FY23 Income Statement",
+            "period": "Q1 FY23"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Paramount · 2023 财年第一季度",
+              "meta": {
+                "title": "Paramount 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "paramount-q1-fy24",
+        "src": "data/datasets/paramount-q1-fy24.js",
+        "data": {
+          "name": "Paramount · Q1 FY24",
+          "company": "Paramount",
+          "meta": {
+            "title": "Paramount Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Quarter ended Mar. 31, 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Paramount · 2024 财年第一季度",
+              "meta": {
+                "title": "Paramount 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 3 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "paramount-q1-fy25",
+        "src": "data/datasets/paramount-q1-fy25.js",
+        "data": {
+          "name": "Paramount · Q1 FY25",
+          "company": "Paramount",
+          "meta": {
+            "title": "Paramount Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Quarter ended Mar. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Paramount · 2025 财年第一季度",
+              "meta": {
+                "title": "Paramount 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 3 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "paramount-q2-fy23",
+        "src": "data/datasets/paramount-q2-fy23.js",
+        "data": {
+          "name": "Paramount · Q2 FY23",
+          "company": "Paramount",
+          "meta": {
+            "title": "Paramount Q2 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Paramount · 2023 财年第二季度",
+              "meta": {
+                "title": "Paramount 2023 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "paramount-q2-fy24",
+        "src": "data/datasets/paramount-q2-fy24.js",
+        "data": {
+          "name": "Paramount · Q2 FY24",
+          "company": "Paramount",
+          "meta": {
+            "title": "Paramount Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Quarter ended Jun. 30, 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Paramount · 2024 财年第二季度",
+              "meta": {
+                "title": "Paramount 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 6 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "paramount-q2-fy25",
+        "src": "data/datasets/paramount-q2-fy25.js",
+        "data": {
+          "name": "Paramount · Q2 FY25",
+          "company": "Paramount",
+          "meta": {
+            "title": "Paramount Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Quarter ended Jun. 30, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Paramount · 2025 财年第二季度",
+              "meta": {
+                "title": "Paramount 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 6 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "paramount-q3-fy22",
+        "src": "data/datasets/paramount-q3-fy22.js",
+        "data": {
+          "name": "Paramount · Q3 FY22",
+          "company": "Paramount",
+          "meta": {
+            "title": "Paramount Q3 FY22 Income Statement",
+            "period": "Q3 FY22"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Paramount · 2022 财年第三季度",
+              "meta": {
+                "title": "Paramount 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "paramount-q3-fy23",
+        "src": "data/datasets/paramount-q3-fy23.js",
+        "data": {
+          "name": "Paramount · Q3 FY23",
+          "company": "Paramount",
+          "meta": {
+            "title": "Paramount Q3 FY23 Income Statement",
+            "period": "Q3 FY23"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Paramount · 2023 财年第三季度",
+              "meta": {
+                "title": "Paramount 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "paramount-q3-fy24",
+        "src": "data/datasets/paramount-q3-fy24.js",
+        "data": {
+          "name": "Paramount · Q3 FY24",
+          "company": "Paramount",
+          "meta": {
+            "title": "Paramount Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Quarter ended Sep. 30, 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Paramount · 2024 财年第三季度",
+              "meta": {
+                "title": "Paramount 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "paramount-q4-fy22",
+        "src": "data/datasets/paramount-q4-fy22.js",
+        "data": {
+          "name": "Paramount · Q4 FY22",
+          "company": "Paramount",
+          "meta": {
+            "title": "Paramount Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Quarter ended Dec. 31, 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Paramount · 2022 财年第四季度",
+              "meta": {
+                "title": "Paramount 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2022 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "paramount-q4-fy23",
+        "src": "data/datasets/paramount-q4-fy23.js",
+        "data": {
+          "name": "Paramount · Q4 FY23",
+          "company": "Paramount",
+          "meta": {
+            "title": "Paramount Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Quarter ended Dec. 31, 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Paramount · 2023 财年第四季度",
+              "meta": {
+                "title": "Paramount 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "paramount-q4-fy24",
+        "src": "data/datasets/paramount-q4-fy24.js",
+        "data": {
+          "name": "Paramount · Q4 FY24",
+          "company": "Paramount",
+          "meta": {
+            "title": "Paramount Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Quarter ended Dec. 31, 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Paramount · 2024 财年第四季度",
+              "meta": {
+                "title": "Paramount 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tripadvisor-q1-fy23",
+        "src": "data/datasets/tripadvisor-q1-fy23.js",
+        "data": {
+          "name": "Tripadvisor · Q1 FY23",
+          "company": "Tripadvisor",
+          "meta": {
+            "title": "Tripadvisor Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Q1 FY23"
+          },
+          "i18n": {
+            "zh": {
+              "name": "猫途鹰 · 2023 财年第一季度",
+              "meta": {
+                "title": "猫途鹰 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "2023 财年第一季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tripadvisor-q1-fy24",
+        "src": "data/datasets/tripadvisor-q1-fy24.js",
+        "data": {
+          "name": "Tripadvisor · Q1 FY24",
+          "company": "Tripadvisor",
+          "meta": {
+            "title": "Tripadvisor Q1 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "猫途鹰 · 2024 财年第一季度",
+              "meta": {
+                "title": "猫途鹰 2024 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tripadvisor-q1-fy25",
+        "src": "data/datasets/tripadvisor-q1-fy25.js",
+        "data": {
+          "name": "Tripadvisor · Q1 FY25",
+          "company": "Tripadvisor",
+          "meta": {
+            "title": "Tripadvisor Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Quarter ended Mar. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "猫途鹰 · 2025 财年第一季度",
+              "meta": {
+                "title": "猫途鹰 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 3 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tripadvisor-q2-fy23",
+        "src": "data/datasets/tripadvisor-q2-fy23.js",
+        "data": {
+          "name": "Tripadvisor · Q2 FY23",
+          "company": "Tripadvisor",
+          "meta": {
+            "title": "Tripadvisor Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Quarter ended Jun. 30, 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "猫途鹰 · 2023 财年第二季度",
+              "meta": {
+                "title": "猫途鹰 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 6 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tripadvisor-q2-fy24",
+        "src": "data/datasets/tripadvisor-q2-fy24.js",
+        "data": {
+          "name": "Tripadvisor · Q2 FY24",
+          "company": "Tripadvisor",
+          "meta": {
+            "title": "Tripadvisor Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Quarter ended Jun. 30, 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "猫途鹰 · 2024 财年第二季度",
+              "meta": {
+                "title": "猫途鹰 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 6 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tripadvisor-q2-fy25",
+        "src": "data/datasets/tripadvisor-q2-fy25.js",
+        "data": {
+          "name": "Tripadvisor · Q2 FY25",
+          "company": "Tripadvisor",
+          "meta": {
+            "title": "Tripadvisor Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Quarter ended Jun. 30, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "猫途鹰 · 2025 财年第二季度",
+              "meta": {
+                "title": "猫途鹰 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 6 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tripadvisor-q3-fy22",
+        "src": "data/datasets/tripadvisor-q3-fy22.js",
+        "data": {
+          "name": "Tripadvisor · Q3 FY22",
+          "company": "Tripadvisor",
+          "meta": {
+            "title": "Tripadvisor Q3 FY22 Income Statement",
+            "period": "Q3 FY22",
+            "periodNote": "Quarter ended Sep. 30, 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "猫途鹰 · 2022 财年第三季度",
+              "meta": {
+                "title": "猫途鹰 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度",
+                "periodNote": "截至 2022 年 9 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tripadvisor-q3-fy23",
+        "src": "data/datasets/tripadvisor-q3-fy23.js",
+        "data": {
+          "name": "Tripadvisor · Q3 FY23",
+          "company": "Tripadvisor",
+          "meta": {
+            "title": "Tripadvisor Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Quarter ended Sep. 30, 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "猫途鹰 · 2023 财年第三季度",
+              "meta": {
+                "title": "猫途鹰 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 9 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tripadvisor-q3-fy24",
+        "src": "data/datasets/tripadvisor-q3-fy24.js",
+        "data": {
+          "name": "Tripadvisor · Q3 FY24",
+          "company": "Tripadvisor",
+          "meta": {
+            "title": "Tripadvisor Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Quarter ended Sep. 30, 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "猫途鹰 · 2024 财年第三季度",
+              "meta": {
+                "title": "猫途鹰 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tripadvisor-q4-fy22",
+        "src": "data/datasets/tripadvisor-q4-fy22.js",
+        "data": {
+          "name": "Tripadvisor · Q4 FY22",
+          "company": "Tripadvisor",
+          "meta": {
+            "title": "Tripadvisor Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Quarter ended Dec. 31, 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "猫途鹰 · 2022 财年第四季度",
+              "meta": {
+                "title": "猫途鹰 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2022 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tripadvisor-q4-fy23",
+        "src": "data/datasets/tripadvisor-q4-fy23.js",
+        "data": {
+          "name": "Tripadvisor · Q4 FY23",
+          "company": "Tripadvisor",
+          "meta": {
+            "title": "Tripadvisor Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Q4 FY23"
+          },
+          "i18n": {
+            "zh": {
+              "name": "猫途鹰 · 2023 财年第四季度",
+              "meta": {
+                "title": "猫途鹰 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "2023 财年第四季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tripadvisor-q4-fy24",
+        "src": "data/datasets/tripadvisor-q4-fy24.js",
+        "data": {
+          "name": "Tripadvisor · Q4 FY24",
+          "company": "Tripadvisor",
+          "meta": {
+            "title": "Tripadvisor Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Quarter ended Dec. 31, 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "猫途鹰 · 2024 财年第四季度",
+              "meta": {
+                "title": "猫途鹰 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "warner-bros-q1-fy23",
+        "src": "data/datasets/warner-bros-q1-fy23.js",
+        "data": {
+          "name": "Warner Bros. Discovery · Q1 FY23",
+          "company": "Warner Bros. Discovery",
+          "meta": {
+            "title": "Warner Bros. Q1 FY23 Income Statement",
+            "period": "Q1 FY23"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Warner Bros. Discovery · 2023 财年第一季度",
+              "meta": {
+                "title": "Warner Bros. 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "warner-bros-q1-fy24",
+        "src": "data/datasets/warner-bros-q1-fy24.js",
+        "data": {
+          "name": "Warner Bros. Discovery · Q1 FY24",
+          "company": "Warner Bros. Discovery",
+          "meta": {
+            "title": "Warner Bros. Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Warner Bros. Discovery · 2024 财年第一季度",
+              "meta": {
+                "title": "Warner Bros. 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "warner-bros-q1-fy25",
+        "src": "data/datasets/warner-bros-q1-fy25.js",
+        "data": {
+          "name": "Warner Bros. Discovery · Q1 FY25",
+          "company": "Warner Bros. Discovery",
+          "meta": {
+            "title": "Warner Bros. Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Mar. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Warner Bros. Discovery · 2025 财年第一季度",
+              "meta": {
+                "title": "Warner Bros. 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "warner-bros-q2-fy23",
+        "src": "data/datasets/warner-bros-q2-fy23.js",
+        "data": {
+          "name": "Warner Bros. Discovery · Q2 FY23",
+          "company": "Warner Bros. Discovery",
+          "meta": {
+            "title": "Warner Bros. Q2 FY23 Income Statement",
+            "period": "Q2 FY23"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Warner Bros. Discovery · 2023 财年第二季度",
+              "meta": {
+                "title": "Warner Bros. 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "warner-bros-q2-fy24",
+        "src": "data/datasets/warner-bros-q2-fy24.js",
+        "data": {
+          "name": "Warner Bros. Discovery · Q2 FY24",
+          "company": "Warner Bros. Discovery",
+          "meta": {
+            "title": "Warner Bros. Q2 FY24 Income Statement",
+            "period": "Q2 FY24"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Warner Bros. Discovery · 2024 财年第二季度",
+              "meta": {
+                "title": "Warner Bros. 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "warner-bros-q2-fy25",
+        "src": "data/datasets/warner-bros-q2-fy25.js",
+        "data": {
+          "name": "Warner Bros. Discovery · Q2 FY25",
+          "company": "Warner Bros. Discovery",
+          "meta": {
+            "title": "Warner Bros. Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Jun. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Warner Bros. Discovery · 2025 财年第二季度",
+              "meta": {
+                "title": "Warner Bros. 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "warner-bros-q3-fy22",
+        "src": "data/datasets/warner-bros-q3-fy22.js",
+        "data": {
+          "name": "Warner Bros. Discovery · Q3 FY22",
+          "company": "Warner Bros. Discovery",
+          "meta": {
+            "title": "Warner Bros. Q3 FY22 Income Statement",
+            "period": "Q3 FY22"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Warner Bros. Discovery · 2022 财年第三季度",
+              "meta": {
+                "title": "Warner Bros. 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "warner-bros-q3-fy23",
+        "src": "data/datasets/warner-bros-q3-fy23.js",
+        "data": {
+          "name": "Warner Bros. Discovery · Q3 FY23",
+          "company": "Warner Bros. Discovery",
+          "meta": {
+            "title": "Warner Bros. Q3 FY23 Income Statement",
+            "period": "Q3 FY23"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Warner Bros. Discovery · 2023 财年第三季度",
+              "meta": {
+                "title": "Warner Bros. 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "warner-bros-q3-fy24",
+        "src": "data/datasets/warner-bros-q3-fy24.js",
+        "data": {
+          "name": "Warner Bros. Discovery · Q3 FY24",
+          "company": "Warner Bros. Discovery",
+          "meta": {
+            "title": "Warner Bros. Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "华纳兄弟探索 · 2024 财年第三季度",
+              "meta": {
+                "title": "Warner Bros. 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "warner-bros-q4-fy22",
+        "src": "data/datasets/warner-bros-q4-fy22.js",
+        "data": {
+          "name": "Warner Bros. Discovery · Q4 FY22",
+          "company": "Warner Bros. Discovery",
+          "meta": {
+            "title": "Warner Bros. Q4 FY22 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Warner Bros. Discovery · 2022 财年第四季度",
+              "meta": {
+                "title": "Warner Bros. 2022 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "warner-bros-q4-fy23",
+        "src": "data/datasets/warner-bros-q4-fy23.js",
+        "data": {
+          "name": "Warner Bros. Discovery · Q4 FY23",
+          "company": "Warner Bros. Discovery",
+          "meta": {
+            "title": "Warner Bros. Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "华纳兄弟探索 · 2023 财年第四季度",
+              "meta": {
+                "title": "Warner Bros. 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "warner-bros-q4-fy24",
+        "src": "data/datasets/warner-bros-q4-fy24.js",
+        "data": {
+          "name": "Warner Bros. Discovery · Q4 FY24",
+          "company": "Warner Bros. Discovery",
+          "meta": {
+            "title": "Warner Bros. Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Warner Bros. Discovery · 2024 财年第四季度",
+              "meta": {
+                "title": "Warner Bros. 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

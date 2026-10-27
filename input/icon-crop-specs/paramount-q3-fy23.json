@@ -1,0 +1,44 @@
+{
+  "source": "input/processing/paramount-q3-fy23.png",
+  "outputDir": "output/paramount-q3-fy23-logo-crop",
+  "runtimeOutputDir": "data/assets/raster-annotations/paramount",
+  "validationSheetDir": "output/paramount-q3-fy23-logo-crop/validation-sheets",
+  "report": "q3-fy23-crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "crops": [
+    {
+      "key": "q3-fy23-company-wordmark",
+      "output": "q3-fy23-company-wordmark.png",
+      "runtimeOutput": "q3-fy23-company-wordmark.png",
+      "searchBox": {
+        "x": 760,
+        "y": 305,
+        "width": 590,
+        "height": 165
+      },
+      "cropBox": {
+        "x": 760,
+        "y": 305,
+        "width": 590,
+        "height": 165
+      },
+      "threshold": 12,
+      "minComponentArea": 28,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.12,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Source blue Paramount wordmark without later Skydance lockup; no financial text or links."
+    }
+  ]
+}

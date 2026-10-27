@@ -1,9 +1,9 @@
 {
   "schema": "reviewed-git-release/v1",
-  "id": "transport-aed378ff-b67c-4350-a69b-f3963d73c6cf",
-  "baseHead": "3bc6a318bf93ba88de9c7c0c5c3fe01bc2c7e3ce",
-  "planDigest": "sha256:2b18fb6abc44b2cacfc411fa23ae650484bf8f697cbd0154c7ce2b16b2d1f4ae",
-  "publishedDigest": "sha256:61d167fbc433799a367d5bb4f946697efc985f40b252d984ef58491248ea05f0",
+  "id": "transport-4ac9cc78-6ef4-41f9-a166-c3d3682763a0",
+  "baseHead": "fa4aef6ef1a620cd325c06b86487936cd179d948",
+  "planDigest": "sha256:094480facfaf6e7abc3579d005fb0d761562fd34f4c2513fa7b12d3a67050970",
+  "publishedDigest": "sha256:5ef5d8f8f22df9b541597c7a0dbf4d2e1b2fd1bfe46954827904ad2f1f1892c9",
   "builds": [
     {
       "buildId": "build-fbe573ad-5128-4025-b987-54dfc2707ba0",
@@ -1289,441 +1289,986 @@
       "buildId": "build-ddcd34e0-7906-42cf-883e-018968bf9c87",
       "key": "unity-q4-fy22",
       "sealDigest": "sha256:d4c8a516e6686eb9ee346789c7a1ae2995c3c0e4504f843d5b67c841ba93030d"
+    },
+    {
+      "buildId": "build-848bd0c3-f54f-429c-9d44-efe828d612e2",
+      "key": "booking-q1-fy23",
+      "sealDigest": "sha256:633deef35f2b8188fe03fce17d3aaabcac7419eb3aca90f4d42cfb101507f3e4"
+    },
+    {
+      "buildId": "build-2319ac70-a63e-4439-b6f8-87a6b03ac22c",
+      "key": "booking-q1-fy24",
+      "sealDigest": "sha256:05309af8c4855477a764b3c455832e439878b296c3c6ce1963c040e6af068127"
+    },
+    {
+      "buildId": "build-4729ac65-d038-4c18-ac4d-a77124769292",
+      "key": "booking-q1-fy25",
+      "sealDigest": "sha256:1198196c1eb2f4af53f189d16d652b3c1108a3eb4e9622673904d8963aee9cf0"
+    },
+    {
+      "buildId": "build-aad4deea-a636-4245-8d6e-8548960888e8",
+      "key": "booking-q2-fy23",
+      "sealDigest": "sha256:145c78f6887e87c6328f83bb6ea8e74fc4da8929094012c54de5fa628fa063ae"
+    },
+    {
+      "buildId": "build-e25cdede-5117-4e0d-bc46-32ba344782ff",
+      "key": "booking-q2-fy24",
+      "sealDigest": "sha256:d446dabe6bcd1afdf8e59e9103cd6b5158e86bb420eb037b401a38667a3ccca0"
+    },
+    {
+      "buildId": "build-45cf6fc4-61a8-4b77-b0b8-71f0cfec1110",
+      "key": "booking-q2-fy25",
+      "sealDigest": "sha256:86b458cbf75ea0d091d16ce2cb9716fc6f2638c6eb202b5fa89911efd5cc0c31"
+    },
+    {
+      "buildId": "build-fbb9790d-d01e-4903-aef9-2ddc4aefdc8c",
+      "key": "booking-q3-fy22",
+      "sealDigest": "sha256:a0ce9d593d9b8511f018c2536b29a497716425c4e7c66c6148d7b56db095ad5b"
+    },
+    {
+      "buildId": "build-54ff8554-d0b5-430f-a638-f61e2279deda",
+      "key": "booking-q3-fy23",
+      "sealDigest": "sha256:5441f9b019af45b6a9c7bbe604f1682684f1b49be5e0e6ed44883a1109e80002"
+    },
+    {
+      "buildId": "build-909b312b-57a2-42bb-957b-469809cacda2",
+      "key": "booking-q3-fy24",
+      "sealDigest": "sha256:fa2a5f945b3ec43c0d08e37f6e64d76074b610d9b3230cae246516929832bcbe"
+    },
+    {
+      "buildId": "build-949c3268-1169-47b5-8a64-e440c3baa810",
+      "key": "booking-q3-fy25",
+      "sealDigest": "sha256:4cf0594267b18a5dfdade63f1dd2a4e7613db1ce83fcf3817f24bf830709504a"
+    },
+    {
+      "buildId": "build-10ff6f3e-6043-4d18-93d7-a97eef20a42c",
+      "key": "booking-q4-fy22",
+      "sealDigest": "sha256:b63917652ce15042fb1eb9e2a0630400cc3b8f5a8395e5630814f673b2298e3f"
+    },
+    {
+      "buildId": "build-c67eb4fe-da68-4458-910c-452058cfca28",
+      "key": "booking-q4-fy23",
+      "sealDigest": "sha256:f89c7094e9c1c3d13ec1ffe5d861f70e0b7a8ec2fd74635a0546db6e20345943"
+    },
+    {
+      "buildId": "build-62b4dfea-0f81-4ba6-a385-2dcee9bdd4d7",
+      "key": "booking-q4-fy24",
+      "sealDigest": "sha256:71ac27d69578ec93bf3eb0c8ab000030516f5f83d776f2ea019b569c90a608c5"
+    },
+    {
+      "buildId": "build-1c3b1b27-1ceb-4ac0-9c40-4140883999c3",
+      "key": "electronic-arts-fy24",
+      "sealDigest": "sha256:c8e7cc8a3256ba84d7f16bb748edda208b138aa9d2929bb34d9bb6a3e685e361"
+    },
+    {
+      "buildId": "build-27e178e4-ba22-4877-b87b-60f8f9957987",
+      "key": "electronic-arts-q1-fy24",
+      "sealDigest": "sha256:7b427e78eefc5d09388801a8dcf7f6b239ab0202b9003e9433cf72c83df2365e"
+    },
+    {
+      "buildId": "build-69c79184-c5e0-4acd-b736-0a9a7793f337",
+      "key": "electronic-arts-q1-fy25",
+      "sealDigest": "sha256:c1e78aa62f1cf5dee0ae9e293dfdb857a8490d86c9097b9611ce6710b9de431c"
+    },
+    {
+      "buildId": "build-da993a8e-871d-4d83-98cf-ab77d1bdcc2d",
+      "key": "electronic-arts-q1-fy26",
+      "sealDigest": "sha256:ea8ab0ee66338c2c3ed82fe7bae0e760262f61a2f1192a91d174d24582dcffb7"
+    },
+    {
+      "buildId": "build-df966ae6-4d3b-4d6d-8130-c74b76ede557",
+      "key": "electronic-arts-q2-fy23",
+      "sealDigest": "sha256:c647d56713424f0d2b9dab331f12642c449f8dcfb76a672dce17b06a643009f2"
+    },
+    {
+      "buildId": "build-de40ef9c-9835-4f34-84ea-d7b845198f15",
+      "key": "electronic-arts-q2-fy24",
+      "sealDigest": "sha256:57e920012621e35197e375ce53d06c8582d0c0ada976f4ec895f9799d33d19b4"
+    },
+    {
+      "buildId": "build-0357c7c7-ecda-4780-9b67-dcc246c6cf6f",
+      "key": "electronic-arts-q2-fy25",
+      "sealDigest": "sha256:028125d8e64ede23285cf5a9fce5f685d594d921bad4bb409adbcead2b2aec58"
+    },
+    {
+      "buildId": "build-93a53cd3-37fd-4510-983d-3030ff638c97",
+      "key": "electronic-arts-q3-fy23",
+      "sealDigest": "sha256:415c8a55bab1f5bdee3e19f4c36756f60a491366616c43c2dcb02a068fa2986e"
+    },
+    {
+      "buildId": "build-ff1b4537-9624-4c0f-b2f9-c17bb6c93b8c",
+      "key": "electronic-arts-q3-fy24",
+      "sealDigest": "sha256:3d452de247dcc0ada15c3fb089123a6959fc4ed5379d5f0357c4faffc5449c2b"
+    },
+    {
+      "buildId": "build-966d60c3-232e-4d89-93c5-c0f35f705e8a",
+      "key": "electronic-arts-q3-fy25",
+      "sealDigest": "sha256:7de31e4e0cddb7ded5d13d5c116ab895efd1a5a483ca495589ce17acba9d84d4"
+    },
+    {
+      "buildId": "build-40801347-ada6-4423-ad8f-8b07e0d5ff76",
+      "key": "electronic-arts-q4-fy23",
+      "sealDigest": "sha256:aaf8005825209f0825243a8c2f47ce56620473b67ee81810f374612710c6723d"
+    },
+    {
+      "buildId": "build-bf8f9cba-1c2f-4413-bc83-ce3597521939",
+      "key": "electronic-arts-q4-fy25",
+      "sealDigest": "sha256:638641b3e2d3bf83cef319b743a108a8e3bfce5f03a0b5460b3850e9c1cdd384"
+    },
+    {
+      "buildId": "build-1414d379-4a4f-407c-a382-2094474d46b2",
+      "key": "expedia-q1-fy23",
+      "sealDigest": "sha256:f2d9b50446d060f36ea7bf47545cceabcce9cbd961350af810d636bca6600112"
+    },
+    {
+      "buildId": "build-94d01a5f-5715-4424-bc28-b2576102c097",
+      "key": "expedia-q1-fy24",
+      "sealDigest": "sha256:408c9bdae28ac2dc4a4e2b68bfa601d16ad7cc8c4f5f2d062a01bab2295e9bb4"
+    },
+    {
+      "buildId": "build-60b38d0f-e48f-4735-a671-f6efcd596630",
+      "key": "expedia-q1-fy25",
+      "sealDigest": "sha256:eef29e33e2d1f5b7e352afead291f9f61525fc09c100d536e21c2355d763a179"
+    },
+    {
+      "buildId": "build-59b863fd-1071-4da8-9fb1-4d765fd22143",
+      "key": "expedia-q2-fy22",
+      "sealDigest": "sha256:e8500c3f1b954253f49edf04da7444f65b91448c31fe6604875da687521a5063"
+    },
+    {
+      "buildId": "build-7b29e28f-f1f0-4318-8413-2d27f61b5466",
+      "key": "expedia-q2-fy24",
+      "sealDigest": "sha256:239b1c8f82bacbebaf7bba84a01e5ab3421ff378772cebf10be609c908f68da8"
+    },
+    {
+      "buildId": "build-d4fe5487-8284-4c47-9dcb-d0f50812f0ee",
+      "key": "expedia-q2-fy25",
+      "sealDigest": "sha256:7d5696a3680ed13cac30e01a7c32caf74580a0270f359c0cfe17aebbd6354fdb"
+    },
+    {
+      "buildId": "build-1e9784ba-d2b1-473e-b939-9c22043179fe",
+      "key": "expedia-q3-fy22",
+      "sealDigest": "sha256:ba44cf21e0a9aa7efdda4ed4ec51d498056a1ebdf50230c74afb5b3f71a3910e"
+    },
+    {
+      "buildId": "build-96dc620d-b1b8-4cf3-8be5-3ccaa3d34522",
+      "key": "expedia-q3-fy23",
+      "sealDigest": "sha256:6402f0824f3dd71e3648621749f512d0aa171ba959e8c407fde2d4177fb3063c"
+    },
+    {
+      "buildId": "build-b0bb5f9c-5bd5-4da8-9866-56e65f5c796c",
+      "key": "expedia-q3-fy24",
+      "sealDigest": "sha256:a6356b15106354c6cc0412d01c83c6618b9f5f4ecb59128b51c99c5f04f04940"
+    },
+    {
+      "buildId": "build-36b8ceec-b9eb-4b00-8092-26b45826dcc2",
+      "key": "expedia-q4-fy22",
+      "sealDigest": "sha256:1f3b3cdca5d3e262d3232a867a820c7c2f5d87990d5895cfe3e6dbb5973ada3d"
+    },
+    {
+      "buildId": "build-3c95c3f2-76cf-4a74-8a68-d4d7b8f3391d",
+      "key": "expedia-q4-fy23",
+      "sealDigest": "sha256:de65d22a82b0db3ac8ce8b4417ab49587626b6372562481b0c303912c3e0f026"
+    },
+    {
+      "buildId": "build-e37aff4c-3dd7-426c-85d6-4cd78b9ee68b",
+      "key": "expedia-q4-fy24",
+      "sealDigest": "sha256:25818bf804d23c0b4f7cfef7e19170d0b0e3aceb6ebbfb2094e45590f4670f52"
+    },
+    {
+      "buildId": "build-687edfa4-ec85-49e5-957f-6cb8a0fb763f",
+      "key": "paramount-q1-fy23",
+      "sealDigest": "sha256:01afc089048091526e2ee733ad5f6ba5e6cc2fc0b425b95bf2fcbfb992a4de5c"
+    },
+    {
+      "buildId": "build-0534e2da-36d0-491a-a714-3dd22d4c3178",
+      "key": "paramount-q1-fy24",
+      "sealDigest": "sha256:81f9641d6c8f26c288690aab2a6c95c3e88f2824856f68a3592d64539fb4fb84"
+    },
+    {
+      "buildId": "build-4f15ef0e-64a8-4ba8-9c30-81411667a2b3",
+      "key": "paramount-q1-fy25",
+      "sealDigest": "sha256:baf84d67ff9e138f10cfe3fd4fd6324677b99159e10430263156b68afd3c54df"
+    },
+    {
+      "buildId": "build-1ebf902e-798f-473b-9d9b-8ab1c5f52523",
+      "key": "paramount-q2-fy23",
+      "sealDigest": "sha256:a6882e573cce77852d53420185c4607439cd4fce86d58dffda3ab60a3bb96feb"
+    },
+    {
+      "buildId": "build-cd2dcf02-e2a5-4b2c-97bd-3efe706be07d",
+      "key": "paramount-q2-fy24",
+      "sealDigest": "sha256:c7b551ec51cf5d1ddc7776ff4408ccdd73126ed114382eb1610179444c35d0c2"
+    },
+    {
+      "buildId": "build-b3126104-5aa7-48ec-8391-cd7bba8254b3",
+      "key": "paramount-q2-fy25",
+      "sealDigest": "sha256:bb1b778f2f5c9940b2d1cc9d585a7f23d92c06b6bad4d1f32642db1b78c3ca39"
+    },
+    {
+      "buildId": "build-0c6a7982-c409-4d47-b278-0c460052eb80",
+      "key": "paramount-q3-fy22",
+      "sealDigest": "sha256:d0332327002c76ed558b7c03ccbe0a56881395395a78736e4b9619b57862df64"
+    },
+    {
+      "buildId": "build-3ef84850-c341-42d5-9813-40f0456dceed",
+      "key": "paramount-q3-fy23",
+      "sealDigest": "sha256:388214f206e2805451ce5e6dcfac5ad30057f1c5db4e28ef9b3c87c9c8401846"
+    },
+    {
+      "buildId": "build-5b13d08f-132d-4f62-8dad-117bb042eea5",
+      "key": "paramount-q3-fy24",
+      "sealDigest": "sha256:533ac2533d3f1c9c2147ef00db100911ec0df102b6e07791c224c2b7d70b6e3d"
+    },
+    {
+      "buildId": "build-bc98781c-afc0-46ad-a1b2-37222a093074",
+      "key": "paramount-q4-fy22",
+      "sealDigest": "sha256:d3ff6f60973b7b863768e6373c782951329598372c4252a2577a5bcff81ec868"
+    },
+    {
+      "buildId": "build-5b96a078-ea33-4a18-acd2-5f6f7bcdda8d",
+      "key": "paramount-q4-fy23",
+      "sealDigest": "sha256:5053ff66f0f1a2417dbcacdf6cb6c10641682c8ce3ae13946ab6b9e2e3532894"
+    },
+    {
+      "buildId": "build-2d99adfd-e036-4d0d-a3aa-5c87290cc503",
+      "key": "paramount-q4-fy24",
+      "sealDigest": "sha256:9e55ef32edfeb3dd5a549699d97fffefd3dcfd2275f85e42fae96bac6682eef9"
+    },
+    {
+      "buildId": "build-fbd4a679-fcd8-401a-8f64-ffcbf2761463",
+      "key": "tripadvisor-q1-fy23",
+      "sealDigest": "sha256:6d056c2c01120d63ce10cdba44c45ed55ed720aa07494681e46fc9688b71fc90"
+    },
+    {
+      "buildId": "build-d40828d4-72a5-4a39-a0b7-d3899cc7e0e3",
+      "key": "tripadvisor-q1-fy24",
+      "sealDigest": "sha256:4acd1131239133305520e80ed82c14dab7e9c9f43f17a22b8589cf3e1618fde4"
+    },
+    {
+      "buildId": "build-e1704758-9ab7-4d76-b0e9-74e42b4b3cb9",
+      "key": "tripadvisor-q1-fy25",
+      "sealDigest": "sha256:b267c4942584dbfb18b63a746b04146317823eed9ca74009d57928b55d8f2cd1"
+    },
+    {
+      "buildId": "build-24681416-d980-41ea-a305-ee44b0c5ca66",
+      "key": "tripadvisor-q2-fy23",
+      "sealDigest": "sha256:2e36fc0e526d70639ce7730531ba9d7951b8ab690bccf9d1ac867a369bd26553"
+    },
+    {
+      "buildId": "build-17998052-7f87-4d54-9762-305761617323",
+      "key": "tripadvisor-q2-fy24",
+      "sealDigest": "sha256:9d067f13a1086bdef61a3f6fec7ddd8aeb5845ef08a644b122c718e686765ec2"
+    },
+    {
+      "buildId": "build-0ff73189-3a04-4dc4-858f-c49b2e3a92fc",
+      "key": "tripadvisor-q2-fy25",
+      "sealDigest": "sha256:dced965a25e5f908b035c93e326811140335618b5976fc0f36125b90489c8293"
+    },
+    {
+      "buildId": "build-9a45239a-f1fe-4e27-be4f-dd046ae2b66c",
+      "key": "tripadvisor-q3-fy22",
+      "sealDigest": "sha256:f4b51f7bd6dc554ae4448abb8b8ce94afc98a0dda29cbdd1faaaa9d739b6adcd"
+    },
+    {
+      "buildId": "build-c712e05e-945a-4024-84b8-8c936e70dbb3",
+      "key": "tripadvisor-q3-fy23",
+      "sealDigest": "sha256:872574ccadb17c48f9d1ab2c71b116707a00fab66802e40efbd9e30282086728"
+    },
+    {
+      "buildId": "build-836837a1-ac86-4108-b2f7-82bfe44fc5a9",
+      "key": "tripadvisor-q3-fy24",
+      "sealDigest": "sha256:ff3acc4d1b6c15d20c4a1184246af3bfefa75cbedf655f5bb748ae42b67933e8"
+    },
+    {
+      "buildId": "build-5ad9938c-c660-4b75-9de3-12ce7c3b9d56",
+      "key": "tripadvisor-q4-fy22",
+      "sealDigest": "sha256:74b9b0f274eeff739023d104b3003532b106ecd0b815df8d038462b5df59dfb5"
+    },
+    {
+      "buildId": "build-dbc092df-2bb9-4bac-a174-31898aac3af7",
+      "key": "tripadvisor-q4-fy23",
+      "sealDigest": "sha256:3a928dce84bb415097f8101821bd28622794c458a2acb8af236475a4381cda8f"
+    },
+    {
+      "buildId": "build-53f422a0-686e-4e4a-a0a3-b2a33c23ee5e",
+      "key": "tripadvisor-q4-fy24",
+      "sealDigest": "sha256:45539b36c1c59573e2f0bf987112d81d8f265790bce15f3124a51269a1e9988a"
+    },
+    {
+      "buildId": "build-591de7d9-968d-4eaa-b68b-d827d35c15f3",
+      "key": "warner-bros-q1-fy23",
+      "sealDigest": "sha256:c729b2373d0eaf8ebba0c9b6ea2faf7420eb905ec2d12790655548f344c30510"
+    },
+    {
+      "buildId": "build-ea25683b-9d77-49ac-9629-79f4987a53a6",
+      "key": "warner-bros-q1-fy24",
+      "sealDigest": "sha256:264c5e6f12795b77dccf45bbaddcfde3d5343600bc12a23e37eb0622801f5033"
+    },
+    {
+      "buildId": "build-59aa706f-d0ed-4497-a487-6c4f37e1b914",
+      "key": "warner-bros-q1-fy25",
+      "sealDigest": "sha256:0e55dd13d9b70f82ccf45ba23b9d18dc6b7754ef9ff70904f439c06a98b3dc13"
+    },
+    {
+      "buildId": "build-ebd423a0-63b3-43b8-a0bd-81b46f853d94",
+      "key": "warner-bros-q2-fy23",
+      "sealDigest": "sha256:c1f898909dcc721000a112f7bf3ca413ed7d293f847ed7de849d956bce970299"
+    },
+    {
+      "buildId": "build-eee4c8eb-5350-44cd-80a7-eec9a6839a00",
+      "key": "warner-bros-q2-fy24",
+      "sealDigest": "sha256:99a696a88ecb8572e79f73d01d9a17808996d2e91fca9036d319f9c5a88fe6c2"
+    },
+    {
+      "buildId": "build-9eb91d40-3a35-4c3d-a33c-1c0e57d4dc54",
+      "key": "warner-bros-q2-fy25",
+      "sealDigest": "sha256:8aca075d7c63569bce16267bd00a454e5ec203a3506668c1a2b33c6c53e40ad0"
+    },
+    {
+      "buildId": "build-413aa0f1-096e-434e-b77f-638f9defee5e",
+      "key": "warner-bros-q3-fy22",
+      "sealDigest": "sha256:5d9937d319d9121be4144bb5da54d429c769b9f3ca1037128bdede426fab1d91"
+    },
+    {
+      "buildId": "build-245e1fb2-69eb-4468-b0b2-3957ce46ef5c",
+      "key": "warner-bros-q3-fy23",
+      "sealDigest": "sha256:eb0250a82b7ca5b39c0a5eefeb0006eba8e4d8ea66e1cd3d1e96d4a12c0520f7"
+    },
+    {
+      "buildId": "build-aa519652-1209-4578-99fe-e5f04e8074e8",
+      "key": "warner-bros-q3-fy24",
+      "sealDigest": "sha256:5ac65c72808696fd56ce93bf665816cb2b112e6ca88f47d6eb4bfa0ae68fc6a9"
+    },
+    {
+      "buildId": "build-e7f11472-7f8f-45d8-a91e-5231036ce2b8",
+      "key": "warner-bros-q4-fy22",
+      "sealDigest": "sha256:748e0c7eecaac605d98e38eb3eaa1bf1bcbc309dd9467afe7453961238e4c6e5"
+    },
+    {
+      "buildId": "build-548e4068-9bcf-4866-b998-b8e67af98e9e",
+      "key": "warner-bros-q4-fy23",
+      "sealDigest": "sha256:25885522c618820e65076e1b520fd5e5f3c2724e9b5ac436d6b0eea443029edb"
+    },
+    {
+      "buildId": "build-e59591d9-12ed-41f4-860e-9f36e43ab536",
+      "key": "warner-bros-q4-fy24",
+      "sealDigest": "sha256:9290b3d3f79ccd15f640910a8c1edbb314a1d677fcdac44af9b23a32733b73eb"
     }
   ],
-  "candidateDigest": "sha256:2c62a873ca0fd9528f98edc9e0daec853bcffa4da74dc2badf9782d5c604c297",
+  "candidateDigest": "sha256:c6102dddd44e8aad59065a051159ee35ffbe383478eded3033ba949111ca808d",
   "paths": [
     {
       "path": "data/assets/catalog.json",
-      "digest": "sha256:28052e6c3aafdeed4fcb82a0d0a0ed06b0e0ae666524496a5ac7b0a316abf48c",
-      "before": "sha256:a6e7b754baae28eabdf30ae419cecdba591bbc58adee713456e6ed9d8cf961ef"
+      "digest": "sha256:9f9a8683f4cd5e1e0a67dc0657855c9e4073b85efc8cdf91a3ca4ffadd238653",
+      "before": "sha256:28052e6c3aafdeed4fcb82a0d0a0ed06b0e0ae666524496a5ac7b0a316abf48c"
     },
     {
-      "path": "data/assets/icon-references/unity/crop-report.json",
-      "digest": "sha256:e7486db502ad10a3986b6f346189322595b019343a32e7f7a1627c2e4f4d3ca2",
+      "path": "data/assets/icon-references/electronic-arts/crop-report.json",
+      "digest": "sha256:b54aba7490b92b8d05e9998dedb92c2fdf045bcd8e66172ea67c7686c84b2f4b",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/unity/crops/company-logo.png",
-      "digest": "sha256:4609db8f9e3fb558a97d1481be56c1aaf64d5e785cf7dda1459f07c1048e743c",
+      "path": "data/assets/icon-references/electronic-arts/crops/app-store.png",
+      "digest": "sha256:d1337c4b95b4c4892dfa40b0bf2095c8bcc737815664411e40c08f3d65a384fb",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/unity/crops/ironsource.png",
-      "digest": "sha256:502745fdedd611b3127ff15c997267f863f0735a3d828450f445401a1964348d",
+      "path": "data/assets/icon-references/electronic-arts/crops/ea-logo.png",
+      "digest": "sha256:9d9287747d6a8800fd738f2a23ea145bdecded2491744fb5edd864d78f1f9d3e",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/unity/crops/speedtree.png",
-      "digest": "sha256:28d936d173fbc33efe0b78545f158ecd568fd2e672e50567fb63ef8061c30f6e",
+      "path": "data/assets/icon-references/electronic-arts/crops/google-play.png",
+      "digest": "sha256:c352e1176b4149d57e13cc0ae699303032ec52d60000360eb8485af0e7d718f1",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/unity/crops/syncsketch.png",
-      "digest": "sha256:426c0d73ba7f5374db7f2b50306daeea14e768ab00eb79b75e775cf2f450f236",
+      "path": "data/assets/icon-references/electronic-arts/crops/origin.png",
+      "digest": "sha256:3c8f7011be788c65be133f6a53a7612cb920c561414a7b961ec5e848ca4d7e0e",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/unity/crops/unity-enterprise.png",
-      "digest": "sha256:d9ecbfc87360673f201a6a7dd9fbe081f0ae1a7cee1d99c85069fd251c21153a",
+      "path": "data/assets/icon-references/electronic-arts/crops/playstation.png",
+      "digest": "sha256:7da1bea5742e58e924573f7892ac879b2444bafef44062ec366de960a7069769",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/unity/crops/unity-pro.png",
-      "digest": "sha256:795207005efe168064689dd9e972ebbddb6c0f68d0db5e2b8918688be1c640db",
+      "path": "data/assets/icon-references/electronic-arts/crops/steam.png",
+      "digest": "sha256:b43178f7a7466ef20833c51ad1346f817bd86204eeccbb8277bb859f502befa0",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/unity/crops/weta-digital.png",
-      "digest": "sha256:a9731ddda0efcded53518e6fed4c344d6cc1f083d3367b74fbe601cb648db7b7",
+      "path": "data/assets/icon-references/electronic-arts/crops/switch.png",
+      "digest": "sha256:16e0f00d13ad3df3d6a96e434bb5880c52079d467554bfabd4f4885ba6991f28",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/unity/crops/ziva.png",
-      "digest": "sha256:862629ca2fbac4e144b813ddc7540d82eaca943850b4804874b30ed980a7d600",
+      "path": "data/assets/icon-references/electronic-arts/crops/xbox.png",
+      "digest": "sha256:121c94904d421c2e92ea2c6093cd561e27231ea983b76dca9a0afa5aa8d6f780",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/unity/model-validation.md",
-      "digest": "sha256:e78e4303241f5cfbe5f425b92c6ea29240b179583e40f91983341f2cc006a84a",
+      "path": "data/assets/icon-references/electronic-arts/model-validation.md",
+      "digest": "sha256:6a60e339b97b4ce74ffdcc3bd4ef56550c830f1b185b558625d9d2e5b2c20a46",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/unity/company-logo.png",
-      "digest": "sha256:4609db8f9e3fb558a97d1481be56c1aaf64d5e785cf7dda1459f07c1048e743c",
+      "path": "data/assets/raster-annotations/electronic-arts/app-store.png",
+      "digest": "sha256:d1337c4b95b4c4892dfa40b0bf2095c8bcc737815664411e40c08f3d65a384fb",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/unity/ironsource.png",
-      "digest": "sha256:502745fdedd611b3127ff15c997267f863f0735a3d828450f445401a1964348d",
+      "path": "data/assets/raster-annotations/electronic-arts/ea-logo.png",
+      "digest": "sha256:9d9287747d6a8800fd738f2a23ea145bdecded2491744fb5edd864d78f1f9d3e",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/unity/speedtree.png",
-      "digest": "sha256:28d936d173fbc33efe0b78545f158ecd568fd2e672e50567fb63ef8061c30f6e",
+      "path": "data/assets/raster-annotations/electronic-arts/google-play.png",
+      "digest": "sha256:c352e1176b4149d57e13cc0ae699303032ec52d60000360eb8485af0e7d718f1",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/unity/syncsketch.png",
-      "digest": "sha256:426c0d73ba7f5374db7f2b50306daeea14e768ab00eb79b75e775cf2f450f236",
+      "path": "data/assets/raster-annotations/electronic-arts/origin.png",
+      "digest": "sha256:3c8f7011be788c65be133f6a53a7612cb920c561414a7b961ec5e848ca4d7e0e",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/unity/unity-enterprise.png",
-      "digest": "sha256:d9ecbfc87360673f201a6a7dd9fbe081f0ae1a7cee1d99c85069fd251c21153a",
+      "path": "data/assets/raster-annotations/electronic-arts/playstation.png",
+      "digest": "sha256:7da1bea5742e58e924573f7892ac879b2444bafef44062ec366de960a7069769",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/unity/unity-pro.png",
-      "digest": "sha256:795207005efe168064689dd9e972ebbddb6c0f68d0db5e2b8918688be1c640db",
+      "path": "data/assets/raster-annotations/electronic-arts/steam.png",
+      "digest": "sha256:b43178f7a7466ef20833c51ad1346f817bd86204eeccbb8277bb859f502befa0",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/unity/weta-digital.png",
-      "digest": "sha256:a9731ddda0efcded53518e6fed4c344d6cc1f083d3367b74fbe601cb648db7b7",
+      "path": "data/assets/raster-annotations/electronic-arts/switch.png",
+      "digest": "sha256:16e0f00d13ad3df3d6a96e434bb5880c52079d467554bfabd4f4885ba6991f28",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/unity/ziva.png",
-      "digest": "sha256:862629ca2fbac4e144b813ddc7540d82eaca943850b4804874b30ed980a7d600",
+      "path": "data/assets/raster-annotations/electronic-arts/xbox.png",
+      "digest": "sha256:121c94904d421c2e92ea2c6093cd561e27231ea983b76dca9a0afa5aa8d6f780",
       "before": null
     },
     {
-      "path": "data/company-metadata/unity.js",
-      "digest": "sha256:04e15af51fd1654e3cd49df6e749cecb0f59fdb44fe90d1dd2ae57c4ccec141f",
+      "path": "data/assets/raster-annotations/paramount/q1-fy24-company-wordmark.png",
+      "digest": "sha256:92f78a6cb4af3ef194292c5869305858a64549a7738ff9ff8f5a3e20b57816e7",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/paramount/q1-fy25-company-logo.png",
+      "digest": "sha256:e647a0f5455751c8f3e8a74074e7ba8964317a3fe45a7d3ba20105287af03cb9",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/paramount/q2-fy24-company-wordmark.png",
+      "digest": "sha256:ba7e0142a659ce778ab254a9dda9b79d62414b68d4e135d8da335df0ccf6c85f",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/paramount/q2-fy25-company-logo.png",
+      "digest": "sha256:27b28815e257dee9097a08b8f4e31e5bb34b482b942f473fa3cf63428b4399ab",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/paramount/q3-fy23-company-wordmark.png",
+      "digest": "sha256:a662ea6728fa5a0e9619c923513f230dfa887085e43e423411be75b7f5fe38fe",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/paramount/q3-fy24-company-wordmark.png",
+      "digest": "sha256:8f5a38a67bf7eb0becb00277601868043cc52e13961d4299becc3de7c4b0c50e",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/paramount/q4-fy22-company-wordmark.png",
+      "digest": "sha256:c87b3f8c16b8f2491d772397499529e68106266e033c1fdbbf296eae2d2ab928",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/paramount/q4-fy24-company-logo.png",
+      "digest": "sha256:e0125bfb4881799dcbbcb5ca4594b1c59171ebc68b2b16888febb2d86f675569",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/warner-bros/q1-fy23-hbo-discovery.png",
+      "digest": "sha256:1ad9ea20fbf58db7be8371d99e516b38f0b2654aefb9ac34fbc87a2d2afce608",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/warner-bros/q3-fy22-dtc.png",
+      "digest": "sha256:1a48b98eda233c813078264108757bc25aff036e5d9cce9ec52b7eb8d65821ca",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/warner-bros/q3-fy22-networks.png",
+      "digest": "sha256:1717933f97108d62bd88e7fa4f556a8bc98d0743f56ca69c4bdb9256e911b3ec",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/warner-bros/q4-fy22-dtc-cluster.png",
+      "digest": "sha256:67fcceee6f6aa1665e719b51c60a8ab5717b9d323d039c606d129f013f332b52",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/warner-bros/q4-fy22-networks-cluster.png",
+      "digest": "sha256:43dd14f67b980cd31ca4cf4c616ecfc63a7d886eb882b48eaf3b048baf3edae8",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/warner-bros/q4-fy23-networks-cluster.png",
+      "digest": "sha256:4e75ae93546d68c020c97b2e267353208eba706cb98b7886589f2125aef80718",
+      "before": null
+    },
+    {
+      "path": "data/company-metadata/electronic-arts.js",
+      "digest": "sha256:4729ae4e8dc1cb978754ebac3e88e2842a4b5eddff198bdfaefe9036aba1880d",
       "before": null
     },
     {
       "path": "data/dataset-file-metadata.js",
-      "digest": "sha256:b9345c29811d56b3291cf3091025abc8c7a97614060c771364843c53b9757a43",
-      "before": "sha256:59465e59faeb8a9eaed0ed185d91db9ab22228a5a9cf317bb355002ae0766f7a"
+      "digest": "sha256:646a59db55e8500497941e5b9314d326f649904631dd9f02fb38a8c34a413052",
+      "before": "sha256:b9345c29811d56b3291cf3091025abc8c7a97614060c771364843c53b9757a43"
     },
     {
       "path": "data/dataset-manifest.js",
-      "digest": "sha256:33f4add37325b4a0d4bb4feb3e689185860011893fe68c4d08046c39e97345f7",
-      "before": "sha256:c995471aed0210ec56e83fd50649e8b1babc2e197def5efe3723004e45931f0f"
+      "digest": "sha256:415595573768a8b7d955b659ebb1166b408c83101ad491fafc2cd8320417a8af",
+      "before": "sha256:33f4add37325b4a0d4bb4feb3e689185860011893fe68c4d08046c39e97345f7"
     },
     {
-      "path": "data/datasets/hubspot-q1-fy23.js",
-      "digest": "sha256:cffbaae7e31bf37dd36fb3f51a8f1d91c32ea6c42342aa394fc53498414467f7",
+      "path": "data/datasets/booking-q1-fy23.js",
+      "digest": "sha256:f979913d94af1d76b484d1bea7419a5de9b717f702d5da43db2d6eacf35e2962",
       "before": null
     },
     {
-      "path": "data/datasets/hubspot-q1-fy24.js",
-      "digest": "sha256:6c0355c6e545118dc580b9b5f35a6c719e94f25abace7bf634ca69df0135a345",
+      "path": "data/datasets/booking-q1-fy24.js",
+      "digest": "sha256:ae3b9fb926e037ffd84fcea58e3bc4fb4426d40371245d51bc3a3eaaa67b6f67",
       "before": null
     },
     {
-      "path": "data/datasets/hubspot-q1-fy25.js",
-      "digest": "sha256:cbbf99ec1542bf80a588183e4e2da10e615d6da6ea362491c8278af22c18fc3c",
+      "path": "data/datasets/booking-q1-fy25.js",
+      "digest": "sha256:e8883daef3d368fde10af80cfb2ee8437bb9cb6eb7f6ac18a045480d8341dab4",
       "before": null
     },
     {
-      "path": "data/datasets/hubspot-q2-fy23.js",
-      "digest": "sha256:cb63536fc207d37132945d6d8b0e6b36e58412075a57d5dfe3c8a1078a9f99fb",
+      "path": "data/datasets/booking-q2-fy23.js",
+      "digest": "sha256:7504355607bd8d5b9ff0cbbd2f8802f9ac5939b932e1d4084761c97d93f81b24",
       "before": null
     },
     {
-      "path": "data/datasets/hubspot-q2-fy24.js",
-      "digest": "sha256:5f6098cd63dbd39916280d75f3f453197ed772712f6c64c6129779799907eeaa",
+      "path": "data/datasets/booking-q2-fy24.js",
+      "digest": "sha256:614178e9e462b6307bd13d0af4a71c3dc73f1f1283539f1367239f3217424986",
       "before": null
     },
     {
-      "path": "data/datasets/hubspot-q2-fy25.js",
-      "digest": "sha256:2d7ac5180f52e71d71aaa2084680cb2f92a84a5867bdc9bbd1a810f113e92d97",
+      "path": "data/datasets/booking-q2-fy25.js",
+      "digest": "sha256:481dddcadfc73780fc3bcbedd7bc500feac5cc4360107fb171aa5ea81c66cc58",
       "before": null
     },
     {
-      "path": "data/datasets/hubspot-q3-fy22.js",
-      "digest": "sha256:c768aaeb7ef486186204970a3c0e7b40120c19adeac5ab6f0f3bc7fef4f98ef4",
+      "path": "data/datasets/booking-q3-fy22.js",
+      "digest": "sha256:bb6b2b84ec9e36f07050a411d2801a8695fbfdfa41fa12d105a96ef0672d9eaf",
       "before": null
     },
     {
-      "path": "data/datasets/hubspot-q3-fy23.js",
-      "digest": "sha256:5c0608601ee479e05ffd0f4935af74ed46d3c3179e40f662a0763489c34b7fd1",
+      "path": "data/datasets/booking-q3-fy23.js",
+      "digest": "sha256:209b74eeb95d19765ab17236ae7ac638dca59fe5fff9ccc26fd87933c47cd2db",
       "before": null
     },
     {
-      "path": "data/datasets/hubspot-q3-fy24.js",
-      "digest": "sha256:27810ef24f5229d1b28f5cf3e1c7c1ac82c85f6c0db3c3e88501ee8066f3f724",
+      "path": "data/datasets/booking-q3-fy24.js",
+      "digest": "sha256:cf14d9cc9fc8a9206c9ee29bda570203e4b58cafde58a93abbbefbf948501efb",
       "before": null
     },
     {
-      "path": "data/datasets/hubspot-q4-fy23.js",
-      "digest": "sha256:75374e5a8b9cb0e988bbffa15de02023532f831a032ae20939dde251e49f48b5",
+      "path": "data/datasets/booking-q3-fy25.js",
+      "digest": "sha256:10786e8363991f71ed377f312fac8d08362a846d7beaa169682fe631de22bea8",
       "before": null
     },
     {
-      "path": "data/datasets/hubspot-q4-fy24.js",
-      "digest": "sha256:24130ead5c1a7767f3a1c81c07c62039ac9e798ec0cdf2d042889fa79bb8b46f",
+      "path": "data/datasets/booking-q4-fy22.js",
+      "digest": "sha256:4cce457dde47c15e5a03e6607d18136e12e2570a5a351a8f19a0bece8c9a7e96",
       "before": null
     },
     {
-      "path": "data/datasets/sap-q1-fy23.js",
-      "digest": "sha256:ad77fd125b41c30ba4fd06b5d963e8bb2e71bf47cbff690a9d283133c18542db",
+      "path": "data/datasets/booking-q4-fy23.js",
+      "digest": "sha256:a9a4955b29c642ac21b84f482094cd8600361996e21ce43f85ef275c0f5a8822",
       "before": null
     },
     {
-      "path": "data/datasets/sap-q1-fy24.js",
-      "digest": "sha256:ce3fdbbb156bd9f735971522fa61d07b453933ab0192eff9b00f81c4bb90db4c",
+      "path": "data/datasets/booking-q4-fy24.js",
+      "digest": "sha256:61baa3de731791daad057fe61447272d1728c4f9de2646a50be6f98ecbee193b",
       "before": null
     },
     {
-      "path": "data/datasets/sap-q1-fy25.js",
-      "digest": "sha256:8a8c4ef815cbbc4e97cf1baab5034c627e4cafb36ed45168314db7cf8b40b12e",
+      "path": "data/datasets/electronic-arts-fy24.js",
+      "digest": "sha256:7f6ced1e32c810d36bdc818697f40b0bc5b33b697dc6aeec31b2fc96405ab525",
       "before": null
     },
     {
-      "path": "data/datasets/sap-q2-fy23.js",
-      "digest": "sha256:850605e874f0635a64ce3b3e57aeb0fc3fee8e4ddbee34a79e19899c5972cd6d",
+      "path": "data/datasets/electronic-arts-q1-fy24.js",
+      "digest": "sha256:dc86c6b16208be167c22b65fe7887f2bdea3cf3b09a4fa53010c45e038c86946",
       "before": null
     },
     {
-      "path": "data/datasets/sap-q2-fy24.js",
-      "digest": "sha256:a7260f3fd0c9f77fec4f30b082aacbecbb813737c7170ec88175f9c92b136304",
+      "path": "data/datasets/electronic-arts-q1-fy25.js",
+      "digest": "sha256:6088ff5a91be99f2e01fce0ed82b4986081c707d7b8238a1a98ddd27872fd47d",
       "before": null
     },
     {
-      "path": "data/datasets/sap-q2-fy25.js",
-      "digest": "sha256:797154eccfbc2e351f9a26a8a0f41bba2a03a29f5483640d1e2efa00678a0d90",
+      "path": "data/datasets/electronic-arts-q1-fy26.js",
+      "digest": "sha256:d2b147eb1bdb5710d0825459c328cf771bb1672bb53177477e01c8924f162809",
       "before": null
     },
     {
-      "path": "data/datasets/sap-q3-fy22.js",
-      "digest": "sha256:90a5424a869c44134fdecc70fe345578eaa89eba05e3b6d0dd996a56a9488293",
+      "path": "data/datasets/electronic-arts-q2-fy23.js",
+      "digest": "sha256:6b65c5323e26c3aada1a0a39a07a1cfc34949d579945898749aeccea64c485e3",
       "before": null
     },
     {
-      "path": "data/datasets/sap-q3-fy23.js",
-      "digest": "sha256:54df64b64b4f8d139a0325fbc35a94f8a08686bbcb1162aa1bb9a8cd11999570",
+      "path": "data/datasets/electronic-arts-q2-fy24.js",
+      "digest": "sha256:031377c19cc152113f663cec2a9b8c5b32734938b67e77363dc84280a301dc68",
       "before": null
     },
     {
-      "path": "data/datasets/sap-q3-fy24.js",
-      "digest": "sha256:7a2932a820d3f8a2a39fc412b2bea53d40b621cc9d710d678b3ef277aa261e15",
+      "path": "data/datasets/electronic-arts-q2-fy25.js",
+      "digest": "sha256:efb72669006c3645a62c8b27850d0f7f81a41d994effe433eaea1659b9f724bc",
       "before": null
     },
     {
-      "path": "data/datasets/sap-q3-fy25.js",
-      "digest": "sha256:8bb54d2d6ae7d7ee403b1618a41520a203996594cea2e30015fc9e1dd79f13cd",
+      "path": "data/datasets/electronic-arts-q3-fy23.js",
+      "digest": "sha256:469e570f353ea61355c4cc4aa99b6159fb435a06bb9fdce8115ec3f61fe58500",
       "before": null
     },
     {
-      "path": "data/datasets/sap-q4-fy22.js",
-      "digest": "sha256:d10c0f0cb818350bf0a11d62fd4767e45d64427fb504984384348a7857d2f8ba",
+      "path": "data/datasets/electronic-arts-q3-fy24.js",
+      "digest": "sha256:50f33c017a5cd434e6bada3412597343cd10f27a916eaf50e2a52d2597e1675f",
       "before": null
     },
     {
-      "path": "data/datasets/sap-q4-fy23.js",
-      "digest": "sha256:af6178b9a96f65eb17a0d6f4c505a73b1f4580cfc6e1484b680f2f117f334781",
+      "path": "data/datasets/electronic-arts-q3-fy25.js",
+      "digest": "sha256:ffe93c040ce1e4784b4eddf445b5adb57babdf7fb5169d975bfa7a90a935a728",
       "before": null
     },
     {
-      "path": "data/datasets/sap-q4-fy24.js",
-      "digest": "sha256:38dc399697d63997282b35370b75da7fbb42e2c96af8111ed638703ca9a9820c",
+      "path": "data/datasets/electronic-arts-q4-fy23.js",
+      "digest": "sha256:18ce5271b55e98f1e7018ea593b2be598b94d174dbdee17400e05fdf27b1e52d",
       "before": null
     },
     {
-      "path": "data/datasets/take-two-fy24.js",
-      "digest": "sha256:3caad7112dff25cbc4261913fb801eeee4dd2613e37febcaa6121bd337b91560",
+      "path": "data/datasets/electronic-arts-q4-fy25.js",
+      "digest": "sha256:db50df3d715b41206c357eeed4a34ff3fc246aa9d2ad38e3c00385aded2984b1",
       "before": null
     },
     {
-      "path": "data/datasets/take-two-q1-fy25.js",
-      "digest": "sha256:6e3bc5243eec9a4f26b71e8a42939075e2c93776cb1805e5a5b0b8599fb586e8",
+      "path": "data/datasets/expedia-q1-fy23.js",
+      "digest": "sha256:89fe7501ae69310e1f80528aa3c1783e5711cfdbc31ec1ddec9b27696e919120",
       "before": null
     },
     {
-      "path": "data/datasets/take-two-q1-fy26.js",
-      "digest": "sha256:accbc751f0e08069614696489fba33f7b27295654c6e7c045d902a2bde092946",
+      "path": "data/datasets/expedia-q1-fy24.js",
+      "digest": "sha256:ac134b192f8cefd2799d296a7479f5816586619b55724630bf8a82d2b949f96a",
       "before": null
     },
     {
-      "path": "data/datasets/take-two-q2-fy23.js",
-      "digest": "sha256:d1039c47173fea14c13b1d38bd820d538a9dbcc46e11bc377008be4ee0e525d5",
+      "path": "data/datasets/expedia-q1-fy25.js",
+      "digest": "sha256:18d172a9a6c5bc6bfc384bb10e469f7b6b700bcc2d9951960ca3aa94b1d2b8cb",
       "before": null
     },
     {
-      "path": "data/datasets/take-two-q2-fy24.js",
-      "digest": "sha256:6c9ca4e774f7f951fe11c8cbe2a4975ed28889b9c3c0d0cbf8fbf699e64cdf18",
+      "path": "data/datasets/expedia-q2-fy22.js",
+      "digest": "sha256:d1da4370ab3c9228f631af00a74ec84c26bd0319a9018e346b6a8b1c17bb4db0",
       "before": null
     },
     {
-      "path": "data/datasets/take-two-q2-fy25.js",
-      "digest": "sha256:1faa109ad533b33d9082f085241dcbc547316647711647f96599e311dfa0ab9e",
+      "path": "data/datasets/expedia-q2-fy24.js",
+      "digest": "sha256:d2976900ec6135bcd284ab5b01c22aceec628e53b16bf5b5c153f9e2b7da76df",
       "before": null
     },
     {
-      "path": "data/datasets/take-two-q3-fy23.js",
-      "digest": "sha256:336f78bebbdf0db0f503bd6bb09bbe7b0f7742e2a956e87c63da06d0f09de117",
+      "path": "data/datasets/expedia-q2-fy25.js",
+      "digest": "sha256:a7fbbdba176b0ecd4085574f1dd0a4a211ed4b7da527d3f265392efe1454d978",
       "before": null
     },
     {
-      "path": "data/datasets/take-two-q3-fy24.js",
-      "digest": "sha256:e04b5918f0853d71523da4228e4dd500bdaf847b38e872231c9c2cec30fd76ae",
+      "path": "data/datasets/expedia-q3-fy22.js",
+      "digest": "sha256:8362d98b38092595793eeaff2c3ab73b87e34cfc88d9c817ff55cdf3eb53944a",
       "before": null
     },
     {
-      "path": "data/datasets/take-two-q3-fy25.js",
-      "digest": "sha256:20d9b1c18afd1d62399e0656e4561925cc0e8be5a8fd03647fec562214ac6daa",
+      "path": "data/datasets/expedia-q3-fy23.js",
+      "digest": "sha256:f00f03afb7be2da8d75a4d1c5fb5aca3ccd8f500f3568b6a5706d3e7a8483855",
       "before": null
     },
     {
-      "path": "data/datasets/take-two-q4-fy23.js",
-      "digest": "sha256:1e9965313d272ce4904a7e498ab1deea8c265324b07c998a4b4fe9b5d7430794",
+      "path": "data/datasets/expedia-q3-fy24.js",
+      "digest": "sha256:240de9b9b4c6e0dbd48d8deb8815ed639661a798cb333c7b0cc046fe93907def",
       "before": null
     },
     {
-      "path": "data/datasets/take-two-q4-fy25.js",
-      "digest": "sha256:6e893a56c1ae1a664d15402bd6cd47a5fd34c312551f2d974d0c4143ad364128",
+      "path": "data/datasets/expedia-q4-fy22.js",
+      "digest": "sha256:e614577e28fe3d6cdc4931ff423c60050ed1be0b95c6d8aadabc8d838de7fc10",
       "before": null
     },
     {
-      "path": "data/datasets/uipath-q1-fy24.js",
-      "digest": "sha256:558acd689db0bb5986365361df0635559ebb1198f4cd1d6715ce061b7680b3cb",
+      "path": "data/datasets/expedia-q4-fy23.js",
+      "digest": "sha256:be64e8d177ac0e080495091dd078e5d3cfe2d524e66be8f7f8335f5249545838",
       "before": null
     },
     {
-      "path": "data/datasets/uipath-q1-fy25.js",
-      "digest": "sha256:c3026e279d098dfd227233107ead2523bc89e18cf5ed554b528168cfa425e720",
+      "path": "data/datasets/expedia-q4-fy24.js",
+      "digest": "sha256:38c2961ad39c88a4f7feebe8c03213a4d48c6cb5c96a5cfc91e63d898e8d236c",
       "before": null
     },
     {
-      "path": "data/datasets/uipath-q1-fy26.js",
-      "digest": "sha256:5ad7f3536f60f1a2f675793b1e289c2e45fe1794d89356852c1dab95b0343d78",
+      "path": "data/datasets/paramount-q1-fy23.js",
+      "digest": "sha256:608693498600ce181957afd9ba09d030ce248eb31372280d4d7eff9620008e44",
       "before": null
     },
     {
-      "path": "data/datasets/uipath-q2-fy24.js",
-      "digest": "sha256:35a40d16d18ad7bf6a2c2874a9398642a693fbb594e149ee5a4b15085edb1928",
+      "path": "data/datasets/paramount-q1-fy24.js",
+      "digest": "sha256:1ed30832222523173fa2a64af8352534679f3572e4d5044b73a70ad6faaa7396",
       "before": null
     },
     {
-      "path": "data/datasets/uipath-q2-fy25.js",
-      "digest": "sha256:b62dff0996e6c2d0e89d6fd94bd94f205eb82930abf31ef10d90e9f4429b8c9d",
+      "path": "data/datasets/paramount-q1-fy25.js",
+      "digest": "sha256:dee92e7a4c79de94a9759de40d5c7df6b8a379e0da316e4541901c3fc0f52f4e",
       "before": null
     },
     {
-      "path": "data/datasets/uipath-q2-fy26.js",
-      "digest": "sha256:009473b2cb1c45180e13fb48ac01344faad756af1495b87f5965f6a7919a8b49",
+      "path": "data/datasets/paramount-q2-fy23.js",
+      "digest": "sha256:0fdb0e715fc50dee76e9c722a933cf4ff5c8c910966940d8035571e399f38f82",
       "before": null
     },
     {
-      "path": "data/datasets/uipath-q3-fy23.js",
-      "digest": "sha256:aa66a62a3b0feae7d01d0eb9ca48376412b160ec22bd4165ac36835b87662e6c",
+      "path": "data/datasets/paramount-q2-fy24.js",
+      "digest": "sha256:bbf2edcbffa542601449cdbfe14bf7bc6ffc5915d0d3947bd2b2b5990c6feee9",
       "before": null
     },
     {
-      "path": "data/datasets/uipath-q3-fy24.js",
-      "digest": "sha256:625950752a5727a98a03d79ea76bd6dfa8412d8ce39d831977298058a8f9c0c0",
+      "path": "data/datasets/paramount-q2-fy25.js",
+      "digest": "sha256:7d936e170b9a1080c264dcc51fe0c112df10fb3392225c260c0b0a6d8a08b2b3",
       "before": null
     },
     {
-      "path": "data/datasets/uipath-q3-fy25.js",
-      "digest": "sha256:a9ebfeca897f17bfd2a55f0bd25f95903ecb649e08b0a1e8b4b2e50f22689ded",
+      "path": "data/datasets/paramount-q3-fy22.js",
+      "digest": "sha256:7248fa10ea31037abd30218d7a345f581b2f1e3316021fcc3df0f7d5b3b831ab",
       "before": null
     },
     {
-      "path": "data/datasets/uipath-q3-fy26.js",
-      "digest": "sha256:1e18a6b0d01db0d833575bde587ab7cc2e3e9f33170fbcbe7ba14fc22e55e9be",
+      "path": "data/datasets/paramount-q3-fy23.js",
+      "digest": "sha256:0546bc3e79758f68b8ba7ac8aa51cf5eaae55f9017bbc0f7109842cb2bd053c2",
       "before": null
     },
     {
-      "path": "data/datasets/uipath-q4-fy23.js",
-      "digest": "sha256:9bbc2885dbc5dfb493fde34eb215abd5da30d091a0155d4e12d9692a208bd5b8",
+      "path": "data/datasets/paramount-q3-fy24.js",
+      "digest": "sha256:2adc28ec1ec5dacca3592ad6cfb3d1da850c2f12c4c88edeb6ef61320286700f",
       "before": null
     },
     {
-      "path": "data/datasets/uipath-q4-fy24.js",
-      "digest": "sha256:4bffc10413637d0b13bdf97124519ff333a3f0e6d597fcf129e3ba7550fddd11",
+      "path": "data/datasets/paramount-q4-fy22.js",
+      "digest": "sha256:0675b52dbbf01795c6d4bedc7fe0be74cfbcfe3481ada25212ee1f6b32bdc889",
       "before": null
     },
     {
-      "path": "data/datasets/uipath-q4-fy25.js",
-      "digest": "sha256:4e599f8794938cc7f467a881a2ad33e32209ebde5c868e9f14f9646e14d41816",
+      "path": "data/datasets/paramount-q4-fy23.js",
+      "digest": "sha256:cdd2efef929385e17ac24ea0185f319b5d402eaf655bae1bf8da19966cc047dc",
       "before": null
     },
     {
-      "path": "data/datasets/unity-q1-fy23.js",
-      "digest": "sha256:466531258f87aff81922dd44f47eb27120a16ccb69f476241d8fbe0d268e85fd",
+      "path": "data/datasets/paramount-q4-fy24.js",
+      "digest": "sha256:d5c01ccea2d912999cc22c30c8896a7fbf8b868b0239c44e5334c8478489e8ab",
       "before": null
     },
     {
-      "path": "data/datasets/unity-q2-fy23.js",
-      "digest": "sha256:524a23ea6bb7a898123c424b1424593fd5c26d82e3362505e4d29401588824fb",
+      "path": "data/datasets/tripadvisor-q1-fy23.js",
+      "digest": "sha256:cef0b99b7c50ff2ccc3210feb67af79a1f98e61360fbc6218e909222b525b112",
       "before": null
     },
     {
-      "path": "data/datasets/unity-q3-fy22.js",
-      "digest": "sha256:bd65da43f67430755fb4409412578c0aebd8f9608a69606dc41e44b275289643",
+      "path": "data/datasets/tripadvisor-q1-fy24.js",
+      "digest": "sha256:0138c7aa92f9452808818cc381f268fd67b75ee0ca6ef8918d01365a06a58b2e",
       "before": null
     },
     {
-      "path": "data/datasets/unity-q3-fy23.js",
-      "digest": "sha256:4982ce75e6521eff40a01f8f18480fe9b25cfa2c281d552e89831e32bc517638",
+      "path": "data/datasets/tripadvisor-q1-fy25.js",
+      "digest": "sha256:a83b988c04285a132ca383ee164f00d0a829a2f2aa911a2cd21943027767ff71",
       "before": null
     },
     {
-      "path": "data/datasets/unity-q4-fy22.js",
-      "digest": "sha256:771ddc711d3edc5d93f654202c0d1ef6ec35f5752bcc6333398e556738f4a639",
+      "path": "data/datasets/tripadvisor-q2-fy23.js",
+      "digest": "sha256:a4718e0641e233187e826d730146e04dce31f45209f75ffbf7e991e2a2239373",
       "before": null
     },
     {
-      "path": "data/income-statements/hubspot.js",
-      "digest": "sha256:9c70d767f20a90cc6ef0cb1ed1723b4d35a78c1c5f3c2b9b77bf78739eb8c446",
-      "before": "sha256:a4e04c7db54147a6d536de362f0d61c084eada3075471f4d82a5ca6d2be7d8d4"
-    },
-    {
-      "path": "data/income-statements/sap.js",
-      "digest": "sha256:20fb3602a5a9f4c243843497c3036d44ac645c5d69bf43ae20612e59b00aa544",
-      "before": "sha256:8f11db368be7f14ed4344a2ab27fb5fb8fcb6f356210b0ae95572d1e933a13c3"
-    },
-    {
-      "path": "data/income-statements/take-two.js",
-      "digest": "sha256:d53873521e23452e3088815088ad2a398b48f2dd9c808a2262bbc44b16a1c395",
-      "before": "sha256:7641e55eee27f0ac3f52ce67af39eb2cc520c1ca103b8874ad4aef909b90af06"
-    },
-    {
-      "path": "data/income-statements/uipath.js",
-      "digest": "sha256:9c72fc36a1c45f44658c9baa3cbb3a1dd8d6a1ffb399feed79cadfcb387e060c",
-      "before": "sha256:8aa34ea7e5b5c8405ec3a5086efbf8e5dcd7712314fa3a43080d103632febec2"
-    },
-    {
-      "path": "data/income-statements/unity.js",
-      "digest": "sha256:955be88457211bc6d167cb1ec8fb0086f09b0105cfc20663fd9c97a21f6c1015",
+      "path": "data/datasets/tripadvisor-q2-fy24.js",
+      "digest": "sha256:262cb0060aeb9139e7b7343f843de30309890b202afd258c4b513c3e612369b6",
       "before": null
+    },
+    {
+      "path": "data/datasets/tripadvisor-q2-fy25.js",
+      "digest": "sha256:99faa7310fa756d033e780b680191c1f61da71619d211b87fce007b7d971795c",
+      "before": null
+    },
+    {
+      "path": "data/datasets/tripadvisor-q3-fy22.js",
+      "digest": "sha256:294b6c67bee7953430fb0c8c242ac15b7b04cb92e4fb1acd8840a241efec92f8",
+      "before": null
+    },
+    {
+      "path": "data/datasets/tripadvisor-q3-fy23.js",
+      "digest": "sha256:264a8b2be58b4129429532bb9bf9781f4ef141222be827cf90a4c76a009ad0c4",
+      "before": null
+    },
+    {
+      "path": "data/datasets/tripadvisor-q3-fy24.js",
+      "digest": "sha256:c57dd95593a04601376c2766a701455747145ea4cf0e8eee4e319ac075508884",
+      "before": null
+    },
+    {
+      "path": "data/datasets/tripadvisor-q4-fy22.js",
+      "digest": "sha256:1eaedf16a8813ae87d21f84b5d8ce0799890c6949a2a2219aa03e3e911b5301a",
+      "before": null
+    },
+    {
+      "path": "data/datasets/tripadvisor-q4-fy23.js",
+      "digest": "sha256:edcf7eb38a6ea007e4d469099583f0312a3a2a5e994bc98766e47320641d9dfe",
+      "before": null
+    },
+    {
+      "path": "data/datasets/tripadvisor-q4-fy24.js",
+      "digest": "sha256:e75a0b252f063ca775553f9f47aa69369f52a2d4fb758e6899f8e0804d4d93f9",
+      "before": null
+    },
+    {
+      "path": "data/datasets/warner-bros-q1-fy23.js",
+      "digest": "sha256:64160fb4cfeb2a3d97954c24020a6b7b7040388982c8a17a5e54e8e90029a61d",
+      "before": null
+    },
+    {
+      "path": "data/datasets/warner-bros-q1-fy24.js",
+      "digest": "sha256:16160f9511d36c1ecaf0ccfa60f57a519b68cb10b0ef397feb09e3d78ef215d3",
+      "before": null
+    },
+    {
+      "path": "data/datasets/warner-bros-q1-fy25.js",
+      "digest": "sha256:a465a5747873c6044bde4bb26f4b64eedcb2030f0ed4c0552e72fb496ca655cb",
+      "before": null
+    },
+    {
+      "path": "data/datasets/warner-bros-q2-fy23.js",
+      "digest": "sha256:2fc649d91f7b917630bbab4fd5ee93df4b6f08acdb0db880eab4a1ad3486e361",
+      "before": null
+    },
+    {
+      "path": "data/datasets/warner-bros-q2-fy24.js",
+      "digest": "sha256:2257ed204c5e54965f26ff04bef6337514549660982800440200bd3f91406e50",
+      "before": null
+    },
+    {
+      "path": "data/datasets/warner-bros-q2-fy25.js",
+      "digest": "sha256:dfc86ddaebfffd2532848ec72504bc7a01d3eba598445bd1e8ad8e36fae0fd4e",
+      "before": null
+    },
+    {
+      "path": "data/datasets/warner-bros-q3-fy22.js",
+      "digest": "sha256:3283e307d5d11e8a90795bc94f6bb7a3eaaffae4d4310b6b7cf5de8f30eefabd",
+      "before": null
+    },
+    {
+      "path": "data/datasets/warner-bros-q3-fy23.js",
+      "digest": "sha256:36fe0f3eb68c03f7442a853b8aa70e4b47b7f44fbb576faf12e6ae150c7057f4",
+      "before": null
+    },
+    {
+      "path": "data/datasets/warner-bros-q3-fy24.js",
+      "digest": "sha256:99488ccc6d69ad7572eece648d8af416c3aa8c0a7e72a3ca0c4cbe6a113cd7f3",
+      "before": null
+    },
+    {
+      "path": "data/datasets/warner-bros-q4-fy22.js",
+      "digest": "sha256:3840aefbd7b089c204c475d58145f677ed1cd3850572c6a3303fc764d736fdb4",
+      "before": null
+    },
+    {
+      "path": "data/datasets/warner-bros-q4-fy23.js",
+      "digest": "sha256:471ed48142ddd17dff1ab1a3f8a6864abc2ad2db3ba409d5f6d9fc3c007abb62",
+      "before": null
+    },
+    {
+      "path": "data/datasets/warner-bros-q4-fy24.js",
+      "digest": "sha256:b7527d44a7d9cfe130366ce7f6f170f49c8ed64d515d6dd2fe0b7e262c6007d0",
+      "before": null
+    },
+    {
+      "path": "data/income-statements/booking.js",
+      "digest": "sha256:426a093481c7b648bc37dea6b0ab2c41cb61f824431f3d37286772853a0c90f8",
+      "before": "sha256:7dc03438095c28bb148041235bfa5697948655311a676243d7cd4205d32e2e9a"
+    },
+    {
+      "path": "data/income-statements/electronic-arts.js",
+      "digest": "sha256:98fe164df12a0fc6eaaeaf77405da817a26da9eb972d142903e4ae65d2d28d16",
+      "before": null
+    },
+    {
+      "path": "data/income-statements/expedia.js",
+      "digest": "sha256:03bac87c2be08ec478463bf748a9a31d3024e83c08c93d174c0ab04b4be05fa3",
+      "before": "sha256:be0b456c6f13326e3b21cafea0f1affc34852ea88d5be3b7d5afb267321b4307"
+    },
+    {
+      "path": "data/income-statements/paramount.js",
+      "digest": "sha256:e5b0959c476f0e6cb259c73059915488cfc45c509b8f9bf9946441d40381f008",
+      "before": "sha256:8133fe01c92cf492a4bb89a4323b22ffbce16f902d805cd97a7cbb31ab75ca87"
+    },
+    {
+      "path": "data/income-statements/tripadvisor.js",
+      "digest": "sha256:1a5a0ce5d1afcd6b7a826482320095cc56a30aebca8afceac56d6edfade361ff",
+      "before": "sha256:bf6af973b2d7bfffb7b7d0bf7259edd2aa5454293f9c8274490b31d835628d7d"
+    },
+    {
+      "path": "data/income-statements/warner-bros.js",
+      "digest": "sha256:d0ea1d3d79d40ec9efe7c5be6627e0af491ead8c3de5f0bffde04b19f06f6d4c",
+      "before": "sha256:657f0b25b5698eba76bc3ce50d05d95970fd421eea786b77cae9b8c89e94e720"
     },
     {
       "path": "data/render-baselines.json",
-      "digest": "sha256:d507bdabf4e44c23c9ed0eb0320323fb2becc9e20f617dfbd441d80190e2169d",
-      "before": "sha256:97081326da97692010f7682991bbba79ca0b838ead8ea8dd0602332f73181bf8"
+      "digest": "sha256:8727ace52a4b7697d09942a4f019aaf781034f42f8929a05244cd5b90d32d228",
+      "before": "sha256:d507bdabf4e44c23c9ed0eb0320323fb2becc9e20f617dfbd441d80190e2169d"
     },
     {
       "path": "data/workflow-timestamps.json",
-      "digest": "sha256:89741087b5d29237cda6e724fb40791b9462228cce13faac5f0d205cb2dca57b",
-      "before": "sha256:036f40ef7ef036287ec9be38308fb747bc36f1578dff36ba722ddc752624ceac"
+      "digest": "sha256:30536cfccf2d9a2c456439e32c2698933f206b1e61cb0cfbde4883e363cbcbd9",
+      "before": "sha256:89741087b5d29237cda6e724fb40791b9462228cce13faac5f0d205cb2dca57b"
     },
     {
       "path": "index.html",
-      "digest": "sha256:e9bcb59111daf4df642766d3cd69473194d0a8d095b1a1fd59b5914fe6be89fd",
-      "before": "sha256:05199f566673d3661452f889b131b1c99382d052ee3cda4bdff295f738412641"
+      "digest": "sha256:3ff5419b4a74a656105ce4b5eb446e5de40e41dde838cf48afe5d3b28302c7c4",
+      "before": "sha256:e9bcb59111daf4df642766d3cd69473194d0a8d095b1a1fd59b5914fe6be89fd"
     },
     {
-      "path": "input/icon-crop-specs/unity-q4-fy22.json",
-      "digest": "sha256:4d6dfc22bcd21c067a5f944e4e7eee730db0b927ca0541f7243d0b8f86591617",
+      "path": "input/icon-crop-specs/electronic-arts-q2-fy23.json",
+      "digest": "sha256:483599b397c5070282280331423edfeee2f1655e90f409d05ffe1d39659fdd7b",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/paramount-q3-fy23.json",
+      "digest": "sha256:2426d13811aa8462e8ff619ee7eccf011e01ecb1944afab51f4b403660a86a99",
       "before": null
     }
   ],
   "release": {
-    "version": "552e70088e730c52764f09d88798f7c899de49db356231af831b3667627da25f",
-    "contentDigest": "sha256:f164b1109c94f5dcd1f5929cee6bea18f280cc5a55893ee1b4cd883a68796925"
+    "version": "3f63211a37bdc07f85e729a2cf98a6e0f4f9073c7a9f98f4a6ca2cb4232a671d",
+    "contentDigest": "sha256:2e1446e1f81a7b396d54c84630586123ff2df74619c62b8a3d409dd2fb5eeae1"
   },
   "approval": {
-    "operator": "YaoXing Liu",
+    "operator": "Charles Liu",
     "accepted": true,
-    "candidateDigest": "sha256:2c62a873ca0fd9528f98edc9e0daec853bcffa4da74dc2badf9782d5c604c297",
+    "candidateDigest": "sha256:c6102dddd44e8aad59065a051159ee35ffbe383478eded3033ba949111ca808d",
     "basis": "inherited-build-acceptance",
-    "planDigest": "sha256:2b18fb6abc44b2cacfc411fa23ae650484bf8f697cbd0154c7ce2b16b2d1f4ae",
-    "recordedAt": "2026-10-25T13:55:22.182Z"
+    "planDigest": "sha256:094480facfaf6e7abc3579d005fb0d761562fd34f4c2513fa7b12d3a67050970",
+    "recordedAt": "2026-10-27T04:42:45.048Z"
   }
 }

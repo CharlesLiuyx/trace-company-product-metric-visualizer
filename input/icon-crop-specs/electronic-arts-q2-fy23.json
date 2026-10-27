@@ -1,0 +1,152 @@
+{
+  "source": "input/processed/electronic-arts-q2-fy23.png",
+  "outputDir": "data/assets/icon-references/electronic-arts",
+  "runtimeOutputDir": "data/assets/raster-annotations/electronic-arts",
+  "validationSheetDir": "data/assets/icon-references/electronic-arts/validation-sheets",
+  "crops": [
+    {
+      "key": "ea-logo",
+      "searchBox": {
+        "x": 595,
+        "y": 240,
+        "width": 242,
+        "height": 242
+      },
+      "cropBox": {
+        "x": 595,
+        "y": 240,
+        "width": 242,
+        "height": 242
+      },
+      "output": "crops/ea-logo.png",
+      "runtimeOutput": "ea-logo.png",
+      "minComponentArea": 3
+    },
+    {
+      "key": "playstation",
+      "searchBox": {
+        "x": 75,
+        "y": 667,
+        "width": 109,
+        "height": 87
+      },
+      "cropBox": {
+        "x": 75,
+        "y": 667,
+        "width": 109,
+        "height": 87
+      },
+      "output": "crops/playstation.png",
+      "runtimeOutput": "playstation.png",
+      "minComponentArea": 3
+    },
+    {
+      "key": "xbox",
+      "searchBox": {
+        "x": 181,
+        "y": 671,
+        "width": 84,
+        "height": 85
+      },
+      "cropBox": {
+        "x": 181,
+        "y": 671,
+        "width": 84,
+        "height": 85
+      },
+      "output": "crops/xbox.png",
+      "runtimeOutput": "xbox.png",
+      "minComponentArea": 3
+    },
+    {
+      "key": "switch",
+      "searchBox": {
+        "x": 267,
+        "y": 668,
+        "width": 87,
+        "height": 87
+      },
+      "cropBox": {
+        "x": 267,
+        "y": 668,
+        "width": 87,
+        "height": 87
+      },
+      "output": "crops/switch.png",
+      "runtimeOutput": "switch.png",
+      "minComponentArea": 3
+    },
+    {
+      "key": "steam",
+      "searchBox": {
+        "x": 85,
+        "y": 948,
+        "width": 80,
+        "height": 80
+      },
+      "cropBox": {
+        "x": 85,
+        "y": 948,
+        "width": 80,
+        "height": 80
+      },
+      "output": "crops/steam.png",
+      "runtimeOutput": "steam.png",
+      "minComponentArea": 3
+    },
+    {
+      "key": "origin",
+      "searchBox": {
+        "x": 171,
+        "y": 957,
+        "width": 171,
+        "height": 65
+      },
+      "cropBox": {
+        "x": 171,
+        "y": 957,
+        "width": 171,
+        "height": 65
+      },
+      "output": "crops/origin.png",
+      "runtimeOutput": "origin.png",
+      "minComponentArea": 3
+    },
+    {
+      "key": "app-store",
+      "searchBox": {
+        "x": 131,
+        "y": 1146,
+        "width": 91,
+        "height": 92
+      },
+      "cropBox": {
+        "x": 131,
+        "y": 1146,
+        "width": 91,
+        "height": 92
+      },
+      "output": "crops/app-store.png",
+      "runtimeOutput": "app-store.png",
+      "minComponentArea": 3
+    },
+    {
+      "key": "google-play",
+      "searchBox": {
+        "x": 236,
+        "y": 1148,
+        "width": 83,
+        "height": 91
+      },
+      "cropBox": {
+        "x": 236,
+        "y": 1148,
+        "width": 83,
+        "height": 91
+      },
+      "output": "crops/google-play.png",
+      "runtimeOutput": "google-play.png",
+      "minComponentArea": 3
+    }
+  ]
+}

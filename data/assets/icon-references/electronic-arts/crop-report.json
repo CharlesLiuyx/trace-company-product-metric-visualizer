@@ -1,0 +1,756 @@
+{
+  "source": "input/processed/electronic-arts-q2-fy23.png",
+  "spec": "input/icon-crop-specs/electronic-arts-q2-fy23.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-26T06:28:17.344783+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/electronic-arts",
+  "crops": [
+    {
+      "key": "ea-logo",
+      "output": "data/assets/icon-references/electronic-arts/crops/ea-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 27851,
+        "losslessBytes": 27851,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 16425,
+        "transparentPixelRatio": 0.2805
+      },
+      "searchBox": {
+        "x": 595,
+        "y": 240,
+        "width": 242,
+        "height": 242
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 601,
+        "y0": 245,
+        "x1": 832,
+        "y1": 476
+      },
+      "cropBox": {
+        "x0": 595,
+        "y0": 240,
+        "x1": 837,
+        "y1": 482
+      },
+      "validation": {
+        "width": 242,
+        "height": 242,
+        "foregroundPixels": 35989,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 5,
+          "top": 5,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": 0.0021,
+          "y": -0.0021
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/electronic-arts/ea-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 27851,
+        "losslessBytes": 27851,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/electronic-arts/validation-sheets/ea-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 288371,
+        "losslessBytes": 288371,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "playstation",
+      "output": "data/assets/icon-references/electronic-arts/crops/playstation.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 932,
+        "losslessBytes": 3927,
+        "savingsVsLossless": 0.7627,
+        "metrics": {
+          "meanAbsoluteError": 0.5227,
+          "rootMeanSquareError": 1.3574,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 10,
+          "changedPixelRatio": 0.3753
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 5927,
+        "transparentPixelRatio": 0.625
+      },
+      "searchBox": {
+        "x": 75,
+        "y": 667,
+        "width": 109,
+        "height": 87
+      },
+      "componentCount": 4,
+      "subjectBox": {
+        "x0": 79,
+        "y0": 671,
+        "x1": 181,
+        "y1": 750
+      },
+      "cropBox": {
+        "x0": 75,
+        "y0": 667,
+        "x1": 184,
+        "y1": 754
+      },
+      "validation": {
+        "width": 109,
+        "height": 87,
+        "foregroundPixels": 3439,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 4,
+          "right": 3,
+          "top": 4,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": 0.0046,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/electronic-arts/playstation.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 932,
+        "losslessBytes": 3927,
+        "savingsVsLossless": 0.7627,
+        "metrics": {
+          "meanAbsoluteError": 0.5227,
+          "rootMeanSquareError": 1.3574,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 10,
+          "changedPixelRatio": 0.3753
+        }
+      },
+      "validationSheet": "data/assets/icon-references/electronic-arts/validation-sheets/playstation.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 254544,
+        "losslessBytes": 254544,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "xbox",
+      "output": "data/assets/icon-references/electronic-arts/crops/xbox.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 1182,
+        "losslessBytes": 4411,
+        "savingsVsLossless": 0.732,
+        "metrics": {
+          "meanAbsoluteError": 0.564,
+          "rootMeanSquareError": 2.0575,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 32,
+          "changedPixelRatio": 0.4898
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 3742,
+        "transparentPixelRatio": 0.5241
+      },
+      "searchBox": {
+        "x": 181,
+        "y": 671,
+        "width": 84,
+        "height": 85
+      },
+      "componentCount": 4,
+      "subjectBox": {
+        "x0": 184,
+        "y0": 675,
+        "x1": 261,
+        "y1": 751
+      },
+      "cropBox": {
+        "x0": 181,
+        "y0": 671,
+        "x1": 265,
+        "y1": 756
+      },
+      "validation": {
+        "width": 84,
+        "height": 85,
+        "foregroundPixels": 3284,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 3,
+          "right": 4,
+          "top": 4,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": -0.006,
+          "y": -0.0059
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/electronic-arts/xbox.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 1182,
+        "losslessBytes": 4411,
+        "savingsVsLossless": 0.732,
+        "metrics": {
+          "meanAbsoluteError": 0.564,
+          "rootMeanSquareError": 2.0575,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 32,
+          "changedPixelRatio": 0.4898
+        }
+      },
+      "validationSheet": "data/assets/icon-references/electronic-arts/validation-sheets/xbox.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 297286,
+        "losslessBytes": 297286,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "switch",
+      "output": "data/assets/icon-references/electronic-arts/crops/switch.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 2821,
+        "losslessBytes": 2821,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          234,
+          173,
+          173
+        ],
+        "transparentPixels": 0,
+        "transparentPixelRatio": 0.0
+      },
+      "searchBox": {
+        "x": 267,
+        "y": 668,
+        "width": 87,
+        "height": 87
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 271,
+        "y0": 672,
+        "x1": 350,
+        "y1": 750
+      },
+      "cropBox": {
+        "x0": 267,
+        "y0": 668,
+        "x1": 354,
+        "y1": 755
+      },
+      "validation": {
+        "width": 87,
+        "height": 87,
+        "foregroundPixels": 3948,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 4,
+          "right": 4,
+          "top": 4,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0057
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/electronic-arts/switch.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 2821,
+        "losslessBytes": 2821,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/electronic-arts/validation-sheets/switch.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 255543,
+        "losslessBytes": 255543,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "steam",
+      "output": "data/assets/icon-references/electronic-arts/crops/steam.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 1449,
+        "losslessBytes": 4940,
+        "savingsVsLossless": 0.7067,
+        "metrics": {
+          "meanAbsoluteError": 1.1847,
+          "rootMeanSquareError": 2.4759,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 20,
+          "changedPixelRatio": 0.62
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 2373,
+        "transparentPixelRatio": 0.3708
+      },
+      "searchBox": {
+        "x": 85,
+        "y": 948,
+        "width": 80,
+        "height": 80
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 89,
+        "y0": 953,
+        "x1": 160,
+        "y1": 1023
+      },
+      "cropBox": {
+        "x0": 85,
+        "y0": 948,
+        "x1": 165,
+        "y1": 1028
+      },
+      "validation": {
+        "width": 80,
+        "height": 80,
+        "foregroundPixels": 3054,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 4,
+          "right": 5,
+          "top": 5,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": -0.0063,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/electronic-arts/steam.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 1449,
+        "losslessBytes": 4940,
+        "savingsVsLossless": 0.7067,
+        "metrics": {
+          "meanAbsoluteError": 1.1847,
+          "rootMeanSquareError": 2.4759,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 20,
+          "changedPixelRatio": 0.62
+        }
+      },
+      "validationSheet": "data/assets/icon-references/electronic-arts/validation-sheets/steam.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 309571,
+        "losslessBytes": 309571,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "origin",
+      "output": "data/assets/icon-references/electronic-arts/crops/origin.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1643,
+        "losslessBytes": 6859,
+        "savingsVsLossless": 0.7605,
+        "metrics": {
+          "meanAbsoluteError": 0.501,
+          "rootMeanSquareError": 1.657,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 27,
+          "changedPixelRatio": 0.2976
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 6811,
+        "transparentPixelRatio": 0.6128
+      },
+      "searchBox": {
+        "x": 171,
+        "y": 957,
+        "width": 171,
+        "height": 65
+      },
+      "componentCount": 13,
+      "subjectBox": {
+        "x0": 174,
+        "y0": 960,
+        "x1": 338,
+        "y1": 1019
+      },
+      "cropBox": {
+        "x0": 171,
+        "y0": 957,
+        "x1": 342,
+        "y1": 1022
+      },
+      "validation": {
+        "width": 171,
+        "height": 65,
+        "foregroundPixels": 3685,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 3,
+          "right": 4,
+          "top": 3,
+          "bottom": 3
+        },
+        "centerOffset": {
+          "x": -0.0029,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/electronic-arts/origin.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1643,
+        "losslessBytes": 6859,
+        "savingsVsLossless": 0.7605,
+        "metrics": {
+          "meanAbsoluteError": 0.501,
+          "rootMeanSquareError": 1.657,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 27,
+          "changedPixelRatio": 0.2976
+        }
+      },
+      "validationSheet": "data/assets/icon-references/electronic-arts/validation-sheets/origin.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 256224,
+        "losslessBytes": 256224,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "app-store",
+      "output": "data/assets/icon-references/electronic-arts/crops/app-store.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 3433,
+        "losslessBytes": 3433,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          14,
+          190,
+          242
+        ],
+        "transparentPixels": 0,
+        "transparentPixelRatio": 0.0
+      },
+      "searchBox": {
+        "x": 131,
+        "y": 1146,
+        "width": 91,
+        "height": 92
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 135,
+        "y0": 1149,
+        "x1": 218,
+        "y1": 1234
+      },
+      "cropBox": {
+        "x0": 131,
+        "y0": 1146,
+        "x1": 222,
+        "y1": 1238
+      },
+      "validation": {
+        "width": 91,
+        "height": 92,
+        "foregroundPixels": 5836,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 4,
+          "right": 4,
+          "top": 3,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0054
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/electronic-arts/app-store.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 3433,
+        "losslessBytes": 3433,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/electronic-arts/validation-sheets/app-store.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 270221,
+        "losslessBytes": 270221,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "google-play",
+      "output": "data/assets/icon-references/electronic-arts/crops/google-play.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 1000,
+        "losslessBytes": 3300,
+        "savingsVsLossless": 0.697,
+        "metrics": {
+          "meanAbsoluteError": 0.4065,
+          "rootMeanSquareError": 1.8645,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.4062
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 3774,
+        "transparentPixelRatio": 0.4997
+      },
+      "searchBox": {
+        "x": 236,
+        "y": 1148,
+        "width": 83,
+        "height": 91
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 240,
+        "y0": 1152,
+        "x1": 313,
+        "y1": 1232
+      },
+      "cropBox": {
+        "x0": 236,
+        "y0": 1148,
+        "x1": 319,
+        "y1": 1239
+      },
+      "validation": {
+        "width": 83,
+        "height": 91,
+        "foregroundPixels": 3731,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 4,
+          "right": 6,
+          "top": 4,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": -0.012,
+          "y": -0.0165
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/electronic-arts/google-play.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 1000,
+        "losslessBytes": 3300,
+        "savingsVsLossless": 0.697,
+        "metrics": {
+          "meanAbsoluteError": 0.4065,
+          "rootMeanSquareError": 1.8645,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.4062
+        }
+      },
+      "validationSheet": "data/assets/icon-references/electronic-arts/validation-sheets/google-play.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 270099,
+        "losslessBytes": 270099,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

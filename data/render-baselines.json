@@ -9836,6 +9836,444 @@
       "mae": 6.136130233720785,
       "width": 2667,
       "height": 1500
+    },
+    "booking-q1-fy23": {
+      "similarity": 0.9731507849100561,
+      "mae": 6.846549847935675,
+      "width": 2667,
+      "height": 1500
+    },
+    "booking-q1-fy24": {
+      "similarity": 0.9753462699515502,
+      "mae": 6.2867011623547056,
+      "width": 2667,
+      "height": 1500
+    },
+    "booking-q1-fy25": {
+      "similarity": 0.9777786273447845,
+      "mae": 5.666450027079948,
+      "width": 2667,
+      "height": 1500
+    },
+    "booking-q2-fy23": {
+      "similarity": 0.9667763117845564,
+      "mae": 8.472040494938133,
+      "width": 2667,
+      "height": 1500
+    },
+    "booking-q2-fy24": {
+      "similarity": 0.9706707599458564,
+      "mae": 7.478956213806607,
+      "width": 2667,
+      "height": 1500
+    },
+    "booking-q2-fy25": {
+      "similarity": 0.9738068297018428,
+      "mae": 6.67925842603008,
+      "width": 2667,
+      "height": 1500
+    },
+    "booking-q3-fy22": {
+      "similarity": 0.9720019311311576,
+      "mae": 7.139507561554805,
+      "width": 2667,
+      "height": 1500
+    },
+    "booking-q3-fy23": {
+      "similarity": 0.973205125503103,
+      "mae": 6.832692996708745,
+      "width": 2667,
+      "height": 1500
+    },
+    "booking-q3-fy24": {
+      "similarity": 0.9749868475590878,
+      "mae": 6.378353872432613,
+      "width": 2667,
+      "height": 1500
+    },
+    "booking-q3-fy25": {
+      "similarity": 0.9744018716614672,
+      "mae": 6.527522726325876,
+      "width": 2667,
+      "height": 1500
+    },
+    "booking-q4-fy22": {
+      "similarity": 0.9727972875939527,
+      "mae": 6.9366916635420575,
+      "width": 2667,
+      "height": 1500
+    },
+    "booking-q4-fy23": {
+      "similarity": 0.9737101636805203,
+      "mae": 6.703908261467316,
+      "width": 2667,
+      "height": 1500
+    },
+    "booking-q4-fy24": {
+      "similarity": 0.9738299062290416,
+      "mae": 6.673373911594384,
+      "width": 2667,
+      "height": 1500
+    },
+    "electronic-arts-fy24": {
+      "similarity": 0.9780426580664345,
+      "mae": 5.599122193059201,
+      "width": 2667,
+      "height": 1500
+    },
+    "electronic-arts-q1-fy24": {
+      "similarity": 0.9756808647285102,
+      "mae": 6.201379494229888,
+      "width": 2667,
+      "height": 1500
+    },
+    "electronic-arts-q1-fy25": {
+      "similarity": 0.9762061095304263,
+      "mae": 6.067442069741283,
+      "width": 2667,
+      "height": 1500
+    },
+    "electronic-arts-q1-fy26": {
+      "similarity": 0.9643586489597297,
+      "mae": 9.088544515268925,
+      "width": 2667,
+      "height": 1500
+    },
+    "electronic-arts-q2-fy23": {
+      "similarity": 0.9704000421515938,
+      "mae": 7.547989251343582,
+      "width": 2667,
+      "height": 1500
+    },
+    "electronic-arts-q2-fy24": {
+      "similarity": 0.9726855149642243,
+      "mae": 6.965193684122818,
+      "width": 2667,
+      "height": 1500
+    },
+    "electronic-arts-q2-fy25": {
+      "similarity": 0.9757482262429614,
+      "mae": 6.184202308044828,
+      "width": 2667,
+      "height": 1500
+    },
+    "electronic-arts-q3-fy23": {
+      "similarity": 0.9760733669729192,
+      "mae": 6.101291421905595,
+      "width": 2667,
+      "height": 1500
+    },
+    "electronic-arts-q3-fy24": {
+      "similarity": 0.9741969551191721,
+      "mae": 6.57977644461109,
+      "width": 2667,
+      "height": 1500
+    },
+    "electronic-arts-q3-fy25": {
+      "similarity": 0.9743475621102917,
+      "mae": 6.541371661875599,
+      "width": 2667,
+      "height": 1500
+    },
+    "electronic-arts-q4-fy23": {
+      "similarity": 0.9764874132563495,
+      "mae": 5.99570961963088,
+      "width": 2667,
+      "height": 1500
+    },
+    "electronic-arts-q4-fy25": {
+      "similarity": 0.9760146377127695,
+      "mae": 6.116267383243761,
+      "width": 2667,
+      "height": 1500
+    },
+    "expedia-q1-fy23": {
+      "similarity": 0.9728625732240986,
+      "mae": 6.920043827854851,
+      "width": 2667,
+      "height": 1500
+    },
+    "expedia-q1-fy24": {
+      "similarity": 0.974422832113306,
+      "mae": 6.522177811106945,
+      "width": 2667,
+      "height": 1500
+    },
+    "expedia-q1-fy25": {
+      "similarity": 0.9716114671940517,
+      "mae": 7.239075865516811,
+      "width": 2667,
+      "height": 1500
+    },
+    "expedia-q2-fy22": {
+      "similarity": 0.9705482504229455,
+      "mae": 7.510196142148898,
+      "width": 2667,
+      "height": 1500
+    },
+    "expedia-q2-fy24": {
+      "similarity": 0.9726038098178904,
+      "mae": 6.986028496437945,
+      "width": 2667,
+      "height": 1500
+    },
+    "expedia-q2-fy25": {
+      "similarity": 0.9694789033723725,
+      "mae": 7.782879640044994,
+      "width": 2667,
+      "height": 1500
+    },
+    "expedia-q3-fy22": {
+      "similarity": 0.9765100587916706,
+      "mae": 5.989935008123984,
+      "width": 2667,
+      "height": 1500
+    },
+    "expedia-q3-fy23": {
+      "similarity": 0.9736388359951738,
+      "mae": 6.7220968212306795,
+      "width": 2667,
+      "height": 1500
+    },
+    "expedia-q3-fy24": {
+      "similarity": 0.9755889066154313,
+      "mae": 6.2248288130650336,
+      "width": 2667,
+      "height": 1500
+    },
+    "expedia-q4-fy22": {
+      "similarity": 0.9733452543922205,
+      "mae": 6.796960129983752,
+      "width": 2667,
+      "height": 1500
+    },
+    "expedia-q4-fy23": {
+      "similarity": 0.975712850926314,
+      "mae": 6.193223013789943,
+      "width": 2667,
+      "height": 1500
+    },
+    "expedia-q4-fy24": {
+      "similarity": 0.9723483499203123,
+      "mae": 7.051170770320376,
+      "width": 2667,
+      "height": 1500
+    },
+    "paramount-q1-fy23": {
+      "similarity": 0.9694615552140949,
+      "mae": 7.787303420405783,
+      "width": 2667,
+      "height": 1500
+    },
+    "paramount-q1-fy24": {
+      "similarity": 0.9733776382527347,
+      "mae": 6.788702245552639,
+      "width": 2667,
+      "height": 1500
+    },
+    "paramount-q1-fy25": {
+      "similarity": 0.969153167291997,
+      "mae": 7.865942340540766,
+      "width": 2667,
+      "height": 1500
+    },
+    "paramount-q2-fy23": {
+      "similarity": 0.9665237845269341,
+      "mae": 8.536434945631797,
+      "width": 2667,
+      "height": 1500
+    },
+    "paramount-q2-fy24": {
+      "similarity": 0.9704295136310576,
+      "mae": 7.540474024080323,
+      "width": 2667,
+      "height": 1500
+    },
+    "paramount-q2-fy25": {
+      "similarity": 0.96647932211088,
+      "mae": 8.547772861725617,
+      "width": 2667,
+      "height": 1500
+    },
+    "paramount-q3-fy22": {
+      "similarity": 0.9656051895473851,
+      "mae": 8.770676665416824,
+      "width": 2667,
+      "height": 1500
+    },
+    "paramount-q3-fy23": {
+      "similarity": 0.9730331149782748,
+      "mae": 6.876555680539933,
+      "width": 2667,
+      "height": 1500
+    },
+    "paramount-q3-fy24": {
+      "similarity": 0.9664969225252072,
+      "mae": 8.543284756072158,
+      "width": 2667,
+      "height": 1500
+    },
+    "paramount-q4-fy22": {
+      "similarity": 0.9714799306949377,
+      "mae": 7.2726176727909015,
+      "width": 2667,
+      "height": 1500
+    },
+    "paramount-q4-fy23": {
+      "similarity": 0.9661183803005017,
+      "mae": 8.639813023372078,
+      "width": 2667,
+      "height": 1500
+    },
+    "paramount-q4-fy24": {
+      "similarity": 0.968514339629115,
+      "mae": 8.028843394575677,
+      "width": 2667,
+      "height": 1500
+    },
+    "tripadvisor-q1-fy23": {
+      "similarity": 0.9631983181840832,
+      "mae": 9.384428863058785,
+      "width": 2667,
+      "height": 1500
+    },
+    "tripadvisor-q1-fy24": {
+      "similarity": 0.965848116044318,
+      "mae": 8.708730408698912,
+      "width": 2667,
+      "height": 1500
+    },
+    "tripadvisor-q1-fy25": {
+      "similarity": 0.9585170085765423,
+      "mae": 10.578162812981711,
+      "width": 2667,
+      "height": 1500
+    },
+    "tripadvisor-q2-fy23": {
+      "similarity": 0.9684717220804916,
+      "mae": 8.039710869474648,
+      "width": 2667,
+      "height": 1500
+    },
+    "tripadvisor-q2-fy24": {
+      "similarity": 0.9600992434769183,
+      "mae": 10.174692913385826,
+      "width": 2667,
+      "height": 1500
+    },
+    "tripadvisor-q2-fy25": {
+      "similarity": 0.9628986151240899,
+      "mae": 9.460853143357081,
+      "width": 2667,
+      "height": 1500
+    },
+    "tripadvisor-q3-fy22": {
+      "similarity": 0.9627068671971559,
+      "mae": 9.509748864725243,
+      "width": 2667,
+      "height": 1500
+    },
+    "tripadvisor-q3-fy23": {
+      "similarity": 0.9583585375357492,
+      "mae": 10.618572928383951,
+      "width": 2667,
+      "height": 1500
+    },
+    "tripadvisor-q3-fy24": {
+      "similarity": 0.9587150995014512,
+      "mae": 10.527649627129943,
+      "width": 2667,
+      "height": 1500
+    },
+    "tripadvisor-q4-fy22": {
+      "similarity": 0.964396362546185,
+      "mae": 9.078927550722826,
+      "width": 2667,
+      "height": 1500
+    },
+    "tripadvisor-q4-fy23": {
+      "similarity": 0.9604929645232254,
+      "mae": 10.074294046577512,
+      "width": 2667,
+      "height": 1500
+    },
+    "tripadvisor-q4-fy24": {
+      "similarity": 0.9611440400015357,
+      "mae": 9.908269799608382,
+      "width": 2667,
+      "height": 1500
+    },
+    "warner-bros-q1-fy23": {
+      "similarity": 0.9664047085617565,
+      "mae": 8.566799316752073,
+      "width": 2667,
+      "height": 1500
+    },
+    "warner-bros-q1-fy24": {
+      "similarity": 0.9642868347338935,
+      "mae": 9.106857142857143,
+      "width": 2667,
+      "height": 1500
+    },
+    "warner-bros-q1-fy25": {
+      "similarity": 0.9690940145553701,
+      "mae": 7.881026288380619,
+      "width": 2667,
+      "height": 1500
+    },
+    "warner-bros-q2-fy23": {
+      "similarity": 0.9618477830794027,
+      "mae": 9.728815314752323,
+      "width": 2667,
+      "height": 1500
+    },
+    "warner-bros-q2-fy24": {
+      "similarity": 0.9555122416887432,
+      "mae": 11.344378369370496,
+      "width": 2667,
+      "height": 1500
+    },
+    "warner-bros-q2-fy25": {
+      "similarity": 0.9676994294013902,
+      "mae": 8.236645502645503,
+      "width": 2667,
+      "height": 1500
+    },
+    "warner-bros-q3-fy22": {
+      "similarity": 0.9716492337150666,
+      "mae": 7.229445402658001,
+      "width": 2667,
+      "height": 1500
+    },
+    "warner-bros-q3-fy23": {
+      "similarity": 0.9619050713432062,
+      "mae": 9.714206807482398,
+      "width": 2667,
+      "height": 1500
+    },
+    "warner-bros-q3-fy24": {
+      "similarity": 0.9697027463070385,
+      "mae": 7.725799691705204,
+      "width": 2667,
+      "height": 1500
+    },
+    "warner-bros-q4-fy22": {
+      "similarity": 0.9740129317168688,
+      "mae": 6.626702412198475,
+      "width": 2667,
+      "height": 1500
+    },
+    "warner-bros-q4-fy23": {
+      "similarity": 0.9629730322925321,
+      "mae": 9.441876765404324,
+      "width": 2667,
+      "height": 1500
+    },
+    "warner-bros-q4-fy24": {
+      "similarity": 0.9657322566705305,
+      "mae": 8.738274549014706,
+      "width": 2667,
+      "height": 1500
     }
   }
 }

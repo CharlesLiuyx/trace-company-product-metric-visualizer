@@ -2130,13 +2130,39 @@
         }
       ],
       "directConsumers": [
+        "booking-q1-fy23",
+        "booking-q1-fy24",
+        "booking-q1-fy25",
         "booking-q1-fy26",
+        "booking-q2-fy23",
+        "booking-q2-fy24",
+        "booking-q2-fy25",
         "booking-q2-fy26",
+        "booking-q3-fy22",
+        "booking-q3-fy23",
+        "booking-q3-fy24",
+        "booking-q3-fy25",
+        "booking-q4-fy22",
+        "booking-q4-fy23",
+        "booking-q4-fy24",
         "booking-q4-fy25"
       ],
       "consumers": [
+        "booking-q1-fy23",
+        "booking-q1-fy24",
+        "booking-q1-fy25",
         "booking-q1-fy26",
+        "booking-q2-fy23",
+        "booking-q2-fy24",
+        "booking-q2-fy25",
         "booking-q2-fy26",
+        "booking-q3-fy22",
+        "booking-q3-fy23",
+        "booking-q3-fy24",
+        "booking-q3-fy25",
+        "booking-q4-fy22",
+        "booking-q4-fy23",
+        "booking-q4-fy24",
         "booking-q4-fy25"
       ],
       "acceptedVersions": [
@@ -2162,13 +2188,39 @@
         }
       ],
       "directConsumers": [
+        "booking-q1-fy23",
+        "booking-q1-fy24",
+        "booking-q1-fy25",
         "booking-q1-fy26",
+        "booking-q2-fy23",
+        "booking-q2-fy24",
+        "booking-q2-fy25",
         "booking-q2-fy26",
+        "booking-q3-fy22",
+        "booking-q3-fy23",
+        "booking-q3-fy24",
+        "booking-q3-fy25",
+        "booking-q4-fy22",
+        "booking-q4-fy23",
+        "booking-q4-fy24",
         "booking-q4-fy25"
       ],
       "consumers": [
+        "booking-q1-fy23",
+        "booking-q1-fy24",
+        "booking-q1-fy25",
         "booking-q1-fy26",
+        "booking-q2-fy23",
+        "booking-q2-fy24",
+        "booking-q2-fy25",
         "booking-q2-fy26",
+        "booking-q3-fy22",
+        "booking-q3-fy23",
+        "booking-q3-fy24",
+        "booking-q3-fy25",
+        "booking-q4-fy22",
+        "booking-q4-fy23",
+        "booking-q4-fy24",
         "booking-q4-fy25"
       ],
       "acceptedVersions": [
@@ -2188,13 +2240,39 @@
         }
       ],
       "directConsumers": [
+        "booking-q1-fy23",
+        "booking-q1-fy24",
+        "booking-q1-fy25",
         "booking-q1-fy26",
+        "booking-q2-fy23",
+        "booking-q2-fy24",
+        "booking-q2-fy25",
         "booking-q2-fy26",
+        "booking-q3-fy22",
+        "booking-q3-fy23",
+        "booking-q3-fy24",
+        "booking-q3-fy25",
+        "booking-q4-fy22",
+        "booking-q4-fy23",
+        "booking-q4-fy24",
         "booking-q4-fy25"
       ],
       "consumers": [
+        "booking-q1-fy23",
+        "booking-q1-fy24",
+        "booking-q1-fy25",
         "booking-q1-fy26",
+        "booking-q2-fy23",
+        "booking-q2-fy24",
+        "booking-q2-fy25",
         "booking-q2-fy26",
+        "booking-q3-fy22",
+        "booking-q3-fy23",
+        "booking-q3-fy24",
+        "booking-q3-fy25",
+        "booking-q4-fy22",
+        "booking-q4-fy23",
+        "booking-q4-fy24",
         "booking-q4-fy25"
       ],
       "acceptedVersions": [
@@ -2220,13 +2298,39 @@
         }
       ],
       "directConsumers": [
+        "booking-q1-fy23",
+        "booking-q1-fy24",
+        "booking-q1-fy25",
         "booking-q1-fy26",
+        "booking-q2-fy23",
+        "booking-q2-fy24",
+        "booking-q2-fy25",
         "booking-q2-fy26",
+        "booking-q3-fy22",
+        "booking-q3-fy23",
+        "booking-q3-fy24",
+        "booking-q3-fy25",
+        "booking-q4-fy22",
+        "booking-q4-fy23",
+        "booking-q4-fy24",
         "booking-q4-fy25"
       ],
       "consumers": [
+        "booking-q1-fy23",
+        "booking-q1-fy24",
+        "booking-q1-fy25",
         "booking-q1-fy26",
+        "booking-q2-fy23",
+        "booking-q2-fy24",
+        "booking-q2-fy25",
         "booking-q2-fy26",
+        "booking-q3-fy22",
+        "booking-q3-fy23",
+        "booking-q3-fy24",
+        "booking-q3-fy25",
+        "booking-q4-fy22",
+        "booking-q4-fy23",
+        "booking-q4-fy24",
         "booking-q4-fy25"
       ],
       "acceptedVersions": [
@@ -3885,6 +3989,342 @@
         "dynatrace-q2-fy26",
         "dynatrace-q3-fy26",
         "dynatrace-q4-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/electronic-arts/app-store.png",
+      "digest": "sha256:d1337c4b95b4c4892dfa40b0bf2095c8bcc737815664411e40c08f3d65a384fb",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/electronic-arts-q2-fy23.json",
+          "recipeDigest": "sha256:483599b397c5070282280331423edfeee2f1655e90f409d05ffe1d39659fdd7b",
+          "source": "input/processed/electronic-arts-q2-fy23.png",
+          "cropKey": "app-store"
+        }
+      ],
+      "directConsumers": [
+        "electronic-arts-fy24",
+        "electronic-arts-q1-fy24",
+        "electronic-arts-q1-fy25",
+        "electronic-arts-q1-fy26",
+        "electronic-arts-q2-fy23",
+        "electronic-arts-q2-fy24",
+        "electronic-arts-q2-fy25",
+        "electronic-arts-q3-fy23",
+        "electronic-arts-q3-fy24",
+        "electronic-arts-q3-fy25",
+        "electronic-arts-q4-fy23",
+        "electronic-arts-q4-fy25"
+      ],
+      "consumers": [
+        "electronic-arts-fy24",
+        "electronic-arts-q1-fy24",
+        "electronic-arts-q1-fy25",
+        "electronic-arts-q1-fy26",
+        "electronic-arts-q2-fy23",
+        "electronic-arts-q2-fy24",
+        "electronic-arts-q2-fy25",
+        "electronic-arts-q3-fy23",
+        "electronic-arts-q3-fy24",
+        "electronic-arts-q3-fy25",
+        "electronic-arts-q4-fy23",
+        "electronic-arts-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/electronic-arts/ea-logo.png",
+      "digest": "sha256:9d9287747d6a8800fd738f2a23ea145bdecded2491744fb5edd864d78f1f9d3e",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/electronic-arts-q2-fy23.json",
+          "recipeDigest": "sha256:483599b397c5070282280331423edfeee2f1655e90f409d05ffe1d39659fdd7b",
+          "source": "input/processed/electronic-arts-q2-fy23.png",
+          "cropKey": "ea-logo"
+        }
+      ],
+      "directConsumers": [
+        "electronic-arts-fy24",
+        "electronic-arts-q1-fy24",
+        "electronic-arts-q1-fy25",
+        "electronic-arts-q1-fy26",
+        "electronic-arts-q2-fy23",
+        "electronic-arts-q2-fy24",
+        "electronic-arts-q2-fy25",
+        "electronic-arts-q3-fy23",
+        "electronic-arts-q3-fy24",
+        "electronic-arts-q3-fy25",
+        "electronic-arts-q4-fy23",
+        "electronic-arts-q4-fy25"
+      ],
+      "consumers": [
+        "electronic-arts-fy24",
+        "electronic-arts-q1-fy24",
+        "electronic-arts-q1-fy25",
+        "electronic-arts-q1-fy26",
+        "electronic-arts-q2-fy23",
+        "electronic-arts-q2-fy24",
+        "electronic-arts-q2-fy25",
+        "electronic-arts-q3-fy23",
+        "electronic-arts-q3-fy24",
+        "electronic-arts-q3-fy25",
+        "electronic-arts-q4-fy23",
+        "electronic-arts-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/electronic-arts/google-play.png",
+      "digest": "sha256:c352e1176b4149d57e13cc0ae699303032ec52d60000360eb8485af0e7d718f1",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/electronic-arts-q2-fy23.json",
+          "recipeDigest": "sha256:483599b397c5070282280331423edfeee2f1655e90f409d05ffe1d39659fdd7b",
+          "source": "input/processed/electronic-arts-q2-fy23.png",
+          "cropKey": "google-play"
+        }
+      ],
+      "directConsumers": [
+        "electronic-arts-fy24",
+        "electronic-arts-q1-fy24",
+        "electronic-arts-q1-fy25",
+        "electronic-arts-q1-fy26",
+        "electronic-arts-q2-fy23",
+        "electronic-arts-q2-fy24",
+        "electronic-arts-q2-fy25",
+        "electronic-arts-q3-fy23",
+        "electronic-arts-q3-fy24",
+        "electronic-arts-q3-fy25",
+        "electronic-arts-q4-fy23",
+        "electronic-arts-q4-fy25"
+      ],
+      "consumers": [
+        "electronic-arts-fy24",
+        "electronic-arts-q1-fy24",
+        "electronic-arts-q1-fy25",
+        "electronic-arts-q1-fy26",
+        "electronic-arts-q2-fy23",
+        "electronic-arts-q2-fy24",
+        "electronic-arts-q2-fy25",
+        "electronic-arts-q3-fy23",
+        "electronic-arts-q3-fy24",
+        "electronic-arts-q3-fy25",
+        "electronic-arts-q4-fy23",
+        "electronic-arts-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/electronic-arts/origin.png",
+      "digest": "sha256:3c8f7011be788c65be133f6a53a7612cb920c561414a7b961ec5e848ca4d7e0e",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/electronic-arts-q2-fy23.json",
+          "recipeDigest": "sha256:483599b397c5070282280331423edfeee2f1655e90f409d05ffe1d39659fdd7b",
+          "source": "input/processed/electronic-arts-q2-fy23.png",
+          "cropKey": "origin"
+        }
+      ],
+      "directConsumers": [
+        "electronic-arts-fy24",
+        "electronic-arts-q1-fy24",
+        "electronic-arts-q1-fy25",
+        "electronic-arts-q1-fy26",
+        "electronic-arts-q2-fy23",
+        "electronic-arts-q2-fy24",
+        "electronic-arts-q2-fy25",
+        "electronic-arts-q3-fy23",
+        "electronic-arts-q3-fy24",
+        "electronic-arts-q3-fy25",
+        "electronic-arts-q4-fy23",
+        "electronic-arts-q4-fy25"
+      ],
+      "consumers": [
+        "electronic-arts-fy24",
+        "electronic-arts-q1-fy24",
+        "electronic-arts-q1-fy25",
+        "electronic-arts-q1-fy26",
+        "electronic-arts-q2-fy23",
+        "electronic-arts-q2-fy24",
+        "electronic-arts-q2-fy25",
+        "electronic-arts-q3-fy23",
+        "electronic-arts-q3-fy24",
+        "electronic-arts-q3-fy25",
+        "electronic-arts-q4-fy23",
+        "electronic-arts-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/electronic-arts/playstation.png",
+      "digest": "sha256:7da1bea5742e58e924573f7892ac879b2444bafef44062ec366de960a7069769",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/electronic-arts-q2-fy23.json",
+          "recipeDigest": "sha256:483599b397c5070282280331423edfeee2f1655e90f409d05ffe1d39659fdd7b",
+          "source": "input/processed/electronic-arts-q2-fy23.png",
+          "cropKey": "playstation"
+        }
+      ],
+      "directConsumers": [
+        "electronic-arts-fy24",
+        "electronic-arts-q1-fy24",
+        "electronic-arts-q1-fy25",
+        "electronic-arts-q1-fy26",
+        "electronic-arts-q2-fy23",
+        "electronic-arts-q2-fy24",
+        "electronic-arts-q2-fy25",
+        "electronic-arts-q3-fy23",
+        "electronic-arts-q3-fy24",
+        "electronic-arts-q3-fy25",
+        "electronic-arts-q4-fy23",
+        "electronic-arts-q4-fy25"
+      ],
+      "consumers": [
+        "electronic-arts-fy24",
+        "electronic-arts-q1-fy24",
+        "electronic-arts-q1-fy25",
+        "electronic-arts-q1-fy26",
+        "electronic-arts-q2-fy23",
+        "electronic-arts-q2-fy24",
+        "electronic-arts-q2-fy25",
+        "electronic-arts-q3-fy23",
+        "electronic-arts-q3-fy24",
+        "electronic-arts-q3-fy25",
+        "electronic-arts-q4-fy23",
+        "electronic-arts-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/electronic-arts/steam.png",
+      "digest": "sha256:b43178f7a7466ef20833c51ad1346f817bd86204eeccbb8277bb859f502befa0",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/electronic-arts-q2-fy23.json",
+          "recipeDigest": "sha256:483599b397c5070282280331423edfeee2f1655e90f409d05ffe1d39659fdd7b",
+          "source": "input/processed/electronic-arts-q2-fy23.png",
+          "cropKey": "steam"
+        }
+      ],
+      "directConsumers": [
+        "electronic-arts-fy24",
+        "electronic-arts-q1-fy24",
+        "electronic-arts-q1-fy25",
+        "electronic-arts-q1-fy26",
+        "electronic-arts-q2-fy23",
+        "electronic-arts-q2-fy24",
+        "electronic-arts-q2-fy25",
+        "electronic-arts-q3-fy23",
+        "electronic-arts-q3-fy24",
+        "electronic-arts-q3-fy25",
+        "electronic-arts-q4-fy23",
+        "electronic-arts-q4-fy25"
+      ],
+      "consumers": [
+        "electronic-arts-fy24",
+        "electronic-arts-q1-fy24",
+        "electronic-arts-q1-fy25",
+        "electronic-arts-q1-fy26",
+        "electronic-arts-q2-fy23",
+        "electronic-arts-q2-fy24",
+        "electronic-arts-q2-fy25",
+        "electronic-arts-q3-fy23",
+        "electronic-arts-q3-fy24",
+        "electronic-arts-q3-fy25",
+        "electronic-arts-q4-fy23",
+        "electronic-arts-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/electronic-arts/switch.png",
+      "digest": "sha256:16e0f00d13ad3df3d6a96e434bb5880c52079d467554bfabd4f4885ba6991f28",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/electronic-arts-q2-fy23.json",
+          "recipeDigest": "sha256:483599b397c5070282280331423edfeee2f1655e90f409d05ffe1d39659fdd7b",
+          "source": "input/processed/electronic-arts-q2-fy23.png",
+          "cropKey": "switch"
+        }
+      ],
+      "directConsumers": [
+        "electronic-arts-fy24",
+        "electronic-arts-q1-fy24",
+        "electronic-arts-q1-fy25",
+        "electronic-arts-q1-fy26",
+        "electronic-arts-q2-fy23",
+        "electronic-arts-q2-fy24",
+        "electronic-arts-q2-fy25",
+        "electronic-arts-q3-fy23",
+        "electronic-arts-q3-fy24",
+        "electronic-arts-q3-fy25",
+        "electronic-arts-q4-fy23",
+        "electronic-arts-q4-fy25"
+      ],
+      "consumers": [
+        "electronic-arts-fy24",
+        "electronic-arts-q1-fy24",
+        "electronic-arts-q1-fy25",
+        "electronic-arts-q1-fy26",
+        "electronic-arts-q2-fy23",
+        "electronic-arts-q2-fy24",
+        "electronic-arts-q2-fy25",
+        "electronic-arts-q3-fy23",
+        "electronic-arts-q3-fy24",
+        "electronic-arts-q3-fy25",
+        "electronic-arts-q4-fy23",
+        "electronic-arts-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/electronic-arts/xbox.png",
+      "digest": "sha256:121c94904d421c2e92ea2c6093cd561e27231ea983b76dca9a0afa5aa8d6f780",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/electronic-arts-q2-fy23.json",
+          "recipeDigest": "sha256:483599b397c5070282280331423edfeee2f1655e90f409d05ffe1d39659fdd7b",
+          "source": "input/processed/electronic-arts-q2-fy23.png",
+          "cropKey": "xbox"
+        }
+      ],
+      "directConsumers": [
+        "electronic-arts-fy24",
+        "electronic-arts-q1-fy24",
+        "electronic-arts-q1-fy25",
+        "electronic-arts-q1-fy26",
+        "electronic-arts-q2-fy23",
+        "electronic-arts-q2-fy24",
+        "electronic-arts-q2-fy25",
+        "electronic-arts-q3-fy23",
+        "electronic-arts-q3-fy24",
+        "electronic-arts-q3-fy25",
+        "electronic-arts-q4-fy23",
+        "electronic-arts-q4-fy25"
+      ],
+      "consumers": [
+        "electronic-arts-fy24",
+        "electronic-arts-q1-fy24",
+        "electronic-arts-q1-fy25",
+        "electronic-arts-q1-fy26",
+        "electronic-arts-q2-fy23",
+        "electronic-arts-q2-fy24",
+        "electronic-arts-q2-fy25",
+        "electronic-arts-q3-fy23",
+        "electronic-arts-q3-fy24",
+        "electronic-arts-q3-fy25",
+        "electronic-arts-q4-fy23",
+        "electronic-arts-q4-fy25"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -10275,15 +10715,39 @@
         }
       ],
       "directConsumers": [
+        "paramount-q1-fy23",
+        "paramount-q1-fy24",
+        "paramount-q1-fy25",
         "paramount-q1-fy26",
+        "paramount-q2-fy23",
+        "paramount-q2-fy24",
+        "paramount-q2-fy25",
         "paramount-q2-fy26",
+        "paramount-q3-fy22",
+        "paramount-q3-fy23",
+        "paramount-q3-fy24",
         "paramount-q3-fy25",
+        "paramount-q4-fy22",
+        "paramount-q4-fy23",
+        "paramount-q4-fy24",
         "paramount-q4-fy25"
       ],
       "consumers": [
+        "paramount-q1-fy23",
+        "paramount-q1-fy24",
+        "paramount-q1-fy25",
         "paramount-q1-fy26",
+        "paramount-q2-fy23",
+        "paramount-q2-fy24",
+        "paramount-q2-fy25",
         "paramount-q2-fy26",
+        "paramount-q3-fy22",
+        "paramount-q3-fy23",
+        "paramount-q3-fy24",
         "paramount-q3-fy25",
+        "paramount-q4-fy22",
+        "paramount-q4-fy23",
+        "paramount-q4-fy24",
         "paramount-q4-fy25"
       ],
       "acceptedVersions": [
@@ -10303,15 +10767,39 @@
         }
       ],
       "directConsumers": [
+        "paramount-q1-fy23",
+        "paramount-q1-fy24",
+        "paramount-q1-fy25",
         "paramount-q1-fy26",
+        "paramount-q2-fy23",
+        "paramount-q2-fy24",
+        "paramount-q2-fy25",
         "paramount-q2-fy26",
+        "paramount-q3-fy22",
+        "paramount-q3-fy23",
+        "paramount-q3-fy24",
         "paramount-q3-fy25",
+        "paramount-q4-fy22",
+        "paramount-q4-fy23",
+        "paramount-q4-fy24",
         "paramount-q4-fy25"
       ],
       "consumers": [
+        "paramount-q1-fy23",
+        "paramount-q1-fy24",
+        "paramount-q1-fy25",
         "paramount-q1-fy26",
+        "paramount-q2-fy23",
+        "paramount-q2-fy24",
+        "paramount-q2-fy25",
         "paramount-q2-fy26",
+        "paramount-q3-fy22",
+        "paramount-q3-fy23",
+        "paramount-q3-fy24",
         "paramount-q3-fy25",
+        "paramount-q4-fy22",
+        "paramount-q4-fy23",
+        "paramount-q4-fy24",
         "paramount-q4-fy25"
       ],
       "acceptedVersions": [
@@ -10331,15 +10819,39 @@
         }
       ],
       "directConsumers": [
+        "paramount-q1-fy23",
+        "paramount-q1-fy24",
+        "paramount-q1-fy25",
         "paramount-q1-fy26",
+        "paramount-q2-fy23",
+        "paramount-q2-fy24",
+        "paramount-q2-fy25",
         "paramount-q2-fy26",
+        "paramount-q3-fy22",
+        "paramount-q3-fy23",
+        "paramount-q3-fy24",
         "paramount-q3-fy25",
+        "paramount-q4-fy22",
+        "paramount-q4-fy23",
+        "paramount-q4-fy24",
         "paramount-q4-fy25"
       ],
       "consumers": [
+        "paramount-q1-fy23",
+        "paramount-q1-fy24",
+        "paramount-q1-fy25",
         "paramount-q1-fy26",
+        "paramount-q2-fy23",
+        "paramount-q2-fy24",
+        "paramount-q2-fy25",
         "paramount-q2-fy26",
+        "paramount-q3-fy22",
+        "paramount-q3-fy23",
+        "paramount-q3-fy24",
         "paramount-q3-fy25",
+        "paramount-q4-fy22",
+        "paramount-q4-fy23",
+        "paramount-q4-fy24",
         "paramount-q4-fy25"
       ],
       "acceptedVersions": [
@@ -10359,21 +10871,140 @@
         }
       ],
       "directConsumers": [
+        "paramount-q1-fy23",
         "paramount-q1-fy26",
+        "paramount-q2-fy23",
         "paramount-q2-fy26",
+        "paramount-q3-fy22",
         "paramount-q3-fy25",
+        "paramount-q4-fy23",
         "paramount-q4-fy25"
       ],
       "consumers": [
+        "paramount-q1-fy23",
         "paramount-q1-fy26",
+        "paramount-q2-fy23",
         "paramount-q2-fy26",
+        "paramount-q3-fy22",
         "paramount-q3-fy25",
+        "paramount-q4-fy23",
         "paramount-q4-fy25"
       ],
       "acceptedVersions": [
         "sha256:a1402b401f781b6ef26e941abc70b3a2d9495317698e823037439ba5ed60fdaa"
       ],
       "reusable": true
+    },
+    {
+      "path": "data/assets/raster-annotations/paramount/q1-fy24-company-wordmark.png",
+      "digest": "sha256:92f78a6cb4af3ef194292c5869305858a64549a7738ff9ff8f5a3e20b57816e7",
+      "provenance": [],
+      "directConsumers": [
+        "paramount-q1-fy24"
+      ],
+      "consumers": [
+        "paramount-q1-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/paramount/q1-fy25-company-logo.png",
+      "digest": "sha256:e647a0f5455751c8f3e8a74074e7ba8964317a3fe45a7d3ba20105287af03cb9",
+      "provenance": [],
+      "directConsumers": [
+        "paramount-q1-fy25"
+      ],
+      "consumers": [
+        "paramount-q1-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/paramount/q2-fy24-company-wordmark.png",
+      "digest": "sha256:ba7e0142a659ce778ab254a9dda9b79d62414b68d4e135d8da335df0ccf6c85f",
+      "provenance": [],
+      "directConsumers": [
+        "paramount-q2-fy24"
+      ],
+      "consumers": [
+        "paramount-q2-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/paramount/q2-fy25-company-logo.png",
+      "digest": "sha256:27b28815e257dee9097a08b8f4e31e5bb34b482b942f473fa3cf63428b4399ab",
+      "provenance": [],
+      "directConsumers": [
+        "paramount-q2-fy25"
+      ],
+      "consumers": [
+        "paramount-q2-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/paramount/q3-fy23-company-wordmark.png",
+      "digest": "sha256:a662ea6728fa5a0e9619c923513f230dfa887085e43e423411be75b7f5fe38fe",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/paramount-q3-fy23.json",
+          "recipeDigest": "sha256:2426d13811aa8462e8ff619ee7eccf011e01ecb1944afab51f4b403660a86a99",
+          "source": "input/processing/paramount-q3-fy23.png",
+          "cropKey": "q3-fy23-company-wordmark"
+        }
+      ],
+      "directConsumers": [
+        "paramount-q3-fy23"
+      ],
+      "consumers": [
+        "paramount-q3-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/paramount/q3-fy24-company-wordmark.png",
+      "digest": "sha256:8f5a38a67bf7eb0becb00277601868043cc52e13961d4299becc3de7c4b0c50e",
+      "provenance": [],
+      "directConsumers": [
+        "paramount-q3-fy24"
+      ],
+      "consumers": [
+        "paramount-q3-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/paramount/q4-fy22-company-wordmark.png",
+      "digest": "sha256:c87b3f8c16b8f2491d772397499529e68106266e033c1fdbbf296eae2d2ab928",
+      "provenance": [],
+      "directConsumers": [
+        "paramount-q4-fy22"
+      ],
+      "consumers": [
+        "paramount-q4-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/paramount/q4-fy24-company-logo.png",
+      "digest": "sha256:e0125bfb4881799dcbbcb5ca4594b1c59171ebc68b2b16888febb2d86f675569",
+      "provenance": [],
+      "directConsumers": [
+        "paramount-q4-fy24"
+      ],
+      "consumers": [
+        "paramount-q4-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
     },
     {
       "path": "data/assets/raster-annotations/paycom-q2-fy26/company-logo.png",
@@ -16216,15 +16847,39 @@
         }
       ],
       "directConsumers": [
+        "tripadvisor-q1-fy23",
+        "tripadvisor-q1-fy24",
+        "tripadvisor-q1-fy25",
         "tripadvisor-q1-fy26",
+        "tripadvisor-q2-fy23",
+        "tripadvisor-q2-fy24",
+        "tripadvisor-q2-fy25",
         "tripadvisor-q2-fy26",
+        "tripadvisor-q3-fy22",
+        "tripadvisor-q3-fy23",
+        "tripadvisor-q3-fy24",
         "tripadvisor-q3-fy25",
+        "tripadvisor-q4-fy22",
+        "tripadvisor-q4-fy23",
+        "tripadvisor-q4-fy24",
         "tripadvisor-q4-fy25"
       ],
       "consumers": [
+        "tripadvisor-q1-fy23",
+        "tripadvisor-q1-fy24",
+        "tripadvisor-q1-fy25",
         "tripadvisor-q1-fy26",
+        "tripadvisor-q2-fy23",
+        "tripadvisor-q2-fy24",
+        "tripadvisor-q2-fy25",
         "tripadvisor-q2-fy26",
+        "tripadvisor-q3-fy22",
+        "tripadvisor-q3-fy23",
+        "tripadvisor-q3-fy24",
         "tripadvisor-q3-fy25",
+        "tripadvisor-q4-fy22",
+        "tripadvisor-q4-fy23",
+        "tripadvisor-q4-fy24",
         "tripadvisor-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -16242,15 +16897,39 @@
         }
       ],
       "directConsumers": [
+        "tripadvisor-q1-fy23",
+        "tripadvisor-q1-fy24",
+        "tripadvisor-q1-fy25",
         "tripadvisor-q1-fy26",
+        "tripadvisor-q2-fy23",
+        "tripadvisor-q2-fy24",
+        "tripadvisor-q2-fy25",
         "tripadvisor-q2-fy26",
+        "tripadvisor-q3-fy22",
+        "tripadvisor-q3-fy23",
+        "tripadvisor-q3-fy24",
         "tripadvisor-q3-fy25",
+        "tripadvisor-q4-fy22",
+        "tripadvisor-q4-fy23",
+        "tripadvisor-q4-fy24",
         "tripadvisor-q4-fy25"
       ],
       "consumers": [
+        "tripadvisor-q1-fy23",
+        "tripadvisor-q1-fy24",
+        "tripadvisor-q1-fy25",
         "tripadvisor-q1-fy26",
+        "tripadvisor-q2-fy23",
+        "tripadvisor-q2-fy24",
+        "tripadvisor-q2-fy25",
         "tripadvisor-q2-fy26",
+        "tripadvisor-q3-fy22",
+        "tripadvisor-q3-fy23",
+        "tripadvisor-q3-fy24",
         "tripadvisor-q3-fy25",
+        "tripadvisor-q4-fy22",
+        "tripadvisor-q4-fy23",
+        "tripadvisor-q4-fy24",
         "tripadvisor-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -16268,15 +16947,39 @@
         }
       ],
       "directConsumers": [
+        "tripadvisor-q1-fy23",
+        "tripadvisor-q1-fy24",
+        "tripadvisor-q1-fy25",
         "tripadvisor-q1-fy26",
+        "tripadvisor-q2-fy23",
+        "tripadvisor-q2-fy24",
+        "tripadvisor-q2-fy25",
         "tripadvisor-q2-fy26",
+        "tripadvisor-q3-fy22",
+        "tripadvisor-q3-fy23",
+        "tripadvisor-q3-fy24",
         "tripadvisor-q3-fy25",
+        "tripadvisor-q4-fy22",
+        "tripadvisor-q4-fy23",
+        "tripadvisor-q4-fy24",
         "tripadvisor-q4-fy25"
       ],
       "consumers": [
+        "tripadvisor-q1-fy23",
+        "tripadvisor-q1-fy24",
+        "tripadvisor-q1-fy25",
         "tripadvisor-q1-fy26",
+        "tripadvisor-q2-fy23",
+        "tripadvisor-q2-fy24",
+        "tripadvisor-q2-fy25",
         "tripadvisor-q2-fy26",
+        "tripadvisor-q3-fy22",
+        "tripadvisor-q3-fy23",
+        "tripadvisor-q3-fy24",
         "tripadvisor-q3-fy25",
+        "tripadvisor-q4-fy22",
+        "tripadvisor-q4-fy23",
+        "tripadvisor-q4-fy24",
         "tripadvisor-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -16294,13 +16997,37 @@
         }
       ],
       "directConsumers": [
+        "tripadvisor-q1-fy23",
+        "tripadvisor-q1-fy24",
+        "tripadvisor-q1-fy25",
         "tripadvisor-q1-fy26",
+        "tripadvisor-q2-fy23",
+        "tripadvisor-q2-fy24",
+        "tripadvisor-q2-fy25",
+        "tripadvisor-q3-fy22",
+        "tripadvisor-q3-fy23",
+        "tripadvisor-q3-fy24",
         "tripadvisor-q3-fy25",
+        "tripadvisor-q4-fy22",
+        "tripadvisor-q4-fy23",
+        "tripadvisor-q4-fy24",
         "tripadvisor-q4-fy25"
       ],
       "consumers": [
+        "tripadvisor-q1-fy23",
+        "tripadvisor-q1-fy24",
+        "tripadvisor-q1-fy25",
         "tripadvisor-q1-fy26",
+        "tripadvisor-q2-fy23",
+        "tripadvisor-q2-fy24",
+        "tripadvisor-q2-fy25",
+        "tripadvisor-q3-fy22",
+        "tripadvisor-q3-fy23",
+        "tripadvisor-q3-fy24",
         "tripadvisor-q3-fy25",
+        "tripadvisor-q4-fy22",
+        "tripadvisor-q4-fy23",
+        "tripadvisor-q4-fy24",
         "tripadvisor-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -16804,13 +17531,31 @@
         }
       ],
       "directConsumers": [
+        "warner-bros-q1-fy23",
+        "warner-bros-q1-fy24",
+        "warner-bros-q1-fy25",
         "warner-bros-q1-fy26",
+        "warner-bros-q2-fy23",
+        "warner-bros-q2-fy24",
+        "warner-bros-q2-fy25",
+        "warner-bros-q3-fy23",
+        "warner-bros-q3-fy24",
         "warner-bros-q3-fy25",
+        "warner-bros-q4-fy24",
         "warner-bros-q4-fy25"
       ],
       "consumers": [
+        "warner-bros-q1-fy23",
+        "warner-bros-q1-fy24",
+        "warner-bros-q1-fy25",
         "warner-bros-q1-fy26",
+        "warner-bros-q2-fy23",
+        "warner-bros-q2-fy24",
+        "warner-bros-q2-fy25",
+        "warner-bros-q3-fy23",
+        "warner-bros-q3-fy24",
         "warner-bros-q3-fy25",
+        "warner-bros-q4-fy24",
         "warner-bros-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -16828,13 +17573,31 @@
         }
       ],
       "directConsumers": [
+        "warner-bros-q1-fy24",
+        "warner-bros-q1-fy25",
         "warner-bros-q1-fy26",
+        "warner-bros-q2-fy23",
+        "warner-bros-q2-fy24",
+        "warner-bros-q2-fy25",
+        "warner-bros-q3-fy23",
+        "warner-bros-q3-fy24",
         "warner-bros-q3-fy25",
+        "warner-bros-q4-fy23",
+        "warner-bros-q4-fy24",
         "warner-bros-q4-fy25"
       ],
       "consumers": [
+        "warner-bros-q1-fy24",
+        "warner-bros-q1-fy25",
         "warner-bros-q1-fy26",
+        "warner-bros-q2-fy23",
+        "warner-bros-q2-fy24",
+        "warner-bros-q2-fy25",
+        "warner-bros-q3-fy23",
+        "warner-bros-q3-fy24",
         "warner-bros-q3-fy25",
+        "warner-bros-q4-fy23",
+        "warner-bros-q4-fy24",
         "warner-bros-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -16852,13 +17615,37 @@
         }
       ],
       "directConsumers": [
+        "warner-bros-q1-fy23",
+        "warner-bros-q1-fy24",
+        "warner-bros-q1-fy25",
         "warner-bros-q1-fy26",
+        "warner-bros-q2-fy23",
+        "warner-bros-q2-fy24",
+        "warner-bros-q2-fy25",
+        "warner-bros-q3-fy22",
+        "warner-bros-q3-fy23",
+        "warner-bros-q3-fy24",
         "warner-bros-q3-fy25",
+        "warner-bros-q4-fy22",
+        "warner-bros-q4-fy23",
+        "warner-bros-q4-fy24",
         "warner-bros-q4-fy25"
       ],
       "consumers": [
+        "warner-bros-q1-fy23",
+        "warner-bros-q1-fy24",
+        "warner-bros-q1-fy25",
         "warner-bros-q1-fy26",
+        "warner-bros-q2-fy23",
+        "warner-bros-q2-fy24",
+        "warner-bros-q2-fy25",
+        "warner-bros-q3-fy22",
+        "warner-bros-q3-fy23",
+        "warner-bros-q3-fy24",
         "warner-bros-q3-fy25",
+        "warner-bros-q4-fy22",
+        "warner-bros-q4-fy23",
+        "warner-bros-q4-fy24",
         "warner-bros-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -16876,14 +17663,116 @@
         }
       ],
       "directConsumers": [
+        "warner-bros-q1-fy23",
+        "warner-bros-q1-fy24",
+        "warner-bros-q1-fy25",
         "warner-bros-q1-fy26",
+        "warner-bros-q2-fy23",
+        "warner-bros-q2-fy24",
+        "warner-bros-q2-fy25",
+        "warner-bros-q3-fy22",
+        "warner-bros-q3-fy23",
+        "warner-bros-q3-fy24",
         "warner-bros-q3-fy25",
+        "warner-bros-q4-fy22",
+        "warner-bros-q4-fy23",
+        "warner-bros-q4-fy24",
         "warner-bros-q4-fy25"
       ],
       "consumers": [
+        "warner-bros-q1-fy23",
+        "warner-bros-q1-fy24",
+        "warner-bros-q1-fy25",
         "warner-bros-q1-fy26",
+        "warner-bros-q2-fy23",
+        "warner-bros-q2-fy24",
+        "warner-bros-q2-fy25",
+        "warner-bros-q3-fy22",
+        "warner-bros-q3-fy23",
+        "warner-bros-q3-fy24",
         "warner-bros-q3-fy25",
+        "warner-bros-q4-fy22",
+        "warner-bros-q4-fy23",
+        "warner-bros-q4-fy24",
         "warner-bros-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/warner-bros/q1-fy23-hbo-discovery.png",
+      "digest": "sha256:1ad9ea20fbf58db7be8371d99e516b38f0b2654aefb9ac34fbc87a2d2afce608",
+      "provenance": [],
+      "directConsumers": [
+        "warner-bros-q1-fy23"
+      ],
+      "consumers": [
+        "warner-bros-q1-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/warner-bros/q3-fy22-dtc.png",
+      "digest": "sha256:1a48b98eda233c813078264108757bc25aff036e5d9cce9ec52b7eb8d65821ca",
+      "provenance": [],
+      "directConsumers": [
+        "warner-bros-q3-fy22"
+      ],
+      "consumers": [
+        "warner-bros-q3-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/warner-bros/q3-fy22-networks.png",
+      "digest": "sha256:1717933f97108d62bd88e7fa4f556a8bc98d0743f56ca69c4bdb9256e911b3ec",
+      "provenance": [],
+      "directConsumers": [
+        "warner-bros-q3-fy22"
+      ],
+      "consumers": [
+        "warner-bros-q3-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/warner-bros/q4-fy22-dtc-cluster.png",
+      "digest": "sha256:67fcceee6f6aa1665e719b51c60a8ab5717b9d323d039c606d129f013f332b52",
+      "provenance": [],
+      "directConsumers": [
+        "warner-bros-q4-fy22"
+      ],
+      "consumers": [
+        "warner-bros-q4-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/warner-bros/q4-fy22-networks-cluster.png",
+      "digest": "sha256:43dd14f67b980cd31ca4cf4c616ecfc63a7d886eb882b48eaf3b048baf3edae8",
+      "provenance": [],
+      "directConsumers": [
+        "warner-bros-q4-fy22"
+      ],
+      "consumers": [
+        "warner-bros-q4-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/warner-bros/q4-fy23-networks-cluster.png",
+      "digest": "sha256:4e75ae93546d68c020c97b2e267353208eba706cb98b7886589f2125aef80718",
+      "provenance": [],
+      "directConsumers": [
+        "warner-bros-q4-fy23"
+      ],
+      "consumers": [
+        "warner-bros-q4-fy23"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -17710,6 +18599,11 @@
       "source": "input/processed/elastic-q4-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/electronic-arts-q2-fy23.json",
+      "digest": "sha256:483599b397c5070282280331423edfeee2f1655e90f409d05ffe1d39659fdd7b",
+      "source": "input/processed/electronic-arts-q2-fy23.png"
+    },
+    {
       "path": "input/icon-crop-specs/eli-lilly-q2-fy26.json",
       "digest": "sha256:8d7aff567f219b4eff2bc57c4b96851998905c6d3d199ff68103b543d6e6f025",
       "source": "input/processed/eli-lilly-q2-fy26.png"
@@ -18238,6 +19132,11 @@
       "path": "input/icon-crop-specs/paramount-q1-fy26.json",
       "digest": "sha256:d3d34de36362dded987e9417a2fa58af9e2558efa6128180b1fb723e1a921592",
       "source": "input/processed/paramount-q1-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/paramount-q3-fy23.json",
+      "digest": "sha256:2426d13811aa8462e8ff619ee7eccf011e01ecb1944afab51f4b403660a86a99",
+      "source": "input/processing/paramount-q3-fy23.png"
     },
     {
       "path": "input/icon-crop-specs/paycom-q1-fy26.json",
