@@ -3375,10 +3375,43 @@
         }
       ],
       "directConsumers": [
-        "crowdstrike-q2-fy27"
+        "crowdstrike-q1-fy24",
+        "crowdstrike-q1-fy25",
+        "crowdstrike-q1-fy26",
+        "crowdstrike-q2-fy24",
+        "crowdstrike-q2-fy25",
+        "crowdstrike-q2-fy27",
+        "crowdstrike-q3-fy24",
+        "crowdstrike-q3-fy25",
+        "crowdstrike-q3-fy26",
+        "crowdstrike-q4-fy24",
+        "crowdstrike-q4-fy25"
       ],
       "consumers": [
-        "crowdstrike-q2-fy27"
+        "crowdstrike-q1-fy24",
+        "crowdstrike-q1-fy25",
+        "crowdstrike-q1-fy26",
+        "crowdstrike-q2-fy24",
+        "crowdstrike-q2-fy25",
+        "crowdstrike-q2-fy27",
+        "crowdstrike-q3-fy24",
+        "crowdstrike-q3-fy25",
+        "crowdstrike-q3-fy26",
+        "crowdstrike-q4-fy24",
+        "crowdstrike-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/crowdstrike/company-wordmark-q4-fy23.png",
+      "digest": "sha256:9e87917c42f52b0cccc2948eb9abca7bf638875f18d4d8c2da2661c0738834dd",
+      "provenance": [],
+      "directConsumers": [
+        "crowdstrike-q4-fy23"
+      ],
+      "consumers": [
+        "crowdstrike-q4-fy23"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -7309,13 +7342,33 @@
       "provenance": [],
       "directConsumers": [
         "lululemon-fy25",
+        "lululemon-q1-fy23",
+        "lululemon-q1-fy25",
         "lululemon-q1-fy26",
-        "lululemon-q2-fy26"
+        "lululemon-q2-fy23",
+        "lululemon-q2-fy25",
+        "lululemon-q2-fy26",
+        "lululemon-q3-fy22",
+        "lululemon-q3-fy23",
+        "lululemon-q3-fy24",
+        "lululemon-q3-fy25",
+        "lululemon-q4-fy22",
+        "lululemon-q4-fy24"
       ],
       "consumers": [
         "lululemon-fy25",
+        "lululemon-q1-fy23",
+        "lululemon-q1-fy25",
         "lululemon-q1-fy26",
-        "lululemon-q2-fy26"
+        "lululemon-q2-fy23",
+        "lululemon-q2-fy25",
+        "lululemon-q2-fy26",
+        "lululemon-q3-fy22",
+        "lululemon-q3-fy23",
+        "lululemon-q3-fy24",
+        "lululemon-q3-fy25",
+        "lululemon-q4-fy22",
+        "lululemon-q4-fy24"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -7326,13 +7379,33 @@
       "provenance": [],
       "directConsumers": [
         "lululemon-fy25",
+        "lululemon-q1-fy23",
+        "lululemon-q1-fy25",
         "lululemon-q1-fy26",
-        "lululemon-q2-fy26"
+        "lululemon-q2-fy23",
+        "lululemon-q2-fy25",
+        "lululemon-q2-fy26",
+        "lululemon-q3-fy22",
+        "lululemon-q3-fy23",
+        "lululemon-q3-fy24",
+        "lululemon-q3-fy25",
+        "lululemon-q4-fy22",
+        "lululemon-q4-fy24"
       ],
       "consumers": [
         "lululemon-fy25",
+        "lululemon-q1-fy23",
+        "lululemon-q1-fy25",
         "lululemon-q1-fy26",
-        "lululemon-q2-fy26"
+        "lululemon-q2-fy23",
+        "lululemon-q2-fy25",
+        "lululemon-q2-fy26",
+        "lululemon-q3-fy22",
+        "lululemon-q3-fy23",
+        "lululemon-q3-fy24",
+        "lululemon-q3-fy25",
+        "lululemon-q4-fy22",
+        "lululemon-q4-fy24"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -10127,9 +10200,17 @@
         }
       ],
       "directConsumers": [
+        "okta-q1-fy25",
+        "okta-q1-fy26",
+        "okta-q2-fy25",
+        "okta-q2-fy26",
         "okta-q2-fy27"
       ],
       "consumers": [
+        "okta-q1-fy25",
+        "okta-q1-fy26",
+        "okta-q2-fy25",
+        "okta-q2-fy26",
         "okta-q2-fy27"
       ],
       "acceptedVersions": [

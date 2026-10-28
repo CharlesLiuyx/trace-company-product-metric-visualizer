@@ -37891,6 +37891,1478 @@
             }
           }
         }
+      },
+      {
+        "key": "crowdstrike-q1-fy24",
+        "src": "data/datasets/crowdstrike-q1-fy24.js",
+        "data": {
+          "name": "CrowdStrike · Q1 FY24",
+          "company": "CrowdStrike",
+          "meta": {
+            "title": "CrowdStrike Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Apr. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "CrowdStrike · 2024 财年第一季度",
+              "meta": {
+                "title": "CrowdStrike 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2023 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "crowdstrike-q1-fy25",
+        "src": "data/datasets/crowdstrike-q1-fy25.js",
+        "data": {
+          "name": "CrowdStrike · Q1 FY25",
+          "company": "CrowdStrike",
+          "meta": {
+            "title": "CrowdStrike Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Apr. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "CrowdStrike · 2025 财年第一季度",
+              "meta": {
+                "title": "CrowdStrike 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2024 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "crowdstrike-q1-fy26",
+        "src": "data/datasets/crowdstrike-q1-fy26.js",
+        "data": {
+          "name": "CrowdStrike · Q1 FY26",
+          "company": "CrowdStrike",
+          "meta": {
+            "title": "CrowdStrike Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Apr. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "CrowdStrike · 2026 财年第一季度",
+              "meta": {
+                "title": "CrowdStrike 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "crowdstrike-q2-fy24",
+        "src": "data/datasets/crowdstrike-q2-fy24.js",
+        "data": {
+          "name": "CrowdStrike · Q2 FY24",
+          "company": "CrowdStrike",
+          "meta": {
+            "title": "CrowdStrike Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending July 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "CrowdStrike · 2024 财年第二季度",
+              "meta": {
+                "title": "CrowdStrike 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2023 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "crowdstrike-q2-fy25",
+        "src": "data/datasets/crowdstrike-q2-fy25.js",
+        "data": {
+          "name": "CrowdStrike · Q2 FY25",
+          "company": "CrowdStrike",
+          "meta": {
+            "title": "CrowdStrike Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending July 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "CrowdStrike · 2025 财年第二季度",
+              "meta": {
+                "title": "CrowdStrike 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2024 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "crowdstrike-q2-fy26",
+        "src": "data/datasets/crowdstrike-q2-fy26.js",
+        "data": {
+          "name": "CrowdStrike · Q2 FY26",
+          "company": "CrowdStrike",
+          "meta": {
+            "title": "CrowdStrike Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending July 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "CrowdStrike · 2026 财年第二季度",
+              "meta": {
+                "title": "CrowdStrike 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2025 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "crowdstrike-q3-fy23",
+        "src": "data/datasets/crowdstrike-q3-fy23.js",
+        "data": {
+          "name": "CrowdStrike · Q3 FY23",
+          "company": "CrowdStrike",
+          "meta": {
+            "title": "CrowdStrike Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending October 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "CrowdStrike · 2023 财年第三季度",
+              "meta": {
+                "title": "CrowdStrike 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2022 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "crowdstrike-q3-fy24",
+        "src": "data/datasets/crowdstrike-q3-fy24.js",
+        "data": {
+          "name": "CrowdStrike · Q3 FY24",
+          "company": "CrowdStrike",
+          "meta": {
+            "title": "CrowdStrike Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending October 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "CrowdStrike · 2024 财年第三季度",
+              "meta": {
+                "title": "CrowdStrike 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2023 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "crowdstrike-q3-fy25",
+        "src": "data/datasets/crowdstrike-q3-fy25.js",
+        "data": {
+          "name": "CrowdStrike · Q3 FY25",
+          "company": "CrowdStrike",
+          "meta": {
+            "title": "CrowdStrike Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Oct. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "CrowdStrike · 2025 财年第三季度",
+              "meta": {
+                "title": "CrowdStrike 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2024 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "crowdstrike-q3-fy26",
+        "src": "data/datasets/crowdstrike-q3-fy26.js",
+        "data": {
+          "name": "CrowdStrike · Q3 FY26",
+          "company": "CrowdStrike",
+          "meta": {
+            "title": "CrowdStrike Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Oct. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "CrowdStrike · 2026 财年第三季度",
+              "meta": {
+                "title": "CrowdStrike 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2025 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "crowdstrike-q4-fy23",
+        "src": "data/datasets/crowdstrike-q4-fy23.js",
+        "data": {
+          "name": "CrowdStrike · Q4 FY23",
+          "company": "CrowdStrike",
+          "meta": {
+            "title": "CrowdStrike Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Jan. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "CrowdStrike · 2023 财年第四季度",
+              "meta": {
+                "title": "CrowdStrike 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "crowdstrike-q4-fy24",
+        "src": "data/datasets/crowdstrike-q4-fy24.js",
+        "data": {
+          "name": "CrowdStrike · Q4 FY24",
+          "company": "CrowdStrike",
+          "meta": {
+            "title": "CrowdStrike Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Jan. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "CrowdStrike · 2024 财年第四季度",
+              "meta": {
+                "title": "CrowdStrike 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "crowdstrike-q4-fy25",
+        "src": "data/datasets/crowdstrike-q4-fy25.js",
+        "data": {
+          "name": "CrowdStrike · Q4 FY25",
+          "company": "CrowdStrike",
+          "meta": {
+            "title": "CrowdStrike Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Jan. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "CrowdStrike · 2025 财年第四季度",
+              "meta": {
+                "title": "CrowdStrike 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "docusign-q1-fy24",
+        "src": "data/datasets/docusign-q1-fy24.js",
+        "data": {
+          "name": "DocuSign · Q1 FY24",
+          "company": "DocuSign",
+          "meta": {
+            "title": "DocuSign Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Apr. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "DocuSign · 2024 财年第一季度",
+              "meta": {
+                "title": "DocuSign 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2023 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "docusign-q1-fy25",
+        "src": "data/datasets/docusign-q1-fy25.js",
+        "data": {
+          "name": "DocuSign · Q1 FY25",
+          "company": "DocuSign",
+          "meta": {
+            "title": "DocuSign Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Apr. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "DocuSign · 2025 财年第一季度",
+              "meta": {
+                "title": "DocuSign 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2024 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "docusign-q1-fy26",
+        "src": "data/datasets/docusign-q1-fy26.js",
+        "data": {
+          "name": "DocuSign · Q1 FY26",
+          "company": "DocuSign",
+          "meta": {
+            "title": "DocuSign Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Apr. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "DocuSign · 2026 财年第一季度",
+              "meta": {
+                "title": "DocuSign 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "docusign-q2-fy24",
+        "src": "data/datasets/docusign-q2-fy24.js",
+        "data": {
+          "name": "DocuSign · Q2 FY24",
+          "company": "DocuSign",
+          "meta": {
+            "title": "DocuSign Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending July 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "DocuSign · 2024 财年第二季度",
+              "meta": {
+                "title": "DocuSign 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2023 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "docusign-q2-fy25",
+        "src": "data/datasets/docusign-q2-fy25.js",
+        "data": {
+          "name": "DocuSign · Q2 FY25",
+          "company": "DocuSign",
+          "meta": {
+            "title": "DocuSign Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending July 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "DocuSign · 2025 财年第二季度",
+              "meta": {
+                "title": "DocuSign 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2024 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "docusign-q2-fy26",
+        "src": "data/datasets/docusign-q2-fy26.js",
+        "data": {
+          "name": "DocuSign · Q2 FY26",
+          "company": "DocuSign",
+          "meta": {
+            "title": "DocuSign Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending July 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "DocuSign · 2026 财年第二季度",
+              "meta": {
+                "title": "DocuSign 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2025 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "docusign-q3-fy23",
+        "src": "data/datasets/docusign-q3-fy23.js",
+        "data": {
+          "name": "DocuSign · Q3 FY23",
+          "company": "DocuSign",
+          "meta": {
+            "title": "DocuSign Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending October 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "DocuSign · 2023 财年第三季度",
+              "meta": {
+                "title": "DocuSign 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2022 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "docusign-q3-fy24",
+        "src": "data/datasets/docusign-q3-fy24.js",
+        "data": {
+          "name": "DocuSign · Q3 FY24",
+          "company": "DocuSign",
+          "meta": {
+            "title": "DocuSign Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Oct. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "DocuSign · 2024 财年第三季度",
+              "meta": {
+                "title": "DocuSign 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2023 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "docusign-q3-fy25",
+        "src": "data/datasets/docusign-q3-fy25.js",
+        "data": {
+          "name": "DocuSign · Q3 FY25",
+          "company": "DocuSign",
+          "meta": {
+            "title": "DocuSign Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Oct. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "DocuSign · 2025 财年第三季度",
+              "meta": {
+                "title": "DocuSign 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2024 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "docusign-q3-fy26",
+        "src": "data/datasets/docusign-q3-fy26.js",
+        "data": {
+          "name": "DocuSign · Q3 FY26",
+          "company": "DocuSign",
+          "meta": {
+            "title": "DocuSign Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Oct. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "DocuSign · 2026 财年第三季度",
+              "meta": {
+                "title": "DocuSign 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2025 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "docusign-q4-fy23",
+        "src": "data/datasets/docusign-q4-fy23.js",
+        "data": {
+          "name": "DocuSign · Q4 FY23",
+          "company": "DocuSign",
+          "meta": {
+            "title": "DocuSign Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Jan. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "DocuSign · 2023 财年第四季度",
+              "meta": {
+                "title": "DocuSign 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "docusign-q4-fy24",
+        "src": "data/datasets/docusign-q4-fy24.js",
+        "data": {
+          "name": "DocuSign · Q4 FY24",
+          "company": "DocuSign",
+          "meta": {
+            "title": "DocuSign Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Jan. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "DocuSign · 2024 财年第四季度",
+              "meta": {
+                "title": "DocuSign 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "docusign-q4-fy25",
+        "src": "data/datasets/docusign-q4-fy25.js",
+        "data": {
+          "name": "DocuSign · Q4 FY25",
+          "company": "DocuSign",
+          "meta": {
+            "title": "DocuSign Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Jan. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "DocuSign · 2025 财年第四季度",
+              "meta": {
+                "title": "DocuSign 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lululemon-fy23",
+        "src": "data/datasets/lululemon-fy23.js",
+        "data": {
+          "name": "lululemon · FY23",
+          "company": "lululemon athletica",
+          "meta": {
+            "title": "Lululemon FY23 Income Statement",
+            "period": "FY23",
+            "periodNote": "Ending Jan. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "lululemon · 2023 财年",
+              "meta": {
+                "title": "Lululemon 2023 财年利润表",
+                "period": "2023 财年",
+                "periodNote": "截至 2024 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lululemon-q1-fy23",
+        "src": "data/datasets/lululemon-q1-fy23.js",
+        "data": {
+          "name": "lululemon · Q1 FY23",
+          "company": "lululemon athletica",
+          "meta": {
+            "title": "Lululemon Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending Apr. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "lululemon · 2023 财年第一季度",
+              "meta": {
+                "title": "Lululemon 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2023 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lululemon-q1-fy24",
+        "src": "data/datasets/lululemon-q1-fy24.js",
+        "data": {
+          "name": "lululemon · Q1 FY24",
+          "company": "lululemon athletica",
+          "meta": {
+            "title": "Lululemon Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Apr. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "lululemon · 2024 财年第一季度",
+              "meta": {
+                "title": "Lululemon 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lululemon-q1-fy25",
+        "src": "data/datasets/lululemon-q1-fy25.js",
+        "data": {
+          "name": "lululemon · Q1 FY25",
+          "company": "lululemon athletica",
+          "meta": {
+            "title": "Lululemon Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Apr. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "lululemon · 2025 财年第一季度",
+              "meta": {
+                "title": "Lululemon 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lululemon-q2-fy23",
+        "src": "data/datasets/lululemon-q2-fy23.js",
+        "data": {
+          "name": "lululemon · Q2 FY23",
+          "company": "lululemon athletica",
+          "meta": {
+            "title": "Lululemon Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending July 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "lululemon · 2023 财年第二季度",
+              "meta": {
+                "title": "Lululemon 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lululemon-q2-fy24",
+        "src": "data/datasets/lululemon-q2-fy24.js",
+        "data": {
+          "name": "lululemon · Q2 FY24",
+          "company": "lululemon athletica",
+          "meta": {
+            "title": "Lululemon Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending July 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "lululemon · 2024 财年第二季度",
+              "meta": {
+                "title": "Lululemon 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lululemon-q2-fy25",
+        "src": "data/datasets/lululemon-q2-fy25.js",
+        "data": {
+          "name": "lululemon · Q2 FY25",
+          "company": "lululemon athletica",
+          "meta": {
+            "title": "Lululemon Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending July 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "lululemon · 2025 财年第二季度",
+              "meta": {
+                "title": "Lululemon 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lululemon-q3-fy22",
+        "src": "data/datasets/lululemon-q3-fy22.js",
+        "data": {
+          "name": "lululemon · Q3 FY22",
+          "company": "lululemon athletica",
+          "meta": {
+            "title": "Lululemon Q3 FY22 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending October 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "lululemon · 2022 财年第三季度",
+              "meta": {
+                "title": "Lululemon 2022 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2022 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lululemon-q3-fy23",
+        "src": "data/datasets/lululemon-q3-fy23.js",
+        "data": {
+          "name": "lululemon · Q3 FY23",
+          "company": "lululemon athletica",
+          "meta": {
+            "title": "Lululemon Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Oct. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "lululemon · 2023 财年第三季度",
+              "meta": {
+                "title": "Lululemon 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lululemon-q3-fy24",
+        "src": "data/datasets/lululemon-q3-fy24.js",
+        "data": {
+          "name": "lululemon · Q3 FY24",
+          "company": "lululemon athletica",
+          "meta": {
+            "title": "Lululemon Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Oct. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "lululemon · 2024 财年第三季度",
+              "meta": {
+                "title": "Lululemon 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lululemon-q3-fy25",
+        "src": "data/datasets/lululemon-q3-fy25.js",
+        "data": {
+          "name": "lululemon · Q3 FY25",
+          "company": "lululemon athletica",
+          "meta": {
+            "title": "Lululemon Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Oct. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "lululemon · 2025 财年第三季度",
+              "meta": {
+                "title": "Lululemon 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lululemon-q4-fy22",
+        "src": "data/datasets/lululemon-q4-fy22.js",
+        "data": {
+          "name": "lululemon · Q4 FY22",
+          "company": "lululemon athletica",
+          "meta": {
+            "title": "Lululemon Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Ending Jan. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "lululemon · 2022 财年第四季度",
+              "meta": {
+                "title": "Lululemon 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2023 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lululemon-q4-fy24",
+        "src": "data/datasets/lululemon-q4-fy24.js",
+        "data": {
+          "name": "lululemon · Q4 FY24",
+          "company": "lululemon athletica",
+          "meta": {
+            "title": "Lululemon Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Jan. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "lululemon · 2024 财年第四季度",
+              "meta": {
+                "title": "Lululemon 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2025 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mongodb-q1-fy24",
+        "src": "data/datasets/mongodb-q1-fy24.js",
+        "data": {
+          "name": "MongoDB · Q1 FY24",
+          "company": "MongoDB",
+          "meta": {
+            "title": "MongoDB Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Apr. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "MongoDB · 2024 财年第一季度",
+              "meta": {
+                "title": "MongoDB 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2023 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mongodb-q1-fy25",
+        "src": "data/datasets/mongodb-q1-fy25.js",
+        "data": {
+          "name": "MongoDB · Q1 FY25",
+          "company": "MongoDB",
+          "meta": {
+            "title": "MongoDB Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Apr. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "MongoDB · 2025 财年第一季度",
+              "meta": {
+                "title": "MongoDB 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2024 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mongodb-q1-fy26",
+        "src": "data/datasets/mongodb-q1-fy26.js",
+        "data": {
+          "name": "MongoDB · Q1 FY26",
+          "company": "MongoDB",
+          "meta": {
+            "title": "MongoDB Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Apr. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "MongoDB · 2026 财年第一季度",
+              "meta": {
+                "title": "MongoDB 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mongodb-q2-fy24",
+        "src": "data/datasets/mongodb-q2-fy24.js",
+        "data": {
+          "name": "MongoDB · Q2 FY24",
+          "company": "MongoDB",
+          "meta": {
+            "title": "MongoDB Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending July 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "MongoDB · 2024 财年第二季度",
+              "meta": {
+                "title": "MongoDB 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2023 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mongodb-q2-fy25",
+        "src": "data/datasets/mongodb-q2-fy25.js",
+        "data": {
+          "name": "MongoDB · Q2 FY25",
+          "company": "MongoDB",
+          "meta": {
+            "title": "MongoDB Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending July 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "MongoDB · 2025 财年第二季度",
+              "meta": {
+                "title": "MongoDB 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2024 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mongodb-q2-fy26",
+        "src": "data/datasets/mongodb-q2-fy26.js",
+        "data": {
+          "name": "MongoDB · Q2 FY26",
+          "company": "MongoDB",
+          "meta": {
+            "title": "MongoDB Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending July 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "MongoDB · 2026 财年第二季度",
+              "meta": {
+                "title": "MongoDB 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2025 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mongodb-q3-fy23",
+        "src": "data/datasets/mongodb-q3-fy23.js",
+        "data": {
+          "name": "MongoDB · Q3 FY23",
+          "company": "MongoDB",
+          "meta": {
+            "title": "MongoDB Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending October 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "MongoDB · 2023 财年第三季度",
+              "meta": {
+                "title": "MongoDB 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2022 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mongodb-q3-fy24",
+        "src": "data/datasets/mongodb-q3-fy24.js",
+        "data": {
+          "name": "MongoDB · Q3 FY24",
+          "company": "MongoDB",
+          "meta": {
+            "title": "MongoDB Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Oct. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "MongoDB · 2024 财年第三季度",
+              "meta": {
+                "title": "MongoDB 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2023 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mongodb-q3-fy25",
+        "src": "data/datasets/mongodb-q3-fy25.js",
+        "data": {
+          "name": "MongoDB · Q3 FY25",
+          "company": "MongoDB",
+          "meta": {
+            "title": "MongoDB Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Oct. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "MongoDB · 2025 财年第三季度",
+              "meta": {
+                "title": "MongoDB 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2024 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mongodb-q3-fy26",
+        "src": "data/datasets/mongodb-q3-fy26.js",
+        "data": {
+          "name": "MongoDB · Q3 FY26",
+          "company": "MongoDB",
+          "meta": {
+            "title": "MongoDB Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Oct. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "MongoDB · 2026 财年第三季度",
+              "meta": {
+                "title": "MongoDB 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2025 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mongodb-q4-fy23",
+        "src": "data/datasets/mongodb-q4-fy23.js",
+        "data": {
+          "name": "MongoDB · Q4 FY23",
+          "company": "MongoDB",
+          "meta": {
+            "title": "MongoDB Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending jan. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "MongoDB · 2023 财年第四季度",
+              "meta": {
+                "title": "MongoDB 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mongodb-q4-fy24",
+        "src": "data/datasets/mongodb-q4-fy24.js",
+        "data": {
+          "name": "MongoDB · Q4 FY24",
+          "company": "MongoDB",
+          "meta": {
+            "title": "MongoDB Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Jan. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "MongoDB · 2024 财年第四季度",
+              "meta": {
+                "title": "MongoDB 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mongodb-q4-fy25",
+        "src": "data/datasets/mongodb-q4-fy25.js",
+        "data": {
+          "name": "MongoDB · Q4 FY25",
+          "company": "MongoDB",
+          "meta": {
+            "title": "MongoDB Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Jan. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "MongoDB · 2025 财年第四季度",
+              "meta": {
+                "title": "MongoDB 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "okta-q1-fy24",
+        "src": "data/datasets/okta-q1-fy24.js",
+        "data": {
+          "name": "Okta · Q1 FY24",
+          "company": "Okta",
+          "meta": {
+            "title": "Okta Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Apr. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Okta · 2024 财年第一季度",
+              "meta": {
+                "title": "Okta 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2023 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "okta-q1-fy25",
+        "src": "data/datasets/okta-q1-fy25.js",
+        "data": {
+          "name": "Okta · Q1 FY25",
+          "company": "Okta",
+          "meta": {
+            "title": "Okta Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Apr. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Okta · 2025 财年第一季度",
+              "meta": {
+                "title": "Okta 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2024 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "okta-q1-fy26",
+        "src": "data/datasets/okta-q1-fy26.js",
+        "data": {
+          "name": "Okta · Q1 FY26",
+          "company": "Okta",
+          "meta": {
+            "title": "Okta Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Apr. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Okta · 2026 财年第一季度",
+              "meta": {
+                "title": "Okta 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "okta-q2-fy24",
+        "src": "data/datasets/okta-q2-fy24.js",
+        "data": {
+          "name": "Okta · Q2 FY24",
+          "company": "Okta",
+          "meta": {
+            "title": "Okta Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending July 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Okta · 2024 财年第二季度",
+              "meta": {
+                "title": "Okta 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2023 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "okta-q2-fy25",
+        "src": "data/datasets/okta-q2-fy25.js",
+        "data": {
+          "name": "Okta · Q2 FY25",
+          "company": "Okta",
+          "meta": {
+            "title": "Okta Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending July 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Okta · 2025 财年第二季度",
+              "meta": {
+                "title": "Okta 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2024 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "okta-q2-fy26",
+        "src": "data/datasets/okta-q2-fy26.js",
+        "data": {
+          "name": "Okta · Q2 FY26",
+          "company": "Okta",
+          "meta": {
+            "title": "Okta Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending July 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Okta · 2026 财年第二季度",
+              "meta": {
+                "title": "Okta 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2025 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "okta-q3-fy23",
+        "src": "data/datasets/okta-q3-fy23.js",
+        "data": {
+          "name": "Okta · Q3 FY23",
+          "company": "Okta",
+          "meta": {
+            "title": "Okta Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending October 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Okta · 2023 财年第三季度",
+              "meta": {
+                "title": "Okta 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2022 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "okta-q3-fy24",
+        "src": "data/datasets/okta-q3-fy24.js",
+        "data": {
+          "name": "Okta · Q3 FY24",
+          "company": "Okta",
+          "meta": {
+            "title": "Okta Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Oct. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Okta · 2024 财年第三季度",
+              "meta": {
+                "title": "Okta 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2023 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "okta-q3-fy26",
+        "src": "data/datasets/okta-q3-fy26.js",
+        "data": {
+          "name": "Okta · Q3 FY26",
+          "company": "Okta",
+          "meta": {
+            "title": "Okta Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Oct. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Okta · 2026 财年第三季度",
+              "meta": {
+                "title": "Okta 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2025 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "okta-q4-fy23",
+        "src": "data/datasets/okta-q4-fy23.js",
+        "data": {
+          "name": "Okta · Q4 FY23",
+          "company": "Okta",
+          "meta": {
+            "title": "Okta Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Jan. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Okta · 2023 财年第四季度",
+              "meta": {
+                "title": "Okta 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "okta-q4-fy24",
+        "src": "data/datasets/okta-q4-fy24.js",
+        "data": {
+          "name": "Okta · Q4 FY24",
+          "company": "Okta",
+          "meta": {
+            "title": "Okta Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Jan. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Okta · 2024 财年第四季度",
+              "meta": {
+                "title": "Okta 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "okta-q4-fy25",
+        "src": "data/datasets/okta-q4-fy25.js",
+        "data": {
+          "name": "Okta · Q4 FY25",
+          "company": "Okta",
+          "meta": {
+            "title": "Okta Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Jan. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Okta · 2025 财年第四季度",
+              "meta": {
+                "title": "Okta 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 1 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

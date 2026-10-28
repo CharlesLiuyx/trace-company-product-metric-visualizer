@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-10-26T07:03:42.528Z",
+  "generatedAt": "2026-10-27T21:15:48.354Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -10277,6 +10277,390 @@
       "path": "data/datasets/warner-bros-q4-fy24.js",
       "updatedAtMs": 1792996342194,
       "updatedAt": "2026-10-26T06:32:22.194Z",
+      "timeSource": "publication"
+    },
+    "crowdstrike-q1-fy24": {
+      "path": "data/datasets/crowdstrike-q1-fy24.js",
+      "updatedAtMs": 1793135637830,
+      "updatedAt": "2026-10-27T21:13:57.830Z",
+      "timeSource": "publication"
+    },
+    "crowdstrike-q1-fy25": {
+      "path": "data/datasets/crowdstrike-q1-fy25.js",
+      "updatedAtMs": 1793135518326,
+      "updatedAt": "2026-10-27T21:11:58.326Z",
+      "timeSource": "publication"
+    },
+    "crowdstrike-q1-fy26": {
+      "path": "data/datasets/crowdstrike-q1-fy26.js",
+      "updatedAtMs": 1793135405177,
+      "updatedAt": "2026-10-27T21:10:05.177Z",
+      "timeSource": "publication"
+    },
+    "crowdstrike-q2-fy24": {
+      "path": "data/datasets/crowdstrike-q2-fy24.js",
+      "updatedAtMs": 1793135587733,
+      "updatedAt": "2026-10-27T21:13:07.733Z",
+      "timeSource": "publication"
+    },
+    "crowdstrike-q2-fy25": {
+      "path": "data/datasets/crowdstrike-q2-fy25.js",
+      "updatedAtMs": 1793135661722,
+      "updatedAt": "2026-10-27T21:14:21.722Z",
+      "timeSource": "publication"
+    },
+    "crowdstrike-q2-fy26": {
+      "path": "data/datasets/crowdstrike-q2-fy26.js",
+      "updatedAtMs": 1793135655134,
+      "updatedAt": "2026-10-27T21:14:15.134Z",
+      "timeSource": "publication"
+    },
+    "crowdstrike-q3-fy23": {
+      "path": "data/datasets/crowdstrike-q3-fy23.js",
+      "updatedAtMs": 1793135494507,
+      "updatedAt": "2026-10-27T21:11:34.507Z",
+      "timeSource": "publication"
+    },
+    "crowdstrike-q3-fy24": {
+      "path": "data/datasets/crowdstrike-q3-fy24.js",
+      "updatedAtMs": 1793135699286,
+      "updatedAt": "2026-10-27T21:14:59.286Z",
+      "timeSource": "publication"
+    },
+    "crowdstrike-q3-fy25": {
+      "path": "data/datasets/crowdstrike-q3-fy25.js",
+      "updatedAtMs": 1793135705471,
+      "updatedAt": "2026-10-27T21:15:05.471Z",
+      "timeSource": "publication"
+    },
+    "crowdstrike-q3-fy26": {
+      "path": "data/datasets/crowdstrike-q3-fy26.js",
+      "updatedAtMs": 1793135446224,
+      "updatedAt": "2026-10-27T21:10:46.224Z",
+      "timeSource": "publication"
+    },
+    "crowdstrike-q4-fy23": {
+      "path": "data/datasets/crowdstrike-q4-fy23.js",
+      "updatedAtMs": 1793135487022,
+      "updatedAt": "2026-10-27T21:11:27.022Z",
+      "timeSource": "publication"
+    },
+    "crowdstrike-q4-fy24": {
+      "path": "data/datasets/crowdstrike-q4-fy24.js",
+      "updatedAtMs": 1793135598606,
+      "updatedAt": "2026-10-27T21:13:18.606Z",
+      "timeSource": "publication"
+    },
+    "crowdstrike-q4-fy25": {
+      "path": "data/datasets/crowdstrike-q4-fy25.js",
+      "updatedAtMs": 1793135505759,
+      "updatedAt": "2026-10-27T21:11:45.759Z",
+      "timeSource": "publication"
+    },
+    "docusign-q1-fy24": {
+      "path": "data/datasets/docusign-q1-fy24.js",
+      "updatedAtMs": 1793135527762,
+      "updatedAt": "2026-10-27T21:12:07.762Z",
+      "timeSource": "publication"
+    },
+    "docusign-q1-fy25": {
+      "path": "data/datasets/docusign-q1-fy25.js",
+      "updatedAtMs": 1793135573589,
+      "updatedAt": "2026-10-27T21:12:53.589Z",
+      "timeSource": "publication"
+    },
+    "docusign-q1-fy26": {
+      "path": "data/datasets/docusign-q1-fy26.js",
+      "updatedAtMs": 1793135410284,
+      "updatedAt": "2026-10-27T21:10:10.284Z",
+      "timeSource": "publication"
+    },
+    "docusign-q2-fy24": {
+      "path": "data/datasets/docusign-q2-fy24.js",
+      "updatedAtMs": 1793135552594,
+      "updatedAt": "2026-10-27T21:12:32.594Z",
+      "timeSource": "publication"
+    },
+    "docusign-q2-fy25": {
+      "path": "data/datasets/docusign-q2-fy25.js",
+      "updatedAtMs": 1793135448226,
+      "updatedAt": "2026-10-27T21:10:48.226Z",
+      "timeSource": "publication"
+    },
+    "docusign-q2-fy26": {
+      "path": "data/datasets/docusign-q2-fy26.js",
+      "updatedAtMs": 1793135419921,
+      "updatedAt": "2026-10-27T21:10:19.921Z",
+      "timeSource": "publication"
+    },
+    "docusign-q3-fy23": {
+      "path": "data/datasets/docusign-q3-fy23.js",
+      "updatedAtMs": 1793135392024,
+      "updatedAt": "2026-10-27T21:09:52.024Z",
+      "timeSource": "publication"
+    },
+    "docusign-q3-fy24": {
+      "path": "data/datasets/docusign-q3-fy24.js",
+      "updatedAtMs": 1793135607480,
+      "updatedAt": "2026-10-27T21:13:27.480Z",
+      "timeSource": "publication"
+    },
+    "docusign-q3-fy25": {
+      "path": "data/datasets/docusign-q3-fy25.js",
+      "updatedAtMs": 1793135478877,
+      "updatedAt": "2026-10-27T21:11:18.877Z",
+      "timeSource": "publication"
+    },
+    "docusign-q3-fy26": {
+      "path": "data/datasets/docusign-q3-fy26.js",
+      "updatedAtMs": 1793135425093,
+      "updatedAt": "2026-10-27T21:10:25.093Z",
+      "timeSource": "publication"
+    },
+    "docusign-q4-fy23": {
+      "path": "data/datasets/docusign-q4-fy23.js",
+      "updatedAtMs": 1793135521342,
+      "updatedAt": "2026-10-27T21:12:01.342Z",
+      "timeSource": "publication"
+    },
+    "docusign-q4-fy24": {
+      "path": "data/datasets/docusign-q4-fy24.js",
+      "updatedAtMs": 1793135647305,
+      "updatedAt": "2026-10-27T21:14:07.305Z",
+      "timeSource": "publication"
+    },
+    "docusign-q4-fy25": {
+      "path": "data/datasets/docusign-q4-fy25.js",
+      "updatedAtMs": 1793135497011,
+      "updatedAt": "2026-10-27T21:11:37.011Z",
+      "timeSource": "publication"
+    },
+    "lululemon-fy23": {
+      "path": "data/datasets/lululemon-fy23.js",
+      "updatedAtMs": 1793135438154,
+      "updatedAt": "2026-10-27T21:10:38.154Z",
+      "timeSource": "publication"
+    },
+    "lululemon-q1-fy23": {
+      "path": "data/datasets/lululemon-q1-fy23.js",
+      "updatedAtMs": 1793135419190,
+      "updatedAt": "2026-10-27T21:10:19.190Z",
+      "timeSource": "publication"
+    },
+    "lululemon-q1-fy24": {
+      "path": "data/datasets/lululemon-q1-fy24.js",
+      "updatedAtMs": 1793135426195,
+      "updatedAt": "2026-10-27T21:10:26.195Z",
+      "timeSource": "publication"
+    },
+    "lululemon-q1-fy25": {
+      "path": "data/datasets/lululemon-q1-fy25.js",
+      "updatedAtMs": 1793135453855,
+      "updatedAt": "2026-10-27T21:10:53.855Z",
+      "timeSource": "publication"
+    },
+    "lululemon-q2-fy23": {
+      "path": "data/datasets/lululemon-q2-fy23.js",
+      "updatedAtMs": 1793135449786,
+      "updatedAt": "2026-10-27T21:10:49.786Z",
+      "timeSource": "publication"
+    },
+    "lululemon-q2-fy24": {
+      "path": "data/datasets/lululemon-q2-fy24.js",
+      "updatedAtMs": 1793135685467,
+      "updatedAt": "2026-10-27T21:14:45.467Z",
+      "timeSource": "publication"
+    },
+    "lululemon-q2-fy25": {
+      "path": "data/datasets/lululemon-q2-fy25.js",
+      "updatedAtMs": 1793135511981,
+      "updatedAt": "2026-10-27T21:11:51.981Z",
+      "timeSource": "publication"
+    },
+    "lululemon-q3-fy22": {
+      "path": "data/datasets/lululemon-q3-fy22.js",
+      "updatedAtMs": 1793135397097,
+      "updatedAt": "2026-10-27T21:09:57.097Z",
+      "timeSource": "publication"
+    },
+    "lululemon-q3-fy23": {
+      "path": "data/datasets/lululemon-q3-fy23.js",
+      "updatedAtMs": 1793135399744,
+      "updatedAt": "2026-10-27T21:09:59.744Z",
+      "timeSource": "publication"
+    },
+    "lululemon-q3-fy24": {
+      "path": "data/datasets/lululemon-q3-fy24.js",
+      "updatedAtMs": 1793135430310,
+      "updatedAt": "2026-10-27T21:10:30.310Z",
+      "timeSource": "publication"
+    },
+    "lululemon-q3-fy25": {
+      "path": "data/datasets/lululemon-q3-fy25.js",
+      "updatedAtMs": 1793135547168,
+      "updatedAt": "2026-10-27T21:12:27.168Z",
+      "timeSource": "publication"
+    },
+    "lululemon-q4-fy22": {
+      "path": "data/datasets/lululemon-q4-fy22.js",
+      "updatedAtMs": 1793135406773,
+      "updatedAt": "2026-10-27T21:10:06.773Z",
+      "timeSource": "publication"
+    },
+    "lululemon-q4-fy24": {
+      "path": "data/datasets/lululemon-q4-fy24.js",
+      "updatedAtMs": 1793135630561,
+      "updatedAt": "2026-10-27T21:13:50.561Z",
+      "timeSource": "publication"
+    },
+    "mongodb-q1-fy24": {
+      "path": "data/datasets/mongodb-q1-fy24.js",
+      "updatedAtMs": 1793135461488,
+      "updatedAt": "2026-10-27T21:11:01.488Z",
+      "timeSource": "publication"
+    },
+    "mongodb-q1-fy25": {
+      "path": "data/datasets/mongodb-q1-fy25.js",
+      "updatedAtMs": 1793135721757,
+      "updatedAt": "2026-10-27T21:15:21.757Z",
+      "timeSource": "publication"
+    },
+    "mongodb-q1-fy26": {
+      "path": "data/datasets/mongodb-q1-fy26.js",
+      "updatedAtMs": 1793135459458,
+      "updatedAt": "2026-10-27T21:10:59.458Z",
+      "timeSource": "publication"
+    },
+    "mongodb-q2-fy24": {
+      "path": "data/datasets/mongodb-q2-fy24.js",
+      "updatedAtMs": 1793135621224,
+      "updatedAt": "2026-10-27T21:13:41.224Z",
+      "timeSource": "publication"
+    },
+    "mongodb-q2-fy25": {
+      "path": "data/datasets/mongodb-q2-fy25.js",
+      "updatedAtMs": 1793135668559,
+      "updatedAt": "2026-10-27T21:14:28.559Z",
+      "timeSource": "publication"
+    },
+    "mongodb-q2-fy26": {
+      "path": "data/datasets/mongodb-q2-fy26.js",
+      "updatedAtMs": 1793135738596,
+      "updatedAt": "2026-10-27T21:15:38.596Z",
+      "timeSource": "publication"
+    },
+    "mongodb-q3-fy23": {
+      "path": "data/datasets/mongodb-q3-fy23.js",
+      "updatedAtMs": 1793135387069,
+      "updatedAt": "2026-10-27T21:09:47.069Z",
+      "timeSource": "publication"
+    },
+    "mongodb-q3-fy24": {
+      "path": "data/datasets/mongodb-q3-fy24.js",
+      "updatedAtMs": 1793135556437,
+      "updatedAt": "2026-10-27T21:12:36.437Z",
+      "timeSource": "publication"
+    },
+    "mongodb-q3-fy25": {
+      "path": "data/datasets/mongodb-q3-fy25.js",
+      "updatedAtMs": 1793135528957,
+      "updatedAt": "2026-10-27T21:12:08.957Z",
+      "timeSource": "publication"
+    },
+    "mongodb-q3-fy26": {
+      "path": "data/datasets/mongodb-q3-fy26.js",
+      "updatedAtMs": 1793135515538,
+      "updatedAt": "2026-10-27T21:11:55.538Z",
+      "timeSource": "publication"
+    },
+    "mongodb-q4-fy23": {
+      "path": "data/datasets/mongodb-q4-fy23.js",
+      "updatedAtMs": 1793135474077,
+      "updatedAt": "2026-10-27T21:11:14.077Z",
+      "timeSource": "publication"
+    },
+    "mongodb-q4-fy24": {
+      "path": "data/datasets/mongodb-q4-fy24.js",
+      "updatedAtMs": 1793135614050,
+      "updatedAt": "2026-10-27T21:13:34.050Z",
+      "timeSource": "publication"
+    },
+    "mongodb-q4-fy25": {
+      "path": "data/datasets/mongodb-q4-fy25.js",
+      "updatedAtMs": 1793135578927,
+      "updatedAt": "2026-10-27T21:12:58.927Z",
+      "timeSource": "publication"
+    },
+    "okta-q1-fy24": {
+      "path": "data/datasets/okta-q1-fy24.js",
+      "updatedAtMs": 1793135679483,
+      "updatedAt": "2026-10-27T21:14:39.483Z",
+      "timeSource": "publication"
+    },
+    "okta-q1-fy25": {
+      "path": "data/datasets/okta-q1-fy25.js",
+      "updatedAtMs": 1793135748354,
+      "updatedAt": "2026-10-27T21:15:48.354Z",
+      "timeSource": "publication"
+    },
+    "okta-q1-fy26": {
+      "path": "data/datasets/okta-q1-fy26.js",
+      "updatedAtMs": 1793135710173,
+      "updatedAt": "2026-10-27T21:15:10.173Z",
+      "timeSource": "publication"
+    },
+    "okta-q2-fy24": {
+      "path": "data/datasets/okta-q2-fy24.js",
+      "updatedAtMs": 1793135675601,
+      "updatedAt": "2026-10-27T21:14:35.601Z",
+      "timeSource": "publication"
+    },
+    "okta-q2-fy25": {
+      "path": "data/datasets/okta-q2-fy25.js",
+      "updatedAtMs": 1793135743427,
+      "updatedAt": "2026-10-27T21:15:43.427Z",
+      "timeSource": "publication"
+    },
+    "okta-q2-fy26": {
+      "path": "data/datasets/okta-q2-fy26.js",
+      "updatedAtMs": 1793135717056,
+      "updatedAt": "2026-10-27T21:15:17.056Z",
+      "timeSource": "publication"
+    },
+    "okta-q3-fy23": {
+      "path": "data/datasets/okta-q3-fy23.js",
+      "updatedAtMs": 1793135534097,
+      "updatedAt": "2026-10-27T21:12:14.097Z",
+      "timeSource": "publication"
+    },
+    "okta-q3-fy24": {
+      "path": "data/datasets/okta-q3-fy24.js",
+      "updatedAtMs": 1793135726029,
+      "updatedAt": "2026-10-27T21:15:26.029Z",
+      "timeSource": "publication"
+    },
+    "okta-q3-fy26": {
+      "path": "data/datasets/okta-q3-fy26.js",
+      "updatedAtMs": 1793135481531,
+      "updatedAt": "2026-10-27T21:11:21.531Z",
+      "timeSource": "publication"
+    },
+    "okta-q4-fy23": {
+      "path": "data/datasets/okta-q4-fy23.js",
+      "updatedAtMs": 1793135484595,
+      "updatedAt": "2026-10-27T21:11:24.595Z",
+      "timeSource": "publication"
+    },
+    "okta-q4-fy24": {
+      "path": "data/datasets/okta-q4-fy24.js",
+      "updatedAtMs": 1793135693178,
+      "updatedAt": "2026-10-27T21:14:53.178Z",
+      "timeSource": "publication"
+    },
+    "okta-q4-fy25": {
+      "path": "data/datasets/okta-q4-fy25.js",
+      "updatedAtMs": 1793135565372,
+      "updatedAt": "2026-10-27T21:12:45.372Z",
       "timeSource": "publication"
     },
     "data/revenue-metrics.js": {

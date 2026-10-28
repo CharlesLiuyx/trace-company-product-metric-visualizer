@@ -10274,6 +10274,390 @@
       "mae": 8.738274549014706,
       "width": 2667,
       "height": 1500
+    },
+    "crowdstrike-q1-fy24": {
+      "similarity": 0.9724216750683943,
+      "mae": 7.032472857559472,
+      "width": 2667,
+      "height": 1500
+    },
+    "crowdstrike-q1-fy25": {
+      "similarity": 0.9738691186477507,
+      "mae": 6.663374744823564,
+      "width": 2667,
+      "height": 1500
+    },
+    "crowdstrike-q1-fy26": {
+      "similarity": 0.9762142500161336,
+      "mae": 6.065366245885931,
+      "width": 2667,
+      "height": 1500
+    },
+    "crowdstrike-q2-fy24": {
+      "similarity": 0.9709151731850512,
+      "mae": 7.41663083781194,
+      "width": 2667,
+      "height": 1500
+    },
+    "crowdstrike-q2-fy25": {
+      "similarity": 0.9750087827256887,
+      "mae": 6.372760404949381,
+      "width": 2667,
+      "height": 1500
+    },
+    "crowdstrike-q2-fy26": {
+      "similarity": 0.9716319250943305,
+      "mae": 7.233859100945715,
+      "width": 2667,
+      "height": 1500
+    },
+    "crowdstrike-q3-fy23": {
+      "similarity": 0.9734419785762074,
+      "mae": 6.772295463067117,
+      "width": 2667,
+      "height": 1500
+    },
+    "crowdstrike-q3-fy24": {
+      "similarity": 0.9740705166756116,
+      "mae": 6.6120182477190355,
+      "width": 2667,
+      "height": 1500
+    },
+    "crowdstrike-q3-fy25": {
+      "similarity": 0.9735095318967482,
+      "mae": 6.7550693663292085,
+      "width": 2667,
+      "height": 1500
+    },
+    "crowdstrike-q3-fy26": {
+      "similarity": 0.9714952944607415,
+      "mae": 7.268699912510936,
+      "width": 2667,
+      "height": 1500
+    },
+    "crowdstrike-q4-fy23": {
+      "similarity": 0.9761793746369939,
+      "mae": 6.074259467566554,
+      "width": 2667,
+      "height": 1500
+    },
+    "crowdstrike-q4-fy24": {
+      "similarity": 0.9721808058306437,
+      "mae": 7.093894513185852,
+      "width": 2667,
+      "height": 1500
+    },
+    "crowdstrike-q4-fy25": {
+      "similarity": 0.9732448875263141,
+      "mae": 6.822553680789901,
+      "width": 2667,
+      "height": 1500
+    },
+    "docusign-q1-fy24": {
+      "similarity": 0.9678143578457922,
+      "mae": 8.207338749323002,
+      "width": 2667,
+      "height": 1500
+    },
+    "docusign-q1-fy25": {
+      "similarity": 0.9697026038411866,
+      "mae": 7.725836020497438,
+      "width": 2667,
+      "height": 1500
+    },
+    "docusign-q1-fy26": {
+      "similarity": 0.9690987861811391,
+      "mae": 7.879809523809524,
+      "width": 2667,
+      "height": 1500
+    },
+    "docusign-q2-fy24": {
+      "similarity": 0.9725259002755374,
+      "mae": 7.005895429737949,
+      "width": 2667,
+      "height": 1500
+    },
+    "docusign-q2-fy25": {
+      "similarity": 0.9700550176325998,
+      "mae": 7.635970503687039,
+      "width": 2667,
+      "height": 1500
+    },
+    "docusign-q2-fy26": {
+      "similarity": 0.9662027857628908,
+      "mae": 8.61828963046286,
+      "width": 2667,
+      "height": 1500
+    },
+    "docusign-q3-fy23": {
+      "similarity": 0.9699926094205544,
+      "mae": 7.651884597758613,
+      "width": 2667,
+      "height": 1500
+    },
+    "docusign-q3-fy24": {
+      "similarity": 0.9703103530359358,
+      "mae": 7.5708599758363535,
+      "width": 2667,
+      "height": 1500
+    },
+    "docusign-q3-fy25": {
+      "similarity": 0.9715094662186834,
+      "mae": 7.265086114235721,
+      "width": 2667,
+      "height": 1500
+    },
+    "docusign-q3-fy26": {
+      "similarity": 0.9717820765868319,
+      "mae": 7.195570470357872,
+      "width": 2667,
+      "height": 1500
+    },
+    "docusign-q4-fy23": {
+      "similarity": 0.9719434377892306,
+      "mae": 7.154423363746198,
+      "width": 2667,
+      "height": 1500
+    },
+    "docusign-q4-fy24": {
+      "similarity": 0.9655177406745725,
+      "mae": 8.792976127984002,
+      "width": 2667,
+      "height": 1500
+    },
+    "docusign-q4-fy25": {
+      "similarity": 0.9650377072147027,
+      "mae": 8.915384660250801,
+      "width": 2667,
+      "height": 1500
+    },
+    "lululemon-fy23": {
+      "similarity": 0.9777459177079989,
+      "mae": 5.674790984460276,
+      "width": 2667,
+      "height": 1500
+    },
+    "lululemon-q1-fy23": {
+      "similarity": 0.9677523584061796,
+      "mae": 8.223148606424196,
+      "width": 2667,
+      "height": 1500
+    },
+    "lululemon-q1-fy24": {
+      "similarity": 0.9783105651009311,
+      "mae": 5.530805899262592,
+      "width": 2667,
+      "height": 1500
+    },
+    "lululemon-q1-fy25": {
+      "similarity": 0.9521942564368996,
+      "mae": 12.190464608590593,
+      "width": 2667,
+      "height": 1500
+    },
+    "lululemon-q2-fy23": {
+      "similarity": 0.9634260406991609,
+      "mae": 9.326359621713953,
+      "width": 2667,
+      "height": 1500
+    },
+    "lululemon-q2-fy24": {
+      "similarity": 0.9737601365188828,
+      "mae": 6.691165187684873,
+      "width": 2667,
+      "height": 1500
+    },
+    "lululemon-q2-fy25": {
+      "similarity": 0.9656982181148925,
+      "mae": 8.746954380702412,
+      "width": 2667,
+      "height": 1500
+    },
+    "lululemon-q3-fy22": {
+      "similarity": 0.9725309839538031,
+      "mae": 7.004599091780194,
+      "width": 2667,
+      "height": 1500
+    },
+    "lululemon-q3-fy23": {
+      "similarity": 0.9702048047915579,
+      "mae": 7.597774778152731,
+      "width": 2667,
+      "height": 1500
+    },
+    "lululemon-q3-fy24": {
+      "similarity": 0.9652633672424934,
+      "mae": 8.857841353164188,
+      "width": 2667,
+      "height": 1500
+    },
+    "lululemon-q3-fy25": {
+      "similarity": 0.9671367079115111,
+      "mae": 8.38013948256468,
+      "width": 2667,
+      "height": 1500
+    },
+    "lululemon-q4-fy22": {
+      "similarity": 0.9717702215327659,
+      "mae": 7.198593509144691,
+      "width": 2667,
+      "height": 1500
+    },
+    "lululemon-q4-fy24": {
+      "similarity": 0.9647344389140899,
+      "mae": 8.992718076907053,
+      "width": 2667,
+      "height": 1500
+    },
+    "mongodb-q1-fy24": {
+      "similarity": 0.9746032866806682,
+      "mae": 6.476161896429613,
+      "width": 2667,
+      "height": 1500
+    },
+    "mongodb-q1-fy25": {
+      "similarity": 0.97005445365081,
+      "mae": 7.636114319043453,
+      "width": 2667,
+      "height": 1500
+    },
+    "mongodb-q1-fy26": {
+      "similarity": 0.9736972737884888,
+      "mae": 6.707195183935341,
+      "width": 2667,
+      "height": 1500
+    },
+    "mongodb-q2-fy24": {
+      "similarity": 0.9709191370686507,
+      "mae": 7.4156200474940634,
+      "width": 2667,
+      "height": 1500
+    },
+    "mongodb-q2-fy25": {
+      "similarity": 0.9713250000612669,
+      "mae": 7.312124984376953,
+      "width": 2667,
+      "height": 1500
+    },
+    "mongodb-q2-fy26": {
+      "similarity": 0.967893579642414,
+      "mae": 8.187137191184435,
+      "width": 2667,
+      "height": 1500
+    },
+    "mongodb-q3-fy23": {
+      "similarity": 0.9726250006330908,
+      "mae": 6.980624838561846,
+      "width": 2667,
+      "height": 1500
+    },
+    "mongodb-q3-fy24": {
+      "similarity": 0.969280834993665,
+      "mae": 7.833387076615423,
+      "width": 2667,
+      "height": 1500
+    },
+    "mongodb-q3-fy25": {
+      "similarity": 0.9622850199280646,
+      "mae": 9.61731991834354,
+      "width": 2667,
+      "height": 1500
+    },
+    "mongodb-q3-fy26": {
+      "similarity": 0.9731740316774129,
+      "mae": 6.840621922259717,
+      "width": 2667,
+      "height": 1500
+    },
+    "mongodb-q4-fy23": {
+      "similarity": 0.9698795791048995,
+      "mae": 7.6807073282506355,
+      "width": 2667,
+      "height": 1500
+    },
+    "mongodb-q4-fy24": {
+      "similarity": 0.9675712186303509,
+      "mae": 8.26933924926051,
+      "width": 2667,
+      "height": 1500
+    },
+    "mongodb-q4-fy25": {
+      "similarity": 0.9710963397549163,
+      "mae": 7.370433362496355,
+      "width": 2667,
+      "height": 1500
+    },
+    "okta-q1-fy24": {
+      "similarity": 0.9666059644505222,
+      "mae": 8.51547906511686,
+      "width": 2667,
+      "height": 1500
+    },
+    "okta-q1-fy25": {
+      "similarity": 0.9702461564853413,
+      "mae": 7.58723009623797,
+      "width": 2667,
+      "height": 1500
+    },
+    "okta-q1-fy26": {
+      "similarity": 0.9712113476011577,
+      "mae": 7.341106361704787,
+      "width": 2667,
+      "height": 1500
+    },
+    "okta-q2-fy24": {
+      "similarity": 0.9647495285311558,
+      "mae": 8.988870224555264,
+      "width": 2667,
+      "height": 1500
+    },
+    "okta-q2-fy25": {
+      "similarity": 0.9693897004704477,
+      "mae": 7.805626380035829,
+      "width": 2667,
+      "height": 1500
+    },
+    "okta-q2-fy26": {
+      "similarity": 0.9708673856944352,
+      "mae": 7.42881664791901,
+      "width": 2667,
+      "height": 1500
+    },
+    "okta-q3-fy23": {
+      "similarity": 0.9661961418221415,
+      "mae": 8.619983835353914,
+      "width": 2667,
+      "height": 1500
+    },
+    "okta-q3-fy24": {
+      "similarity": 0.9630731890539826,
+      "mae": 9.416336791234428,
+      "width": 2667,
+      "height": 1500
+    },
+    "okta-q3-fy26": {
+      "similarity": 0.9611071312164411,
+      "mae": 9.917681539807525,
+      "width": 2667,
+      "height": 1500
+    },
+    "okta-q4-fy23": {
+      "similarity": 0.9662199084591551,
+      "mae": 8.613923342915468,
+      "width": 2667,
+      "height": 1500
+    },
+    "okta-q4-fy24": {
+      "similarity": 0.960417553688142,
+      "mae": 10.09352380952381,
+      "width": 2667,
+      "height": 1500
+    },
+    "okta-q4-fy25": {
+      "similarity": 0.9615326025423293,
+      "mae": 9.809186351706037,
+      "width": 2667,
+      "height": 1500
     }
   }
 }
