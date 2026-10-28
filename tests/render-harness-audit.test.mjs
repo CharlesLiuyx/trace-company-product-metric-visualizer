@@ -1,11 +1,15 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { PNG } from 'pngjs';
 import {
   LABEL_POSITION_CENTER_TOLERANCE,
+  LOGO_INK_CHANNEL_DELTA,
   MIN_VISIBLE_FACE_PX,
   assertNodePaintAudit,
   assertRawSvgCanvas,
   assertRenderAudits,
+  auditLogoInkClearance,
+  countLogoInkOverlap,
   classifyDeclaredSideLabelColumns,
   classifyLabelLayoutAudit,
   classifyLabelPositionAudit,
@@ -593,4 +597,144 @@ test('A10 rejects a repeated route metric label even when the two text boxes do 
   const interest = { nodeId: 'interest', metricExists: true, textCount: 2, hasHitbox: true, hasDuplicateRouteLabel: true };
   assert.deepEqual(classifySemanticAnnotationAudit({ annotations: [interest] }).violations.map((v) => v.code), ['duplicate-route-metric-label']);
   assert.deepEqual(classifySemanticAnnotationAudit({ annotations: [{ ...interest, hasDuplicateRouteLabel: false }] }).violations, []);
+});
+
+function inkImage(width, height, inkedColumns = [], { delta = 200 } = {}) {
+  const data = Buffer.alloc(width * height * 4);
+  for (let y = 0; y < height; y += 1) {
+    for (let x = 0; x < width; x += 1) {
+      const offset = (y * width + x) * 4;
+      const value = inkedColumns.includes(x) ? 239 - delta : 239;
+      data[offset] = value;
+      data[offset + 1] = value;
+      data[offset + 2] = value;
+      data[offset + 3] = 255;
+    }
+  }
+  return { width, height, data };
+}
+
+function range(from, to) {
+  return Array.from({ length: to - from }, (_, index) => from + index);
+}
+
+test('A11 counts only pixels inked by both the hub logo and the protected text', () => {
+  const blank = inkImage(10, 4);
+  // Em-box contact without touching glyphs: the clip exists, the inks do not meet.
+  assert.deepEqual(
+    countLogoInkOverlap({ blank, logo: inkImage(10, 4, range(0, 5)), text: inkImage(10, 4, range(5, 10)) }),
+    { logoInkPixels: 20, textInkPixels: 20, overlapPixels: 0 }
+  );
+  assert.equal(
+    countLogoInkOverlap({ blank, logo: inkImage(10, 4, range(0, 5)), text: inkImage(10, 4, range(3, 10)) }).overlapPixels,
+    8
+  );
+  // Faint antialiasing below the channel delta is not ink.
+  const faint = inkImage(10, 4, range(0, 10), { delta: LOGO_INK_CHANNEL_DELTA - 1 });
+  assert.equal(countLogoInkOverlap({ blank, logo: faint, text: inkImage(10, 4, range(0, 10)) }).overlapPixels, 0);
+  assert.throws(() => countLogoInkOverlap({ blank, logo: inkImage(9, 4), text: blank }), RangeError);
+});
+
+function fakeLogoProbePage(pairs, captures) {
+  const probes = [];
+  let first = true;
+  return {
+    probes,
+    async evaluate(_fn, argument) {
+      if (first) {
+        first = false;
+        return { logos: 1, pairs };
+      }
+      probes.push(argument.target);
+      return undefined;
+    },
+    async screenshot() {
+      return PNG.sync.write(Object.assign(new PNG({ width: 10, height: 4 }), { data: captures.shift().data }));
+    },
+  };
+}
+
+test('A11 rejects the CrowdStrike hub logo over Gross profit and accepts em-box-only contact', async () => {
+  // crowdstrike-q2-fy25 draft (2026-10-28): logoSvg without logoX, centred over
+  // the hub, wordmark glyphs over "Gross profit". Cloudflare-style title
+  // contact (published) shares only em-box space with the wordmark.
+  const clip = { x: 0, y: 0, width: 10, height: 4 };
+  const blank = inkImage(10, 4);
+  const page = fakeLogoProbePage(
+    [
+      { logoIndex: 0, textIndex: 51, logo: 'logo#0', protectedText: { identity: 'title#51', text: 'Cloudflare Q1 FY26' }, clip },
+      { logoIndex: 0, textIndex: 10, logo: 'logo#0', protectedText: { identity: 'label:gross_profit#10', text: 'Gross profit' }, clip },
+    ],
+    [
+      blank, inkImage(10, 4, range(0, 10)), blank,
+      blank, inkImage(10, 4, range(0, 6)), inkImage(10, 4, range(4, 10)),
+    ]
+  );
+  const audit = await auditLogoInkClearance(page);
+  assert.equal(audit.checkedLogos, 1);
+  assert.equal(audit.checkedPairs, 2);
+  assert.deepEqual(audit.violations.map((pair) => `${pair.protectedText.identity}:${pair.overlapPixels}`), ['label:gross_profit#10:8']);
+  assert.deepEqual(
+    page.probes.map((probe) => probe?.kind ?? null),
+    ['none', 'logo', 'text', 'none', 'logo', 'text', null],
+    'each pair captures blank, logo-only and text-only layers, then the probe is removed'
+  );
+  const clean = { textLayoutAudit: { checkedTexts: 1, overflowViolations: [] } };
+  assert.deepEqual(renderAuditFailures({ ...clean, logoInkAudit: audit }), ['A11=ink-overlap:logo#0/label:gross_profit#10:8px']);
+  assert.deepEqual(renderAuditFailures({ ...clean, logoInkAudit: { ...audit, violations: [] } }), []);
+});
+
+test('A11 does not capture anything when no logo bbox meets protected text', async () => {
+  const page = fakeLogoProbePage([], []);
+  const audit = await auditLogoInkClearance(page);
+  assert.equal(audit.checkedPairs, 0);
+  assert.deepEqual(audit.violations, []);
+  assert.deepEqual(page.probes, []);
+});
+
+function valueColumn(overrides = {}) {
+  const faces = {
+    revenue: { x: 874, y: 697, width: 72.93, height: 358 },
+    cost_of_revenue: { x: 1311, y: 904, width: 72.93, height: 74 },
+    gross_profit: { x: 1311, y: 697, width: 72.93, height: 200 },
+    operating_expenses: { x: 1790, y: 850, width: 72.93, height: 150 },
+    amortization: { x: 2266, y: 1107, width: 72.93, height: 3 },
+    route_bridge: { x: 1700, y: 900, width: 1, height: 4 },
+  };
+  return Object.entries({ ...faces, ...overrides }).map(([id, bbox]) => node(id, { bbox }));
+}
+
+const LULULEMON_VALUE_NODES = {
+  visible: ['amortization', 'cost_of_revenue', 'gross_profit', 'operating_expenses', 'revenue'],
+  short: ['amortization'],
+  complete: true,
+};
+
+test('B17 rejects the Lululemon amortization and Okta cost-of-revenue faces narrowed below the column width', () => {
+  assert.doesNotThrow(() => assertNodePaintAudit(classify(valueColumn()), LULULEMON_VALUE_NODES));
+  // lululemon-q4-fy24: the 3px Amortization bar was authored 16px wide in a 72.93px column.
+  assert.throws(
+    () => assertNodePaintAudit(classify(valueColumn({ amortization: { x: 2266, y: 1107, width: 16, height: 3 } })), LULULEMON_VALUE_NODES),
+    (error) => error.code === 'NODE_FACE_POLICY_FAILED' &&
+      error.assessment.checks['width:amortization'].message === 'B17 faceWidth=16px is narrower than 90% of the standard value-node width 72.93px' &&
+      error.assessment.checks['visible:amortization'].status === 'passed' &&
+      error.assessment.summary.standardFaceWidth === 72.93
+  );
+  // okta-q2-fy24: Cost of revenue authored 31.3px wide.
+  assert.throws(
+    () => assertNodePaintAudit(classify(valueColumn({ cost_of_revenue: { x: 1311, y: 904, width: 31.3, height: 74 } })), LULULEMON_VALUE_NODES),
+    (error) => error.assessment.violations.map((item) => `${item.code}:${item.nodeId}`).join() === 'value-face-narrowed:cost_of_revenue'
+  );
+});
+
+test('B17 tolerates column measurement noise and leaves non-value and unbound faces alone', () => {
+  // Published columns differ by up to ~5px (mercadolibre-q4-fy25 68 vs 72).
+  assert.doesNotThrow(() => assertNodePaintAudit(
+    classify(valueColumn({ cost_of_revenue: { x: 1311, y: 904, width: 68, height: 74 } })),
+    LULULEMON_VALUE_NODES
+  ));
+  // The 1px route bridge is painted and tall enough for B15 but is not a Source value node.
+  const narrowed = classify(valueColumn({ amortization: { x: 2266, y: 1107, width: 16, height: 3 } }));
+  assert.equal(narrowed.nodes.find((item) => item.id === 'amortization').faceWidth, 16);
+  assert.doesNotThrow(() => assertNodePaintAudit(narrowed, {}, { enforceUnboundFloor: false }), 'catalog regression has no value nodes');
 });

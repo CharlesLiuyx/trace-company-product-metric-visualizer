@@ -3,6 +3,7 @@
 // in-page dataset render, and the browser-side measurement passes that
 // scripts/verify-d3.mjs and scripts/verify-render-regression.mjs both rely
 // on. Extracted from scripts/verify-d3.mjs; behavior is unchanged.
+import { PNG } from 'pngjs';
 import { PROJECT_FONT_FAMILIES, localFontFaces } from './local-fonts.mjs';
 import {
   MIN_VISIBLE_FACE_PX,
@@ -289,6 +290,7 @@ export function classifyNodePaintAudit({ dataset = '', language = '', background
     const strokeVisible = displayed && hasBox && Number(node.strokeWidth) > 0 && strokePaint.visible;
     const faceVisible = fillVisible || strokeVisible;
     const faceHeight = Math.round((Number(node.bbox?.height) || 0) * 100) / 100;
+    const faceWidth = Math.round((Number(node.bbox?.width) || 0) * 100) / 100;
     return {
       ...node,
       id,
@@ -304,6 +306,7 @@ export function classifyNodePaintAudit({ dataset = '', language = '', background
       strokeVisible,
       faceVisible,
       faceHeight,
+      faceWidth,
       faceBelowVisibilityFloor: faceVisible && isFaceBelowVisibilityFloor(faceHeight),
     };
   });
@@ -366,14 +369,15 @@ function failureList(items, describe) {
 }
 
 // Render audits beyond purity, fonts, B15, G8 and G12. B6 runs on every
-// render; A6 (data-annotation-clearance), I12 (data-annotation-paired-node),
-// A10 (.sankey-interactive-annotation) and T6 (aligned-side-label-column) run
-// when the rendered DOM carries their attribute; T18 runs only for label
-// groups the author declared with a referenceBBox. Returns one failure string
-// per failing rule.
+// render; A6 (data-annotation-clearance), A11 (.sankey-logo), I12
+// (data-annotation-paired-node), A10 (.sankey-interactive-annotation) and T6
+// (aligned-side-label-column) run when the rendered DOM carries their
+// attribute; T18 runs only for label groups the author declared with a
+// referenceBBox. Returns one failure string per failing rule.
 export function renderAuditFailures({
   textLayoutAudit,
   annotationLayoutAudit,
+  logoInkAudit,
   annotationPairingAudit,
   semanticAnnotationAudit,
   labelLayoutAudit,
@@ -387,6 +391,9 @@ export function renderAuditFailures({
   // A6 runs for rendered brand groups and explicit clearance graphics.
   if (Number(annotationLayoutAudit?.checkedAnnotationGraphics) > 0 && (annotationLayoutAudit.overlapViolations || []).length) {
     failures.push(`A6=overlap:${failureList(annotationLayoutAudit.overlapViolations, (item) => `${item.annotation?.identity}/${item.protectedText?.identity}`)}`);
+  }
+  if ((logoInkAudit?.violations || []).length) {
+    failures.push(`A11=ink-overlap:${failureList(logoInkAudit.violations, (item) => `${item.logo}/${item.protectedText.identity}:${item.overlapPixels}px`)}`);
   }
   if (Number(annotationPairingAudit?.expectedPairs) > 0 && (annotationPairingAudit.violations || []).length) {
     failures.push(`I12=${failureList(annotationPairingAudit.violations, (item) => `${item.annotationId}:${item.code}`)}`);
@@ -1064,6 +1071,170 @@ export async function auditTextAndAnnotationLayout(page) {
     return { width, height, texts, annotations, annotationGraphics, pairedNodeAnnotations, protectedTexts };
   });
   return classifyTextAndAnnotationLayout(geometry);
+}
+
+// A11: the hub logo (meta.logoSvg) renders as g.sankey-logo on the root SVG,
+// after the label layer and outside .sankey-annotations, so A6 never sees it.
+// Em-box contact between a logo and a label/title/period is common and
+// source-faithful (descender space, tight headroom), so the gate compares ink:
+// every label/title/period text whose root-space bbox meets a logo bbox is
+// rasterised three times inside the shared clip (nothing, logo only, text
+// only) and pixels inked by both layers count as overlap. Ink is a channel
+// delta from the blank capture, so the backdrop colour never matters.
+export const LOGO_INK_CHANNEL_DELTA = 48;
+export const LOGO_INK_OVERLAP_MAX_PX = 0;
+
+// Counts ink in RGBA buffers of equal size captured from the same clip.
+export function countLogoInkOverlap({ blank, logo, text, channelDelta = LOGO_INK_CHANNEL_DELTA }) {
+  for (const [name, image] of Object.entries({ blank, logo, text })) {
+    if (!image || !Number.isInteger(image.width) || !Number.isInteger(image.height) || !image.data) {
+      throw new TypeError(`A11 ${name} capture must be an RGBA image`);
+    }
+  }
+  if (logo.width !== blank.width || text.width !== blank.width || logo.height !== blank.height || text.height !== blank.height) {
+    throw new RangeError('A11 captures must share one clip size');
+  }
+  const inked = (image, offset) => Math.max(
+    Math.abs(image.data[offset] - blank.data[offset]),
+    Math.abs(image.data[offset + 1] - blank.data[offset + 1]),
+    Math.abs(image.data[offset + 2] - blank.data[offset + 2])
+  ) >= channelDelta;
+  let logoInkPixels = 0;
+  let textInkPixels = 0;
+  let overlapPixels = 0;
+  for (let offset = 0; offset < blank.width * blank.height * 4; offset += 4) {
+    const logoInk = inked(logo, offset);
+    const textInk = inked(text, offset);
+    if (logoInk) logoInkPixels += 1;
+    if (textInk) textInkPixels += 1;
+    if (logoInk && textInk) overlapPixels += 1;
+  }
+  return { logoInkPixels, textInkPixels, overlapPixels };
+}
+
+export function classifyLogoInkClearance({ logos = 0, pairs = [] } = {}) {
+  if (!Array.isArray(pairs)) throw new TypeError('A11 pairs must be an array');
+  const measured = pairs.map((pair) => ({
+    logo: String(pair.logo || 'logo'),
+    protectedText: { identity: String(pair.protectedText?.identity || ''), text: String(pair.protectedText?.text || '') },
+    clip: pair.clip,
+    logoInkPixels: Number(pair.logoInkPixels) || 0,
+    textInkPixels: Number(pair.textInkPixels) || 0,
+    overlapPixels: Number(pair.overlapPixels) || 0,
+  }));
+  return {
+    channelDelta: LOGO_INK_CHANNEL_DELTA,
+    maxOverlapPixels: LOGO_INK_OVERLAP_MAX_PX,
+    checkedLogos: Number(logos) || 0,
+    checkedPairs: measured.length,
+    pairs: measured,
+    violations: measured.filter((pair) => pair.overlapPixels > LOGO_INK_OVERLAP_MAX_PX),
+  };
+}
+
+const LOGO_INK_PROBE_ATTRIBUTE = 'data-a11-ink-probe';
+
+export async function auditLogoInkClearance(page) {
+  const candidates = await page.evaluate(() => {
+    const svg = document.querySelector('#chart > svg');
+    if (!svg) throw new Error('SankeyEngine.render did not create #chart > svg');
+    const rootScreenMatrix = svg.getScreenCTM();
+    const clientBox = (element) => {
+      const box = element.getBoundingClientRect();
+      return { left: box.left, top: box.top, right: box.right, bottom: box.bottom };
+    };
+    const rootBox = (element) => {
+      const box = clientBox(element);
+      const inverse = rootScreenMatrix?.inverse();
+      if (!inverse) return { x: box.left, y: box.top, width: box.right - box.left, height: box.bottom - box.top };
+      const topLeft = new DOMPoint(box.left, box.top).matrixTransform(inverse);
+      const bottomRight = new DOMPoint(box.right, box.bottom).matrixTransform(inverse);
+      return { x: topLeft.x, y: topLeft.y, width: bottomRight.x - topLeft.x, height: bottomRight.y - topLeft.y };
+    };
+    const isPeriodText = (element) => {
+      const parent = element.parentElement;
+      return parent?.parentElement === svg && parent.tagName.toLowerCase() === 'g' && !parent.getAttribute('class');
+    };
+    const logos = Array.from(svg.querySelectorAll('.sankey-logo'));
+    const texts = Array.from(svg.querySelectorAll('text')).map((element, index) => {
+      if (element.closest('.sankey-annotations') || element.closest('.sankey-logo')) return null;
+      const label = element.closest('.sankey-label');
+      const node = label?.getAttribute('data-node');
+      const role = label
+        ? `label${node ? `:${node}` : ''}`
+        : element.matches('.sankey-title')
+          ? 'title'
+          : isPeriodText(element) ? 'period' : null;
+      return role ? { element, index, identity: `${role}#${index}`, text: String(element.textContent || '').replace(/\s+/g, ' ').trim() } : null;
+    }).filter(Boolean);
+    const pairs = [];
+    logos.forEach((logo, logoIndex) => {
+      const logoClient = clientBox(logo);
+      for (const item of texts) {
+        const textClient = clientBox(item.element);
+        // One pixel of padding keeps antialiased edges inside the clip.
+        const left = Math.floor(Math.max(logoClient.left, textClient.left) - 1);
+        const top = Math.floor(Math.max(logoClient.top, textClient.top) - 1);
+        const right = Math.ceil(Math.min(logoClient.right, textClient.right) + 1);
+        const bottom = Math.ceil(Math.min(logoClient.bottom, textClient.bottom) + 1);
+        if (right - left <= 2 || bottom - top <= 2) continue;
+        pairs.push({
+          logoIndex,
+          textIndex: item.index,
+          logo: `logo#${logoIndex}`,
+          logoBBox: rootBox(logo),
+          protectedText: { identity: item.identity, text: item.text, bbox: rootBox(item.element) },
+          clip: {
+            x: Math.max(0, left + window.scrollX),
+            y: Math.max(0, top + window.scrollY),
+            width: right - Math.max(0, left),
+            height: bottom - Math.max(0, top),
+          },
+        });
+      }
+    });
+    return { logos: logos.length, pairs };
+  });
+  if (!candidates.pairs.length) return classifyLogoInkClearance(candidates);
+
+  const setProbe = (target) => page.evaluate(({ attribute, target: probe }) => {
+    const svg = document.querySelector('#chart > svg');
+    let style = document.getElementById('a11-ink-probe-style');
+    if (!probe) {
+      style?.remove();
+      svg.querySelectorAll(`[${attribute}]`).forEach((element) => element.removeAttribute(attribute));
+      return;
+    }
+    if (!style) {
+      style = document.createElement('style');
+      style.id = 'a11-ink-probe-style';
+      style.textContent = `#chart svg * { visibility: hidden !important; } ` +
+        `#chart svg [${attribute}], #chart svg [${attribute}] * { visibility: visible !important; }`;
+      document.head.appendChild(style);
+    }
+    svg.querySelectorAll(`[${attribute}]`).forEach((element) => element.removeAttribute(attribute));
+    const element = probe.kind === 'logo'
+      ? svg.querySelectorAll('.sankey-logo')[probe.index]
+      : probe.kind === 'text' ? svg.querySelectorAll('text')[probe.index] : null;
+    element?.setAttribute(attribute, '');
+  }, { attribute: LOGO_INK_PROBE_ATTRIBUTE, target });
+  const capture = async (clip) => PNG.sync.read(await page.screenshot({ clip, scale: 'css', animations: 'disabled' }));
+
+  const pairs = [];
+  try {
+    for (const pair of candidates.pairs) {
+      await setProbe({ kind: 'none' });
+      const blank = await capture(pair.clip);
+      await setProbe({ kind: 'logo', index: pair.logoIndex });
+      const logo = await capture(pair.clip);
+      await setProbe({ kind: 'text', index: pair.textIndex });
+      const text = await capture(pair.clip);
+      pairs.push({ ...pair, ...countLogoInkOverlap({ blank, logo, text }) });
+    }
+  } finally {
+    await setProbe(null);
+  }
+  return classifyLogoInkClearance({ logos: candidates.logos, pairs });
 }
 
 // A10: every interactive annotation group in the DOM must resolve its

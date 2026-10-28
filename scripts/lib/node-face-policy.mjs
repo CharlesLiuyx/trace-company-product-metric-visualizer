@@ -2,8 +2,13 @@
 // Build's source-objects/v1 to render a painted face, and every rendered node
 // to be painted and at least MIN_VISIBLE_FACE_PX tall unless the author listed
 // it in `shortNodes` (then it must still paint a face taller than 0px).
+// B17: in the same Build-bound render every painted value-node face is at
+// least STANDARD_FACE_WIDTH_RATIO of the median value-node face width; short
+// nodes keep the column width too, since a thin Source bar has no measurable
+// width of its own.
 export const MIN_VISIBLE_FACE_PX = 3;
 export const FACE_FLOOR_RASTER_TOLERANCE_PX = 0.5;
+export const STANDARD_FACE_WIDTH_RATIO = 0.9;
 
 function deepFreeze(value) {
   if (!value || typeof value !== 'object' || Object.isFrozen(value)) return value;
@@ -31,6 +36,17 @@ export function nodeFaceExpectations(sourceObjects) {
 
 function faceHeight(node) {
   return node?.faceHeight ?? node?.bbox?.height;
+}
+
+function faceWidth(node) {
+  return node?.faceWidth ?? node?.bbox?.width;
+}
+
+function median(values) {
+  const sorted = [...values].sort((left, right) => left - right);
+  if (!sorted.length) return null;
+  const middle = Math.floor(sorted.length / 2);
+  return sorted.length % 2 ? sorted[middle] : (sorted[middle - 1] + sorted[middle]) / 2;
 }
 
 function recomputedAuditFacts(audit) {
@@ -116,6 +132,32 @@ export function assessNodePaintAudit(audit, expectations = null, options = {}) {
     };
     if (message) violations.push({ code: 'expected-visible-failed', nodeId: id, message });
   }
+  const valueNodeIds = bound ? [...new Set(expectations.visible || [])].sort() : [];
+  const paintedValueWidths = valueNodeIds
+    .map((id) => facts.byId.get(id))
+    .filter((node) => node?.faceVisible === true)
+    .map((node) => Number(faceWidth(node)))
+    .filter((width) => Number.isFinite(width) && width > 0);
+  const standardFaceWidth = median(paintedValueWidths);
+  if (standardFaceWidth != null) {
+    const minimum = standardFaceWidth * STANDARD_FACE_WIDTH_RATIO;
+    const round = (value) => Math.round(value * 100) / 100;
+    for (const id of valueNodeIds) {
+      const node = facts.byId.get(id);
+      if (node?.faceVisible !== true) continue;
+      const width = Number(faceWidth(node));
+      const message = Number.isFinite(width) && width >= minimum
+        ? ''
+        : `B17 faceWidth=${round(width)}px is narrower than ${STANDARD_FACE_WIDTH_RATIO * 100}% of the standard value-node width ${round(standardFaceWidth)}px`;
+      checks[`width:${id}`] = {
+        nodeId: id,
+        intent: 'standard-width',
+        status: message ? 'failed' : 'passed',
+        ...(message ? { message } : {}),
+      };
+      if (message) violations.push({ code: 'value-face-narrowed', nodeId: id, message });
+    }
+  }
   if (!bound && options.enforceUnboundFloor !== false) {
     for (const nodeId of facts.belowFloorNodeIds) {
       violations.push({
@@ -135,6 +177,7 @@ export function assessNodePaintAudit(audit, expectations = null, options = {}) {
       checkedNodes: facts.nodes.length,
       expectedVisible: expected.size,
       shortNodes: short.size,
+      standardFaceWidth: standardFaceWidth == null ? null : Math.round(standardFaceWidth * 100) / 100,
     },
   });
 }

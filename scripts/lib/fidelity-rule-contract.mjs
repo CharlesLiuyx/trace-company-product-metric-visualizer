@@ -19,8 +19,8 @@ export const FIDELITY_RULE_ENFORCEMENTS = catalogEnforcements();
 // architecture verifier scans executable scripts (excluding this registry)
 // and rejects any rule reference that is not declared here first.
 export const FIDELITY_CODE_RULE_IDS = Object.freeze([
-  'A6', 'A10',
-  'B6', 'B15',
+  'A6', 'A10', 'A11',
+  'B6', 'B15', 'B17',
   'G1', 'G2', 'G3', 'G3d', 'G4', 'G8', 'G11', 'G12',
   'I12',
   'T6', 'T7', 'T18', 'T22',

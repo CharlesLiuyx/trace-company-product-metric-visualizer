@@ -38,16 +38,16 @@ function generatedDocument({ handwritten = '', generated = null } = {}) {
 }
 
 test('default fidelity rule contract keeps only rules with a real execution point', () => {
-  assert.equal(Object.keys(FIDELITY_RULE_CONTRACT.enforcements).length, 17);
-  assert.equal(FIDELITY_RULES.length, 17);
-  for (const id of ['G1', 'G2', 'G3', 'G3d', 'G4', 'G8', 'G12', 'B6', 'B15']) {
+  assert.equal(Object.keys(FIDELITY_RULE_CONTRACT.enforcements).length, 19);
+  assert.equal(FIDELITY_RULES.length, 19);
+  for (const id of ['G1', 'G2', 'G3', 'G3d', 'G4', 'G8', 'G12', 'B6', 'B15', 'B17']) {
     assert.equal(FIDELITY_RULE_CONTRACT.enforcements[id], 'hard-gate', id);
   }
   for (const id of ['G11', 'T22']) {
     assert.equal(FIDELITY_RULE_CONTRACT.enforcements[id], 'build-gate', id);
   }
   // Attribute-driven audits, plus the opt-in T18 label position.
-  for (const id of ['A6', 'A10', 'I12', 'T6', 'T7', 'T18']) {
+  for (const id of ['A6', 'A10', 'A11', 'I12', 'T6', 'T7', 'T18']) {
     assert.equal(FIDELITY_RULE_CONTRACT.enforcements[id], 'conditional-gate', id);
   }
   // Deleted IDs are gone for good and are never reused.
@@ -75,7 +75,7 @@ test('contract registries are derived from the structured catalog', () => {
 
 test('the generated section validates as fresh', () => {
   const validated = validateFidelityRulesDocument(generatedDocument({ handwritten: '\nHandwritten principles may cite G1 and B15.\n' }));
-  assert.equal(validated.ruleCount, 17);
+  assert.equal(validated.ruleCount, 19);
 });
 
 test('stale or tampered generated sections are rejected', () => {

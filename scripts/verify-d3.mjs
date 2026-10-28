@@ -37,6 +37,7 @@ import {
   assertTypographyAudit,
   auditLabelLayout,
   auditLabelPosition,
+  auditLogoInkClearance,
   auditNodePaint,
   auditSemanticAnnotations,
   auditTextAndAnnotationLayout,
@@ -386,6 +387,9 @@ async function renderLocaleRun({
     const interfaceGeometry = await collectCandidateInterfaceGeometry(page, datasetKey, language);
 
     await page.locator('#chart > svg').screenshot({ path: candidatePath });
+    // A11 toggles layer visibility for its ink captures, so it runs after the
+    // candidate screenshot; the probe restores the DOM before returning.
+    const logoInkAudit = await auditLogoInkClearance(page);
     await copyFile(referencePath, referenceComparePath);
     const interfaceAudit = buildInterfaceAudit({
       geometry: interfaceGeometry,
@@ -417,6 +421,7 @@ async function renderLocaleRun({
     gate('render-audits', () => assertRenderAudits({
       textLayoutAudit,
       annotationLayoutAudit,
+      logoInkAudit,
       annotationPairingAudit,
       semanticAnnotationAudit,
       labelLayoutAudit,
@@ -470,6 +475,7 @@ async function renderLocaleRun({
       labelPositionAudit,
       textLayoutAudit,
       annotationLayoutAudit,
+      logoInkAudit,
       annotationPairingAudit,
       semanticAnnotationAudit,
       interfaceAudit: {
@@ -538,7 +544,7 @@ async function renderLocaleRun({
       `G2 canvas: rawViewBox=${purity.viewBox || 'missing'} rawWidth=${purity.widthAttribute || 'responsive'} rawHeight=${purity.heightAttribute || 'responsive'} capture=${captureSize.width}x${captureSize.height}`
     );
     console.log(
-      `node paint audit: checked=${nodePaintAudit.checkedNodes} visible=${nodePaintAudit.visibleNodeIds.length} invisible=${nodePaintAudit.invisibleNodeIds.length} expectedValueNodes=${faceExpectations?.visible.length ?? 0} shortNodes=${faceExpectations?.short.length ?? 0} belowFloor=${nodePaintAudit.belowVisibilityFloorNodeIds.length} rule=B15`
+      `node paint audit: checked=${nodePaintAudit.checkedNodes} visible=${nodePaintAudit.visibleNodeIds.length} invisible=${nodePaintAudit.invisibleNodeIds.length} expectedValueNodes=${faceExpectations?.visible.length ?? 0} shortNodes=${faceExpectations?.short.length ?? 0} belowFloor=${nodePaintAudit.belowVisibilityFloorNodeIds.length} rules=B15,B17`
     );
     logLabelLayoutAudit(labelLayoutAudit);
     console.log(
@@ -552,6 +558,9 @@ async function renderLocaleRun({
     );
     console.log(
       `annotation clearance audit: annotations=${annotationLayoutAudit.checkedAnnotations} (text=${annotationLayoutAudit.checkedAnnotationTexts}, graphic=${annotationLayoutAudit.checkedAnnotationGraphics}) protected=${annotationLayoutAudit.checkedProtectedTexts} overlaps=${annotationLayoutAudit.overlapViolations.length} tolerance=${annotationLayoutAudit.tolerance}px rule=A6 (${annotationLayoutAudit.checkedAnnotationGraphics > 0 ? 'enforced: brand group or data-annotation-clearance present' : 'not triggered'})`
+    );
+    console.log(
+      `logo ink audit: logos=${logoInkAudit.checkedLogos} bboxContacts=${logoInkAudit.checkedPairs} inkOverlaps=${logoInkAudit.violations.length} rule=A11 (${logoInkAudit.checkedLogos > 0 ? 'enforced: .sankey-logo present' : 'not triggered'})`
     );
     console.log(
       `annotation pairing audit: expected=${annotationPairingAudit.expectedPairs} measured=${annotationPairingAudit.measuredPairs} violations=${annotationPairingAudit.violations.length} tolerance=${annotationPairingAudit.tolerance}px rule=I12`

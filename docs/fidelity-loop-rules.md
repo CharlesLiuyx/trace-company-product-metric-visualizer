@@ -51,11 +51,13 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 | [G12](#rule-g12) | `hard-gate` | 可见接口 |
 | [B6](#rule-b6) | `hard-gate` | 文本在画布内 |
 | [B15](#rule-b15) | `hard-gate` | node 柱面可见且不低于 3px |
+| [B17](#rule-b17) | `hard-gate` | value node 柱面保持标准列宽 |
 | [T22](#rule-t22) | `build-gate` | 带值 Other 是数据柱 |
 | [T6](#rule-t6) | `conditional-gate` | 侧置 label 列对齐 |
 | [T7](#rule-t7) | `conditional-gate` | 侧置 label 垂直居中 |
 | [A6](#rule-a6) | `conditional-gate` | annotation 净空 |
 | [A10](#rule-a10) | `conditional-gate` | 交互 annotation 绑定 node |
+| [A11](#rule-a11) | `conditional-gate` | 公司 Logo 墨迹净空 |
 | [I12](#rule-i12) | `conditional-gate` | 图标簇与 paired 目标对齐 |
 | [T18](#rule-t18) | `conditional-gate` | label 组位置（可选） |
 
@@ -126,6 +128,14 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 - 通过：Build-bound run 中每个 value 对象映射的 node 都渲染出区别于背景的柱面，且每个渲染出的 node 都有柱面、高度加容差不低于 3px；透明、none、零 opacity、隐藏，或只有 bbox、link、hitbox、接口都失败。真实 Source 柱面本身低于 3px 时，只接受 source-facts 顶层 `shortNodes` 中写明 node 与理由的声明，该 node 仍须绘制高度大于 0 的柱面。无 Build 的诊断只检查已绘制柱面的 3px 下限。
 - 证据：逐 locale 的 `nodePaintAudit`。
 
+#### <a id="rule-b17"></a>B17 · hard-gate · value node 柱面保持标准列宽
+
+- 触发：每个 Build-bound evidence run，以 `source-objects/v1` 的 value node 为期望；无 Build 的诊断与目录回归不执行。
+- 检查：逐 locale 的 `nodePaintAudit` 记录每个已绘制 node face 的渲染 `faceWidth`；以全部已绘制 value node 的 `faceWidth` 中位数为该 View 的标准柱宽。
+- 通过：每个已绘制的 value node（含 `shortNodes` 中的短柱）`faceWidth` 不低于标准柱宽的 90%；没有豁免声明。源图细柱看起来短或只剩引导线尾巴时，柱面仍按列宽绘制，不得为避开其他门槛或按误测把 node 缩窄。
+- 证据：逐 locale 的 `nodePaintAudit` 与 B15/B17 node face 判定的 `width:<node>` 检查。
+- 理由：90% 高于已发布数据集里列与列之间的测量差（最多约 5px/72px），低于被缩窄柱的实际宽度比（16/73、31/73）。
+
 #### <a id="rule-t22"></a>T22 · build-gate · 带值 Other 是数据柱
 
 - 触发：prepare 校验 `source-objects/v1` 时，对象的 id、label 或 literal 命中 Other/All Other 语义。
@@ -157,6 +167,14 @@ _本目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rule
 - 触发：渲染结果含 `.sankey-interactive-annotation` group 时，期望来自 DOM 而非作者声明。
 - 通过：每个 group 都带可解析到 node 或 non-node metric 的 `data-node`，含文本且由 renderer 提供透明 hitbox；带组内或紧邻前置引导线（未闭合的无填充 path、line 或 polyline）的 annotation non-node metric 必须声明可解析的 `data-link-numerator` 与 `data-link-denominator`，用于 Hover 百分比；同时须声明 `data-link-anchor-x/y`（根 SVG 坐标，renderer 不套用 group transform），锚点到渲染后引导线的距离 `<=40px`；同名 node-like annotation text 未绑定到该 group 即失败；同一指标在 annotation 与 label 层绘制的同文文本不得交叠，路由指标跨层同文重复即失败。
 - 证据：逐 locale 的 `semanticAnnotationAudit`。
+
+#### <a id="rule-a11"></a>A11 · conditional-gate · 公司 Logo 墨迹净空
+
+- 触发：渲染结果含 `meta.logoSvg` 生成的 `g.sankey-logo` 时（它直接挂在根 SVG 上、晚于 label 层绘制，不在 A6 的 annotation 选择器内）。
+- 检查：与 Logo 渲染 bbox 相交的每个 label、title、period 文本，在相交区域内分别截取空白、仅 Logo、仅该文本三张图；与空白图任一通道差 `>=48` 的像素为墨迹，两层同时有墨迹的像素计为交叠。
+- 通过：交叠像素为 0。只有 em-box 接触（下行区、行距留白）而墨迹不相碰时通过；Logo 未声明 `logoX` 时 renderer 把它居中在 hub 上方，压住相邻 label 即失败，按原图位置声明 `logoX/logoY` 或缩放后重跑。
+- 证据：逐 locale 的 `logoInkAudit`（每对的裁剪框、Logo/文本墨迹像素与交叠像素）。
+- 理由：已发布目录中 Logo 与文本 em-box 相交 327 对（多为 1–20px 的标题或 Revenue label 留白，视觉清楚且忠于原图），墨迹交叠只出现在 3 个真实压字的数据集。
 
 #### <a id="rule-i12"></a>I12 · conditional-gate · 图标簇与 paired 目标对齐
 

@@ -89,6 +89,9 @@ Invariants checked by `prepare`:
   facts: `"shortNodes": [{ "node": "other", "reason": "Source paints a 1px bar" }]`.
   B15 then accepts that node below the floor while it still paints a face; it is
   never inflated or suppressed.
+- A value node keeps the View's column width even when its Source bar is thin
+  or reads as a leader tail; never narrow a node to fit a label or dodge another
+  gate. B17 rejects a narrowed face and has no declaration.
 - When the operator directs a topology correction (for example a misdrawn
   "Tax benefit" inflow corrected to a Tax outflow), the corrected node face has
   no Source counterpart. Declare each such face at the top level:
