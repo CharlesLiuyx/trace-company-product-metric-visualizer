@@ -28,7 +28,7 @@ header strong{font-size:13px;flex:none}button,select{font:inherit;line-height:20
   const production = 'https://charlesliuyx.github.io/trace-company-product-metric-visualizer/';
   let source = params.get('source') || 'review', mode = params.get('mode') || 'preview';
   let pinned = /^[a-f0-9-]+$/.test(params.get('candidate') || '') ? params.get('candidate') : null;
-  let viewPreferences = null, shownCandidate = null;
+  let viewPreferences = null, shownCandidate = null, seenCandidate = null;
   let follow = params.get('follow') !== '0';
   let state = null, lastFrame = '', activeHash = location.hash, devRevision = -1;
   let requestId = 0, controller = null, busy = false, rerun = false;
@@ -169,6 +169,14 @@ header strong{font-size:13px;flex:none}button,select{font:inherit;line-height:20
       if (id !== requestId) return;
       if (!response.ok) throw new Error(value.error);
       if (value.shellDigest && shellDigest.startsWith('sha256:') && value.shellDigest !== shellDigest) { selectedHash(); route(); location.reload(); return; }
+      // A review item left over from an earlier candidate (or a stale link) would
+      // hide every pending item of the new one; a company browsed on purpose stays.
+      const latest = value.preview.candidate;
+      if (source === 'review' && (follow || !pinned) && latest && latest.id !== seenCandidate?.id) {
+        const member = (candidate) => candidate?.members?.some((item) => '#' + item.key === activeHash);
+        if (activeHash && !member(latest) && (!seenCandidate || member(seenCandidate))) activeHash = '';
+        seenCandidate = latest;
+      }
       if (!activeHash) {
         const task = value.tasks.find((item) => item.buildId === (params.get('review') || source));
         const first = value.preview.candidate?.members?.find((item) => item.pending) || value.preview.candidate?.members?.[0];
