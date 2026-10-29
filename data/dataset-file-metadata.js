@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-10-27T21:15:48.354Z",
+  "generatedAt": "2026-10-28T20:28:21.888Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -10661,6 +10661,450 @@
       "path": "data/datasets/okta-q4-fy25.js",
       "updatedAtMs": 1793135565372,
       "updatedAt": "2026-10-27T21:12:45.372Z",
+      "timeSource": "publication"
+    },
+    "blackrock-q1-fy23": {
+      "path": "data/datasets/blackrock-q1-fy23.js",
+      "updatedAtMs": 1793218963474,
+      "updatedAt": "2026-10-28T20:22:43.474Z",
+      "timeSource": "publication"
+    },
+    "blackrock-q1-fy24": {
+      "path": "data/datasets/blackrock-q1-fy24.js",
+      "updatedAtMs": 1793219240108,
+      "updatedAt": "2026-10-28T20:27:20.108Z",
+      "timeSource": "publication"
+    },
+    "blackrock-q1-fy25": {
+      "path": "data/datasets/blackrock-q1-fy25.js",
+      "updatedAtMs": 1793219114072,
+      "updatedAt": "2026-10-28T20:25:14.072Z",
+      "timeSource": "publication"
+    },
+    "blackrock-q2-fy23": {
+      "path": "data/datasets/blackrock-q2-fy23.js",
+      "updatedAtMs": 1793218998698,
+      "updatedAt": "2026-10-28T20:23:18.698Z",
+      "timeSource": "publication"
+    },
+    "blackrock-q2-fy24": {
+      "path": "data/datasets/blackrock-q2-fy24.js",
+      "updatedAtMs": 1793219146760,
+      "updatedAt": "2026-10-28T20:25:46.760Z",
+      "timeSource": "publication"
+    },
+    "blackrock-q2-fy25": {
+      "path": "data/datasets/blackrock-q2-fy25.js",
+      "updatedAtMs": 1793219224929,
+      "updatedAt": "2026-10-28T20:27:04.929Z",
+      "timeSource": "publication"
+    },
+    "blackrock-q3-fy23": {
+      "path": "data/datasets/blackrock-q3-fy23.js",
+      "updatedAtMs": 1793219066431,
+      "updatedAt": "2026-10-28T20:24:26.431Z",
+      "timeSource": "publication"
+    },
+    "blackrock-q3-fy24": {
+      "path": "data/datasets/blackrock-q3-fy24.js",
+      "updatedAtMs": 1793219196177,
+      "updatedAt": "2026-10-28T20:26:36.177Z",
+      "timeSource": "publication"
+    },
+    "blackrock-q3-fy25": {
+      "path": "data/datasets/blackrock-q3-fy25.js",
+      "updatedAtMs": 1793219217179,
+      "updatedAt": "2026-10-28T20:26:57.179Z",
+      "timeSource": "publication"
+    },
+    "blackrock-q4-fy22": {
+      "path": "data/datasets/blackrock-q4-fy22.js",
+      "updatedAtMs": 1793218915496,
+      "updatedAt": "2026-10-28T20:21:55.496Z",
+      "timeSource": "publication"
+    },
+    "blackrock-q4-fy23": {
+      "path": "data/datasets/blackrock-q4-fy23.js",
+      "updatedAtMs": 1793219117768,
+      "updatedAt": "2026-10-28T20:25:17.768Z",
+      "timeSource": "publication"
+    },
+    "blackrock-q4-fy24": {
+      "path": "data/datasets/blackrock-q4-fy24.js",
+      "updatedAtMs": 1793219043409,
+      "updatedAt": "2026-10-28T20:24:03.409Z",
+      "timeSource": "publication"
+    },
+    "citigroup-q1-fy23": {
+      "path": "data/datasets/citigroup-q1-fy23.js",
+      "updatedAtMs": 1793218961168,
+      "updatedAt": "2026-10-28T20:22:41.168Z",
+      "timeSource": "publication"
+    },
+    "citigroup-q1-fy24": {
+      "path": "data/datasets/citigroup-q1-fy24.js",
+      "updatedAtMs": 1793219269997,
+      "updatedAt": "2026-10-28T20:27:49.997Z",
+      "timeSource": "publication"
+    },
+    "citigroup-q1-fy25": {
+      "path": "data/datasets/citigroup-q1-fy25.js",
+      "updatedAtMs": 1793219106554,
+      "updatedAt": "2026-10-28T20:25:06.554Z",
+      "timeSource": "publication"
+    },
+    "citigroup-q2-fy23": {
+      "path": "data/datasets/citigroup-q2-fy23.js",
+      "updatedAtMs": 1793219015017,
+      "updatedAt": "2026-10-28T20:23:35.017Z",
+      "timeSource": "publication"
+    },
+    "citigroup-q2-fy24": {
+      "path": "data/datasets/citigroup-q2-fy24.js",
+      "updatedAtMs": 1793219126921,
+      "updatedAt": "2026-10-28T20:25:26.921Z",
+      "timeSource": "publication"
+    },
+    "citigroup-q2-fy25": {
+      "path": "data/datasets/citigroup-q2-fy25.js",
+      "updatedAtMs": 1793219236667,
+      "updatedAt": "2026-10-28T20:27:16.667Z",
+      "timeSource": "publication"
+    },
+    "citigroup-q3-fy22": {
+      "path": "data/datasets/citigroup-q3-fy22.js",
+      "updatedAtMs": 1793200032002,
+      "updatedAt": "2026-10-28T15:07:12.002Z",
+      "timeSource": "publication"
+    },
+    "citigroup-q3-fy23": {
+      "path": "data/datasets/citigroup-q3-fy23.js",
+      "updatedAtMs": 1793219057915,
+      "updatedAt": "2026-10-28T20:24:17.915Z",
+      "timeSource": "publication"
+    },
+    "citigroup-q3-fy24": {
+      "path": "data/datasets/citigroup-q3-fy24.js",
+      "updatedAtMs": 1793219175746,
+      "updatedAt": "2026-10-28T20:26:15.746Z",
+      "timeSource": "publication"
+    },
+    "citigroup-q3-fy25": {
+      "path": "data/datasets/citigroup-q3-fy25.js",
+      "updatedAtMs": 1793219191731,
+      "updatedAt": "2026-10-28T20:26:31.731Z",
+      "timeSource": "publication"
+    },
+    "citigroup-q4-fy22": {
+      "path": "data/datasets/citigroup-q4-fy22.js",
+      "updatedAtMs": 1793218901025,
+      "updatedAt": "2026-10-28T20:21:41.025Z",
+      "timeSource": "publication"
+    },
+    "citigroup-q4-fy23": {
+      "path": "data/datasets/citigroup-q4-fy23.js",
+      "updatedAtMs": 1793219135730,
+      "updatedAt": "2026-10-28T20:25:35.730Z",
+      "timeSource": "publication"
+    },
+    "citigroup-q4-fy24": {
+      "path": "data/datasets/citigroup-q4-fy24.js",
+      "updatedAtMs": 1793219021292,
+      "updatedAt": "2026-10-28T20:23:41.292Z",
+      "timeSource": "publication"
+    },
+    "coupang-q1-fy23": {
+      "path": "data/datasets/coupang-q1-fy23.js",
+      "updatedAtMs": 1793218977686,
+      "updatedAt": "2026-10-28T20:22:57.686Z",
+      "timeSource": "publication"
+    },
+    "coupang-q1-fy24": {
+      "path": "data/datasets/coupang-q1-fy24.js",
+      "updatedAtMs": 1793219301888,
+      "updatedAt": "2026-10-28T20:28:21.888Z",
+      "timeSource": "publication"
+    },
+    "coupang-q1-fy25": {
+      "path": "data/datasets/coupang-q1-fy25.js",
+      "updatedAtMs": 1793200628846,
+      "updatedAt": "2026-10-28T15:17:08.846Z",
+      "timeSource": "publication"
+    },
+    "coupang-q2-fy23": {
+      "path": "data/datasets/coupang-q2-fy23.js",
+      "updatedAtMs": 1793218908320,
+      "updatedAt": "2026-10-28T20:21:48.320Z",
+      "timeSource": "publication"
+    },
+    "coupang-q2-fy24": {
+      "path": "data/datasets/coupang-q2-fy24.js",
+      "updatedAtMs": 1793219294097,
+      "updatedAt": "2026-10-28T20:28:14.097Z",
+      "timeSource": "publication"
+    },
+    "coupang-q2-fy25": {
+      "path": "data/datasets/coupang-q2-fy25.js",
+      "updatedAtMs": 1793219286442,
+      "updatedAt": "2026-10-28T20:28:06.442Z",
+      "timeSource": "publication"
+    },
+    "coupang-q3-fy22": {
+      "path": "data/datasets/coupang-q3-fy22.js",
+      "updatedAtMs": 1793218987785,
+      "updatedAt": "2026-10-28T20:23:07.785Z",
+      "timeSource": "publication"
+    },
+    "coupang-q3-fy23": {
+      "path": "data/datasets/coupang-q3-fy23.js",
+      "updatedAtMs": 1793218924652,
+      "updatedAt": "2026-10-28T20:22:04.652Z",
+      "timeSource": "publication"
+    },
+    "coupang-q3-fy24": {
+      "path": "data/datasets/coupang-q3-fy24.js",
+      "updatedAtMs": 1793200641565,
+      "updatedAt": "2026-10-28T15:17:21.565Z",
+      "timeSource": "publication"
+    },
+    "coupang-q4-fy22": {
+      "path": "data/datasets/coupang-q4-fy22.js",
+      "updatedAtMs": 1793200036502,
+      "updatedAt": "2026-10-28T15:07:16.502Z",
+      "timeSource": "publication"
+    },
+    "coupang-q4-fy23": {
+      "path": "data/datasets/coupang-q4-fy23.js",
+      "updatedAtMs": 1793219276424,
+      "updatedAt": "2026-10-28T20:27:56.424Z",
+      "timeSource": "publication"
+    },
+    "coupang-q4-fy24": {
+      "path": "data/datasets/coupang-q4-fy24.js",
+      "updatedAtMs": 1793200675339,
+      "updatedAt": "2026-10-28T15:17:55.339Z",
+      "timeSource": "publication"
+    },
+    "morgan-stanley-q1-fy23": {
+      "path": "data/datasets/morgan-stanley-q1-fy23.js",
+      "updatedAtMs": 1793218992348,
+      "updatedAt": "2026-10-28T20:23:12.348Z",
+      "timeSource": "publication"
+    },
+    "morgan-stanley-q1-fy24": {
+      "path": "data/datasets/morgan-stanley-q1-fy24.js",
+      "updatedAtMs": 1793219281321,
+      "updatedAt": "2026-10-28T20:28:01.321Z",
+      "timeSource": "publication"
+    },
+    "morgan-stanley-q1-fy25": {
+      "path": "data/datasets/morgan-stanley-q1-fy25.js",
+      "updatedAtMs": 1793219096515,
+      "updatedAt": "2026-10-28T20:24:56.515Z",
+      "timeSource": "publication"
+    },
+    "morgan-stanley-q2-fy23": {
+      "path": "data/datasets/morgan-stanley-q2-fy23.js",
+      "updatedAtMs": 1793219027412,
+      "updatedAt": "2026-10-28T20:23:47.412Z",
+      "timeSource": "publication"
+    },
+    "morgan-stanley-q2-fy24": {
+      "path": "data/datasets/morgan-stanley-q2-fy24.js",
+      "updatedAtMs": 1793219152036,
+      "updatedAt": "2026-10-28T20:25:52.036Z",
+      "timeSource": "publication"
+    },
+    "morgan-stanley-q2-fy25": {
+      "path": "data/datasets/morgan-stanley-q2-fy25.js",
+      "updatedAtMs": 1793219229546,
+      "updatedAt": "2026-10-28T20:27:09.546Z",
+      "timeSource": "publication"
+    },
+    "morgan-stanley-q3-fy23": {
+      "path": "data/datasets/morgan-stanley-q3-fy23.js",
+      "updatedAtMs": 1793219102326,
+      "updatedAt": "2026-10-28T20:25:02.326Z",
+      "timeSource": "publication"
+    },
+    "morgan-stanley-q3-fy24": {
+      "path": "data/datasets/morgan-stanley-q3-fy24.js",
+      "updatedAtMs": 1793219187272,
+      "updatedAt": "2026-10-28T20:26:27.272Z",
+      "timeSource": "publication"
+    },
+    "morgan-stanley-q3-fy25": {
+      "path": "data/datasets/morgan-stanley-q3-fy25.js",
+      "updatedAtMs": 1793219212317,
+      "updatedAt": "2026-10-28T20:26:52.317Z",
+      "timeSource": "publication"
+    },
+    "morgan-stanley-q4-fy22": {
+      "path": "data/datasets/morgan-stanley-q4-fy22.js",
+      "updatedAtMs": 1793218938207,
+      "updatedAt": "2026-10-28T20:22:18.207Z",
+      "timeSource": "publication"
+    },
+    "morgan-stanley-q4-fy23": {
+      "path": "data/datasets/morgan-stanley-q4-fy23.js",
+      "updatedAtMs": 1793219078415,
+      "updatedAt": "2026-10-28T20:24:38.415Z",
+      "timeSource": "publication"
+    },
+    "morgan-stanley-q4-fy24": {
+      "path": "data/datasets/morgan-stanley-q4-fy24.js",
+      "updatedAtMs": 1793219033671,
+      "updatedAt": "2026-10-28T20:23:53.671Z",
+      "timeSource": "publication"
+    },
+    "roku-q1-fy23": {
+      "path": "data/datasets/roku-q1-fy23.js",
+      "updatedAtMs": 1793200024051,
+      "updatedAt": "2026-10-28T15:07:04.051Z",
+      "timeSource": "publication"
+    },
+    "roku-q1-fy24": {
+      "path": "data/datasets/roku-q1-fy24.js",
+      "updatedAtMs": 1793219029392,
+      "updatedAt": "2026-10-28T20:23:49.392Z",
+      "timeSource": "publication"
+    },
+    "roku-q1-fy25": {
+      "path": "data/datasets/roku-q1-fy25.js",
+      "updatedAtMs": 1793219017727,
+      "updatedAt": "2026-10-28T20:23:37.727Z",
+      "timeSource": "publication"
+    },
+    "roku-q2-fy23": {
+      "path": "data/datasets/roku-q2-fy23.js",
+      "updatedAtMs": 1793200049423,
+      "updatedAt": "2026-10-28T15:07:29.423Z",
+      "timeSource": "publication"
+    },
+    "roku-q2-fy24": {
+      "path": "data/datasets/roku-q2-fy24.js",
+      "updatedAtMs": 1793219264116,
+      "updatedAt": "2026-10-28T20:27:44.116Z",
+      "timeSource": "publication"
+    },
+    "roku-q2-fy25": {
+      "path": "data/datasets/roku-q2-fy25.js",
+      "updatedAtMs": 1793218916568,
+      "updatedAt": "2026-10-28T20:21:56.568Z",
+      "timeSource": "publication"
+    },
+    "roku-q3-fy22": {
+      "path": "data/datasets/roku-q3-fy22.js",
+      "updatedAtMs": 1793200028736,
+      "updatedAt": "2026-10-28T15:07:08.736Z",
+      "timeSource": "publication"
+    },
+    "roku-q3-fy23": {
+      "path": "data/datasets/roku-q3-fy23.js",
+      "updatedAtMs": 1793200631478,
+      "updatedAt": "2026-10-28T15:17:11.478Z",
+      "timeSource": "publication"
+    },
+    "roku-q3-fy24": {
+      "path": "data/datasets/roku-q3-fy24.js",
+      "updatedAtMs": 1793218897551,
+      "updatedAt": "2026-10-28T20:21:37.551Z",
+      "timeSource": "publication"
+    },
+    "roku-q3-fy25": {
+      "path": "data/datasets/roku-q3-fy25.js",
+      "updatedAtMs": 1793218880146,
+      "updatedAt": "2026-10-28T20:21:20.146Z",
+      "timeSource": "publication"
+    },
+    "roku-q4-fy22": {
+      "path": "data/datasets/roku-q4-fy22.js",
+      "updatedAtMs": 1793218935202,
+      "updatedAt": "2026-10-28T20:22:15.202Z",
+      "timeSource": "publication"
+    },
+    "roku-q4-fy23": {
+      "path": "data/datasets/roku-q4-fy23.js",
+      "updatedAtMs": 1793200632900,
+      "updatedAt": "2026-10-28T15:17:12.900Z",
+      "timeSource": "publication"
+    },
+    "roku-q4-fy24": {
+      "path": "data/datasets/roku-q4-fy24.js",
+      "updatedAtMs": 1793218949064,
+      "updatedAt": "2026-10-28T20:22:29.064Z",
+      "timeSource": "publication"
+    },
+    "wells-fargo-q1-fy23": {
+      "path": "data/datasets/wells-fargo-q1-fy23.js",
+      "updatedAtMs": 1793218939134,
+      "updatedAt": "2026-10-28T20:22:19.134Z",
+      "timeSource": "publication"
+    },
+    "wells-fargo-q1-fy24": {
+      "path": "data/datasets/wells-fargo-q1-fy24.js",
+      "updatedAtMs": 1793219249848,
+      "updatedAt": "2026-10-28T20:27:29.848Z",
+      "timeSource": "publication"
+    },
+    "wells-fargo-q1-fy25": {
+      "path": "data/datasets/wells-fargo-q1-fy25.js",
+      "updatedAtMs": 1793219099900,
+      "updatedAt": "2026-10-28T20:24:59.900Z",
+      "timeSource": "publication"
+    },
+    "wells-fargo-q2-fy23": {
+      "path": "data/datasets/wells-fargo-q2-fy23.js",
+      "updatedAtMs": 1793218968129,
+      "updatedAt": "2026-10-28T20:22:48.129Z",
+      "timeSource": "publication"
+    },
+    "wells-fargo-q2-fy24": {
+      "path": "data/datasets/wells-fargo-q2-fy24.js",
+      "updatedAtMs": 1793219129158,
+      "updatedAt": "2026-10-28T20:25:29.158Z",
+      "timeSource": "publication"
+    },
+    "wells-fargo-q2-fy25": {
+      "path": "data/datasets/wells-fargo-q2-fy25.js",
+      "updatedAtMs": 1793219201396,
+      "updatedAt": "2026-10-28T20:26:41.396Z",
+      "timeSource": "publication"
+    },
+    "wells-fargo-q3-fy23": {
+      "path": "data/datasets/wells-fargo-q3-fy23.js",
+      "updatedAtMs": 1793219062250,
+      "updatedAt": "2026-10-28T20:24:22.250Z",
+      "timeSource": "publication"
+    },
+    "wells-fargo-q3-fy24": {
+      "path": "data/datasets/wells-fargo-q3-fy24.js",
+      "updatedAtMs": 1793219159390,
+      "updatedAt": "2026-10-28T20:25:59.390Z",
+      "timeSource": "publication"
+    },
+    "wells-fargo-q3-fy25": {
+      "path": "data/datasets/wells-fargo-q3-fy25.js",
+      "updatedAtMs": 1793219207129,
+      "updatedAt": "2026-10-28T20:26:47.129Z",
+      "timeSource": "publication"
+    },
+    "wells-fargo-q4-fy22": {
+      "path": "data/datasets/wells-fargo-q4-fy22.js",
+      "updatedAtMs": 1793218895789,
+      "updatedAt": "2026-10-28T20:21:35.789Z",
+      "timeSource": "publication"
+    },
+    "wells-fargo-q4-fy23": {
+      "path": "data/datasets/wells-fargo-q4-fy23.js",
+      "updatedAtMs": 1793219140082,
+      "updatedAt": "2026-10-28T20:25:40.082Z",
+      "timeSource": "publication"
+    },
+    "wells-fargo-q4-fy24": {
+      "path": "data/datasets/wells-fargo-q4-fy24.js",
+      "updatedAtMs": 1793219013144,
+      "updatedAt": "2026-10-28T20:23:33.144Z",
       "timeSource": "publication"
     },
     "data/revenue-metrics.js": {

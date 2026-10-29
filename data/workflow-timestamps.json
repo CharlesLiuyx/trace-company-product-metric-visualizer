@@ -3830,6 +3830,376 @@
       "digest": "sha256:19e2842d83956434fd3a4a94889f1e818f759af2a8b4aaa359510fdb018a8f46",
       "updatedAt": "2026-10-27T21:12:45.372Z",
       "publishedDigest": "sha256:34c4c65db6b01c99812b2951eeae200bddc9d1627cb59190c8d5ffc00a22a33c"
+    },
+    "data/datasets/blackrock-q1-fy23.js": {
+      "digest": "sha256:587d2aee2aadf7da6a9d9f226f10808edfc56e41f6cde23af01360ca27725c5c",
+      "updatedAt": "2026-10-28T20:22:43.474Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/blackrock-q1-fy24.js": {
+      "digest": "sha256:e5d5e3b5da6b20f7526b0a76efad25ba39cadfb511d18d479e320a44106d61a9",
+      "updatedAt": "2026-10-28T20:27:20.108Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/blackrock-q1-fy25.js": {
+      "digest": "sha256:7dc99e1e104650cc4d017353995279fe7c566ce54c397efe9e8dc76f0d30a265",
+      "updatedAt": "2026-10-28T20:25:14.072Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/blackrock-q2-fy23.js": {
+      "digest": "sha256:a4349409b6bd99eec5ed209e7e84a46f9319f8a78dd380bc99e22f2dec5bfa24",
+      "updatedAt": "2026-10-28T20:23:18.698Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/blackrock-q2-fy24.js": {
+      "digest": "sha256:3338a18cf11b188af48ae991c5d0a1369d47c5fd7d42880747ab1665dc204532",
+      "updatedAt": "2026-10-28T20:25:46.760Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/blackrock-q2-fy25.js": {
+      "digest": "sha256:c28b2c9ede3d297642726d728c185d8fe6beb17d1be6ab3b274eed1cdc7ae15a",
+      "updatedAt": "2026-10-28T20:27:04.929Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/blackrock-q3-fy23.js": {
+      "digest": "sha256:0771c6d498433f61371159cfe69cfd0fa1e6c17a899945c70e7545894fc1abac",
+      "updatedAt": "2026-10-28T20:24:26.431Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/blackrock-q3-fy24.js": {
+      "digest": "sha256:51cb71d70f62ea711da6b1f483227a5256dd0f1be850c9eb1d6f102f1fde749d",
+      "updatedAt": "2026-10-28T20:26:36.177Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/blackrock-q3-fy25.js": {
+      "digest": "sha256:20969a40c4240b126ed71a0c4616ed7a3a68d0bdb84a7f17d6a1a06d3197fcd5",
+      "updatedAt": "2026-10-28T20:26:57.179Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/blackrock-q4-fy22.js": {
+      "digest": "sha256:db85d1b34ddcbd06503f1420283c5d47495c297ceefb8aa490b378297789eb34",
+      "updatedAt": "2026-10-28T20:21:55.496Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/blackrock-q4-fy23.js": {
+      "digest": "sha256:9559721cde08f99e9872d96fbd55cfc077295878314b5b52cfb00d9f298f21b1",
+      "updatedAt": "2026-10-28T20:25:17.768Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/blackrock-q4-fy24.js": {
+      "digest": "sha256:b975bd6dd9c61cdffeb13d90da618496e958cfff68a33d3a3624dbce5f134f07",
+      "updatedAt": "2026-10-28T20:24:03.409Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/citigroup-q1-fy23.js": {
+      "digest": "sha256:d8564e11611a936783305eca21b04b64e2aff83d32677ea4d53ea13fed63c33b",
+      "updatedAt": "2026-10-28T20:22:41.168Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/citigroup-q1-fy24.js": {
+      "digest": "sha256:1d35f91b6222afa6da0ae120fadf5cd5b435a613bc9ff4c17e88c333cb72c951",
+      "updatedAt": "2026-10-28T20:27:49.997Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/citigroup-q1-fy25.js": {
+      "digest": "sha256:4644861bfa0f224f84965a3cf8a9c566ff683e16a991f759e7ac1e66a49cbbba",
+      "updatedAt": "2026-10-28T20:25:06.554Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/citigroup-q2-fy23.js": {
+      "digest": "sha256:c858921fb0fbf498caf22b52c729955274c026e60b1d01768da62232cc18c75a",
+      "updatedAt": "2026-10-28T20:23:35.017Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/citigroup-q2-fy24.js": {
+      "digest": "sha256:f9f725107e9f94d729d4f8cd8598ce16613752b83106248442f7b69c2832d338",
+      "updatedAt": "2026-10-28T20:25:26.921Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/citigroup-q2-fy25.js": {
+      "digest": "sha256:f37177e2cd6bc046120fe217e32f1473804f3dbadc5055f5a4acaf249bcc96a8",
+      "updatedAt": "2026-10-28T20:27:16.667Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/citigroup-q3-fy22.js": {
+      "digest": "sha256:9a513ac06ccecc069404b28f8a64cd6b83c927d68cef3c98690ab838eac54605",
+      "updatedAt": "2026-10-28T15:07:12.002Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/citigroup-q3-fy23.js": {
+      "digest": "sha256:3f5c3de9908732fdbd4069cbb1ab9e7cfb4ce541925278313ee9f849914c0496",
+      "updatedAt": "2026-10-28T20:24:17.915Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/citigroup-q3-fy24.js": {
+      "digest": "sha256:1eeecbf1694d663f7b9b36dd587174b743ef922eeb878ac599cce7cf413a0f4f",
+      "updatedAt": "2026-10-28T20:26:15.746Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/citigroup-q3-fy25.js": {
+      "digest": "sha256:bcaf8250b2f2475d14deca0816feda0da48b61d75148995339d94f554f778050",
+      "updatedAt": "2026-10-28T20:26:31.731Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/citigroup-q4-fy22.js": {
+      "digest": "sha256:37096d66fe7a62af1dc0831e8dbe859381a43a7779f817adcef7612eba2d48ea",
+      "updatedAt": "2026-10-28T20:21:41.025Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/citigroup-q4-fy23.js": {
+      "digest": "sha256:f6d0b5fc2584634a88e86ab49ed0df90667c62ca980743cc3af329fa85b34010",
+      "updatedAt": "2026-10-28T20:25:35.730Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/citigroup-q4-fy24.js": {
+      "digest": "sha256:9cbe6206720c0230408efc827b140c1c2e1e021a1235d91bd405f97033c9e04c",
+      "updatedAt": "2026-10-28T20:23:41.292Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/coupang-q1-fy23.js": {
+      "digest": "sha256:7c6c68e5fc0ecb53286e5c18d95d288b8dcc62e9417d2159656f8d64d75e7328",
+      "updatedAt": "2026-10-28T20:22:57.686Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/coupang-q1-fy24.js": {
+      "digest": "sha256:0fe0f211365e3d44f6f514663c456e6af97b4e02a81a0b64e3a6c42eef71a4ce",
+      "updatedAt": "2026-10-28T20:28:21.888Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/coupang-q1-fy25.js": {
+      "digest": "sha256:d47a9e053460f76d8de91df8601fdbd150aa5c2efdffab628aa015e4ca4f001f",
+      "updatedAt": "2026-10-28T15:17:08.846Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/coupang-q2-fy23.js": {
+      "digest": "sha256:27d7cdf40c07e241d084f3b13e7b82c33bfde0dbea24d5465af2de8ad552a86a",
+      "updatedAt": "2026-10-28T20:21:48.320Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/coupang-q2-fy24.js": {
+      "digest": "sha256:55c84123e8f1c6682691f526ed1bdd3233330790ca6e16b679e3edcffb95ee39",
+      "updatedAt": "2026-10-28T20:28:14.097Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/coupang-q2-fy25.js": {
+      "digest": "sha256:dcac091ed26307cb24a35ed205ff9af683ae9d6bd163f06230230c8103231022",
+      "updatedAt": "2026-10-28T20:28:06.442Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/coupang-q3-fy22.js": {
+      "digest": "sha256:8b7e21fc7c91d974c31b8d5891e30a25a5f1f8fba272ad5bb12e146b06b1013a",
+      "updatedAt": "2026-10-28T20:23:07.785Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/coupang-q3-fy23.js": {
+      "digest": "sha256:e4072aa38d6db1a513c93a86b946cf6da338cbabebd7c74d1b4e4179978b5f9c",
+      "updatedAt": "2026-10-28T20:22:04.652Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/coupang-q3-fy24.js": {
+      "digest": "sha256:f75ce844e9c0af7803b07a223b3e639a9856941311122c93a38ac11c2a2e6c52",
+      "updatedAt": "2026-10-28T15:17:21.565Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/coupang-q4-fy22.js": {
+      "digest": "sha256:574d238972c294938430b7fd08dce4a08a3bb681cfcf590df304cf9fe8c70367",
+      "updatedAt": "2026-10-28T15:07:16.502Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/coupang-q4-fy23.js": {
+      "digest": "sha256:a13eccb8313d06fa2ecc4bfd5f5f40b1ed0e5faa2cdc0905136b5d6e134cb3a4",
+      "updatedAt": "2026-10-28T20:27:56.424Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/coupang-q4-fy24.js": {
+      "digest": "sha256:0659de18f4738f5d90fa4e1b339d7069e8dc91f2da2a862a776294703362eabe",
+      "updatedAt": "2026-10-28T15:17:55.339Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/morgan-stanley-q1-fy23.js": {
+      "digest": "sha256:b8fc77777dc8da22c56c0674654ec49b2c380fd4ffb8b3ab85c984eecc4dca74",
+      "updatedAt": "2026-10-28T20:23:12.348Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/morgan-stanley-q1-fy24.js": {
+      "digest": "sha256:4d5a47a307b8cbed3a7c2c6d283bbd0b0f9253c0ef8509a23be47263ef1ee939",
+      "updatedAt": "2026-10-28T20:28:01.321Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/morgan-stanley-q1-fy25.js": {
+      "digest": "sha256:50764eabf03de887c5f80220a2de6ad29f7480e651b1df017d7c1e5ffac81551",
+      "updatedAt": "2026-10-28T20:24:56.515Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/morgan-stanley-q2-fy23.js": {
+      "digest": "sha256:f789b74d11fa9e4f2dc009232b255ee0fb8156f9faae9f88a3ef4797aa178b4a",
+      "updatedAt": "2026-10-28T20:23:47.412Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/morgan-stanley-q2-fy24.js": {
+      "digest": "sha256:531c1faaa3001e53c9ee2e4dff0d4495da866d73ba8bcb4711adb287d133cd4f",
+      "updatedAt": "2026-10-28T20:25:52.036Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/morgan-stanley-q2-fy25.js": {
+      "digest": "sha256:33d115a85e71ac1d540293178b47a71029a485cbe935c1fd1cc01791f13376c0",
+      "updatedAt": "2026-10-28T20:27:09.546Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/morgan-stanley-q3-fy23.js": {
+      "digest": "sha256:b399424469554bf87fb4386ba5569d602189473ebb398692cca1b90a057a3f0e",
+      "updatedAt": "2026-10-28T20:25:02.326Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/morgan-stanley-q3-fy24.js": {
+      "digest": "sha256:ce77dcf694b1f34ba13e9628617f139cdb724bee1704f282432bbce371ea352d",
+      "updatedAt": "2026-10-28T20:26:27.272Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/morgan-stanley-q3-fy25.js": {
+      "digest": "sha256:d5225656acdf0d4825cec9e5d559f8cbe3288411c6d4e45919b3dd9cd6802875",
+      "updatedAt": "2026-10-28T20:26:52.317Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/morgan-stanley-q4-fy22.js": {
+      "digest": "sha256:30a0d13c4a0f64d3bcf62a4304239dde96d9763a2b54dab0af41594b537febad",
+      "updatedAt": "2026-10-28T20:22:18.207Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/morgan-stanley-q4-fy23.js": {
+      "digest": "sha256:4fc07043ccc60039fc3573154c8cd42fc817d76022727ed914d5c98cc358a34f",
+      "updatedAt": "2026-10-28T20:24:38.415Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/morgan-stanley-q4-fy24.js": {
+      "digest": "sha256:5751a664c0ae2a4ffa4a4c8d0c21a12a3897b1a9e696405d11598910326204c7",
+      "updatedAt": "2026-10-28T20:23:53.671Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/roku-q1-fy23.js": {
+      "digest": "sha256:3fdda57d983da2766f006240c245b9bb4a2616cdcf031f1852d0a1b90be9d84c",
+      "updatedAt": "2026-10-28T15:07:04.051Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/roku-q1-fy24.js": {
+      "digest": "sha256:ba819a9dd36795bcf80b10fb1860e5e247316131432b81dc9687b9afd4209223",
+      "updatedAt": "2026-10-28T20:23:49.392Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/roku-q1-fy25.js": {
+      "digest": "sha256:b5744e03f65c674a8cbe89f3f396e0877a65c2992063a70b1abf9d248da5a12f",
+      "updatedAt": "2026-10-28T20:23:37.727Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/roku-q2-fy23.js": {
+      "digest": "sha256:c60ead3c3ad2e0196741d39d0fad3906662cbe97585ff6460f9285af02359cde",
+      "updatedAt": "2026-10-28T15:07:29.423Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/roku-q2-fy24.js": {
+      "digest": "sha256:f5f6cbc6ad05f9835a8aceccc213198dba0d03ef10d13d1e0d6dfa9c461af2ab",
+      "updatedAt": "2026-10-28T20:27:44.116Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/roku-q2-fy25.js": {
+      "digest": "sha256:1e124b7a7f5882782d6ea382c33d787c1928917b73944d92ac4e3f9cd9331861",
+      "updatedAt": "2026-10-28T20:21:56.568Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/roku-q3-fy22.js": {
+      "digest": "sha256:abf836345cbaa206795a422436c7efb4e25480c1ffd0776eba229cd26c1c4329",
+      "updatedAt": "2026-10-28T15:07:08.736Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/roku-q3-fy23.js": {
+      "digest": "sha256:382490aa9d1efe9d1496b20f896f67f6c9f199b1784842d25bfc72d03b53182c",
+      "updatedAt": "2026-10-28T15:17:11.478Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/roku-q3-fy24.js": {
+      "digest": "sha256:8cbc7100a6e4f67357b4df665896d389d13dfbdef36f4970c20ce1e93e4c9878",
+      "updatedAt": "2026-10-28T20:21:37.551Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/roku-q3-fy25.js": {
+      "digest": "sha256:7999a4b492b55d54f1f70a0a3ed3264c1e0a1cb5c7e5425c784769a67234c58c",
+      "updatedAt": "2026-10-28T20:21:20.146Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/roku-q4-fy22.js": {
+      "digest": "sha256:1d6ef17735bd9e7807bc12391f562b9c29e870de619309a14e7fe6415fadc7bf",
+      "updatedAt": "2026-10-28T20:22:15.202Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/roku-q4-fy23.js": {
+      "digest": "sha256:48c796cb72ac33b209742484e46b32c506e7093c4cd366e566ac704f2eda77cb",
+      "updatedAt": "2026-10-28T15:17:12.900Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/roku-q4-fy24.js": {
+      "digest": "sha256:c1fc854ea51b130e96d4c66c95572d142714e81d07e568209c92a3291922f93b",
+      "updatedAt": "2026-10-28T20:22:29.064Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/wells-fargo-q1-fy23.js": {
+      "digest": "sha256:0c559c248fecf324b9c8bfe6810b20d74c2c7ae67cad4b504b0a24de6bdecafc",
+      "updatedAt": "2026-10-28T20:22:19.134Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/wells-fargo-q1-fy24.js": {
+      "digest": "sha256:437eeb667f88645b362f5f64076a4f1c1684e29056dd6f3848b10075b53d8c4b",
+      "updatedAt": "2026-10-28T20:27:29.848Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/wells-fargo-q1-fy25.js": {
+      "digest": "sha256:dd1d8129b28d356258fe5da4c35b29c1acaa0ea70635f5cba4b065a51bcbddcd",
+      "updatedAt": "2026-10-28T20:24:59.900Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/wells-fargo-q2-fy23.js": {
+      "digest": "sha256:39b695cc3f6dd0d1be6c293c7f59e9583cb505e5be94b0eb47be15e892ced995",
+      "updatedAt": "2026-10-28T20:22:48.129Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/wells-fargo-q2-fy24.js": {
+      "digest": "sha256:d5bbc3ec8809103dc12b6bdb3b0b10cacc9571d4e9744609126c7b33b8e9ab0d",
+      "updatedAt": "2026-10-28T20:25:29.158Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/wells-fargo-q2-fy25.js": {
+      "digest": "sha256:155179e0636f1eee7fa3f6a186da704911667c26e892a46c495feb0e08970cc3",
+      "updatedAt": "2026-10-28T20:26:41.396Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/wells-fargo-q3-fy23.js": {
+      "digest": "sha256:3ce4e8283058cc0ade95a844c6b6809655fd8e4a8f1cdb25818ee845211bb17e",
+      "updatedAt": "2026-10-28T20:24:22.250Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/wells-fargo-q3-fy24.js": {
+      "digest": "sha256:9adb377bec944d6c47047000b84b3c0ed0731225311e35e89cde4cb9ad368f31",
+      "updatedAt": "2026-10-28T20:25:59.390Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/wells-fargo-q3-fy25.js": {
+      "digest": "sha256:914fa77e3f958ecb7ce01d97fd7e8d5ca20b109f20739f43c6bfc319eb43a00f",
+      "updatedAt": "2026-10-28T20:26:47.129Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/wells-fargo-q4-fy22.js": {
+      "digest": "sha256:a4f9f59f23e9ab92f3ac293e60debd980c3042902d4d6ba14865a8f8570bedf5",
+      "updatedAt": "2026-10-28T20:21:35.789Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/wells-fargo-q4-fy23.js": {
+      "digest": "sha256:7e2dc47041ef47b0303053c985fbd15e99cde6cb494660d74fb2a9d77f6746f2",
+      "updatedAt": "2026-10-28T20:25:40.082Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/wells-fargo-q4-fy24.js": {
+      "digest": "sha256:c05d84bed2452bdd86a70a8f36a9fac8a625af8622560742129d7b0ffa5b96d8",
+      "updatedAt": "2026-10-28T20:23:33.144Z",
+      "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
     }
   }
 }

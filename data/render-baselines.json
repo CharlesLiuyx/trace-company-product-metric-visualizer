@@ -10658,6 +10658,450 @@
       "mae": 9.809186351706037,
       "width": 2667,
       "height": 1500
+    },
+    "blackrock-q1-fy23": {
+      "similarity": 0.9627818101168727,
+      "mae": 9.490638420197476,
+      "width": 2667,
+      "height": 1500
+    },
+    "blackrock-q1-fy24": {
+      "similarity": 0.9620466467835311,
+      "mae": 9.678105070199559,
+      "width": 2667,
+      "height": 1500
+    },
+    "blackrock-q1-fy25": {
+      "similarity": 0.960743003203031,
+      "mae": 10.010534183227097,
+      "width": 2667,
+      "height": 1500
+    },
+    "blackrock-q2-fy23": {
+      "similarity": 0.9596559119652527,
+      "mae": 10.287742448860559,
+      "width": 2667,
+      "height": 1500
+    },
+    "blackrock-q2-fy24": {
+      "similarity": 0.9638519253720736,
+      "mae": 9.217759030121234,
+      "width": 2667,
+      "height": 1500
+    },
+    "blackrock-q2-fy25": {
+      "similarity": 0.9681933973939532,
+      "mae": 8.110683664541932,
+      "width": 2667,
+      "height": 1500
+    },
+    "blackrock-q3-fy23": {
+      "similarity": 0.9595511920487063,
+      "mae": 10.314446027579885,
+      "width": 2667,
+      "height": 1500
+    },
+    "blackrock-q3-fy24": {
+      "similarity": 0.9629465009684247,
+      "mae": 9.448642253051702,
+      "width": 2667,
+      "height": 1500
+    },
+    "blackrock-q3-fy25": {
+      "similarity": 0.9687206236475343,
+      "mae": 7.9762409698787655,
+      "width": 2667,
+      "height": 1500
+    },
+    "blackrock-q4-fy22": {
+      "similarity": 0.9621802810596388,
+      "mae": 9.644028329792109,
+      "width": 2667,
+      "height": 1500
+    },
+    "blackrock-q4-fy23": {
+      "similarity": 0.9635490766268595,
+      "mae": 9.294985460150814,
+      "width": 2667,
+      "height": 1500
+    },
+    "blackrock-q4-fy24": {
+      "similarity": 0.9686642529160979,
+      "mae": 7.990615506395034,
+      "width": 2667,
+      "height": 1500
+    },
+    "citigroup-q1-fy23": {
+      "similarity": 0.968173573401364,
+      "mae": 8.11573878265217,
+      "width": 2667,
+      "height": 1500
+    },
+    "citigroup-q1-fy24": {
+      "similarity": 0.9688690965916842,
+      "mae": 7.938380369120527,
+      "width": 2667,
+      "height": 1500
+    },
+    "citigroup-q1-fy25": {
+      "similarity": 0.9643280946090889,
+      "mae": 9.096335874682332,
+      "width": 2667,
+      "height": 1500
+    },
+    "citigroup-q2-fy23": {
+      "similarity": 0.9678601704198739,
+      "mae": 8.195656542932133,
+      "width": 2667,
+      "height": 1500
+    },
+    "citigroup-q2-fy24": {
+      "similarity": 0.9709453847680805,
+      "mae": 7.408926884139483,
+      "width": 2667,
+      "height": 1500
+    },
+    "citigroup-q2-fy25": {
+      "similarity": 0.9656052865940777,
+      "mae": 8.770651918510186,
+      "width": 2667,
+      "height": 1500
+    },
+    "citigroup-q3-fy22": {
+      "similarity": 0.965228502973076,
+      "mae": 8.8667317418656,
+      "width": 2667,
+      "height": 1500
+    },
+    "citigroup-q3-fy23": {
+      "similarity": 0.9699216189479583,
+      "mae": 7.669987168270633,
+      "width": 2667,
+      "height": 1500
+    },
+    "citigroup-q3-fy24": {
+      "similarity": 0.9602021858378814,
+      "mae": 10.148442611340249,
+      "width": 2667,
+      "height": 1500
+    },
+    "citigroup-q3-fy25": {
+      "similarity": 0.9600325590020202,
+      "mae": 10.191697454484856,
+      "width": 2667,
+      "height": 1500
+    },
+    "citigroup-q4-fy22": {
+      "similarity": 0.9642656694057034,
+      "mae": 9.11225430154564,
+      "width": 2667,
+      "height": 1500
+    },
+    "citigroup-q4-fy23": {
+      "similarity": 0.9656249119186899,
+      "mae": 8.765647460734074,
+      "width": 2667,
+      "height": 1500
+    },
+    "citigroup-q4-fy24": {
+      "similarity": 0.96539600687169,
+      "mae": 8.824018247719035,
+      "width": 2667,
+      "height": 1500
+    },
+    "coupang-q1-fy23": {
+      "similarity": 0.9771291477454207,
+      "mae": 5.832067324917719,
+      "width": 2667,
+      "height": 1500
+    },
+    "coupang-q1-fy24": {
+      "similarity": 0.9736861849785117,
+      "mae": 6.710022830479524,
+      "width": 2667,
+      "height": 1500
+    },
+    "coupang-q1-fy25": {
+      "similarity": 0.9732655950685902,
+      "mae": 6.817273257509478,
+      "width": 2667,
+      "height": 1500
+    },
+    "coupang-q2-fy23": {
+      "similarity": 0.9739638564787245,
+      "mae": 6.63921659792526,
+      "width": 2667,
+      "height": 1500
+    },
+    "coupang-q2-fy24": {
+      "similarity": 0.9743775495383339,
+      "mae": 6.533724867724867,
+      "width": 2667,
+      "height": 1500
+    },
+    "coupang-q2-fy25": {
+      "similarity": 0.9753123725547378,
+      "mae": 6.295344998541849,
+      "width": 2667,
+      "height": 1500
+    },
+    "coupang-q3-fy22": {
+      "similarity": 0.9736102778002423,
+      "mae": 6.729379160938216,
+      "width": 2667,
+      "height": 1500
+    },
+    "coupang-q3-fy23": {
+      "similarity": 0.9726745385584972,
+      "mae": 6.967992667583219,
+      "width": 2667,
+      "height": 1500
+    },
+    "coupang-q3-fy24": {
+      "similarity": 0.9726981254794131,
+      "mae": 6.961978002749657,
+      "width": 2667,
+      "height": 1500
+    },
+    "coupang-q4-fy22": {
+      "similarity": 0.9745904493964398,
+      "mae": 6.479435403907845,
+      "width": 2667,
+      "height": 1500
+    },
+    "coupang-q4-fy23": {
+      "similarity": 0.9713912156405285,
+      "mae": 7.295240011665208,
+      "width": 2667,
+      "height": 1500
+    },
+    "coupang-q4-fy24": {
+      "similarity": 0.9707546563215546,
+      "mae": 7.457562638003583,
+      "width": 2667,
+      "height": 1500
+    },
+    "morgan-stanley-q1-fy23": {
+      "similarity": 0.9663013718056485,
+      "mae": 8.593150189559639,
+      "width": 2667,
+      "height": 1500
+    },
+    "morgan-stanley-q1-fy24": {
+      "similarity": 0.9622080965369525,
+      "mae": 9.636935383077116,
+      "width": 2667,
+      "height": 1500
+    },
+    "morgan-stanley-q1-fy25": {
+      "similarity": 0.9608225184270267,
+      "mae": 9.990257801108195,
+      "width": 2667,
+      "height": 1500
+    },
+    "morgan-stanley-q2-fy23": {
+      "similarity": 0.9660976103477261,
+      "mae": 8.645109361329833,
+      "width": 2667,
+      "height": 1500
+    },
+    "morgan-stanley-q2-fy24": {
+      "similarity": 0.966915593393963,
+      "mae": 8.436523684539432,
+      "width": 2667,
+      "height": 1500
+    },
+    "morgan-stanley-q2-fy25": {
+      "similarity": 0.9629341400952331,
+      "mae": 9.451794275715535,
+      "width": 2667,
+      "height": 1500
+    },
+    "morgan-stanley-q3-fy23": {
+      "similarity": 0.9601300915816895,
+      "mae": 10.166826646669167,
+      "width": 2667,
+      "height": 1500
+    },
+    "morgan-stanley-q3-fy24": {
+      "similarity": 0.9569017098352902,
+      "mae": 10.990063992001,
+      "width": 2667,
+      "height": 1500
+    },
+    "morgan-stanley-q3-fy25": {
+      "similarity": 0.9645806813364016,
+      "mae": 9.031926259217597,
+      "width": 2667,
+      "height": 1500
+    },
+    "morgan-stanley-q4-fy22": {
+      "similarity": 0.965368781843446,
+      "mae": 8.83096062992126,
+      "width": 2667,
+      "height": 1500
+    },
+    "morgan-stanley-q4-fy23": {
+      "similarity": 0.9584636482531187,
+      "mae": 10.591769695454735,
+      "width": 2667,
+      "height": 1500
+    },
+    "morgan-stanley-q4-fy24": {
+      "similarity": 0.9589679254145519,
+      "mae": 10.463179019289255,
+      "width": 2667,
+      "height": 1500
+    },
+    "roku-q1-fy23": {
+      "similarity": 0.9757997482340851,
+      "mae": 6.171064200308295,
+      "width": 2667,
+      "height": 1500
+    },
+    "roku-q1-fy24": {
+      "similarity": 0.9716890904976747,
+      "mae": 7.219281923092947,
+      "width": 2667,
+      "height": 1500
+    },
+    "roku-q1-fy25": {
+      "similarity": 0.9699420069223373,
+      "mae": 7.664788234803983,
+      "width": 2667,
+      "height": 1500
+    },
+    "roku-q2-fy23": {
+      "similarity": 0.974327152569981,
+      "mae": 6.546576094654835,
+      "width": 2667,
+      "height": 1500
+    },
+    "roku-q2-fy24": {
+      "similarity": 0.9706698224813401,
+      "mae": 7.47919526725826,
+      "width": 2667,
+      "height": 1500
+    },
+    "roku-q2-fy25": {
+      "similarity": 0.9677133237430289,
+      "mae": 8.233102445527642,
+      "width": 2667,
+      "height": 1500
+    },
+    "roku-q3-fy22": {
+      "similarity": 0.9758346745872453,
+      "mae": 6.162157980252468,
+      "width": 2667,
+      "height": 1500
+    },
+    "roku-q3-fy23": {
+      "similarity": 0.9759557457278625,
+      "mae": 6.131284839395075,
+      "width": 2667,
+      "height": 1500
+    },
+    "roku-q3-fy24": {
+      "similarity": 0.9738927085094755,
+      "mae": 6.6573593300837395,
+      "width": 2667,
+      "height": 1500
+    },
+    "roku-q3-fy25": {
+      "similarity": 0.9693679626647976,
+      "mae": 7.811169520476607,
+      "width": 2667,
+      "height": 1500
+    },
+    "roku-q4-fy22": {
+      "similarity": 0.9744742466015277,
+      "mae": 6.5090671166104235,
+      "width": 2667,
+      "height": 1500
+    },
+    "roku-q4-fy23": {
+      "similarity": 0.9690340207474065,
+      "mae": 7.896324709411323,
+      "width": 2667,
+      "height": 1500
+    },
+    "roku-q4-fy24": {
+      "similarity": 0.972823941451763,
+      "mae": 6.929894929800442,
+      "width": 2667,
+      "height": 1500
+    },
+    "wells-fargo-q1-fy23": {
+      "similarity": 0.9697039968043211,
+      "mae": 7.7254808148981375,
+      "width": 2667,
+      "height": 1500
+    },
+    "wells-fargo-q1-fy24": {
+      "similarity": 0.9660422244605045,
+      "mae": 8.659232762571346,
+      "width": 2667,
+      "height": 1500
+    },
+    "wells-fargo-q1-fy25": {
+      "similarity": 0.9542311318928272,
+      "mae": 11.671061367329084,
+      "width": 2667,
+      "height": 1500
+    },
+    "wells-fargo-q2-fy23": {
+      "similarity": 0.9726254384868558,
+      "mae": 6.980513185851769,
+      "width": 2667,
+      "height": 1500
+    },
+    "wells-fargo-q2-fy24": {
+      "similarity": 0.969468965398933,
+      "mae": 7.785413823272091,
+      "width": 2667,
+      "height": 1500
+    },
+    "wells-fargo-q2-fy25": {
+      "similarity": 0.968774852489844,
+      "mae": 7.9624126150897805,
+      "width": 2667,
+      "height": 1500
+    },
+    "wells-fargo-q3-fy23": {
+      "similarity": 0.9702700825795468,
+      "mae": 7.581128942215557,
+      "width": 2667,
+      "height": 1500
+    },
+    "wells-fargo-q3-fy24": {
+      "similarity": 0.967868989578917,
+      "mae": 8.193407657376161,
+      "width": 2667,
+      "height": 1500
+    },
+    "wells-fargo-q3-fy25": {
+      "similarity": 0.9695289670490536,
+      "mae": 7.770113402491355,
+      "width": 2667,
+      "height": 1500
+    },
+    "wells-fargo-q4-fy22": {
+      "similarity": 0.9678727757069582,
+      "mae": 8.19244219472566,
+      "width": 2667,
+      "height": 1500
+    },
+    "wells-fargo-q4-fy23": {
+      "similarity": 0.9673701989865646,
+      "mae": 8.32059925842603,
+      "width": 2667,
+      "height": 1500
+    },
+    "wells-fargo-q4-fy24": {
+      "similarity": 0.9715311615459832,
+      "mae": 7.259553805774278,
+      "width": 2667,
+      "height": 1500
     }
   }
 }
