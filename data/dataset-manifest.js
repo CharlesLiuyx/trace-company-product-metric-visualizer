@@ -42510,6 +42510,1900 @@
             }
           }
         }
+      },
+      {
+        "key": "align-q1-fy23",
+        "src": "data/datasets/align-q1-fy23.js",
+        "data": {
+          "name": "Align Technology · Q1 FY23",
+          "company": "Align Technology",
+          "meta": {
+            "title": "Align Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending Mar. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "爱齐科技 · 2023 财年第一季度",
+              "meta": {
+                "title": "爱齐科技 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2023 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "align-q1-fy24",
+        "src": "data/datasets/align-q1-fy24.js",
+        "data": {
+          "name": "Align Technology · Q1 FY24",
+          "company": "Align Technology",
+          "meta": {
+            "title": "Align Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "爱齐科技 · 2024 财年第一季度",
+              "meta": {
+                "title": "爱齐科技 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "align-q1-fy25",
+        "src": "data/datasets/align-q1-fy25.js",
+        "data": {
+          "name": "Align Technology · Q1 FY25",
+          "company": "Align Technology",
+          "meta": {
+            "title": "Align Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Mar. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "爱齐科技 · 2025 财年第一季度",
+              "meta": {
+                "title": "爱齐科技 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "align-q2-fy23",
+        "src": "data/datasets/align-q2-fy23.js",
+        "data": {
+          "name": "Align Technology · Q2 FY23",
+          "company": "Align Technology",
+          "meta": {
+            "title": "Align Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Jun. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "爱齐科技 · 2023 财年第二季度",
+              "meta": {
+                "title": "爱齐科技 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "align-q2-fy24",
+        "src": "data/datasets/align-q2-fy24.js",
+        "data": {
+          "name": "Align Technology · Q2 FY24",
+          "company": "Align Technology",
+          "meta": {
+            "title": "Align Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "爱齐科技 · 2024 财年第二季度",
+              "meta": {
+                "title": "爱齐科技 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "align-q2-fy25",
+        "src": "data/datasets/align-q2-fy25.js",
+        "data": {
+          "name": "Align Technology · Q2 FY25",
+          "company": "Align Technology",
+          "meta": {
+            "title": "Align Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Jun. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "爱齐科技 · 2025 财年第二季度",
+              "meta": {
+                "title": "爱齐科技 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "align-q3-fy22",
+        "src": "data/datasets/align-q3-fy22.js",
+        "data": {
+          "name": "Align Technology · Q3 FY22",
+          "company": "Align Technology",
+          "meta": {
+            "title": "Align Q3 FY22 Income Statement",
+            "period": "Q3 FY22",
+            "periodNote": "Ending Sep. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "爱齐科技 · 2022 财年第三季度",
+              "meta": {
+                "title": "爱齐科技 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度",
+                "periodNote": "截至 2022 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "align-q3-fy23",
+        "src": "data/datasets/align-q3-fy23.js",
+        "data": {
+          "name": "Align Technology · Q3 FY23",
+          "company": "Align Technology",
+          "meta": {
+            "title": "Align Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Sep. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "爱齐科技 · 2023 财年第三季度",
+              "meta": {
+                "title": "爱齐科技 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "align-q3-fy24",
+        "src": "data/datasets/align-q3-fy24.js",
+        "data": {
+          "name": "Align Technology · Q3 FY24",
+          "company": "Align Technology",
+          "meta": {
+            "title": "Align Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "爱齐科技 · 2024 财年第三季度",
+              "meta": {
+                "title": "爱齐科技 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "align-q3-fy25",
+        "src": "data/datasets/align-q3-fy25.js",
+        "data": {
+          "name": "Align Technology · Q3 FY25",
+          "company": "Align Technology",
+          "meta": {
+            "title": "Align Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "爱齐科技 · 2025 财年第三季度",
+              "meta": {
+                "title": "爱齐科技 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "align-q4-fy22",
+        "src": "data/datasets/align-q4-fy22.js",
+        "data": {
+          "name": "Align Technology · Q4 FY22",
+          "company": "Align Technology",
+          "meta": {
+            "title": "Align Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Ending Dec. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "爱齐科技 · 2022 财年第四季度",
+              "meta": {
+                "title": "爱齐科技 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2022 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "align-q4-fy23",
+        "src": "data/datasets/align-q4-fy23.js",
+        "data": {
+          "name": "Align Technology · Q4 FY23",
+          "company": "Align Technology",
+          "meta": {
+            "title": "Align Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "爱齐科技 · 2023 财年第四季度",
+              "meta": {
+                "title": "爱齐科技 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "align-q4-fy24",
+        "src": "data/datasets/align-q4-fy24.js",
+        "data": {
+          "name": "Align Technology · Q4 FY24",
+          "company": "Align Technology",
+          "meta": {
+            "title": "Align Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "爱齐科技 · 2024 财年第四季度",
+              "meta": {
+                "title": "爱齐科技 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "block-q1-fy23",
+        "src": "data/datasets/block-q1-fy23.js",
+        "data": {
+          "name": "Block · Q1 FY23",
+          "company": "Block",
+          "meta": {
+            "title": "Block Q1 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Block · 2023 财年第一季度",
+              "meta": {
+                "title": "Block 2023 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "block-q1-fy24",
+        "src": "data/datasets/block-q1-fy24.js",
+        "data": {
+          "name": "Block · Q1 FY24",
+          "company": "Block",
+          "meta": {
+            "title": "Block Q1 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Block · 2024 财年第一季度",
+              "meta": {
+                "title": "Block 2024 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "block-q1-fy25",
+        "src": "data/datasets/block-q1-fy25.js",
+        "data": {
+          "name": "Block · Q1 FY25",
+          "company": "Block",
+          "meta": {
+            "title": "Block Q1 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Block · 2025 财年第一季度",
+              "meta": {
+                "title": "Block 2025 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "block-q2-fy23",
+        "src": "data/datasets/block-q2-fy23.js",
+        "data": {
+          "name": "Block · Q2 FY23",
+          "company": "Block",
+          "meta": {
+            "title": "Block Q2 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Block · 2023 财年第二季度",
+              "meta": {
+                "title": "Block 2023 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "block-q2-fy24",
+        "src": "data/datasets/block-q2-fy24.js",
+        "data": {
+          "name": "Block · Q2 FY24",
+          "company": "Block",
+          "meta": {
+            "title": "Block Q2 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Block · 2024 财年第二季度",
+              "meta": {
+                "title": "Block 2024 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "block-q2-fy25",
+        "src": "data/datasets/block-q2-fy25.js",
+        "data": {
+          "name": "Block · Q2 FY25",
+          "company": "Block",
+          "meta": {
+            "title": "Block Q2 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Block · 2025 财年第二季度",
+              "meta": {
+                "title": "Block 2025 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "block-q3-fy22",
+        "src": "data/datasets/block-q3-fy22.js",
+        "data": {
+          "name": "Block · Q3 FY22",
+          "company": "Block",
+          "meta": {
+            "title": "Block Q3 FY22 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Block · 2022 财年第三季度",
+              "meta": {
+                "title": "Block 2022 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "block-q3-fy23",
+        "src": "data/datasets/block-q3-fy23.js",
+        "data": {
+          "name": "Block · Q3 FY23",
+          "company": "Block",
+          "meta": {
+            "title": "Block Q3 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Block · 2023 财年第三季度",
+              "meta": {
+                "title": "Block 2023 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "block-q3-fy24",
+        "src": "data/datasets/block-q3-fy24.js",
+        "data": {
+          "name": "Block · Q3 FY24",
+          "company": "Block",
+          "meta": {
+            "title": "Block Q3 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Block · 2024 财年第三季度",
+              "meta": {
+                "title": "Block 2024 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "block-q4-fy22",
+        "src": "data/datasets/block-q4-fy22.js",
+        "data": {
+          "name": "Block · Q4 FY22",
+          "company": "Block",
+          "meta": {
+            "title": "Block Q4 FY22 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Block · 2022 财年第四季度",
+              "meta": {
+                "title": "Block 2022 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "block-q4-fy23",
+        "src": "data/datasets/block-q4-fy23.js",
+        "data": {
+          "name": "Block · Q4 FY23",
+          "company": "Block",
+          "meta": {
+            "title": "Block Q4 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Block · 2023 财年第四季度",
+              "meta": {
+                "title": "Block 2023 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "block-q4-fy24",
+        "src": "data/datasets/block-q4-fy24.js",
+        "data": {
+          "name": "Block · Q4 FY24",
+          "company": "Block",
+          "meta": {
+            "title": "Block Q4 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Block · 2024 财年第四季度",
+              "meta": {
+                "title": "Block 2024 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "elastic-q1-fy24",
+        "src": "data/datasets/elastic-q1-fy24.js",
+        "data": {
+          "name": "Elastic · Q1 FY24",
+          "company": "Elastic",
+          "meta": {
+            "title": "Elastic Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending July 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Elastic · 2024 财年第一季度",
+              "meta": {
+                "title": "Elastic 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2023 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "elastic-q1-fy25",
+        "src": "data/datasets/elastic-q1-fy25.js",
+        "data": {
+          "name": "Elastic · Q1 FY25",
+          "company": "Elastic",
+          "meta": {
+            "title": "Elastic Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending July 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Elastic · 2025 财年第一季度",
+              "meta": {
+                "title": "Elastic 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2024 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "elastic-q1-fy26",
+        "src": "data/datasets/elastic-q1-fy26.js",
+        "data": {
+          "name": "Elastic · Q1 FY26",
+          "company": "Elastic",
+          "meta": {
+            "title": "Elastic Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending July 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Elastic · 2026 财年第一季度",
+              "meta": {
+                "title": "Elastic 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "elastic-q2-fy23",
+        "src": "data/datasets/elastic-q2-fy23.js",
+        "data": {
+          "name": "Elastic · Q2 FY23",
+          "company": "Elastic",
+          "meta": {
+            "title": "Elastic Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending October 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Elastic · 2023 财年第二季度",
+              "meta": {
+                "title": "Elastic 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2022 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "elastic-q2-fy24",
+        "src": "data/datasets/elastic-q2-fy24.js",
+        "data": {
+          "name": "Elastic · Q2 FY24",
+          "company": "Elastic",
+          "meta": {
+            "title": "Elastic Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Oct, 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Elastic · 2024 财年第二季度",
+              "meta": {
+                "title": "Elastic 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2023 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "elastic-q2-fy25",
+        "src": "data/datasets/elastic-q2-fy25.js",
+        "data": {
+          "name": "Elastic · Q2 FY25",
+          "company": "Elastic",
+          "meta": {
+            "title": "Elastic Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Oct 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Elastic · 2025 财年第二季度",
+              "meta": {
+                "title": "Elastic 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2024 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "elastic-q3-fy23",
+        "src": "data/datasets/elastic-q3-fy23.js",
+        "data": {
+          "name": "Elastic · Q3 FY23",
+          "company": "Elastic",
+          "meta": {
+            "title": "Elastic Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Jan. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Elastic · 2023 财年第三季度",
+              "meta": {
+                "title": "Elastic 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "elastic-q3-fy24",
+        "src": "data/datasets/elastic-q3-fy24.js",
+        "data": {
+          "name": "Elastic · Q3 FY24",
+          "company": "Elastic",
+          "meta": {
+            "title": "Elastic Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Jan. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Elastic · 2024 财年第三季度",
+              "meta": {
+                "title": "Elastic 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "elastic-q3-fy25",
+        "src": "data/datasets/elastic-q3-fy25.js",
+        "data": {
+          "name": "Elastic · Q3 FY25",
+          "company": "Elastic",
+          "meta": {
+            "title": "Elastic Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Jan. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Elastic · 2025 财年第三季度",
+              "meta": {
+                "title": "Elastic 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "elastic-q4-fy23",
+        "src": "data/datasets/elastic-q4-fy23.js",
+        "data": {
+          "name": "Elastic · Q4 FY23",
+          "company": "Elastic",
+          "meta": {
+            "title": "Elastic Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Apr. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Elastic · 2023 财年第四季度",
+              "meta": {
+                "title": "Elastic 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "elastic-q4-fy24",
+        "src": "data/datasets/elastic-q4-fy24.js",
+        "data": {
+          "name": "Elastic · Q4 FY24",
+          "company": "Elastic",
+          "meta": {
+            "title": "Elastic Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Apr. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Elastic · 2024 财年第四季度",
+              "meta": {
+                "title": "Elastic 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "elastic-q4-fy25",
+        "src": "data/datasets/elastic-q4-fy25.js",
+        "data": {
+          "name": "Elastic · Q4 FY25",
+          "company": "Elastic",
+          "meta": {
+            "title": "Elastic Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Apr 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Elastic · 2025 财年第四季度",
+              "meta": {
+                "title": "Elastic 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lowes-fy23",
+        "src": "data/datasets/lowes-fy23.js",
+        "data": {
+          "name": "Lowe's · FY23",
+          "company": "Lowe's",
+          "meta": {
+            "title": "Lowe’s FY23 Income Statement",
+            "period": "FY23",
+            "periodNote": "Ending Jan. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "劳氏 · 2023 财年",
+              "meta": {
+                "title": "劳氏 2023 财年利润表",
+                "period": "2023 财年",
+                "periodNote": "截至 2024 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lowes-q1-fy23",
+        "src": "data/datasets/lowes-q1-fy23.js",
+        "data": {
+          "name": "Lowe's · Q1 FY23",
+          "company": "Lowe's",
+          "meta": {
+            "title": "Lowe's Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending Apr. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "劳氏 · 2023 财年第一季度",
+              "meta": {
+                "title": "劳氏 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2023 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lowes-q1-fy24",
+        "src": "data/datasets/lowes-q1-fy24.js",
+        "data": {
+          "name": "Lowe's · Q1 FY24",
+          "company": "Lowe's",
+          "meta": {
+            "title": "Lowe's Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Apr. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "劳氏 · 2024 财年第一季度",
+              "meta": {
+                "title": "劳氏 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lowes-q1-fy25",
+        "src": "data/datasets/lowes-q1-fy25.js",
+        "data": {
+          "name": "Lowe's · Q1 FY25",
+          "company": "Lowe's",
+          "meta": {
+            "title": "Lowe's Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Apr. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "劳氏 · 2025 财年第一季度",
+              "meta": {
+                "title": "劳氏 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lowes-q2-fy23",
+        "src": "data/datasets/lowes-q2-fy23.js",
+        "data": {
+          "name": "Lowe's · Q2 FY23",
+          "company": "Lowe's",
+          "meta": {
+            "title": "Lowe’s Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending July 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "劳氏 · 2023 财年第二季度",
+              "meta": {
+                "title": "劳氏 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lowes-q2-fy24",
+        "src": "data/datasets/lowes-q2-fy24.js",
+        "data": {
+          "name": "Lowe's · Q2 FY24",
+          "company": "Lowe's",
+          "meta": {
+            "title": "Lowe’s Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending July 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "劳氏 · 2024 财年第二季度",
+              "meta": {
+                "title": "劳氏 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lowes-q3-fy22",
+        "src": "data/datasets/lowes-q3-fy22.js",
+        "data": {
+          "name": "Lowe's · Q3 FY22",
+          "company": "Lowe's",
+          "meta": {
+            "title": "Lowe’s Q3 FY22 Income Statement",
+            "period": "Q3 FY22",
+            "periodNote": "Ending October 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "劳氏 · 2022 财年第三季度",
+              "meta": {
+                "title": "劳氏 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度",
+                "periodNote": "截至 2022 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lowes-q3-fy23",
+        "src": "data/datasets/lowes-q3-fy23.js",
+        "data": {
+          "name": "Lowe's · Q3 FY23",
+          "company": "Lowe's",
+          "meta": {
+            "title": "Lowe’s Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Oct. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "劳氏 · 2023 财年第三季度",
+              "meta": {
+                "title": "劳氏 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lowes-q3-fy24",
+        "src": "data/datasets/lowes-q3-fy24.js",
+        "data": {
+          "name": "Lowe's · Q3 FY24",
+          "company": "Lowe's",
+          "meta": {
+            "title": "Lowe’s Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Oct. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "劳氏 · 2024 财年第三季度",
+              "meta": {
+                "title": "劳氏 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lowes-q4-fy22",
+        "src": "data/datasets/lowes-q4-fy22.js",
+        "data": {
+          "name": "Lowe's · Q4 FY22",
+          "company": "Lowe's",
+          "meta": {
+            "title": "Lowe’s Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Ending Jan. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "劳氏 · 2022 财年第四季度",
+              "meta": {
+                "title": "劳氏 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2023 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lowes-q4-fy24",
+        "src": "data/datasets/lowes-q4-fy24.js",
+        "data": {
+          "name": "Lowe's · Q4 FY24",
+          "company": "Lowe's",
+          "meta": {
+            "title": "Lowe’s Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Jan. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "劳氏 · 2024 财年第四季度",
+              "meta": {
+                "title": "劳氏 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2025 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lyft-q1-fy23",
+        "src": "data/datasets/lyft-q1-fy23.js",
+        "data": {
+          "name": "Lyft · Q1 FY23",
+          "company": "Lyft",
+          "meta": {
+            "title": "Lyft Q1 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Lyft · 2023 财年第一季度",
+              "meta": {
+                "title": "Lyft 2023 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lyft-q1-fy24",
+        "src": "data/datasets/lyft-q1-fy24.js",
+        "data": {
+          "name": "Lyft · Q1 FY24",
+          "company": "Lyft",
+          "meta": {
+            "title": "Lyft Q1 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Lyft · 2024 财年第一季度",
+              "meta": {
+                "title": "Lyft 2024 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lyft-q1-fy25",
+        "src": "data/datasets/lyft-q1-fy25.js",
+        "data": {
+          "name": "Lyft · Q1 FY25",
+          "company": "Lyft",
+          "meta": {
+            "title": "Lyft Q1 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Lyft · 2025 财年第一季度",
+              "meta": {
+                "title": "Lyft 2025 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lyft-q2-fy23",
+        "src": "data/datasets/lyft-q2-fy23.js",
+        "data": {
+          "name": "Lyft · Q2 FY23",
+          "company": "Lyft",
+          "meta": {
+            "title": "Lyft Q2 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Lyft · 2023 财年第二季度",
+              "meta": {
+                "title": "Lyft 2023 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lyft-q2-fy24",
+        "src": "data/datasets/lyft-q2-fy24.js",
+        "data": {
+          "name": "Lyft · Q2 FY24",
+          "company": "Lyft",
+          "meta": {
+            "title": "Lyft Q2 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Lyft · 2024 财年第二季度",
+              "meta": {
+                "title": "Lyft 2024 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lyft-q2-fy25",
+        "src": "data/datasets/lyft-q2-fy25.js",
+        "data": {
+          "name": "Lyft · Q2 FY25",
+          "company": "Lyft",
+          "meta": {
+            "title": "Lyft Q2 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Lyft · 2025 财年第二季度",
+              "meta": {
+                "title": "Lyft 2025 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lyft-q3-fy22",
+        "src": "data/datasets/lyft-q3-fy22.js",
+        "data": {
+          "name": "Lyft · Q3 FY22",
+          "company": "Lyft",
+          "meta": {
+            "title": "Lyft Q3 FY22 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Lyft · 2022 财年第三季度",
+              "meta": {
+                "title": "Lyft 2022 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lyft-q3-fy23",
+        "src": "data/datasets/lyft-q3-fy23.js",
+        "data": {
+          "name": "Lyft · Q3 FY23",
+          "company": "Lyft",
+          "meta": {
+            "title": "Lyft Q3 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Lyft · 2023 财年第三季度",
+              "meta": {
+                "title": "Lyft 2023 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lyft-q3-fy24",
+        "src": "data/datasets/lyft-q3-fy24.js",
+        "data": {
+          "name": "Lyft · Q3 FY24",
+          "company": "Lyft",
+          "meta": {
+            "title": "Lyft Q3 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Lyft · 2024 财年第三季度",
+              "meta": {
+                "title": "Lyft 2024 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lyft-q4-fy23",
+        "src": "data/datasets/lyft-q4-fy23.js",
+        "data": {
+          "name": "Lyft · Q4 FY23",
+          "company": "Lyft",
+          "meta": {
+            "title": "Lyft Q4 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Lyft · 2023 财年第四季度",
+              "meta": {
+                "title": "Lyft 2023 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lyft-q4-fy24",
+        "src": "data/datasets/lyft-q4-fy24.js",
+        "data": {
+          "name": "Lyft · Q4 FY24",
+          "company": "Lyft",
+          "meta": {
+            "title": "Lyft Q4 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Lyft · 2024 财年第四季度",
+              "meta": {
+                "title": "Lyft 2024 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "target-q1-fy24",
+        "src": "data/datasets/target-q1-fy24.js",
+        "data": {
+          "name": "Target · Q1 FY24",
+          "company": "Target",
+          "meta": {
+            "title": "Target Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Apr. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "塔吉特 · 2024 财年第一季度",
+              "meta": {
+                "title": "塔吉特 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "target-q1-fy25",
+        "src": "data/datasets/target-q1-fy25.js",
+        "data": {
+          "name": "Target · Q1 FY25",
+          "company": "Target",
+          "meta": {
+            "title": "Target Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Apr. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "塔吉特 · 2025 财年第一季度",
+              "meta": {
+                "title": "塔吉特 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "target-q2-fy23",
+        "src": "data/datasets/target-q2-fy23.js",
+        "data": {
+          "name": "Target · Q2 FY23",
+          "company": "Target",
+          "meta": {
+            "title": "Target Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending July 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "塔吉特 · 2023 财年第二季度",
+              "meta": {
+                "title": "塔吉特 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "target-q2-fy24",
+        "src": "data/datasets/target-q2-fy24.js",
+        "data": {
+          "name": "Target · Q2 FY24",
+          "company": "Target",
+          "meta": {
+            "title": "Target Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending July 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "塔吉特 · 2024 财年第二季度",
+              "meta": {
+                "title": "塔吉特 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "target-q2-fy25",
+        "src": "data/datasets/target-q2-fy25.js",
+        "data": {
+          "name": "Target · Q2 FY25",
+          "company": "Target",
+          "meta": {
+            "title": "Target Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending July 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "塔吉特 · 2025 财年第二季度",
+              "meta": {
+                "title": "塔吉特 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "target-q3-fy22",
+        "src": "data/datasets/target-q3-fy22.js",
+        "data": {
+          "name": "Target · Q3 FY22",
+          "company": "Target",
+          "meta": {
+            "title": "Target Q3 FY22 Income Statement",
+            "period": "Q3 FY22",
+            "periodNote": "Ending October 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "塔吉特 · 2022 财年第三季度",
+              "meta": {
+                "title": "塔吉特 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度",
+                "periodNote": "截至 2022 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "target-q3-fy23",
+        "src": "data/datasets/target-q3-fy23.js",
+        "data": {
+          "name": "Target · Q3 FY23",
+          "company": "Target",
+          "meta": {
+            "title": "Target Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Oct, 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "塔吉特 · 2023 财年第三季度",
+              "meta": {
+                "title": "塔吉特 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "target-q3-fy24",
+        "src": "data/datasets/target-q3-fy24.js",
+        "data": {
+          "name": "Target · Q3 FY24",
+          "company": "Target",
+          "meta": {
+            "title": "Target Q3 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending July 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "塔吉特 · 2024 财年第三季度",
+              "meta": {
+                "title": "塔吉特 2024 财年第三季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "target-q4-fy23",
+        "src": "data/datasets/target-q4-fy23.js",
+        "data": {
+          "name": "Target · Q4 FY23",
+          "company": "Target",
+          "meta": {
+            "title": "Target Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Jan. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "塔吉特 · 2023 财年第四季度",
+              "meta": {
+                "title": "塔吉特 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2024 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "target-q4-fy24",
+        "src": "data/datasets/target-q4-fy24.js",
+        "data": {
+          "name": "Target · Q4 FY24",
+          "company": "Target",
+          "meta": {
+            "title": "Target Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Jan. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "塔吉特 · 2024 财年第四季度",
+              "meta": {
+                "title": "塔吉特 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2025 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "teladoc-q1-fy23",
+        "src": "data/datasets/teladoc-q1-fy23.js",
+        "data": {
+          "name": "Teladoc Health · Q1 FY23",
+          "company": "Teladoc Health",
+          "meta": {
+            "title": "Teladoc Q1 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Teladoc Health · 2023 财年第一季度",
+              "meta": {
+                "title": "Teladoc 2023 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "teladoc-q1-fy24",
+        "src": "data/datasets/teladoc-q1-fy24.js",
+        "data": {
+          "name": "Teladoc Health · Q1 FY24",
+          "company": "Teladoc Health",
+          "meta": {
+            "title": "Teladoc Q1 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Teladoc Health · 2024 财年第一季度",
+              "meta": {
+                "title": "Teladoc 2024 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "teladoc-q2-fy23",
+        "src": "data/datasets/teladoc-q2-fy23.js",
+        "data": {
+          "name": "Teladoc Health · Q2 FY23",
+          "company": "Teladoc Health",
+          "meta": {
+            "title": "Teladoc Q2 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Teladoc Health · 2023 财年第二季度",
+              "meta": {
+                "title": "Teladoc 2023 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "teladoc-q2-fy24",
+        "src": "data/datasets/teladoc-q2-fy24.js",
+        "data": {
+          "name": "Teladoc Health · Q2 FY24",
+          "company": "Teladoc Health",
+          "meta": {
+            "title": "Teladoc Q2 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Teladoc Health · 2024 财年第二季度",
+              "meta": {
+                "title": "Teladoc 2024 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "teladoc-q3-fy22",
+        "src": "data/datasets/teladoc-q3-fy22.js",
+        "data": {
+          "name": "Teladoc Health · Q3 FY22",
+          "company": "Teladoc Health",
+          "meta": {
+            "title": "Teladoc Q3 FY22 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Teladoc Health · 2022 财年第三季度",
+              "meta": {
+                "title": "Teladoc 2022 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "teladoc-q3-fy23",
+        "src": "data/datasets/teladoc-q3-fy23.js",
+        "data": {
+          "name": "Teladoc Health · Q3 FY23",
+          "company": "Teladoc Health",
+          "meta": {
+            "title": "Teladoc Q3 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Teladoc Health · 2023 财年第三季度",
+              "meta": {
+                "title": "Teladoc 2023 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "teladoc-q3-fy24",
+        "src": "data/datasets/teladoc-q3-fy24.js",
+        "data": {
+          "name": "Teladoc Health · Q3 FY24",
+          "company": "Teladoc Health",
+          "meta": {
+            "title": "Teladoc Q3 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Teladoc Health · 2024 财年第三季度",
+              "meta": {
+                "title": "Teladoc 2024 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "teladoc-q4-fy22",
+        "src": "data/datasets/teladoc-q4-fy22.js",
+        "data": {
+          "name": "Teladoc Health · Q4 FY22",
+          "company": "Teladoc Health",
+          "meta": {
+            "title": "Teladoc Q4 FY22 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Teladoc Health · 2022 财年第四季度",
+              "meta": {
+                "title": "Teladoc 2022 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "teladoc-q4-fy23",
+        "src": "data/datasets/teladoc-q4-fy23.js",
+        "data": {
+          "name": "Teladoc Health · Q4 FY23",
+          "company": "Teladoc Health",
+          "meta": {
+            "title": "Teladoc Q4 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Teladoc Health · 2023 财年第四季度",
+              "meta": {
+                "title": "Teladoc 2023 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "the-trade-desk-q1-fy23",
+        "src": "data/datasets/the-trade-desk-q1-fy23.js",
+        "data": {
+          "name": "The Trade Desk · Q1 FY23",
+          "company": "The Trade Desk",
+          "meta": {
+            "title": "The Trade Desk Q1 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "The Trade Desk · 2023 财年第一季度",
+              "meta": {
+                "title": "The Trade Desk 2023 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "the-trade-desk-q1-fy24",
+        "src": "data/datasets/the-trade-desk-q1-fy24.js",
+        "data": {
+          "name": "The Trade Desk · Q1 FY24",
+          "company": "The Trade Desk",
+          "meta": {
+            "title": "The Trade Desk Q1 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "The Trade Desk · 2024 财年第一季度",
+              "meta": {
+                "title": "The Trade Desk 2024 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "the-trade-desk-q1-fy25",
+        "src": "data/datasets/the-trade-desk-q1-fy25.js",
+        "data": {
+          "name": "The Trade Desk · Q1 FY25",
+          "company": "The Trade Desk",
+          "meta": {
+            "title": "The Trade Desk Q1 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "The Trade Desk · 2025 财年第一季度",
+              "meta": {
+                "title": "The Trade Desk 2025 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "the-trade-desk-q2-fy23",
+        "src": "data/datasets/the-trade-desk-q2-fy23.js",
+        "data": {
+          "name": "The Trade Desk · Q2 FY23",
+          "company": "The Trade Desk",
+          "meta": {
+            "title": "The Trade Desk Q2 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "The Trade Desk · 2023 财年第二季度",
+              "meta": {
+                "title": "The Trade Desk 2023 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "the-trade-desk-q2-fy24",
+        "src": "data/datasets/the-trade-desk-q2-fy24.js",
+        "data": {
+          "name": "The Trade Desk · Q2 FY24",
+          "company": "The Trade Desk",
+          "meta": {
+            "title": "The Trade Desk Q2 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "The Trade Desk · 2024 财年第二季度",
+              "meta": {
+                "title": "The Trade Desk 2024 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "the-trade-desk-q2-fy25",
+        "src": "data/datasets/the-trade-desk-q2-fy25.js",
+        "data": {
+          "name": "The Trade Desk · Q2 FY25",
+          "company": "The Trade Desk",
+          "meta": {
+            "title": "The Trade Desk Q2 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "The Trade Desk · 2025 财年第二季度",
+              "meta": {
+                "title": "The Trade Desk 2025 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "the-trade-desk-q3-fy22",
+        "src": "data/datasets/the-trade-desk-q3-fy22.js",
+        "data": {
+          "name": "The Trade Desk · Q3 FY22",
+          "company": "The Trade Desk",
+          "meta": {
+            "title": "The Trade Desk Q3 FY22 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "The Trade Desk · 2022 财年第三季度",
+              "meta": {
+                "title": "The Trade Desk 2022 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "the-trade-desk-q3-fy23",
+        "src": "data/datasets/the-trade-desk-q3-fy23.js",
+        "data": {
+          "name": "The Trade Desk · Q3 FY23",
+          "company": "The Trade Desk",
+          "meta": {
+            "title": "The Trade Desk Q3 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "The Trade Desk · 2023 财年第三季度",
+              "meta": {
+                "title": "The Trade Desk 2023 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "the-trade-desk-q3-fy24",
+        "src": "data/datasets/the-trade-desk-q3-fy24.js",
+        "data": {
+          "name": "The Trade Desk · Q3 FY24",
+          "company": "The Trade Desk",
+          "meta": {
+            "title": "The Trade Desk Q3 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "The Trade Desk · 2024 财年第三季度",
+              "meta": {
+                "title": "The Trade Desk 2024 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "the-trade-desk-q4-fy22",
+        "src": "data/datasets/the-trade-desk-q4-fy22.js",
+        "data": {
+          "name": "The Trade Desk · Q4 FY22",
+          "company": "The Trade Desk",
+          "meta": {
+            "title": "The Trade Desk Q4 FY22 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "The Trade Desk · 2022 财年第四季度",
+              "meta": {
+                "title": "The Trade Desk 2022 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "the-trade-desk-q4-fy23",
+        "src": "data/datasets/the-trade-desk-q4-fy23.js",
+        "data": {
+          "name": "The Trade Desk · Q4 FY23",
+          "company": "The Trade Desk",
+          "meta": {
+            "title": "The Trade Desk Q4 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "The Trade Desk · 2023 财年第四季度",
+              "meta": {
+                "title": "The Trade Desk 2023 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "the-trade-desk-q4-fy24",
+        "src": "data/datasets/the-trade-desk-q4-fy24.js",
+        "data": {
+          "name": "The Trade Desk · Q4 FY24",
+          "company": "The Trade Desk",
+          "meta": {
+            "title": "The Trade Desk Q4 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "The Trade Desk · 2024 财年第四季度",
+              "meta": {
+                "title": "The Trade Desk 2024 财年第四季度利润表"
+              }
+            }
+          }
+        }
       }
     ]
   };

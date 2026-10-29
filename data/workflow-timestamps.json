@@ -4535,6 +4535,456 @@
       "digest": "sha256:fd0dac5b947beb9675c34826bf9b10eb666ecf6b25c9f35d6b1358328462db86",
       "updatedAt": "2026-10-29T14:04:58.358Z",
       "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/align-q1-fy23.js": {
+      "digest": "sha256:7e82086e09a57169fa3dffc9af2dbd705587a7aab8cf80e94cee9701cf274acc",
+      "updatedAt": "2026-10-29T16:50:18.875Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/align-q1-fy24.js": {
+      "digest": "sha256:55614fc00e864e82ef3b1a6370c5bfa2e4b9f4853249805c096114c20b9b067d",
+      "updatedAt": "2026-10-29T16:53:27.769Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/align-q1-fy25.js": {
+      "digest": "sha256:bf97c4af2faeb64efb6e1f883112a3ab51f8f8384ab5cab86597bc4bbbae03c9",
+      "updatedAt": "2026-10-29T16:52:31.799Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/align-q2-fy23.js": {
+      "digest": "sha256:464726cca4a171a44057e2d67675d62503b515990ab351ca91e72ab44f3312fa",
+      "updatedAt": "2026-10-29T16:50:31.992Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/align-q2-fy24.js": {
+      "digest": "sha256:8af4ed4e9302c3ed6ba15cba6daf1ba91d07bced1c0047aa49615ff556577975",
+      "updatedAt": "2026-10-29T16:54:25.073Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/align-q2-fy25.js": {
+      "digest": "sha256:82b0fa63e98f772994e13f5f1a70cd59bb4871d530b32ffedde59d195aac6e00",
+      "updatedAt": "2026-10-29T16:53:56.358Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/align-q3-fy22.js": {
+      "digest": "sha256:3a9552911f74fb16df295bab7e2085f4ccfc53f6ae09ab664b5c65e133d5dbe3",
+      "updatedAt": "2026-10-29T16:45:59.623Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/align-q3-fy23.js": {
+      "digest": "sha256:5326c249d16725b7332af9208b24e2dcc5d39f9b76b816d2d429d2381d18e993",
+      "updatedAt": "2026-10-29T16:51:18.819Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/align-q3-fy24.js": {
+      "digest": "sha256:ecb8093634875554942fdc46c45f22b3b524c6f4e4afebb861c0814ab5234d16",
+      "updatedAt": "2026-10-29T16:52:51.740Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/align-q3-fy25.js": {
+      "digest": "sha256:b772ca0586a2889ce47c0fb2a3b5198610e610e6320910ad45cc10a16ac0a4d3",
+      "updatedAt": "2026-10-29T16:54:37.006Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/align-q4-fy22.js": {
+      "digest": "sha256:8736d0bdcf902110019a4446aec13a6be86ed8a1448c98f6be2a1f857fdc1a2e",
+      "updatedAt": "2026-10-29T16:50:59.043Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/align-q4-fy23.js": {
+      "digest": "sha256:79d9ac164a67f937f3b9d4461e9d712b60b859454131f3f426c093608136da9e",
+      "updatedAt": "2026-10-29T16:51:47.491Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/align-q4-fy24.js": {
+      "digest": "sha256:25f8f33d635286c7b4797289815bedd9e9452cc1f95709298392f777ac9102c7",
+      "updatedAt": "2026-10-29T16:55:48.811Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/block-q1-fy23.js": {
+      "digest": "sha256:c4561b78c2a353b7cc7a59d7dcefba9cc9d2b3dd412e7f0865f00f7740c0459c",
+      "updatedAt": "2026-10-29T16:45:52.185Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/block-q1-fy24.js": {
+      "digest": "sha256:77ef0d8eb0695965cd8c753f06c9d513e5a608e5a84f22177df7474e8847f07c",
+      "updatedAt": "2026-10-29T16:48:04.285Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/block-q1-fy25.js": {
+      "digest": "sha256:ea88e408c57f681ebd58dea984767dcb5bb3e02bc4a140b953f25db0b6650750",
+      "updatedAt": "2026-10-29T16:53:19.816Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/block-q2-fy23.js": {
+      "digest": "sha256:5d543ddd99439e66e2989986484e143f24f30d842638a57767cd5ba62aa6da5d",
+      "updatedAt": "2026-10-29T16:46:41.457Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/block-q2-fy24.js": {
+      "digest": "sha256:e39981fabffd636312eb63f3c83d2877c3ece95363ab0b0b9d6e0c6210ce1b1e",
+      "updatedAt": "2026-10-29T16:49:12.763Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/block-q2-fy25.js": {
+      "digest": "sha256:5539ca6fb658e2624370a02d56b5156ef070e2ff4d68a130c078afcba8d33216",
+      "updatedAt": "2026-10-29T16:49:47.358Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/block-q3-fy22.js": {
+      "digest": "sha256:e194e08e812ccfc36e4efd1dea103e53d8811424113f839e07c64429b96a373f",
+      "updatedAt": "2026-10-29T16:49:52.917Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/block-q3-fy23.js": {
+      "digest": "sha256:06687fc0143f069c0cd101d9bdcb018f6e2ab3f0886beee41590e39381d06233",
+      "updatedAt": "2026-10-29T16:47:14.223Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/block-q3-fy24.js": {
+      "digest": "sha256:aee02ee189d89531e907f0e32084509f8d34dd51e12c0af6a556d45a6b464fbc",
+      "updatedAt": "2026-10-29T16:50:50.687Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/block-q4-fy22.js": {
+      "digest": "sha256:282fe190e8a19c7648edbf50ab8085339b0d78f19443c7e0643aa9271967e2d2",
+      "updatedAt": "2026-10-29T16:50:38.959Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/block-q4-fy23.js": {
+      "digest": "sha256:c56e1d06be5274676b500bbadd37c6606141dba96462b96f595375e7c9995e0a",
+      "updatedAt": "2026-10-29T16:48:38.525Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/block-q4-fy24.js": {
+      "digest": "sha256:3b10b5c816fd118a378ff4e6dfbf75de2ec80186f9829f71506c245a4602aebf",
+      "updatedAt": "2026-10-29T16:51:06.957Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/elastic-q1-fy24.js": {
+      "digest": "sha256:0bb60fcd5886e7627b6687a51a0556c02a77d2fc58eb681dacf900603aaafbd9",
+      "updatedAt": "2026-10-29T16:52:12.063Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/elastic-q1-fy25.js": {
+      "digest": "sha256:0f85b6db4c5a5e31060a5ee16b8cb7dace1e58e63a061bdd42d335e80961aa28",
+      "updatedAt": "2026-10-29T16:53:13.642Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/elastic-q1-fy26.js": {
+      "digest": "sha256:b20f3ed85fd1e5b162c577e59076e42e4616719c4664a474a681fcebe909a44c",
+      "updatedAt": "2026-10-29T16:53:36.837Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/elastic-q2-fy23.js": {
+      "digest": "sha256:44c9a12241b37fe8050a076b525170dbe25001c6b370cd74ef501bd85ce9eb30",
+      "updatedAt": "2026-10-29T16:48:10.729Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/elastic-q2-fy24.js": {
+      "digest": "sha256:571dfd4038afaced6ca378a3bf0523ebea34316bacd9ce290a313819abf017d0",
+      "updatedAt": "2026-10-29T16:51:57.153Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/elastic-q2-fy25.js": {
+      "digest": "sha256:01ec289024efdd083965d0e3ad9a9e1abbb48ecb9f859c929e5baeb4dcf126fd",
+      "updatedAt": "2026-10-29T16:56:53.724Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/elastic-q3-fy23.js": {
+      "digest": "sha256:72fc301ecd5a937c988153df91c5f59736023137530269b636c6eb5b6f788e1e",
+      "updatedAt": "2026-10-29T16:46:27.774Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/elastic-q3-fy24.js": {
+      "digest": "sha256:facb35f52e9c12d4509d1450315ef6e24a112fc692f892f313e161dbcfd669a3",
+      "updatedAt": "2026-10-29T16:55:09.530Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/elastic-q3-fy25.js": {
+      "digest": "sha256:a5d53053cb373526c40de9e1f84b5f251ff91d0eb2e7e470ab90e3f26e62974f",
+      "updatedAt": "2026-10-29T16:56:37.193Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/elastic-q4-fy23.js": {
+      "digest": "sha256:842e5642f77c051281cc8e11adf4b6fbef6af2a954741092e266e7c1d3f4b095",
+      "updatedAt": "2026-10-29T16:47:49.421Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/elastic-q4-fy24.js": {
+      "digest": "sha256:103f5b8bac9c070390a6f642c02655556c503ec4f072c2317b633d6f5626171f",
+      "updatedAt": "2026-10-29T16:52:39.580Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/elastic-q4-fy25.js": {
+      "digest": "sha256:d71bccbcd7b01603df1c27fffd96389fb68e3d1605cc9577db20baadabc1980c",
+      "updatedAt": "2026-10-29T16:55:00.330Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/lowes-fy23.js": {
+      "digest": "sha256:aed9f23f3eaaecf0710b3b34d8a25ba925e16e8c002bb0a4fbab464f52a7b103",
+      "updatedAt": "2026-10-29T16:48:32.962Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/lowes-q1-fy23.js": {
+      "digest": "sha256:fa4aca8dd90c64f4050cfcea2334c4ec5e7f88fb8de014543f9b542250c7ad22",
+      "updatedAt": "2026-10-29T16:46:25.189Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/lowes-q1-fy24.js": {
+      "digest": "sha256:26eaadc3b21c849b7f93e95a53a1257bd8234463fbdb1f1573edc91199379abf",
+      "updatedAt": "2026-10-29T16:49:33.789Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/lowes-q1-fy25.js": {
+      "digest": "sha256:62d4b21b8103b9981969e08bb002dbcea414875d22583151edc026f0a013c294",
+      "updatedAt": "2026-10-29T16:48:14.506Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/lowes-q2-fy23.js": {
+      "digest": "sha256:315a9acd28479f80fb1681358c8082416eef27a8c2dbf43d8ba1b4e93b825401",
+      "updatedAt": "2026-10-29T16:47:08.224Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/lowes-q2-fy24.js": {
+      "digest": "sha256:adc574a09bd741ced344ed08769c6fb399f57cd45c5570b35a8059274401112a",
+      "updatedAt": "2026-10-29T16:50:25.398Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/lowes-q3-fy22.js": {
+      "digest": "sha256:d345de5be4645872f18be77cd6358aee8b1e0dac7df43205bba44e7fd9015ca1",
+      "updatedAt": "2026-10-29T16:50:06.076Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/lowes-q3-fy23.js": {
+      "digest": "sha256:deb3f75a0f675344982dd7e4112b0d1d4f3b757d6e920ff3f6544682fb034881",
+      "updatedAt": "2026-10-29T16:52:04.649Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/lowes-q3-fy24.js": {
+      "digest": "sha256:fd43e1887c11605a8fd0f4c511c8a5f7bfbd734a931c53628049d578f75860d9",
+      "updatedAt": "2026-10-29T16:46:47.672Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/lowes-q4-fy22.js": {
+      "digest": "sha256:6c9986feda132b64c6e5bded474dbbb2c2825f2f377fd1bbee426909b1a85708",
+      "updatedAt": "2026-10-29T16:46:03.389Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/lowes-q4-fy24.js": {
+      "digest": "sha256:36ab6e2916ae70ddc0e4184f1b4670bc8e781819c90e65a6e5e805ec4e9a18a0",
+      "updatedAt": "2026-10-29T16:50:13.467Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/lyft-q1-fy23.js": {
+      "digest": "sha256:085c0d4ed856e1df6c39f7f201035b4650d9271ab7e2cd1be8311d6c948af22d",
+      "updatedAt": "2026-10-29T16:45:26.202Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/lyft-q1-fy24.js": {
+      "digest": "sha256:be6b7f4a1026920be81087fe3a4d6b31099df865e9772e2daec9df425ba77da6",
+      "updatedAt": "2026-10-29T16:47:45.650Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/lyft-q1-fy25.js": {
+      "digest": "sha256:bfb21b6838a970be678a9302460f2e4100dd8214b58e540792c58d248113a1ac",
+      "updatedAt": "2026-10-29T16:47:39.975Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/lyft-q2-fy23.js": {
+      "digest": "sha256:f321b38679f5f7e10fef5a6a62bed155f1c9ae34bb6d5df9d07d654d5d698eb4",
+      "updatedAt": "2026-10-29T16:45:18.083Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/lyft-q2-fy24.js": {
+      "digest": "sha256:74fcc1747d1f92413ec153ae71a1069c3c21e162418fd01bbda0bf26edf2ba3b",
+      "updatedAt": "2026-10-29T16:48:57.900Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/lyft-q2-fy25.js": {
+      "digest": "sha256:9b5a86cdb3c2976d69173e634740f300c9d9fcac8f6d865534271be9f283d879",
+      "updatedAt": "2026-10-29T16:46:22.846Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/lyft-q3-fy22.js": {
+      "digest": "sha256:9b2abd6966dc6bcdad7a729b5bd0285921d8e7052cbbf2ddbbb6cf72b0524966",
+      "updatedAt": "2026-10-29T16:48:45.044Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/lyft-q3-fy23.js": {
+      "digest": "sha256:8d0d7063ef50912f1879679176132a56672a10b7e47d6e800be0a007343faa33",
+      "updatedAt": "2026-10-29T16:45:28.932Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/lyft-q3-fy24.js": {
+      "digest": "sha256:437f19b3acc1b3c2044d7ff946af54a7d0c174e027abf15e06afb9fb29942d8c",
+      "updatedAt": "2026-10-29T16:46:09.327Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/lyft-q4-fy23.js": {
+      "digest": "sha256:b3d601677e40a2ecc6927747a642504bf0194b42d197933e28112e4e692a7c28",
+      "updatedAt": "2026-10-29T16:47:27.029Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/lyft-q4-fy24.js": {
+      "digest": "sha256:7bbf586206ba6d9c270eae6383c560147ad7da079d31fda3a8621e92937f750c",
+      "updatedAt": "2026-10-29T16:47:20.709Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/target-q1-fy24.js": {
+      "digest": "sha256:dc6bece9afe725eba02e86a5264f272fc915f037c441988952574479971ba4d4",
+      "updatedAt": "2026-10-29T16:45:48.413Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/target-q1-fy25.js": {
+      "digest": "sha256:ebf332ef97a7dc5efb09b3a3a640b87807ca2ee240b9e7a285b7611064041080",
+      "updatedAt": "2026-10-29T16:48:51.786Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/target-q2-fy23.js": {
+      "digest": "sha256:41e898ee8a30bd1efb6504e9bf438bd693733f156c83a47a324b82880649ab63",
+      "updatedAt": "2026-10-29T16:51:32.923Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/target-q2-fy24.js": {
+      "digest": "sha256:36564ae81cdf2c234e4dcb01d8d073a4ede5d7e9595bf6f1ba8316a2c11228fa",
+      "updatedAt": "2026-10-29T16:51:13.540Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/target-q2-fy25.js": {
+      "digest": "sha256:3880ab6afb122342fc5daabef7898e31eccf292b5aac10330408751e7b292d1e",
+      "updatedAt": "2026-10-29T16:47:10.994Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/target-q3-fy22.js": {
+      "digest": "sha256:0a58a79d37159a1ff7fd121ecce3489a56b6575cc31c705bb325135d503089a0",
+      "updatedAt": "2026-10-29T16:49:40.765Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/target-q3-fy23.js": {
+      "digest": "sha256:428abdedfba00587d11abaacb4c0acff5e06f0ff458d7c58f82801f9c780cf2a",
+      "updatedAt": "2026-10-29T16:53:04.665Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/target-q3-fy24.js": {
+      "digest": "sha256:c2622c6050841cd53500e516c5c0c3067da048c48a9ae9dda4cd07dd7c25cceb",
+      "updatedAt": "2026-10-29T16:46:54.478Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/target-q4-fy23.js": {
+      "digest": "sha256:48de2d3ada24e9ebb3fbedc56498eb94ab183bc7861495d46ad598d111b39cef",
+      "updatedAt": "2026-10-29T16:49:04.071Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/target-q4-fy24.js": {
+      "digest": "sha256:6caf6b05fcdd5fad6769cfbeae88f9f1767a98896f5db162a92976a9e4ef12df",
+      "updatedAt": "2026-10-29T16:50:45.441Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/teladoc-q1-fy23.js": {
+      "digest": "sha256:87ba0a06f37ce1d23d0490710b9f11861ae2f9e057fedf4c78f15d17702b3647",
+      "updatedAt": "2026-10-29T16:50:01.163Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/teladoc-q1-fy24.js": {
+      "digest": "sha256:359f8fbf427d326477e15c0d7d42c801aa1e2c80ae7cd77e25c04f34df256d1e",
+      "updatedAt": "2026-10-29T16:53:48.453Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/teladoc-q2-fy23.js": {
+      "digest": "sha256:936d7c8d2d69c2c7570c12de667f07780804d80eb02b1aaab669f6bf52e886b1",
+      "updatedAt": "2026-10-29T16:51:24.105Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/teladoc-q2-fy24.js": {
+      "digest": "sha256:a63a991d97996c5fc3bfdf93c9667a778d1293ae9bc802d38f29f69d9143efef",
+      "updatedAt": "2026-10-29T16:52:24.318Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/teladoc-q3-fy22.js": {
+      "digest": "sha256:dafdbca183763c5b9deb46bea7e5a9236369fdbe2e1c75b2b31f0563234249d0",
+      "updatedAt": "2026-10-29T16:45:51.340Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/teladoc-q3-fy23.js": {
+      "digest": "sha256:e20ecf783d79f0d8863e42d4ea59be1125e13ee6075accc329f1d25254b9fc40",
+      "updatedAt": "2026-10-29T16:51:37.950Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/teladoc-q3-fy24.js": {
+      "digest": "sha256:d418f0196eb91fa7430816907db0221c0ff981f61c599163d697123068e9a03a",
+      "updatedAt": "2026-10-29T16:57:05.758Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/teladoc-q4-fy22.js": {
+      "digest": "sha256:f8627bac38a1404467b4e913e96a9c3e35ab8ee6d828a754ba233bca42a4477b",
+      "updatedAt": "2026-10-29T16:46:34.629Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/teladoc-q4-fy23.js": {
+      "digest": "sha256:aaa3de0e38150119a48e6a820bed2c618346cdb181806f3fc20e2bc144885930",
+      "updatedAt": "2026-10-29T16:56:17.013Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/the-trade-desk-q1-fy23.js": {
+      "digest": "sha256:32b734e9636c5c34358806fbf1c9cf0a0f0911566ef597cf2c7075750e6d1022",
+      "updatedAt": "2026-10-29T16:52:19.523Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/the-trade-desk-q1-fy24.js": {
+      "digest": "sha256:99be28d47cfe1fcf322fc5ea7b835f9e21513d57f195d930bf693f5265101f2f",
+      "updatedAt": "2026-10-29T16:56:28.151Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/the-trade-desk-q1-fy25.js": {
+      "digest": "sha256:d37752da265b5aca821ea93bdfb4d116ab7e900c5370fd389b107251d85b2efe",
+      "updatedAt": "2026-10-29T16:54:04.600Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/the-trade-desk-q2-fy23.js": {
+      "digest": "sha256:f36e48a4db09ec80c9971964a4935fb5f52b59961775ef67e7d1d31cfcf8f69e",
+      "updatedAt": "2026-10-29T16:56:00.265Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/the-trade-desk-q2-fy24.js": {
+      "digest": "sha256:edce203db44b84961a7e68f434d8abd28772fc5e8e9f64e4160bda0b632b414b",
+      "updatedAt": "2026-10-29T16:55:37.246Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/the-trade-desk-q2-fy25.js": {
+      "digest": "sha256:79cb1e42953adf0e8c7401346f05526463ac2fce3860a9d3fed35a271a3d4faf",
+      "updatedAt": "2026-10-29T16:52:57.329Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/the-trade-desk-q3-fy22.js": {
+      "digest": "sha256:56f27f799355a31de28235d4117921dacde8c5bf30f6a3686e5bd5ee3252072a",
+      "updatedAt": "2026-10-29T16:45:49.321Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/the-trade-desk-q3-fy23.js": {
+      "digest": "sha256:711ac4d06c8365b2a64c6bce288ad00d1dd074afdf520f503fea111eb64e7dd0",
+      "updatedAt": "2026-10-29T16:52:46.755Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/the-trade-desk-q3-fy24.js": {
+      "digest": "sha256:3ebbf1ce9fbddafe33e037016a150fd3cc3a2031b72033dc7e31043b221bfe8d",
+      "updatedAt": "2026-10-29T16:54:49.008Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/the-trade-desk-q4-fy22.js": {
+      "digest": "sha256:6c957fb6a9d4d949f8456dd42848e077b8cfc3a5f8bfe00180eaa531361f3745",
+      "updatedAt": "2026-10-29T16:48:19.667Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/the-trade-desk-q4-fy23.js": {
+      "digest": "sha256:9cd334c5660db07c10ca0afb1a15b91bd1b21c814f5121ec9ba92913e0dd8fbe",
+      "updatedAt": "2026-10-29T16:55:24.163Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
+    },
+    "data/datasets/the-trade-desk-q4-fy24.js": {
+      "digest": "sha256:9829afdfc0efa7b83758a47d15285d7fc0fc2a4f6543920d1ada02b615f4f822",
+      "updatedAt": "2026-10-29T16:54:13.750Z",
+      "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3"
     }
   }
 }

@@ -979,13 +979,39 @@
         }
       ],
       "directConsumers": [
+        "align-q1-fy23",
+        "align-q1-fy24",
+        "align-q1-fy25",
         "align-q1-fy26",
+        "align-q2-fy23",
+        "align-q2-fy24",
+        "align-q2-fy25",
         "align-q2-fy26",
+        "align-q3-fy22",
+        "align-q3-fy23",
+        "align-q3-fy24",
+        "align-q3-fy25",
+        "align-q4-fy22",
+        "align-q4-fy23",
+        "align-q4-fy24",
         "align-q4-fy25"
       ],
       "consumers": [
+        "align-q1-fy23",
+        "align-q1-fy24",
+        "align-q1-fy25",
         "align-q1-fy26",
+        "align-q2-fy23",
+        "align-q2-fy24",
+        "align-q2-fy25",
         "align-q2-fy26",
+        "align-q3-fy22",
+        "align-q3-fy23",
+        "align-q3-fy24",
+        "align-q3-fy25",
+        "align-q4-fy22",
+        "align-q4-fy23",
+        "align-q4-fy24",
         "align-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -1003,13 +1029,37 @@
         }
       ],
       "directConsumers": [
+        "align-q1-fy23",
+        "align-q1-fy24",
+        "align-q1-fy25",
         "align-q1-fy26",
+        "align-q2-fy23",
+        "align-q2-fy24",
+        "align-q2-fy25",
         "align-q2-fy26",
+        "align-q3-fy23",
+        "align-q3-fy24",
+        "align-q3-fy25",
+        "align-q4-fy22",
+        "align-q4-fy23",
+        "align-q4-fy24",
         "align-q4-fy25"
       ],
       "consumers": [
+        "align-q1-fy23",
+        "align-q1-fy24",
+        "align-q1-fy25",
         "align-q1-fy26",
+        "align-q2-fy23",
+        "align-q2-fy24",
+        "align-q2-fy25",
         "align-q2-fy26",
+        "align-q3-fy23",
+        "align-q3-fy24",
+        "align-q3-fy25",
+        "align-q4-fy22",
+        "align-q4-fy23",
+        "align-q4-fy24",
         "align-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -1027,13 +1077,37 @@
         }
       ],
       "directConsumers": [
+        "align-q1-fy23",
+        "align-q1-fy24",
+        "align-q1-fy25",
         "align-q1-fy26",
+        "align-q2-fy23",
+        "align-q2-fy24",
+        "align-q2-fy25",
         "align-q2-fy26",
+        "align-q3-fy23",
+        "align-q3-fy24",
+        "align-q3-fy25",
+        "align-q4-fy22",
+        "align-q4-fy23",
+        "align-q4-fy24",
         "align-q4-fy25"
       ],
       "consumers": [
+        "align-q1-fy23",
+        "align-q1-fy24",
+        "align-q1-fy25",
         "align-q1-fy26",
+        "align-q2-fy23",
+        "align-q2-fy24",
+        "align-q2-fy25",
         "align-q2-fy26",
+        "align-q3-fy23",
+        "align-q3-fy24",
+        "align-q3-fy25",
+        "align-q4-fy22",
+        "align-q4-fy23",
+        "align-q4-fy24",
         "align-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -1904,10 +1978,34 @@
         }
       ],
       "directConsumers": [
-        "block-q3-fy25"
+        "block-q1-fy23",
+        "block-q1-fy24",
+        "block-q1-fy25",
+        "block-q2-fy23",
+        "block-q2-fy24",
+        "block-q2-fy25",
+        "block-q3-fy22",
+        "block-q3-fy23",
+        "block-q3-fy24",
+        "block-q3-fy25",
+        "block-q4-fy22",
+        "block-q4-fy23",
+        "block-q4-fy24"
       ],
       "consumers": [
-        "block-q3-fy25"
+        "block-q1-fy23",
+        "block-q1-fy24",
+        "block-q1-fy25",
+        "block-q2-fy23",
+        "block-q2-fy24",
+        "block-q2-fy25",
+        "block-q3-fy22",
+        "block-q3-fy23",
+        "block-q3-fy24",
+        "block-q3-fy25",
+        "block-q4-fy22",
+        "block-q4-fy23",
+        "block-q4-fy24"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -1949,15 +2047,39 @@
       ],
       "directConsumers": [
         "block-fy25",
+        "block-q1-fy23",
+        "block-q1-fy24",
+        "block-q1-fy25",
         "block-q1-fy26",
+        "block-q2-fy23",
+        "block-q2-fy24",
+        "block-q2-fy25",
         "block-q2-fy26",
-        "block-q3-fy25"
+        "block-q3-fy22",
+        "block-q3-fy23",
+        "block-q3-fy24",
+        "block-q3-fy25",
+        "block-q4-fy22",
+        "block-q4-fy23",
+        "block-q4-fy24"
       ],
       "consumers": [
         "block-fy25",
+        "block-q1-fy23",
+        "block-q1-fy24",
+        "block-q1-fy25",
         "block-q1-fy26",
+        "block-q2-fy23",
+        "block-q2-fy24",
+        "block-q2-fy25",
         "block-q2-fy26",
-        "block-q3-fy25"
+        "block-q3-fy22",
+        "block-q3-fy23",
+        "block-q3-fy24",
+        "block-q3-fy25",
+        "block-q4-fy22",
+        "block-q4-fy23",
+        "block-q4-fy24"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -1975,15 +2097,39 @@
       ],
       "directConsumers": [
         "block-fy25",
+        "block-q1-fy23",
+        "block-q1-fy24",
+        "block-q1-fy25",
         "block-q1-fy26",
+        "block-q2-fy23",
+        "block-q2-fy24",
+        "block-q2-fy25",
         "block-q2-fy26",
-        "block-q3-fy25"
+        "block-q3-fy22",
+        "block-q3-fy23",
+        "block-q3-fy24",
+        "block-q3-fy25",
+        "block-q4-fy22",
+        "block-q4-fy23",
+        "block-q4-fy24"
       ],
       "consumers": [
         "block-fy25",
+        "block-q1-fy23",
+        "block-q1-fy24",
+        "block-q1-fy25",
         "block-q1-fy26",
+        "block-q2-fy23",
+        "block-q2-fy24",
+        "block-q2-fy25",
         "block-q2-fy26",
-        "block-q3-fy25"
+        "block-q3-fy22",
+        "block-q3-fy23",
+        "block-q3-fy24",
+        "block-q3-fy25",
+        "block-q4-fy22",
+        "block-q4-fy23",
+        "block-q4-fy24"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -2000,10 +2146,34 @@
         }
       ],
       "directConsumers": [
-        "block-q3-fy25"
+        "block-q1-fy23",
+        "block-q1-fy24",
+        "block-q1-fy25",
+        "block-q2-fy23",
+        "block-q2-fy24",
+        "block-q2-fy25",
+        "block-q3-fy22",
+        "block-q3-fy23",
+        "block-q3-fy24",
+        "block-q3-fy25",
+        "block-q4-fy22",
+        "block-q4-fy23",
+        "block-q4-fy24"
       ],
       "consumers": [
-        "block-q3-fy25"
+        "block-q1-fy23",
+        "block-q1-fy24",
+        "block-q1-fy25",
+        "block-q2-fy23",
+        "block-q2-fy24",
+        "block-q2-fy25",
+        "block-q3-fy22",
+        "block-q3-fy23",
+        "block-q3-fy24",
+        "block-q3-fy25",
+        "block-q4-fy22",
+        "block-q4-fy23",
+        "block-q4-fy24"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -2020,10 +2190,34 @@
         }
       ],
       "directConsumers": [
-        "block-q3-fy25"
+        "block-q1-fy23",
+        "block-q1-fy24",
+        "block-q1-fy25",
+        "block-q2-fy23",
+        "block-q2-fy24",
+        "block-q2-fy25",
+        "block-q3-fy22",
+        "block-q3-fy23",
+        "block-q3-fy24",
+        "block-q3-fy25",
+        "block-q4-fy22",
+        "block-q4-fy23",
+        "block-q4-fy24"
       ],
       "consumers": [
-        "block-q3-fy25"
+        "block-q1-fy23",
+        "block-q1-fy24",
+        "block-q1-fy25",
+        "block-q2-fy23",
+        "block-q2-fy24",
+        "block-q2-fy25",
+        "block-q3-fy22",
+        "block-q3-fy23",
+        "block-q3-fy24",
+        "block-q3-fy25",
+        "block-q4-fy22",
+        "block-q4-fy23",
+        "block-q4-fy24"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -7521,13 +7715,35 @@
         }
       ],
       "directConsumers": [
+        "lowes-fy23",
+        "lowes-q1-fy23",
+        "lowes-q1-fy24",
+        "lowes-q1-fy25",
         "lowes-q1-fy26",
+        "lowes-q2-fy23",
+        "lowes-q2-fy24",
         "lowes-q2-fy26",
+        "lowes-q3-fy22",
+        "lowes-q3-fy23",
+        "lowes-q3-fy24",
+        "lowes-q4-fy22",
+        "lowes-q4-fy24",
         "lowes-q4-fy25"
       ],
       "consumers": [
+        "lowes-fy23",
+        "lowes-q1-fy23",
+        "lowes-q1-fy24",
+        "lowes-q1-fy25",
         "lowes-q1-fy26",
+        "lowes-q2-fy23",
+        "lowes-q2-fy24",
         "lowes-q2-fy26",
+        "lowes-q3-fy22",
+        "lowes-q3-fy23",
+        "lowes-q3-fy24",
+        "lowes-q4-fy22",
+        "lowes-q4-fy24",
         "lowes-q4-fy25"
       ],
       "acceptedVersions": [
@@ -7547,13 +7763,35 @@
         }
       ],
       "directConsumers": [
+        "lowes-fy23",
+        "lowes-q1-fy23",
+        "lowes-q1-fy24",
+        "lowes-q1-fy25",
         "lowes-q1-fy26",
+        "lowes-q2-fy23",
+        "lowes-q2-fy24",
         "lowes-q2-fy26",
+        "lowes-q3-fy22",
+        "lowes-q3-fy23",
+        "lowes-q3-fy24",
+        "lowes-q4-fy22",
+        "lowes-q4-fy24",
         "lowes-q4-fy25"
       ],
       "consumers": [
+        "lowes-fy23",
+        "lowes-q1-fy23",
+        "lowes-q1-fy24",
+        "lowes-q1-fy25",
         "lowes-q1-fy26",
+        "lowes-q2-fy23",
+        "lowes-q2-fy24",
         "lowes-q2-fy26",
+        "lowes-q3-fy22",
+        "lowes-q3-fy23",
+        "lowes-q3-fy24",
+        "lowes-q4-fy22",
+        "lowes-q4-fy24",
         "lowes-q4-fy25"
       ],
       "acceptedVersions": [
@@ -7573,13 +7811,35 @@
         }
       ],
       "directConsumers": [
+        "lowes-fy23",
+        "lowes-q1-fy23",
+        "lowes-q1-fy24",
+        "lowes-q1-fy25",
         "lowes-q1-fy26",
+        "lowes-q2-fy23",
+        "lowes-q2-fy24",
         "lowes-q2-fy26",
+        "lowes-q3-fy22",
+        "lowes-q3-fy23",
+        "lowes-q3-fy24",
+        "lowes-q4-fy22",
+        "lowes-q4-fy24",
         "lowes-q4-fy25"
       ],
       "consumers": [
+        "lowes-fy23",
+        "lowes-q1-fy23",
+        "lowes-q1-fy24",
+        "lowes-q1-fy25",
         "lowes-q1-fy26",
+        "lowes-q2-fy23",
+        "lowes-q2-fy24",
         "lowes-q2-fy26",
+        "lowes-q3-fy22",
+        "lowes-q3-fy23",
+        "lowes-q3-fy24",
+        "lowes-q4-fy22",
+        "lowes-q4-fy24",
         "lowes-q4-fy25"
       ],
       "acceptedVersions": [
@@ -7896,6 +8156,45 @@
         "lvmh-h1-fy24",
         "lvmh-h1-fy25",
         "lvmh-h1-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/lyft/lyft-company-app-logo-q2-fy25.png",
+      "digest": "sha256:dab340241d979e42dee50ddca8a35a433b927f559cb5834d2bccf0c2e1ff165f",
+      "provenance": [],
+      "directConsumers": [
+        "lyft-q2-fy25"
+      ],
+      "consumers": [
+        "lyft-q2-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/lyft/lyft-rentals-phone-cluster-q2-fy25.png",
+      "digest": "sha256:415a225fa051ba1ecef9d8c25a03b0bbd563db44e20e7ae7774a8335ed2e5a63",
+      "provenance": [],
+      "directConsumers": [
+        "lyft-q2-fy25"
+      ],
+      "consumers": [
+        "lyft-q2-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/lyft/lyft-rideshare-car-cluster-q2-fy25.png",
+      "digest": "sha256:18331119a8ccccb72d2bdd2a1fa3a600931e61165024de14a96ec8882ba64126",
+      "provenance": [],
+      "directConsumers": [
+        "lyft-q2-fy25"
+      ],
+      "consumers": [
+        "lyft-q2-fy25"
       ],
       "acceptedVersions": [],
       "reusable": false

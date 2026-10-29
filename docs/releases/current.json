@@ -1,9 +1,9 @@
 {
   "schema": "reviewed-git-release/v1",
-  "id": "transport-57acf60f-ced7-44a6-b812-ccdaace78fae",
-  "baseHead": "d5b04508f1e84f7734c50621032afec51f3b0e9b",
-  "planDigest": "sha256:648f42ccf987f41b9ec0a1ee725e6fde8eaf0fb0dc9d0fa56d1f7dc8a1abd3e9",
-  "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef",
+  "id": "transport-6fdb9bee-713b-4ffe-a2e8-eb0264ff3dde",
+  "baseHead": "5a0a2feae4771b4957479d4d8acaccfa4e46e7c2",
+  "planDigest": "sha256:aa159c6f640c53cc462701e4802caf555ed608737743c2fa14cad6b730203674",
+  "publishedDigest": "sha256:47f3513469eeaa1901f78d849608e55015e2e13ead04f53a35762d8c4811fea3",
   "builds": [
     {
       "buildId": "build-fbe573ad-5128-4025-b987-54dfc2707ba0",
@@ -2679,596 +2679,1001 @@
       "buildId": "build-07050ebc-3e2b-4dcc-bab6-04fec8695b57",
       "key": "monday-com-q4-fy22",
       "sealDigest": "sha256:41edaaa860241b578e529f50ea1f0d4f14c6857c0735b5ffef45ecfd4b884f12"
+    },
+    {
+      "buildId": "build-bc667c36-346a-46f1-a38d-e2d992737b14",
+      "key": "align-q1-fy23",
+      "sealDigest": "sha256:48bafa542d9d8f794a70034c26935561a28c0863e0b939e57a15d6453f383646"
+    },
+    {
+      "buildId": "build-7676f587-db6e-4f6c-949d-70fd9ff995aa",
+      "key": "align-q1-fy24",
+      "sealDigest": "sha256:8f52097b866ff876b72e621b99766ccbf257b3003fbbb58cc5b73c9233af0ca8"
+    },
+    {
+      "buildId": "build-81501c34-f52c-43eb-a705-7b6361ceae67",
+      "key": "align-q1-fy25",
+      "sealDigest": "sha256:6b8783f886fed9274cc91b41062c564f51b0986c8476ae4af7da1a2171ce9daa"
+    },
+    {
+      "buildId": "build-0501750b-3f50-497c-a785-5e95454bd0af",
+      "key": "align-q2-fy23",
+      "sealDigest": "sha256:6bf311b342ca84e10a7a44df2118dad738c5c7bd2930ab5c72b5d15d2c5a0cad"
+    },
+    {
+      "buildId": "build-2357dd46-5f7f-4574-bd25-95fc24527c5c",
+      "key": "align-q2-fy24",
+      "sealDigest": "sha256:dfc468eab486afaf4dbf149ec977f8d0df30c8fb88bf8f930187afdb610f8ea6"
+    },
+    {
+      "buildId": "build-3e115274-e3ab-4375-8bfb-e39c843010e6",
+      "key": "align-q2-fy25",
+      "sealDigest": "sha256:f6a35c374c903e193548a241883450e01d7c15279255f729cf119470b51df467"
+    },
+    {
+      "buildId": "build-d0f64990-c022-4985-a885-e4acff832f21",
+      "key": "align-q3-fy22",
+      "sealDigest": "sha256:34dc7fe420811507268262655723e87c2ea696a20612e9814e26fc52c2f514c6"
+    },
+    {
+      "buildId": "build-9e078dee-3886-415c-b636-317c46207ec6",
+      "key": "align-q3-fy23",
+      "sealDigest": "sha256:ce383deb2777a5eb8f0948a72aa66d3a1ac5c277550f06170312baa8090b4f05"
+    },
+    {
+      "buildId": "build-47020eb3-7103-4507-bcda-fdd08ef95cc7",
+      "key": "align-q3-fy24",
+      "sealDigest": "sha256:215457a356666e7028bab0e5177d9b609ea955df16425d2bf0fe1d422e4f50f9"
+    },
+    {
+      "buildId": "build-bf157cb8-0fe0-4334-81e1-636db977c681",
+      "key": "align-q3-fy25",
+      "sealDigest": "sha256:88a6b4571d988c7438a7e8c8c4ead98b460e385c1c321dc9beef6ff48592079d"
+    },
+    {
+      "buildId": "build-cd903c96-3b09-449e-886b-206d70c6d9b7",
+      "key": "align-q4-fy22",
+      "sealDigest": "sha256:7cb21ceb0d4ad840f48a5b38ca53be152350304fe5919bd384e30d1e889148b1"
+    },
+    {
+      "buildId": "build-286c8405-c7e3-4c71-a348-9285be46b965",
+      "key": "align-q4-fy23",
+      "sealDigest": "sha256:2dc55e70ca2340fa24b6bac6140f2d210e1e956ca593a46eda60165a8bbf9cd0"
+    },
+    {
+      "buildId": "build-3b868298-8b64-49a5-a3c7-2120700be021",
+      "key": "align-q4-fy24",
+      "sealDigest": "sha256:3d646b03f9e63c313256fc4adc41bbf91b3187a35fa510f7382e2a6baf228aa3"
+    },
+    {
+      "buildId": "build-fbb1f89b-a993-4d2c-93a5-97f6751dafdd",
+      "key": "block-q1-fy23",
+      "sealDigest": "sha256:ac260a3596b4ab37fb35e4dfa2c1b3ff3c6c8ac97d0887237c20f278985fb8af"
+    },
+    {
+      "buildId": "build-b195f1ca-09ff-4f52-9bdf-3623fe3afed9",
+      "key": "block-q1-fy24",
+      "sealDigest": "sha256:ddca7c38b810ce4d3e150ae795303039c27e929c429195c1cf1fc5be77bdb1e6"
+    },
+    {
+      "buildId": "build-3ce8ed99-41a5-4f7d-9cda-876feb6572b1",
+      "key": "block-q1-fy25",
+      "sealDigest": "sha256:48664e69e0266476be19bfc88f08bd2637aec9fa98038055c463fc531650d0c3"
+    },
+    {
+      "buildId": "build-53f28a30-194c-4fe8-9a4f-f6945a371029",
+      "key": "block-q2-fy23",
+      "sealDigest": "sha256:533a00234ddfa07f3401beb4115c7aa8a0d18c5ff11346ac907002fdad737493"
+    },
+    {
+      "buildId": "build-1421500f-37b5-4662-98ef-0c99b7290b7e",
+      "key": "block-q2-fy24",
+      "sealDigest": "sha256:8658b33152dcf38db034295e34dd827889f504e3bfca082d4bd2717b0baaf53d"
+    },
+    {
+      "buildId": "build-a6054ff4-ae34-4645-9ea4-0d301c48fce4",
+      "key": "block-q2-fy25",
+      "sealDigest": "sha256:77b32b1d8a9ba63dd04ed2c0f839c067921385e6705a105b23415bd515647535"
+    },
+    {
+      "buildId": "build-f5b820e1-d19c-49a7-8f56-28f83cac2f42",
+      "key": "block-q3-fy22",
+      "sealDigest": "sha256:a9c988738a1465d372529bb9437887604d9893bd634f4711b8e42c94943db4cb"
+    },
+    {
+      "buildId": "build-ac96478f-3fbf-45ff-bef4-b3d8fdf6720e",
+      "key": "block-q3-fy23",
+      "sealDigest": "sha256:1ed9dca45dfd7395e3313cd7dd427be1e03130600ff454fd57116f225c00c6e1"
+    },
+    {
+      "buildId": "build-f94987fe-a31c-4355-a94a-aacff808510e",
+      "key": "block-q3-fy24",
+      "sealDigest": "sha256:ac13e108b2f6af2489d91eb52892f2db7e6ca2cb442a4c807df336f09845085d"
+    },
+    {
+      "buildId": "build-87707ce3-6ee0-4e9e-a39d-d27b6965326d",
+      "key": "block-q4-fy22",
+      "sealDigest": "sha256:2bac4410661fd32e3633652e175b87f15d5b6569a9a624c2d43e20e52ba82f52"
+    },
+    {
+      "buildId": "build-1bbbfe3d-0681-44cd-b331-898cc377a926",
+      "key": "block-q4-fy23",
+      "sealDigest": "sha256:79301dbbd4bf1ccfe33b288fa70986aeaccd3ee3633165f6c1cbc50d0ae9b345"
+    },
+    {
+      "buildId": "build-882f1964-f770-43fc-9eeb-a58bc89a9657",
+      "key": "block-q4-fy24",
+      "sealDigest": "sha256:20d68ef51de3e408bcc8a58694e0f3030b82b2821a4d05b0aeb29d87b83e082f"
+    },
+    {
+      "buildId": "build-f9b62e06-3d95-40ee-8fee-952c1cceee98",
+      "key": "elastic-q1-fy24",
+      "sealDigest": "sha256:1d84758c1651efab249f154e05bac7ec21350ef3542796ab2453dbb4c2fb58e3"
+    },
+    {
+      "buildId": "build-7548085a-140a-4f8b-ab19-5db015406e86",
+      "key": "elastic-q1-fy25",
+      "sealDigest": "sha256:c517155e718e09dec2f93c5bf6fa84a85fe98347077b2381369f051566c7b02e"
+    },
+    {
+      "buildId": "build-c7784fe9-e278-45fa-bbee-04529909b576",
+      "key": "elastic-q1-fy26",
+      "sealDigest": "sha256:d8f1af509d32366a4c673ffac2834c0d23f6aa9fb5dbf9f09110f5b9dce1e0c8"
+    },
+    {
+      "buildId": "build-2eb16e02-a39d-4570-a58f-c39de601ed46",
+      "key": "elastic-q2-fy23",
+      "sealDigest": "sha256:17b512f2a65b6df83165be49c125d8e65635996b63d6436fb8daa2252088666e"
+    },
+    {
+      "buildId": "build-07b40e47-b769-49b4-a1f5-fd8d81d373fa",
+      "key": "elastic-q2-fy24",
+      "sealDigest": "sha256:061e2a9d7017a91ffad0a284e665bf9e5aaae369a95c613271822b2ff9209b33"
+    },
+    {
+      "buildId": "build-7afa76ec-4baf-43d5-a81b-c112adbd11b4",
+      "key": "elastic-q2-fy25",
+      "sealDigest": "sha256:b177127dde157717af115768e701d08a0da1fb851c21aeb734cfef2a973cea96"
+    },
+    {
+      "buildId": "build-ebb755dd-3d69-4c20-9838-c6a386b766dd",
+      "key": "elastic-q3-fy23",
+      "sealDigest": "sha256:177e5a95ef87ad56edc3f648ad1e18cbb9d4bfadc4c0ca7002ad8a7794a385f0"
+    },
+    {
+      "buildId": "build-62e463d0-0df9-4513-85e8-25a6ecb3cf93",
+      "key": "elastic-q3-fy24",
+      "sealDigest": "sha256:d6d9595ea7c7ed125f599adb1bb74c6066e8aaea7cb7f6a73f5a7cca356827a8"
+    },
+    {
+      "buildId": "build-d03abe9a-7beb-4234-884c-a1b53d2e53af",
+      "key": "elastic-q3-fy25",
+      "sealDigest": "sha256:50de730c2efc06af8cc8abe30cfb1dbbc8424697c6a7edb9513b33504b46aef6"
+    },
+    {
+      "buildId": "build-fdff7d65-ee13-4df6-9189-a4b03aad0698",
+      "key": "elastic-q4-fy23",
+      "sealDigest": "sha256:347dd0aa2a88c56e837d579907045ecc98c5abc2369a77592ae802e326ae3bb0"
+    },
+    {
+      "buildId": "build-3ec2063e-8dbf-44f3-a149-a4d7611e1f89",
+      "key": "elastic-q4-fy24",
+      "sealDigest": "sha256:80383535173227cb7bd3235575ceacb742b7051cf40cc3c297d6f28f007ca748"
+    },
+    {
+      "buildId": "build-a68ab47b-b307-42d9-8c34-aecaf670055f",
+      "key": "elastic-q4-fy25",
+      "sealDigest": "sha256:c2536555d88d4a91d5628e81a4ddfe9ef0933de84afefc893c0e2dce7c6fd79c"
+    },
+    {
+      "buildId": "build-74df704f-eaa4-4cae-8cb6-2454856ef99e",
+      "key": "lowes-fy23",
+      "sealDigest": "sha256:d7b6beb5c65e58ef9c69d7997b1e08ecfc59b2ffa8135bfab54be11edc71e658"
+    },
+    {
+      "buildId": "build-3bbf9a48-32cc-4874-a7a2-2a4f3e2d8aef",
+      "key": "lowes-q1-fy23",
+      "sealDigest": "sha256:84169080e8e75bacd0152361fbe2940fc7226432368f74c7494e15dd9a44a80e"
+    },
+    {
+      "buildId": "build-ff1a2bba-5990-4fa5-b0ff-72773d770a5c",
+      "key": "lowes-q1-fy24",
+      "sealDigest": "sha256:0827620b29e83d3fc97534263a1c5e931b4ba30ff1ec3ff3c8b5ab4fa6cc4ae3"
+    },
+    {
+      "buildId": "build-4549319a-eaa4-472c-88eb-98a5f6af73e3",
+      "key": "lowes-q1-fy25",
+      "sealDigest": "sha256:a94ad3d5d5a4464e71c322c453e63c7360775f0fdcbdc361eec85321abcda9fa"
+    },
+    {
+      "buildId": "build-fe580ae8-08e0-47e9-8a13-3ff77d6adb21",
+      "key": "lowes-q2-fy23",
+      "sealDigest": "sha256:f5fc80d5bd3a0787d4632ed434388e11e6da9e4a121a8f5969d37f6bf6dfa94b"
+    },
+    {
+      "buildId": "build-860e7877-ac0a-43a3-9a7e-7ff79cb4d153",
+      "key": "lowes-q2-fy24",
+      "sealDigest": "sha256:752dec3f3ac8d40b9fc3c40d39c28431f5b5d94d3bdeb3dca33137f700e897f4"
+    },
+    {
+      "buildId": "build-b823f0ad-0ce3-4d1c-b1ea-5f4d00198cb5",
+      "key": "lowes-q3-fy22",
+      "sealDigest": "sha256:ebf3dbd808d7dc550427c5301585a8e4d8284026adcccf13c940be9d6ca0c2bb"
+    },
+    {
+      "buildId": "build-25397e71-d52c-48f8-8272-792812e2fcba",
+      "key": "lowes-q3-fy23",
+      "sealDigest": "sha256:883e586fe65c6acd85af290f17092823af1e3783e2c2bfbe4bd33940874f29df"
+    },
+    {
+      "buildId": "build-18eb766a-29c3-49ea-8033-c9831b89a937",
+      "key": "lowes-q3-fy24",
+      "sealDigest": "sha256:0ed9d7d24cd89ce05edfc681065695ac8ef8d5ccd5fb843d1716501b12d0c4e5"
+    },
+    {
+      "buildId": "build-a00deed7-92bf-42f9-8c80-2682f78d3549",
+      "key": "lowes-q4-fy22",
+      "sealDigest": "sha256:6d3140f5b819ec31e7ccbe40fa9c5ee8a5f3f1bcd169b282b5a9ea2601f5eb8f"
+    },
+    {
+      "buildId": "build-d7551476-a549-4db2-93ed-820ef93f2b30",
+      "key": "lowes-q4-fy24",
+      "sealDigest": "sha256:9aa68cb30def67ae60a86a93c0c3c6593621ab17aff32b3538129a35deddf681"
+    },
+    {
+      "buildId": "build-6434dcb5-c550-435e-9d3b-cfc4a75d3e3c",
+      "key": "lyft-q1-fy23",
+      "sealDigest": "sha256:b4f47e4a431fa76ec2dade39f5247e57384869bd3326ceb588e116961684ca10"
+    },
+    {
+      "buildId": "build-64a22f8f-8784-4d9e-bf72-d3d017cb8ca5",
+      "key": "lyft-q1-fy24",
+      "sealDigest": "sha256:cf4ac782f34b1b2ccc3cf171f6f3750cb2805fc6ce114815597c6445647a3d67"
+    },
+    {
+      "buildId": "build-8b042591-c619-4489-bba5-833fab0a6a97",
+      "key": "lyft-q1-fy25",
+      "sealDigest": "sha256:d10bbdc856725a7f7a067fe240eb78b6e4e6c4609a17f3c10323c94b167b6a54"
+    },
+    {
+      "buildId": "build-e3daaf31-13dd-419b-bc06-12ec695c25c3",
+      "key": "lyft-q2-fy23",
+      "sealDigest": "sha256:293dcaf125cd6ad7c48332ed7c6c0e7f1be5f13d6c9f3a504d8fe60e6853d8c8"
+    },
+    {
+      "buildId": "build-8954d11a-197d-498f-a376-b9b0ad2f680a",
+      "key": "lyft-q2-fy24",
+      "sealDigest": "sha256:ce63e9cd879b3cf4e524f4548f247c6826679919cfa18459b049eacfa7a94285"
+    },
+    {
+      "buildId": "build-9b1428e6-4039-494f-bc46-afeb57fa5cbc",
+      "key": "lyft-q2-fy25",
+      "sealDigest": "sha256:b62c8dc17b3edb6ef2cbab5f7c4f28c72b9f79b7a72dba1eac0f7429abdfda3d"
+    },
+    {
+      "buildId": "build-d65bc4f6-e827-4875-9648-49bc3e1fa6b5",
+      "key": "lyft-q3-fy22",
+      "sealDigest": "sha256:1afa1e836cf81be61b22c99bb92a3f263c62be66bb43c1eb592fca08779fff66"
+    },
+    {
+      "buildId": "build-a1f88cca-66ff-41b9-a96b-87e7d69283a5",
+      "key": "lyft-q3-fy23",
+      "sealDigest": "sha256:03012788675d046f8fbe671e293dbe94a076ba2c42c39d10d2256ccd0a54121f"
+    },
+    {
+      "buildId": "build-160b9cec-c1a7-45b1-9c18-1037eac7d1a8",
+      "key": "lyft-q3-fy24",
+      "sealDigest": "sha256:64535427bfd774bd33c130e3750a314893417088b2676710365b4b1ba09cf56d"
+    },
+    {
+      "buildId": "build-a895a6eb-5726-4bc8-83b3-8a3e57d6c746",
+      "key": "lyft-q4-fy23",
+      "sealDigest": "sha256:d6445c269561a3bc2b60830648bce681bbb6370ec668bf6f8617ed6b361abb03"
+    },
+    {
+      "buildId": "build-f0a62bf0-d587-4698-baaf-83c2c3af4bf9",
+      "key": "lyft-q4-fy24",
+      "sealDigest": "sha256:a97680a69d43068b31d9d06ca6a15005661c672fff74cf21d0101cd09617eeb8"
+    },
+    {
+      "buildId": "build-2ce85a33-39c7-453e-9c89-1026be437990",
+      "key": "target-q1-fy24",
+      "sealDigest": "sha256:986b1bfb9bb332e357bcb4d3663e13b7c53ca6c0989fb79eacc83f5eebad00c5"
+    },
+    {
+      "buildId": "build-4ece8f15-1d72-4a55-be05-422f7f97c08d",
+      "key": "target-q1-fy25",
+      "sealDigest": "sha256:73db438a3dede4cfc1a39379b86a1d0f441f3933738ee87bda77217033841026"
+    },
+    {
+      "buildId": "build-7a8647fa-8195-4d0f-97ab-9ac823995d7c",
+      "key": "target-q2-fy23",
+      "sealDigest": "sha256:f07f593ec0f675bcb8ecc7376ed96d42747480061fe3ec179464fed45b6bbd63"
+    },
+    {
+      "buildId": "build-b7024ed7-637f-47d6-a941-78ec9bafd9c2",
+      "key": "target-q2-fy24",
+      "sealDigest": "sha256:cc7d0308323717aae68ddfb34a4334d13f6e1dfff9367e74c3992263cdff7c44"
+    },
+    {
+      "buildId": "build-54949b48-eca6-4ab6-92da-20a917054895",
+      "key": "target-q2-fy25",
+      "sealDigest": "sha256:a589a7f7258298650256186cc433715bfa97bd40adc3d7d86f1f0446156824c4"
+    },
+    {
+      "buildId": "build-25c5ffd4-e3f5-4093-bc45-d9a5956390db",
+      "key": "target-q3-fy22",
+      "sealDigest": "sha256:c00ba87459d4da791338314a033df91cc9cdb2f2edd8c6ed51bd3bf8765f3658"
+    },
+    {
+      "buildId": "build-8f589270-524f-4a20-8942-9d24ddc05832",
+      "key": "target-q3-fy23",
+      "sealDigest": "sha256:1629cdb5d201e45d893f5198bf48fd959f31d172d933867148f15120b4f2e8eb"
+    },
+    {
+      "buildId": "build-9d82ff38-0020-4c95-b13c-4d27de289122",
+      "key": "target-q3-fy24",
+      "sealDigest": "sha256:dfe96f6fcd8332c4d674bd56d33f62938863b93e0184811db4b365d931a93db4"
+    },
+    {
+      "buildId": "build-293d6813-89e1-429a-b960-668febcbff90",
+      "key": "target-q4-fy23",
+      "sealDigest": "sha256:1c3c90a4265379f8be4f9ff66a437d9d11d34fcf42c0c5b997b6099d56f430b8"
+    },
+    {
+      "buildId": "build-d4e4d39a-d1f1-4542-becc-cfd50d4838e4",
+      "key": "target-q4-fy24",
+      "sealDigest": "sha256:442967a1a89dee7a046c1404e033d3491dcfc9643d670149d3bea63a6919abc8"
+    },
+    {
+      "buildId": "build-5dcefef9-ba60-4b3b-9ec9-7ee8369ae853",
+      "key": "teladoc-q1-fy23",
+      "sealDigest": "sha256:2007908108fa6b547d85e3c4f44f673f3c5e02f44730c525a65c681c2a45c453"
+    },
+    {
+      "buildId": "build-30eab62e-96f9-43ee-ae9e-7a06d2ea6323",
+      "key": "teladoc-q1-fy24",
+      "sealDigest": "sha256:83622512dc3d89af9e901ca96c798c5bb57ca9d345a6db43fe620ddf141d722d"
+    },
+    {
+      "buildId": "build-669d1935-ca8d-4c18-aad2-8b648b22f2d1",
+      "key": "teladoc-q2-fy23",
+      "sealDigest": "sha256:d1db12c13de8bcf8606e765bb7b844ad0cb4393d6c6a14e61a9090fb64ebc955"
+    },
+    {
+      "buildId": "build-407b2ba5-44c3-4a31-88c1-90a003de4f2b",
+      "key": "teladoc-q2-fy24",
+      "sealDigest": "sha256:f04839e3b459be50dae12d54a0ea9640cf9ec2a96817ece1e24c73d754e39a48"
+    },
+    {
+      "buildId": "build-35c54514-7e06-475f-9236-061b399f1b44",
+      "key": "teladoc-q3-fy22",
+      "sealDigest": "sha256:9b3b63531b501524b980c569a8fdfc3c09d3e5a17932f62181980c8215e0577c"
+    },
+    {
+      "buildId": "build-3a144695-fb39-4fc2-bc4c-fec154df820e",
+      "key": "teladoc-q3-fy23",
+      "sealDigest": "sha256:82a01c73b575bf4b0bc39ed182c7d6bd3ad9086e3be76b7b6e75ca6e3681817b"
+    },
+    {
+      "buildId": "build-bbc8f6da-3bd9-4825-8c26-bb3958481174",
+      "key": "teladoc-q3-fy24",
+      "sealDigest": "sha256:b96f12316b92e8f078f244e493fab033fdfad7c1972b6fda05b898b8a343cfb4"
+    },
+    {
+      "buildId": "build-06adff2b-6cd0-4403-b02d-f0d928c35041",
+      "key": "teladoc-q4-fy22",
+      "sealDigest": "sha256:68c68f4a85dc7a004794507ec7a455799eb7479ef220e82e9047cfae7230621d"
+    },
+    {
+      "buildId": "build-6e6d4ffd-938e-48c9-8698-36686211b2bb",
+      "key": "teladoc-q4-fy23",
+      "sealDigest": "sha256:e14048887b05c3f582722518d90988745338408b33d1848d9d4d4d31ced972cd"
+    },
+    {
+      "buildId": "build-3fbbe204-a593-439c-8cea-71aa7bce3a47",
+      "key": "the-trade-desk-q1-fy23",
+      "sealDigest": "sha256:a5c16b97432db50f3d59d63828129a9d38a5f0a0c8878a6e7ebf5889ca429432"
+    },
+    {
+      "buildId": "build-476e78f0-5375-4f35-afa0-91f6d4b0c4cd",
+      "key": "the-trade-desk-q1-fy24",
+      "sealDigest": "sha256:58b45ddffbeb15b577e5cb616f87b9a492a4c8970c514dd6978e6021a0950b2b"
+    },
+    {
+      "buildId": "build-f1eaf168-511b-491d-ac73-556cd67e6b22",
+      "key": "the-trade-desk-q1-fy25",
+      "sealDigest": "sha256:ce611743bde6284f305e3d9f1d941e0a47c1095c4e89ad6d18bad2880555ab18"
+    },
+    {
+      "buildId": "build-23b7ad0d-b945-4608-a03b-fbcadbacb9dd",
+      "key": "the-trade-desk-q2-fy23",
+      "sealDigest": "sha256:049ff96008e6882561f3944ea3ec3c85f262fc8d015fef78a6fa06d67249b349"
+    },
+    {
+      "buildId": "build-d79b9f34-d453-47c1-bf91-de542d6cd20d",
+      "key": "the-trade-desk-q2-fy24",
+      "sealDigest": "sha256:39652839a6edf90dab6c42615bbdd84ee175d12e63d7c8919f1e42b3cf92d98f"
+    },
+    {
+      "buildId": "build-977cc279-72e4-4242-bc59-b5b8a462b63c",
+      "key": "the-trade-desk-q2-fy25",
+      "sealDigest": "sha256:ae1dabf1f71e82091538697afcee5ae7f73e99f3dc5f8e098120fa31d0eef842"
+    },
+    {
+      "buildId": "build-6bfd5941-2dea-4b9f-a260-d2599accda0a",
+      "key": "the-trade-desk-q3-fy22",
+      "sealDigest": "sha256:a2335dc974f29402a3e6ca278b9b7ae6f2142d6ba448f3b0646a341a9b92c117"
+    },
+    {
+      "buildId": "build-032c336c-e797-4173-8497-e4b3f8b5cba4",
+      "key": "the-trade-desk-q3-fy23",
+      "sealDigest": "sha256:a0623c2c053b041fa9fc80c2b5e71c60a1492460eb33ef44995e5057f9c44120"
+    },
+    {
+      "buildId": "build-8a867eeb-557e-47a8-af2e-3a838b0ac79e",
+      "key": "the-trade-desk-q3-fy24",
+      "sealDigest": "sha256:75bd7cad0ba47b5e3a7482d9b56002c1d6eb1bf6b9605eaf9edca47b9876f642"
+    },
+    {
+      "buildId": "build-ceca1561-54b5-4fd6-a192-877331257f5e",
+      "key": "the-trade-desk-q4-fy22",
+      "sealDigest": "sha256:9aa2845076238c7f52658b6cb7f82439c8e481fe9fb39335d01e567140318a38"
+    },
+    {
+      "buildId": "build-f65951cd-05f2-4ebb-8be4-e66c1154cc94",
+      "key": "the-trade-desk-q4-fy23",
+      "sealDigest": "sha256:ac292827318348bf2dfeed9c1902819cc943e3a1b3bb869d428ecea2ca413061"
+    },
+    {
+      "buildId": "build-40847c71-d68b-4280-8713-f8abc22ac86e",
+      "key": "the-trade-desk-q4-fy24",
+      "sealDigest": "sha256:5dfb9f7b2d49dfb74f821dfa356bb70484814dd65d90a8185f4cb7865d9dacbc"
     }
   ],
-  "candidateDigest": "sha256:e0718a24ccf1de465bd4cd03dc66f84e165e8f96e02aae9338bbf89388cbff1c",
+  "candidateDigest": "sha256:99a485b90f3183d43cdb616a127a3eee99d2bd27af4d75ce62e1b9bca9263f0c",
   "paths": [
     {
       "path": "data/assets/catalog.json",
-      "digest": "sha256:eaa6964aba482024a30dbdb44736e71eb8eb3ee5af9db1b3b5a8ef2cc6800ba5",
-      "before": "sha256:d43e8b0965fd61f12347741274aafd4b921755a0ae182208db7581b6bbe89b67"
+      "digest": "sha256:e6cf66513be4a0ebee6ee7926f16c8b51d5e128f7b8d8eb2d96fd0ff14f8f321",
+      "before": "sha256:eaa6964aba482024a30dbdb44736e71eb8eb3ee5af9db1b3b5a8ef2cc6800ba5"
     },
     {
-      "path": "data/assets/icon-references/match-group/crops/brand-azar-q4-fy22.png",
-      "digest": "sha256:b9680f138cc7170def83de473b1d5cd9e7a3d3d16f0c0e22ee086e0a1448e3d3",
+      "path": "data/assets/raster-annotations/lyft/lyft-company-app-logo-q2-fy25.png",
+      "digest": "sha256:dab340241d979e42dee50ddca8a35a433b927f559cb5834d2bccf0c2e1ff165f",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/match-group/crops/brand-blk-q4-fy22.png",
-      "digest": "sha256:f2fe496f49978b9ae8777be5d4e40761d4a68eddd84c9954b64e4752c9fdba99",
+      "path": "data/assets/raster-annotations/lyft/lyft-rentals-phone-cluster-q2-fy25.png",
+      "digest": "sha256:415a225fa051ba1ecef9d8c25a03b0bbd563db44e20e7ae7774a8335ed2e5a63",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/match-group/crops/brand-chispa-q4-fy22.png",
-      "digest": "sha256:71928276db12ccb852e23027e4bf43e50409a1435b3c94e12b9c81ccd5e9390f",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/match-group/crops/brand-hinge-q4-fy22.png",
-      "digest": "sha256:c4cf645b509f7e9cdb85275a6955c1a664373352fce4137635392607550483d7",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/match-group/crops/brand-meetic-q4-fy22.png",
-      "digest": "sha256:5d80ddc4c7a2ef9f416a5058fb90fa5b1b44acf7fa4406b9ef6a5a387b10745c",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/match-group/crops/brand-okcupid-q4-fy22.png",
-      "digest": "sha256:58422926ce588dfe536db8efff3c82599cbf6327bb6ceaed723aa79e98dd7d0e",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/match-group/crops/brand-ourtime-q4-fy22.png",
-      "digest": "sha256:df6c39b27cc360e785e6354f0275f4fbe5fbcbb678c09f52572a8ead489a2af3",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/match-group/crops/brand-pairs-q4-fy22.png",
-      "digest": "sha256:9bac496ba80bb078abd83bbe80e6b61cb379781d383471cc6dbbebe456c50b50",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/match-group/crops/brand-plenty-of-fish-q4-fy22.png",
-      "digest": "sha256:032549bca6d71748b30ada3e6d94ad79aa4b9c1d402213c0212dcf5a86492ac6",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/match-group/crops/brand-tinder-q4-fy22.png",
-      "digest": "sha256:d81c6ece4dbf774153859f4988e5d737475ad319fb34252c62c36bf5f70848b0",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/match-group/match-group-q4-fy22-crop-report.json",
-      "digest": "sha256:d69dc599aa741bb5ab3449af67b3716beb6788b8670d9ef19dd851ea9e2e127d",
-      "before": null
-    },
-    {
-      "path": "data/assets/icon-references/match-group/match-group-q4-fy22-model-validation.md",
-      "digest": "sha256:f90816d3641fe0c2e311dc4b29810a5c351ee1afa59f285a5d418d9a9d283858",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/comcast/company-wordmark-q4-fy22.png",
-      "digest": "sha256:eabc85281d24ac14e67c10a21ed8e4ee077d18d8643afc162405d8bce23d42d6",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/comcast/company-wordmark-v2.png",
-      "digest": "sha256:6bb0ea8ccafa27435f13d5ae350112e679fe560ace037476f87f052987458753",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/comcast/sky-clean-q4-fy22.png",
-      "digest": "sha256:c7a2fecb51ef091012d6fa8a0fdc36a06a3b7b98c22d2567b8326869228b2f37",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/comcast/sky-q4-fy22.png",
-      "digest": "sha256:01fdb7c6fd9f0024d10ba32e662a39f4290f6a5883fca6bd0bc75698a0b7cc85",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/comcast/xfinity-q4-fy22.png",
-      "digest": "sha256:27d8fd5d0080b4d0bb41485fd33cfe9a86507156b504e960280c7191b6760c8a",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/match-group/brand-azar-q4-fy22.png",
-      "digest": "sha256:b9680f138cc7170def83de473b1d5cd9e7a3d3d16f0c0e22ee086e0a1448e3d3",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/match-group/brand-blk-q4-fy22.png",
-      "digest": "sha256:f2fe496f49978b9ae8777be5d4e40761d4a68eddd84c9954b64e4752c9fdba99",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/match-group/brand-chispa-q4-fy22.png",
-      "digest": "sha256:71928276db12ccb852e23027e4bf43e50409a1435b3c94e12b9c81ccd5e9390f",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/match-group/brand-hinge-q4-fy22.png",
-      "digest": "sha256:c4cf645b509f7e9cdb85275a6955c1a664373352fce4137635392607550483d7",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/match-group/brand-meetic-q4-fy22.png",
-      "digest": "sha256:5d80ddc4c7a2ef9f416a5058fb90fa5b1b44acf7fa4406b9ef6a5a387b10745c",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/match-group/brand-okcupid-q4-fy22.png",
-      "digest": "sha256:58422926ce588dfe536db8efff3c82599cbf6327bb6ceaed723aa79e98dd7d0e",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/match-group/brand-ourtime-q4-fy22.png",
-      "digest": "sha256:df6c39b27cc360e785e6354f0275f4fbe5fbcbb678c09f52572a8ead489a2af3",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/match-group/brand-pairs-q4-fy22.png",
-      "digest": "sha256:9bac496ba80bb078abd83bbe80e6b61cb379781d383471cc6dbbebe456c50b50",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/match-group/brand-plenty-of-fish-q4-fy22.png",
-      "digest": "sha256:032549bca6d71748b30ada3e6d94ad79aa4b9c1d402213c0212dcf5a86492ac6",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/match-group/brand-tinder-q4-fy22.png",
-      "digest": "sha256:d81c6ece4dbf774153859f4988e5d737475ad319fb34252c62c36bf5f70848b0",
-      "before": null
-    },
-    {
-      "path": "data/assets/raster-annotations/match-group/company-logo-q4-fy22.png",
-      "digest": "sha256:6cf4c6cb7ab67e2b25aa060c356829b747bc9d5e1e7a88527af62b8d5a2a4640",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/029d4a466c4b3db885ac3bef3c4cdcf629106524b00bfde3b3baa04fad229de2.json",
-      "digest": "sha256:84058a7e94d2d07f5a0573d6b4b2d7285e74cf27e22b09f9fd373331d0cde303",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/4d62b0951eabfe930dddd6045908d6ae8d2e637d946b3dd9b54a722df8ea1522.json",
-      "digest": "sha256:dc4acb6918de71c76d125ff28f672293c49371efbe6699bf47f578650a1d16fd",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/79396ff1b04176c8021c44143e558d2036791555d060646320e12ae012d1b512.json",
-      "digest": "sha256:e5e52bb6393e96c3f778df25ab3184e9f4d9baf299a380f154238907d2f2d865",
-      "before": null
-    },
-    {
-      "path": "data/assets/versions/b4dc18d835eed500bd57cdd64e913cbc4a77f0a9fdc998b9e1f9a95f3a17f8ff.json",
-      "digest": "sha256:862dc7974e0a4e4b8366340b0ce4472b9fc814278fb5381c9d4a77c2034e9e69",
+      "path": "data/assets/raster-annotations/lyft/lyft-rideshare-car-cluster-q2-fy25.png",
+      "digest": "sha256:18331119a8ccccb72d2bdd2a1fa3a600931e61165024de14a96ec8882ba64126",
       "before": null
     },
     {
       "path": "data/dataset-file-metadata.js",
-      "digest": "sha256:74b3781de70fe2a19b9f53ebae6036a0a1a8eed744f6990ce213936ac62644d7",
-      "before": "sha256:ce9cdbda10b159584723ad46cb46b50e4e6007af7c9ecbd6ccb635d5cb007e28"
+      "digest": "sha256:d41ad0c645f92dd644a6993e84b303f6142eccfc7176955ead8c194290443760",
+      "before": "sha256:74b3781de70fe2a19b9f53ebae6036a0a1a8eed744f6990ce213936ac62644d7"
     },
     {
       "path": "data/dataset-manifest.js",
-      "digest": "sha256:4cac583c5e95c5ea2a3d5a768b0285b6c59dcc70ffdb642f7052398e14a251a9",
-      "before": "sha256:d5fb8f39ba638e00a1ac13a852f9a830e76e35c23236d41eea3267e484a6a53d"
+      "digest": "sha256:8a2082d31e9634d0bb3eef326f0df2113b783d094021b543c4e3cda0becd6c4e",
+      "before": "sha256:4cac583c5e95c5ea2a3d5a768b0285b6c59dcc70ffdb642f7052398e14a251a9"
     },
     {
-      "path": "data/datasets/appfolio-q1-fy23.js",
-      "digest": "sha256:8402e73156f70bec193b2b98aaef29503f8421411d3ad355a6b9245cb8a17b4d",
+      "path": "data/datasets/align-q1-fy23.js",
+      "digest": "sha256:7e82086e09a57169fa3dffc9af2dbd705587a7aab8cf80e94cee9701cf274acc",
       "before": null
     },
     {
-      "path": "data/datasets/appfolio-q1-fy24.js",
-      "digest": "sha256:0be869b5c3bb47ddfce0239a0406e5b71b0182a779d60274ba0366d0c8d378b7",
+      "path": "data/datasets/align-q1-fy24.js",
+      "digest": "sha256:55614fc00e864e82ef3b1a6370c5bfa2e4b9f4853249805c096114c20b9b067d",
       "before": null
     },
     {
-      "path": "data/datasets/appfolio-q1-fy25.js",
-      "digest": "sha256:e50dbd0540750d7411b074e24105551eab1294424a9470b336925e03199f0dd7",
+      "path": "data/datasets/align-q1-fy25.js",
+      "digest": "sha256:bf97c4af2faeb64efb6e1f883112a3ab51f8f8384ab5cab86597bc4bbbae03c9",
       "before": null
     },
     {
-      "path": "data/datasets/appfolio-q2-fy23.js",
-      "digest": "sha256:2c293f581ed91fd1f056ff480b8ee8c2a17960dc625a12718aed29916ff18d67",
+      "path": "data/datasets/align-q2-fy23.js",
+      "digest": "sha256:464726cca4a171a44057e2d67675d62503b515990ab351ca91e72ab44f3312fa",
       "before": null
     },
     {
-      "path": "data/datasets/appfolio-q2-fy24.js",
-      "digest": "sha256:e61219d3c69426aa9bf5b34a5dc7b93d4175f518b998a7c6acd1d1f7606cb9e3",
+      "path": "data/datasets/align-q2-fy24.js",
+      "digest": "sha256:8af4ed4e9302c3ed6ba15cba6daf1ba91d07bced1c0047aa49615ff556577975",
       "before": null
     },
     {
-      "path": "data/datasets/appfolio-q2-fy25.js",
-      "digest": "sha256:0760d4db4fd02169bdc6a54430b26e546fbadcd407abb5ba2e953f5da14190f8",
+      "path": "data/datasets/align-q2-fy25.js",
+      "digest": "sha256:82b0fa63e98f772994e13f5f1a70cd59bb4871d530b32ffedde59d195aac6e00",
       "before": null
     },
     {
-      "path": "data/datasets/appfolio-q3-fy23.js",
-      "digest": "sha256:ad10cbf97be59ff74c46060d6130086f1f1b4acb45e7d6db8ee37f924230680f",
+      "path": "data/datasets/align-q3-fy22.js",
+      "digest": "sha256:3a9552911f74fb16df295bab7e2085f4ccfc53f6ae09ab664b5c65e133d5dbe3",
       "before": null
     },
     {
-      "path": "data/datasets/appfolio-q3-fy24.js",
-      "digest": "sha256:6c526c7f874f8b4ef2f712f3004dcd2a74539b978afee73b3efb8703bcf1f360",
+      "path": "data/datasets/align-q3-fy23.js",
+      "digest": "sha256:5326c249d16725b7332af9208b24e2dcc5d39f9b76b816d2d429d2381d18e993",
       "before": null
     },
     {
-      "path": "data/datasets/appfolio-q3-fy25.js",
-      "digest": "sha256:30841fd93cd654619ec5f857f53f4a3350a6fb8406c49280680c5e9638819ba2",
+      "path": "data/datasets/align-q3-fy24.js",
+      "digest": "sha256:ecb8093634875554942fdc46c45f22b3b524c6f4e4afebb861c0814ab5234d16",
       "before": null
     },
     {
-      "path": "data/datasets/appfolio-q4-fy22.js",
-      "digest": "sha256:189404ea2f2c116266cdd0836ac63db19c10440a9c406475e1cb96ca8440a623",
+      "path": "data/datasets/align-q3-fy25.js",
+      "digest": "sha256:b772ca0586a2889ce47c0fb2a3b5198610e610e6320910ad45cc10a16ac0a4d3",
       "before": null
     },
     {
-      "path": "data/datasets/appfolio-q4-fy23.js",
-      "digest": "sha256:688bf91cd41aefb3ddcdd93f2d286541cc0da8014eb00cffdde4b6359fd676fb",
+      "path": "data/datasets/align-q4-fy22.js",
+      "digest": "sha256:8736d0bdcf902110019a4446aec13a6be86ed8a1448c98f6be2a1f857fdc1a2e",
       "before": null
     },
     {
-      "path": "data/datasets/appfolio-q4-fy24.js",
-      "digest": "sha256:afc17596ee055dad6a2fd4575eb8a707236a231ebd3acad5d8f6674e9c168e0d",
+      "path": "data/datasets/align-q4-fy23.js",
+      "digest": "sha256:79d9ac164a67f937f3b9d4461e9d712b60b859454131f3f426c093608136da9e",
       "before": null
     },
     {
-      "path": "data/datasets/bank-of-america-q1-fy23.js",
-      "digest": "sha256:55d711dee29a62d35bf5752360163c0117d56605dd6e462ec2867a0c0824bf2b",
+      "path": "data/datasets/align-q4-fy24.js",
+      "digest": "sha256:25f8f33d635286c7b4797289815bedd9e9452cc1f95709298392f777ac9102c7",
       "before": null
     },
     {
-      "path": "data/datasets/bank-of-america-q1-fy24.js",
-      "digest": "sha256:54574786f0d0836979a261813ee0c924bd90ce8bffcfc6988e534236696579b3",
+      "path": "data/datasets/block-q1-fy23.js",
+      "digest": "sha256:c4561b78c2a353b7cc7a59d7dcefba9cc9d2b3dd412e7f0865f00f7740c0459c",
       "before": null
     },
     {
-      "path": "data/datasets/bank-of-america-q1-fy25.js",
-      "digest": "sha256:383632e2ff23c2d944cc176349a2724062095d8489ebdfad80744b8ea5fedbcb",
+      "path": "data/datasets/block-q1-fy24.js",
+      "digest": "sha256:77ef0d8eb0695965cd8c753f06c9d513e5a608e5a84f22177df7474e8847f07c",
       "before": null
     },
     {
-      "path": "data/datasets/bank-of-america-q2-fy23.js",
-      "digest": "sha256:68d2930b2d6769080013c6e079efcb21e1162b58fcfddbd8c9d6ff60c4d10bc8",
+      "path": "data/datasets/block-q1-fy25.js",
+      "digest": "sha256:ea88e408c57f681ebd58dea984767dcb5bb3e02bc4a140b953f25db0b6650750",
       "before": null
     },
     {
-      "path": "data/datasets/bank-of-america-q2-fy24.js",
-      "digest": "sha256:2fe84695e29c5eaef281f4252cca622cbcb0a1aca49c49689f98ff2f7bdf5d25",
+      "path": "data/datasets/block-q2-fy23.js",
+      "digest": "sha256:5d543ddd99439e66e2989986484e143f24f30d842638a57767cd5ba62aa6da5d",
       "before": null
     },
     {
-      "path": "data/datasets/bank-of-america-q2-fy25.js",
-      "digest": "sha256:aa6f18588a3b8c2bd9ec82933af40ffbcf84f3bc90331641caeb4f29572bd320",
+      "path": "data/datasets/block-q2-fy24.js",
+      "digest": "sha256:e39981fabffd636312eb63f3c83d2877c3ece95363ab0b0b9d6e0c6210ce1b1e",
       "before": null
     },
     {
-      "path": "data/datasets/bank-of-america-q3-fy22.js",
-      "digest": "sha256:b5e98282f45c15d4570139d9152c8713ba2315f707bd300f47fa417d3ab2d32a",
+      "path": "data/datasets/block-q2-fy25.js",
+      "digest": "sha256:5539ca6fb658e2624370a02d56b5156ef070e2ff4d68a130c078afcba8d33216",
       "before": null
     },
     {
-      "path": "data/datasets/bank-of-america-q3-fy23.js",
-      "digest": "sha256:97226db235cc65290564b0a21491a9c81b4f223f77b8a6f82c7364a554446083",
+      "path": "data/datasets/block-q3-fy22.js",
+      "digest": "sha256:e194e08e812ccfc36e4efd1dea103e53d8811424113f839e07c64429b96a373f",
       "before": null
     },
     {
-      "path": "data/datasets/bank-of-america-q3-fy24.js",
-      "digest": "sha256:2d8bb62b30861b9916e4f2ecd0c8423d446e474ed437670faddc419bf67860e3",
+      "path": "data/datasets/block-q3-fy23.js",
+      "digest": "sha256:06687fc0143f069c0cd101d9bdcb018f6e2ab3f0886beee41590e39381d06233",
       "before": null
     },
     {
-      "path": "data/datasets/bank-of-america-q3-fy25.js",
-      "digest": "sha256:a37136a9469ee0574abf4e5106cc8e19eb1cb181d8ad0f0cecfefd26974baa96",
+      "path": "data/datasets/block-q3-fy24.js",
+      "digest": "sha256:aee02ee189d89531e907f0e32084509f8d34dd51e12c0af6a556d45a6b464fbc",
       "before": null
     },
     {
-      "path": "data/datasets/bank-of-america-q4-fy22.js",
-      "digest": "sha256:e5ce5c6f41eb461e172a7b2c5aa85e11c56132aa1d227e4ce8a0d619f5c1dd29",
+      "path": "data/datasets/block-q4-fy22.js",
+      "digest": "sha256:282fe190e8a19c7648edbf50ab8085339b0d78f19443c7e0643aa9271967e2d2",
       "before": null
     },
     {
-      "path": "data/datasets/bank-of-america-q4-fy23.js",
-      "digest": "sha256:588b09633a91a4365381d9d5a2f02463033df321c1071a4334de293440005d06",
+      "path": "data/datasets/block-q4-fy23.js",
+      "digest": "sha256:c56e1d06be5274676b500bbadd37c6606141dba96462b96f595375e7c9995e0a",
       "before": null
     },
     {
-      "path": "data/datasets/bank-of-america-q4-fy24.js",
-      "digest": "sha256:73f6fd949f4e561cfe3c1483c5f807d854a631c80c8d7fd74918c6febee2841c",
+      "path": "data/datasets/block-q4-fy24.js",
+      "digest": "sha256:3b10b5c816fd118a378ff4e6dfbf75de2ec80186f9829f71506c245a4602aebf",
       "before": null
     },
     {
-      "path": "data/datasets/cisco-q1-fy24.js",
-      "digest": "sha256:47366f3f4af8bb22e3b34611de9d182e8ed95fb7f674af78f356d95d74c312ba",
+      "path": "data/datasets/elastic-q1-fy24.js",
+      "digest": "sha256:0bb60fcd5886e7627b6687a51a0556c02a77d2fc58eb681dacf900603aaafbd9",
       "before": null
     },
     {
-      "path": "data/datasets/cisco-q1-fy25.js",
-      "digest": "sha256:d3a92dee0447c6fbd50d58565b200cef8e653a0f627f3b48fc73ddbd07471ca9",
+      "path": "data/datasets/elastic-q1-fy25.js",
+      "digest": "sha256:0f85b6db4c5a5e31060a5ee16b8cb7dace1e58e63a061bdd42d335e80961aa28",
       "before": null
     },
     {
-      "path": "data/datasets/cisco-q2-fy23.js",
-      "digest": "sha256:857a1f7b992bb127fad4df581801a6c164415fa29d5cafef66d472d354241120",
+      "path": "data/datasets/elastic-q1-fy26.js",
+      "digest": "sha256:b20f3ed85fd1e5b162c577e59076e42e4616719c4664a474a681fcebe909a44c",
       "before": null
     },
     {
-      "path": "data/datasets/cisco-q2-fy24.js",
-      "digest": "sha256:77f0919a200ef2f0cbfee5876fea70f896c197223664a044dcb50b019aab9e6c",
+      "path": "data/datasets/elastic-q2-fy23.js",
+      "digest": "sha256:44c9a12241b37fe8050a076b525170dbe25001c6b370cd74ef501bd85ce9eb30",
       "before": null
     },
     {
-      "path": "data/datasets/cisco-q2-fy25.js",
-      "digest": "sha256:c9378a424888a4462ec93f6216275efe97535fd73a414985a463e0a493315033",
+      "path": "data/datasets/elastic-q2-fy24.js",
+      "digest": "sha256:571dfd4038afaced6ca378a3bf0523ebea34316bacd9ce290a313819abf017d0",
       "before": null
     },
     {
-      "path": "data/datasets/cisco-q3-fy23.js",
-      "digest": "sha256:5c7b9c15c989eb1ce06fffc7c251c8addab7c6fe5f23ec57e5da55c1d6084bf0",
+      "path": "data/datasets/elastic-q2-fy25.js",
+      "digest": "sha256:01ec289024efdd083965d0e3ad9a9e1abbb48ecb9f859c929e5baeb4dcf126fd",
       "before": null
     },
     {
-      "path": "data/datasets/cisco-q3-fy24.js",
-      "digest": "sha256:03d49d8c3bf6901fe35ceaa601c558fbb14cead523ee9176ef8387b3664ad549",
+      "path": "data/datasets/elastic-q3-fy23.js",
+      "digest": "sha256:72fc301ecd5a937c988153df91c5f59736023137530269b636c6eb5b6f788e1e",
       "before": null
     },
     {
-      "path": "data/datasets/cisco-q3-fy25.js",
-      "digest": "sha256:7b14264c977dd8ea4ae8c2c3d2af18df05e102abf84c2baeef7aba550add449e",
+      "path": "data/datasets/elastic-q3-fy24.js",
+      "digest": "sha256:facb35f52e9c12d4509d1450315ef6e24a112fc692f892f313e161dbcfd669a3",
       "before": null
     },
     {
-      "path": "data/datasets/cisco-q4-fy23.js",
-      "digest": "sha256:c9f5ca5d6b256ca3d7ba8e02af0f094c66c6644549694089fef4760ea846b750",
+      "path": "data/datasets/elastic-q3-fy25.js",
+      "digest": "sha256:a5d53053cb373526c40de9e1f84b5f251ff91d0eb2e7e470ab90e3f26e62974f",
       "before": null
     },
     {
-      "path": "data/datasets/cisco-q4-fy24.js",
-      "digest": "sha256:0b0f324d97a880801a4de29316699fb62fbe352b1d1e569d11b97195a16fa020",
+      "path": "data/datasets/elastic-q4-fy23.js",
+      "digest": "sha256:842e5642f77c051281cc8e11adf4b6fbef6af2a954741092e266e7c1d3f4b095",
       "before": null
     },
     {
-      "path": "data/datasets/cisco-q4-fy25.js",
-      "digest": "sha256:3e881f1f77c72d69dbc80299d3535ef1efaca4fdae3e519cd35568cb4fecedbd",
+      "path": "data/datasets/elastic-q4-fy24.js",
+      "digest": "sha256:103f5b8bac9c070390a6f642c02655556c503ec4f072c2317b633d6f5626171f",
       "before": null
     },
     {
-      "path": "data/datasets/comcast-q1-fy23.js",
-      "digest": "sha256:491bdd7b51e075a08b821e3d49e4ed1610acfa670d3a4b1ebaff37ee6064bb91",
+      "path": "data/datasets/elastic-q4-fy25.js",
+      "digest": "sha256:d71bccbcd7b01603df1c27fffd96389fb68e3d1605cc9577db20baadabc1980c",
       "before": null
     },
     {
-      "path": "data/datasets/comcast-q1-fy24.js",
-      "digest": "sha256:61a3c7d1fe40cba73dafedafc0ec52e44cc15e87dbea580615ddf9a990c68eda",
+      "path": "data/datasets/lowes-fy23.js",
+      "digest": "sha256:aed9f23f3eaaecf0710b3b34d8a25ba925e16e8c002bb0a4fbab464f52a7b103",
       "before": null
     },
     {
-      "path": "data/datasets/comcast-q1-fy25.js",
-      "digest": "sha256:059b3f4fdd989819a1d3bd28de9e05bfdccab5aa4002c7bd43053f788c05e3c5",
+      "path": "data/datasets/lowes-q1-fy23.js",
+      "digest": "sha256:fa4aca8dd90c64f4050cfcea2334c4ec5e7f88fb8de014543f9b542250c7ad22",
       "before": null
     },
     {
-      "path": "data/datasets/comcast-q2-fy23.js",
-      "digest": "sha256:a20c5f982aee265b4ad3f486be9b72732d740dbeddc5bf08a5ae8a80b2c9cdbf",
+      "path": "data/datasets/lowes-q1-fy24.js",
+      "digest": "sha256:26eaadc3b21c849b7f93e95a53a1257bd8234463fbdb1f1573edc91199379abf",
       "before": null
     },
     {
-      "path": "data/datasets/comcast-q2-fy24.js",
-      "digest": "sha256:bef2f17e8002780fdc56460b7c9f97664176969d3158379c376f983602ba2c1c",
+      "path": "data/datasets/lowes-q1-fy25.js",
+      "digest": "sha256:62d4b21b8103b9981969e08bb002dbcea414875d22583151edc026f0a013c294",
       "before": null
     },
     {
-      "path": "data/datasets/comcast-q2-fy25.js",
-      "digest": "sha256:4acc99dcb28d04f0c4ea151c8c9d6db07ce6fc92f8bfd32bd6298f62042589c4",
+      "path": "data/datasets/lowes-q2-fy23.js",
+      "digest": "sha256:315a9acd28479f80fb1681358c8082416eef27a8c2dbf43d8ba1b4e93b825401",
       "before": null
     },
     {
-      "path": "data/datasets/comcast-q3-fy23.js",
-      "digest": "sha256:a2c4e53152488516ff99e70a9e09a8369bbdb1492f5eb95b7c852a2f0b914ff5",
+      "path": "data/datasets/lowes-q2-fy24.js",
+      "digest": "sha256:adc574a09bd741ced344ed08769c6fb399f57cd45c5570b35a8059274401112a",
       "before": null
     },
     {
-      "path": "data/datasets/comcast-q3-fy24.js",
-      "digest": "sha256:296822422fefe80ed8dde0bd8bc49ad4a48ca84c040d4e7ac0e3ee3eb342c103",
+      "path": "data/datasets/lowes-q3-fy22.js",
+      "digest": "sha256:d345de5be4645872f18be77cd6358aee8b1e0dac7df43205bba44e7fd9015ca1",
       "before": null
     },
     {
-      "path": "data/datasets/comcast-q3-fy25.js",
-      "digest": "sha256:0a0fa78be958e1a85f938999c2fd415d89cd6cb9f632f76fb520dfa545102d61",
+      "path": "data/datasets/lowes-q3-fy23.js",
+      "digest": "sha256:deb3f75a0f675344982dd7e4112b0d1d4f3b757d6e920ff3f6544682fb034881",
       "before": null
     },
     {
-      "path": "data/datasets/comcast-q4-fy22.js",
-      "digest": "sha256:2b6a0336a44c18f334004b7409256969fd8180f7e0bdceb51d74e4ff17b4d050",
+      "path": "data/datasets/lowes-q3-fy24.js",
+      "digest": "sha256:fd43e1887c11605a8fd0f4c511c8a5f7bfbd734a931c53628049d578f75860d9",
       "before": null
     },
     {
-      "path": "data/datasets/comcast-q4-fy23.js",
-      "digest": "sha256:f514efcee7874eba2705391c8f87ba97ad2295f1cbb749695c2c5bdcaaea0bf6",
+      "path": "data/datasets/lowes-q4-fy22.js",
+      "digest": "sha256:6c9986feda132b64c6e5bded474dbbb2c2825f2f377fd1bbee426909b1a85708",
       "before": null
     },
     {
-      "path": "data/datasets/comcast-q4-fy24.js",
-      "digest": "sha256:2cafc2b475418c5e4e4c869e08944410af3b1711eeac8456708ee1c5a76b9a0b",
+      "path": "data/datasets/lowes-q4-fy24.js",
+      "digest": "sha256:36ab6e2916ae70ddc0e4184f1b4670bc8e781819c90e65a6e5e805ec4e9a18a0",
       "before": null
     },
     {
-      "path": "data/datasets/match-group-q1-fy23.js",
-      "digest": "sha256:290532fe7f01056addfb64de90702582bf5b6122609688a4eeb0fffc8abebb59",
+      "path": "data/datasets/lyft-q1-fy23.js",
+      "digest": "sha256:085c0d4ed856e1df6c39f7f201035b4650d9271ab7e2cd1be8311d6c948af22d",
       "before": null
     },
     {
-      "path": "data/datasets/match-group-q1-fy24.js",
-      "digest": "sha256:7a60de4d1aa200c090b3583b46fa9e012957d9f3653c74bf80fb41fdf53e0990",
+      "path": "data/datasets/lyft-q1-fy24.js",
+      "digest": "sha256:be6b7f4a1026920be81087fe3a4d6b31099df865e9772e2daec9df425ba77da6",
       "before": null
     },
     {
-      "path": "data/datasets/match-group-q1-fy25.js",
-      "digest": "sha256:8c5a21dac1ac26833bdcaf8d7f1c7b45728345b1719dc59955748603edf93893",
+      "path": "data/datasets/lyft-q1-fy25.js",
+      "digest": "sha256:bfb21b6838a970be678a9302460f2e4100dd8214b58e540792c58d248113a1ac",
       "before": null
     },
     {
-      "path": "data/datasets/match-group-q2-fy23.js",
-      "digest": "sha256:1c40e79f31e82939ff30f77e9af55931f44327269aeec31a040dd2609cc30b6b",
+      "path": "data/datasets/lyft-q2-fy23.js",
+      "digest": "sha256:f321b38679f5f7e10fef5a6a62bed155f1c9ae34bb6d5df9d07d654d5d698eb4",
       "before": null
     },
     {
-      "path": "data/datasets/match-group-q2-fy24.js",
-      "digest": "sha256:7ea8806f2794e7cddef7c50dbf337d3edf9cad012f39ac3b44cbe514953cca8d",
+      "path": "data/datasets/lyft-q2-fy24.js",
+      "digest": "sha256:74fcc1747d1f92413ec153ae71a1069c3c21e162418fd01bbda0bf26edf2ba3b",
       "before": null
     },
     {
-      "path": "data/datasets/match-group-q2-fy25.js",
-      "digest": "sha256:cc7df448144589d7039e8d6db1a8ebe9276d7ebf2fd18860faa7c0495dfe7250",
+      "path": "data/datasets/lyft-q2-fy25.js",
+      "digest": "sha256:9b5a86cdb3c2976d69173e634740f300c9d9fcac8f6d865534271be9f283d879",
       "before": null
     },
     {
-      "path": "data/datasets/match-group-q3-fy22.js",
-      "digest": "sha256:f1a9bfba47ee0e83f984bc9a030c1c17a075590deb6943832195e5c3865f8a8a",
+      "path": "data/datasets/lyft-q3-fy22.js",
+      "digest": "sha256:9b2abd6966dc6bcdad7a729b5bd0285921d8e7052cbbf2ddbbb6cf72b0524966",
       "before": null
     },
     {
-      "path": "data/datasets/match-group-q3-fy23.js",
-      "digest": "sha256:c0d7021f97c5b56372bb0550c8ff8a8721404cf96728c965aefc3531dbef68c9",
+      "path": "data/datasets/lyft-q3-fy23.js",
+      "digest": "sha256:8d0d7063ef50912f1879679176132a56672a10b7e47d6e800be0a007343faa33",
       "before": null
     },
     {
-      "path": "data/datasets/match-group-q3-fy24.js",
-      "digest": "sha256:17e9316b3df04b2b5cb699ddb3009c4298bb989ad386e232916124c2aa0ba683",
+      "path": "data/datasets/lyft-q3-fy24.js",
+      "digest": "sha256:437f19b3acc1b3c2044d7ff946af54a7d0c174e027abf15e06afb9fb29942d8c",
       "before": null
     },
     {
-      "path": "data/datasets/match-group-q4-fy22.js",
-      "digest": "sha256:b0dae2a237b0bbf913047dfb703ecd2ff79238f50f5bae5af8d6e04d19b8bd24",
+      "path": "data/datasets/lyft-q4-fy23.js",
+      "digest": "sha256:b3d601677e40a2ecc6927747a642504bf0194b42d197933e28112e4e692a7c28",
       "before": null
     },
     {
-      "path": "data/datasets/match-group-q4-fy23.js",
-      "digest": "sha256:8e118bf83fdb881357121a05a560f8b0074550becc87c1799005e7e02914f995",
+      "path": "data/datasets/lyft-q4-fy24.js",
+      "digest": "sha256:7bbf586206ba6d9c270eae6383c560147ad7da079d31fda3a8621e92937f750c",
       "before": null
     },
     {
-      "path": "data/datasets/match-group-q4-fy24.js",
-      "digest": "sha256:29ea6de5240c08a8474d66e8c2038186dac5eebfee8a374c2df7fccba8932305",
+      "path": "data/datasets/target-q1-fy24.js",
+      "digest": "sha256:dc6bece9afe725eba02e86a5264f272fc915f037c441988952574479971ba4d4",
       "before": null
     },
     {
-      "path": "data/datasets/monday-com-h1-fy24.js",
-      "digest": "sha256:4e356ad62a3d1161ec8c538ef4d9fd29271bc2a6941ca0433e5c8d116f727a83",
+      "path": "data/datasets/target-q1-fy25.js",
+      "digest": "sha256:ebf332ef97a7dc5efb09b3a3a640b87807ca2ee240b9e7a285b7611064041080",
       "before": null
     },
     {
-      "path": "data/datasets/monday-com-q1-fy23.js",
-      "digest": "sha256:3eeaf64f22d69b6ac9fb0925bd3a87cd7aa16b9d93ed2181549e9f8fb9be45a1",
+      "path": "data/datasets/target-q2-fy23.js",
+      "digest": "sha256:41e898ee8a30bd1efb6504e9bf438bd693733f156c83a47a324b82880649ab63",
       "before": null
     },
     {
-      "path": "data/datasets/monday-com-q1-fy25.js",
-      "digest": "sha256:8e9d9189cf9df1f246d796c9337a91ffefbc73cb00c06761cae8c374a0b4405b",
+      "path": "data/datasets/target-q2-fy24.js",
+      "digest": "sha256:36564ae81cdf2c234e4dcb01d8d073a4ede5d7e9595bf6f1ba8316a2c11228fa",
       "before": null
     },
     {
-      "path": "data/datasets/monday-com-q2-fy23.js",
-      "digest": "sha256:2f79a1e3773c0ffae4509b0744571c3e425b3d7fe31d7d453ec093c56cd52300",
+      "path": "data/datasets/target-q2-fy25.js",
+      "digest": "sha256:3880ab6afb122342fc5daabef7898e31eccf292b5aac10330408751e7b292d1e",
       "before": null
     },
     {
-      "path": "data/datasets/monday-com-q2-fy25.js",
-      "digest": "sha256:7884cacb40b9feefcd54c378bbc4898998d609b620d71da384702737423fa4b0",
+      "path": "data/datasets/target-q3-fy22.js",
+      "digest": "sha256:0a58a79d37159a1ff7fd121ecce3489a56b6575cc31c705bb325135d503089a0",
       "before": null
     },
     {
-      "path": "data/datasets/monday-com-q3-fy23.js",
-      "digest": "sha256:76c9a88bfa6326794dd03d89864714d95e2131efc269f1f6ac6419443fa36a1d",
+      "path": "data/datasets/target-q3-fy23.js",
+      "digest": "sha256:428abdedfba00587d11abaacb4c0acff5e06f0ff458d7c58f82801f9c780cf2a",
       "before": null
     },
     {
-      "path": "data/datasets/monday-com-q4-fy22.js",
-      "digest": "sha256:fd0dac5b947beb9675c34826bf9b10eb666ecf6b25c9f35d6b1358328462db86",
+      "path": "data/datasets/target-q3-fy24.js",
+      "digest": "sha256:c2622c6050841cd53500e516c5c0c3067da048c48a9ae9dda4cd07dd7c25cceb",
       "before": null
     },
     {
-      "path": "data/income-statements/appfolio.js",
-      "digest": "sha256:6c79d35320ad3140baaf9823f65a17fa030cfdc2ab3b5610f6b7d18943712d99",
-      "before": "sha256:1396842bb9cb65cd51d803d90bb6230159a1689fd89e7e36ada2b56823edac5b"
+      "path": "data/datasets/target-q4-fy23.js",
+      "digest": "sha256:48de2d3ada24e9ebb3fbedc56498eb94ab183bc7861495d46ad598d111b39cef",
+      "before": null
+    },
+    {
+      "path": "data/datasets/target-q4-fy24.js",
+      "digest": "sha256:6caf6b05fcdd5fad6769cfbeae88f9f1767a98896f5db162a92976a9e4ef12df",
+      "before": null
+    },
+    {
+      "path": "data/datasets/teladoc-q1-fy23.js",
+      "digest": "sha256:87ba0a06f37ce1d23d0490710b9f11861ae2f9e057fedf4c78f15d17702b3647",
+      "before": null
+    },
+    {
+      "path": "data/datasets/teladoc-q1-fy24.js",
+      "digest": "sha256:359f8fbf427d326477e15c0d7d42c801aa1e2c80ae7cd77e25c04f34df256d1e",
+      "before": null
+    },
+    {
+      "path": "data/datasets/teladoc-q2-fy23.js",
+      "digest": "sha256:936d7c8d2d69c2c7570c12de667f07780804d80eb02b1aaab669f6bf52e886b1",
+      "before": null
+    },
+    {
+      "path": "data/datasets/teladoc-q2-fy24.js",
+      "digest": "sha256:a63a991d97996c5fc3bfdf93c9667a778d1293ae9bc802d38f29f69d9143efef",
+      "before": null
+    },
+    {
+      "path": "data/datasets/teladoc-q3-fy22.js",
+      "digest": "sha256:dafdbca183763c5b9deb46bea7e5a9236369fdbe2e1c75b2b31f0563234249d0",
+      "before": null
+    },
+    {
+      "path": "data/datasets/teladoc-q3-fy23.js",
+      "digest": "sha256:e20ecf783d79f0d8863e42d4ea59be1125e13ee6075accc329f1d25254b9fc40",
+      "before": null
+    },
+    {
+      "path": "data/datasets/teladoc-q3-fy24.js",
+      "digest": "sha256:d418f0196eb91fa7430816907db0221c0ff981f61c599163d697123068e9a03a",
+      "before": null
+    },
+    {
+      "path": "data/datasets/teladoc-q4-fy22.js",
+      "digest": "sha256:f8627bac38a1404467b4e913e96a9c3e35ab8ee6d828a754ba233bca42a4477b",
+      "before": null
+    },
+    {
+      "path": "data/datasets/teladoc-q4-fy23.js",
+      "digest": "sha256:aaa3de0e38150119a48e6a820bed2c618346cdb181806f3fc20e2bc144885930",
+      "before": null
+    },
+    {
+      "path": "data/datasets/the-trade-desk-q1-fy23.js",
+      "digest": "sha256:32b734e9636c5c34358806fbf1c9cf0a0f0911566ef597cf2c7075750e6d1022",
+      "before": null
+    },
+    {
+      "path": "data/datasets/the-trade-desk-q1-fy24.js",
+      "digest": "sha256:99be28d47cfe1fcf322fc5ea7b835f9e21513d57f195d930bf693f5265101f2f",
+      "before": null
+    },
+    {
+      "path": "data/datasets/the-trade-desk-q1-fy25.js",
+      "digest": "sha256:d37752da265b5aca821ea93bdfb4d116ab7e900c5370fd389b107251d85b2efe",
+      "before": null
+    },
+    {
+      "path": "data/datasets/the-trade-desk-q2-fy23.js",
+      "digest": "sha256:f36e48a4db09ec80c9971964a4935fb5f52b59961775ef67e7d1d31cfcf8f69e",
+      "before": null
+    },
+    {
+      "path": "data/datasets/the-trade-desk-q2-fy24.js",
+      "digest": "sha256:edce203db44b84961a7e68f434d8abd28772fc5e8e9f64e4160bda0b632b414b",
+      "before": null
+    },
+    {
+      "path": "data/datasets/the-trade-desk-q2-fy25.js",
+      "digest": "sha256:79cb1e42953adf0e8c7401346f05526463ac2fce3860a9d3fed35a271a3d4faf",
+      "before": null
+    },
+    {
+      "path": "data/datasets/the-trade-desk-q3-fy22.js",
+      "digest": "sha256:56f27f799355a31de28235d4117921dacde8c5bf30f6a3686e5bd5ee3252072a",
+      "before": null
+    },
+    {
+      "path": "data/datasets/the-trade-desk-q3-fy23.js",
+      "digest": "sha256:711ac4d06c8365b2a64c6bce288ad00d1dd074afdf520f503fea111eb64e7dd0",
+      "before": null
+    },
+    {
+      "path": "data/datasets/the-trade-desk-q3-fy24.js",
+      "digest": "sha256:3ebbf1ce9fbddafe33e037016a150fd3cc3a2031b72033dc7e31043b221bfe8d",
+      "before": null
+    },
+    {
+      "path": "data/datasets/the-trade-desk-q4-fy22.js",
+      "digest": "sha256:6c957fb6a9d4d949f8456dd42848e077b8cfc3a5f8bfe00180eaa531361f3745",
+      "before": null
+    },
+    {
+      "path": "data/datasets/the-trade-desk-q4-fy23.js",
+      "digest": "sha256:9cd334c5660db07c10ca0afb1a15b91bd1b21c814f5121ec9ba92913e0dd8fbe",
+      "before": null
+    },
+    {
+      "path": "data/datasets/the-trade-desk-q4-fy24.js",
+      "digest": "sha256:9829afdfc0efa7b83758a47d15285d7fc0fc2a4f6543920d1ada02b615f4f822",
+      "before": null
+    },
+    {
+      "path": "data/income-statements/align.js",
+      "digest": "sha256:a71f6485a7b86479206a179c00adbb463698a2c7a13c60ec1e6812786d5f7e65",
+      "before": "sha256:236f1a2d1e7e223675574b42819334d1237c896c93d9ad1a42b5bde067ba56c1"
+    },
+    {
+      "path": "data/income-statements/block.js",
+      "digest": "sha256:ad27265d0c79f7c25dedc8c9442bf51d98ba029cedfb67c80e59dddf3368f6df",
+      "before": "sha256:ac7fa2820b060ca7b5f1f40f774c46948238229a0de72ba90daf9645267db238"
+    },
+    {
+      "path": "data/income-statements/elastic.js",
+      "digest": "sha256:eba77331b836cad4ae694d6da162a45dbe29477e499db5ed776cd055a39241e7",
+      "before": "sha256:fef9a148da15cc9d2ff9d2a54467511dbfeb5e369c98bdc0666ebdd90b7289ff"
     },
     {
-      "path": "data/income-statements/bank-of-america.js",
-      "digest": "sha256:9708dfa5a3152dcf3a31f7963921f91e876fcc577c73ffc4cec150b446dbee12",
-      "before": "sha256:b73177f959f7b10074bfb9e737bc84685e8613013575dd43383d904665010079"
+      "path": "data/income-statements/lowes.js",
+      "digest": "sha256:d7f102bb4ea07e3e6839123fd4d0004d7ac49d8f67182e42cc4b6f8dc1da9bc9",
+      "before": "sha256:e1a29c10f9a4d598a5cb995289c5f13ea8e160f095ad75e74023909ed6658cd4"
     },
     {
-      "path": "data/income-statements/cisco.js",
-      "digest": "sha256:82c9062b6dabd29deca88570cfd43fbd2a4f8087a4b7a0d5733da28f672e20a4",
-      "before": "sha256:924948a3a13f8b8e14678e4efd363e4225473b2bac67f63144874137b6a59ab5"
+      "path": "data/income-statements/lyft.js",
+      "digest": "sha256:abd95dd580421eb561bbf1428fdf1935717ad5e8e0a5ca1a7181809332c1b75b",
+      "before": "sha256:3282577fc159170393d424f06eb7696fd83026460c393f60adcf9d05e62474a6"
     },
     {
-      "path": "data/income-statements/comcast.js",
-      "digest": "sha256:182c6c5d8a1e816fe366adeebc073cf4a9e3b3bd4e5de99a22ea043da03e481e",
-      "before": "sha256:1fdf1c357701ef6a0c65c5193ef84621f5e93b9e610dcb3e84f7354a072df903"
+      "path": "data/income-statements/target.js",
+      "digest": "sha256:7c6da68f3c3c8aa3d6ef94a5c52a51970d3ec268cec87d1b9c705d574c0373b1",
+      "before": "sha256:ca98973b1d9aa9b8f73656943911ce64d94923388141fa2a13620443604e7f42"
     },
     {
-      "path": "data/income-statements/match-group.js",
-      "digest": "sha256:9ccf3d2a881ff0f5a74a0f946ed070c2784f5650c8e87eaaf2f88ad3007a7aa3",
-      "before": "sha256:875c3d9eca9216c3ecbfeb09329cf3251ecbf616861849c15314fde79b10f7bc"
+      "path": "data/income-statements/teladoc.js",
+      "digest": "sha256:278e7dae8d8b31e5ff5334f43ab0d10aa29b0eef244a577190ab67d97a28f4bf",
+      "before": "sha256:ae866312f8bcf25a0ea467e90da54fdc7d8f56c36491e375dcac8398666e66aa"
     },
     {
-      "path": "data/income-statements/monday-com.js",
-      "digest": "sha256:3786d53577f9a279d9938dc2c7804987cc6e809608cacf05e02f53a4bdf857dc",
-      "before": "sha256:6fa981e0c8e0bae0893a8663f7ac9b74b27618fb2d432a4f9f89aae8085ff268"
+      "path": "data/income-statements/the-trade-desk.js",
+      "digest": "sha256:c696e36e196b3a5aa5a064da661572b942cc6939fadb1fa94a4bd739e2cfd247",
+      "before": "sha256:fc04b38c489ba495884df390a1624b81b1651bf5559b9b32c4e35713122477b4"
     },
     {
       "path": "data/render-baselines.json",
-      "digest": "sha256:4ae0faa38539d062e72a184b48bfdd02f3b6c22ac561b3d876d6ad66268d05fd",
-      "before": "sha256:e014d4f6e79c94ed68731ea71c8d324524cce93e70eb111d6f77d021833df800"
+      "digest": "sha256:0dd132406ce4b94376c472f9688c7377fbe920715a7588d19af06f7e2d134b98",
+      "before": "sha256:4ae0faa38539d062e72a184b48bfdd02f3b6c22ac561b3d876d6ad66268d05fd"
     },
     {
       "path": "data/workflow-timestamps.json",
-      "digest": "sha256:f54b6941c928ce9a22ccf033f5580831a6a0b756d9aecf89b93be07671855753",
-      "before": "sha256:6f0894f00dffff46814e7dad5e264f9aeb43547f081c3781562805f0348c88da"
-    },
-    {
-      "path": "input/icon-crop-specs/comcast-company-wordmark-v2.json",
-      "digest": "sha256:e12202a04f433ba3eea6a27a8750a986abe33ccc9e2810760e4d5b224787dfdb",
-      "before": null
-    },
-    {
-      "path": "input/icon-crop-specs/comcast-q4-fy22-wordmark-v2-reuse.json",
-      "digest": "sha256:32f21897408d34dc6a4fabd52fc7a6192ac47f0a7a577804b0df8deef9f1fa33",
-      "before": null
-    },
-    {
-      "path": "input/icon-crop-specs/comcast-q4-fy24-wordmark-v2-reuse.json",
-      "digest": "sha256:8c95bf8c7927c1014e8e9f9011292802cc2c16f75d7b69b131b48ca6440efd90",
-      "before": null
-    },
-    {
-      "path": "input/icon-crop-specs/comcast-wordmark-v2.json",
-      "digest": "sha256:ef45b7cedacfbcca9103335fffb8a1f38c97346946145e35ab85596bec1f6829",
-      "before": null
-    },
-    {
-      "path": "input/icon-crop-specs/match-group-q4-fy22.json",
-      "digest": "sha256:51f689076bffc21e4d71e8a5c739c931ca11f7d0896a917b0b48041776ac1544",
-      "before": null
+      "digest": "sha256:67c1b18494a6a036d206867ead78472b2bc9c01ac3f26122954548f41492a531",
+      "before": "sha256:f54b6941c928ce9a22ccf033f5580831a6a0b756d9aecf89b93be07671855753"
     }
   ],
   "release": {
-    "version": "d7930eb08084a341610ee88f19a2492e82fd09c536986921ace73bf37f86dd9c",
-    "contentDigest": "sha256:4deb2115f63dda949f40db1860d40e5977fc3f16e7b5065ee5598e3f11964db5"
+    "version": "7e9c371e793488d6c302fc9096d9c1d74c239c54aabcaa3417acf6177eb6af65",
+    "contentDigest": "sha256:93a68026059c512117e7f58e6cac125262a6f80433b828d6b5407e95d80d92aa"
   },
   "approval": {
     "operator": "YaoXing Liu",
     "accepted": true,
-    "candidateDigest": "sha256:e0718a24ccf1de465bd4cd03dc66f84e165e8f96e02aae9338bbf89388cbff1c",
+    "candidateDigest": "sha256:99a485b90f3183d43cdb616a127a3eee99d2bd27af4d75ce62e1b9bca9263f0c",
     "basis": "inherited-build-acceptance",
-    "planDigest": "sha256:648f42ccf987f41b9ec0a1ee725e6fde8eaf0fb0dc9d0fa56d1f7dc8a1abd3e9",
-    "recordedAt": "2026-10-29T16:41:42.051Z"
+    "planDigest": "sha256:aa159c6f640c53cc462701e4802caf555ed608737743c2fa14cad6b730203674",
+    "recordedAt": "2026-10-29T18:18:58.210Z"
   }
 }

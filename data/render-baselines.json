@@ -11504,6 +11504,546 @@
       "mae": 7.700464191976003,
       "width": 2667,
       "height": 1500
+    },
+    "align-q1-fy23": {
+      "similarity": 0.9709902245879396,
+      "mae": 7.397492730075407,
+      "width": 2667,
+      "height": 1500
+    },
+    "align-q1-fy24": {
+      "similarity": 0.9700275194358875,
+      "mae": 7.642982543848685,
+      "width": 2667,
+      "height": 1500
+    },
+    "align-q1-fy25": {
+      "similarity": 0.9697525551136174,
+      "mae": 7.71309844602758,
+      "width": 2667,
+      "height": 1500
+    },
+    "align-q2-fy23": {
+      "similarity": 0.9696946126832185,
+      "mae": 7.727873765779278,
+      "width": 2667,
+      "height": 1500
+    },
+    "align-q2-fy24": {
+      "similarity": 0.9670938792781621,
+      "mae": 8.391060784068658,
+      "width": 2667,
+      "height": 1500
+    },
+    "align-q2-fy25": {
+      "similarity": 0.9717010347562763,
+      "mae": 7.216236137149523,
+      "width": 2667,
+      "height": 1500
+    },
+    "align-q3-fy22": {
+      "similarity": 0.9766796454364773,
+      "mae": 5.946690413698287,
+      "width": 2667,
+      "height": 1500
+    },
+    "align-q3-fy23": {
+      "similarity": 0.9669745111926369,
+      "mae": 8.4214996458776,
+      "width": 2667,
+      "height": 1500
+    },
+    "align-q3-fy24": {
+      "similarity": 0.9688931429322969,
+      "mae": 7.9322485522643005,
+      "width": 2667,
+      "height": 1500
+    },
+    "align-q3-fy25": {
+      "similarity": 0.977965086390345,
+      "mae": 5.618902970462026,
+      "width": 2667,
+      "height": 1500
+    },
+    "align-q4-fy22": {
+      "similarity": 0.9685370897265293,
+      "mae": 8.023042119735033,
+      "width": 2667,
+      "height": 1500
+    },
+    "align-q4-fy23": {
+      "similarity": 0.970238354846167,
+      "mae": 7.589219514227389,
+      "width": 2667,
+      "height": 1500
+    },
+    "align-q4-fy24": {
+      "similarity": 0.9754120532319082,
+      "mae": 6.269926425863433,
+      "width": 2667,
+      "height": 1500
+    },
+    "block-q1-fy23": {
+      "similarity": 0.9685506256162424,
+      "mae": 8.019590467858185,
+      "width": 2667,
+      "height": 1500
+    },
+    "block-q1-fy24": {
+      "similarity": 0.9677828323747113,
+      "mae": 8.215377744448611,
+      "width": 2667,
+      "height": 1500
+    },
+    "block-q1-fy25": {
+      "similarity": 0.9666031974761324,
+      "mae": 8.516184643586218,
+      "width": 2667,
+      "height": 1500
+    },
+    "block-q2-fy23": {
+      "similarity": 0.9729261205094462,
+      "mae": 6.903839270091239,
+      "width": 2667,
+      "height": 1500
+    },
+    "block-q2-fy24": {
+      "similarity": 0.9655231252956126,
+      "mae": 8.791603049618798,
+      "width": 2667,
+      "height": 1500
+    },
+    "block-q2-fy25": {
+      "similarity": 0.9679765104525333,
+      "mae": 8.165989834604007,
+      "width": 2667,
+      "height": 1500
+    },
+    "block-q3-fy22": {
+      "similarity": 0.967659809844031,
+      "mae": 8.246748489772111,
+      "width": 2667,
+      "height": 1500
+    },
+    "block-q3-fy23": {
+      "similarity": 0.9680706202574352,
+      "mae": 8.14199183435404,
+      "width": 2667,
+      "height": 1500
+    },
+    "block-q3-fy24": {
+      "similarity": 0.9676769743651324,
+      "mae": 8.242371536891222,
+      "width": 2667,
+      "height": 1500
+    },
+    "block-q4-fy22": {
+      "similarity": 0.9659468311559094,
+      "mae": 8.683558055243095,
+      "width": 2667,
+      "height": 1500
+    },
+    "block-q4-fy23": {
+      "similarity": 0.9690739392870009,
+      "mae": 7.886145481814773,
+      "width": 2667,
+      "height": 1500
+    },
+    "block-q4-fy24": {
+      "similarity": 0.9655406257224383,
+      "mae": 8.787140440778236,
+      "width": 2667,
+      "height": 1500
+    },
+    "elastic-q1-fy24": {
+      "similarity": 0.9756630803502503,
+      "mae": 6.205914510686164,
+      "width": 2667,
+      "height": 1500
+    },
+    "elastic-q1-fy25": {
+      "similarity": 0.9732864473640142,
+      "mae": 6.811955922176395,
+      "width": 2667,
+      "height": 1500
+    },
+    "elastic-q1-fy26": {
+      "similarity": 0.9729748510194396,
+      "mae": 6.8914129900429115,
+      "width": 2667,
+      "height": 1500
+    },
+    "elastic-q2-fy23": {
+      "similarity": 0.975993218494747,
+      "mae": 6.12172928383952,
+      "width": 2667,
+      "height": 1500
+    },
+    "elastic-q2-fy24": {
+      "similarity": 0.9732704137473012,
+      "mae": 6.816044494438195,
+      "width": 2667,
+      "height": 1500
+    },
+    "elastic-q2-fy25": {
+      "similarity": 0.9710045002544616,
+      "mae": 7.393852435112278,
+      "width": 2667,
+      "height": 1500
+    },
+    "elastic-q3-fy23": {
+      "similarity": 0.9726156717338438,
+      "mae": 6.98300370786985,
+      "width": 2667,
+      "height": 1500
+    },
+    "elastic-q3-fy24": {
+      "similarity": 0.973496687423876,
+      "mae": 6.758344706911636,
+      "width": 2667,
+      "height": 1500
+    },
+    "elastic-q3-fy25": {
+      "similarity": 0.9736922044875109,
+      "mae": 6.708487855684706,
+      "width": 2667,
+      "height": 1500
+    },
+    "elastic-q4-fy23": {
+      "similarity": 0.9740902883871542,
+      "mae": 6.606976461275674,
+      "width": 2667,
+      "height": 1500
+    },
+    "elastic-q4-fy24": {
+      "similarity": 0.9721250954741768,
+      "mae": 7.108100654084906,
+      "width": 2667,
+      "height": 1500
+    },
+    "elastic-q4-fy25": {
+      "similarity": 0.9751195832547075,
+      "mae": 6.344506270049577,
+      "width": 2667,
+      "height": 1500
+    },
+    "lowes-fy23": {
+      "similarity": 0.9678650890860865,
+      "mae": 8.194402283047951,
+      "width": 2667,
+      "height": 1500
+    },
+    "lowes-q1-fy23": {
+      "similarity": 0.9680874063944621,
+      "mae": 8.137711369412157,
+      "width": 2667,
+      "height": 1500
+    },
+    "lowes-q1-fy24": {
+      "similarity": 0.9588738972987854,
+      "mae": 10.487156188809733,
+      "width": 2667,
+      "height": 1500
+    },
+    "lowes-q1-fy25": {
+      "similarity": 0.964442200607277,
+      "mae": 9.067238845144358,
+      "width": 2667,
+      "height": 1500
+    },
+    "lowes-q2-fy23": {
+      "similarity": 0.9611464027780842,
+      "mae": 9.90766729158855,
+      "width": 2667,
+      "height": 1500
+    },
+    "lowes-q2-fy24": {
+      "similarity": 0.9594309645934781,
+      "mae": 10.345104028663084,
+      "width": 2667,
+      "height": 1500
+    },
+    "lowes-q3-fy22": {
+      "similarity": 0.9563358861188103,
+      "mae": 11.13434903970337,
+      "width": 2667,
+      "height": 1500
+    },
+    "lowes-q3-fy23": {
+      "similarity": 0.9624991742045316,
+      "mae": 9.562710577844436,
+      "width": 2667,
+      "height": 1500
+    },
+    "lowes-q3-fy24": {
+      "similarity": 0.9616964072301419,
+      "mae": 9.767416156313795,
+      "width": 2667,
+      "height": 1500
+    },
+    "lowes-q4-fy22": {
+      "similarity": 0.9692066311972442,
+      "mae": 7.8523090447027455,
+      "width": 2667,
+      "height": 1500
+    },
+    "lowes-q4-fy24": {
+      "similarity": 0.9621590311015045,
+      "mae": 9.649447069116361,
+      "width": 2667,
+      "height": 1500
+    },
+    "lyft-q1-fy23": {
+      "similarity": 0.9683168927413485,
+      "mae": 8.07919235095613,
+      "width": 2667,
+      "height": 1500
+    },
+    "lyft-q1-fy24": {
+      "similarity": 0.9709692621755613,
+      "mae": 7.402838145231846,
+      "width": 2667,
+      "height": 1500
+    },
+    "lyft-q1-fy25": {
+      "similarity": 0.9718658514090968,
+      "mae": 7.174207890680331,
+      "width": 2667,
+      "height": 1500
+    },
+    "lyft-q2-fy23": {
+      "similarity": 0.9713139364115433,
+      "mae": 7.314946215056452,
+      "width": 2667,
+      "height": 1500
+    },
+    "lyft-q2-fy24": {
+      "similarity": 0.9743798714703146,
+      "mae": 6.533132775069783,
+      "width": 2667,
+      "height": 1500
+    },
+    "lyft-q2-fy25": {
+      "similarity": 0.972478390854738,
+      "mae": 7.018010332041828,
+      "width": 2667,
+      "height": 1500
+    },
+    "lyft-q3-fy22": {
+      "similarity": 0.9758463878289724,
+      "mae": 6.1591711036120484,
+      "width": 2667,
+      "height": 1500
+    },
+    "lyft-q3-fy23": {
+      "similarity": 0.9713206140082163,
+      "mae": 7.313243427904845,
+      "width": 2667,
+      "height": 1500
+    },
+    "lyft-q3-fy24": {
+      "similarity": 0.9714306342426151,
+      "mae": 7.28518826813315,
+      "width": 2667,
+      "height": 1500
+    },
+    "lyft-q4-fy23": {
+      "similarity": 0.9696874204449933,
+      "mae": 7.729707786526684,
+      "width": 2667,
+      "height": 1500
+    },
+    "lyft-q4-fy24": {
+      "similarity": 0.9708360360183735,
+      "mae": 7.436810815314752,
+      "width": 2667,
+      "height": 1500
+    },
+    "target-q1-fy24": {
+      "similarity": 0.972547534499364,
+      "mae": 7.000378702662167,
+      "width": 2667,
+      "height": 1500
+    },
+    "target-q1-fy25": {
+      "similarity": 0.97023425470509,
+      "mae": 7.590265050202058,
+      "width": 2667,
+      "height": 1500
+    },
+    "target-q2-fy23": {
+      "similarity": 0.9743541112916441,
+      "mae": 6.539701620630755,
+      "width": 2667,
+      "height": 1500
+    },
+    "target-q2-fy24": {
+      "similarity": 0.966799243885364,
+      "mae": 8.46619280923218,
+      "width": 2667,
+      "height": 1500
+    },
+    "target-q2-fy25": {
+      "similarity": 0.959583623288919,
+      "mae": 10.306176061325667,
+      "width": 2667,
+      "height": 1500
+    },
+    "target-q3-fy22": {
+      "similarity": 0.9716091214088435,
+      "mae": 7.239674040744907,
+      "width": 2667,
+      "height": 1500
+    },
+    "target-q3-fy23": {
+      "similarity": 0.9711906586840043,
+      "mae": 7.346382035578886,
+      "width": 2667,
+      "height": 1500
+    },
+    "target-q3-fy24": {
+      "similarity": 0.9680049771556333,
+      "mae": 8.158730825313503,
+      "width": 2667,
+      "height": 1500
+    },
+    "target-q4-fy23": {
+      "similarity": 0.9722067169708362,
+      "mae": 7.0872871724367785,
+      "width": 2667,
+      "height": 1500
+    },
+    "target-q4-fy24": {
+      "similarity": 0.9722973379961491,
+      "mae": 7.064178810981961,
+      "width": 2667,
+      "height": 1500
+    },
+    "teladoc-q1-fy23": {
+      "similarity": 0.9706650812439295,
+      "mae": 7.480404282797983,
+      "width": 2667,
+      "height": 1500
+    },
+    "teladoc-q1-fy24": {
+      "similarity": 0.9648897757061413,
+      "mae": 8.953107194933967,
+      "width": 2667,
+      "height": 1500
+    },
+    "teladoc-q2-fy23": {
+      "similarity": 0.9679485619853074,
+      "mae": 8.173116693746614,
+      "width": 2667,
+      "height": 1500
+    },
+    "teladoc-q2-fy24": {
+      "similarity": 0.9626115180046939,
+      "mae": 9.534062908803067,
+      "width": 2667,
+      "height": 1500
+    },
+    "teladoc-q3-fy22": {
+      "similarity": 0.9701689341119941,
+      "mae": 7.606921801441486,
+      "width": 2667,
+      "height": 1500
+    },
+    "teladoc-q3-fy23": {
+      "similarity": 0.9657347723691402,
+      "mae": 8.737633045869266,
+      "width": 2667,
+      "height": 1500
+    },
+    "teladoc-q3-fy24": {
+      "similarity": 0.9664579153096059,
+      "mae": 8.553231596050495,
+      "width": 2667,
+      "height": 1500
+    },
+    "teladoc-q4-fy22": {
+      "similarity": 0.9637123614450155,
+      "mae": 9.25334783152106,
+      "width": 2667,
+      "height": 1500
+    },
+    "teladoc-q4-fy23": {
+      "similarity": 0.9638450147979869,
+      "mae": 9.219521226513352,
+      "width": 2667,
+      "height": 1500
+    },
+    "the-trade-desk-q1-fy23": {
+      "similarity": 0.9725261701764404,
+      "mae": 7.005826605007707,
+      "width": 2667,
+      "height": 1500
+    },
+    "the-trade-desk-q1-fy24": {
+      "similarity": 0.9691902156021347,
+      "mae": 7.856495021455651,
+      "width": 2667,
+      "height": 1500
+    },
+    "the-trade-desk-q1-fy25": {
+      "similarity": 0.9702897141125333,
+      "mae": 7.576122901304004,
+      "width": 2667,
+      "height": 1500
+    },
+    "the-trade-desk-q2-fy23": {
+      "similarity": 0.9717234891390211,
+      "mae": 7.21051026954964,
+      "width": 2667,
+      "height": 1500
+    },
+    "the-trade-desk-q2-fy24": {
+      "similarity": 0.9694094404866058,
+      "mae": 7.80059267591551,
+      "width": 2667,
+      "height": 1500
+    },
+    "the-trade-desk-q2-fy25": {
+      "similarity": 0.9709358258322285,
+      "mae": 7.411364412781736,
+      "width": 2667,
+      "height": 1500
+    },
+    "the-trade-desk-q3-fy22": {
+      "similarity": 0.9695300427315866,
+      "mae": 7.769839103445403,
+      "width": 2667,
+      "height": 1500
+    },
+    "the-trade-desk-q3-fy23": {
+      "similarity": 0.9719324538681031,
+      "mae": 7.1572242636337124,
+      "width": 2667,
+      "height": 1500
+    },
+    "the-trade-desk-q3-fy24": {
+      "similarity": 0.9705217328226129,
+      "mae": 7.5169581302337205,
+      "width": 2667,
+      "height": 1500
+    },
+    "the-trade-desk-q4-fy22": {
+      "similarity": 0.9659208683881835,
+      "mae": 8.690178561013207,
+      "width": 2667,
+      "height": 1500
+    },
+    "the-trade-desk-q4-fy23": {
+      "similarity": 0.9719433100274231,
+      "mae": 7.154455943007124,
+      "width": 2667,
+      "height": 1500
+    },
+    "the-trade-desk-q4-fy24": {
+      "similarity": 0.9767849580893891,
+      "mae": 5.919835687205766,
+      "width": 2667,
+      "height": 1500
     }
   }
 }

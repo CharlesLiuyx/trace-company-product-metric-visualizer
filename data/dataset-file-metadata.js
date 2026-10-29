@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-10-29T14:19:45.535Z",
+  "generatedAt": "2026-10-29T16:57:05.758Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -11507,6 +11507,546 @@
       "path": "data/datasets/monday-com-q4-fy22.js",
       "updatedAtMs": 1793282698358,
       "updatedAt": "2026-10-29T14:04:58.358Z",
+      "timeSource": "publication"
+    },
+    "align-q1-fy23": {
+      "path": "data/datasets/align-q1-fy23.js",
+      "updatedAtMs": 1793292618875,
+      "updatedAt": "2026-10-29T16:50:18.875Z",
+      "timeSource": "publication"
+    },
+    "align-q1-fy24": {
+      "path": "data/datasets/align-q1-fy24.js",
+      "updatedAtMs": 1793292807769,
+      "updatedAt": "2026-10-29T16:53:27.769Z",
+      "timeSource": "publication"
+    },
+    "align-q1-fy25": {
+      "path": "data/datasets/align-q1-fy25.js",
+      "updatedAtMs": 1793292751799,
+      "updatedAt": "2026-10-29T16:52:31.799Z",
+      "timeSource": "publication"
+    },
+    "align-q2-fy23": {
+      "path": "data/datasets/align-q2-fy23.js",
+      "updatedAtMs": 1793292631992,
+      "updatedAt": "2026-10-29T16:50:31.992Z",
+      "timeSource": "publication"
+    },
+    "align-q2-fy24": {
+      "path": "data/datasets/align-q2-fy24.js",
+      "updatedAtMs": 1793292865073,
+      "updatedAt": "2026-10-29T16:54:25.073Z",
+      "timeSource": "publication"
+    },
+    "align-q2-fy25": {
+      "path": "data/datasets/align-q2-fy25.js",
+      "updatedAtMs": 1793292836358,
+      "updatedAt": "2026-10-29T16:53:56.358Z",
+      "timeSource": "publication"
+    },
+    "align-q3-fy22": {
+      "path": "data/datasets/align-q3-fy22.js",
+      "updatedAtMs": 1793292359623,
+      "updatedAt": "2026-10-29T16:45:59.623Z",
+      "timeSource": "publication"
+    },
+    "align-q3-fy23": {
+      "path": "data/datasets/align-q3-fy23.js",
+      "updatedAtMs": 1793292678819,
+      "updatedAt": "2026-10-29T16:51:18.819Z",
+      "timeSource": "publication"
+    },
+    "align-q3-fy24": {
+      "path": "data/datasets/align-q3-fy24.js",
+      "updatedAtMs": 1793292771740,
+      "updatedAt": "2026-10-29T16:52:51.740Z",
+      "timeSource": "publication"
+    },
+    "align-q3-fy25": {
+      "path": "data/datasets/align-q3-fy25.js",
+      "updatedAtMs": 1793292877006,
+      "updatedAt": "2026-10-29T16:54:37.006Z",
+      "timeSource": "publication"
+    },
+    "align-q4-fy22": {
+      "path": "data/datasets/align-q4-fy22.js",
+      "updatedAtMs": 1793292659043,
+      "updatedAt": "2026-10-29T16:50:59.043Z",
+      "timeSource": "publication"
+    },
+    "align-q4-fy23": {
+      "path": "data/datasets/align-q4-fy23.js",
+      "updatedAtMs": 1793292707491,
+      "updatedAt": "2026-10-29T16:51:47.491Z",
+      "timeSource": "publication"
+    },
+    "align-q4-fy24": {
+      "path": "data/datasets/align-q4-fy24.js",
+      "updatedAtMs": 1793292948811,
+      "updatedAt": "2026-10-29T16:55:48.811Z",
+      "timeSource": "publication"
+    },
+    "block-q1-fy23": {
+      "path": "data/datasets/block-q1-fy23.js",
+      "updatedAtMs": 1793292352185,
+      "updatedAt": "2026-10-29T16:45:52.185Z",
+      "timeSource": "publication"
+    },
+    "block-q1-fy24": {
+      "path": "data/datasets/block-q1-fy24.js",
+      "updatedAtMs": 1793292484285,
+      "updatedAt": "2026-10-29T16:48:04.285Z",
+      "timeSource": "publication"
+    },
+    "block-q1-fy25": {
+      "path": "data/datasets/block-q1-fy25.js",
+      "updatedAtMs": 1793292799816,
+      "updatedAt": "2026-10-29T16:53:19.816Z",
+      "timeSource": "publication"
+    },
+    "block-q2-fy23": {
+      "path": "data/datasets/block-q2-fy23.js",
+      "updatedAtMs": 1793292401457,
+      "updatedAt": "2026-10-29T16:46:41.457Z",
+      "timeSource": "publication"
+    },
+    "block-q2-fy24": {
+      "path": "data/datasets/block-q2-fy24.js",
+      "updatedAtMs": 1793292552763,
+      "updatedAt": "2026-10-29T16:49:12.763Z",
+      "timeSource": "publication"
+    },
+    "block-q2-fy25": {
+      "path": "data/datasets/block-q2-fy25.js",
+      "updatedAtMs": 1793292587358,
+      "updatedAt": "2026-10-29T16:49:47.358Z",
+      "timeSource": "publication"
+    },
+    "block-q3-fy22": {
+      "path": "data/datasets/block-q3-fy22.js",
+      "updatedAtMs": 1793292592917,
+      "updatedAt": "2026-10-29T16:49:52.917Z",
+      "timeSource": "publication"
+    },
+    "block-q3-fy23": {
+      "path": "data/datasets/block-q3-fy23.js",
+      "updatedAtMs": 1793292434223,
+      "updatedAt": "2026-10-29T16:47:14.223Z",
+      "timeSource": "publication"
+    },
+    "block-q3-fy24": {
+      "path": "data/datasets/block-q3-fy24.js",
+      "updatedAtMs": 1793292650687,
+      "updatedAt": "2026-10-29T16:50:50.687Z",
+      "timeSource": "publication"
+    },
+    "block-q4-fy22": {
+      "path": "data/datasets/block-q4-fy22.js",
+      "updatedAtMs": 1793292638959,
+      "updatedAt": "2026-10-29T16:50:38.959Z",
+      "timeSource": "publication"
+    },
+    "block-q4-fy23": {
+      "path": "data/datasets/block-q4-fy23.js",
+      "updatedAtMs": 1793292518525,
+      "updatedAt": "2026-10-29T16:48:38.525Z",
+      "timeSource": "publication"
+    },
+    "block-q4-fy24": {
+      "path": "data/datasets/block-q4-fy24.js",
+      "updatedAtMs": 1793292666957,
+      "updatedAt": "2026-10-29T16:51:06.957Z",
+      "timeSource": "publication"
+    },
+    "elastic-q1-fy24": {
+      "path": "data/datasets/elastic-q1-fy24.js",
+      "updatedAtMs": 1793292732063,
+      "updatedAt": "2026-10-29T16:52:12.063Z",
+      "timeSource": "publication"
+    },
+    "elastic-q1-fy25": {
+      "path": "data/datasets/elastic-q1-fy25.js",
+      "updatedAtMs": 1793292793642,
+      "updatedAt": "2026-10-29T16:53:13.642Z",
+      "timeSource": "publication"
+    },
+    "elastic-q1-fy26": {
+      "path": "data/datasets/elastic-q1-fy26.js",
+      "updatedAtMs": 1793292816837,
+      "updatedAt": "2026-10-29T16:53:36.837Z",
+      "timeSource": "publication"
+    },
+    "elastic-q2-fy23": {
+      "path": "data/datasets/elastic-q2-fy23.js",
+      "updatedAtMs": 1793292490729,
+      "updatedAt": "2026-10-29T16:48:10.729Z",
+      "timeSource": "publication"
+    },
+    "elastic-q2-fy24": {
+      "path": "data/datasets/elastic-q2-fy24.js",
+      "updatedAtMs": 1793292717153,
+      "updatedAt": "2026-10-29T16:51:57.153Z",
+      "timeSource": "publication"
+    },
+    "elastic-q2-fy25": {
+      "path": "data/datasets/elastic-q2-fy25.js",
+      "updatedAtMs": 1793293013724,
+      "updatedAt": "2026-10-29T16:56:53.724Z",
+      "timeSource": "publication"
+    },
+    "elastic-q3-fy23": {
+      "path": "data/datasets/elastic-q3-fy23.js",
+      "updatedAtMs": 1793292387774,
+      "updatedAt": "2026-10-29T16:46:27.774Z",
+      "timeSource": "publication"
+    },
+    "elastic-q3-fy24": {
+      "path": "data/datasets/elastic-q3-fy24.js",
+      "updatedAtMs": 1793292909530,
+      "updatedAt": "2026-10-29T16:55:09.530Z",
+      "timeSource": "publication"
+    },
+    "elastic-q3-fy25": {
+      "path": "data/datasets/elastic-q3-fy25.js",
+      "updatedAtMs": 1793292997193,
+      "updatedAt": "2026-10-29T16:56:37.193Z",
+      "timeSource": "publication"
+    },
+    "elastic-q4-fy23": {
+      "path": "data/datasets/elastic-q4-fy23.js",
+      "updatedAtMs": 1793292469421,
+      "updatedAt": "2026-10-29T16:47:49.421Z",
+      "timeSource": "publication"
+    },
+    "elastic-q4-fy24": {
+      "path": "data/datasets/elastic-q4-fy24.js",
+      "updatedAtMs": 1793292759580,
+      "updatedAt": "2026-10-29T16:52:39.580Z",
+      "timeSource": "publication"
+    },
+    "elastic-q4-fy25": {
+      "path": "data/datasets/elastic-q4-fy25.js",
+      "updatedAtMs": 1793292900330,
+      "updatedAt": "2026-10-29T16:55:00.330Z",
+      "timeSource": "publication"
+    },
+    "lowes-fy23": {
+      "path": "data/datasets/lowes-fy23.js",
+      "updatedAtMs": 1793292512962,
+      "updatedAt": "2026-10-29T16:48:32.962Z",
+      "timeSource": "publication"
+    },
+    "lowes-q1-fy23": {
+      "path": "data/datasets/lowes-q1-fy23.js",
+      "updatedAtMs": 1793292385189,
+      "updatedAt": "2026-10-29T16:46:25.189Z",
+      "timeSource": "publication"
+    },
+    "lowes-q1-fy24": {
+      "path": "data/datasets/lowes-q1-fy24.js",
+      "updatedAtMs": 1793292573789,
+      "updatedAt": "2026-10-29T16:49:33.789Z",
+      "timeSource": "publication"
+    },
+    "lowes-q1-fy25": {
+      "path": "data/datasets/lowes-q1-fy25.js",
+      "updatedAtMs": 1793292494506,
+      "updatedAt": "2026-10-29T16:48:14.506Z",
+      "timeSource": "publication"
+    },
+    "lowes-q2-fy23": {
+      "path": "data/datasets/lowes-q2-fy23.js",
+      "updatedAtMs": 1793292428224,
+      "updatedAt": "2026-10-29T16:47:08.224Z",
+      "timeSource": "publication"
+    },
+    "lowes-q2-fy24": {
+      "path": "data/datasets/lowes-q2-fy24.js",
+      "updatedAtMs": 1793292625398,
+      "updatedAt": "2026-10-29T16:50:25.398Z",
+      "timeSource": "publication"
+    },
+    "lowes-q3-fy22": {
+      "path": "data/datasets/lowes-q3-fy22.js",
+      "updatedAtMs": 1793292606076,
+      "updatedAt": "2026-10-29T16:50:06.076Z",
+      "timeSource": "publication"
+    },
+    "lowes-q3-fy23": {
+      "path": "data/datasets/lowes-q3-fy23.js",
+      "updatedAtMs": 1793292724649,
+      "updatedAt": "2026-10-29T16:52:04.649Z",
+      "timeSource": "publication"
+    },
+    "lowes-q3-fy24": {
+      "path": "data/datasets/lowes-q3-fy24.js",
+      "updatedAtMs": 1793292407672,
+      "updatedAt": "2026-10-29T16:46:47.672Z",
+      "timeSource": "publication"
+    },
+    "lowes-q4-fy22": {
+      "path": "data/datasets/lowes-q4-fy22.js",
+      "updatedAtMs": 1793292363389,
+      "updatedAt": "2026-10-29T16:46:03.389Z",
+      "timeSource": "publication"
+    },
+    "lowes-q4-fy24": {
+      "path": "data/datasets/lowes-q4-fy24.js",
+      "updatedAtMs": 1793292613467,
+      "updatedAt": "2026-10-29T16:50:13.467Z",
+      "timeSource": "publication"
+    },
+    "lyft-q1-fy23": {
+      "path": "data/datasets/lyft-q1-fy23.js",
+      "updatedAtMs": 1793292326202,
+      "updatedAt": "2026-10-29T16:45:26.202Z",
+      "timeSource": "publication"
+    },
+    "lyft-q1-fy24": {
+      "path": "data/datasets/lyft-q1-fy24.js",
+      "updatedAtMs": 1793292465650,
+      "updatedAt": "2026-10-29T16:47:45.650Z",
+      "timeSource": "publication"
+    },
+    "lyft-q1-fy25": {
+      "path": "data/datasets/lyft-q1-fy25.js",
+      "updatedAtMs": 1793292459975,
+      "updatedAt": "2026-10-29T16:47:39.975Z",
+      "timeSource": "publication"
+    },
+    "lyft-q2-fy23": {
+      "path": "data/datasets/lyft-q2-fy23.js",
+      "updatedAtMs": 1793292318083,
+      "updatedAt": "2026-10-29T16:45:18.083Z",
+      "timeSource": "publication"
+    },
+    "lyft-q2-fy24": {
+      "path": "data/datasets/lyft-q2-fy24.js",
+      "updatedAtMs": 1793292537900,
+      "updatedAt": "2026-10-29T16:48:57.900Z",
+      "timeSource": "publication"
+    },
+    "lyft-q2-fy25": {
+      "path": "data/datasets/lyft-q2-fy25.js",
+      "updatedAtMs": 1793292382846,
+      "updatedAt": "2026-10-29T16:46:22.846Z",
+      "timeSource": "publication"
+    },
+    "lyft-q3-fy22": {
+      "path": "data/datasets/lyft-q3-fy22.js",
+      "updatedAtMs": 1793292525044,
+      "updatedAt": "2026-10-29T16:48:45.044Z",
+      "timeSource": "publication"
+    },
+    "lyft-q3-fy23": {
+      "path": "data/datasets/lyft-q3-fy23.js",
+      "updatedAtMs": 1793292328932,
+      "updatedAt": "2026-10-29T16:45:28.932Z",
+      "timeSource": "publication"
+    },
+    "lyft-q3-fy24": {
+      "path": "data/datasets/lyft-q3-fy24.js",
+      "updatedAtMs": 1793292369327,
+      "updatedAt": "2026-10-29T16:46:09.327Z",
+      "timeSource": "publication"
+    },
+    "lyft-q4-fy23": {
+      "path": "data/datasets/lyft-q4-fy23.js",
+      "updatedAtMs": 1793292447029,
+      "updatedAt": "2026-10-29T16:47:27.029Z",
+      "timeSource": "publication"
+    },
+    "lyft-q4-fy24": {
+      "path": "data/datasets/lyft-q4-fy24.js",
+      "updatedAtMs": 1793292440709,
+      "updatedAt": "2026-10-29T16:47:20.709Z",
+      "timeSource": "publication"
+    },
+    "target-q1-fy24": {
+      "path": "data/datasets/target-q1-fy24.js",
+      "updatedAtMs": 1793292348413,
+      "updatedAt": "2026-10-29T16:45:48.413Z",
+      "timeSource": "publication"
+    },
+    "target-q1-fy25": {
+      "path": "data/datasets/target-q1-fy25.js",
+      "updatedAtMs": 1793292531786,
+      "updatedAt": "2026-10-29T16:48:51.786Z",
+      "timeSource": "publication"
+    },
+    "target-q2-fy23": {
+      "path": "data/datasets/target-q2-fy23.js",
+      "updatedAtMs": 1793292692923,
+      "updatedAt": "2026-10-29T16:51:32.923Z",
+      "timeSource": "publication"
+    },
+    "target-q2-fy24": {
+      "path": "data/datasets/target-q2-fy24.js",
+      "updatedAtMs": 1793292673540,
+      "updatedAt": "2026-10-29T16:51:13.540Z",
+      "timeSource": "publication"
+    },
+    "target-q2-fy25": {
+      "path": "data/datasets/target-q2-fy25.js",
+      "updatedAtMs": 1793292430994,
+      "updatedAt": "2026-10-29T16:47:10.994Z",
+      "timeSource": "publication"
+    },
+    "target-q3-fy22": {
+      "path": "data/datasets/target-q3-fy22.js",
+      "updatedAtMs": 1793292580765,
+      "updatedAt": "2026-10-29T16:49:40.765Z",
+      "timeSource": "publication"
+    },
+    "target-q3-fy23": {
+      "path": "data/datasets/target-q3-fy23.js",
+      "updatedAtMs": 1793292784665,
+      "updatedAt": "2026-10-29T16:53:04.665Z",
+      "timeSource": "publication"
+    },
+    "target-q3-fy24": {
+      "path": "data/datasets/target-q3-fy24.js",
+      "updatedAtMs": 1793292414478,
+      "updatedAt": "2026-10-29T16:46:54.478Z",
+      "timeSource": "publication"
+    },
+    "target-q4-fy23": {
+      "path": "data/datasets/target-q4-fy23.js",
+      "updatedAtMs": 1793292544071,
+      "updatedAt": "2026-10-29T16:49:04.071Z",
+      "timeSource": "publication"
+    },
+    "target-q4-fy24": {
+      "path": "data/datasets/target-q4-fy24.js",
+      "updatedAtMs": 1793292645441,
+      "updatedAt": "2026-10-29T16:50:45.441Z",
+      "timeSource": "publication"
+    },
+    "teladoc-q1-fy23": {
+      "path": "data/datasets/teladoc-q1-fy23.js",
+      "updatedAtMs": 1793292601163,
+      "updatedAt": "2026-10-29T16:50:01.163Z",
+      "timeSource": "publication"
+    },
+    "teladoc-q1-fy24": {
+      "path": "data/datasets/teladoc-q1-fy24.js",
+      "updatedAtMs": 1793292828453,
+      "updatedAt": "2026-10-29T16:53:48.453Z",
+      "timeSource": "publication"
+    },
+    "teladoc-q2-fy23": {
+      "path": "data/datasets/teladoc-q2-fy23.js",
+      "updatedAtMs": 1793292684105,
+      "updatedAt": "2026-10-29T16:51:24.105Z",
+      "timeSource": "publication"
+    },
+    "teladoc-q2-fy24": {
+      "path": "data/datasets/teladoc-q2-fy24.js",
+      "updatedAtMs": 1793292744318,
+      "updatedAt": "2026-10-29T16:52:24.318Z",
+      "timeSource": "publication"
+    },
+    "teladoc-q3-fy22": {
+      "path": "data/datasets/teladoc-q3-fy22.js",
+      "updatedAtMs": 1793292351340,
+      "updatedAt": "2026-10-29T16:45:51.340Z",
+      "timeSource": "publication"
+    },
+    "teladoc-q3-fy23": {
+      "path": "data/datasets/teladoc-q3-fy23.js",
+      "updatedAtMs": 1793292697950,
+      "updatedAt": "2026-10-29T16:51:37.950Z",
+      "timeSource": "publication"
+    },
+    "teladoc-q3-fy24": {
+      "path": "data/datasets/teladoc-q3-fy24.js",
+      "updatedAtMs": 1793293025758,
+      "updatedAt": "2026-10-29T16:57:05.758Z",
+      "timeSource": "publication"
+    },
+    "teladoc-q4-fy22": {
+      "path": "data/datasets/teladoc-q4-fy22.js",
+      "updatedAtMs": 1793292394629,
+      "updatedAt": "2026-10-29T16:46:34.629Z",
+      "timeSource": "publication"
+    },
+    "teladoc-q4-fy23": {
+      "path": "data/datasets/teladoc-q4-fy23.js",
+      "updatedAtMs": 1793292977013,
+      "updatedAt": "2026-10-29T16:56:17.013Z",
+      "timeSource": "publication"
+    },
+    "the-trade-desk-q1-fy23": {
+      "path": "data/datasets/the-trade-desk-q1-fy23.js",
+      "updatedAtMs": 1793292739523,
+      "updatedAt": "2026-10-29T16:52:19.523Z",
+      "timeSource": "publication"
+    },
+    "the-trade-desk-q1-fy24": {
+      "path": "data/datasets/the-trade-desk-q1-fy24.js",
+      "updatedAtMs": 1793292988151,
+      "updatedAt": "2026-10-29T16:56:28.151Z",
+      "timeSource": "publication"
+    },
+    "the-trade-desk-q1-fy25": {
+      "path": "data/datasets/the-trade-desk-q1-fy25.js",
+      "updatedAtMs": 1793292844600,
+      "updatedAt": "2026-10-29T16:54:04.600Z",
+      "timeSource": "publication"
+    },
+    "the-trade-desk-q2-fy23": {
+      "path": "data/datasets/the-trade-desk-q2-fy23.js",
+      "updatedAtMs": 1793292960265,
+      "updatedAt": "2026-10-29T16:56:00.265Z",
+      "timeSource": "publication"
+    },
+    "the-trade-desk-q2-fy24": {
+      "path": "data/datasets/the-trade-desk-q2-fy24.js",
+      "updatedAtMs": 1793292937246,
+      "updatedAt": "2026-10-29T16:55:37.246Z",
+      "timeSource": "publication"
+    },
+    "the-trade-desk-q2-fy25": {
+      "path": "data/datasets/the-trade-desk-q2-fy25.js",
+      "updatedAtMs": 1793292777329,
+      "updatedAt": "2026-10-29T16:52:57.329Z",
+      "timeSource": "publication"
+    },
+    "the-trade-desk-q3-fy22": {
+      "path": "data/datasets/the-trade-desk-q3-fy22.js",
+      "updatedAtMs": 1793292349321,
+      "updatedAt": "2026-10-29T16:45:49.321Z",
+      "timeSource": "publication"
+    },
+    "the-trade-desk-q3-fy23": {
+      "path": "data/datasets/the-trade-desk-q3-fy23.js",
+      "updatedAtMs": 1793292766755,
+      "updatedAt": "2026-10-29T16:52:46.755Z",
+      "timeSource": "publication"
+    },
+    "the-trade-desk-q3-fy24": {
+      "path": "data/datasets/the-trade-desk-q3-fy24.js",
+      "updatedAtMs": 1793292889008,
+      "updatedAt": "2026-10-29T16:54:49.008Z",
+      "timeSource": "publication"
+    },
+    "the-trade-desk-q4-fy22": {
+      "path": "data/datasets/the-trade-desk-q4-fy22.js",
+      "updatedAtMs": 1793292499667,
+      "updatedAt": "2026-10-29T16:48:19.667Z",
+      "timeSource": "publication"
+    },
+    "the-trade-desk-q4-fy23": {
+      "path": "data/datasets/the-trade-desk-q4-fy23.js",
+      "updatedAtMs": 1793292924163,
+      "updatedAt": "2026-10-29T16:55:24.163Z",
+      "timeSource": "publication"
+    },
+    "the-trade-desk-q4-fy24": {
+      "path": "data/datasets/the-trade-desk-q4-fy24.js",
+      "updatedAtMs": 1793292853750,
+      "updatedAt": "2026-10-29T16:54:13.750Z",
       "timeSource": "publication"
     },
     "data/revenue-metrics.js": {
