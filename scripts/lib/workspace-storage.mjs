@@ -4,7 +4,7 @@ import path from 'node:path';
 import { existsSync, readFileSync, statSync, realpathSync } from 'node:fs';
 import { readFile, mkdir, rm, mkdtemp, readdir, link } from 'node:fs/promises';
 import { digestValue } from './dataset-build.mjs';
-import { cloneFiles, atomicJson, readJson, fileManifest, bytesDigest, inside } from './workflow-files.mjs';
+import { cloneFiles, atomicJson, readJson, fileManifest, bytesDigest, inside, mapLimit } from './workflow-files.mjs';
 
 export const WORKSPACE_STORAGE_PROTOCOL = 'workspace-storage/v1';
 const relative = 'output/workflow/storage.json';
@@ -77,11 +77,11 @@ export async function compactWorkspace(root, { assetsOnly = false } = {}) {
   // same-byte local files, never a missing logical file.
   await atomicJson(path.join(root, relative), { protocol: WORKSPACE_STORAGE_PROTOCOL, base: { root: baseRoot, digest: base.digest }, inherited });
   let bytes = 0;
-  for (const { file, digest } of removals) {
+  await mapLimit(removals, 16, async ({ file, digest }) => {
     const value = await readFile(file);
     if (bytesDigest(value) !== digest) throw new Error('Workspace changed during compaction; local edit retained');
     bytes += value.length; await rm(file);
-  }
+  });
   return { mode: assetsOnly ? 'shared-assets' : 'shared-base', inheritedFiles: inherited.length, removedFiles: removals.length, logicalBytesSaved: bytes };
 }
 export async function materializeWorkspace(root) {
@@ -96,7 +96,7 @@ export async function materializeWorkspace(root) {
     const missing = [...overlay.files.keys()].filter((file) => !existsSync(inside(root, file)));
     for (const file of missing) readInside(root, file); // Reject redirected base paths before copying.
     await cloneFiles(overlay.baseRoot, scratch, missing);
-    for (const file of missing) {
+    await mapLimit(missing, 16, async (file) => {
       const staged = inside(scratch, file), destination = inside(root, file);
       if (bytesDigest(await readFile(staged)) !== overlay.files.get(file).digest) throw new Error('Inherited file changed; materialization refused');
       await mkdir(path.dirname(destination), { recursive: true });
@@ -104,7 +104,7 @@ export async function materializeWorkspace(root) {
       // preserves an edit which appeared after enumeration; scratch is removed.
       try { await link(staged, destination); materialized++; }
       catch (error) { if (error.code !== 'EEXIST') throw error; }
-    }
+    });
     await rm(path.join(root, relative)); cache.delete(path.resolve(root));
     return { materialized };
   } finally { await rm(scratch, { recursive: true, force: true }); }

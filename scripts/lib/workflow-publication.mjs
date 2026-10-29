@@ -11,7 +11,7 @@ import { rootDir } from './project.mjs';
 import { planPublicationBatch, digestValue } from './dataset-build.mjs';
 import { inspectDatasetBuild } from './dataset-build-store.mjs';
 import { buildContext, canonicalSnapshot, runWorkspace } from './asset-workflow.mjs';
-import { fileManifest, filesUnder, TOOL_ROOTS, copyFiles, cloneFiles, syncTree, inside, atomicJson, readJson, withFileLock, bytesDigest } from './workflow-files.mjs';
+import { fileManifest, filesUnder, TOOL_ROOTS, copyFiles, cloneFiles, syncTree, inside, atomicJson, readJson, withFileLock, bytesDigest, mapLimit } from './workflow-files.mjs';
 import { updateMetricCatalog } from './metric-catalog.mjs';
 import { updateAssetCatalog } from './workflow-assets.mjs';
 
@@ -43,19 +43,22 @@ export async function planAssetPublication(buildIds, root = rootDir, options = {
   const snapshot = await canonicalSnapshot(root);
   const application = await applicationManifest(root);
   const contexts = await Promise.all(buildIds.map((id) => buildContext(id, root)));
-  for (const context of contexts) {
+  // Members are independent read-only inspections; a large batch is bound by
+  // per-workspace hashing, so check them concurrently.
+  const drafts = await mapLimit(contexts, 8, async (context) => {
     if (!context.build.authoringRoot) throw new Error('Publication requires an isolated Build; legacy direct authoring must be migrated explicitly');
     const inspection = await inspectDatasetBuild(context.build.buildId, context);
     if (!inspection.fresh || inspection.effectiveState !== 'SEALED' || context.build.review?.status !== 'accepted') throw new Error(`Build is not fresh, sealed and reviewed: ${context.build.buildId}`);
     if ((await applicationManifest(context.projectRoot)).digest !== application.digest) throw new Error('Application code differs from the current root; refresh, inspect and reseal the Build');
-  }
+    return fileManifest(context.projectRoot);
+  });
   const preliminary = planPublicationBatch(contexts.map(({ build }) => build), snapshot.digest);
   if (preliminary.state === 'CONFLICTED') throw Object.assign(new Error('Canonical base changed; replan, review affected changes and reseal'), { code: 'PUBLICATION_CONFLICT', details: preliminary });
   const owned = new Map();
   const baseEntries = new Map(snapshot.entries.map((entry) => [entry.path, entry.digest]));
   const contributions = [];
-  for (const context of contexts) {
-    const draft = await fileManifest(context.projectRoot);
+  for (const [index, context] of contexts.entries()) {
+    const draft = drafts[index];
     const draftEntries = new Map(draft.entries.map((entry) => [entry.path, entry.digest]));
     const paths = new Set([...baseEntries.keys(), ...draftEntries.keys()]);
     for (const file of paths) {
@@ -137,7 +140,7 @@ export async function planAssetPublication(buildIds, root = rootDir, options = {
     checks.push(...await verifier({ candidate: temporary, contexts }));
     // Recheck all Build seals after projection and validation, closing the
     // workspace mutation window while the combined candidate was prepared.
-    for (const context of contexts) if (!(await inspectDatasetBuild(context.build.buildId, context)).fresh) throw new Error('Build changed while publication was planned');
+    await mapLimit(contexts, 8, async (context) => { if (!(await inspectDatasetBuild(context.build.buildId, context)).fresh) throw new Error('Build changed while publication was planned'); });
     const projected = await fileManifest(temporary);
     if ((await applicationManifest(temporary)).digest !== application.digest) throw new Error('Application changed while the publication candidate was prepared');
     const value = { protocol: PUBLICATION_PROTOCOL, kind: 'publication-batch', state: 'PLANNED', baseCanonicalDigest: snapshot.digest, applicationDigest: application.digest, builds: preliminary.builds, contributions: [...owned.values()].sort((a, b) => a.path.localeCompare(b.path)), projectedTreeDigest: projected.digest, projectedEntries: projected.entries, checks };
@@ -191,11 +194,11 @@ export async function publishAssetPlan(planDigest, root = rootDir, options = {})
       await atomicJson(path.join(directory, 'conflict.json'), conflict);
       throw Object.assign(new Error('Canonical state changed; this plan cannot be retried or silently rebased'), { code: 'PUBLICATION_CONFLICT', details: conflict });
     }
-    for (const item of plan.builds) {
+    await mapLimit(plan.builds, 8, async (item) => {
       const context = await buildContext(item.buildId, root);
       const inspection = await inspectDatasetBuild(item.buildId, context);
       if (!inspection.fresh || inspection.effectiveState !== 'SEALED' || inspection.digests.seal !== item.sealDigest) throw new Error(`Build changed since plan: ${item.buildId}`);
-    }
+    });
     const candidate = await fileManifest(directory);
     if (candidate.digest !== plan.projectedTreeDigest) throw new Error('Projected candidate changed since verification');
     const tree = inside(root, `output/publications/trees/${candidate.digest.slice(7)}`);

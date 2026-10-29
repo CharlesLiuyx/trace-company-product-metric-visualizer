@@ -37,12 +37,19 @@ export async function verifyOnlineRelease({ commit, keys = [], baseUrl = PRODUCT
   const release = await response.json();
   if (release.schema !== 'trace-site-release/v1' || !/^[a-f0-9]{64}$/.test(release.version || '')) throw new Error('Invalid production release manifest');
   if (commit && release.sourceCommit !== commit) throw new Error(`Production serves ${release.sourceCommit || 'an unknown commit'}, expected ${commit}`);
+  for (const key of keys) if (!/^[a-z0-9-]+$/.test(key)) throw new Error(`Invalid dataset key: ${key}`);
+  // Independent HEAD requests, eight at a time; a 90-key batch took ~30s one
+  // at a time. This module stays dependency-free for the site build.
   const missing = [];
-  for (const key of keys) {
-    if (!/^[a-z0-9-]+$/.test(key)) throw new Error(`Invalid dataset key: ${key}`);
-    const asset = await fetchImpl(new URL(`releases/${release.version}/data/datasets/${key}.js`, baseUrl), { method: 'HEAD', signal: AbortSignal.timeout(15000) });
-    if (!asset.ok) missing.push(`${key} (HTTP ${asset.status})`);
-  }
+  let cursor = 0;
+  await Promise.all(Array.from({ length: Math.min(8, keys.length) }, async () => {
+    while (cursor < keys.length) {
+      const key = keys[cursor++];
+      const asset = await fetchImpl(new URL(`releases/${release.version}/data/datasets/${key}.js`, baseUrl), { method: 'HEAD', signal: AbortSignal.timeout(15000) });
+      if (!asset.ok) missing.push(`${key} (HTTP ${asset.status})`);
+    }
+  }));
+  missing.sort();
   if (missing.length) throw new Error(`Production release ${release.version} lacks: ${missing.join(', ')}`);
   return { version: release.version, sourceCommit: release.sourceCommit, keys };
 }

@@ -48,18 +48,24 @@ export async function filesUnder(root, roots) {
   for (const file of workspaceOverlay(root)?.files.keys() || []) if (roots.some((entry) => file === entry || file.startsWith(entry + '/'))) files.push(file);
   return [...new Set(files)].sort();
 }
-export async function fileManifest(root, roots = CANONICAL_ROOTS) {
-  const files = await filesUnder(root, roots);
-  const entries = new Array(files.length);
+// Ordered results with bounded concurrency; every worker settles before the
+// first failure is thrown, so no I/O outlives the caller's lock.
+export async function mapLimit(items, limit, work) {
+  const results = new Array(items.length);
   let cursor = 0;
-  const reads = await Promise.allSettled(Array.from({ length: Math.min(16, files.length) }, async () => {
-    while (cursor < files.length) {
-      const index = cursor++, file = files[index];
-      entries[index] = { path: file, digest: bytesDigest(await readFile(readInside(root, file))) };
+  const runs = await Promise.allSettled(Array.from({ length: Math.min(limit, items.length) }, async () => {
+    while (cursor < items.length) {
+      const index = cursor++;
+      results[index] = await work(items[index], index);
     }
   }));
-  const failed = reads.find((result) => result.status === 'rejected');
+  const failed = runs.find((result) => result.status === 'rejected');
   if (failed) throw failed.reason;
+  return results;
+}
+export async function fileManifest(root, roots = CANONICAL_ROOTS) {
+  const files = await filesUnder(root, roots);
+  const entries = await mapLimit(files, 16, async (file) => ({ path: file, digest: bytesDigest(await readFile(readInside(root, file))) }));
   return { entries, digest: digestValue(entries) };
 }
 const copyCounts = { clonedFiles: 0, fallbackFiles: 0 };
