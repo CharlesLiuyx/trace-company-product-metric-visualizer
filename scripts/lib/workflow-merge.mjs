@@ -50,7 +50,8 @@ export function parseSsotRecords(source, file) {
   function unsupported(reason) { throw new Error(`Unsupported SSOT ${reason} in ${file}`); }
   for (const statement of tree.body) {
     let call = statement.type === 'ExpressionStatement' ? statement.expression : null;
-    if (call?.type === 'CallExpression' && call.callee.type === 'MemberExpression') call = { type: 'CallExpression', arguments: [{ name: 'window' }], callee: { type: 'FunctionExpression', params: [{ type: 'Identifier', name: 'window' }], body: { body: [statement] } } };
+    // Top-level `window.X = …` / `window.X.records.push(…)` files run under a synthetic `window` wrapper.
+    if ((call?.type === 'CallExpression' && call.callee.type === 'MemberExpression') || call?.type === 'AssignmentExpression') call ={ type: 'CallExpression', arguments: [{ name: 'window' }], callee: { type: 'FunctionExpression', params: [{ type: 'Identifier', name: 'window' }], body: { body: [statement] } } };
     if (call?.type !== 'CallExpression' || call.callee.type !== 'FunctionExpression' || call.arguments.length !== 1 || call.arguments[0].name !== 'window' || call.callee.params.length !== 1 || call.callee.params[0].type !== 'Identifier') unsupported('wrapper');
     const global = call.callee.params[0].name, constants = new Map();
     const target = (node) => node?.type === 'MemberExpression' && !node.computed && node.object.type === 'Identifier' && node.object.name === global && node.property.name === kind[0];

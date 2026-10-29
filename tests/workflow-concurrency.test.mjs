@@ -62,6 +62,15 @@ test('same-company periods merge and a conflicting financial field names the exa
   assert.throws(() => mergeSource('src/app.js', 'a', 'b', 'c'), /conflict/);
   assert.throws(() => parseSsotRecords(source([first]).replace('})(window)', 's.records[0].revenue.total=42;})(window)'), file), /Unsupported SSOT mutation/);
 });
+test('a top-level window SSOT file is a valid merge base', () => {
+  const first = { key: 'example-q1', company: 'Example', period: 'Q1', revenue: { total: 10 } };
+  const a = { key: 'example-q2', company: 'Example', period: 'Q2', revenue: { total: 20 } };
+  const b = { key: 'example-q3', company: 'Example', period: 'Q3', revenue: { total: 30 } };
+  const topLevel = `window.INCOME_STATEMENT_SSOT = window.INCOME_STATEMENT_SSOT || { schemaVersion: 1, records: [] };\nwindow.INCOME_STATEMENT_SSOT.records.push(...${JSON.stringify([first])});\n`;
+  assert.deepEqual(parseSsotRecords(topLevel, file), [first]);
+  assert.deepEqual(parseSsotRecords(mergeSource(file, topLevel, source([first, a]), source([first, b])), file), [first, a, b]);
+  assert.throws(() => parseSsotRecords(`${topLevel}window.INCOME_STATEMENT_SSOT = { schemaVersion: 1, records: [] };\n`, file), /Unsupported SSOT replacement/);
+});
 test('preparing a second review advertises availability without replacing the first', async (t) => {
   const root = await fixture(t), second = 'build-bbbbbbbb-bbbb-cccc-dddd-eeeeeeeeeeee';
   for (const buildId of [id, second]) await selectBuildPreview(root, { buildId, key: buildId, workspace: path.join(root, `output/builds/${buildId}/workspace`), reviewToken: 'sha256:'+'a'.repeat(64) });

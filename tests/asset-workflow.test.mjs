@@ -507,5 +507,7 @@ test('prepare rejects a changed SSOT the draft merger cannot read, but not untou
   await writeFile(path.join(workspace, 'data/income-statements/acme.js'), canonical('acme-q1').replace("{ key: 'acme-q1' }", "{ key: 'acme-q1' }, { key: 'acme-q2' }"));
   await assertMergeableSsots(workspace);
   await writeFile(path.join(workspace, 'data/income-statements/acme.js'), legacy.replaceAll('legacy-q1', 'acme-q2'));
+  await assertMergeableSsots(workspace);
+  await writeFile(path.join(workspace, 'data/income-statements/acme.js'), `if (window) { ${legacy.replaceAll('legacy-q1', 'acme-q2')} }`);
   await assert.rejects(assertMergeableSsots(workspace), /Unsupported SSOT wrapper in data\/income-statements\/acme\.js/);
 });
