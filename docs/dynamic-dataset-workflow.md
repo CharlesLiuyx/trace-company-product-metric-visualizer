@@ -119,6 +119,11 @@ Invariants checked by `prepare`:
 - Topology absent from the exported raster: only when the operator directs
   restoring it, author the node and its `value` entry as usual; the human
   review records that decision.
+- Operator exclusion: when the operator directs ignoring a stray Source object
+  (an amount the Source never connects, such as comcast-q4-fy22's floating
+  `Other ($0.2B)`), list it as `residual` with `approval:
+  "user-directed-source-correction"` and a `reason` quoting the decision. Only
+  this approval lets an Other or an amount be residual; it is never inferred.
 - Optional T18 label position: a `label` or `value` entry may carry
   `referenceBBox: [x, y, w, h]` (native Source pixels) and `labelGroup` (the
   `layout.labels` key). Only declared groups are position-audited; when the

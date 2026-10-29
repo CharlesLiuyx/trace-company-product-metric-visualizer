@@ -182,6 +182,18 @@ test('Other is never residual and a value-bearing Other must be a value entry (T
   assert.deepEqual(create([otherIncome()]).summary.otherIds, ['other-income']);
 });
 
+test('only an operator-approved exclusion lets an amount-bearing Other be residual', () => {
+  // comcast-q4-fy22: a stray "Other ($0.2B)" with no node or flow; the operator said to ignore it.
+  const stray = { id: 'stray-other', class: 'residual', literal: 'Other ($0.2B)', reason: 'Operator 2026-10-30: stray text, ignore' };
+  assert.throws(() => create([stray]), (error) => error.code === 'SOURCE_OBJECTS_OTHER_SKIPPED');
+  assert.throws(() => create([{ ...stray, approval: 'agent' }]), (error) => error.code === 'SOURCE_OBJECTS_EXCLUSION_INVALID');
+  assert.throws(() => create([{ ...stray, reason: undefined, approval: 'user-directed-source-correction' }]),
+    (error) => error.code === 'SOURCE_OBJECTS_EXCLUSION_INVALID');
+  assert.throws(() => create([{ id: 'other-bar', class: 'label', literal: 'Other $40M', approval: 'user-directed-source-correction' }]),
+    (error) => error.code === 'SOURCE_OBJECTS_FIELD_UNSUPPORTED' || /unsupported/i.test(error.message));
+  assert.doesNotThrow(() => create([otherIncome(), { ...stray, approval: 'user-directed-source-correction' }]));
+});
+
 test('T22 rejects any Income Statement amount routed as a faceless flow, not only Other revenue', () => {
   // paypal-q3-fy25 / spotify-q2-fy24: Other income and Tax benefit drew a link with no bar or link share.
   for (const representation of [undefined, 'flow']) {

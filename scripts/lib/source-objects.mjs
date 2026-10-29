@@ -92,7 +92,7 @@ const CLASS_FIELDS = Object.freeze({
   label: Object.freeze(['referenceBBox', 'labelGroup']),
   flow: Object.freeze([]),
   asset: Object.freeze([]),
-  residual: Object.freeze([]),
+  residual: Object.freeze(['approval']),
 });
 
 const ADAPTER_SIGNATURES = Object.freeze({
@@ -544,6 +544,16 @@ function normalizeEntry(raw, index, context) {
   const displayed = [id, base.label, base.literal].filter(Boolean);
   const otherLike = displayed.some((text) => OTHER_LABEL_RE.test(text));
   const amountBearing = [base.label, base.literal].some(hasAmount);
+  // Only the operator can exclude a semantic Source object (e.g. a stray
+  // amount the Source never connects); the residual then carries that approval.
+  if (raw.approval !== undefined) {
+    invariant(
+      raw.approval === AUTHORITATIVE_CORRECTION_APPROVAL && nonEmptyString(raw.reason),
+      'SOURCE_OBJECTS_EXCLUSION_INVALID',
+      `${id} exclusion needs ${AUTHORITATIVE_CORRECTION_APPROVAL} approval and a reason naming the operator decision`
+    );
+    return { ...base, approval: raw.approval };
+  }
   invariant(
     !(otherLike && raw.class === 'residual'),
     'SOURCE_OBJECTS_OTHER_SKIPPED',
