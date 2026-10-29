@@ -130,4 +130,9 @@ export async function main(args = process.argv.slice(2)) {
   }
   return result;
 }
-if (process.argv[1] && realpathSync(process.argv[1]) === realpathSync(fileURLToPath(import.meta.url))) main().catch((error) => { console.error(error.stack || error.message); process.exitCode = 1; });
+if (process.argv[1] && realpathSync(process.argv[1]) === realpathSync(fileURLToPath(import.meta.url))) main().catch((error) => {
+  console.error(error.stack || error.message);
+  // A failed verifier carries its own output; without it the cause is invisible.
+  for (const stream of ['stdout', 'stderr']) if (error.details?.[stream]) console.error(`--- verifier ${stream} ---\n${error.details[stream].slice(-8000)}`);
+  process.exitCode = 1;
+});
