@@ -1189,10 +1189,10 @@ function looksTranslatable(text) {
   if (!value || value === '$value') return false;
   if (!/[A-Za-z]/.test(value)) return false;
   if (/^https?:\/\//i.test(value)) return false;
-  if (/^\(?[$€¥￥]?\d[\d.,]*[BMK]?\)?$/i.test(value)) return false;
+  if (/^\(?[$€¥￥]?\d[\d.,]*[BMKT]?\)?$/i.test(value)) return false;
   if (TRACKED_TRANSLATABLE_ACRONYMS.has(value)) return true;
   if (/^[A-Z0-9&./ +-]{1,12}$/.test(value)) return false;
-  if (/^[\d\s$().,%+-]+[BMK]?$/.test(value)) return false;
+  if (/^[\d\s$().,%+-]+[BMKT]?$/.test(value)) return false;
   return true;
 }
 
