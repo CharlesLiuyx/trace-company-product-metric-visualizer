@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Comcast company wordmark v2 — Q4 FY22 reuse",
+  "artifact": {
+    "path": "data/assets/raster-annotations/comcast/company-wordmark-v2.png",
+    "digest": "sha256:6bb0ea8ccafa27435f13d5ae350112e679fe560ace037476f87f052987458753"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/comcast-q4-fy22-wordmark-v2-reuse.json",
+    "digest": "sha256:32f21897408d34dc6a4fabd52fc7a6192ac47f0a7a577804b0df8deef9f1fa33"
+  },
+  "source": {
+    "path": "input/processed/comcast-q4-fy22.png",
+    "digest": "sha256:9e6c664f49213c021f98e9f5d850b234276b28d97bfa5cab20b6766519fa780e"
+  },
+  "review": {
+    "reviewer": "Operator",
+    "decision": "accepted",
+    "artifactDigest": "sha256:6bb0ea8ccafa27435f13d5ae350112e679fe560ace037476f87f052987458753",
+    "note": "Operator 2026-10-30 directed all Comcast periods to reuse the supplied cleaned wordmark v2 after comcast-q1-fy23 feedback: “附图，红框的东西是错误的保持，需要去掉”. Exact supplied bytes verified by SHA-256; only the company-wordmark href changes and x/y/width/height are retained. This accepts the specified asset reuse, not the dataset."
+  },
+  "versionDigest": "sha256:4d62b0951eabfe930dddd6045908d6ae8d2e637d946b3dd9b54a722df8ea1522"
+}

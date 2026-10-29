@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "Comcast company wordmark v2 — operator-provided title-residue fix",
+  "artifact": {
+    "path": "data/assets/raster-annotations/comcast/company-wordmark-v2.png",
+    "digest": "sha256:6bb0ea8ccafa27435f13d5ae350112e679fe560ace037476f87f052987458753"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/comcast-wordmark-v2.json",
+    "digest": "sha256:ef45b7cedacfbcca9103335fffb8a1f38c97346946145e35ab85596bec1f6829"
+  },
+  "source": {
+    "path": "input/processed/comcast-q4-fy25.png",
+    "digest": "sha256:876ceab5749fc10f1f52f87e035397eb5a3548a95f1fae96fc24c25543a66a6b"
+  },
+  "review": {
+    "reviewer": "操作者",
+    "decision": "accepted",
+    "note": "2026-10-30 操作者指定复用清除顶部 0–5 行标题残影的 v2 文件，SHA256 6bb0ea8ccafa27435f13d5ae350112e679fe560ace037476f87f052987458753，尺寸 560×225；逐字节复制，数据集位置和显示尺寸保持原值。",
+    "artifactDigest": "sha256:6bb0ea8ccafa27435f13d5ae350112e679fe560ace037476f87f052987458753"
+  },
+  "versionDigest": "sha256:029d4a466c4b3db885ac3bef3c4cdcf629106524b00bfde3b3baa04fad229de2"
+}

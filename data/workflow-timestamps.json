@@ -4200,6 +4200,341 @@
       "digest": "sha256:c05d84bed2452bdd86a70a8f36a9fac8a625af8622560742129d7b0ffa5b96d8",
       "updatedAt": "2026-10-28T20:23:33.144Z",
       "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404"
+    },
+    "data/datasets/appfolio-q1-fy23.js": {
+      "digest": "sha256:8402e73156f70bec193b2b98aaef29503f8421411d3ad355a6b9245cb8a17b4d",
+      "updatedAt": "2026-10-29T14:05:54.417Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/appfolio-q1-fy24.js": {
+      "digest": "sha256:0be869b5c3bb47ddfce0239a0406e5b71b0182a779d60274ba0366d0c8d378b7",
+      "updatedAt": "2026-10-29T14:10:01.292Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/appfolio-q1-fy25.js": {
+      "digest": "sha256:e50dbd0540750d7411b074e24105551eab1294424a9470b336925e03199f0dd7",
+      "updatedAt": "2026-10-29T14:08:36.175Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/appfolio-q2-fy23.js": {
+      "digest": "sha256:2c293f581ed91fd1f056ff480b8ee8c2a17960dc625a12718aed29916ff18d67",
+      "updatedAt": "2026-10-29T14:06:26.975Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/appfolio-q2-fy24.js": {
+      "digest": "sha256:e61219d3c69426aa9bf5b34a5dc7b93d4175f518b998a7c6acd1d1f7606cb9e3",
+      "updatedAt": "2026-10-29T14:09:11.387Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/appfolio-q2-fy25.js": {
+      "digest": "sha256:0760d4db4fd02169bdc6a54430b26e546fbadcd407abb5ba2e953f5da14190f8",
+      "updatedAt": "2026-10-29T14:10:23.740Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/appfolio-q3-fy23.js": {
+      "digest": "sha256:ad10cbf97be59ff74c46060d6130086f1f1b4acb45e7d6db8ee37f924230680f",
+      "updatedAt": "2026-10-29T14:07:35.759Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/appfolio-q3-fy24.js": {
+      "digest": "sha256:6c526c7f874f8b4ef2f712f3004dcd2a74539b978afee73b3efb8703bcf1f360",
+      "updatedAt": "2026-10-29T14:09:51.528Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/appfolio-q3-fy25.js": {
+      "digest": "sha256:30841fd93cd654619ec5f857f53f4a3350a6fb8406c49280680c5e9638819ba2",
+      "updatedAt": "2026-10-29T14:10:04.795Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/appfolio-q4-fy22.js": {
+      "digest": "sha256:189404ea2f2c116266cdd0836ac63db19c10440a9c406475e1cb96ca8440a623",
+      "updatedAt": "2026-10-29T14:04:29.356Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/appfolio-q4-fy23.js": {
+      "digest": "sha256:688bf91cd41aefb3ddcdd93f2d286541cc0da8014eb00cffdde4b6359fd676fb",
+      "updatedAt": "2026-10-29T14:07:49.067Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/appfolio-q4-fy24.js": {
+      "digest": "sha256:afc17596ee055dad6a2fd4575eb8a707236a231ebd3acad5d8f6674e9c168e0d",
+      "updatedAt": "2026-10-29T14:07:15.444Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/bank-of-america-q1-fy23.js": {
+      "digest": "sha256:55d711dee29a62d35bf5752360163c0117d56605dd6e462ec2867a0c0824bf2b",
+      "updatedAt": "2026-10-29T14:06:30.228Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/bank-of-america-q1-fy24.js": {
+      "digest": "sha256:54574786f0d0836979a261813ee0c924bd90ce8bffcfc6988e534236696579b3",
+      "updatedAt": "2026-10-29T14:13:22.526Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/bank-of-america-q1-fy25.js": {
+      "digest": "sha256:383632e2ff23c2d944cc176349a2724062095d8489ebdfad80744b8ea5fedbcb",
+      "updatedAt": "2026-10-29T14:09:40.267Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/bank-of-america-q2-fy23.js": {
+      "digest": "sha256:68d2930b2d6769080013c6e079efcb21e1162b58fcfddbd8c9d6ff60c4d10bc8",
+      "updatedAt": "2026-10-29T14:07:05.185Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/bank-of-america-q2-fy24.js": {
+      "digest": "sha256:2fe84695e29c5eaef281f4252cca622cbcb0a1aca49c49689f98ff2f7bdf5d25",
+      "updatedAt": "2026-10-29T14:09:18.009Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/bank-of-america-q2-fy25.js": {
+      "digest": "sha256:aa6f18588a3b8c2bd9ec82933af40ffbcf84f3bc90331641caeb4f29572bd320",
+      "updatedAt": "2026-10-29T14:10:43.236Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/bank-of-america-q3-fy22.js": {
+      "digest": "sha256:b5e98282f45c15d4570139d9152c8713ba2315f707bd300f47fa417d3ab2d32a",
+      "updatedAt": "2026-10-29T14:04:45.464Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/bank-of-america-q3-fy23.js": {
+      "digest": "sha256:97226db235cc65290564b0a21491a9c81b4f223f77b8a6f82c7364a554446083",
+      "updatedAt": "2026-10-29T14:08:49.612Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/bank-of-america-q3-fy24.js": {
+      "digest": "sha256:2d8bb62b30861b9916e4f2ecd0c8423d446e474ed437670faddc419bf67860e3",
+      "updatedAt": "2026-10-29T14:11:30.789Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/bank-of-america-q3-fy25.js": {
+      "digest": "sha256:a37136a9469ee0574abf4e5106cc8e19eb1cb181d8ad0f0cecfefd26974baa96",
+      "updatedAt": "2026-10-29T14:10:28.749Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/bank-of-america-q4-fy22.js": {
+      "digest": "sha256:e5ce5c6f41eb461e172a7b2c5aa85e11c56132aa1d227e4ce8a0d619f5c1dd29",
+      "updatedAt": "2026-10-29T14:19:45.535Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/bank-of-america-q4-fy23.js": {
+      "digest": "sha256:588b09633a91a4365381d9d5a2f02463033df321c1071a4334de293440005d06",
+      "updatedAt": "2026-10-29T14:09:46.324Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/bank-of-america-q4-fy24.js": {
+      "digest": "sha256:73f6fd949f4e561cfe3c1483c5f807d854a631c80c8d7fd74918c6febee2841c",
+      "updatedAt": "2026-10-29T14:08:06.082Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/cisco-q1-fy24.js": {
+      "digest": "sha256:47366f3f4af8bb22e3b34611de9d182e8ed95fb7f674af78f356d95d74c312ba",
+      "updatedAt": "2026-10-29T14:04:28.411Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/cisco-q1-fy25.js": {
+      "digest": "sha256:d3a92dee0447c6fbd50d58565b200cef8e653a0f627f3b48fc73ddbd07471ca9",
+      "updatedAt": "2026-10-29T14:10:59.390Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/cisco-q2-fy23.js": {
+      "digest": "sha256:857a1f7b992bb127fad4df581801a6c164415fa29d5cafef66d472d354241120",
+      "updatedAt": "2026-10-29T14:09:54.219Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/cisco-q2-fy24.js": {
+      "digest": "sha256:77f0919a200ef2f0cbfee5876fea70f896c197223664a044dcb50b019aab9e6c",
+      "updatedAt": "2026-10-29T14:10:17.257Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/cisco-q2-fy25.js": {
+      "digest": "sha256:c9378a424888a4462ec93f6216275efe97535fd73a414985a463e0a493315033",
+      "updatedAt": "2026-10-29T14:11:27.511Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/cisco-q3-fy23.js": {
+      "digest": "sha256:5c7b9c15c989eb1ce06fffc7c251c8addab7c6fe5f23ec57e5da55c1d6084bf0",
+      "updatedAt": "2026-10-29T14:06:03.024Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/cisco-q3-fy24.js": {
+      "digest": "sha256:03d49d8c3bf6901fe35ceaa601c558fbb14cead523ee9176ef8387b3664ad549",
+      "updatedAt": "2026-10-29T14:09:23.065Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/cisco-q3-fy25.js": {
+      "digest": "sha256:7b14264c977dd8ea4ae8c2c3d2af18df05e102abf84c2baeef7aba550add449e",
+      "updatedAt": "2026-10-29T14:11:02.354Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/cisco-q4-fy23.js": {
+      "digest": "sha256:c9f5ca5d6b256ca3d7ba8e02af0f094c66c6644549694089fef4760ea846b750",
+      "updatedAt": "2026-10-29T14:05:14.816Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/cisco-q4-fy24.js": {
+      "digest": "sha256:0b0f324d97a880801a4de29316699fb62fbe352b1d1e569d11b97195a16fa020",
+      "updatedAt": "2026-10-29T14:10:33.409Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/cisco-q4-fy25.js": {
+      "digest": "sha256:3e881f1f77c72d69dbc80299d3535ef1efaca4fdae3e519cd35568cb4fecedbd",
+      "updatedAt": "2026-10-29T14:10:48.639Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/comcast-q1-fy23.js": {
+      "digest": "sha256:491bdd7b51e075a08b821e3d49e4ed1610acfa670d3a4b1ebaff37ee6064bb91",
+      "updatedAt": "2026-10-29T14:05:28.504Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/comcast-q1-fy24.js": {
+      "digest": "sha256:61a3c7d1fe40cba73dafedafc0ec52e44cc15e87dbea580615ddf9a990c68eda",
+      "updatedAt": "2026-10-29T14:08:26.589Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/comcast-q1-fy25.js": {
+      "digest": "sha256:059b3f4fdd989819a1d3bd28de9e05bfdccab5aa4002c7bd43053f788c05e3c5",
+      "updatedAt": "2026-10-29T14:07:55.180Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/comcast-q2-fy23.js": {
+      "digest": "sha256:a20c5f982aee265b4ad3f486be9b72732d740dbeddc5bf08a5ae8a80b2c9cdbf",
+      "updatedAt": "2026-10-29T14:05:53.620Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/comcast-q2-fy24.js": {
+      "digest": "sha256:bef2f17e8002780fdc56460b7c9f97664176969d3158379c376f983602ba2c1c",
+      "updatedAt": "2026-10-29T14:07:09.884Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/comcast-q2-fy25.js": {
+      "digest": "sha256:4acc99dcb28d04f0c4ea151c8c9d6db07ce6fc92f8bfd32bd6298f62042589c4",
+      "updatedAt": "2026-10-29T14:09:33.251Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/comcast-q3-fy23.js": {
+      "digest": "sha256:a2c4e53152488516ff99e70a9e09a8369bbdb1492f5eb95b7c852a2f0b914ff5",
+      "updatedAt": "2026-10-29T14:05:57.577Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/comcast-q3-fy24.js": {
+      "digest": "sha256:296822422fefe80ed8dde0bd8bc49ad4a48ca84c040d4e7ac0e3ee3eb342c103",
+      "updatedAt": "2026-10-29T14:07:59.655Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/comcast-q3-fy25.js": {
+      "digest": "sha256:0a0fa78be958e1a85f938999c2fd415d89cd6cb9f632f76fb520dfa545102d61",
+      "updatedAt": "2026-10-29T14:10:09.954Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/comcast-q4-fy22.js": {
+      "digest": "sha256:2b6a0336a44c18f334004b7409256969fd8180f7e0bdceb51d74e4ff17b4d050",
+      "updatedAt": "2026-10-29T14:08:44.334Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/comcast-q4-fy23.js": {
+      "digest": "sha256:f514efcee7874eba2705391c8f87ba97ad2295f1cbb749695c2c5bdcaaea0bf6",
+      "updatedAt": "2026-10-29T14:04:59.235Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/comcast-q4-fy24.js": {
+      "digest": "sha256:2cafc2b475418c5e4e4c869e08944410af3b1711eeac8456708ee1c5a76b9a0b",
+      "updatedAt": "2026-10-29T14:06:01.796Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/match-group-q1-fy23.js": {
+      "digest": "sha256:290532fe7f01056addfb64de90702582bf5b6122609688a4eeb0fffc8abebb59",
+      "updatedAt": "2026-10-29T14:09:03.441Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/match-group-q1-fy24.js": {
+      "digest": "sha256:7a60de4d1aa200c090b3583b46fa9e012957d9f3653c74bf80fb41fdf53e0990",
+      "updatedAt": "2026-10-29T14:10:53.519Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/match-group-q1-fy25.js": {
+      "digest": "sha256:8c5a21dac1ac26833bdcaf8d7f1c7b45728345b1719dc59955748603edf93893",
+      "updatedAt": "2026-10-29T14:08:57.445Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/match-group-q2-fy23.js": {
+      "digest": "sha256:1c40e79f31e82939ff30f77e9af55931f44327269aeec31a040dd2609cc30b6b",
+      "updatedAt": "2026-10-29T14:04:37.125Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/match-group-q2-fy24.js": {
+      "digest": "sha256:7ea8806f2794e7cddef7c50dbf337d3edf9cad012f39ac3b44cbe514953cca8d",
+      "updatedAt": "2026-10-29T14:04:30.017Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/match-group-q2-fy25.js": {
+      "digest": "sha256:cc7df448144589d7039e8d6db1a8ebe9276d7ebf2fd18860faa7c0495dfe7250",
+      "updatedAt": "2026-10-29T14:07:29.695Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/match-group-q3-fy22.js": {
+      "digest": "sha256:f1a9bfba47ee0e83f984bc9a030c1c17a075590deb6943832195e5c3865f8a8a",
+      "updatedAt": "2026-10-29T14:08:11.104Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/match-group-q3-fy23.js": {
+      "digest": "sha256:c0d7021f97c5b56372bb0550c8ff8a8721404cf96728c965aefc3531dbef68c9",
+      "updatedAt": "2026-10-29T14:06:18.716Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/match-group-q3-fy24.js": {
+      "digest": "sha256:17e9316b3df04b2b5cb699ddb3009c4298bb989ad386e232916124c2aa0ba683",
+      "updatedAt": "2026-10-29T14:07:43.503Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/match-group-q4-fy22.js": {
+      "digest": "sha256:b0dae2a237b0bbf913047dfb703ecd2ff79238f50f5bae5af8d6e04d19b8bd24",
+      "updatedAt": "2026-10-29T14:07:21.511Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/match-group-q4-fy23.js": {
+      "digest": "sha256:8e118bf83fdb881357121a05a560f8b0074550becc87c1799005e7e02914f995",
+      "updatedAt": "2026-10-29T14:06:55.901Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/match-group-q4-fy24.js": {
+      "digest": "sha256:29ea6de5240c08a8474d66e8c2038186dac5eebfee8a374c2df7fccba8932305",
+      "updatedAt": "2026-10-29T14:08:31.429Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/monday-com-h1-fy24.js": {
+      "digest": "sha256:4e356ad62a3d1161ec8c538ef4d9fd29271bc2a6941ca0433e5c8d116f727a83",
+      "updatedAt": "2026-10-29T14:06:52.945Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/monday-com-q1-fy23.js": {
+      "digest": "sha256:3eeaf64f22d69b6ac9fb0925bd3a87cd7aa16b9d93ed2181549e9f8fb9be45a1",
+      "updatedAt": "2026-10-29T14:12:29.001Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/monday-com-q1-fy25.js": {
+      "digest": "sha256:8e9d9189cf9df1f246d796c9337a91ffefbc73cb00c06761cae8c374a0b4405b",
+      "updatedAt": "2026-10-29T14:11:23.315Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/monday-com-q2-fy23.js": {
+      "digest": "sha256:2f79a1e3773c0ffae4509b0744571c3e425b3d7fe31d7d453ec093c56cd52300",
+      "updatedAt": "2026-10-29T14:10:38.413Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/monday-com-q2-fy25.js": {
+      "digest": "sha256:7884cacb40b9feefcd54c378bbc4898998d609b620d71da384702737423fa4b0",
+      "updatedAt": "2026-10-29T14:11:12.275Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/monday-com-q3-fy23.js": {
+      "digest": "sha256:76c9a88bfa6326794dd03d89864714d95e2131efc269f1f6ac6419443fa36a1d",
+      "updatedAt": "2026-10-29T14:05:23.124Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
+    },
+    "data/datasets/monday-com-q4-fy22.js": {
+      "digest": "sha256:fd0dac5b947beb9675c34826bf9b10eb666ecf6b25c9f35d6b1358328462db86",
+      "updatedAt": "2026-10-29T14:04:58.358Z",
+      "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef"
     }
   }
 }

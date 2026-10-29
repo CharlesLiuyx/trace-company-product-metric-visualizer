@@ -11102,6 +11102,408 @@
       "mae": 7.259553805774278,
       "width": 2667,
       "height": 1500
+    },
+    "appfolio-q1-fy23": {
+      "similarity": 0.9754045224739064,
+      "mae": 6.271846769153856,
+      "width": 2667,
+      "height": 1500
+    },
+    "appfolio-q1-fy24": {
+      "similarity": 0.9699824979393916,
+      "mae": 7.654463025455152,
+      "width": 2667,
+      "height": 1500
+    },
+    "appfolio-q1-fy25": {
+      "similarity": 0.969913040608486,
+      "mae": 7.672174644836062,
+      "width": 2667,
+      "height": 1500
+    },
+    "appfolio-q2-fy23": {
+      "similarity": 0.9694537895181403,
+      "mae": 7.789283672874224,
+      "width": 2667,
+      "height": 1500
+    },
+    "appfolio-q2-fy24": {
+      "similarity": 0.9731688088008607,
+      "mae": 6.841953755780527,
+      "width": 2667,
+      "height": 1500
+    },
+    "appfolio-q2-fy25": {
+      "similarity": 0.9682007216418209,
+      "mae": 8.108815981335667,
+      "width": 2667,
+      "height": 1500
+    },
+    "appfolio-q3-fy23": {
+      "similarity": 0.9753988542281888,
+      "mae": 6.273292171811857,
+      "width": 2667,
+      "height": 1500
+    },
+    "appfolio-q3-fy24": {
+      "similarity": 0.976647431816121,
+      "mae": 5.954904886889139,
+      "width": 2667,
+      "height": 1500
+    },
+    "appfolio-q3-fy25": {
+      "similarity": 0.9757070376006921,
+      "mae": 6.194705411823522,
+      "width": 2667,
+      "height": 1500
+    },
+    "appfolio-q4-fy22": {
+      "similarity": 0.9650974173979886,
+      "mae": 8.900158563512894,
+      "width": 2667,
+      "height": 1500
+    },
+    "appfolio-q4-fy23": {
+      "similarity": 0.9754926068881913,
+      "mae": 6.249385243511227,
+      "width": 2667,
+      "height": 1500
+    },
+    "appfolio-q4-fy24": {
+      "similarity": 0.9769086749777193,
+      "mae": 5.888287880681581,
+      "width": 2667,
+      "height": 1500
+    },
+    "bank-of-america-q1-fy23": {
+      "similarity": 0.964520340839748,
+      "mae": 9.047313085864268,
+      "width": 2667,
+      "height": 1500
+    },
+    "bank-of-america-q1-fy24": {
+      "similarity": 0.9566892213636694,
+      "mae": 11.0442485522643,
+      "width": 2667,
+      "height": 1500
+    },
+    "bank-of-america-q1-fy25": {
+      "similarity": 0.9610890060311088,
+      "mae": 9.92230346206724,
+      "width": 2667,
+      "height": 1500
+    },
+    "bank-of-america-q2-fy23": {
+      "similarity": 0.9647144064508276,
+      "mae": 8.997826355038953,
+      "width": 2667,
+      "height": 1500
+    },
+    "bank-of-america-q2-fy24": {
+      "similarity": 0.9633496888052392,
+      "mae": 9.345829354664,
+      "width": 2667,
+      "height": 1500
+    },
+    "bank-of-america-q2-fy25": {
+      "similarity": 0.9599075854080331,
+      "mae": 10.223565720951548,
+      "width": 2667,
+      "height": 1500
+    },
+    "bank-of-america-q3-fy22": {
+      "similarity": 0.9640747259533735,
+      "mae": 9.160944881889764,
+      "width": 2667,
+      "height": 1500
+    },
+    "bank-of-america-q3-fy23": {
+      "similarity": 0.9647971251959518,
+      "mae": 8.976733075032287,
+      "width": 2667,
+      "height": 1500
+    },
+    "bank-of-america-q3-fy24": {
+      "similarity": 0.959071254328503,
+      "mae": 10.43683014623172,
+      "width": 2667,
+      "height": 1500
+    },
+    "bank-of-america-q3-fy25": {
+      "similarity": 0.9555745803016453,
+      "mae": 11.328482023080449,
+      "width": 2667,
+      "height": 1500
+    },
+    "bank-of-america-q4-fy22": {
+      "similarity": 0.9606159060182836,
+      "mae": 10.042943965337667,
+      "width": 2667,
+      "height": 1500
+    },
+    "bank-of-america-q4-fy23": {
+      "similarity": 0.9562090140693198,
+      "mae": 11.166701412323459,
+      "width": 2667,
+      "height": 1500
+    },
+    "bank-of-america-q4-fy24": {
+      "similarity": 0.958694901045866,
+      "mae": 10.53280023330417,
+      "width": 2667,
+      "height": 1500
+    },
+    "cisco-q1-fy24": {
+      "similarity": 0.9767660843048214,
+      "mae": 5.92464850227055,
+      "width": 2667,
+      "height": 1500
+    },
+    "cisco-q1-fy25": {
+      "similarity": 0.9756419241712433,
+      "mae": 6.211309336332959,
+      "width": 2667,
+      "height": 1500
+    },
+    "cisco-q2-fy23": {
+      "similarity": 0.9707509247618558,
+      "mae": 7.458514185726784,
+      "width": 2667,
+      "height": 1500
+    },
+    "cisco-q2-fy24": {
+      "similarity": 0.9740157555468965,
+      "mae": 6.625982335541391,
+      "width": 2667,
+      "height": 1500
+    },
+    "cisco-q2-fy25": {
+      "similarity": 0.9773121755205436,
+      "mae": 5.785395242261384,
+      "width": 2667,
+      "height": 1500
+    },
+    "cisco-q3-fy23": {
+      "similarity": 0.9749828761600878,
+      "mae": 6.379366579177603,
+      "width": 2667,
+      "height": 1500
+    },
+    "cisco-q3-fy24": {
+      "similarity": 0.9751434201443774,
+      "mae": 6.338427863183768,
+      "width": 2667,
+      "height": 1500
+    },
+    "cisco-q3-fy25": {
+      "similarity": 0.9772531626357163,
+      "mae": 5.800443527892347,
+      "width": 2667,
+      "height": 1500
+    },
+    "cisco-q4-fy23": {
+      "similarity": 0.9714370488002725,
+      "mae": 7.283552555930509,
+      "width": 2667,
+      "height": 1500
+    },
+    "cisco-q4-fy24": {
+      "similarity": 0.9745306473945659,
+      "mae": 6.494684914385702,
+      "width": 2667,
+      "height": 1500
+    },
+    "cisco-q4-fy25": {
+      "similarity": 0.9761830450932195,
+      "mae": 6.073323501229013,
+      "width": 2667,
+      "height": 1500
+    },
+    "comcast-q1-fy23": {
+      "similarity": 0.9438001289054554,
+      "mae": 14.330967129108862,
+      "width": 2667,
+      "height": 1500
+    },
+    "comcast-q1-fy24": {
+      "similarity": 0.9397500305925811,
+      "mae": 15.363742198891805,
+      "width": 2667,
+      "height": 1500
+    },
+    "comcast-q1-fy25": {
+      "similarity": 0.9486276535694476,
+      "mae": 13.09994833979086,
+      "width": 2667,
+      "height": 1500
+    },
+    "comcast-q2-fy23": {
+      "similarity": 0.951254290599296,
+      "mae": 12.43015589717952,
+      "width": 2667,
+      "height": 1500
+    },
+    "comcast-q2-fy24": {
+      "similarity": 0.9510569080825682,
+      "mae": 12.480488438945132,
+      "width": 2667,
+      "height": 1500
+    },
+    "comcast-q2-fy25": {
+      "similarity": 0.9420904272586842,
+      "mae": 14.766941049035538,
+      "width": 2667,
+      "height": 1500
+    },
+    "comcast-q3-fy23": {
+      "similarity": 0.9549777356261839,
+      "mae": 11.480677415323084,
+      "width": 2667,
+      "height": 1500
+    },
+    "comcast-q3-fy24": {
+      "similarity": 0.9454849584978349,
+      "mae": 13.901335583052118,
+      "width": 2667,
+      "height": 1500
+    },
+    "comcast-q3-fy25": {
+      "similarity": 0.9534677570532442,
+      "mae": 11.865721951422739,
+      "width": 2667,
+      "height": 1500
+    },
+    "comcast-q4-fy22": {
+      "similarity": 0.9555427859099312,
+      "mae": 11.336589592967545,
+      "width": 2667,
+      "height": 1500
+    },
+    "comcast-q4-fy23": {
+      "similarity": 0.9540479423732164,
+      "mae": 11.717774694829814,
+      "width": 2667,
+      "height": 1500
+    },
+    "comcast-q4-fy24": {
+      "similarity": 0.952729997639184,
+      "mae": 12.053850602008083,
+      "width": 2667,
+      "height": 1500
+    },
+    "match-group-q1-fy23": {
+      "similarity": 0.9730246274771209,
+      "mae": 6.878719993334166,
+      "width": 2667,
+      "height": 1500
+    },
+    "match-group-q1-fy24": {
+      "similarity": 0.968611638904614,
+      "mae": 8.004032079323418,
+      "width": 2667,
+      "height": 1500
+    },
+    "match-group-q1-fy25": {
+      "similarity": 0.9722232923498941,
+      "mae": 7.083060450776986,
+      "width": 2667,
+      "height": 1500
+    },
+    "match-group-q2-fy23": {
+      "similarity": 0.9722586516554712,
+      "mae": 7.074043827854852,
+      "width": 2667,
+      "height": 1500
+    },
+    "match-group-q2-fy24": {
+      "similarity": 0.9702924173693974,
+      "mae": 7.57543357080365,
+      "width": 2667,
+      "height": 1500
+    },
+    "match-group-q2-fy25": {
+      "similarity": 0.9708719926349075,
+      "mae": 7.427641878098571,
+      "width": 2667,
+      "height": 1500
+    },
+    "match-group-q3-fy22": {
+      "similarity": 0.9762746519430169,
+      "mae": 6.049963754530683,
+      "width": 2667,
+      "height": 1500
+    },
+    "match-group-q3-fy23": {
+      "similarity": 0.972850310704626,
+      "mae": 6.923170770320376,
+      "width": 2667,
+      "height": 1500
+    },
+    "match-group-q3-fy24": {
+      "similarity": 0.9731381145984203,
+      "mae": 6.849780777402825,
+      "width": 2667,
+      "height": 1500
+    },
+    "match-group-q4-fy22": {
+      "similarity": 0.9769299739493348,
+      "mae": 5.882856642919635,
+      "width": 2667,
+      "height": 1500
+    },
+    "match-group-q4-fy23": {
+      "similarity": 0.9620417902010615,
+      "mae": 9.679343498729326,
+      "width": 2667,
+      "height": 1500
+    },
+    "match-group-q4-fy24": {
+      "similarity": 0.9703786297954585,
+      "mae": 7.553449402158064,
+      "width": 2667,
+      "height": 1500
+    },
+    "monday-com-h1-fy24": {
+      "similarity": 0.9675219649831353,
+      "mae": 8.281898929300505,
+      "width": 2667,
+      "height": 1500
+    },
+    "monday-com-q1-fy23": {
+      "similarity": 0.9698654962247366,
+      "mae": 7.684298462692164,
+      "width": 2667,
+      "height": 1500
+    },
+    "monday-com-q1-fy25": {
+      "similarity": 0.9693646604631937,
+      "mae": 7.8120115818855975,
+      "width": 2667,
+      "height": 1500
+    },
+    "monday-com-q2-fy23": {
+      "similarity": 0.9693509827611417,
+      "mae": 7.815499395908844,
+      "width": 2667,
+      "height": 1500
+    },
+    "monday-com-q2-fy25": {
+      "similarity": 0.9744564733329902,
+      "mae": 6.513599300087489,
+      "width": 2667,
+      "height": 1500
+    },
+    "monday-com-q3-fy23": {
+      "similarity": 0.9681766707266167,
+      "mae": 8.114948964712744,
+      "width": 2667,
+      "height": 1500
+    },
+    "monday-com-q4-fy22": {
+      "similarity": 0.9698021012079372,
+      "mae": 7.700464191976003,
+      "width": 2667,
+      "height": 1500
     }
   }
 }

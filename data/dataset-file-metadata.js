@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-10-28T20:28:21.888Z",
+  "generatedAt": "2026-10-29T14:19:45.535Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -11105,6 +11105,408 @@
       "path": "data/datasets/wells-fargo-q4-fy24.js",
       "updatedAtMs": 1793219013144,
       "updatedAt": "2026-10-28T20:23:33.144Z",
+      "timeSource": "publication"
+    },
+    "appfolio-q1-fy23": {
+      "path": "data/datasets/appfolio-q1-fy23.js",
+      "updatedAtMs": 1793282754417,
+      "updatedAt": "2026-10-29T14:05:54.417Z",
+      "timeSource": "publication"
+    },
+    "appfolio-q1-fy24": {
+      "path": "data/datasets/appfolio-q1-fy24.js",
+      "updatedAtMs": 1793283001292,
+      "updatedAt": "2026-10-29T14:10:01.292Z",
+      "timeSource": "publication"
+    },
+    "appfolio-q1-fy25": {
+      "path": "data/datasets/appfolio-q1-fy25.js",
+      "updatedAtMs": 1793282916175,
+      "updatedAt": "2026-10-29T14:08:36.175Z",
+      "timeSource": "publication"
+    },
+    "appfolio-q2-fy23": {
+      "path": "data/datasets/appfolio-q2-fy23.js",
+      "updatedAtMs": 1793282786975,
+      "updatedAt": "2026-10-29T14:06:26.975Z",
+      "timeSource": "publication"
+    },
+    "appfolio-q2-fy24": {
+      "path": "data/datasets/appfolio-q2-fy24.js",
+      "updatedAtMs": 1793282951387,
+      "updatedAt": "2026-10-29T14:09:11.387Z",
+      "timeSource": "publication"
+    },
+    "appfolio-q2-fy25": {
+      "path": "data/datasets/appfolio-q2-fy25.js",
+      "updatedAtMs": 1793283023740,
+      "updatedAt": "2026-10-29T14:10:23.740Z",
+      "timeSource": "publication"
+    },
+    "appfolio-q3-fy23": {
+      "path": "data/datasets/appfolio-q3-fy23.js",
+      "updatedAtMs": 1793282855759,
+      "updatedAt": "2026-10-29T14:07:35.759Z",
+      "timeSource": "publication"
+    },
+    "appfolio-q3-fy24": {
+      "path": "data/datasets/appfolio-q3-fy24.js",
+      "updatedAtMs": 1793282991528,
+      "updatedAt": "2026-10-29T14:09:51.528Z",
+      "timeSource": "publication"
+    },
+    "appfolio-q3-fy25": {
+      "path": "data/datasets/appfolio-q3-fy25.js",
+      "updatedAtMs": 1793283004795,
+      "updatedAt": "2026-10-29T14:10:04.795Z",
+      "timeSource": "publication"
+    },
+    "appfolio-q4-fy22": {
+      "path": "data/datasets/appfolio-q4-fy22.js",
+      "updatedAtMs": 1793282669356,
+      "updatedAt": "2026-10-29T14:04:29.356Z",
+      "timeSource": "publication"
+    },
+    "appfolio-q4-fy23": {
+      "path": "data/datasets/appfolio-q4-fy23.js",
+      "updatedAtMs": 1793282869067,
+      "updatedAt": "2026-10-29T14:07:49.067Z",
+      "timeSource": "publication"
+    },
+    "appfolio-q4-fy24": {
+      "path": "data/datasets/appfolio-q4-fy24.js",
+      "updatedAtMs": 1793282835444,
+      "updatedAt": "2026-10-29T14:07:15.444Z",
+      "timeSource": "publication"
+    },
+    "bank-of-america-q1-fy23": {
+      "path": "data/datasets/bank-of-america-q1-fy23.js",
+      "updatedAtMs": 1793282790228,
+      "updatedAt": "2026-10-29T14:06:30.228Z",
+      "timeSource": "publication"
+    },
+    "bank-of-america-q1-fy24": {
+      "path": "data/datasets/bank-of-america-q1-fy24.js",
+      "updatedAtMs": 1793283202526,
+      "updatedAt": "2026-10-29T14:13:22.526Z",
+      "timeSource": "publication"
+    },
+    "bank-of-america-q1-fy25": {
+      "path": "data/datasets/bank-of-america-q1-fy25.js",
+      "updatedAtMs": 1793282980267,
+      "updatedAt": "2026-10-29T14:09:40.267Z",
+      "timeSource": "publication"
+    },
+    "bank-of-america-q2-fy23": {
+      "path": "data/datasets/bank-of-america-q2-fy23.js",
+      "updatedAtMs": 1793282825185,
+      "updatedAt": "2026-10-29T14:07:05.185Z",
+      "timeSource": "publication"
+    },
+    "bank-of-america-q2-fy24": {
+      "path": "data/datasets/bank-of-america-q2-fy24.js",
+      "updatedAtMs": 1793282958009,
+      "updatedAt": "2026-10-29T14:09:18.009Z",
+      "timeSource": "publication"
+    },
+    "bank-of-america-q2-fy25": {
+      "path": "data/datasets/bank-of-america-q2-fy25.js",
+      "updatedAtMs": 1793283043236,
+      "updatedAt": "2026-10-29T14:10:43.236Z",
+      "timeSource": "publication"
+    },
+    "bank-of-america-q3-fy22": {
+      "path": "data/datasets/bank-of-america-q3-fy22.js",
+      "updatedAtMs": 1793282685464,
+      "updatedAt": "2026-10-29T14:04:45.464Z",
+      "timeSource": "publication"
+    },
+    "bank-of-america-q3-fy23": {
+      "path": "data/datasets/bank-of-america-q3-fy23.js",
+      "updatedAtMs": 1793282929612,
+      "updatedAt": "2026-10-29T14:08:49.612Z",
+      "timeSource": "publication"
+    },
+    "bank-of-america-q3-fy24": {
+      "path": "data/datasets/bank-of-america-q3-fy24.js",
+      "updatedAtMs": 1793283090789,
+      "updatedAt": "2026-10-29T14:11:30.789Z",
+      "timeSource": "publication"
+    },
+    "bank-of-america-q3-fy25": {
+      "path": "data/datasets/bank-of-america-q3-fy25.js",
+      "updatedAtMs": 1793283028749,
+      "updatedAt": "2026-10-29T14:10:28.749Z",
+      "timeSource": "publication"
+    },
+    "bank-of-america-q4-fy22": {
+      "path": "data/datasets/bank-of-america-q4-fy22.js",
+      "updatedAtMs": 1793283585535,
+      "updatedAt": "2026-10-29T14:19:45.535Z",
+      "timeSource": "publication"
+    },
+    "bank-of-america-q4-fy23": {
+      "path": "data/datasets/bank-of-america-q4-fy23.js",
+      "updatedAtMs": 1793282986324,
+      "updatedAt": "2026-10-29T14:09:46.324Z",
+      "timeSource": "publication"
+    },
+    "bank-of-america-q4-fy24": {
+      "path": "data/datasets/bank-of-america-q4-fy24.js",
+      "updatedAtMs": 1793282886082,
+      "updatedAt": "2026-10-29T14:08:06.082Z",
+      "timeSource": "publication"
+    },
+    "cisco-q1-fy24": {
+      "path": "data/datasets/cisco-q1-fy24.js",
+      "updatedAtMs": 1793282668411,
+      "updatedAt": "2026-10-29T14:04:28.411Z",
+      "timeSource": "publication"
+    },
+    "cisco-q1-fy25": {
+      "path": "data/datasets/cisco-q1-fy25.js",
+      "updatedAtMs": 1793283059390,
+      "updatedAt": "2026-10-29T14:10:59.390Z",
+      "timeSource": "publication"
+    },
+    "cisco-q2-fy23": {
+      "path": "data/datasets/cisco-q2-fy23.js",
+      "updatedAtMs": 1793282994219,
+      "updatedAt": "2026-10-29T14:09:54.219Z",
+      "timeSource": "publication"
+    },
+    "cisco-q2-fy24": {
+      "path": "data/datasets/cisco-q2-fy24.js",
+      "updatedAtMs": 1793283017257,
+      "updatedAt": "2026-10-29T14:10:17.257Z",
+      "timeSource": "publication"
+    },
+    "cisco-q2-fy25": {
+      "path": "data/datasets/cisco-q2-fy25.js",
+      "updatedAtMs": 1793283087511,
+      "updatedAt": "2026-10-29T14:11:27.511Z",
+      "timeSource": "publication"
+    },
+    "cisco-q3-fy23": {
+      "path": "data/datasets/cisco-q3-fy23.js",
+      "updatedAtMs": 1793282763024,
+      "updatedAt": "2026-10-29T14:06:03.024Z",
+      "timeSource": "publication"
+    },
+    "cisco-q3-fy24": {
+      "path": "data/datasets/cisco-q3-fy24.js",
+      "updatedAtMs": 1793282963065,
+      "updatedAt": "2026-10-29T14:09:23.065Z",
+      "timeSource": "publication"
+    },
+    "cisco-q3-fy25": {
+      "path": "data/datasets/cisco-q3-fy25.js",
+      "updatedAtMs": 1793283062354,
+      "updatedAt": "2026-10-29T14:11:02.354Z",
+      "timeSource": "publication"
+    },
+    "cisco-q4-fy23": {
+      "path": "data/datasets/cisco-q4-fy23.js",
+      "updatedAtMs": 1793282714816,
+      "updatedAt": "2026-10-29T14:05:14.816Z",
+      "timeSource": "publication"
+    },
+    "cisco-q4-fy24": {
+      "path": "data/datasets/cisco-q4-fy24.js",
+      "updatedAtMs": 1793283033409,
+      "updatedAt": "2026-10-29T14:10:33.409Z",
+      "timeSource": "publication"
+    },
+    "cisco-q4-fy25": {
+      "path": "data/datasets/cisco-q4-fy25.js",
+      "updatedAtMs": 1793283048639,
+      "updatedAt": "2026-10-29T14:10:48.639Z",
+      "timeSource": "publication"
+    },
+    "comcast-q1-fy23": {
+      "path": "data/datasets/comcast-q1-fy23.js",
+      "updatedAtMs": 1793282728504,
+      "updatedAt": "2026-10-29T14:05:28.504Z",
+      "timeSource": "publication"
+    },
+    "comcast-q1-fy24": {
+      "path": "data/datasets/comcast-q1-fy24.js",
+      "updatedAtMs": 1793282906589,
+      "updatedAt": "2026-10-29T14:08:26.589Z",
+      "timeSource": "publication"
+    },
+    "comcast-q1-fy25": {
+      "path": "data/datasets/comcast-q1-fy25.js",
+      "updatedAtMs": 1793282875180,
+      "updatedAt": "2026-10-29T14:07:55.180Z",
+      "timeSource": "publication"
+    },
+    "comcast-q2-fy23": {
+      "path": "data/datasets/comcast-q2-fy23.js",
+      "updatedAtMs": 1793282753620,
+      "updatedAt": "2026-10-29T14:05:53.620Z",
+      "timeSource": "publication"
+    },
+    "comcast-q2-fy24": {
+      "path": "data/datasets/comcast-q2-fy24.js",
+      "updatedAtMs": 1793282829884,
+      "updatedAt": "2026-10-29T14:07:09.884Z",
+      "timeSource": "publication"
+    },
+    "comcast-q2-fy25": {
+      "path": "data/datasets/comcast-q2-fy25.js",
+      "updatedAtMs": 1793282973251,
+      "updatedAt": "2026-10-29T14:09:33.251Z",
+      "timeSource": "publication"
+    },
+    "comcast-q3-fy23": {
+      "path": "data/datasets/comcast-q3-fy23.js",
+      "updatedAtMs": 1793282757577,
+      "updatedAt": "2026-10-29T14:05:57.577Z",
+      "timeSource": "publication"
+    },
+    "comcast-q3-fy24": {
+      "path": "data/datasets/comcast-q3-fy24.js",
+      "updatedAtMs": 1793282879655,
+      "updatedAt": "2026-10-29T14:07:59.655Z",
+      "timeSource": "publication"
+    },
+    "comcast-q3-fy25": {
+      "path": "data/datasets/comcast-q3-fy25.js",
+      "updatedAtMs": 1793283009954,
+      "updatedAt": "2026-10-29T14:10:09.954Z",
+      "timeSource": "publication"
+    },
+    "comcast-q4-fy22": {
+      "path": "data/datasets/comcast-q4-fy22.js",
+      "updatedAtMs": 1793282924334,
+      "updatedAt": "2026-10-29T14:08:44.334Z",
+      "timeSource": "publication"
+    },
+    "comcast-q4-fy23": {
+      "path": "data/datasets/comcast-q4-fy23.js",
+      "updatedAtMs": 1793282699235,
+      "updatedAt": "2026-10-29T14:04:59.235Z",
+      "timeSource": "publication"
+    },
+    "comcast-q4-fy24": {
+      "path": "data/datasets/comcast-q4-fy24.js",
+      "updatedAtMs": 1793282761796,
+      "updatedAt": "2026-10-29T14:06:01.796Z",
+      "timeSource": "publication"
+    },
+    "match-group-q1-fy23": {
+      "path": "data/datasets/match-group-q1-fy23.js",
+      "updatedAtMs": 1793282943441,
+      "updatedAt": "2026-10-29T14:09:03.441Z",
+      "timeSource": "publication"
+    },
+    "match-group-q1-fy24": {
+      "path": "data/datasets/match-group-q1-fy24.js",
+      "updatedAtMs": 1793283053519,
+      "updatedAt": "2026-10-29T14:10:53.519Z",
+      "timeSource": "publication"
+    },
+    "match-group-q1-fy25": {
+      "path": "data/datasets/match-group-q1-fy25.js",
+      "updatedAtMs": 1793282937445,
+      "updatedAt": "2026-10-29T14:08:57.445Z",
+      "timeSource": "publication"
+    },
+    "match-group-q2-fy23": {
+      "path": "data/datasets/match-group-q2-fy23.js",
+      "updatedAtMs": 1793282677125,
+      "updatedAt": "2026-10-29T14:04:37.125Z",
+      "timeSource": "publication"
+    },
+    "match-group-q2-fy24": {
+      "path": "data/datasets/match-group-q2-fy24.js",
+      "updatedAtMs": 1793282670017,
+      "updatedAt": "2026-10-29T14:04:30.017Z",
+      "timeSource": "publication"
+    },
+    "match-group-q2-fy25": {
+      "path": "data/datasets/match-group-q2-fy25.js",
+      "updatedAtMs": 1793282849695,
+      "updatedAt": "2026-10-29T14:07:29.695Z",
+      "timeSource": "publication"
+    },
+    "match-group-q3-fy22": {
+      "path": "data/datasets/match-group-q3-fy22.js",
+      "updatedAtMs": 1793282891104,
+      "updatedAt": "2026-10-29T14:08:11.104Z",
+      "timeSource": "publication"
+    },
+    "match-group-q3-fy23": {
+      "path": "data/datasets/match-group-q3-fy23.js",
+      "updatedAtMs": 1793282778716,
+      "updatedAt": "2026-10-29T14:06:18.716Z",
+      "timeSource": "publication"
+    },
+    "match-group-q3-fy24": {
+      "path": "data/datasets/match-group-q3-fy24.js",
+      "updatedAtMs": 1793282863503,
+      "updatedAt": "2026-10-29T14:07:43.503Z",
+      "timeSource": "publication"
+    },
+    "match-group-q4-fy22": {
+      "path": "data/datasets/match-group-q4-fy22.js",
+      "updatedAtMs": 1793282841511,
+      "updatedAt": "2026-10-29T14:07:21.511Z",
+      "timeSource": "publication"
+    },
+    "match-group-q4-fy23": {
+      "path": "data/datasets/match-group-q4-fy23.js",
+      "updatedAtMs": 1793282815901,
+      "updatedAt": "2026-10-29T14:06:55.901Z",
+      "timeSource": "publication"
+    },
+    "match-group-q4-fy24": {
+      "path": "data/datasets/match-group-q4-fy24.js",
+      "updatedAtMs": 1793282911429,
+      "updatedAt": "2026-10-29T14:08:31.429Z",
+      "timeSource": "publication"
+    },
+    "monday-com-h1-fy24": {
+      "path": "data/datasets/monday-com-h1-fy24.js",
+      "updatedAtMs": 1793282812945,
+      "updatedAt": "2026-10-29T14:06:52.945Z",
+      "timeSource": "publication"
+    },
+    "monday-com-q1-fy23": {
+      "path": "data/datasets/monday-com-q1-fy23.js",
+      "updatedAtMs": 1793283149001,
+      "updatedAt": "2026-10-29T14:12:29.001Z",
+      "timeSource": "publication"
+    },
+    "monday-com-q1-fy25": {
+      "path": "data/datasets/monday-com-q1-fy25.js",
+      "updatedAtMs": 1793283083315,
+      "updatedAt": "2026-10-29T14:11:23.315Z",
+      "timeSource": "publication"
+    },
+    "monday-com-q2-fy23": {
+      "path": "data/datasets/monday-com-q2-fy23.js",
+      "updatedAtMs": 1793283038413,
+      "updatedAt": "2026-10-29T14:10:38.413Z",
+      "timeSource": "publication"
+    },
+    "monday-com-q2-fy25": {
+      "path": "data/datasets/monday-com-q2-fy25.js",
+      "updatedAtMs": 1793283072275,
+      "updatedAt": "2026-10-29T14:11:12.275Z",
+      "timeSource": "publication"
+    },
+    "monday-com-q3-fy23": {
+      "path": "data/datasets/monday-com-q3-fy23.js",
+      "updatedAtMs": 1793282723124,
+      "updatedAt": "2026-10-29T14:05:23.124Z",
+      "timeSource": "publication"
+    },
+    "monday-com-q4-fy22": {
+      "path": "data/datasets/monday-com-q4-fy22.js",
+      "updatedAtMs": 1793282698358,
+      "updatedAt": "2026-10-29T14:04:58.358Z",
       "timeSource": "publication"
     },
     "data/revenue-metrics.js": {

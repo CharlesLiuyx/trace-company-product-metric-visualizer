@@ -41001,6 +41001,1515 @@
             }
           }
         }
+      },
+      {
+        "key": "appfolio-q1-fy23",
+        "src": "data/datasets/appfolio-q1-fy23.js",
+        "data": {
+          "name": "AppFolio · Q1 FY23",
+          "company": "AppFolio",
+          "meta": {
+            "title": "Appfolio Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending Mar. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AppFolio · 2023 财年第一季度",
+              "meta": {
+                "title": "Appfolio 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2023 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "appfolio-q1-fy24",
+        "src": "data/datasets/appfolio-q1-fy24.js",
+        "data": {
+          "name": "AppFolio · Q1 FY24",
+          "company": "AppFolio",
+          "meta": {
+            "title": "Appfolio Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AppFolio · 2024 财年第一季度",
+              "meta": {
+                "title": "Appfolio 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "appfolio-q1-fy25",
+        "src": "data/datasets/appfolio-q1-fy25.js",
+        "data": {
+          "name": "AppFolio · Q1 FY25",
+          "company": "AppFolio",
+          "meta": {
+            "title": "Appfolio Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Mar. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AppFolio · 2025 财年第一季度",
+              "meta": {
+                "title": "Appfolio 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "appfolio-q2-fy23",
+        "src": "data/datasets/appfolio-q2-fy23.js",
+        "data": {
+          "name": "AppFolio · Q2 FY23",
+          "company": "AppFolio",
+          "meta": {
+            "title": "Appfolio Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Jun. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AppFolio · 2023 财年第二季度",
+              "meta": {
+                "title": "Appfolio 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "appfolio-q2-fy24",
+        "src": "data/datasets/appfolio-q2-fy24.js",
+        "data": {
+          "name": "AppFolio · Q2 FY24",
+          "company": "AppFolio",
+          "meta": {
+            "title": "Appfolio Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AppFolio · 2024 财年第二季度",
+              "meta": {
+                "title": "Appfolio 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "appfolio-q2-fy25",
+        "src": "data/datasets/appfolio-q2-fy25.js",
+        "data": {
+          "name": "AppFolio · Q2 FY25",
+          "company": "AppFolio",
+          "meta": {
+            "title": "Appfolio Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Jun. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AppFolio · 2025 财年第二季度",
+              "meta": {
+                "title": "Appfolio 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "appfolio-q3-fy23",
+        "src": "data/datasets/appfolio-q3-fy23.js",
+        "data": {
+          "name": "AppFolio · Q3 FY23",
+          "company": "AppFolio",
+          "meta": {
+            "title": "Appfolio Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Sep. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AppFolio · 2023 财年第三季度",
+              "meta": {
+                "title": "Appfolio 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "appfolio-q3-fy24",
+        "src": "data/datasets/appfolio-q3-fy24.js",
+        "data": {
+          "name": "AppFolio · Q3 FY24",
+          "company": "AppFolio",
+          "meta": {
+            "title": "Appfolio Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AppFolio · 2024 财年第三季度",
+              "meta": {
+                "title": "Appfolio 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "appfolio-q3-fy25",
+        "src": "data/datasets/appfolio-q3-fy25.js",
+        "data": {
+          "name": "AppFolio · Q3 FY25",
+          "company": "AppFolio",
+          "meta": {
+            "title": "Appfolio Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AppFolio · 2025 财年第三季度",
+              "meta": {
+                "title": "Appfolio 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "appfolio-q4-fy22",
+        "src": "data/datasets/appfolio-q4-fy22.js",
+        "data": {
+          "name": "AppFolio · Q4 FY22",
+          "company": "AppFolio",
+          "meta": {
+            "title": "Appfolio Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Ending Dec. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AppFolio · 2022 财年第四季度",
+              "meta": {
+                "title": "Appfolio 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2022 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "appfolio-q4-fy23",
+        "src": "data/datasets/appfolio-q4-fy23.js",
+        "data": {
+          "name": "AppFolio · Q4 FY23",
+          "company": "AppFolio",
+          "meta": {
+            "title": "Appfolio Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AppFolio · 2023 财年第四季度",
+              "meta": {
+                "title": "Appfolio 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "appfolio-q4-fy24",
+        "src": "data/datasets/appfolio-q4-fy24.js",
+        "data": {
+          "name": "AppFolio · Q4 FY24",
+          "company": "AppFolio",
+          "meta": {
+            "title": "Appfolio Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AppFolio · 2024 财年第四季度",
+              "meta": {
+                "title": "Appfolio 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "bank-of-america-q1-fy23",
+        "src": "data/datasets/bank-of-america-q1-fy23.js",
+        "data": {
+          "name": "Bank of America · Q1 FY23",
+          "company": "Bank of America",
+          "meta": {
+            "title": "Bank of America Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending Mar. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美国银行 · 2023 财年第一季度",
+              "meta": {
+                "title": "美国银行 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2023 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "bank-of-america-q1-fy24",
+        "src": "data/datasets/bank-of-america-q1-fy24.js",
+        "data": {
+          "name": "Bank of America · Q1 FY24",
+          "company": "Bank of America",
+          "meta": {
+            "title": "Bank of America Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美国银行 · 2024 财年第一季度",
+              "meta": {
+                "title": "美国银行 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "bank-of-america-q1-fy25",
+        "src": "data/datasets/bank-of-america-q1-fy25.js",
+        "data": {
+          "name": "Bank of America · Q1 FY25",
+          "company": "Bank of America",
+          "meta": {
+            "title": "Bank of America Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Mar. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美国银行 · 2025 财年第一季度",
+              "meta": {
+                "title": "美国银行 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "bank-of-america-q2-fy23",
+        "src": "data/datasets/bank-of-america-q2-fy23.js",
+        "data": {
+          "name": "Bank of America · Q2 FY23",
+          "company": "Bank of America",
+          "meta": {
+            "title": "Bank of America Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Jun. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美国银行 · 2023 财年第二季度",
+              "meta": {
+                "title": "美国银行 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "bank-of-america-q2-fy24",
+        "src": "data/datasets/bank-of-america-q2-fy24.js",
+        "data": {
+          "name": "Bank of America · Q2 FY24",
+          "company": "Bank of America",
+          "meta": {
+            "title": "Bank of America Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美国银行 · 2024 财年第二季度",
+              "meta": {
+                "title": "美国银行 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "bank-of-america-q2-fy25",
+        "src": "data/datasets/bank-of-america-q2-fy25.js",
+        "data": {
+          "name": "Bank of America · Q2 FY25",
+          "company": "Bank of America",
+          "meta": {
+            "title": "Bank of America Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Jun. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美国银行 · 2025 财年第二季度",
+              "meta": {
+                "title": "美国银行 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "bank-of-america-q3-fy22",
+        "src": "data/datasets/bank-of-america-q3-fy22.js",
+        "data": {
+          "name": "Bank of America · Q3 FY22",
+          "company": "Bank of America",
+          "meta": {
+            "title": "Bank of America Q3 FY22 Income Statement",
+            "period": "Q3 FY22",
+            "periodNote": "Ending Sep. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美国银行 · 2022 财年第三季度",
+              "meta": {
+                "title": "美国银行 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度",
+                "periodNote": "截至 2022 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "bank-of-america-q3-fy23",
+        "src": "data/datasets/bank-of-america-q3-fy23.js",
+        "data": {
+          "name": "Bank of America · Q3 FY23",
+          "company": "Bank of America",
+          "meta": {
+            "title": "Bank of America Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Sep. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美国银行 · 2023 财年第三季度",
+              "meta": {
+                "title": "美国银行 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "bank-of-america-q3-fy24",
+        "src": "data/datasets/bank-of-america-q3-fy24.js",
+        "data": {
+          "name": "Bank of America · Q3 FY24",
+          "company": "Bank of America",
+          "meta": {
+            "title": "Bank of America Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美国银行 · 2024 财年第三季度",
+              "meta": {
+                "title": "美国银行 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "bank-of-america-q3-fy25",
+        "src": "data/datasets/bank-of-america-q3-fy25.js",
+        "data": {
+          "name": "Bank of America · Q3 FY25",
+          "company": "Bank of America",
+          "meta": {
+            "title": "Bank of America Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美国银行 · 2025 财年第三季度",
+              "meta": {
+                "title": "美国银行 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "bank-of-america-q4-fy22",
+        "src": "data/datasets/bank-of-america-q4-fy22.js",
+        "data": {
+          "name": "Bank of America · Q4 FY22",
+          "company": "Bank of America",
+          "meta": {
+            "title": "Bank of America Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Ending Dec. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美国银行 · 2022 财年第四季度",
+              "meta": {
+                "title": "美国银行 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2022 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "bank-of-america-q4-fy23",
+        "src": "data/datasets/bank-of-america-q4-fy23.js",
+        "data": {
+          "name": "Bank of America · Q4 FY23",
+          "company": "Bank of America",
+          "meta": {
+            "title": "Bank of America Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美国银行 · 2023 财年第四季度",
+              "meta": {
+                "title": "美国银行 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "bank-of-america-q4-fy24",
+        "src": "data/datasets/bank-of-america-q4-fy24.js",
+        "data": {
+          "name": "Bank of America · Q4 FY24",
+          "company": "Bank of America",
+          "meta": {
+            "title": "Bank of America Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美国银行 · 2024 财年第四季度",
+              "meta": {
+                "title": "美国银行 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "cisco-q1-fy24",
+        "src": "data/datasets/cisco-q1-fy24.js",
+        "data": {
+          "name": "Cisco · Q1 FY24",
+          "company": "Cisco",
+          "meta": {
+            "title": "Cisco Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Sept. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "思科 · 2024 财年第一季度",
+              "meta": {
+                "title": "思科 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "cisco-q1-fy25",
+        "src": "data/datasets/cisco-q1-fy25.js",
+        "data": {
+          "name": "Cisco · Q1 FY25",
+          "company": "Cisco",
+          "meta": {
+            "title": "Cisco Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Oct. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "思科 · 2025 财年第一季度",
+              "meta": {
+                "title": "思科 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2024 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "cisco-q2-fy23",
+        "src": "data/datasets/cisco-q2-fy23.js",
+        "data": {
+          "name": "Cisco · Q2 FY23",
+          "company": "Cisco",
+          "meta": {
+            "title": "Cisco Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Jan. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "思科 · 2023 财年第二季度",
+              "meta": {
+                "title": "思科 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "cisco-q2-fy24",
+        "src": "data/datasets/cisco-q2-fy24.js",
+        "data": {
+          "name": "Cisco · Q2 FY24",
+          "company": "Cisco",
+          "meta": {
+            "title": "Cisco Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Jan. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "思科 · 2024 财年第二季度",
+              "meta": {
+                "title": "思科 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "cisco-q2-fy25",
+        "src": "data/datasets/cisco-q2-fy25.js",
+        "data": {
+          "name": "Cisco · Q2 FY25",
+          "company": "Cisco",
+          "meta": {
+            "title": "Cisco Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "思科 · 2025 财年第二季度",
+              "meta": {
+                "title": "思科 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "cisco-q3-fy23",
+        "src": "data/datasets/cisco-q3-fy23.js",
+        "data": {
+          "name": "Cisco · Q3 FY23",
+          "company": "Cisco",
+          "meta": {
+            "title": "Cisco Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Apr. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "思科 · 2023 财年第三季度",
+              "meta": {
+                "title": "思科 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "cisco-q3-fy24",
+        "src": "data/datasets/cisco-q3-fy24.js",
+        "data": {
+          "name": "Cisco · Q3 FY24",
+          "company": "Cisco",
+          "meta": {
+            "title": "Cisco Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Apr. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "思科 · 2024 财年第三季度",
+              "meta": {
+                "title": "思科 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "cisco-q3-fy25",
+        "src": "data/datasets/cisco-q3-fy25.js",
+        "data": {
+          "name": "Cisco · Q3 FY25",
+          "company": "Cisco",
+          "meta": {
+            "title": "Cisco Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Apr. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "思科 · 2025 财年第三季度",
+              "meta": {
+                "title": "思科 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "cisco-q4-fy23",
+        "src": "data/datasets/cisco-q4-fy23.js",
+        "data": {
+          "name": "Cisco · Q4 FY23",
+          "company": "Cisco",
+          "meta": {
+            "title": "Cisco Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending June 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "思科 · 2023 财年第四季度",
+              "meta": {
+                "title": "思科 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "cisco-q4-fy24",
+        "src": "data/datasets/cisco-q4-fy24.js",
+        "data": {
+          "name": "Cisco · Q4 FY24",
+          "company": "Cisco",
+          "meta": {
+            "title": "Cisco Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Jul. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "思科 · 2024 财年第四季度",
+              "meta": {
+                "title": "思科 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "cisco-q4-fy25",
+        "src": "data/datasets/cisco-q4-fy25.js",
+        "data": {
+          "name": "Cisco · Q4 FY25",
+          "company": "Cisco",
+          "meta": {
+            "title": "Cisco Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending July 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Cisco · 2025 财年第四季度",
+              "meta": {
+                "title": "Cisco 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "comcast-q1-fy23",
+        "src": "data/datasets/comcast-q1-fy23.js",
+        "data": {
+          "name": "Comcast · Q1 FY23",
+          "company": "Comcast",
+          "meta": {
+            "title": "Comcast Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Quarter ended Mar. 31, 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "康卡斯特 · 2023 财年第一季度",
+              "meta": {
+                "title": "康卡斯特 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2023 年 3 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "comcast-q1-fy24",
+        "src": "data/datasets/comcast-q1-fy24.js",
+        "data": {
+          "name": "Comcast · Q1 FY24",
+          "company": "Comcast",
+          "meta": {
+            "title": "Comcast Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Quarter ended Mar. 31, 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Comcast · 2024 财年第一季度",
+              "meta": {
+                "title": "Comcast 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 3 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "comcast-q1-fy25",
+        "src": "data/datasets/comcast-q1-fy25.js",
+        "data": {
+          "name": "Comcast · Q1 FY25",
+          "company": "Comcast",
+          "meta": {
+            "title": "Comcast Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Quarter ended Mar. 31, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "康卡斯特 · 2025 财年第一季度",
+              "meta": {
+                "title": "康卡斯特 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 3 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "comcast-q2-fy23",
+        "src": "data/datasets/comcast-q2-fy23.js",
+        "data": {
+          "name": "Comcast · Q2 FY23",
+          "company": "Comcast",
+          "meta": {
+            "title": "Comcast Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Quarter ended Jun. 30, 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "康卡斯特 · 2023 财年第二季度",
+              "meta": {
+                "title": "康卡斯特 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 6 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "comcast-q2-fy24",
+        "src": "data/datasets/comcast-q2-fy24.js",
+        "data": {
+          "name": "Comcast · Q2 FY24",
+          "company": "Comcast",
+          "meta": {
+            "title": "Comcast Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Quarter ended Jun. 30, 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "康卡斯特 · 2024 财年第二季度",
+              "meta": {
+                "title": "康卡斯特 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 6 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "comcast-q2-fy25",
+        "src": "data/datasets/comcast-q2-fy25.js",
+        "data": {
+          "name": "Comcast · Q2 FY25",
+          "company": "Comcast",
+          "meta": {
+            "title": "Comcast Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Quarter ended Jun. 30, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "康卡斯特 · 2025 财年第二季度",
+              "meta": {
+                "title": "康卡斯特 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 6 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "comcast-q3-fy23",
+        "src": "data/datasets/comcast-q3-fy23.js",
+        "data": {
+          "name": "Comcast · Q3 FY23",
+          "company": "Comcast",
+          "meta": {
+            "title": "Comcast Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Quarter ended Sep. 30, 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "康卡斯特 · 2023 财年第三季度",
+              "meta": {
+                "title": "康卡斯特 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 9 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "comcast-q3-fy24",
+        "src": "data/datasets/comcast-q3-fy24.js",
+        "data": {
+          "name": "Comcast · Q3 FY24",
+          "company": "Comcast",
+          "meta": {
+            "title": "Comcast Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Quarter ended Sep. 30, 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "康卡斯特 · 2024 财年第三季度",
+              "meta": {
+                "title": "康卡斯特 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "comcast-q3-fy25",
+        "src": "data/datasets/comcast-q3-fy25.js",
+        "data": {
+          "name": "Comcast · Q3 FY25",
+          "company": "Comcast",
+          "meta": {
+            "title": "Comcast Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Quarter ended Sep. 30, 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "康卡斯特 · 2025 财年第三季度",
+              "meta": {
+                "title": "康卡斯特 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "comcast-q4-fy22",
+        "src": "data/datasets/comcast-q4-fy22.js",
+        "data": {
+          "name": "Comcast · Q4 FY22",
+          "company": "Comcast",
+          "meta": {
+            "title": "Comcast Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Quarter ended Dec. 31, 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "康卡斯特 · 2022 财年第四季度",
+              "meta": {
+                "title": "康卡斯特 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2022 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "comcast-q4-fy23",
+        "src": "data/datasets/comcast-q4-fy23.js",
+        "data": {
+          "name": "Comcast · Q4 FY23",
+          "company": "Comcast",
+          "meta": {
+            "title": "Comcast Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Quarter ended Dec. 31, 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "康卡斯特 · 2023 财年第四季度",
+              "meta": {
+                "title": "康卡斯特 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "comcast-q4-fy24",
+        "src": "data/datasets/comcast-q4-fy24.js",
+        "data": {
+          "name": "Comcast · Q4 FY24",
+          "company": "Comcast",
+          "meta": {
+            "title": "Comcast Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Quarter ended Dec. 31, 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "康卡斯特 · 2024 财年第四季度",
+              "meta": {
+                "title": "康卡斯特 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 12 月 31 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "match-group-q1-fy23",
+        "src": "data/datasets/match-group-q1-fy23.js",
+        "data": {
+          "name": "Match Group · Q1 FY23",
+          "company": "Match Group",
+          "meta": {
+            "title": "Match Group Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending Mar. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Match Group · 2023 财年第一季度",
+              "meta": {
+                "title": "Match Group 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2023 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "match-group-q1-fy24",
+        "src": "data/datasets/match-group-q1-fy24.js",
+        "data": {
+          "name": "Match Group · Q1 FY24",
+          "company": "Match Group",
+          "meta": {
+            "title": "Match Group Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Match Group · 2024 财年第一季度",
+              "meta": {
+                "title": "Match Group 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "match-group-q1-fy25",
+        "src": "data/datasets/match-group-q1-fy25.js",
+        "data": {
+          "name": "Match Group · Q1 FY25",
+          "company": "Match Group",
+          "meta": {
+            "title": "Match Group Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Mar. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Match Group · 2025 财年第一季度",
+              "meta": {
+                "title": "Match Group 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "match-group-q2-fy23",
+        "src": "data/datasets/match-group-q2-fy23.js",
+        "data": {
+          "name": "Match Group · Q2 FY23",
+          "company": "Match Group",
+          "meta": {
+            "title": "Match Group Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Jun. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Match Group · 2023 财年第二季度",
+              "meta": {
+                "title": "Match Group 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "match-group-q2-fy24",
+        "src": "data/datasets/match-group-q2-fy24.js",
+        "data": {
+          "name": "Match Group · Q2 FY24",
+          "company": "Match Group",
+          "meta": {
+            "title": "Match Group Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Match Group · 2024 财年第二季度",
+              "meta": {
+                "title": "Match Group 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "match-group-q2-fy25",
+        "src": "data/datasets/match-group-q2-fy25.js",
+        "data": {
+          "name": "Match Group · Q2 FY25",
+          "company": "Match Group",
+          "meta": {
+            "title": "Match Group Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Jun. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Match Group · 2025 财年第二季度",
+              "meta": {
+                "title": "Match Group 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "match-group-q3-fy22",
+        "src": "data/datasets/match-group-q3-fy22.js",
+        "data": {
+          "name": "Match Group · Q3 FY22",
+          "company": "Match Group",
+          "meta": {
+            "title": "Match Group Q3 FY22 Income Statement",
+            "period": "Q3 FY22",
+            "periodNote": "Ending Sep. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Match Group · 2022 财年第三季度",
+              "meta": {
+                "title": "Match Group 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度",
+                "periodNote": "截至 2022 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "match-group-q3-fy23",
+        "src": "data/datasets/match-group-q3-fy23.js",
+        "data": {
+          "name": "Match Group · Q3 FY23",
+          "company": "Match Group",
+          "meta": {
+            "title": "Match Group Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Sep. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Match Group · 2023 财年第三季度",
+              "meta": {
+                "title": "Match Group 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "match-group-q3-fy24",
+        "src": "data/datasets/match-group-q3-fy24.js",
+        "data": {
+          "name": "Match Group · Q3 FY24",
+          "company": "Match Group",
+          "meta": {
+            "title": "Match Group Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Match Group · 2024 财年第三季度",
+              "meta": {
+                "title": "Match Group 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "match-group-q4-fy22",
+        "src": "data/datasets/match-group-q4-fy22.js",
+        "data": {
+          "name": "Match Group · Q4 FY22",
+          "company": "Match Group",
+          "meta": {
+            "title": "Match Group Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Ending Dec. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Match Group · 2022 财年第四季度",
+              "meta": {
+                "title": "Match Group 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2022 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "match-group-q4-fy23",
+        "src": "data/datasets/match-group-q4-fy23.js",
+        "data": {
+          "name": "Match Group · Q4 FY23",
+          "company": "Match Group",
+          "meta": {
+            "title": "Match Group Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Match Group · 2023 财年第四季度",
+              "meta": {
+                "title": "Match Group 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "match-group-q4-fy24",
+        "src": "data/datasets/match-group-q4-fy24.js",
+        "data": {
+          "name": "Match Group · Q4 FY24",
+          "company": "Match Group",
+          "meta": {
+            "title": "Match Group Q4 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Match Group · 2024 财年第四季度",
+              "meta": {
+                "title": "Match Group 2024 财年第四季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "monday-com-h1-fy24",
+        "src": "data/datasets/monday-com-h1-fy24.js",
+        "data": {
+          "name": "Monday.com · H1 FY24",
+          "company": "Monday.com",
+          "meta": {
+            "title": "Monday.com H1 FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Monday.com · 2024 财年上半年",
+              "meta": {
+                "title": "Monday.com 2024 财年上半年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "monday-com-q1-fy23",
+        "src": "data/datasets/monday-com-q1-fy23.js",
+        "data": {
+          "name": "Monday.com · Q1 FY23",
+          "company": "Monday.com",
+          "meta": {
+            "title": "Monday.com Q1 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Monday.com · 2023 财年第一季度",
+              "meta": {
+                "title": "Monday.com 2023 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "monday-com-q1-fy25",
+        "src": "data/datasets/monday-com-q1-fy25.js",
+        "data": {
+          "name": "Monday.com · Q1 FY25",
+          "company": "Monday.com",
+          "meta": {
+            "title": "Monday.com Q1 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Monday.com · 2025 财年第一季度",
+              "meta": {
+                "title": "Monday.com 2025 财年第一季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "monday-com-q2-fy23",
+        "src": "data/datasets/monday-com-q2-fy23.js",
+        "data": {
+          "name": "Monday.com · Q2 FY23",
+          "company": "Monday.com",
+          "meta": {
+            "title": "Monday.com Q2 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Monday.com · 2023 财年第二季度",
+              "meta": {
+                "title": "Monday.com 2023 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "monday-com-q2-fy25",
+        "src": "data/datasets/monday-com-q2-fy25.js",
+        "data": {
+          "name": "Monday.com · Q2 FY25",
+          "company": "Monday.com",
+          "meta": {
+            "title": "Monday.com Q2 FY25 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Monday.com · 2025 财年第二季度",
+              "meta": {
+                "title": "Monday.com 2025 财年第二季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "monday-com-q3-fy23",
+        "src": "data/datasets/monday-com-q3-fy23.js",
+        "data": {
+          "name": "Monday.com · Q3 FY23",
+          "company": "Monday.com",
+          "meta": {
+            "title": "Monday.com Q3 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Monday.com · 2023 财年第三季度",
+              "meta": {
+                "title": "Monday.com 2023 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "monday-com-q4-fy22",
+        "src": "data/datasets/monday-com-q4-fy22.js",
+        "data": {
+          "name": "Monday.com · Q4 FY22",
+          "company": "Monday.com",
+          "meta": {
+            "title": "Monday.com Q4 FY22 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Monday.com · 2022 财年第四季度",
+              "meta": {
+                "title": "Monday.com 2022 财年第四季度利润表"
+              }
+            }
+          }
+        }
       }
     ]
   };

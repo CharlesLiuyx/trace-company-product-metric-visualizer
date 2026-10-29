@@ -1,0 +1,16 @@
+{
+  "source": "input/processed/comcast-q4-fy24.png",
+  "runtimeOutputDir": "data/assets/raster-annotations/comcast",
+  "method": "byte-for-byte reuse of operator-supplied cleaned company wordmark",
+  "preparedAsset": {
+    "path": "output/shared-assets/comcast-wordmark/company-wordmark-v2.png",
+    "digest": "sha256:6bb0ea8ccafa27435f13d5ae350112e679fe560ace037476f87f052987458753"
+  },
+  "crops": [
+    {
+      "key": "comcast-company-wordmark-v2",
+      "runtimeOutput": "company-wordmark-v2.png",
+      "note": "Operator supplied 560x225 replacement of shared company-wordmark.png with title residue removed from rows 0–5. Reused bytes unchanged; layout unchanged."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "source": "input/processed/comcast-q4-fy25.png",
+  "outputDir": "data/assets/icon-references/comcast",
+  "runtimeOutputDir": "data/assets/raster-annotations/comcast",
+  "validationSheetDir": "data/assets/icon-references/comcast/validation-sheets",
+  "report": "crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [
+      242,
+      242,
+      242
+    ]
+  },
+  "skipped": [
+    {
+      "key": "publisher-how-they-make-money",
+      "reason": "The lower-left HOW THEY MAKE MONEY badge and miniature Sankey are publisher attribution, not Comcast financial content."
+    },
+    {
+      "key": "publisher-app-economy-insights",
+      "reason": "The footer URL, social badge, and APP ECONOMY INSIGHTS lockup are publisher attribution, not Comcast financial content."
+    }
+  ],
+  "crops": [
+    {
+      "key": "comcast-company-wordmark",
+      "output": "crops/company-wordmark.png",
+      "runtimeOutput": "company-wordmark-v2.png",
+      "searchBox": {
+        "x": 962,
+        "y": 215,
+        "width": 530,
+        "height": 200
+      },
+      "cropBox": {
+        "x": 942,
+        "y": 195,
+        "width": 560,
+        "height": 225
+      },
+      "threshold": 8,
+      "minComponentArea": 30,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.16,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Operator-supplied v2 bytes remove title residue from top rows 0–5 of the original company-wordmark asset; same 560×225 canvas. Copy the approved prepared bytes without recropping."
+    }
+  ],
+  "preparedArtifact": {
+    "path": "output/shared-assets/comcast-wordmark/company-wordmark-v2.png",
+    "sha256": "6bb0ea8ccafa27435f13d5ae350112e679fe560ace037476f87f052987458753",
+    "baseArtifact": "data/assets/raster-annotations/comcast/company-wordmark.png",
+    "operation": "operator-prepared removal of top-row title residue; byte-for-byte copy"
+  }
+}

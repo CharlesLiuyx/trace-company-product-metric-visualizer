@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "comcast-company-wordmark-v2",
+  "artifact": {
+    "path": "data/assets/raster-annotations/comcast/company-wordmark-v2.png",
+    "digest": "sha256:6bb0ea8ccafa27435f13d5ae350112e679fe560ace037476f87f052987458753"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/comcast-company-wordmark-v2.json",
+    "digest": "sha256:e12202a04f433ba3eea6a27a8750a986abe33ccc9e2810760e4d5b224787dfdb"
+  },
+  "source": {
+    "path": "input/processed/comcast-q4-fy25.png",
+    "digest": "sha256:876ceab5749fc10f1f52f87e035397eb5a3548a95f1fae96fc24c25543a66a6b"
+  },
+  "review": {
+    "reviewer": "operator",
+    "decision": "accepted",
+    "artifactDigest": "sha256:6bb0ea8ccafa27435f13d5ae350112e679fe560ace037476f87f052987458753",
+    "note": "2026-10-30: 操作者指定使用去除顶部标题残影的共享 v2 文件，要求所有 Comcast Build 逐字节复制并统一替换；已核对指定 SHA-256 和 560×225 尺寸。仅记录指定资产版本；完整数据集仍待人工审阅。"
+  },
+  "versionDigest": "sha256:79396ff1b04176c8021c44143e558d2036791555d060646320e12ae012d1b512"
+}

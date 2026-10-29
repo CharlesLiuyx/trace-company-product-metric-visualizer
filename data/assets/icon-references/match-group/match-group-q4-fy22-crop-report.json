@@ -1,0 +1,890 @@
+{
+  "source": "input/processed/match-group-q4-fy22.png",
+  "spec": "input/icon-crop-specs/match-group-q4-fy22.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-10-29T14:10:35.263753+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": false,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/match-group",
+  "crops": [
+    {
+      "key": "match-group-brand-tinder-q4-fy22",
+      "output": "data/assets/icon-references/match-group/crops/brand-tinder-q4-fy22.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 3496,
+        "losslessBytes": 4770,
+        "savingsVsLossless": 0.2671,
+        "metrics": {
+          "meanAbsoluteError": 0.1184,
+          "rootMeanSquareError": 0.877,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 21,
+          "changedPixelRatio": 0.0542
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 53,
+        "y": 254,
+        "width": 116,
+        "height": 116
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 55,
+        "y0": 256,
+        "x1": 166,
+        "y1": 368
+      },
+      "cropBox": {
+        "x0": 53,
+        "y0": 254,
+        "x1": 169,
+        "y1": 370
+      },
+      "validation": {
+        "width": 116,
+        "height": 116,
+        "foregroundPixels": 9410,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 2,
+          "right": 3,
+          "top": 2,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": -0.0043,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Legacy brand column: tinder; independent icon only.",
+      "runtimeOutput": "data/assets/raster-annotations/match-group/brand-tinder-q4-fy22.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 3496,
+        "losslessBytes": 4770,
+        "savingsVsLossless": 0.2671,
+        "metrics": {
+          "meanAbsoluteError": 0.1184,
+          "rootMeanSquareError": 0.877,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 21,
+          "changedPixelRatio": 0.0542
+        }
+      },
+      "validationSheet": "data/assets/icon-references/match-group/validation-sheets/match-group-brand-tinder-q4-fy22.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 275028,
+        "losslessBytes": 275028,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "match-group-brand-hinge-q4-fy22",
+      "output": "data/assets/icon-references/match-group/crops/brand-hinge-q4-fy22.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 1593,
+        "losslessBytes": 2200,
+        "savingsVsLossless": 0.2759,
+        "metrics": {
+          "meanAbsoluteError": 0.0,
+          "rootMeanSquareError": 0.0,
+          "p99AbsoluteError": 0.0,
+          "maxChannelDiff": 0,
+          "changedPixelRatio": 0.0
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 53,
+        "y": 370,
+        "width": 116,
+        "height": 113
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 56,
+        "y0": 371,
+        "x1": 167,
+        "y1": 482
+      },
+      "cropBox": {
+        "x0": 53,
+        "y0": 370,
+        "x1": 169,
+        "y1": 483
+      },
+      "validation": {
+        "width": 116,
+        "height": 113,
+        "foregroundPixels": 10570,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 3,
+          "right": 2,
+          "top": 1,
+          "bottom": 1
+        },
+        "centerOffset": {
+          "x": 0.0043,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Legacy brand column: hinge; independent icon only.",
+      "runtimeOutput": "data/assets/raster-annotations/match-group/brand-hinge-q4-fy22.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 1593,
+        "losslessBytes": 2200,
+        "savingsVsLossless": 0.2759,
+        "metrics": {
+          "meanAbsoluteError": 0.0,
+          "rootMeanSquareError": 0.0,
+          "p99AbsoluteError": 0.0,
+          "maxChannelDiff": 0,
+          "changedPixelRatio": 0.0
+        }
+      },
+      "validationSheet": "data/assets/icon-references/match-group/validation-sheets/match-group-brand-hinge-q4-fy22.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 256999,
+        "losslessBytes": 256999,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "match-group-brand-okcupid-q4-fy22",
+      "output": "data/assets/icon-references/match-group/crops/brand-okcupid-q4-fy22.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 3223,
+        "losslessBytes": 5446,
+        "savingsVsLossless": 0.4082,
+        "metrics": {
+          "meanAbsoluteError": 0.0226,
+          "rootMeanSquareError": 0.1649,
+          "p99AbsoluteError": 1.0,
+          "maxChannelDiff": 3,
+          "changedPixelRatio": 0.0416
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 53,
+        "y": 483,
+        "width": 116,
+        "height": 115
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 55,
+        "y0": 484,
+        "x1": 167,
+        "y1": 596
+      },
+      "cropBox": {
+        "x0": 53,
+        "y0": 483,
+        "x1": 169,
+        "y1": 598
+      },
+      "validation": {
+        "width": 116,
+        "height": 115,
+        "foregroundPixels": 10529,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 2,
+          "right": 2,
+          "top": 1,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0043
+        },
+        "passes": true
+      },
+      "note": "Legacy brand column: okcupid; independent icon only.",
+      "runtimeOutput": "data/assets/raster-annotations/match-group/brand-okcupid-q4-fy22.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 3223,
+        "losslessBytes": 5446,
+        "savingsVsLossless": 0.4082,
+        "metrics": {
+          "meanAbsoluteError": 0.0226,
+          "rootMeanSquareError": 0.1649,
+          "p99AbsoluteError": 1.0,
+          "maxChannelDiff": 3,
+          "changedPixelRatio": 0.0416
+        }
+      },
+      "validationSheet": "data/assets/icon-references/match-group/validation-sheets/match-group-brand-okcupid-q4-fy22.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 294168,
+        "losslessBytes": 294168,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "match-group-brand-plenty-of-fish-q4-fy22",
+      "output": "data/assets/icon-references/match-group/crops/brand-plenty-of-fish-q4-fy22.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 4046,
+        "losslessBytes": 5689,
+        "savingsVsLossless": 0.2888,
+        "metrics": {
+          "meanAbsoluteError": 0.0604,
+          "rootMeanSquareError": 0.5858,
+          "p99AbsoluteError": 2.0,
+          "maxChannelDiff": 47,
+          "changedPixelRatio": 0.0376
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 53,
+        "y": 598,
+        "width": 116,
+        "height": 112
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 79,
+        "y0": 622,
+        "x1": 144,
+        "y1": 686
+      },
+      "cropBox": {
+        "x0": 53,
+        "y0": 598,
+        "x1": 169,
+        "y1": 710
+      },
+      "validation": {
+        "width": 116,
+        "height": 112,
+        "foregroundPixels": 2224,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 26,
+          "right": 25,
+          "top": 24,
+          "bottom": 24
+        },
+        "centerOffset": {
+          "x": 0.0043,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Legacy brand column: plenty-of-fish; independent icon only.",
+      "runtimeOutput": "data/assets/raster-annotations/match-group/brand-plenty-of-fish-q4-fy22.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 4046,
+        "losslessBytes": 5689,
+        "savingsVsLossless": 0.2888,
+        "metrics": {
+          "meanAbsoluteError": 0.0604,
+          "rootMeanSquareError": 0.5858,
+          "p99AbsoluteError": 2.0,
+          "maxChannelDiff": 47,
+          "changedPixelRatio": 0.0376
+        }
+      },
+      "validationSheet": "data/assets/icon-references/match-group/validation-sheets/match-group-brand-plenty-of-fish-q4-fy22.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 275804,
+        "losslessBytes": 275804,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "match-group-brand-pairs-q4-fy22",
+      "output": "data/assets/icon-references/match-group/crops/brand-pairs-q4-fy22.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 6179,
+        "losslessBytes": 8242,
+        "savingsVsLossless": 0.2503,
+        "metrics": {
+          "meanAbsoluteError": 0.0668,
+          "rootMeanSquareError": 0.3331,
+          "p99AbsoluteError": 1.0,
+          "maxChannelDiff": 6,
+          "changedPixelRatio": 0.1151
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 53,
+        "y": 710,
+        "width": 116,
+        "height": 113
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 56,
+        "y0": 712,
+        "x1": 168,
+        "y1": 821
+      },
+      "cropBox": {
+        "x0": 53,
+        "y0": 710,
+        "x1": 169,
+        "y1": 823
+      },
+      "validation": {
+        "width": 116,
+        "height": 113,
+        "foregroundPixels": 10778,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 3,
+          "right": 1,
+          "top": 2,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": 0.0086,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Legacy brand column: pairs; independent icon only.",
+      "runtimeOutput": "data/assets/raster-annotations/match-group/brand-pairs-q4-fy22.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 6179,
+        "losslessBytes": 8242,
+        "savingsVsLossless": 0.2503,
+        "metrics": {
+          "meanAbsoluteError": 0.0668,
+          "rootMeanSquareError": 0.3331,
+          "p99AbsoluteError": 1.0,
+          "maxChannelDiff": 6,
+          "changedPixelRatio": 0.1151
+        }
+      },
+      "validationSheet": "data/assets/icon-references/match-group/validation-sheets/match-group-brand-pairs-q4-fy22.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 288951,
+        "losslessBytes": 288951,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "match-group-brand-azar-q4-fy22",
+      "output": "data/assets/icon-references/match-group/crops/brand-azar-q4-fy22.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 4858,
+        "losslessBytes": 7423,
+        "savingsVsLossless": 0.3455,
+        "metrics": {
+          "meanAbsoluteError": 0.1671,
+          "rootMeanSquareError": 0.7821,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.1358
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 53,
+        "y": 823,
+        "width": 116,
+        "height": 111
+      },
+      "componentCount": 4,
+      "subjectBox": {
+        "x0": 55,
+        "y0": 825,
+        "x1": 151,
+        "y1": 934
+      },
+      "cropBox": {
+        "x0": 53,
+        "y0": 823,
+        "x1": 169,
+        "y1": 934
+      },
+      "validation": {
+        "width": 116,
+        "height": 111,
+        "foregroundPixels": 5898,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 2,
+          "right": 18,
+          "top": 2,
+          "bottom": 0
+        },
+        "centerOffset": {
+          "x": -0.069,
+          "y": 0.009
+        },
+        "passes": true
+      },
+      "note": "Legacy brand column: azar; independent icon only.",
+      "runtimeOutput": "data/assets/raster-annotations/match-group/brand-azar-q4-fy22.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 4858,
+        "losslessBytes": 7423,
+        "savingsVsLossless": 0.3455,
+        "metrics": {
+          "meanAbsoluteError": 0.1671,
+          "rootMeanSquareError": 0.7821,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.1358
+        }
+      },
+      "validationSheet": "data/assets/icon-references/match-group/validation-sheets/match-group-brand-azar-q4-fy22.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 294798,
+        "losslessBytes": 294798,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "match-group-brand-ourtime-q4-fy22",
+      "output": "data/assets/icon-references/match-group/crops/brand-ourtime-q4-fy22.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 2729,
+        "losslessBytes": 4512,
+        "savingsVsLossless": 0.3952,
+        "metrics": {
+          "meanAbsoluteError": 0.0114,
+          "rootMeanSquareError": 0.1134,
+          "p99AbsoluteError": 1.0,
+          "maxChannelDiff": 3,
+          "changedPixelRatio": 0.023
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 53,
+        "y": 934,
+        "width": 116,
+        "height": 114
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 56,
+        "y0": 935,
+        "x1": 167,
+        "y1": 1047
+      },
+      "cropBox": {
+        "x0": 53,
+        "y0": 934,
+        "x1": 169,
+        "y1": 1048
+      },
+      "validation": {
+        "width": 116,
+        "height": 114,
+        "foregroundPixels": 11382,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 3,
+          "right": 2,
+          "top": 1,
+          "bottom": 1
+        },
+        "centerOffset": {
+          "x": 0.0043,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Legacy brand column: ourtime; independent icon only.",
+      "runtimeOutput": "data/assets/raster-annotations/match-group/brand-ourtime-q4-fy22.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 2729,
+        "losslessBytes": 4512,
+        "savingsVsLossless": 0.3952,
+        "metrics": {
+          "meanAbsoluteError": 0.0114,
+          "rootMeanSquareError": 0.1134,
+          "p99AbsoluteError": 1.0,
+          "maxChannelDiff": 3,
+          "changedPixelRatio": 0.023
+        }
+      },
+      "validationSheet": "data/assets/icon-references/match-group/validation-sheets/match-group-brand-ourtime-q4-fy22.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 284612,
+        "losslessBytes": 284612,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "match-group-brand-blk-q4-fy22",
+      "output": "data/assets/icon-references/match-group/crops/brand-blk-q4-fy22.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 3406,
+        "losslessBytes": 4855,
+        "savingsVsLossless": 0.2985,
+        "metrics": {
+          "meanAbsoluteError": 0.0029,
+          "rootMeanSquareError": 0.0538,
+          "p99AbsoluteError": 0.0,
+          "maxChannelDiff": 1,
+          "changedPixelRatio": 0.003
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 53,
+        "y": 1048,
+        "width": 116,
+        "height": 112
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 56,
+        "y0": 1050,
+        "x1": 167,
+        "y1": 1160
+      },
+      "cropBox": {
+        "x0": 53,
+        "y0": 1048,
+        "x1": 169,
+        "y1": 1160
+      },
+      "validation": {
+        "width": 116,
+        "height": 112,
+        "foregroundPixels": 11500,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 3,
+          "right": 2,
+          "top": 2,
+          "bottom": 0
+        },
+        "centerOffset": {
+          "x": 0.0043,
+          "y": 0.0089
+        },
+        "passes": true
+      },
+      "note": "Legacy brand column: blk; independent icon only.",
+      "runtimeOutput": "data/assets/raster-annotations/match-group/brand-blk-q4-fy22.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 3406,
+        "losslessBytes": 4855,
+        "savingsVsLossless": 0.2985,
+        "metrics": {
+          "meanAbsoluteError": 0.0029,
+          "rootMeanSquareError": 0.0538,
+          "p99AbsoluteError": 0.0,
+          "maxChannelDiff": 1,
+          "changedPixelRatio": 0.003
+        }
+      },
+      "validationSheet": "data/assets/icon-references/match-group/validation-sheets/match-group-brand-blk-q4-fy22.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 277617,
+        "losslessBytes": 277617,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "match-group-brand-chispa-q4-fy22",
+      "output": "data/assets/icon-references/match-group/crops/brand-chispa-q4-fy22.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 4109,
+        "losslessBytes": 7818,
+        "savingsVsLossless": 0.4744,
+        "metrics": {
+          "meanAbsoluteError": 0.06,
+          "rootMeanSquareError": 0.466,
+          "p99AbsoluteError": 1.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.083
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 53,
+        "y": 1160,
+        "width": 116,
+        "height": 114
+      },
+      "componentCount": 3,
+      "subjectBox": {
+        "x0": 55,
+        "y0": 1162,
+        "x1": 166,
+        "y1": 1274
+      },
+      "cropBox": {
+        "x0": 53,
+        "y0": 1160,
+        "x1": 169,
+        "y1": 1274
+      },
+      "validation": {
+        "width": 116,
+        "height": 114,
+        "foregroundPixels": 11190,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 2,
+          "right": 3,
+          "top": 2,
+          "bottom": 0
+        },
+        "centerOffset": {
+          "x": -0.0043,
+          "y": 0.0088
+        },
+        "passes": true
+      },
+      "note": "Legacy brand column: chispa; independent icon only.",
+      "runtimeOutput": "data/assets/raster-annotations/match-group/brand-chispa-q4-fy22.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 4109,
+        "losslessBytes": 7818,
+        "savingsVsLossless": 0.4744,
+        "metrics": {
+          "meanAbsoluteError": 0.06,
+          "rootMeanSquareError": 0.466,
+          "p99AbsoluteError": 1.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.083
+        }
+      },
+      "validationSheet": "data/assets/icon-references/match-group/validation-sheets/match-group-brand-chispa-q4-fy22.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 302491,
+        "losslessBytes": 302491,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "match-group-brand-meetic-q4-fy22",
+      "output": "data/assets/icon-references/match-group/crops/brand-meetic-q4-fy22.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 6347,
+        "losslessBytes": 8106,
+        "savingsVsLossless": 0.217,
+        "metrics": {
+          "meanAbsoluteError": 0.1275,
+          "rootMeanSquareError": 0.682,
+          "p99AbsoluteError": 3.0,
+          "maxChannelDiff": 12,
+          "changedPixelRatio": 0.0886
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 53,
+        "y": 1274,
+        "width": 116,
+        "height": 112
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 55,
+        "y0": 1274,
+        "x1": 167,
+        "y1": 1384
+      },
+      "cropBox": {
+        "x0": 53,
+        "y0": 1274,
+        "x1": 169,
+        "y1": 1386
+      },
+      "validation": {
+        "width": 116,
+        "height": 112,
+        "foregroundPixels": 10775,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 2,
+          "right": 2,
+          "top": 0,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0089
+        },
+        "passes": true
+      },
+      "note": "Legacy brand column: meetic; independent icon only.",
+      "runtimeOutput": "data/assets/raster-annotations/match-group/brand-meetic-q4-fy22.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 6347,
+        "losslessBytes": 8106,
+        "savingsVsLossless": 0.217,
+        "metrics": {
+          "meanAbsoluteError": 0.1275,
+          "rootMeanSquareError": 0.682,
+          "p99AbsoluteError": 3.0,
+          "maxChannelDiff": 12,
+          "changedPixelRatio": 0.0886
+        }
+      },
+      "validationSheet": "data/assets/icon-references/match-group/validation-sheets/match-group-brand-meetic-q4-fy22.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 287021,
+        "losslessBytes": 287021,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

@@ -3212,17 +3212,115 @@
         }
       ],
       "directConsumers": [
+        "comcast-q1-fy23",
+        "comcast-q1-fy24",
+        "comcast-q1-fy25",
         "comcast-q1-fy26",
+        "comcast-q2-fy23",
+        "comcast-q2-fy24",
+        "comcast-q2-fy25",
         "comcast-q2-fy26",
+        "comcast-q3-fy23",
+        "comcast-q3-fy24",
+        "comcast-q3-fy25",
+        "comcast-q4-fy22",
+        "comcast-q4-fy23",
+        "comcast-q4-fy24",
         "comcast-q4-fy25"
       ],
       "consumers": [
+        "comcast-q1-fy23",
+        "comcast-q1-fy24",
+        "comcast-q1-fy25",
         "comcast-q1-fy26",
+        "comcast-q2-fy23",
+        "comcast-q2-fy24",
+        "comcast-q2-fy25",
         "comcast-q2-fy26",
+        "comcast-q3-fy23",
+        "comcast-q3-fy24",
+        "comcast-q3-fy25",
+        "comcast-q4-fy22",
+        "comcast-q4-fy23",
+        "comcast-q4-fy24",
         "comcast-q4-fy25"
       ],
       "acceptedVersions": [],
       "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/comcast/company-wordmark-q4-fy22.png",
+      "digest": "sha256:eabc85281d24ac14e67c10a21ed8e4ee077d18d8643afc162405d8bce23d42d6",
+      "provenance": [],
+      "directConsumers": [],
+      "consumers": [],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/comcast/company-wordmark-v2.png",
+      "digest": "sha256:6bb0ea8ccafa27435f13d5ae350112e679fe560ace037476f87f052987458753",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/comcast-company-wordmark-v2.json",
+          "recipeDigest": "sha256:e12202a04f433ba3eea6a27a8750a986abe33ccc9e2810760e4d5b224787dfdb",
+          "source": "input/processed/comcast-q4-fy25.png",
+          "cropKey": "comcast-company-wordmark-v2"
+        },
+        {
+          "recipe": "input/icon-crop-specs/comcast-q4-fy22-wordmark-v2-reuse.json",
+          "recipeDigest": "sha256:32f21897408d34dc6a4fabd52fc7a6192ac47f0a7a577804b0df8deef9f1fa33",
+          "source": "input/processed/comcast-q4-fy22.png",
+          "cropKey": "comcast-company-wordmark-v2"
+        },
+        {
+          "recipe": "input/icon-crop-specs/comcast-q4-fy24-wordmark-v2-reuse.json",
+          "recipeDigest": "sha256:8c95bf8c7927c1014e8e9f9011292802cc2c16f75d7b69b131b48ca6440efd90",
+          "source": "input/processed/comcast-q4-fy24.png",
+          "cropKey": "comcast-company-wordmark-v2"
+        },
+        {
+          "recipe": "input/icon-crop-specs/comcast-wordmark-v2.json",
+          "recipeDigest": "sha256:ef45b7cedacfbcca9103335fffb8a1f38c97346946145e35ab85596bec1f6829",
+          "source": "input/processed/comcast-q4-fy25.png",
+          "cropKey": "comcast-company-wordmark"
+        }
+      ],
+      "directConsumers": [
+        "comcast-q1-fy23",
+        "comcast-q1-fy24",
+        "comcast-q1-fy25",
+        "comcast-q2-fy23",
+        "comcast-q2-fy24",
+        "comcast-q2-fy25",
+        "comcast-q3-fy23",
+        "comcast-q3-fy24",
+        "comcast-q3-fy25",
+        "comcast-q4-fy22",
+        "comcast-q4-fy23",
+        "comcast-q4-fy24"
+      ],
+      "consumers": [
+        "comcast-q1-fy23",
+        "comcast-q1-fy24",
+        "comcast-q1-fy25",
+        "comcast-q2-fy23",
+        "comcast-q2-fy24",
+        "comcast-q2-fy25",
+        "comcast-q3-fy23",
+        "comcast-q3-fy24",
+        "comcast-q3-fy25",
+        "comcast-q4-fy22",
+        "comcast-q4-fy23",
+        "comcast-q4-fy24"
+      ],
+      "acceptedVersions": [
+        "sha256:029d4a466c4b3db885ac3bef3c4cdcf629106524b00bfde3b3baa04fad229de2",
+        "sha256:4d62b0951eabfe930dddd6045908d6ae8d2e637d946b3dd9b54a722df8ea1522",
+        "sha256:79396ff1b04176c8021c44143e558d2036791555d060646320e12ae012d1b512",
+        "sha256:b4dc18d835eed500bd57cdd64e913cbc4a77f0a9fdc998b9e1f9a95f3a17f8ff"
+      ],
+      "reusable": true
     },
     {
       "path": "data/assets/raster-annotations/comcast/company-wordmark.png",
@@ -3260,13 +3358,35 @@
         }
       ],
       "directConsumers": [
+        "comcast-q1-fy23",
+        "comcast-q1-fy24",
+        "comcast-q1-fy25",
         "comcast-q1-fy26",
+        "comcast-q2-fy23",
+        "comcast-q2-fy24",
+        "comcast-q2-fy25",
         "comcast-q2-fy26",
+        "comcast-q3-fy23",
+        "comcast-q3-fy24",
+        "comcast-q3-fy25",
+        "comcast-q4-fy23",
+        "comcast-q4-fy24",
         "comcast-q4-fy25"
       ],
       "consumers": [
+        "comcast-q1-fy23",
+        "comcast-q1-fy24",
+        "comcast-q1-fy25",
         "comcast-q1-fy26",
+        "comcast-q2-fy23",
+        "comcast-q2-fy24",
+        "comcast-q2-fy25",
         "comcast-q2-fy26",
+        "comcast-q3-fy23",
+        "comcast-q3-fy24",
+        "comcast-q3-fy25",
+        "comcast-q4-fy23",
+        "comcast-q4-fy24",
         "comcast-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -3284,13 +3404,37 @@
         }
       ],
       "directConsumers": [
+        "comcast-q1-fy23",
+        "comcast-q1-fy24",
+        "comcast-q1-fy25",
         "comcast-q1-fy26",
+        "comcast-q2-fy23",
+        "comcast-q2-fy24",
+        "comcast-q2-fy25",
         "comcast-q2-fy26",
+        "comcast-q3-fy23",
+        "comcast-q3-fy24",
+        "comcast-q3-fy25",
+        "comcast-q4-fy22",
+        "comcast-q4-fy23",
+        "comcast-q4-fy24",
         "comcast-q4-fy25"
       ],
       "consumers": [
+        "comcast-q1-fy23",
+        "comcast-q1-fy24",
+        "comcast-q1-fy25",
         "comcast-q1-fy26",
+        "comcast-q2-fy23",
+        "comcast-q2-fy24",
+        "comcast-q2-fy25",
         "comcast-q2-fy26",
+        "comcast-q3-fy23",
+        "comcast-q3-fy24",
+        "comcast-q3-fy25",
+        "comcast-q4-fy22",
+        "comcast-q4-fy23",
+        "comcast-q4-fy24",
         "comcast-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -3308,15 +3452,61 @@
         }
       ],
       "directConsumers": [
+        "comcast-q1-fy23",
+        "comcast-q1-fy24",
+        "comcast-q1-fy25",
         "comcast-q1-fy26",
+        "comcast-q2-fy23",
+        "comcast-q2-fy24",
+        "comcast-q2-fy25",
         "comcast-q2-fy26",
+        "comcast-q3-fy23",
+        "comcast-q3-fy24",
+        "comcast-q3-fy25",
+        "comcast-q4-fy22",
+        "comcast-q4-fy23",
+        "comcast-q4-fy24",
         "comcast-q4-fy25"
       ],
       "consumers": [
+        "comcast-q1-fy23",
+        "comcast-q1-fy24",
+        "comcast-q1-fy25",
         "comcast-q1-fy26",
+        "comcast-q2-fy23",
+        "comcast-q2-fy24",
+        "comcast-q2-fy25",
         "comcast-q2-fy26",
+        "comcast-q3-fy23",
+        "comcast-q3-fy24",
+        "comcast-q3-fy25",
+        "comcast-q4-fy22",
+        "comcast-q4-fy23",
+        "comcast-q4-fy24",
         "comcast-q4-fy25"
       ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/comcast/sky-clean-q4-fy22.png",
+      "digest": "sha256:c7a2fecb51ef091012d6fa8a0fdc36a06a3b7b98c22d2567b8326869228b2f37",
+      "provenance": [],
+      "directConsumers": [
+        "comcast-q4-fy22"
+      ],
+      "consumers": [
+        "comcast-q4-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/comcast/sky-q4-fy22.png",
+      "digest": "sha256:01fdb7c6fd9f0024d10ba32e662a39f4290f6a5883fca6bd0bc75698a0b7cc85",
+      "provenance": [],
+      "directConsumers": [],
+      "consumers": [],
       "acceptedVersions": [],
       "reusable": false
     },
@@ -3332,14 +3522,51 @@
         }
       ],
       "directConsumers": [
+        "comcast-q1-fy23",
+        "comcast-q1-fy24",
+        "comcast-q1-fy25",
         "comcast-q1-fy26",
+        "comcast-q2-fy23",
+        "comcast-q2-fy24",
+        "comcast-q2-fy25",
         "comcast-q2-fy26",
+        "comcast-q3-fy23",
+        "comcast-q3-fy24",
+        "comcast-q3-fy25",
+        "comcast-q4-fy22",
+        "comcast-q4-fy23",
+        "comcast-q4-fy24",
         "comcast-q4-fy25"
       ],
       "consumers": [
+        "comcast-q1-fy23",
+        "comcast-q1-fy24",
+        "comcast-q1-fy25",
         "comcast-q1-fy26",
+        "comcast-q2-fy23",
+        "comcast-q2-fy24",
+        "comcast-q2-fy25",
         "comcast-q2-fy26",
+        "comcast-q3-fy23",
+        "comcast-q3-fy24",
+        "comcast-q3-fy25",
+        "comcast-q4-fy22",
+        "comcast-q4-fy23",
+        "comcast-q4-fy24",
         "comcast-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/comcast/xfinity-q4-fy22.png",
+      "digest": "sha256:27d8fd5d0080b4d0bb41485fd33cfe9a86507156b504e960280c7191b6760c8a",
+      "provenance": [],
+      "directConsumers": [
+        "comcast-q4-fy22"
+      ],
+      "consumers": [
+        "comcast-q4-fy22"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -7700,9 +7927,11 @@
       "digest": "sha256:f979e7493bab4802c3eb2e0d69b3b619d5d3f33aba6e57b9984f19e20060493d",
       "provenance": [],
       "directConsumers": [
+        "match-group-q1-fy25",
         "match-group-q1-fy26"
       ],
       "consumers": [
+        "match-group-q1-fy25",
         "match-group-q1-fy26"
       ],
       "acceptedVersions": [],
@@ -7713,12 +7942,75 @@
       "digest": "sha256:fb48ebe0109d1ba00492dbafe899b7ac26c66a6845273257f76a4e448bd22dd7",
       "provenance": [],
       "directConsumers": [
+        "match-group-q1-fy23",
+        "match-group-q1-fy24",
+        "match-group-q2-fy23",
+        "match-group-q2-fy24",
+        "match-group-q2-fy25",
+        "match-group-q3-fy23",
+        "match-group-q3-fy24",
         "match-group-q3-fy25",
+        "match-group-q4-fy23",
+        "match-group-q4-fy24",
         "match-group-q4-fy25"
       ],
       "consumers": [
+        "match-group-q1-fy23",
+        "match-group-q1-fy24",
+        "match-group-q2-fy23",
+        "match-group-q2-fy24",
+        "match-group-q2-fy25",
+        "match-group-q3-fy23",
+        "match-group-q3-fy24",
         "match-group-q3-fy25",
+        "match-group-q4-fy23",
+        "match-group-q4-fy24",
         "match-group-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/match-group/brand-azar-q4-fy22.png",
+      "digest": "sha256:b9680f138cc7170def83de473b1d5cd9e7a3d3d16f0c0e22ee086e0a1448e3d3",
+      "provenance": [],
+      "directConsumers": [
+        "match-group-q3-fy22",
+        "match-group-q4-fy22"
+      ],
+      "consumers": [
+        "match-group-q3-fy22",
+        "match-group-q4-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/match-group/brand-blk-q4-fy22.png",
+      "digest": "sha256:f2fe496f49978b9ae8777be5d4e40761d4a68eddd84c9954b64e4752c9fdba99",
+      "provenance": [],
+      "directConsumers": [
+        "match-group-q3-fy22",
+        "match-group-q4-fy22"
+      ],
+      "consumers": [
+        "match-group-q3-fy22",
+        "match-group-q4-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/match-group/brand-chispa-q4-fy22.png",
+      "digest": "sha256:71928276db12ccb852e23027e4bf43e50409a1435b3c94e12b9c81ccd5e9390f",
+      "provenance": [],
+      "directConsumers": [
+        "match-group-q3-fy22",
+        "match-group-q4-fy22"
+      ],
+      "consumers": [
+        "match-group-q3-fy22",
+        "match-group-q4-fy22"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -7728,10 +8020,12 @@
       "digest": "sha256:5c716016fd9d20bf81bd5275028a5f3c5404654dfee1575883ed83f44799af52",
       "provenance": [],
       "directConsumers": [
+        "match-group-q1-fy25",
         "match-group-q1-fy26",
         "match-group-q2-fy26"
       ],
       "consumers": [
+        "match-group-q1-fy25",
         "match-group-q1-fy26",
         "match-group-q2-fy26"
       ],
@@ -7743,11 +8037,29 @@
       "digest": "sha256:81b3765d25e2337e30ffaaa86c6ac6dd852e21129ed111313fa72917c927996d",
       "provenance": [],
       "directConsumers": [
+        "match-group-q1-fy23",
+        "match-group-q1-fy24",
+        "match-group-q2-fy23",
+        "match-group-q2-fy24",
+        "match-group-q2-fy25",
+        "match-group-q3-fy23",
+        "match-group-q3-fy24",
         "match-group-q3-fy25",
+        "match-group-q4-fy23",
+        "match-group-q4-fy24",
         "match-group-q4-fy25"
       ],
       "consumers": [
+        "match-group-q1-fy23",
+        "match-group-q1-fy24",
+        "match-group-q2-fy23",
+        "match-group-q2-fy24",
+        "match-group-q2-fy25",
+        "match-group-q3-fy23",
+        "match-group-q3-fy24",
         "match-group-q3-fy25",
+        "match-group-q4-fy23",
+        "match-group-q4-fy24",
         "match-group-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -7758,12 +8070,29 @@
       "digest": "sha256:d5928e179d1ff96d794428c51a9788b1c0485b9ee6f2ed0c18b42f756f7a3ec1",
       "provenance": [],
       "directConsumers": [
+        "match-group-q1-fy25",
         "match-group-q1-fy26",
         "match-group-q2-fy26"
       ],
       "consumers": [
+        "match-group-q1-fy25",
         "match-group-q1-fy26",
         "match-group-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/match-group/brand-hinge-q4-fy22.png",
+      "digest": "sha256:c4cf645b509f7e9cdb85275a6955c1a664373352fce4137635392607550483d7",
+      "provenance": [],
+      "directConsumers": [
+        "match-group-q3-fy22",
+        "match-group-q4-fy22"
+      ],
+      "consumers": [
+        "match-group-q3-fy22",
+        "match-group-q4-fy22"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -7773,12 +8102,105 @@
       "digest": "sha256:1495fc72f70cfba469b6cc837b731d503ae836808786c639252bd4e01676e97a",
       "provenance": [],
       "directConsumers": [
+        "match-group-q1-fy23",
+        "match-group-q1-fy24",
+        "match-group-q2-fy23",
+        "match-group-q2-fy24",
+        "match-group-q2-fy25",
+        "match-group-q3-fy23",
+        "match-group-q3-fy24",
         "match-group-q3-fy25",
+        "match-group-q4-fy23",
+        "match-group-q4-fy24",
         "match-group-q4-fy25"
       ],
       "consumers": [
+        "match-group-q1-fy23",
+        "match-group-q1-fy24",
+        "match-group-q2-fy23",
+        "match-group-q2-fy24",
+        "match-group-q2-fy25",
+        "match-group-q3-fy23",
+        "match-group-q3-fy24",
         "match-group-q3-fy25",
+        "match-group-q4-fy23",
+        "match-group-q4-fy24",
         "match-group-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/match-group/brand-meetic-q4-fy22.png",
+      "digest": "sha256:5d80ddc4c7a2ef9f416a5058fb90fa5b1b44acf7fa4406b9ef6a5a387b10745c",
+      "provenance": [],
+      "directConsumers": [
+        "match-group-q3-fy22",
+        "match-group-q4-fy22"
+      ],
+      "consumers": [
+        "match-group-q3-fy22",
+        "match-group-q4-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/match-group/brand-okcupid-q4-fy22.png",
+      "digest": "sha256:58422926ce588dfe536db8efff3c82599cbf6327bb6ceaed723aa79e98dd7d0e",
+      "provenance": [],
+      "directConsumers": [
+        "match-group-q3-fy22",
+        "match-group-q4-fy22"
+      ],
+      "consumers": [
+        "match-group-q3-fy22",
+        "match-group-q4-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/match-group/brand-ourtime-q4-fy22.png",
+      "digest": "sha256:df6c39b27cc360e785e6354f0275f4fbe5fbcbb678c09f52572a8ead489a2af3",
+      "provenance": [],
+      "directConsumers": [
+        "match-group-q3-fy22",
+        "match-group-q4-fy22"
+      ],
+      "consumers": [
+        "match-group-q3-fy22",
+        "match-group-q4-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/match-group/brand-pairs-q4-fy22.png",
+      "digest": "sha256:9bac496ba80bb078abd83bbe80e6b61cb379781d383471cc6dbbebe456c50b50",
+      "provenance": [],
+      "directConsumers": [
+        "match-group-q3-fy22",
+        "match-group-q4-fy22"
+      ],
+      "consumers": [
+        "match-group-q3-fy22",
+        "match-group-q4-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/match-group/brand-plenty-of-fish-q4-fy22.png",
+      "digest": "sha256:032549bca6d71748b30ada3e6d94ad79aa4b9c1d402213c0212dcf5a86492ac6",
+      "provenance": [],
+      "directConsumers": [
+        "match-group-q3-fy22",
+        "match-group-q4-fy22"
+      ],
+      "consumers": [
+        "match-group-q3-fy22",
+        "match-group-q4-fy22"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -7788,14 +8210,41 @@
       "digest": "sha256:83141e033221e6f2d40fc3ccee2e51ebc279b2b961b17999aab7bf9545188766",
       "provenance": [],
       "directConsumers": [
+        "match-group-q1-fy25",
         "match-group-q1-fy26",
+        "match-group-q2-fy23",
+        "match-group-q2-fy24",
+        "match-group-q2-fy25",
         "match-group-q2-fy26",
+        "match-group-q3-fy23",
+        "match-group-q3-fy24",
         "match-group-q3-fy25"
       ],
       "consumers": [
+        "match-group-q1-fy25",
         "match-group-q1-fy26",
+        "match-group-q2-fy23",
+        "match-group-q2-fy24",
+        "match-group-q2-fy25",
         "match-group-q2-fy26",
+        "match-group-q3-fy23",
+        "match-group-q3-fy24",
         "match-group-q3-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/match-group/brand-tinder-q4-fy22.png",
+      "digest": "sha256:d81c6ece4dbf774153859f4988e5d737475ad319fb34252c62c36bf5f70848b0",
+      "provenance": [],
+      "directConsumers": [
+        "match-group-q3-fy22",
+        "match-group-q4-fy22"
+      ],
+      "consumers": [
+        "match-group-q3-fy22",
+        "match-group-q4-fy22"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -7805,9 +8254,17 @@
       "digest": "sha256:c98167f3e37c9292a1510f1e53f685f6c5d6d9738eeacd42a79ee92f7680e071",
       "provenance": [],
       "directConsumers": [
+        "match-group-q1-fy23",
+        "match-group-q1-fy24",
+        "match-group-q4-fy23",
+        "match-group-q4-fy24",
         "match-group-q4-fy25"
       ],
       "consumers": [
+        "match-group-q1-fy23",
+        "match-group-q1-fy24",
+        "match-group-q4-fy23",
+        "match-group-q4-fy24",
         "match-group-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -7818,12 +8275,29 @@
       "digest": "sha256:b8913057287564a8dc85c47449d47329506d21ce574c0944f5284c3353292185",
       "provenance": [],
       "directConsumers": [
+        "match-group-q1-fy25",
         "match-group-q1-fy26",
         "match-group-q2-fy26"
       ],
       "consumers": [
+        "match-group-q1-fy25",
         "match-group-q1-fy26",
         "match-group-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/match-group/company-logo-q4-fy22.png",
+      "digest": "sha256:6cf4c6cb7ab67e2b25aa060c356829b747bc9d5e1e7a88527af62b8d5a2a4640",
+      "provenance": [],
+      "directConsumers": [
+        "match-group-q3-fy22",
+        "match-group-q4-fy22"
+      ],
+      "consumers": [
+        "match-group-q3-fy22",
+        "match-group-q4-fy22"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -7833,11 +8307,29 @@
       "digest": "sha256:bd45292f3ecd65f5537b9b4027be4cf73b0b6f81d28efca4dc2c5bad3971317b",
       "provenance": [],
       "directConsumers": [
+        "match-group-q1-fy23",
+        "match-group-q1-fy24",
+        "match-group-q2-fy23",
+        "match-group-q2-fy24",
+        "match-group-q2-fy25",
+        "match-group-q3-fy23",
+        "match-group-q3-fy24",
         "match-group-q3-fy25",
+        "match-group-q4-fy23",
+        "match-group-q4-fy24",
         "match-group-q4-fy25"
       ],
       "consumers": [
+        "match-group-q1-fy23",
+        "match-group-q1-fy24",
+        "match-group-q2-fy23",
+        "match-group-q2-fy24",
+        "match-group-q2-fy25",
+        "match-group-q3-fy23",
+        "match-group-q3-fy24",
         "match-group-q3-fy25",
+        "match-group-q4-fy23",
+        "match-group-q4-fy24",
         "match-group-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -18662,8 +19154,28 @@
       "source": "input/processed/coca-cola-q1-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/comcast-company-wordmark-v2.json",
+      "digest": "sha256:e12202a04f433ba3eea6a27a8750a986abe33ccc9e2810760e4d5b224787dfdb",
+      "source": "input/processed/comcast-q4-fy25.png"
+    },
+    {
+      "path": "input/icon-crop-specs/comcast-q4-fy22-wordmark-v2-reuse.json",
+      "digest": "sha256:32f21897408d34dc6a4fabd52fc7a6192ac47f0a7a577804b0df8deef9f1fa33",
+      "source": "input/processed/comcast-q4-fy22.png"
+    },
+    {
+      "path": "input/icon-crop-specs/comcast-q4-fy24-wordmark-v2-reuse.json",
+      "digest": "sha256:8c95bf8c7927c1014e8e9f9011292802cc2c16f75d7b69b131b48ca6440efd90",
+      "source": "input/processed/comcast-q4-fy24.png"
+    },
+    {
       "path": "input/icon-crop-specs/comcast-q4-fy25.json",
       "digest": "sha256:5cbf77f564d301d1ce73825e503e6cb49918b6cbe3dcd26dda29b5aef56156b4",
+      "source": "input/processed/comcast-q4-fy25.png"
+    },
+    {
+      "path": "input/icon-crop-specs/comcast-wordmark-v2.json",
+      "digest": "sha256:ef45b7cedacfbcca9103335fffb8a1f38c97346946145e35ab85596bec1f6829",
       "source": "input/processed/comcast-q4-fy25.png"
     },
     {
@@ -19065,6 +19577,11 @@
       "path": "input/icon-crop-specs/match-group-q1-fy26.json",
       "digest": "sha256:8708be4bab2b8e4a246fcd9d0d4a1201cea4ce93bf1382f42f623b9c7151b05e",
       "source": "input/processed/match-group-q1-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/match-group-q4-fy22.json",
+      "digest": "sha256:51f689076bffc21e4d71e8a5c739c931ca11f7d0896a917b0b48041776ac1544",
+      "source": "input/processed/match-group-q4-fy22.png"
     },
     {
       "path": "input/icon-crop-specs/match-group-q4-fy25.json",

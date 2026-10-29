@@ -1,0 +1,38 @@
+{
+  "source": "input/processed/comcast-q4-fy25.png",
+  "runtimeOutputDir": "data/assets/raster-annotations/comcast",
+  "crops": [
+    {
+      "key": "comcast-company-wordmark-v2",
+      "runtimeOutput": "company-wordmark-v2.png",
+      "searchBox": {
+        "x": 962,
+        "y": 215,
+        "width": 530,
+        "height": 200
+      },
+      "cropBox": {
+        "x": 942,
+        "y": 195,
+        "width": 560,
+        "height": 225
+      },
+      "threshold": 8,
+      "minComponentArea": 30,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.16,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Operator-provided v2 of the original crop; removes the title residue in original asset rows 0–5. Exact replacement bytes are copied, not recropped."
+    }
+  ],
+  "derivation": {
+    "method": "operator-provided-byte-copy",
+    "providedPath": "output/shared-assets/comcast-wordmark/company-wordmark-v2.png",
+    "artifactDigest": "sha256:6bb0ea8ccafa27435f13d5ae350112e679fe560ace037476f87f052987458753",
+    "parentRecipe": "input/icon-crop-specs/comcast-q4-fy25.json",
+    "parentArtifact": "data/assets/raster-annotations/comcast/company-wordmark.png",
+    "change": "Remove title residue from rows 0–5; retain 560×225 dimensions."
+  }
+}

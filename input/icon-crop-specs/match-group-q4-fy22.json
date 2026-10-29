@@ -1,0 +1,263 @@
+{
+  "source": "input/processed/match-group-q4-fy22.png",
+  "outputDir": "data/assets/icon-references/match-group",
+  "runtimeOutputDir": "data/assets/raster-annotations/match-group",
+  "validationSheetDir": "data/assets/icon-references/match-group/validation-sheets",
+  "report": "match-group-q4-fy22-crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": false
+  },
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256
+    ]
+  },
+  "crops": [
+    {
+      "key": "match-group-brand-tinder-q4-fy22",
+      "output": "crops/brand-tinder-q4-fy22.png",
+      "searchBox": {
+        "x": 53,
+        "y": 254,
+        "width": 116,
+        "height": 116
+      },
+      "cropBox": {
+        "x": 53,
+        "y": 254,
+        "width": 116,
+        "height": 116
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Legacy brand column: tinder; independent icon only."
+    },
+    {
+      "key": "match-group-brand-hinge-q4-fy22",
+      "output": "crops/brand-hinge-q4-fy22.png",
+      "searchBox": {
+        "x": 53,
+        "y": 370,
+        "width": 116,
+        "height": 113
+      },
+      "cropBox": {
+        "x": 53,
+        "y": 370,
+        "width": 116,
+        "height": 113
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Legacy brand column: hinge; independent icon only."
+    },
+    {
+      "key": "match-group-brand-okcupid-q4-fy22",
+      "output": "crops/brand-okcupid-q4-fy22.png",
+      "searchBox": {
+        "x": 53,
+        "y": 483,
+        "width": 116,
+        "height": 115
+      },
+      "cropBox": {
+        "x": 53,
+        "y": 483,
+        "width": 116,
+        "height": 115
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Legacy brand column: okcupid; independent icon only."
+    },
+    {
+      "key": "match-group-brand-plenty-of-fish-q4-fy22",
+      "output": "crops/brand-plenty-of-fish-q4-fy22.png",
+      "searchBox": {
+        "x": 53,
+        "y": 598,
+        "width": 116,
+        "height": 112
+      },
+      "cropBox": {
+        "x": 53,
+        "y": 598,
+        "width": 116,
+        "height": 112
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Legacy brand column: plenty-of-fish; independent icon only."
+    },
+    {
+      "key": "match-group-brand-pairs-q4-fy22",
+      "output": "crops/brand-pairs-q4-fy22.png",
+      "searchBox": {
+        "x": 53,
+        "y": 710,
+        "width": 116,
+        "height": 113
+      },
+      "cropBox": {
+        "x": 53,
+        "y": 710,
+        "width": 116,
+        "height": 113
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Legacy brand column: pairs; independent icon only."
+    },
+    {
+      "key": "match-group-brand-azar-q4-fy22",
+      "output": "crops/brand-azar-q4-fy22.png",
+      "searchBox": {
+        "x": 53,
+        "y": 823,
+        "width": 116,
+        "height": 111
+      },
+      "cropBox": {
+        "x": 53,
+        "y": 823,
+        "width": 116,
+        "height": 111
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Legacy brand column: azar; independent icon only."
+    },
+    {
+      "key": "match-group-brand-ourtime-q4-fy22",
+      "output": "crops/brand-ourtime-q4-fy22.png",
+      "searchBox": {
+        "x": 53,
+        "y": 934,
+        "width": 116,
+        "height": 114
+      },
+      "cropBox": {
+        "x": 53,
+        "y": 934,
+        "width": 116,
+        "height": 114
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Legacy brand column: ourtime; independent icon only."
+    },
+    {
+      "key": "match-group-brand-blk-q4-fy22",
+      "output": "crops/brand-blk-q4-fy22.png",
+      "searchBox": {
+        "x": 53,
+        "y": 1048,
+        "width": 116,
+        "height": 112
+      },
+      "cropBox": {
+        "x": 53,
+        "y": 1048,
+        "width": 116,
+        "height": 112
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Legacy brand column: blk; independent icon only."
+    },
+    {
+      "key": "match-group-brand-chispa-q4-fy22",
+      "output": "crops/brand-chispa-q4-fy22.png",
+      "searchBox": {
+        "x": 53,
+        "y": 1160,
+        "width": 116,
+        "height": 114
+      },
+      "cropBox": {
+        "x": 53,
+        "y": 1160,
+        "width": 116,
+        "height": 114
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Legacy brand column: chispa; independent icon only."
+    },
+    {
+      "key": "match-group-brand-meetic-q4-fy22",
+      "output": "crops/brand-meetic-q4-fy22.png",
+      "searchBox": {
+        "x": 53,
+        "y": 1274,
+        "width": 116,
+        "height": 112
+      },
+      "cropBox": {
+        "x": 53,
+        "y": 1274,
+        "width": 116,
+        "height": 112
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Legacy brand column: meetic; independent icon only."
+    }
+  ]
+}

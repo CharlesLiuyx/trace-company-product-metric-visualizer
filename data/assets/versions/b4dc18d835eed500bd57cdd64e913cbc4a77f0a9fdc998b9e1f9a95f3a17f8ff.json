@@ -1,0 +1,23 @@
+{
+  "protocol": "asset-version/v1",
+  "subject": "comcast-company-wordmark-v2",
+  "artifact": {
+    "path": "data/assets/raster-annotations/comcast/company-wordmark-v2.png",
+    "digest": "sha256:6bb0ea8ccafa27435f13d5ae350112e679fe560ace037476f87f052987458753"
+  },
+  "recipe": {
+    "path": "input/icon-crop-specs/comcast-q4-fy24-wordmark-v2-reuse.json",
+    "digest": "sha256:8c95bf8c7927c1014e8e9f9011292802cc2c16f75d7b69b131b48ca6440efd90"
+  },
+  "source": {
+    "path": "input/processed/comcast-q4-fy24.png",
+    "digest": "sha256:b656f20059b60b764f89b5dd645475cd1e6bb5d8d65e33a700fb50df49e2a3a7"
+  },
+  "review": {
+    "reviewer": "操作者（2026-10-30 指定统一替换版本）",
+    "decision": "accepted",
+    "artifactDigest": "sha256:6bb0ea8ccafa27435f13d5ae350112e679fe560ace037476f87f052987458753",
+    "note": "操作者指出共享 company-wordmark 顶部 0–5 行带标题残影，并提供已去除残影的 560×225 PNG，要求所有 Comcast Build 逐字节复用指定 SHA-256。此记录仅绑定操作者指定的资产替换；本期整体数据集仍待人工审阅。"
+  },
+  "versionDigest": "sha256:b4dc18d835eed500bd57cdd64e913cbc4a77f0a9fdc998b9e1f9a95f3a17f8ff"
+}

@@ -1,9 +1,9 @@
 {
   "schema": "reviewed-git-release/v1",
-  "id": "transport-8f1701f0-2afd-4a21-b6e9-d33590a1e2f3",
-  "baseHead": "10e1b9f58d0e255c56fcf1ea2ab993c7c3d6b9a7",
-  "planDigest": "sha256:16f003c06218bea3243cc03757cdb62e18f89f31560a53bb82e8044bf3c1a65d",
-  "publishedDigest": "sha256:5c1f255e6e848dfd2da209e8fdf86736d06177efdd68ad2de8ef5cef11c54404",
+  "id": "transport-57acf60f-ced7-44a6-b812-ccdaace78fae",
+  "baseHead": "d5b04508f1e84f7734c50621032afec51f3b0e9b",
+  "planDigest": "sha256:648f42ccf987f41b9ec0a1ee725e6fde8eaf0fb0dc9d0fa56d1f7dc8a1abd3e9",
+  "publishedDigest": "sha256:cdc08944c7fef4c20c13a61636ea42232be54739df196e175f60825c76ec8bef",
   "builds": [
     {
       "buildId": "build-fbe573ad-5128-4025-b987-54dfc2707ba0",
@@ -2344,446 +2344,931 @@
       "buildId": "build-d6169612-af4e-4fd1-97c9-2b355fb382e1",
       "key": "wells-fargo-q4-fy24",
       "sealDigest": "sha256:cf30029701ac8d3bb6f8f1ea63a75ce9e033028bb5b67f9091d47a3a2d7ecad7"
+    },
+    {
+      "buildId": "build-122b1ccb-578d-4c85-a294-3fc086ac970b",
+      "key": "appfolio-q1-fy23",
+      "sealDigest": "sha256:bd7c21c643668171990f3a4276ad8b3cdc79569910a4d4e9669dfa76b1447280"
+    },
+    {
+      "buildId": "build-75d88d77-f66b-43b4-b88c-eaef36404ecf",
+      "key": "appfolio-q1-fy24",
+      "sealDigest": "sha256:0e4f9f3dc163554e37eda68a3a88b7503bc3cb2f8574e4a5687064e3618f7fa5"
+    },
+    {
+      "buildId": "build-8882733d-f04e-4455-a942-6adbcb147f95",
+      "key": "appfolio-q1-fy25",
+      "sealDigest": "sha256:072d1db97883e49e01340c5fbeee9a90c98a7cb37e3fde605aca71e6027168d4"
+    },
+    {
+      "buildId": "build-744d64cd-9325-4738-b7f1-65fac228e58c",
+      "key": "appfolio-q2-fy23",
+      "sealDigest": "sha256:f6010128002ba9df11aac625617efc47399b03669e68618a9d1f1ce9cbfdb26b"
+    },
+    {
+      "buildId": "build-c7e9d5f2-f7b3-44a1-a4a6-9c414ab3e888",
+      "key": "appfolio-q2-fy24",
+      "sealDigest": "sha256:204f787dca604013e75dd0d063e6b16023ea5000585f4a5257bfe9fe9f17a598"
+    },
+    {
+      "buildId": "build-c7901fdd-d304-45c9-a84c-764e6c7262d5",
+      "key": "appfolio-q2-fy25",
+      "sealDigest": "sha256:3f627ec4d6d72da5ae82b2319d7eddf48b44cf0e813f1b67d95aae15216a4e9e"
+    },
+    {
+      "buildId": "build-43406f54-701e-4a51-a825-8b4f60d1d9a5",
+      "key": "appfolio-q3-fy23",
+      "sealDigest": "sha256:03a79752dc79c855a85bfff2c529a4af319bcd413c743a3eb0db689bce8a7f53"
+    },
+    {
+      "buildId": "build-b7c618b9-b041-4cd3-8ae5-7c210bcc0f54",
+      "key": "appfolio-q3-fy24",
+      "sealDigest": "sha256:ff23da48330a49e9065e6eb941c64fadab5831f7d34fc2c63453aeca7302170f"
+    },
+    {
+      "buildId": "build-7234090c-075e-4f2e-aa2a-399cb34b3cd9",
+      "key": "appfolio-q3-fy25",
+      "sealDigest": "sha256:b93effa336d380a5f3ce944d56e92259f8cf55016d5c3507ea6cd03068f9ef93"
+    },
+    {
+      "buildId": "build-7e35db70-d2ce-4a3f-8ddf-d18ba7102eec",
+      "key": "appfolio-q4-fy22",
+      "sealDigest": "sha256:9abd03698be66c582f417673d9a455a9f7819a6a0474ca6ce627152650615bcf"
+    },
+    {
+      "buildId": "build-fce718a9-021d-490a-ad02-e067dfcfe552",
+      "key": "appfolio-q4-fy23",
+      "sealDigest": "sha256:58414c3f382846c3a6f716df804386232c89bc91111e5867ce86b6e017082aa2"
+    },
+    {
+      "buildId": "build-5ab7be7a-1e8b-481e-9edb-da56dd7c4d60",
+      "key": "appfolio-q4-fy24",
+      "sealDigest": "sha256:13c3d16103ca0d407604bbf8d67ffd1435fbfe6e891ca9f411d4a7f1ea6321c6"
+    },
+    {
+      "buildId": "build-c6f7f756-6bb1-40af-be35-6f08cc842bfd",
+      "key": "bank-of-america-q1-fy23",
+      "sealDigest": "sha256:eaee91c1607d95560c253565d004557b044535942ad36304ae4fdd19a56e52f3"
+    },
+    {
+      "buildId": "build-bd43f000-9caa-44ff-919c-be3616236aaa",
+      "key": "bank-of-america-q1-fy24",
+      "sealDigest": "sha256:71f0beda35e5b468144bfb912a77aaa781cbaa48d5ec7e7e930d5a0b4e98968e"
+    },
+    {
+      "buildId": "build-e0db6e64-4e2e-403e-bef4-3f60b80687cc",
+      "key": "bank-of-america-q1-fy25",
+      "sealDigest": "sha256:0a9c13f93fe5adadd6ddcd8482f05a16d535979177b02794f8c9c6c33270e20a"
+    },
+    {
+      "buildId": "build-7f3a7596-b296-4d88-905f-14790e6781e4",
+      "key": "bank-of-america-q2-fy23",
+      "sealDigest": "sha256:417816b982f59388bf5b81d3fcd9587750d5dc5090b7c5f35927a67235be0589"
+    },
+    {
+      "buildId": "build-3aaf58b2-ec01-4334-9786-09605e8d4170",
+      "key": "bank-of-america-q2-fy24",
+      "sealDigest": "sha256:56071963bddce01470c278df86700bb721a82863cfe7d0377f87c14a0f02e785"
+    },
+    {
+      "buildId": "build-290d8629-d4bf-40b4-bfea-b4af8409f7c0",
+      "key": "bank-of-america-q2-fy25",
+      "sealDigest": "sha256:9a891cadbbd8320a523eb9b707eafde71ff8b124c5b04248d6e16521c8cd5513"
+    },
+    {
+      "buildId": "build-03f987d9-d60a-47e6-9738-6a241ec49150",
+      "key": "bank-of-america-q3-fy22",
+      "sealDigest": "sha256:f14d7ddbf8cb3a69e11f5a667ff5885a32be274cd978e998e651c8885319a9f6"
+    },
+    {
+      "buildId": "build-1e6c65a7-e809-4531-8cad-13776fbd95c3",
+      "key": "bank-of-america-q3-fy23",
+      "sealDigest": "sha256:6e92fc0aefc0c0fd281fb043a4baca46fcdd57b7a8bf73e667905eee61186cf9"
+    },
+    {
+      "buildId": "build-b01026ba-f3b8-4f99-9d54-c4f8b6f6417a",
+      "key": "bank-of-america-q3-fy24",
+      "sealDigest": "sha256:f198003631853a12fe22ce1091d440e82f278266ecc6fbcbc1bac5d5da582c98"
+    },
+    {
+      "buildId": "build-880a147f-a7d1-4fc0-b09e-6ad63a6c7878",
+      "key": "bank-of-america-q3-fy25",
+      "sealDigest": "sha256:f680619ecf0e0aa33538fe68609f96908930a3bd0d0bd042e7ed373f506e2953"
+    },
+    {
+      "buildId": "build-7dec3060-9c3b-4ac0-8950-c28f20492fb4",
+      "key": "bank-of-america-q4-fy22",
+      "sealDigest": "sha256:4b2926fb20619d8c76835b56ad8ba35536d09d0f4305ddc1cbab217d793de40a"
+    },
+    {
+      "buildId": "build-024f5a81-8548-40ed-aec9-63474407bc03",
+      "key": "bank-of-america-q4-fy23",
+      "sealDigest": "sha256:55e53708bdf115e379fb9c22121abb0f5e1f21a20036b669f17f6ac42a270c14"
+    },
+    {
+      "buildId": "build-42bb0e0b-3068-4274-b3fd-8373442b022c",
+      "key": "bank-of-america-q4-fy24",
+      "sealDigest": "sha256:642115a70ef2feec25f0b41d12d680022abb55eab62981cf19e1bd44ac15280c"
+    },
+    {
+      "buildId": "build-e4c49bc6-deb2-4faf-9a3d-c20c692c055d",
+      "key": "cisco-q1-fy24",
+      "sealDigest": "sha256:b8874a22ffb18b4b8fc6a886062ec332c5e132e718a8abd3022068771808cc5b"
+    },
+    {
+      "buildId": "build-4625af25-a35e-407e-825f-1721c0681aac",
+      "key": "cisco-q1-fy25",
+      "sealDigest": "sha256:182e396510bd39b2e099c0995161ffc25f05cee3b319e4aa53f16c0220552298"
+    },
+    {
+      "buildId": "build-4f1fd410-0700-449d-bf4d-d9ce9ed10251",
+      "key": "cisco-q2-fy23",
+      "sealDigest": "sha256:7a75bae5681e06ff9401e4069f0b336a43ad3e510f1bce91058862c4ad483099"
+    },
+    {
+      "buildId": "build-3b37ce2b-f00c-431b-9436-9fbf9347dcd9",
+      "key": "cisco-q2-fy24",
+      "sealDigest": "sha256:049f29474a7773a1a6ee0267c1fed6d05dd26d423856c210ca600a17ee493c1e"
+    },
+    {
+      "buildId": "build-d2d32465-191d-4ae3-8862-cd4cf5c89985",
+      "key": "cisco-q2-fy25",
+      "sealDigest": "sha256:bc288888bdf189c4cdf27eacf999642c6cd9706aecb37b635542142287a57d67"
+    },
+    {
+      "buildId": "build-79844b62-4bcd-40d8-b9cf-33dc3b1577f1",
+      "key": "cisco-q3-fy23",
+      "sealDigest": "sha256:18e4e62c15791b404e44589907c5f1d2de82033459f178a3a27dfe771abca769"
+    },
+    {
+      "buildId": "build-afbef253-9b4b-44be-a64e-feb452598421",
+      "key": "cisco-q3-fy24",
+      "sealDigest": "sha256:8f2223e85606327a36c6c311da0b3ba4a078e0a6483dc61561eda6b356f9c663"
+    },
+    {
+      "buildId": "build-5fdfb80d-ab6d-40a6-b84b-8cae573b159e",
+      "key": "cisco-q3-fy25",
+      "sealDigest": "sha256:3a8a05c7fbddc0790f65bbc6dc292614d462d2da2a8ee4b8da3a8e34fd24b1ca"
+    },
+    {
+      "buildId": "build-2273bf66-cf6d-4257-90ba-277977c80110",
+      "key": "cisco-q4-fy23",
+      "sealDigest": "sha256:8dd60810aad9dd387b2131d3e7dd94ccefbadf8827247737ae07893c3b089a7f"
+    },
+    {
+      "buildId": "build-0df17cc7-418a-4165-bd74-305b01ea5bc5",
+      "key": "cisco-q4-fy24",
+      "sealDigest": "sha256:e32b2d053c8b54080cd57300500cf6cb1f6516624f3406c2404b424e51b0b699"
+    },
+    {
+      "buildId": "build-52c935f1-527e-49a4-a5e1-26ece4f7babc",
+      "key": "cisco-q4-fy25",
+      "sealDigest": "sha256:792dd7808973c5beae3bcbfe6147fd7c8530088d55b7ed0d59c18ea64c1d68ee"
+    },
+    {
+      "buildId": "build-8f3c10c9-1f2e-4a4b-8dd4-b027ab3ca3b5",
+      "key": "comcast-q1-fy23",
+      "sealDigest": "sha256:7a92a3e88b4532eb734d03f1138d4889052ee447f053bfeb9fa93770cd39ac3e"
+    },
+    {
+      "buildId": "build-818500bd-e59b-4845-b42f-e906cce6236f",
+      "key": "comcast-q1-fy24",
+      "sealDigest": "sha256:b85dc06ef33c1ce5976485b60301e0d30e1ddeb6be430a4007af88c8a8a915db"
+    },
+    {
+      "buildId": "build-cb689ca9-2050-41fb-8795-8a87b92f1327",
+      "key": "comcast-q1-fy25",
+      "sealDigest": "sha256:0133849f14dcb19d7995ff169bec4a228c15f9262c380d2d43f052e5d1b3afad"
+    },
+    {
+      "buildId": "build-be9c8657-206b-4d92-8d5c-575bfe72eb5f",
+      "key": "comcast-q2-fy23",
+      "sealDigest": "sha256:20488741a4f2017cdb993416ee49b9287fc926c51f2f994f40b2ee676c8413a8"
+    },
+    {
+      "buildId": "build-3dd94998-3dd4-4d16-9327-e5d0fe91b617",
+      "key": "comcast-q2-fy24",
+      "sealDigest": "sha256:86b0103056c6eb9d25f21be49931f23b9c9454bca2d7b20d03508aa105c049cb"
+    },
+    {
+      "buildId": "build-bfc5bd72-4b90-481e-a6f4-4cb13a0da680",
+      "key": "comcast-q2-fy25",
+      "sealDigest": "sha256:d476af8106092ab4b183329c030ffba05f95c4b8a72ce2a8c5307e39714cc9e7"
+    },
+    {
+      "buildId": "build-5659795c-3484-4b4c-82de-ce838b856e77",
+      "key": "comcast-q3-fy23",
+      "sealDigest": "sha256:48bfe43724a4aee07d7d65abd31b5c5a9431e1f3d05811e1f04b9d8f9f225ce0"
+    },
+    {
+      "buildId": "build-76944507-8d0f-49f6-8f32-062a20aa5c4a",
+      "key": "comcast-q3-fy24",
+      "sealDigest": "sha256:904f1094411d273efc0a7e05258cf6c0a5939a5aadb557cbcaa93954d8af44ad"
+    },
+    {
+      "buildId": "build-2f879ead-51ba-4c90-8edf-801135ab78ec",
+      "key": "comcast-q3-fy25",
+      "sealDigest": "sha256:5e71d092b9f69d925d217961427bd70ba24c52ae4c1ec03ae5012485394d1767"
+    },
+    {
+      "buildId": "build-26f9e224-db36-4150-9a74-03554a3a0a0e",
+      "key": "comcast-q4-fy22",
+      "sealDigest": "sha256:bb51c373ba390e45bcf6964318465e8c184013828090720a9be401e50fc78527"
+    },
+    {
+      "buildId": "build-69453307-4d36-4117-b54e-25ff40856bda",
+      "key": "comcast-q4-fy23",
+      "sealDigest": "sha256:5e496959b05a3575361282b4eca9660181cb432289a5a39341925b295fb1f9ea"
+    },
+    {
+      "buildId": "build-8f86b448-3eb4-41fa-a0fd-aab023c8c85d",
+      "key": "comcast-q4-fy24",
+      "sealDigest": "sha256:cabd994a55d17deed517be4ef8c8fb4bf55c57f06e114bf943a46835f38ea66c"
+    },
+    {
+      "buildId": "build-833daf92-2081-48a4-8735-b364d48b80f6",
+      "key": "match-group-q1-fy23",
+      "sealDigest": "sha256:a0ff6671338b005a9c95711f29b939991c4a329dfb3ab71fa175038f599f1e6c"
+    },
+    {
+      "buildId": "build-fba68014-38a6-4187-8234-76941046d81f",
+      "key": "match-group-q1-fy24",
+      "sealDigest": "sha256:e632197883de83c532b8ce87956e12df710fc11b04e9448fe991b1c53ea32328"
+    },
+    {
+      "buildId": "build-e9aab772-cd72-4476-990f-4c620614a7fe",
+      "key": "match-group-q1-fy25",
+      "sealDigest": "sha256:57d75b9e20917d295661018446ab967d2a5d3e475e1ed153dd21bb652c439b1d"
+    },
+    {
+      "buildId": "build-810bd7ac-4dcb-4dfe-b5d4-7455b3a1e0bb",
+      "key": "match-group-q2-fy23",
+      "sealDigest": "sha256:c4c7535c86a3a27fece6c477cb9c8ca3224ccb03e9da6106bbf1675390a71c72"
+    },
+    {
+      "buildId": "build-c70356ba-ea8f-4619-aa1c-fffa2c04264a",
+      "key": "match-group-q2-fy24",
+      "sealDigest": "sha256:492a6d982c5bd1f5b6b42ff4529f27655b538b5f75a2ef6fe1bee3d21aab4337"
+    },
+    {
+      "buildId": "build-c74a9f33-378b-48d8-86b8-9de8f4ad5a6c",
+      "key": "match-group-q2-fy25",
+      "sealDigest": "sha256:221903515b02503efb5ac0d50e95225349be4cd869a20b16db98a67422b06712"
+    },
+    {
+      "buildId": "build-f0b503c4-7847-4cb5-a277-1784dea70b07",
+      "key": "match-group-q3-fy22",
+      "sealDigest": "sha256:54f1a3ac26b7d50358c04b2e89248bb782989ddd69da599e35925c1f37ffeb0a"
+    },
+    {
+      "buildId": "build-d386255c-1ff9-4a85-92b4-66dabd87e4c8",
+      "key": "match-group-q3-fy23",
+      "sealDigest": "sha256:be9926fadd81146b2bb9e3cb8beb38d23755c76c3f9947d2c629a495a984f5c8"
+    },
+    {
+      "buildId": "build-346f0134-918c-4adc-92d3-1156ec3e0a56",
+      "key": "match-group-q3-fy24",
+      "sealDigest": "sha256:8a9307b6d7d10d025b2613f88605acbd91bc2ba0963400f790dfaa79bb302c13"
+    },
+    {
+      "buildId": "build-9e6a3f61-0b09-4a63-ab35-cabe90726983",
+      "key": "match-group-q4-fy22",
+      "sealDigest": "sha256:89268ce55ddca83619f6c5a588226abb692f725b91845f7e5ab2c24b0731c291"
+    },
+    {
+      "buildId": "build-a9eb03e3-77fa-4c64-b75d-85d3f8697cf8",
+      "key": "match-group-q4-fy23",
+      "sealDigest": "sha256:25198759efeb6670c34f2dd1f9149834c23220c5c30a470ac8de39f0950bf968"
+    },
+    {
+      "buildId": "build-b88f6f94-edf7-4eba-9c66-54e7fa15be68",
+      "key": "match-group-q4-fy24",
+      "sealDigest": "sha256:b16bdea5566a73d95d6fe9907a48e0e9d8555356241dd1d8e2bbbacd2328d2d9"
+    },
+    {
+      "buildId": "build-e2256241-6828-4ad7-8df3-1482812e9acb",
+      "key": "monday-com-h1-fy24",
+      "sealDigest": "sha256:021df64384984c8c85672247f4c6bd54035f254a5b641580a606a421530f8e9e"
+    },
+    {
+      "buildId": "build-9767246e-63d9-4f1f-81a4-adfd5880228e",
+      "key": "monday-com-q1-fy23",
+      "sealDigest": "sha256:4847b08685637d60e5fd7a219bdbc9f24abd3c20c00bb4694ccdd4e121879b3b"
+    },
+    {
+      "buildId": "build-5d8c2df6-a264-4565-b6b0-ed454cda6616",
+      "key": "monday-com-q1-fy25",
+      "sealDigest": "sha256:033b18b16280ef100827a87102332e5104019e1951f5e129a9476c0ed1d71187"
+    },
+    {
+      "buildId": "build-59510be2-f1dd-4517-8698-933672faa9f6",
+      "key": "monday-com-q2-fy23",
+      "sealDigest": "sha256:41930f6edc13ccd54c3d8633a6db9d41c7c6f475daaedb67b1e64e01164dabb3"
+    },
+    {
+      "buildId": "build-c16f7d76-73d4-4dc7-ab7c-ac806fa6d222",
+      "key": "monday-com-q2-fy25",
+      "sealDigest": "sha256:ee5f7e24665271fc167801255225200b80ddb018c428300b69ee7e6b662efefe"
+    },
+    {
+      "buildId": "build-e0acf014-4965-498e-b1ce-c112fd074a6f",
+      "key": "monday-com-q3-fy23",
+      "sealDigest": "sha256:422daa3973693dd89db09c22cd8f73b4a5dce50f79df77a4b5d8552d11113152"
+    },
+    {
+      "buildId": "build-07050ebc-3e2b-4dcc-bab6-04fec8695b57",
+      "key": "monday-com-q4-fy22",
+      "sealDigest": "sha256:41edaaa860241b578e529f50ea1f0d4f14c6857c0735b5ffef45ecfd4b884f12"
     }
   ],
-  "candidateDigest": "sha256:4636f782cd7ef875210a214d760767fb7f001c55feb981dbca71b89526b295ca",
+  "candidateDigest": "sha256:e0718a24ccf1de465bd4cd03dc66f84e165e8f96e02aae9338bbf89388cbff1c",
   "paths": [
     {
       "path": "data/assets/catalog.json",
-      "digest": "sha256:d43e8b0965fd61f12347741274aafd4b921755a0ae182208db7581b6bbe89b67",
-      "before": "sha256:e0fd955eac1e18d43ed1978acfbcf74d619174d1fea5f8c0825e84363e66a6f6"
+      "digest": "sha256:eaa6964aba482024a30dbdb44736e71eb8eb3ee5af9db1b3b5a8ef2cc6800ba5",
+      "before": "sha256:d43e8b0965fd61f12347741274aafd4b921755a0ae182208db7581b6bbe89b67"
+    },
+    {
+      "path": "data/assets/icon-references/match-group/crops/brand-azar-q4-fy22.png",
+      "digest": "sha256:b9680f138cc7170def83de473b1d5cd9e7a3d3d16f0c0e22ee086e0a1448e3d3",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/match-group/crops/brand-blk-q4-fy22.png",
+      "digest": "sha256:f2fe496f49978b9ae8777be5d4e40761d4a68eddd84c9954b64e4752c9fdba99",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/match-group/crops/brand-chispa-q4-fy22.png",
+      "digest": "sha256:71928276db12ccb852e23027e4bf43e50409a1435b3c94e12b9c81ccd5e9390f",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/match-group/crops/brand-hinge-q4-fy22.png",
+      "digest": "sha256:c4cf645b509f7e9cdb85275a6955c1a664373352fce4137635392607550483d7",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/match-group/crops/brand-meetic-q4-fy22.png",
+      "digest": "sha256:5d80ddc4c7a2ef9f416a5058fb90fa5b1b44acf7fa4406b9ef6a5a387b10745c",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/match-group/crops/brand-okcupid-q4-fy22.png",
+      "digest": "sha256:58422926ce588dfe536db8efff3c82599cbf6327bb6ceaed723aa79e98dd7d0e",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/match-group/crops/brand-ourtime-q4-fy22.png",
+      "digest": "sha256:df6c39b27cc360e785e6354f0275f4fbe5fbcbb678c09f52572a8ead489a2af3",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/match-group/crops/brand-pairs-q4-fy22.png",
+      "digest": "sha256:9bac496ba80bb078abd83bbe80e6b61cb379781d383471cc6dbbebe456c50b50",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/match-group/crops/brand-plenty-of-fish-q4-fy22.png",
+      "digest": "sha256:032549bca6d71748b30ada3e6d94ad79aa4b9c1d402213c0212dcf5a86492ac6",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/match-group/crops/brand-tinder-q4-fy22.png",
+      "digest": "sha256:d81c6ece4dbf774153859f4988e5d737475ad319fb34252c62c36bf5f70848b0",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/match-group/match-group-q4-fy22-crop-report.json",
+      "digest": "sha256:d69dc599aa741bb5ab3449af67b3716beb6788b8670d9ef19dd851ea9e2e127d",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/match-group/match-group-q4-fy22-model-validation.md",
+      "digest": "sha256:f90816d3641fe0c2e311dc4b29810a5c351ee1afa59f285a5d418d9a9d283858",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/comcast/company-wordmark-q4-fy22.png",
+      "digest": "sha256:eabc85281d24ac14e67c10a21ed8e4ee077d18d8643afc162405d8bce23d42d6",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/comcast/company-wordmark-v2.png",
+      "digest": "sha256:6bb0ea8ccafa27435f13d5ae350112e679fe560ace037476f87f052987458753",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/comcast/sky-clean-q4-fy22.png",
+      "digest": "sha256:c7a2fecb51ef091012d6fa8a0fdc36a06a3b7b98c22d2567b8326869228b2f37",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/comcast/sky-q4-fy22.png",
+      "digest": "sha256:01fdb7c6fd9f0024d10ba32e662a39f4290f6a5883fca6bd0bc75698a0b7cc85",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/comcast/xfinity-q4-fy22.png",
+      "digest": "sha256:27d8fd5d0080b4d0bb41485fd33cfe9a86507156b504e960280c7191b6760c8a",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/match-group/brand-azar-q4-fy22.png",
+      "digest": "sha256:b9680f138cc7170def83de473b1d5cd9e7a3d3d16f0c0e22ee086e0a1448e3d3",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/match-group/brand-blk-q4-fy22.png",
+      "digest": "sha256:f2fe496f49978b9ae8777be5d4e40761d4a68eddd84c9954b64e4752c9fdba99",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/match-group/brand-chispa-q4-fy22.png",
+      "digest": "sha256:71928276db12ccb852e23027e4bf43e50409a1435b3c94e12b9c81ccd5e9390f",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/match-group/brand-hinge-q4-fy22.png",
+      "digest": "sha256:c4cf645b509f7e9cdb85275a6955c1a664373352fce4137635392607550483d7",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/match-group/brand-meetic-q4-fy22.png",
+      "digest": "sha256:5d80ddc4c7a2ef9f416a5058fb90fa5b1b44acf7fa4406b9ef6a5a387b10745c",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/match-group/brand-okcupid-q4-fy22.png",
+      "digest": "sha256:58422926ce588dfe536db8efff3c82599cbf6327bb6ceaed723aa79e98dd7d0e",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/match-group/brand-ourtime-q4-fy22.png",
+      "digest": "sha256:df6c39b27cc360e785e6354f0275f4fbe5fbcbb678c09f52572a8ead489a2af3",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/match-group/brand-pairs-q4-fy22.png",
+      "digest": "sha256:9bac496ba80bb078abd83bbe80e6b61cb379781d383471cc6dbbebe456c50b50",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/match-group/brand-plenty-of-fish-q4-fy22.png",
+      "digest": "sha256:032549bca6d71748b30ada3e6d94ad79aa4b9c1d402213c0212dcf5a86492ac6",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/match-group/brand-tinder-q4-fy22.png",
+      "digest": "sha256:d81c6ece4dbf774153859f4988e5d737475ad319fb34252c62c36bf5f70848b0",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/match-group/company-logo-q4-fy22.png",
+      "digest": "sha256:6cf4c6cb7ab67e2b25aa060c356829b747bc9d5e1e7a88527af62b8d5a2a4640",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/029d4a466c4b3db885ac3bef3c4cdcf629106524b00bfde3b3baa04fad229de2.json",
+      "digest": "sha256:84058a7e94d2d07f5a0573d6b4b2d7285e74cf27e22b09f9fd373331d0cde303",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/4d62b0951eabfe930dddd6045908d6ae8d2e637d946b3dd9b54a722df8ea1522.json",
+      "digest": "sha256:dc4acb6918de71c76d125ff28f672293c49371efbe6699bf47f578650a1d16fd",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/79396ff1b04176c8021c44143e558d2036791555d060646320e12ae012d1b512.json",
+      "digest": "sha256:e5e52bb6393e96c3f778df25ab3184e9f4d9baf299a380f154238907d2f2d865",
+      "before": null
+    },
+    {
+      "path": "data/assets/versions/b4dc18d835eed500bd57cdd64e913cbc4a77f0a9fdc998b9e1f9a95f3a17f8ff.json",
+      "digest": "sha256:862dc7974e0a4e4b8366340b0ce4472b9fc814278fb5381c9d4a77c2034e9e69",
+      "before": null
     },
     {
       "path": "data/dataset-file-metadata.js",
-      "digest": "sha256:ce9cdbda10b159584723ad46cb46b50e4e6007af7c9ecbd6ccb635d5cb007e28",
-      "before": "sha256:eb3ee874253c20b7204aeedb562bc8c454dbeabff0d862f898ffab5bcdb7e29d"
+      "digest": "sha256:74b3781de70fe2a19b9f53ebae6036a0a1a8eed744f6990ce213936ac62644d7",
+      "before": "sha256:ce9cdbda10b159584723ad46cb46b50e4e6007af7c9ecbd6ccb635d5cb007e28"
     },
     {
       "path": "data/dataset-manifest.js",
-      "digest": "sha256:d5fb8f39ba638e00a1ac13a852f9a830e76e35c23236d41eea3267e484a6a53d",
-      "before": "sha256:947e4fb056da84de3543026e2df83e4d69fbe6112b0511373400174c4c7cd6d2"
+      "digest": "sha256:4cac583c5e95c5ea2a3d5a768b0285b6c59dcc70ffdb642f7052398e14a251a9",
+      "before": "sha256:d5fb8f39ba638e00a1ac13a852f9a830e76e35c23236d41eea3267e484a6a53d"
     },
     {
-      "path": "data/datasets/blackrock-q1-fy23.js",
-      "digest": "sha256:587d2aee2aadf7da6a9d9f226f10808edfc56e41f6cde23af01360ca27725c5c",
+      "path": "data/datasets/appfolio-q1-fy23.js",
+      "digest": "sha256:8402e73156f70bec193b2b98aaef29503f8421411d3ad355a6b9245cb8a17b4d",
       "before": null
     },
     {
-      "path": "data/datasets/blackrock-q1-fy24.js",
-      "digest": "sha256:e5d5e3b5da6b20f7526b0a76efad25ba39cadfb511d18d479e320a44106d61a9",
+      "path": "data/datasets/appfolio-q1-fy24.js",
+      "digest": "sha256:0be869b5c3bb47ddfce0239a0406e5b71b0182a779d60274ba0366d0c8d378b7",
       "before": null
     },
     {
-      "path": "data/datasets/blackrock-q1-fy25.js",
-      "digest": "sha256:7dc99e1e104650cc4d017353995279fe7c566ce54c397efe9e8dc76f0d30a265",
+      "path": "data/datasets/appfolio-q1-fy25.js",
+      "digest": "sha256:e50dbd0540750d7411b074e24105551eab1294424a9470b336925e03199f0dd7",
       "before": null
     },
     {
-      "path": "data/datasets/blackrock-q2-fy23.js",
-      "digest": "sha256:a4349409b6bd99eec5ed209e7e84a46f9319f8a78dd380bc99e22f2dec5bfa24",
+      "path": "data/datasets/appfolio-q2-fy23.js",
+      "digest": "sha256:2c293f581ed91fd1f056ff480b8ee8c2a17960dc625a12718aed29916ff18d67",
       "before": null
     },
     {
-      "path": "data/datasets/blackrock-q2-fy24.js",
-      "digest": "sha256:3338a18cf11b188af48ae991c5d0a1369d47c5fd7d42880747ab1665dc204532",
+      "path": "data/datasets/appfolio-q2-fy24.js",
+      "digest": "sha256:e61219d3c69426aa9bf5b34a5dc7b93d4175f518b998a7c6acd1d1f7606cb9e3",
       "before": null
     },
     {
-      "path": "data/datasets/blackrock-q2-fy25.js",
-      "digest": "sha256:c28b2c9ede3d297642726d728c185d8fe6beb17d1be6ab3b274eed1cdc7ae15a",
+      "path": "data/datasets/appfolio-q2-fy25.js",
+      "digest": "sha256:0760d4db4fd02169bdc6a54430b26e546fbadcd407abb5ba2e953f5da14190f8",
       "before": null
     },
     {
-      "path": "data/datasets/blackrock-q3-fy23.js",
-      "digest": "sha256:0771c6d498433f61371159cfe69cfd0fa1e6c17a899945c70e7545894fc1abac",
+      "path": "data/datasets/appfolio-q3-fy23.js",
+      "digest": "sha256:ad10cbf97be59ff74c46060d6130086f1f1b4acb45e7d6db8ee37f924230680f",
       "before": null
     },
     {
-      "path": "data/datasets/blackrock-q3-fy24.js",
-      "digest": "sha256:51cb71d70f62ea711da6b1f483227a5256dd0f1be850c9eb1d6f102f1fde749d",
+      "path": "data/datasets/appfolio-q3-fy24.js",
+      "digest": "sha256:6c526c7f874f8b4ef2f712f3004dcd2a74539b978afee73b3efb8703bcf1f360",
       "before": null
     },
     {
-      "path": "data/datasets/blackrock-q3-fy25.js",
-      "digest": "sha256:20969a40c4240b126ed71a0c4616ed7a3a68d0bdb84a7f17d6a1a06d3197fcd5",
+      "path": "data/datasets/appfolio-q3-fy25.js",
+      "digest": "sha256:30841fd93cd654619ec5f857f53f4a3350a6fb8406c49280680c5e9638819ba2",
       "before": null
     },
     {
-      "path": "data/datasets/blackrock-q4-fy22.js",
-      "digest": "sha256:db85d1b34ddcbd06503f1420283c5d47495c297ceefb8aa490b378297789eb34",
+      "path": "data/datasets/appfolio-q4-fy22.js",
+      "digest": "sha256:189404ea2f2c116266cdd0836ac63db19c10440a9c406475e1cb96ca8440a623",
       "before": null
     },
     {
-      "path": "data/datasets/blackrock-q4-fy23.js",
-      "digest": "sha256:9559721cde08f99e9872d96fbd55cfc077295878314b5b52cfb00d9f298f21b1",
+      "path": "data/datasets/appfolio-q4-fy23.js",
+      "digest": "sha256:688bf91cd41aefb3ddcdd93f2d286541cc0da8014eb00cffdde4b6359fd676fb",
       "before": null
     },
     {
-      "path": "data/datasets/blackrock-q4-fy24.js",
-      "digest": "sha256:b975bd6dd9c61cdffeb13d90da618496e958cfff68a33d3a3624dbce5f134f07",
+      "path": "data/datasets/appfolio-q4-fy24.js",
+      "digest": "sha256:afc17596ee055dad6a2fd4575eb8a707236a231ebd3acad5d8f6674e9c168e0d",
       "before": null
     },
     {
-      "path": "data/datasets/citigroup-q1-fy23.js",
-      "digest": "sha256:d8564e11611a936783305eca21b04b64e2aff83d32677ea4d53ea13fed63c33b",
+      "path": "data/datasets/bank-of-america-q1-fy23.js",
+      "digest": "sha256:55d711dee29a62d35bf5752360163c0117d56605dd6e462ec2867a0c0824bf2b",
       "before": null
     },
     {
-      "path": "data/datasets/citigroup-q1-fy24.js",
-      "digest": "sha256:1d35f91b6222afa6da0ae120fadf5cd5b435a613bc9ff4c17e88c333cb72c951",
+      "path": "data/datasets/bank-of-america-q1-fy24.js",
+      "digest": "sha256:54574786f0d0836979a261813ee0c924bd90ce8bffcfc6988e534236696579b3",
       "before": null
     },
     {
-      "path": "data/datasets/citigroup-q1-fy25.js",
-      "digest": "sha256:4644861bfa0f224f84965a3cf8a9c566ff683e16a991f759e7ac1e66a49cbbba",
+      "path": "data/datasets/bank-of-america-q1-fy25.js",
+      "digest": "sha256:383632e2ff23c2d944cc176349a2724062095d8489ebdfad80744b8ea5fedbcb",
       "before": null
     },
     {
-      "path": "data/datasets/citigroup-q2-fy23.js",
-      "digest": "sha256:c858921fb0fbf498caf22b52c729955274c026e60b1d01768da62232cc18c75a",
+      "path": "data/datasets/bank-of-america-q2-fy23.js",
+      "digest": "sha256:68d2930b2d6769080013c6e079efcb21e1162b58fcfddbd8c9d6ff60c4d10bc8",
       "before": null
     },
     {
-      "path": "data/datasets/citigroup-q2-fy24.js",
-      "digest": "sha256:f9f725107e9f94d729d4f8cd8598ce16613752b83106248442f7b69c2832d338",
+      "path": "data/datasets/bank-of-america-q2-fy24.js",
+      "digest": "sha256:2fe84695e29c5eaef281f4252cca622cbcb0a1aca49c49689f98ff2f7bdf5d25",
       "before": null
     },
     {
-      "path": "data/datasets/citigroup-q2-fy25.js",
-      "digest": "sha256:f37177e2cd6bc046120fe217e32f1473804f3dbadc5055f5a4acaf249bcc96a8",
+      "path": "data/datasets/bank-of-america-q2-fy25.js",
+      "digest": "sha256:aa6f18588a3b8c2bd9ec82933af40ffbcf84f3bc90331641caeb4f29572bd320",
       "before": null
     },
     {
-      "path": "data/datasets/citigroup-q3-fy22.js",
-      "digest": "sha256:9a513ac06ccecc069404b28f8a64cd6b83c927d68cef3c98690ab838eac54605",
+      "path": "data/datasets/bank-of-america-q3-fy22.js",
+      "digest": "sha256:b5e98282f45c15d4570139d9152c8713ba2315f707bd300f47fa417d3ab2d32a",
       "before": null
     },
     {
-      "path": "data/datasets/citigroup-q3-fy23.js",
-      "digest": "sha256:3f5c3de9908732fdbd4069cbb1ab9e7cfb4ce541925278313ee9f849914c0496",
+      "path": "data/datasets/bank-of-america-q3-fy23.js",
+      "digest": "sha256:97226db235cc65290564b0a21491a9c81b4f223f77b8a6f82c7364a554446083",
       "before": null
     },
     {
-      "path": "data/datasets/citigroup-q3-fy24.js",
-      "digest": "sha256:1eeecbf1694d663f7b9b36dd587174b743ef922eeb878ac599cce7cf413a0f4f",
+      "path": "data/datasets/bank-of-america-q3-fy24.js",
+      "digest": "sha256:2d8bb62b30861b9916e4f2ecd0c8423d446e474ed437670faddc419bf67860e3",
       "before": null
     },
     {
-      "path": "data/datasets/citigroup-q3-fy25.js",
-      "digest": "sha256:bcaf8250b2f2475d14deca0816feda0da48b61d75148995339d94f554f778050",
+      "path": "data/datasets/bank-of-america-q3-fy25.js",
+      "digest": "sha256:a37136a9469ee0574abf4e5106cc8e19eb1cb181d8ad0f0cecfefd26974baa96",
       "before": null
     },
     {
-      "path": "data/datasets/citigroup-q4-fy22.js",
-      "digest": "sha256:37096d66fe7a62af1dc0831e8dbe859381a43a7779f817adcef7612eba2d48ea",
+      "path": "data/datasets/bank-of-america-q4-fy22.js",
+      "digest": "sha256:e5ce5c6f41eb461e172a7b2c5aa85e11c56132aa1d227e4ce8a0d619f5c1dd29",
       "before": null
     },
     {
-      "path": "data/datasets/citigroup-q4-fy23.js",
-      "digest": "sha256:f6d0b5fc2584634a88e86ab49ed0df90667c62ca980743cc3af329fa85b34010",
+      "path": "data/datasets/bank-of-america-q4-fy23.js",
+      "digest": "sha256:588b09633a91a4365381d9d5a2f02463033df321c1071a4334de293440005d06",
       "before": null
     },
     {
-      "path": "data/datasets/citigroup-q4-fy24.js",
-      "digest": "sha256:9cbe6206720c0230408efc827b140c1c2e1e021a1235d91bd405f97033c9e04c",
+      "path": "data/datasets/bank-of-america-q4-fy24.js",
+      "digest": "sha256:73f6fd949f4e561cfe3c1483c5f807d854a631c80c8d7fd74918c6febee2841c",
       "before": null
     },
     {
-      "path": "data/datasets/coupang-q1-fy23.js",
-      "digest": "sha256:7c6c68e5fc0ecb53286e5c18d95d288b8dcc62e9417d2159656f8d64d75e7328",
+      "path": "data/datasets/cisco-q1-fy24.js",
+      "digest": "sha256:47366f3f4af8bb22e3b34611de9d182e8ed95fb7f674af78f356d95d74c312ba",
       "before": null
     },
     {
-      "path": "data/datasets/coupang-q1-fy24.js",
-      "digest": "sha256:0fe0f211365e3d44f6f514663c456e6af97b4e02a81a0b64e3a6c42eef71a4ce",
+      "path": "data/datasets/cisco-q1-fy25.js",
+      "digest": "sha256:d3a92dee0447c6fbd50d58565b200cef8e653a0f627f3b48fc73ddbd07471ca9",
       "before": null
     },
     {
-      "path": "data/datasets/coupang-q1-fy25.js",
-      "digest": "sha256:d47a9e053460f76d8de91df8601fdbd150aa5c2efdffab628aa015e4ca4f001f",
+      "path": "data/datasets/cisco-q2-fy23.js",
+      "digest": "sha256:857a1f7b992bb127fad4df581801a6c164415fa29d5cafef66d472d354241120",
       "before": null
     },
     {
-      "path": "data/datasets/coupang-q2-fy23.js",
-      "digest": "sha256:27d7cdf40c07e241d084f3b13e7b82c33bfde0dbea24d5465af2de8ad552a86a",
+      "path": "data/datasets/cisco-q2-fy24.js",
+      "digest": "sha256:77f0919a200ef2f0cbfee5876fea70f896c197223664a044dcb50b019aab9e6c",
       "before": null
     },
     {
-      "path": "data/datasets/coupang-q2-fy24.js",
-      "digest": "sha256:55c84123e8f1c6682691f526ed1bdd3233330790ca6e16b679e3edcffb95ee39",
+      "path": "data/datasets/cisco-q2-fy25.js",
+      "digest": "sha256:c9378a424888a4462ec93f6216275efe97535fd73a414985a463e0a493315033",
       "before": null
     },
     {
-      "path": "data/datasets/coupang-q2-fy25.js",
-      "digest": "sha256:dcac091ed26307cb24a35ed205ff9af683ae9d6bd163f06230230c8103231022",
+      "path": "data/datasets/cisco-q3-fy23.js",
+      "digest": "sha256:5c7b9c15c989eb1ce06fffc7c251c8addab7c6fe5f23ec57e5da55c1d6084bf0",
       "before": null
     },
     {
-      "path": "data/datasets/coupang-q3-fy22.js",
-      "digest": "sha256:8b7e21fc7c91d974c31b8d5891e30a25a5f1f8fba272ad5bb12e146b06b1013a",
+      "path": "data/datasets/cisco-q3-fy24.js",
+      "digest": "sha256:03d49d8c3bf6901fe35ceaa601c558fbb14cead523ee9176ef8387b3664ad549",
       "before": null
     },
     {
-      "path": "data/datasets/coupang-q3-fy23.js",
-      "digest": "sha256:e4072aa38d6db1a513c93a86b946cf6da338cbabebd7c74d1b4e4179978b5f9c",
+      "path": "data/datasets/cisco-q3-fy25.js",
+      "digest": "sha256:7b14264c977dd8ea4ae8c2c3d2af18df05e102abf84c2baeef7aba550add449e",
       "before": null
     },
     {
-      "path": "data/datasets/coupang-q3-fy24.js",
-      "digest": "sha256:f75ce844e9c0af7803b07a223b3e639a9856941311122c93a38ac11c2a2e6c52",
+      "path": "data/datasets/cisco-q4-fy23.js",
+      "digest": "sha256:c9f5ca5d6b256ca3d7ba8e02af0f094c66c6644549694089fef4760ea846b750",
       "before": null
     },
     {
-      "path": "data/datasets/coupang-q4-fy22.js",
-      "digest": "sha256:574d238972c294938430b7fd08dce4a08a3bb681cfcf590df304cf9fe8c70367",
+      "path": "data/datasets/cisco-q4-fy24.js",
+      "digest": "sha256:0b0f324d97a880801a4de29316699fb62fbe352b1d1e569d11b97195a16fa020",
       "before": null
     },
     {
-      "path": "data/datasets/coupang-q4-fy23.js",
-      "digest": "sha256:a13eccb8313d06fa2ecc4bfd5f5f40b1ed0e5faa2cdc0905136b5d6e134cb3a4",
+      "path": "data/datasets/cisco-q4-fy25.js",
+      "digest": "sha256:3e881f1f77c72d69dbc80299d3535ef1efaca4fdae3e519cd35568cb4fecedbd",
       "before": null
     },
     {
-      "path": "data/datasets/coupang-q4-fy24.js",
-      "digest": "sha256:0659de18f4738f5d90fa4e1b339d7069e8dc91f2da2a862a776294703362eabe",
+      "path": "data/datasets/comcast-q1-fy23.js",
+      "digest": "sha256:491bdd7b51e075a08b821e3d49e4ed1610acfa670d3a4b1ebaff37ee6064bb91",
       "before": null
     },
     {
-      "path": "data/datasets/morgan-stanley-q1-fy23.js",
-      "digest": "sha256:b8fc77777dc8da22c56c0674654ec49b2c380fd4ffb8b3ab85c984eecc4dca74",
+      "path": "data/datasets/comcast-q1-fy24.js",
+      "digest": "sha256:61a3c7d1fe40cba73dafedafc0ec52e44cc15e87dbea580615ddf9a990c68eda",
       "before": null
     },
     {
-      "path": "data/datasets/morgan-stanley-q1-fy24.js",
-      "digest": "sha256:4d5a47a307b8cbed3a7c2c6d283bbd0b0f9253c0ef8509a23be47263ef1ee939",
+      "path": "data/datasets/comcast-q1-fy25.js",
+      "digest": "sha256:059b3f4fdd989819a1d3bd28de9e05bfdccab5aa4002c7bd43053f788c05e3c5",
       "before": null
     },
     {
-      "path": "data/datasets/morgan-stanley-q1-fy25.js",
-      "digest": "sha256:50764eabf03de887c5f80220a2de6ad29f7480e651b1df017d7c1e5ffac81551",
+      "path": "data/datasets/comcast-q2-fy23.js",
+      "digest": "sha256:a20c5f982aee265b4ad3f486be9b72732d740dbeddc5bf08a5ae8a80b2c9cdbf",
       "before": null
     },
     {
-      "path": "data/datasets/morgan-stanley-q2-fy23.js",
-      "digest": "sha256:f789b74d11fa9e4f2dc009232b255ee0fb8156f9faae9f88a3ef4797aa178b4a",
+      "path": "data/datasets/comcast-q2-fy24.js",
+      "digest": "sha256:bef2f17e8002780fdc56460b7c9f97664176969d3158379c376f983602ba2c1c",
       "before": null
     },
     {
-      "path": "data/datasets/morgan-stanley-q2-fy24.js",
-      "digest": "sha256:531c1faaa3001e53c9ee2e4dff0d4495da866d73ba8bcb4711adb287d133cd4f",
+      "path": "data/datasets/comcast-q2-fy25.js",
+      "digest": "sha256:4acc99dcb28d04f0c4ea151c8c9d6db07ce6fc92f8bfd32bd6298f62042589c4",
       "before": null
     },
     {
-      "path": "data/datasets/morgan-stanley-q2-fy25.js",
-      "digest": "sha256:33d115a85e71ac1d540293178b47a71029a485cbe935c1fd1cc01791f13376c0",
+      "path": "data/datasets/comcast-q3-fy23.js",
+      "digest": "sha256:a2c4e53152488516ff99e70a9e09a8369bbdb1492f5eb95b7c852a2f0b914ff5",
       "before": null
     },
     {
-      "path": "data/datasets/morgan-stanley-q3-fy23.js",
-      "digest": "sha256:b399424469554bf87fb4386ba5569d602189473ebb398692cca1b90a057a3f0e",
+      "path": "data/datasets/comcast-q3-fy24.js",
+      "digest": "sha256:296822422fefe80ed8dde0bd8bc49ad4a48ca84c040d4e7ac0e3ee3eb342c103",
       "before": null
     },
     {
-      "path": "data/datasets/morgan-stanley-q3-fy24.js",
-      "digest": "sha256:ce77dcf694b1f34ba13e9628617f139cdb724bee1704f282432bbce371ea352d",
+      "path": "data/datasets/comcast-q3-fy25.js",
+      "digest": "sha256:0a0fa78be958e1a85f938999c2fd415d89cd6cb9f632f76fb520dfa545102d61",
       "before": null
     },
     {
-      "path": "data/datasets/morgan-stanley-q3-fy25.js",
-      "digest": "sha256:d5225656acdf0d4825cec9e5d559f8cbe3288411c6d4e45919b3dd9cd6802875",
+      "path": "data/datasets/comcast-q4-fy22.js",
+      "digest": "sha256:2b6a0336a44c18f334004b7409256969fd8180f7e0bdceb51d74e4ff17b4d050",
       "before": null
     },
     {
-      "path": "data/datasets/morgan-stanley-q4-fy22.js",
-      "digest": "sha256:30a0d13c4a0f64d3bcf62a4304239dde96d9763a2b54dab0af41594b537febad",
+      "path": "data/datasets/comcast-q4-fy23.js",
+      "digest": "sha256:f514efcee7874eba2705391c8f87ba97ad2295f1cbb749695c2c5bdcaaea0bf6",
       "before": null
     },
     {
-      "path": "data/datasets/morgan-stanley-q4-fy23.js",
-      "digest": "sha256:4fc07043ccc60039fc3573154c8cd42fc817d76022727ed914d5c98cc358a34f",
+      "path": "data/datasets/comcast-q4-fy24.js",
+      "digest": "sha256:2cafc2b475418c5e4e4c869e08944410af3b1711eeac8456708ee1c5a76b9a0b",
       "before": null
     },
     {
-      "path": "data/datasets/morgan-stanley-q4-fy24.js",
-      "digest": "sha256:5751a664c0ae2a4ffa4a4c8d0c21a12a3897b1a9e696405d11598910326204c7",
+      "path": "data/datasets/match-group-q1-fy23.js",
+      "digest": "sha256:290532fe7f01056addfb64de90702582bf5b6122609688a4eeb0fffc8abebb59",
       "before": null
     },
     {
-      "path": "data/datasets/roku-q1-fy23.js",
-      "digest": "sha256:3fdda57d983da2766f006240c245b9bb4a2616cdcf031f1852d0a1b90be9d84c",
+      "path": "data/datasets/match-group-q1-fy24.js",
+      "digest": "sha256:7a60de4d1aa200c090b3583b46fa9e012957d9f3653c74bf80fb41fdf53e0990",
       "before": null
     },
     {
-      "path": "data/datasets/roku-q1-fy24.js",
-      "digest": "sha256:ba819a9dd36795bcf80b10fb1860e5e247316131432b81dc9687b9afd4209223",
+      "path": "data/datasets/match-group-q1-fy25.js",
+      "digest": "sha256:8c5a21dac1ac26833bdcaf8d7f1c7b45728345b1719dc59955748603edf93893",
       "before": null
     },
     {
-      "path": "data/datasets/roku-q1-fy25.js",
-      "digest": "sha256:b5744e03f65c674a8cbe89f3f396e0877a65c2992063a70b1abf9d248da5a12f",
+      "path": "data/datasets/match-group-q2-fy23.js",
+      "digest": "sha256:1c40e79f31e82939ff30f77e9af55931f44327269aeec31a040dd2609cc30b6b",
       "before": null
     },
     {
-      "path": "data/datasets/roku-q2-fy23.js",
-      "digest": "sha256:c60ead3c3ad2e0196741d39d0fad3906662cbe97585ff6460f9285af02359cde",
+      "path": "data/datasets/match-group-q2-fy24.js",
+      "digest": "sha256:7ea8806f2794e7cddef7c50dbf337d3edf9cad012f39ac3b44cbe514953cca8d",
       "before": null
     },
     {
-      "path": "data/datasets/roku-q2-fy24.js",
-      "digest": "sha256:f5f6cbc6ad05f9835a8aceccc213198dba0d03ef10d13d1e0d6dfa9c461af2ab",
+      "path": "data/datasets/match-group-q2-fy25.js",
+      "digest": "sha256:cc7df448144589d7039e8d6db1a8ebe9276d7ebf2fd18860faa7c0495dfe7250",
       "before": null
     },
     {
-      "path": "data/datasets/roku-q2-fy25.js",
-      "digest": "sha256:1e124b7a7f5882782d6ea382c33d787c1928917b73944d92ac4e3f9cd9331861",
+      "path": "data/datasets/match-group-q3-fy22.js",
+      "digest": "sha256:f1a9bfba47ee0e83f984bc9a030c1c17a075590deb6943832195e5c3865f8a8a",
       "before": null
     },
     {
-      "path": "data/datasets/roku-q3-fy22.js",
-      "digest": "sha256:abf836345cbaa206795a422436c7efb4e25480c1ffd0776eba229cd26c1c4329",
+      "path": "data/datasets/match-group-q3-fy23.js",
+      "digest": "sha256:c0d7021f97c5b56372bb0550c8ff8a8721404cf96728c965aefc3531dbef68c9",
       "before": null
     },
     {
-      "path": "data/datasets/roku-q3-fy23.js",
-      "digest": "sha256:382490aa9d1efe9d1496b20f896f67f6c9f199b1784842d25bfc72d03b53182c",
+      "path": "data/datasets/match-group-q3-fy24.js",
+      "digest": "sha256:17e9316b3df04b2b5cb699ddb3009c4298bb989ad386e232916124c2aa0ba683",
       "before": null
     },
     {
-      "path": "data/datasets/roku-q3-fy24.js",
-      "digest": "sha256:8cbc7100a6e4f67357b4df665896d389d13dfbdef36f4970c20ce1e93e4c9878",
+      "path": "data/datasets/match-group-q4-fy22.js",
+      "digest": "sha256:b0dae2a237b0bbf913047dfb703ecd2ff79238f50f5bae5af8d6e04d19b8bd24",
       "before": null
     },
     {
-      "path": "data/datasets/roku-q3-fy25.js",
-      "digest": "sha256:7999a4b492b55d54f1f70a0a3ed3264c1e0a1cb5c7e5425c784769a67234c58c",
+      "path": "data/datasets/match-group-q4-fy23.js",
+      "digest": "sha256:8e118bf83fdb881357121a05a560f8b0074550becc87c1799005e7e02914f995",
       "before": null
     },
     {
-      "path": "data/datasets/roku-q4-fy22.js",
-      "digest": "sha256:1d6ef17735bd9e7807bc12391f562b9c29e870de619309a14e7fe6415fadc7bf",
+      "path": "data/datasets/match-group-q4-fy24.js",
+      "digest": "sha256:29ea6de5240c08a8474d66e8c2038186dac5eebfee8a374c2df7fccba8932305",
       "before": null
     },
     {
-      "path": "data/datasets/roku-q4-fy23.js",
-      "digest": "sha256:48c796cb72ac33b209742484e46b32c506e7093c4cd366e566ac704f2eda77cb",
+      "path": "data/datasets/monday-com-h1-fy24.js",
+      "digest": "sha256:4e356ad62a3d1161ec8c538ef4d9fd29271bc2a6941ca0433e5c8d116f727a83",
       "before": null
     },
     {
-      "path": "data/datasets/roku-q4-fy24.js",
-      "digest": "sha256:c1fc854ea51b130e96d4c66c95572d142714e81d07e568209c92a3291922f93b",
+      "path": "data/datasets/monday-com-q1-fy23.js",
+      "digest": "sha256:3eeaf64f22d69b6ac9fb0925bd3a87cd7aa16b9d93ed2181549e9f8fb9be45a1",
       "before": null
     },
     {
-      "path": "data/datasets/wells-fargo-q1-fy23.js",
-      "digest": "sha256:0c559c248fecf324b9c8bfe6810b20d74c2c7ae67cad4b504b0a24de6bdecafc",
+      "path": "data/datasets/monday-com-q1-fy25.js",
+      "digest": "sha256:8e9d9189cf9df1f246d796c9337a91ffefbc73cb00c06761cae8c374a0b4405b",
       "before": null
     },
     {
-      "path": "data/datasets/wells-fargo-q1-fy24.js",
-      "digest": "sha256:437eeb667f88645b362f5f64076a4f1c1684e29056dd6f3848b10075b53d8c4b",
+      "path": "data/datasets/monday-com-q2-fy23.js",
+      "digest": "sha256:2f79a1e3773c0ffae4509b0744571c3e425b3d7fe31d7d453ec093c56cd52300",
       "before": null
     },
     {
-      "path": "data/datasets/wells-fargo-q1-fy25.js",
-      "digest": "sha256:dd1d8129b28d356258fe5da4c35b29c1acaa0ea70635f5cba4b065a51bcbddcd",
+      "path": "data/datasets/monday-com-q2-fy25.js",
+      "digest": "sha256:7884cacb40b9feefcd54c378bbc4898998d609b620d71da384702737423fa4b0",
       "before": null
     },
     {
-      "path": "data/datasets/wells-fargo-q2-fy23.js",
-      "digest": "sha256:39b695cc3f6dd0d1be6c293c7f59e9583cb505e5be94b0eb47be15e892ced995",
+      "path": "data/datasets/monday-com-q3-fy23.js",
+      "digest": "sha256:76c9a88bfa6326794dd03d89864714d95e2131efc269f1f6ac6419443fa36a1d",
       "before": null
     },
     {
-      "path": "data/datasets/wells-fargo-q2-fy24.js",
-      "digest": "sha256:d5bbc3ec8809103dc12b6bdb3b0b10cacc9571d4e9744609126c7b33b8e9ab0d",
+      "path": "data/datasets/monday-com-q4-fy22.js",
+      "digest": "sha256:fd0dac5b947beb9675c34826bf9b10eb666ecf6b25c9f35d6b1358328462db86",
       "before": null
     },
     {
-      "path": "data/datasets/wells-fargo-q2-fy25.js",
-      "digest": "sha256:155179e0636f1eee7fa3f6a186da704911667c26e892a46c495feb0e08970cc3",
-      "before": null
-    },
-    {
-      "path": "data/datasets/wells-fargo-q3-fy23.js",
-      "digest": "sha256:3ce4e8283058cc0ade95a844c6b6809655fd8e4a8f1cdb25818ee845211bb17e",
-      "before": null
-    },
-    {
-      "path": "data/datasets/wells-fargo-q3-fy24.js",
-      "digest": "sha256:9adb377bec944d6c47047000b84b3c0ed0731225311e35e89cde4cb9ad368f31",
-      "before": null
-    },
-    {
-      "path": "data/datasets/wells-fargo-q3-fy25.js",
-      "digest": "sha256:914fa77e3f958ecb7ce01d97fd7e8d5ca20b109f20739f43c6bfc319eb43a00f",
-      "before": null
-    },
-    {
-      "path": "data/datasets/wells-fargo-q4-fy22.js",
-      "digest": "sha256:a4f9f59f23e9ab92f3ac293e60debd980c3042902d4d6ba14865a8f8570bedf5",
-      "before": null
-    },
-    {
-      "path": "data/datasets/wells-fargo-q4-fy23.js",
-      "digest": "sha256:7e2dc47041ef47b0303053c985fbd15e99cde6cb494660d74fb2a9d77f6746f2",
-      "before": null
-    },
-    {
-      "path": "data/datasets/wells-fargo-q4-fy24.js",
-      "digest": "sha256:c05d84bed2452bdd86a70a8f36a9fac8a625af8622560742129d7b0ffa5b96d8",
-      "before": null
-    },
-    {
-      "path": "data/income-statements/blackrock.js",
-      "digest": "sha256:86d41f5d594f5b36044be2cef11abbf7fbe6ef261b23eaea6961ed16b135ed41",
-      "before": "sha256:a098db9667b0fea5290538a3578e17f1f377a6c8a41fcde583f14fcc1df5da7b"
+      "path": "data/income-statements/appfolio.js",
+      "digest": "sha256:6c79d35320ad3140baaf9823f65a17fa030cfdc2ab3b5610f6b7d18943712d99",
+      "before": "sha256:1396842bb9cb65cd51d803d90bb6230159a1689fd89e7e36ada2b56823edac5b"
     },
     {
-      "path": "data/income-statements/citigroup.js",
-      "digest": "sha256:1e4efbad539033999a1ee8584bf81029f8c516e6afcdfe51e3c7cdc824607cd0",
-      "before": "sha256:24bed14cff6292a55eedbb1b10f160f05925b120dac4013d8002bf61594f7b05"
+      "path": "data/income-statements/bank-of-america.js",
+      "digest": "sha256:9708dfa5a3152dcf3a31f7963921f91e876fcc577c73ffc4cec150b446dbee12",
+      "before": "sha256:b73177f959f7b10074bfb9e737bc84685e8613013575dd43383d904665010079"
     },
     {
-      "path": "data/income-statements/coupang.js",
-      "digest": "sha256:2994b5c55f7a4cc03a148d95be00e8d24a53087def1b950066e66d0986f5f4c0",
-      "before": "sha256:337825646fed11b1df65165872304e99b6082c6d19127543ed4e6ba06240c9bc"
+      "path": "data/income-statements/cisco.js",
+      "digest": "sha256:82c9062b6dabd29deca88570cfd43fbd2a4f8087a4b7a0d5733da28f672e20a4",
+      "before": "sha256:924948a3a13f8b8e14678e4efd363e4225473b2bac67f63144874137b6a59ab5"
     },
     {
-      "path": "data/income-statements/morgan-stanley.js",
-      "digest": "sha256:45686d33176eed6b2f2ccb85245ca14c2997f81c25db95513390832d90840c1e",
-      "before": "sha256:7025e4f6b4818473d20a27f6af90c04f90d96aeb545d609c662fc821471ddf87"
+      "path": "data/income-statements/comcast.js",
+      "digest": "sha256:182c6c5d8a1e816fe366adeebc073cf4a9e3b3bd4e5de99a22ea043da03e481e",
+      "before": "sha256:1fdf1c357701ef6a0c65c5193ef84621f5e93b9e610dcb3e84f7354a072df903"
     },
     {
-      "path": "data/income-statements/roku.js",
-      "digest": "sha256:b4a7f330293165843224cb7efeedd2a67fcfc425a799ffc8cc10c3a19a9f3648",
-      "before": "sha256:6437b73212e77a9e0c59e8c9310bc4b8172014c0d47a8b15da046d97e0212703"
+      "path": "data/income-statements/match-group.js",
+      "digest": "sha256:9ccf3d2a881ff0f5a74a0f946ed070c2784f5650c8e87eaaf2f88ad3007a7aa3",
+      "before": "sha256:875c3d9eca9216c3ecbfeb09329cf3251ecbf616861849c15314fde79b10f7bc"
     },
     {
-      "path": "data/income-statements/wells-fargo.js",
-      "digest": "sha256:94c95d1b8864bdc4ff8769ec4d05120c3148c94fcb4bfabf77782b3f37109ebf",
-      "before": "sha256:883b5de5cd4968d84d263717c77b0992295fb0edf57220a5cbea610a5a04023a"
+      "path": "data/income-statements/monday-com.js",
+      "digest": "sha256:3786d53577f9a279d9938dc2c7804987cc6e809608cacf05e02f53a4bdf857dc",
+      "before": "sha256:6fa981e0c8e0bae0893a8663f7ac9b74b27618fb2d432a4f9f89aae8085ff268"
     },
     {
       "path": "data/render-baselines.json",
-      "digest": "sha256:e014d4f6e79c94ed68731ea71c8d324524cce93e70eb111d6f77d021833df800",
-      "before": "sha256:a45705af534531c0a0e50202161d4fa047ccd9eb22e7393a27ac454be09c2222"
+      "digest": "sha256:4ae0faa38539d062e72a184b48bfdd02f3b6c22ac561b3d876d6ad66268d05fd",
+      "before": "sha256:e014d4f6e79c94ed68731ea71c8d324524cce93e70eb111d6f77d021833df800"
     },
     {
       "path": "data/workflow-timestamps.json",
-      "digest": "sha256:6f0894f00dffff46814e7dad5e264f9aeb43547f081c3781562805f0348c88da",
-      "before": "sha256:26052cb7cce880727f6d0115b321dbacff42f0e0afa7fe3f3f85d3cd3c38d12d"
+      "digest": "sha256:f54b6941c928ce9a22ccf033f5580831a6a0b756d9aecf89b93be07671855753",
+      "before": "sha256:6f0894f00dffff46814e7dad5e264f9aeb43547f081c3781562805f0348c88da"
+    },
+    {
+      "path": "input/icon-crop-specs/comcast-company-wordmark-v2.json",
+      "digest": "sha256:e12202a04f433ba3eea6a27a8750a986abe33ccc9e2810760e4d5b224787dfdb",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/comcast-q4-fy22-wordmark-v2-reuse.json",
+      "digest": "sha256:32f21897408d34dc6a4fabd52fc7a6192ac47f0a7a577804b0df8deef9f1fa33",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/comcast-q4-fy24-wordmark-v2-reuse.json",
+      "digest": "sha256:8c95bf8c7927c1014e8e9f9011292802cc2c16f75d7b69b131b48ca6440efd90",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/comcast-wordmark-v2.json",
+      "digest": "sha256:ef45b7cedacfbcca9103335fffb8a1f38c97346946145e35ab85596bec1f6829",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/match-group-q4-fy22.json",
+      "digest": "sha256:51f689076bffc21e4d71e8a5c739c931ca11f7d0896a917b0b48041776ac1544",
+      "before": null
     }
   ],
   "release": {
-    "version": "0472eb359112dc49da09555756095b517ae33d23d679660ac0ca50dd81e7316a",
-    "contentDigest": "sha256:3b18852a42809271ea8b7108a787b46a25973aa02568fcb4152c88cb06ea0c43"
+    "version": "d7930eb08084a341610ee88f19a2492e82fd09c536986921ace73bf37f86dd9c",
+    "contentDigest": "sha256:4deb2115f63dda949f40db1860d40e5977fc3f16e7b5065ee5598e3f11964db5"
   },
   "approval": {
     "operator": "YaoXing Liu",
     "accepted": true,
-    "candidateDigest": "sha256:4636f782cd7ef875210a214d760767fb7f001c55feb981dbca71b89526b295ca",
+    "candidateDigest": "sha256:e0718a24ccf1de465bd4cd03dc66f84e165e8f96e02aae9338bbf89388cbff1c",
     "basis": "inherited-build-acceptance",
-    "planDigest": "sha256:16f003c06218bea3243cc03757cdb62e18f89f31560a53bb82e8044bf3c1a65d",
-    "recordedAt": "2026-10-29T05:03:28.509Z"
+    "planDigest": "sha256:648f42ccf987f41b9ec0a1ee725e6fde8eaf0fb0dc9d0fa56d1f7dc8a1abd3e9",
+    "recordedAt": "2026-10-29T16:41:42.051Z"
   }
 }
