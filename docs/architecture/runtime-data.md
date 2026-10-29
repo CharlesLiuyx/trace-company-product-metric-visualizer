@@ -28,8 +28,9 @@ size remains part of the startup budget; split it when growth warrants it.
 The generated catalog stores the shared version path once, omits an Adapter
 `src` that is the conventional `data/datasets/<key>.js`, and stores the
 Dataset Loader manifest by entry shape (each shape's field paths once, one
-row of values per Adapter). An inline restore rebuilds identical entries in
-order and each Adapter's complete URL before the manifest is installed.
+row of values per Adapter); Income Statement summary records use the same
+shape encoding. Inline restores rebuild identical entries in order and each
+Adapter's complete URL before the manifest is installed.
 
 Company JSON includes full authored metadata and all financial periods for that
 company. Table JSON includes a full metadata or financial family. Single-company
