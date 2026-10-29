@@ -8,3 +8,9 @@ test('supplemental monetary losses preserve Source accounting parentheses', () =
   assert.throws(() => normalizeOperatingObservation({ ...raw, literal: '($0.3B)' }), /value disagrees/);
   assert.throws(() => normalizeOperatingObservation({ ...raw, literal: '(€0.2B)' }), /unit\/currency disagrees/);
 });
+test('negative percentage changes preserve Source accounting parentheses', () => {
+  const raw = { value: '-4', unit: '%', currency: null, comparison: 'eq', literal: '(4%)' };
+  assert.deepEqual(normalizeOperatingObservation(raw), raw);
+  assert.throws(() => normalizeOperatingObservation({ ...raw, value: '4' }), /value disagrees/);
+  assert.throws(() => normalizeOperatingObservation({ ...raw, literal: '(-4%)' }), /value disagrees|disagrees/);
+});

@@ -56,10 +56,13 @@ function reconcileLiteral(raw, value, text) {
   const comparison = trailingPlus ? '>=' : prefixComparison;
   requireThat(comparison === COMPARISONS[raw.comparison], 'Operating metric comparison disagrees with its literal');
   literal = trailingPlus ? literal.slice(0, -1) : literal.slice(comparison.length);
-  // Accounting parentheses retain a negative supplemental monetary amount.
+  // Accounting parentheses retain a negative supplemental monetary amount or
+  // percentage change ("(4%)" comparable sales).
   if (MONEY.has(raw.unit) && /^\([^()]+\)$/.test(literal)) {
     const accountingPrefix = literalPrefix(raw.currency, literal);
     literal = literal.slice(1, -1).replace(accountingPrefix, accountingPrefix + '-');
+  } else if (raw.unit === '%' && /^\(\d[^()]*%\)$/.test(literal)) {
+    literal = '-' + literal.slice(1, -1);
   }
   if (raw.unit === 'count') {
     // A count is a nonnegative exact decimal: whole quantities (112M) and
