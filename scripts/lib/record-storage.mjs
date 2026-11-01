@@ -2,7 +2,7 @@
 // including the original receipt/object digests. Never rewrite lifecycle history.
 import path from 'node:path';
 import { existsSync, realpathSync } from 'node:fs';
-import { mkdir, readFile, open, link, rm } from 'node:fs/promises';
+import { mkdir, readFile, open, link, rm, utimes } from 'node:fs/promises';
 import { createHash, randomUUID } from 'node:crypto';
 
 export const RECORD_STORAGE_PROTOCOL = 'trace-record-list/v1';
@@ -38,6 +38,9 @@ async function storeBytes(store, bytes) {
   await mkdir(store, { recursive: true });
   if (existsSync(target)) {
     if (await readFile(target, 'utf8') !== bytes) throw new Error('Shared record chunk changed');
+    // A reused block is live again: refresh its mtime so the record-chunk GC
+    // grace period (docs/artifact-retention.md) starts from this write.
+    const now = new Date(); await utimes(target, now, now).catch(() => {});
     return digest;
   }
   const temp = `${target}.${randomUUID()}.tmp`;
