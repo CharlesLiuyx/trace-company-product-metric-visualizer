@@ -6,11 +6,9 @@
 2. **少误报**：检查失败必须对应一个可解释、可复现的问题。
 3. **快**：只运行与本次 ChangeImpact 有关的浏览器检查；无法分类时回退全量。
 
-`scripts/lib/ci-plan.mjs` 是检查选择 Module，`scripts/plan-ci.mjs` 是 Git diff Adapter。
-本地/PR 调用方提供两个 Git SHA；main push 自动选择此工作流最近成功且为当前提交祖先的
-main push 作为 base，覆盖上次失败或仍在运行的提交。历史查询失败、没有有效祖先时全量回退，
-不能只检查补救提交而漏掉前次未验证/未部署的改动。路径分类、受影响 Dataset key、严格回退和 GitHub Actions
-输出都保留在 Module 内，测试也通过同一个 Interface 验证。
+`scripts/lib/ci-plan.mjs` 是检查选择 Module（路径分类、受影响 key、严格回退和 Actions 输出），
+`scripts/plan-ci.mjs` 是 Git diff Adapter。本地/PR 调用方提供两个 Git SHA；main push 以此工作流
+最近成功且为当前提交祖先的 main push 为 base，历史查询失败或没有有效祖先时全量回退。
 
 本地处理一份材料时何时运行哪些检查只由 [输入流程](asset-workflow.md) §3 定义；本文只说明 CI。
 
@@ -21,56 +19,52 @@ Git diff
   ↓
 ChangeImpact 计划（只决定“要跑什么”，不决定“检查是否通过”）
   ↓
-pnpm check（始终运行）
+pip 安装图标裁剪依赖 → pnpm check（始终运行）
   ↓
 需要浏览器吗？──否──→ 完成
   │是
-  ├─ viewer app 检查（按影响）
-  ├─ Pages 构建/加载检查（按影响）
+  ├─ 恢复 Chromium 下载缓存 → 安装 Chromium 与系统库
+  ├─ viewer app + 本地审阅工作台检查（按影响）
+  ├─ 恢复旧 Pages runtime → Pages 构建 → verify:release → 加载检查（按影响）
   ├─ 全量或受影响 key 的 render regression
   └─ standalone 构建/自包含检查（按影响）
   ↓
-main 且站点内容变化：上传刚验证过的 _site → Deploy Pages
+main 且站点内容变化：上传刚验证过的 _site → 保存 runtime/Chromium 缓存 → Deploy Pages
 ```
 
 PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中断正在部署的 Pages。
 
 ## 每一个 CI 项在检查什么
 
-### 1. Checkout complete history
+### 1. Checkout complete history 与依赖安装
 
-- **白话作用**：拿到完整 Git 历史，而不只是最新一次提交。
-- **原理**：`actions/checkout` 使用 `fetch-depth: 0`。
-- **为什么需要**：`dataset-file-metadata` 从 Git 作者时间生成；ChangeImpact 也要比较
-  base/head 两个提交。
-- **抓不到什么**：它本身不判断代码对错，只提供后续检查需要的输入。
+- `actions/checkout` 使用 `fetch-depth: 0`：`dataset-file-metadata` 从 Git 作者时间生成，
+  ChangeImpact 也要比较 base/head 两个提交。它本身不判断代码对错。
+- `pnpm install --frozen-lockfile` 严格按 lockfile 安装；pnpm store 由 `actions/setup-node`
+  缓存，`node_modules` 每次从锁定依赖重建。
 
-### 2. Install JavaScript dependencies
+### 2. Plan checks from ChangeImpact (`pnpm plan:ci`)
 
-- **白话作用**：严格按 lockfile 安装运行检查需要的包，包括增量规划使用的静态解析器。
-- **原理**：`pnpm install --frozen-lockfile`；lockfile 与 `package.json` 不一致会失败。
-- **避免误报**：pnpm store 由 `actions/setup-node` 缓存，但 `node_modules` 每次从锁定依赖重建。
-
-### 3. Plan checks from ChangeImpact (`pnpm plan:ci`)
-
-- **白话作用**：回答“这次改动真正可能影响哪些表面”。
 - **原理**：读取 `git diff --name-status`，把文件映射成 pending、数据、单个 Adapter、
   viewer、共享 renderer、构建工具等影响；Income Statement SSOT 静态解析 base/head 的
-  完整记录，按 key 比较，只渲染新增、修改或删除记录关联的 Adapter。
-- **通过条件**：能够给出确定计划；缺 SHA、diff 失败或遇到未知可执行代码时自动全量。
-- **不会做的事**：不会把某个真实失败改成通过；它只选择检查集合。
-- **防漏规则**：未知 `scripts/`、`src/`、`vendor/` 改动一律全量；财务记录解析失败、
-  重复 key 或缺失任一版本时保留原整家公司覆盖。站点及 standalone 的既有检查仍执行。
+  完整记录，按 key 比较，只渲染新增、修改或删除记录关联的 Adapter。它只选择检查集合。
+- **防漏规则**：缺 SHA、diff 失败或未知 `scripts/`、`src/`、`vendor/` 改动一律全量；财务记录解析失败、
+  重复 key 或缺失任一版本时保留原整家公司覆盖。
+
+### 3. Install icon crop dependencies
+
+`pip install -r scripts/requirements.txt`（Pillow/numpy）只服务单元测试中调用的图标裁剪脚本
+`scripts/extract_icon_crops.py`；pip 缓存由 `actions/setup-python` 提供。
 
 ### 4. Fast deterministic checks (`pnpm check`)
 
-这一项永远执行，不依赖 ChangeImpact。子项以 `scripts/check.mjs` 的 `steps` 为准（当前 14 项，按下表顺序）。
-内部以最多两个子进程并发执行独立项，每项完成立即输出耗时，全部跑完后统一报失败和总墙钟耗时。
+这一项永远执行，不依赖 ChangeImpact。子项以 `scripts/check.mjs` 的 `steps` 为准（下表按其顺序）。
+内部按可用核数并发执行独立项（至少 2、上限 4 个子进程，汇总行打印实际数），每项完成立即输出耗时，全部跑完后统一报失败和总墙钟耗时。
 失败不会跳过其余检查；没有引入跨版本结果缓存。这些检查从项目文件重新推导结果，不需要本机 Build 记录，不替人完成审阅。
 
 | 子项 | 白话作用 | 实际原理 | 典型失败 | 不负责什么 |
 | --- | --- | --- | --- | --- |
-| `syntax` | 所有 JS 至少能被解析 | 单个 Node 进程中 `.js` 用 `vm.Script`、`.mjs` 用 `vm.SourceTextModule`（原生 V8 parser，只解析不执行；通过 grammar parity 测试） | 少括号、非法 import、语法残缺 | 不执行浏览器交互 |
+| `syntax` | 所有 JS 至少能被解析 | 单个 Node 进程用原生 V8 parser 只解析不执行（与 `node --check` 的 grammar parity 有测试） | 少括号、非法 import、语法残缺 | 不执行浏览器交互 |
 | `test` | 纯逻辑仍符合约定 | `node --test tests/*.test.mjs` | 布局数学、生命周期状态、i18n、Diff 等断言失败 | 不证明页面能启动 |
 | `check:pending` | 新图片不是重复上传或 key 冲突 | 在 check 进程内调用 `scripts/lib/pending-queue.mjs`，比较 pending/processing/processed 的 SHA-256、候选 key 与已有注册 | 同内容重复、同 key 两张图、已被领取 | 不移动 Source |
 | `verify:architecture` | 文档、机器契约和实现没有各说各话 | 对 lifecycle protocol、状态、Adapter、ChangeImpact、命令语义及文档链接逐项对账；校验保真规则目录生成区与 catalog 一致（改规则后须跑 `pnpm update:fidelity-rules-doc`）及 AGENTS 中文镜像章节/命令表奇偶 | JSON 契约和代码常量漂移 | 不执行生命周期命令 |
@@ -82,45 +76,44 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
 | `verify:asset-catalog` | 资产版本与使用目录是最新的 | 先建 Adapter 依赖反向图，再重新生成资产 catalog 并比较 | 新增/替换 raster 资产后 catalog 过期 | 不检查资产像素内容 |
 | `verify:metrics` | 通用指标值与来源、登记一致 | 加载 metric-observation SSOT 与 catalog；原始文本存在时逐段核验，本机原件缺失时只校验结构与摘要 | 指标值与来源段落不符、catalog 漏登记 | 不代替图片语义的人工核对 |
 | `verify:ssot` | 财务 SSOT、View Adapter、注册和币种互相对得上 | 在 VM 中加载所有数据，检查 key、金额、来源、单位、FX、注册奇偶，以及 render 画布声明与 `meta.referenceImage` 尺寸一致 | 图表值和财务记录不一致、漏公司 metadata、画布尺寸抄错 | 不判断像素位置是否像参考图 |
-| `verify:i18n` | 翻译只能改展示文案，不能改数据、几何或可见金额语义 | 加载 i18n 管线，按 deny-by-default 路径契约检查 overlay；独立比较本地化前后的 SSOT 拓扑、渲染几何、金额/通用数字/正负号/币种/单位/百分比及其 Y/Y、Q/Q、margin 等 basis、期间日期与 `$value` 绑定；SVG 保持同一元素树与非文本属性，`text/tspan` 仅可使用语料驱动、相对源受界的排版投影，raster 不可覆盖；单数据集流程可用 `--strict` | 中文 overlay 漏项、品牌词误译、翻译层新增金额、负号或 rate basis 丢失、SVG/CSS 伪造几何或隐藏文字、用字面金额替换 `$value` | 不代替中文页面人工检查 |
+| `verify:i18n` | 翻译只能改展示文案，不能改数据、几何或可见金额语义 | 按 deny-by-default 路径契约检查 overlay，并比较本地化前后的拓扑、几何、金额语义与 SVG 结构（单数据集流程可用 `--strict`） | 中文 overlay 漏项、品牌词误译、翻译层改金额或几何 | 不代替中文页面人工检查 |
 | `verify:dataset-file-metadata` | “最近更新”时间可复现 | 根据完整 Git author history 重算生成文件 | 提交 Dataset 后忘记刷新 metadata | 首次未提交文件仍只能临时使用 mtime |
 
 本机 `post-commit` / `pre-push` hook 规则由 [commit-messages.md](commit-messages.md) 「Dataset metadata 提交保护」定义；
 hook 只是反馈加速层，CI 仍在完整历史的 fresh checkout 中执行同一新鲜度门禁。
 
-### 5. Install Chromium and OS dependencies
+### 5. Chromium：restore、install、retain
 
-- **白话作用**：只有后续确实需要浏览器时才安装 Chromium。
-- **原理**：`playwright install --with-deps chromium` 同时校准浏览器版本和 Linux 系统库。
-- **下载缓存**：按 runner OS、架构及 lockfile 缓存 `~/.cache/ms-playwright`，只有成功的
-  main 检查保存缓存。缓存命中仍执行 `--with-deps`，校准系统库并补齐缺失浏览器；
-  pending-only、文档和纯数据 PR 继续完全跳过安装。
+只有后续需要浏览器（或 main 要部署新站点）时，按 runner OS、架构及 lockfile 恢复 `~/.cache/ms-playwright`，
+并总是执行 `playwright install --with-deps chromium` 校准系统库；只有 main 在恢复未命中时保存缓存。
 
-### 6. Verify viewer interactions (`pnpm verify:app`)
+### 6. Verify viewer interactions (`pnpm verify:app`) 与 `pnpm verify:workbench`
 
 - **白话作用**：证明开发版 viewer 不只是“语法正确”，而是真的能启动和点击。
-- **原理**：一个 Chromium 内按场景创建隔离 Context，覆盖默认启动、持久化语言/主题、
+- **原理**：一个 Chromium 内按场景创建隔离 Context（最多 3 个场景并发），覆盖默认启动、持久化语言/主题、
   Adapter 加载失败重试、选中公司后台预载全部期间 Adapter、hash 路由、hover 百分比、
   期间切换、Apple 全期间统一金额比例尺、USD/EUR 与 B/M 跨量级对比、金额维度一致性、
   节点与最终 SVG viewBox 对账、整组失败原子性、浏览器亚像素换行、对比缩放、趋势图和
-  手机视口。启动断言允许当前公司的完整 Adapter
-  集合被预载，超出该范围的空闲加载视为失败。
+  手机视口。启动断言允许当前公司的完整 Adapter 集合被预载，超出该范围的空闲加载视为失败。
+- `verify:workbench` 在同一条件下运行：在临时目录启动本地审阅工作台，用 Chromium 检查
+  同一 frame 内切换审阅项、候选自动跟随与显式冻结、多标签页偏好隔离和失败 Build 保留。
 - **触发**：`src/app/`、app CSS、Chart runtime、共享 viewer/runtime 改动。
-- **不对纯 Dataset 重跑的原因**：单 Dataset 的图形由 render regression 检查；app smoke
-  使用固定代表性数据，重复运行不会增加该 Dataset 的覆盖。
+- **不对纯 Dataset 重跑**：单 Dataset 的图形由 render regression 检查；app smoke 使用固定代表性数据。
 
-### 7. Build Pages projection (`pnpm build:site`)
+### 7. Build Pages projection (`pnpm build:site`) 与 `pnpm verify:release`
 
 - **白话作用**：把开发目录投影成真正部署的 `_site`。
 - **原理**：生成 foundation/catalog/app 三个有序 bundle，保留 Adapter 按需脚本，复制
   Chart.js 与本地字体，明确排除 fidelity reference images。
   catalog 只保留导航、搜索和排序所需的摘要；完整公司/财务详情、全量 Table family、
   通用指标另存 JSON。所有运行资源位于同一个内容摘要目录 `releases/<digest>/`。
-  构建前恢复 `output/site-releases` 缓存，产物最多带上前两个版本；缓存缺失也能独立构建。
-  运行数据与 canonical publication 的边界见
+  构建前 `Restore previous Pages runtimes` 恢复 `output/site-releases` 缓存，产物最多带上前两个版本；
+  缓存缺失也能独立构建。运行数据与 canonical publication 的边界见
   [runtime-data.md](architecture/runtime-data.md)。
-- **触发**：任何会改变线上站点内容的数据、Adapter、viewer 或构建脚本。
-- **性质**：构建很快；它检查“能否生成”，不检查浏览器加载行为。
+- **`verify:release`**：构建后核对 `_site` 实际字节与 `site-release.json`、manifest 的源提交等于 CI 提交；
+  带 `Trace-Transport` 的提交还要逐路径匹配 `docs/releases/current.json` 中已接受的审阅映射。
+  Git 交接机制见 [local-environments.md](local-environments.md)。
+- **触发**：任何会改变线上站点内容的数据、Adapter、viewer 或构建脚本；构建只检查“能否生成”，不检查浏览器加载行为。
 
 ### 8. Verify Pages loading and interaction budgets (`pnpm verify:site`)
 
@@ -133,13 +126,12 @@ hook 只是反馈加速层，CI 仍在完整历史的 fresh checkout 中执行�
   字体与页面错误；随后用与开发版相同、但不调用生产校准模块的 Adapter + Metric SSOT +
   实绘 DOM oracle 验证 Apple 全期间统一金额比例尺，防止 bundle 顺序或投影漏文件。
   首个 Sankey 渲染前（`trace:sankey-rendered` performance mark）只允许一个公司详情 JSON、
-  零全局 Table JSON；空闲后额外的公司详情只能属于列表可见公司；catalog 加默认公司详情的 gzip
-  总量不超过 **150 KiB**，catalog 原始大小不超过 **1 MiB**。另以完整源码 SSOT 为
+  零全局 Table JSON；空闲后额外的公司详情只能属于列表可见公司；传输与 catalog 大小预算见
+  [runtime-data.md](architecture/runtime-data.md)。另以完整源码 SSOT 为
   oracle 核验 Table/CSV 完整性、中文缓存更新、多公司范围、失败重试、损坏字节拒绝、
   收入趋势无多余详情依赖和快速切换公司时的旧请求隔离。
 - **触发**：viewer/站点构建变化；`main` 上只要要部署新 `_site` 也强制运行。
-- **为什么数据 PR 不必在 PR 阶段都跑**：Adapter 自身由受影响 key 渲染；Pages 的加载策略
-  没有变化。合入 `main` 准备部署时仍会检查实际产物。
+- **数据 PR 不必跑**：Adapter 由受影响 key 渲染，加载策略没有变化；合入 `main` 部署前仍检查实际产物。
 
 ### 9. Render regression (`pnpm verify:render-regression`)
 
@@ -147,56 +139,41 @@ hook 只是反馈加速层，CI 仍在完整历史的 fresh checkout 中执行�
 - **原理**：一个 Chromium、默认四个隔离 Context 并行；每个 key 都跑英文和中文的字体、
   SVG 纯净度、画布尺寸和页面错误硬门槛。存在本地 reference image 时，再把
   英文候选截图与 canonical baseline 比 similarity。
-- **结构错误快速失败**：baseline 缺项/孤儿在 `pnpm check` 中已经失败；即使单独运行本命令，
-  也会在启动浏览器前失败，不再浪费约 50 秒。
-- **缺参考图时的准确表述**：只算“hard gates passed”，不能写“视觉相似度通过”。
+- **结构错误快速失败**：baseline 缺项/孤儿在 `pnpm check` 中已经失败；单独运行本命令也在启动浏览器前失败。
 - **为什么 CI 不运行 `verify:d3`**：完整 diagnostic 需要
   `input/processed/<key>.png`，而 processed archive 按仓库策略只存在于本机、不会进入
   fresh checkout。CI 用本命令覆盖可复现的渲染硬门禁；完整 reference/Diff/Interface
   诊断仍在持有本机 reference 的 Dataset Build / fidelity 流程中运行。
-- **为什么不在这里强制 `verify:d3` 的严格标签间距**：全目录受控试跑发现 48 个历史已接受
-  固定布局会触发该门槛。没有 per-Dataset 例外/baseline 前直接推广会制造误报；严格标签、
-  Interface 和人工视觉判断仍由每个 Dataset 的 Build/fidelity 流程负责。
+- **为什么不在这里强制 `verify:d3` 的严格标签间距**：已接受的固定布局没有 per-Dataset 例外/baseline，
+  直接推广会制造误报；严格标签、Interface 和人工视觉判断由每个 Dataset 的 Build/fidelity 流程负责。
 - **选择规则**：Adapter/对应 Income Statement SSOT/reference image → 受影响 key；baseline
   顶层 policy 不变时只取变化条目；raster asset 取前后已校验 catalog 的使用者并集
   （含间接复用）。查不到完整 catalog 或共享 runtime 出现资产引用时仍全量。
   仅生成的 SSOT script 标签变化不改变 runtime 加载顺序；其他 `index.html` 改动仍全量。
-  参考裁剪和审阅 JSON 不是运行资产。共享 engine/i18n/icons/fonts/d3/runtime、baseline
+  参考裁剪、审阅 JSON 和 `data/assets/**/*.md` 文档不是运行资产。共享 engine/i18n/icons/fonts/d3/runtime、baseline
   policy 变动和未知可执行影响继续全目录。
-- **本机增量（指纹缓存）**：默认全 key 运行时，按 key 计算内容指纹（Adapter 源文件 +
-  其引用的 raster-annotation 资产 + 按 processed→processing 回退解析的 reference image +
-  该 key 的 baseline 条目），再叠加全局 runtime 指纹（engine/i18n/icons/d3 按 index.html
-  加载顺序 + 内联字体字节 + 渲染/门槛管线脚本自身 + Playwright/浏览器/OS 签名）。指纹与
-  上次通过完全一致的 key 直接跳过；零 miss 时不启动服务器与浏览器。缓存位于
-  `output/render-regression/cache.json`（gitignored、单机、与失败诊断产物同一既成写语义），
-  跳过量始终在汇总行显式报告。显式 key 与 `--update` 永远真渲染；失败与
-  similarity 提升超容差的 key 永不入缓存（重录提示每次重现）；`--no-cache` 强制全量；
-  缓存损坏/版本不符/指纹计算失败一律回退全量，绝不让缓存本身弄失败一次 verify。
-- **声明的近似**：其他 Dataset Adapter 与 income-statement SSOT 脚本会加载进 harness
-  页面但不是像素输入，因此不进任何 key 的指纹——否则每新增一个数据集都会作废全部缓存。
-  兜底：新增/变更 key 必为 miss 而真渲染，`pnpm check` 语法扫全部脚本，CI 无 `output/`
-  持久化、永远冷跑全量。
+- **本机指纹缓存**：默认全 key 运行时，只有内容指纹（Adapter、资产、reference、baseline 条目与全局
+  runtime/管线）字节级一致且上次通过的 key 才跳过；失败永不入缓存；跳过量必须出现在汇总行；
+  缓存是 gitignored 的本机 `output/` 产物，CI 永远冷跑。显式 key、`--update`、`--no-cache` 都真渲染。
 
 ### 10. Standalone build and verification
 
 - **白话作用**：保证双击一个 HTML 就能使用，不依赖旁边的 CSS、JS、字体、Dataset 或 PNG。
-- **原理**：`build:standalone` 内联所有运行内容；`verify:standalone` 先静态搜索外链，再通过
-  `file://` 用 Chromium 启动，检查默认 Sankey、字体、raster annotation 均为 data URI，
+- **原理**：`build:standalone` 内联所有运行内容；`verify:standalone` 先静态搜索外链并确认未内联
+  本机 processed 参考图（一次扫描建立 data URI 索引），再通过 `file://` 用 Chromium 整页加载一次，
+  检查默认 Sankey 与字体；之后在同一文档内用 `location.hash` 触发 hashchange 路由逐个切换
+  raster annotation 数据集，等待条件绑定目标 key 与新绘制的 `#chart svg`，确认 raster 均为 data URI，
   并复用独立 oracle 验证 Apple 全期间统一金额比例尺。
 - **触发**：Dataset Adapter、viewer/runtime、asset 或 standalone 构建工具变化。
-- **不对纯 metadata/revenue 数据重复跑的原因**：这些数据的结构由 SSOT 检查负责；
-  standalone 的比例尺场景固定覆盖 Apple 收入表，纯 revenue metric 变化不经过该路径。
+- **不对纯 metadata/revenue 数据重复跑**：其结构由 SSOT 检查负责，standalone 比例尺场景只覆盖 Apple 收入表。
 
 ### 11. Upload and Deploy Pages
 
 - **白话作用**：部署的必须是刚才验证过的那个 `_site`，不是另一个 Job 重新构建的近似产物。
 - **原理**：`check` Job 在 `main` 上上传 `_site`；`deploy` Job 只下载该 artifact 并调用
   `actions/deploy-pages`。部署 Job 只有 Pages/id-token 写权限，检查 Job 只有 contents/actions 读权限。
-- **消除的冗余**：旧 `pages.yml` 的第二次 checkout、pnpm setup、dependency install 和
-  `build-site` 已删除。
-- **旧页面兼容**：只有验证完成的 main 运行保存 runtime 缓存；PR 不保存。
-  缓存保留是尽力行为，不能承诺任意旧页面永久可用。资源过期时页面提供重试与刷新
-  最新版本，不能把新版本详情拼进旧目录。
+- **旧页面兼容**：只有验证完成的 main 运行通过 `Retain verified Pages runtimes` 保存 runtime 缓存；
+  这是尽力保留，资源过期时页面提供重试与刷新最新版本，不能把新版本详情拼进旧目录。
 
 ## ChangeImpact 触发矩阵
 
@@ -213,32 +190,19 @@ hook 只是反馈加速层，CI 仍在完整历史的 fresh checkout 中执行�
 | 已登记 raster asset | 必跑 | 安装 | 前后 catalog 的全部使用者，含间接复用 | 不跑 | 构建；main 部署前浏览器验证 | 构建 + 浏览器验证 |
 | 仅生成 SSOT script 注册 / 时间账目 | 必跑 | 按其他影响 | 不自行扩大 | 不跑 | 构建；main 部署前浏览器验证 | script 注册变更时验证 |
 | 仅 baseline 条目 | 必跑 | 有受影响 key 时安装 | 变更条目 key；policy 变化仍全量 | 按其他影响 | 按其他影响 | 按其他影响 |
-| 图标参考裁剪/审阅 JSON、生成资产 catalog | 必跑 | 按其他影响 | 不自行扩大 | 按其他影响 | 按其他影响 | 按其他影响 |
+| 图标参考裁剪/审阅 JSON 与 `.md`、`data/assets/**/*.md`、生成资产 catalog | 必跑 | 按其他影响 | 不自行扩大 | 按其他影响 | 按其他影响 | 按其他影响 |
 | d3 验证工具 | 必跑 | 安装 | 全目录 | 按实际影响 | 按实际影响 | 按实际影响 |
 | 无法识别的可执行代码 | 必跑 | 安装 | 全目录 | 跑 | 跑 | 跑 |
 
-## 耗时记录
-
-浏览器检查按 ChangeImpact 只跑受影响范围，共享 renderer 与未知影响仍全量；本机 render 指纹缓存只降低本机迭代成本，CI 永远冷跑。
-历次实测（2026-07 CI 审计与指纹缓存、2026-09-05 check / Publication / CI 去重与 Pages 数据拆分 A/B）是历史观测，不是时间门禁，
-见 [ci-timing-history.md](archive/ci-timing-history.md)。
+历次耗时实测是历史观测，不是时间门禁，见 [ci-timing-history.md](archive/ci-timing-history.md)。
 
 ## “不能误报”的约束
 
-- baseline 缺失是确定的账目错误，必须失败；现在只是不再渲染后才失败。
-- 没有本地 reference image 时，不做 similarity 结论，只报告 hard gates。
+- baseline 缺失是确定的账目错误，必须在渲染前失败，不受指纹缓存影响。
+- 没有本地 reference image 时，不做 similarity 结论，只报告“hard gates passed”。
 - automatic evidence 不能代替操作员接受（FidelityResult 的 `acceptance`）。
 - ChangeImpact 计划失败不会跳过检查，而是全量回退。
 - 选择 Module 的每条分支都有纯函数测试；CI workflow 自身或 planner 变化会触发全量。
 - `verify:*` 保持只读；部署只消费已经验证的 `_site` artifact。
-- 指纹缓存只允许"字节级完全一致 + 上次通过"的 key 跳过；失败永不入缓存，跳过量必须
-  出现在汇总行里（欠检查永远可见）。缓存是 gitignored 的本机 `output/` 产物，CI 永远
-  冷跑；管线脚本自身在指纹内，改判定逻辑会自动作废全部缓存。baseline 缺失仍在渲染前
-  确定性失败，不受缓存影响。
 
-
-## 本地多环境与 Git 传输对齐
-
-Node 版本由 `.node-version` 固定，本地 `.nvmrc` 同值；`verify:workbench` 在 app gate 路径运行。
-`build:site` 后运行 `verify:release`，核对实际文件、`site-release.json` 与带 `Trace-Transport` 提交的
-`docs/releases/current.json` 映射；Git 交接机制见 [local-environments.md](local-environments.md)。
+Node 版本由 `.node-version` 固定，本地 `.nvmrc` 同值。
