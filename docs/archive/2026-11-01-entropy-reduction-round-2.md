@@ -62,6 +62,8 @@
 | ChangeImpact 对 acd799d | app + render full | app=false、render=changed（67 key），standalone/site 按 raster 规则触发 |
 | `workbench.test.mjs` 偶发卡死 | 无界 `await entered`，被取消后服务不关、进程不退出，拖满 300 s | 20 s 有界等待，失败可见且 `finally` 一定关服务 |
 
+CI 实测（run 41295278306，本轮改动触发全量，因为 `scripts/` 变化属未知可执行影响）：`pnpm check` 80 s（此前 50–92 s，无明显变化：runner 上 `test` 与 `verify:i18n` 仍各占一个 worker 且时长相近）；`verify:app` 63 s（此前 75–96 s）；`verify:standalone` 74 s（此前 51–75 s，无变化——本机 81 s 的主因是 processed 图扫描，CI 没有该目录；CI 上的时间由 140 MB 文档的两次解析决定）；全量 render 168 s；总时长 8 分钟。CI 侧真正的节省来自 ChangeImpact 修正：数据交接提交不再被资产文档误触发为 app + 全量 render（约省 4 分钟/次）。
+
 ### 3.3 规范
 
 - Markdown 净减 395 行（26 个文件，+1071 / −1466），其中：CONTEXT 184→138，architecture/README 185→129，dataset-lifecycle 431→386，verification-publication 340→317，runtime-data 177→134，local-environments 177→155，ci-verification 244→208，artifact-retention 98→91，README 243→211，`data/schema.md` 863→92（字段拆入 `data/schema/` 6 个文件，含新补的 layout / rasterAnnotations / meta.logoX,logoY / render.allowRasterAnnotations 字段节）。
