@@ -3,6 +3,7 @@
 // independent consistency checks. No rendering, no browser — suitable before
 // every commit. Render-level gates stay separate (verify:dataset,
 // verify:d3, verify:app, verify:standalone).
+import os from 'node:os';
 import path from 'node:path';
 import { rootDir } from './lib/project.mjs';
 import { runCheckProcess, runChecks } from './lib/check-runner.mjs';
@@ -74,10 +75,12 @@ const steps = [
   ['verify:dataset-file-metadata', () => runVerifier('update-dataset-file-metadata.mjs', ['--check'])],
 ];
 
+// Four matches GitHub's ubuntu-latest vCPUs; two keeps small machines overlapping.
+const workers = Math.min(4, Math.max(2, os.availableParallelism()));
 const startedAt = Date.now();
-const results = await runChecks(steps, 2, (result) => {
+const results = await runChecks(steps, workers, (result) => {
   if (result.passed) console.log(`ok   ${result.name} (${result.elapsedMs}ms) — ${result.summary}`);
   else console.error(`FAIL ${result.name}: ${result.error}`);
 });
-console.log(`\ncheck ${results.every((result) => result.passed) ? 'passed' : 'FAILED'} (${Date.now() - startedAt}ms wall; 2 workers)`);
+console.log(`\ncheck ${results.every((result) => result.passed) ? 'passed' : 'FAILED'} (${Date.now() - startedAt}ms wall; ${workers} workers)`);
 if (results.some((result) => !result.passed)) process.exitCode = 1;
