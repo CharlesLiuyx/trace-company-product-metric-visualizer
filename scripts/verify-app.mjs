@@ -22,7 +22,16 @@ const { url, close } = await startStaticServer({ port: 0 });
 const browser = await chromium.launch();
 const failures = [];
 
-async function scenario(name, run, { viewport = { width: 1440, height: 900 }, init } = {}) {
+// Scenarios register here and run after registration in a bounded pool; each
+// keeps its own BrowserContext, so contexts never share storage or pages.
+const SCENARIO_CONCURRENCY = 3;
+const scenarios = [];
+
+function scenario(name, run, options) {
+  scenarios.push(() => runScenario(name, run, options));
+}
+
+async function runScenario(name, run, { viewport = { width: 1440, height: 900 }, init } = {}) {
   const startedAt = Date.now();
   const context = await browser.newContext({ viewport });
   const page = await context.newPage();
@@ -1960,7 +1969,16 @@ await scenario('workbench: pinned language/theme/view override another tab’s s
   assert(page.url().endsWith('#apple-q1-fy26'), 'selected dataset was lost');
 });
 
-try { await verifyLocalFileEntry(browser); } catch (error) { failures.push(`local file entry: ${error.message}`); }
+scenarios.push(async () => {
+  try { await verifyLocalFileEntry(browser); } catch (error) { failures.push(`local file entry: ${error.message}`); }
+});
+
+const runStartedAt = Date.now();
+let nextScenario = 0;
+await Promise.all(Array.from({ length: Math.min(SCENARIO_CONCURRENCY, scenarios.length) }, async () => {
+  while (nextScenario < scenarios.length) await scenarios[nextScenario++]();
+}));
+console.log(`\n${scenarios.length} scenarios in ${Date.now() - runStartedAt}ms wall (${SCENARIO_CONCURRENCY} concurrent contexts)`);
 
 await browser.close();
 await close();
