@@ -628,7 +628,13 @@ await scenario('comparison: multi-select + zoom + metric trend', async (page) =>
       .find((button) => button.dataset.company !== state.company);
     other.dispatchEvent(new MouseEvent('click', { bubbles: true, shiftKey: true }));
   });
-  await page.waitForTimeout(300);
+  // The comparison group renders as one off-screen transaction; wait for its
+  // commit instead of a fixed delay that a slow runner can miss.
+  await page.waitForFunction(
+    () => !document.getElementById('sankeyComparison').hidden
+      && document.querySelectorAll('#sankeyComparison .comparison-card').length >= 2,
+    { timeout: 15000 }
+  );
   const comparison = await page.evaluate(() => ({
     visible: !document.getElementById('sankeyComparison').hidden,
     cards: document.querySelectorAll('#sankeyComparison .comparison-card').length,
@@ -1916,8 +1922,10 @@ await scenario('boot: zh sankey + progressive-load company switch', async (page)
     const target = groups.find((group) => group.company !== state.company && group.records.length);
     selectCompanyGroup(target);
   });
+  // The switched company's svg exists before its nodes are drawn; wait for a
+  // painted node so a slow runner cannot observe the empty frame.
   await page.waitForFunction(
-    () => Boolean(document.querySelector('#chart svg')) && !document.querySelector('.chart-loading'),
+    () => Boolean(document.querySelector('#chart svg .sankey-node')) && !document.querySelector('.chart-loading'),
     { timeout: 15000 }
   );
   const zhState = await page.evaluate(() => ({
