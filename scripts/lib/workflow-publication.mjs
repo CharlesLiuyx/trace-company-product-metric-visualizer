@@ -1,3 +1,4 @@
+import { adapterDisplayTimeKey, adapterFor, adapterRequiresRender } from './adapters/index.mjs';
 import { mergeSource } from './workflow-merge.mjs';
 import { prepareWorkspaceTools } from './workspace-tools.mjs';
 import { applicationManifest, adoptApplication, isApplicationPath } from './workflow-application.mjs';
@@ -90,11 +91,12 @@ export async function planAssetPublication(buildIds, root = rootDir, options = {
       owned.get(file).digest = bytesDigest(await readFile(inside(temporary, file)));
       applied.set(file, contribution);
     }
-    const incomeBuilds = contexts.filter(({ build }) => build.adapter === 'income-statement');
-    if (incomeBuilds.length) {
+    // Only Adapters with render evidence stage a baseline for the regression ledger.
+    const baselineBuilds = contexts.filter(({ build }) => adapterRequiresRender(build.adapter));
+    if (baselineBuilds.length) {
       const baselinePath = path.join(temporary, 'data/render-baselines.json');
       const ledger = await readJson(baselinePath);
-      for (const { build } of incomeBuilds) {
+      for (const { build } of baselineBuilds) {
         const stage = build.receipts.filter((receipt) => receipt.state === 'BASELINE_STAGED').at(-1).payload;
         const metrics = stage.metrics;
         if (stage.use !== 'future-regression-only' || !Number.isFinite(metrics?.similarity) || !Number.isFinite(metrics?.mae) || !Number.isInteger(metrics?.width) || !Number.isInteger(metrics?.height)) throw new Error(`Invalid staged baseline: ${build.key}`);
@@ -112,9 +114,9 @@ export async function planAssetPublication(buildIds, root = rootDir, options = {
       const metadata = view.window.DATASET_FILE_METADATA;
       const ownedTimes = new Map();
       for (const context of contexts) {
-        if (context.build.adapter === 'metric-observation') continue;
+        const key = adapterDisplayTimeKey(context.build.adapter, context.build.key);
+        if (!key) continue;
         const semantic = await readJson(path.join(context.projectRoot, 'output/workflow/semantic-inputs.json'));
-        const key = context.build.adapter === 'revenue-metric' ? 'data/revenue-metrics.js' : context.build.key;
         if (!semantic.displayTime) throw new Error(`Reviewed display time is missing for ${key}; refresh the Build`);
         if (ownedTimes.has(key) && digestValue(ownedTimes.get(key)) !== digestValue(semantic.displayTime)) throw new Error(`Conflicting reviewed display times for ${key}`);
         ownedTimes.set(key, semantic.displayTime); metadata.files[key] = semantic.displayTime;
@@ -123,7 +125,7 @@ export async function planAssetPublication(buildIds, root = rootDir, options = {
     }
     // Each projector writes only into this private candidate. No canonical
     // path is touched before the single pointer CAS below.
-    if (contexts.some(({ build }) => build.adapter !== 'metric-observation')) {
+    if (contexts.some(({ build }) => adapterFor(build.adapter).indexRegistration)) {
       runWorkspace(temporary, 'sync-index-datasets.mjs');
       runWorkspace(temporary, 'update-dataset-file-metadata.mjs');
     }

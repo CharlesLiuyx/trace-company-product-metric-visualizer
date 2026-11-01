@@ -1,3 +1,4 @@
+import { adapterFor } from './adapters/index.mjs';
 // Narrow recovery for an unaccepted intake made before operating-card support.
 // The original classification and receipt chain remain immutable.
 import path from 'node:path';
@@ -20,8 +21,9 @@ export function successorClassification(build, facts) {
   if (facts?.protocol !== 'source-facts/v1' || facts.questions?.length || !facts.signals) throw new Error('Complete resolved Source facts are required');
   const prior = build.sourceClassification;
   const next = createSourceClassification({ ...prior, classificationDigest: undefined, signals: facts.signals });
-  const expected = [...prior.signals, 'supplemental-operating-metrics'].sort();
-  if (build.adapter !== 'income-statement' || prior.signals.includes('supplemental-operating-metrics') || JSON.stringify(next.signals) !== JSON.stringify(expected)) throw new Error('Recovery only adds the supplemental operating metrics signal to the same Adapter');
+  const addable = adapterFor(build.adapter).signature.optional.filter((signal) => !prior.signals.includes(signal));
+  const accepted = addable.some((signal) => JSON.stringify(next.signals) === JSON.stringify([...prior.signals, signal].sort()));
+  if (!accepted) throw new Error('Recovery only adds one optional signal of the same Adapter (Income Statement: supplemental operating metrics)');
   return next;
 }
 export async function recoverIntakeSuccessor(buildId, facts, root) {

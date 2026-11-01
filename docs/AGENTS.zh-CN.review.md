@@ -82,6 +82,9 @@ workspace 中工作，携带 owner 与 generation（`docs/local-environments.md`
 - 领域规范化在 `src/trace-domain.js`；中文数据在 `src/i18n-dictionaries.js`。`src/app/`
   是共享同一作用域的有序经典脚本（顺序见 `index.html`，模块图见 `README.md`）；代码放入
   所属模块。`verify:app-globals` 强制加载顺序与重复声明检查。
+- 输入类型 Adapter 是 `scripts/lib/adapters/` 下的模块；工作流代码只通过该注册表读取
+  Adapter 行为，不比较 Adapter id（`tests/adapter-seam.test.mjs` 守卫）。来源媒介在
+  `scripts/lib/source-media.mjs` 注册。
 - 新增 Adapter、指标族或 SSOT 时，同步更新本文件、英文版与产品规格。
 
 ## 命令

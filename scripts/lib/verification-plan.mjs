@@ -1,4 +1,5 @@
-import { CHANGE_IMPACTS, DATASET_ADAPTERS } from './dataset-build.mjs';
+import { CHANGE_IMPACTS } from './dataset-build.mjs';
+import { DATASET_ADAPTERS, adapterFor } from './adapters/index.mjs';
 import { assertSourceObjects, digestCanonical } from './source-objects.mjs';
 
 // The VerificationPlan is a fixed checklist per Adapter. It binds the Build's
@@ -42,11 +43,7 @@ const CHECKS = Object.freeze({
   }),
 });
 
-export const ADAPTER_CHECKLISTS = Object.freeze({
-  'income-statement': Object.freeze(['data-consistency', 'render-fidelity', 'human-review']),
-  'revenue-metric': Object.freeze(['data-consistency', 'human-review']),
-  'metric-observation': Object.freeze(['data-consistency', 'human-review']),
-});
+export const ADAPTER_CHECKLISTS = Object.freeze(Object.fromEntries(DATASET_ADAPTERS.map((adapter) => [adapter, adapterFor(adapter).checklist])));
 
 const ADAPTER_SET = new Set(DATASET_ADAPTERS);
 const IMPACT_SET = new Set(CHANGE_IMPACTS);

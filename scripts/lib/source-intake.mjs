@@ -1,3 +1,4 @@
+import { SOURCE_FILE_RE, SOURCE_FORMAT_LABEL, sourceMediaForExtension } from './source-media.mjs';
 // Source intake for a new Dataset Build. It validates the identity the
 // operator chose, records `source-classification/v1` from the whole-Source
 // Type Gate, initializes the INTAKED Build and claims the Source from
@@ -75,8 +76,8 @@ export async function canonicalDataDigest() {
 
 function sourcePath(requested, projectRoot = rootDir) {
   const absolute = path.resolve(projectRoot, requested);
-  if (path.dirname(absolute) !== path.join(projectRoot, 'input', 'pending') || !/\.(png|txt|md)$/i.test(absolute)) {
-    throw intakeError('Source must be PNG, TXT or Markdown directly under input/pending/', 'INTAKE_SOURCE_INVALID');
+  if (path.dirname(absolute) !== path.join(projectRoot, 'input', 'pending') || !SOURCE_FILE_RE.test(absolute)) {
+    throw intakeError(`Source must be ${SOURCE_FORMAT_LABEL} directly under input/pending/`, 'INTAKE_SOURCE_INVALID');
   }
   return absolute;
 }
@@ -241,7 +242,9 @@ export async function recordIntake(rawOptions, dependencies = {}) {
   if (!existsSync(absoluteSource)) throw intakeError(`Source does not exist: ${options.source}`, 'INTAKE_SOURCE_MISSING');
   const bytes = await deps.readFile(absoluteSource);
   const extension = path.extname(absoluteSource).toLowerCase();
-  const isText = extension !== '.png';
+  const media = sourceMediaForExtension(extension);
+  if (!media) throw intakeError(`Source must be ${SOURCE_FORMAT_LABEL} directly under input/pending/`, 'INTAKE_SOURCE_INVALID');
+  const isText = media.id === 'text';
   const text = isText ? new TextDecoder('utf-8', { fatal: true }).decode(bytes) : null;
   if (isText && !text.trim()) throw intakeError('Text Source is empty', 'INTAKE_SOURCE_EMPTY');
   const dimensions = isText ? { format: 'text', charLength: text.length } : (() => { const png = PNG.sync.read(bytes); return { width: png.width, height: png.height }; })();

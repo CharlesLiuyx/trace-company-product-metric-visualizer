@@ -5,7 +5,8 @@
 // non-node metric. Render geometry is checked by the render gates, never by
 // Source pixel evidence here.
 import { createHash } from 'node:crypto';
-import { DATASET_ADAPTERS } from './dataset-adapters.mjs';
+import { ADAPTER_SIGNATURES, DATASET_ADAPTERS, SOURCE_CLASSIFICATION_SIGNALS, adapterFor, adapterHasSankeyView } from './adapters/index.mjs';
+export { SOURCE_CLASSIFICATION_SIGNALS };
 import {
   OPERATING_METRIC_SIGNAL,
   assertOperatingMetricView,
@@ -18,14 +19,6 @@ import { loadBrowserData } from './browser-data-loader.mjs';
 
 export const SOURCE_CLASSIFICATION_PROTOCOL = 'source-classification/v1';
 export const SOURCE_CLASSIFICATION_REVIEW_METHOD = 'full-source-type-gate';
-export const SOURCE_CLASSIFICATION_SIGNALS = Object.freeze([
-  'income-statement-values',
-  'sankey-flow-topology',
-  'revenue-metric-definition',
-  'time-series-observations',
-  'metric-observations',
-  OPERATING_METRIC_SIGNAL,
-]);
 
 export const SOURCE_OBJECTS_PROTOCOL = 'source-objects/v1';
 export const SOURCE_OBJECT_CLASSES = Object.freeze(['value', 'flow', 'label', 'asset', 'residual']);
@@ -93,21 +86,6 @@ const CLASS_FIELDS = Object.freeze({
   flow: Object.freeze([]),
   asset: Object.freeze([]),
   residual: Object.freeze(['approval']),
-});
-
-const ADAPTER_SIGNATURES = Object.freeze({
-  'metric-observation': Object.freeze({
-    required: Object.freeze(['metric-observations']),
-    forbidden: Object.freeze(['income-statement-values', 'sankey-flow-topology', 'revenue-metric-definition', 'time-series-observations', OPERATING_METRIC_SIGNAL]),
-  }),
-  'income-statement': Object.freeze({
-    required: Object.freeze(['income-statement-values', 'sankey-flow-topology']),
-    forbidden: Object.freeze(['revenue-metric-definition', 'time-series-observations', 'metric-observations']),
-  }),
-  'revenue-metric': Object.freeze({
-    required: Object.freeze(['revenue-metric-definition', 'time-series-observations']),
-    forbidden: Object.freeze(['income-statement-values', 'sankey-flow-topology', 'metric-observations', OPERATING_METRIC_SIGNAL]),
-  }),
 });
 
 function sourceObjectsError(code, message) {
@@ -213,7 +191,7 @@ export function createSourceClassification(input) {
   const derived = classifySourceSignals(input.signals, input.adapter);
   const source = normalizeSourceDescriptor(input.source, 'Source classification');
   const textSource = source.format === 'text';
-  invariant(!textSource || derived.adapter === 'metric-observation', 'SOURCE_FORMAT_ADAPTER_INVALID', 'Text Sources use the metric-observation Adapter');
+  invariant(!textSource || adapterFor(derived.adapter).media.includes('text'), 'SOURCE_FORMAT_ADAPTER_INVALID', `Text Sources need an Adapter that accepts text, not ${derived.adapter}`);
   const fullImageBBox = textSource ? null : normalizeBBox(input.fullImageBBox, 'Source classification fullImageBBox', 'SOURCE_CLASSIFICATION_SCOPE_INVALID');
   invariant(
     textSource ? JSON.stringify(input.fullTextRange) === JSON.stringify([0, source.charLength]) : JSON.stringify(fullImageBBox) === JSON.stringify([0, 0, source.width, source.height]),
@@ -388,29 +366,59 @@ function normalizeAmountFacts(raw, id) {
 
 // ---- SSOT references ----
 
+// Each Adapter declares the SSOT family its value entries reference
+// (`ssot.family` in scripts/lib/adapters/). The family owns the typed ssotRef
+// form, the amount shape of its value entries and the reconciliation against
+// the loaded SSOT; registering an Adapter with a family missing here fails.
+const SSOT_FAMILIES = Object.freeze({
+  'income-statement': Object.freeze({
+    amounts: 'scaled',
+    normalizeRef(raw, id) {
+      invariant(raw.family === 'income-statement', 'SOURCE_OBJECTS_SSOT_REF_INVALID', `${id} ssotRef family must be income-statement`);
+      invariant(
+        raw.path === OPERATING_METRIC_SSOT_PATH || INCOME_SSOT_PATH_SET.has(raw.path),
+        'SOURCE_OBJECTS_SSOT_REF_INVALID',
+        `${id} ssotRef.path is unsupported: ${raw.path}`
+      );
+      const ssotId = raw.id ?? FIXED_SSOT_IDS[raw.path];
+      invariant(typeof ssotId === 'string' && STABLE_ID_RE.test(ssotId), 'SOURCE_OBJECTS_SSOT_REF_INVALID', `${id} income-statement ssotRef needs a stable id`);
+      if (FIXED_SSOT_IDS[raw.path]) {
+        invariant(ssotId === FIXED_SSOT_IDS[raw.path], 'SOURCE_OBJECTS_SSOT_REF_INVALID', `${id} ${raw.path} always uses id ${FIXED_SSOT_IDS[raw.path]}`);
+      }
+      return { family: raw.family, path: raw.path, id: ssotId };
+    },
+    reconcile: (...args) => reconcileIncomeStatement(...args),
+  }),
+  'revenue-metric': Object.freeze({
+    amounts: 'scaled',
+    normalizeRef(raw, id) {
+      invariant(raw.family === 'revenue-metric' && raw.path === 'observations', 'SOURCE_OBJECTS_SSOT_REF_INVALID', `${id} ssotRef must target revenue-metric observations`);
+      invariant(/^\d{4}-\d{2}-\d{2}$/.test(String(raw.date || '')), 'SOURCE_OBJECTS_SSOT_REF_INVALID', `${id} revenue-metric ssotRef needs an observation date`);
+      return { family: raw.family, path: raw.path, date: raw.date };
+    },
+    reconcile: (...args) => reconcileRevenueMetric(...args),
+  }),
+  'metric-observation': Object.freeze({
+    amounts: 'free-unit',
+    normalizeRef(raw, id) {
+      invariant(raw.family === 'metric-observation' && STABLE_ID_RE.test(String(raw.id || '')), 'SOURCE_OBJECTS_SSOT_REF_INVALID', `${id} ssotRef must target one metric-observation id`);
+      return { family: raw.family, id: raw.id };
+    },
+    reconcile: (...args) => reconcileMetricObservation(...args),
+  }),
+});
+
+export const SSOT_FAMILY_IDS = Object.freeze(Object.keys(SSOT_FAMILIES));
+
+function ssotFamilyFor(adapter) {
+  const family = SSOT_FAMILIES[adapterFor(adapter).ssot.family];
+  invariant(family, 'SOURCE_OBJECTS_FAMILY_UNSUPPORTED', `Adapter ${adapter} declares an SSOT family without Source object rules`);
+  return family;
+}
+
 function normalizeSsotRef(raw, id, adapter) {
   invariant(raw && typeof raw === 'object' && !Array.isArray(raw), 'SOURCE_OBJECTS_SSOT_REF_REQUIRED', `${id} needs a typed ssotRef`);
-  if (adapter === 'income-statement') {
-    invariant(raw.family === 'income-statement', 'SOURCE_OBJECTS_SSOT_REF_INVALID', `${id} ssotRef family must be income-statement`);
-    invariant(
-      raw.path === OPERATING_METRIC_SSOT_PATH || INCOME_SSOT_PATH_SET.has(raw.path),
-      'SOURCE_OBJECTS_SSOT_REF_INVALID',
-      `${id} ssotRef.path is unsupported: ${raw.path}`
-    );
-    const ssotId = raw.id ?? FIXED_SSOT_IDS[raw.path];
-    invariant(typeof ssotId === 'string' && STABLE_ID_RE.test(ssotId), 'SOURCE_OBJECTS_SSOT_REF_INVALID', `${id} income-statement ssotRef needs a stable id`);
-    if (FIXED_SSOT_IDS[raw.path]) {
-      invariant(ssotId === FIXED_SSOT_IDS[raw.path], 'SOURCE_OBJECTS_SSOT_REF_INVALID', `${id} ${raw.path} always uses id ${FIXED_SSOT_IDS[raw.path]}`);
-    }
-    return { family: raw.family, path: raw.path, id: ssotId };
-  }
-  if (adapter === 'revenue-metric') {
-    invariant(raw.family === 'revenue-metric' && raw.path === 'observations', 'SOURCE_OBJECTS_SSOT_REF_INVALID', `${id} ssotRef must target revenue-metric observations`);
-    invariant(/^\d{4}-\d{2}-\d{2}$/.test(String(raw.date || '')), 'SOURCE_OBJECTS_SSOT_REF_INVALID', `${id} revenue-metric ssotRef needs an observation date`);
-    return { family: raw.family, path: raw.path, date: raw.date };
-  }
-  invariant(raw.family === 'metric-observation' && STABLE_ID_RE.test(String(raw.id || '')), 'SOURCE_OBJECTS_SSOT_REF_INVALID', `${id} ssotRef must target one metric-observation id`);
-  return { family: raw.family, id: raw.id };
+  return ssotFamilyFor(adapter).normalizeRef(raw, id);
 }
 
 function normalizeAdapterId(value, label) {
@@ -455,7 +463,8 @@ function normalizeValueEntry(raw, base, context) {
   const { id } = base;
   const ssotRef = normalizeSsotRef(raw.ssotRef, id, context.adapter);
   const position = normalizeReferenceBBox(raw, id, context.source);
-  if (context.adapter === 'metric-observation') {
+  const sankey = adapterHasSankeyView(context.adapter);
+  if (ssotFamilyFor(context.adapter).amounts === 'free-unit') {
     const literal = nonEmptyString(raw.literal);
     const value = typeof raw.value === 'string' ? raw.value.trim() : '';
     invariant(literal && DECIMAL_RE.test(value) && nonEmptyString(raw.unit), 'SOURCE_OBJECTS_AMOUNT_INVALID', `${id} needs literal, exact decimal value, and unit`);
@@ -483,8 +492,8 @@ function normalizeValueEntry(raw, base, context) {
   }
   invariant(raw.currency == null && raw.comparison == null && raw.quote == null, 'SOURCE_OBJECTS_FIELD_UNSUPPORTED', `${id} currency/comparison/quote apply only to operating metrics`);
   const amount = normalizeAmountFacts(raw, id);
-  if (context.adapter === 'revenue-metric') {
-    invariant(raw.node == null && raw.nonNodeMetric == null, 'SOURCE_OBJECTS_TARGET_INVALID', `${id} revenue observations have no Sankey target`);
+  if (!sankey) {
+    invariant(raw.node == null && raw.nonNodeMetric == null, 'SOURCE_OBJECTS_TARGET_INVALID', `${id} ${context.adapter} values have no Sankey target`);
     return { ...base, ...amount, ssotRef, ...position };
   }
   invariant(
@@ -530,7 +539,7 @@ function normalizeEntry(raw, index, context) {
       : `Source object ${index} needs a stable lowercase id`);
   invariant(CLASS_SET.has(raw.class), 'SOURCE_OBJECTS_CLASS_INVALID', `${id} class must be one of ${SOURCE_OBJECT_CLASSES.join(', ')}`);
   assertKnownFields(raw, id, raw.class);
-  invariant(raw.class !== 'flow' || context.adapter === 'income-statement', 'SOURCE_OBJECTS_CLASS_ADAPTER_MISMATCH', `${id} flow objects exist only in Income Statement Sankey Sources`);
+  invariant(raw.class !== 'flow' || adapterHasSankeyView(context.adapter), 'SOURCE_OBJECTS_CLASS_ADAPTER_MISMATCH', `${id} flow objects exist only in Sankey Sources`);
   for (const field of ['label', 'literal', 'reason']) {
     invariant(raw[field] == null || nonEmptyString(raw[field]), 'SOURCE_OBJECTS_ENTRY_INVALID', `${id} ${field} must be a non-empty string when present`);
   }
@@ -567,7 +576,7 @@ function normalizeEntry(raw, index, context) {
     `${id} is an Other object displaying an amount; classify it as a value entry, not ${raw.class}`
   );
   invariant(
-    !(context.adapter === 'income-statement' && otherLike && raw.class === 'value' &&
+    !(adapterHasSankeyView(context.adapter) && otherLike && raw.class === 'value' &&
       raw.ssotRef?.path === 'revenue.items' && raw.nonNodeMetric != null),
     'SOURCE_OBJECTS_OTHER_REVENUE_NODE_REQUIRED',
     `${id} is an Other revenue component; map it to a painted node and declare a thin Source face in shortNodes`
@@ -689,9 +698,9 @@ export function createSourceObjects(input, context = {}) {
     'Supplemental operating metric entries must match the full-Source Type Gate signal'
   );
   const valueNodeIds = new Set(objects.filter((entry) => entry.node).map((entry) => entry.node));
-  invariant(adapter === 'income-statement' || input.shortNodes == null, 'SOURCE_OBJECTS_SHORT_NODES_INVALID', 'shortNodes apply only to Income Statement Sankey Sources');
+  invariant(adapterHasSankeyView(adapter) || input.shortNodes == null, 'SOURCE_OBJECTS_SHORT_NODES_INVALID', 'shortNodes apply only to Sankey Sources');
   const shortNodes = normalizeShortNodes(input.shortNodes, valueNodeIds);
-  invariant(adapter === 'income-statement' || input.interfaceCorrections == null, 'SOURCE_OBJECTS_INTERFACE_CORRECTIONS_INVALID', 'interfaceCorrections apply only to Income Statement Sankey Sources');
+  invariant(adapterHasSankeyView(adapter) || input.interfaceCorrections == null, 'SOURCE_OBJECTS_INTERFACE_CORRECTIONS_INVALID', 'interfaceCorrections apply only to Sankey Sources');
   const interfaceCorrections = normalizeInterfaceCorrections(input.interfaceCorrections, valueNodeIds);
   const amounts = objects.filter((entry) => entry.class === 'value' && entry.ssotRef?.path !== OPERATING_METRIC_SSOT_PATH && Number(entry.value) !== 0);
 
@@ -1008,10 +1017,6 @@ export function reconcileSourceObjects(sourceObjects, options = {}) {
   const values = (sourceObjects?.objects || []).filter((entry) => entry.class === 'value');
   if (values.length === 0) return { status: 'passed', checked: 0 };
   const loaded = options.loadedData || (options.loadBrowserData || loadBrowserData)();
-  const result = sourceObjects.adapter === 'metric-observation'
-    ? reconcileMetricObservation(sourceObjects, values, loaded)
-    : sourceObjects.adapter === 'income-statement'
-      ? reconcileIncomeStatement(sourceObjects, values, loaded)
-      : reconcileRevenueMetric(sourceObjects, values, loaded);
+  const result = ssotFamilyFor(sourceObjects.adapter).reconcile(sourceObjects, values, loaded);
   return { status: 'passed', ...result };
 }

@@ -1,3 +1,5 @@
+import { adapterFor, adapterRequiresRender, adapterSsotLocations } from './adapters/index.mjs';
+import { SOURCE_FILE_RE } from './source-media.mjs';
 import { compactWorkspace, materializeWorkspace, workspaceOverlay, readInside } from './workspace-storage.mjs';
 import { parseSsotRecords } from './workflow-merge.mjs';
 import { prepareWorkspaceTools } from './workspace-tools.mjs';
@@ -80,7 +82,7 @@ export async function startAsset(input, root = rootDir) {
     if (existsSync(sourcePath)) {
       const digest = bytesDigest(await readFile(sourcePath));
       for (const claimed of await filesUnder(root, ['input/processing'])) {
-        if (/\.(png|txt|md)$/i.test(claimed) && path.basename(claimed, path.extname(claimed)) !== input.key && bytesDigest(await readFile(inside(root, claimed))) === digest) throw new Error(`Source already claimed at ${claimed}`);
+        if (SOURCE_FILE_RE.test(claimed) && path.basename(claimed, path.extname(claimed)) !== input.key && bytesDigest(await readFile(inside(root, claimed))) === digest) throw new Error(`Source already claimed at ${claimed}`);
       }
       const claims = path.join(root, 'output/source-claims');
       const file = path.join(claims, `${digest.slice(7)}.json`);
@@ -121,8 +123,9 @@ export async function startAsset(input, root = rootDir) {
 async function authoredFacts(build, root, input) {
   if (input?.protocol !== SOURCE_FACTS_PROTOCOL) throw new Error(`Expected ${SOURCE_FACTS_PROTOCOL}`);
   if (input.questions?.length) throw new Error(`Please resolve these Source questions: ${input.questions.join('; ')}`);
-  if (build.adapter !== 'metric-observation') {
-    if (!Array.isArray(input.objects) || !input.objects.length) throw new Error('Sankey/revenue facts need the complete flat Source object list (source-facts/v1 objects[])');
+  const adapter = adapterFor(build.adapter);
+  if (adapter.facts === 'flat-objects') {
+    if (!Array.isArray(input.objects) || !input.objects.length) throw new Error(`${adapter.label} facts need the complete flat Source object list (source-facts/v1 objects[])`);
     return { sourceObjects: {
       objects: input.objects,
       ...(input.shortNodes == null ? {} : { shortNodes: input.shortNodes }),
@@ -135,7 +138,7 @@ async function authoredFacts(build, root, input) {
   const text = source.format === 'text' ? new TextDecoder('utf-8', { fatal: true }).decode(await readFile(inside(root, source.processingUri))) : null;
   const compiled = compileMetricFacts(input, { key: build.key, source: descriptor, text });
   if (compiled.record.questions.length) throw new Error(`Please resolve these Source questions: ${compiled.record.questions.join('; ')}`);
-  const destination = inside(root, `data/metric-observations/${build.key}.json`);
+  const destination = inside(root, adapter.ssot.recordPath(build.key));
   await mkdir(path.dirname(destination), { recursive: true });
   await atomicJson(destination, compiled.record);
   await updateMetricCatalog(root);
@@ -148,7 +151,7 @@ export async function assertMergeableSsots(workspace) {
   const baseFile = path.join(workspace, 'output/workflow/base.json');
   if (!existsSync(baseFile)) return;
   const base = new Map((await readJson(baseFile)).entries.map((entry) => [entry.path, entry.digest]));
-  for (const file of await filesUnder(workspace, ['data/income-statements', 'data/company-metadata', 'data/revenue-metrics.js'])) {
+  for (const file of await filesUnder(workspace, ['data/company-metadata', ...adapterSsotLocations()])) {
     if (!file.endsWith('.js')) continue;
     const bytes = await readFile(readInside(workspace, file));
     if (base.get(file) === bytesDigest(bytes)) continue;
@@ -164,7 +167,7 @@ export async function prepareAsset(buildId, facts = null, root = rootDir) {
     const input = facts || await readJson(file);
     const compiled = await authoredFacts(options.build, options.projectRoot, input);
     await assertMergeableSsots(options.projectRoot);
-    if (options.build.adapter !== 'metric-observation') {
+    if (adapterFor(options.build.adapter).indexRegistration) {
       runWorkspace(options.projectRoot, 'sync-index-datasets.mjs');
       runWorkspace(options.projectRoot, 'update-dataset-file-metadata.mjs');
     }
@@ -175,7 +178,7 @@ export async function prepareAsset(buildId, facts = null, root = rootDir) {
     await recordBuildObject(buildId, 'source-facts', input, options);
     await recordBuildObject(buildId, 'artifact-manifest', manifest, options);
     await prepareBuildReview({ buildId, sourceObjects: compiled.sourceObjects, artifacts: manifest.artifacts,
-      changeImpact: input.changeImpact || ['new-dataset'], requiredLocales: input.requiredLocales || (options.build.adapter === 'income-statement' ? ['en', 'zh'] : ['en']),
+      changeImpact: input.changeImpact || ['new-dataset'], requiredLocales: input.requiredLocales || [...adapterFor(options.build.adapter).requiredLocales],
       checkpointProtocol: REVIEW_CANDIDATE_PROTOCOL, dependencyScopes: manifest.scopes,
     }, { ...options, loadedData: loaded });
     return showAsset(buildId, root);
@@ -225,7 +228,7 @@ export async function showAsset(buildId, root = rootDir) {
     if (build.state === 'CLOSED') next = 'seal';
     if (build.state === 'BASELINE_STAGED') next = 'seal';
     if (build.state === 'SEALED') next = 'publish';
-    if (build.state === 'AUTHORED' && verification && build.adapter === 'income-statement') {
+    if (build.state === 'AUTHORED' && verification && adapterRequiresRender(build.adapter)) {
       const policy = plan.checkpointProtocol;
       if (policy === CHECKPOINT_PROTOCOL) next = nextCheckpoint({ scopes: plan.dependencyScopes }, checkpoints.map(({ value }) => value)) || 'review';
       else if (policy === REVIEW_CANDIDATE_PROTOCOL) {
@@ -362,7 +365,7 @@ export async function sealAsset(buildId, root = rootDir, { freshRender = false, 
     if (!current.fresh) throw new Error('Inputs changed; prepare and review the changed result first');
     if (current.state === 'CLOSED') {
       let metrics;
-      if (options.build.adapter === 'income-statement') {
+      if (adapterRequiresRender(options.build.adapter)) {
         const closure = options.build.receipts.filter((receipt) => receipt.state === 'CLOSED').at(-1).payload;
         const result = await readBuildObject(buildId, closure.reviewObjects.fidelityResult, options);
         // Baseline values come from the exact English evidence the reviewer accepted.

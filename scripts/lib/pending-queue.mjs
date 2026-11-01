@@ -1,3 +1,4 @@
+import { SOURCE_EXTENSIONS, SOURCE_FILE_RE } from './source-media.mjs';
 // Pending-queue guard for the shared input/pending/ discovery queue. It only
 // inspects: a pending Source is blocked when its bytes already sit in
 // processing/ or processed/, when its candidate key already owns a dataset
@@ -10,8 +11,6 @@ import path from 'node:path';
 import { INCOME_STATEMENT_SCRIPT_DIR, datasetScriptForKey, registeredDatasetScripts } from '../script-sources.mjs';
 import { rootDir } from './project.mjs';
 
-const SOURCE_FILE_RE = /\.(png|txt|md)$/i;
-const SOURCE_EXTENSIONS = ['.png', '.txt', '.md'];
 
 function queueError(message, code = 'PENDING_QUEUE_INPUT_INVALID') {
   const error = new Error(message);

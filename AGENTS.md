@@ -96,6 +96,10 @@ Describe only what the code implements.
   `src/i18n-dictionaries.js`. `src/app/` is ordered classic scripts sharing
   one scope (order in `index.html`, module map in `README.md`); put code in the
   owning module. `verify:app-globals` enforces load order and duplicates.
+- Input-type Adapters are modules in `scripts/lib/adapters/`; workflow code
+  reads Adapter behaviour from that registry and never compares Adapter ids
+  (`tests/adapter-seam.test.mjs`). Source media are registered in
+  `scripts/lib/source-media.mjs`.
 - A new Adapter, metric family or SSOT also updates this file, its mirror, and
   the spec.
 

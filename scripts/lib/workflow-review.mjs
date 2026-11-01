@@ -1,3 +1,4 @@
+import { adapterFor } from './adapters/index.mjs';
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { existsSync } from 'node:fs';
@@ -45,16 +46,7 @@ export async function renderAssetReview(buildId, root = rootDir) {
   const source = current.source.format === 'text' ? `<pre>${e(await readFile(sourcePath, 'utf8'))}</pre>` : `<img style="width:100%;height:auto" alt="完整原始图片" src="data:image/png;base64,${(await readFile(sourcePath)).toString('base64')}" />`;
   const record = current.authoredRecord;
   const displayRows = current.metrics.map((metric) => [current.subject?.name, metric.period || current.period, metric.name, `${metric.value} ${metric.unit}`, metric.currency || '不适用', metric.quote]);
-  if (record && current.adapter === 'revenue-metric') for (const observation of record.observations || []) displayRows.push([record.company, observation.date, record.displayName || record.metricName, `${observation.value} ${record.unit}`, record.currency, [record.definition, ...(observation.notes || [])].filter(Boolean).join('；')]);
-  if (record && current.adapter === 'income-statement') {
-    const collect = (value, label) => {
-      if (!value || typeof value !== 'object') return;
-      if (typeof value.value === 'number') displayRows.push([record.company, record.period, value.label || label, `${value.value} ${record.unit}`, record.currency, (value.notes || []).join('；')]);
-      if (typeof value.total === 'number') displayRows.push([record.company, record.period, `${value.label || label} · 合计`, `${value.total} ${record.unit}`, record.currency, (value.notes || []).join('；')]);
-      for (const [key, child] of Object.entries(value)) if (!['notes', 'i18n'].includes(key)) collect(child, `${label} / ${key}`);
-    };
-    for (const [key, label] of Object.entries({ revenue: '收入', costs: '成本费用', operatingOtherIncome: '营业利润调整收入', operatingOtherExpenses: '营业利润调整支出', otherIncome: '其他收入', otherExpenses: '其他费用', profit: '利润' })) collect(record[key], label);
-  }
+  if (record) displayRows.push(...adapterFor(current.adapter).reviewRows(record));
   const rows = displayRows.map((values) => `<tr>${values.map((value) => `<td>${e(value)}</td>`).join('')}</tr>`).join('');
   let pictures = '';
   for (const locale of current.plan?.requiredLocales || []) {

@@ -313,6 +313,24 @@ Locality.
 A future input type adds an Adapter plus its schemas and verification profile;
 it does not add a parallel workflow or branch every caller.
 
+### Adapter registry
+
+The Seam is implemented as one module per Adapter in `scripts/lib/adapters/`
+and the registry `scripts/lib/adapters/index.mjs`. Each module declares what
+differs between Adapters: accepted Source media, Type Gate signature (required
+and optional signals; every other signal is forbidden), facts shape, fixed
+checklist, default review locales, rendered View, SSOT family and locations,
+index registration, authored artifacts, display-time key and review rows.
+Lifecycle, workflow, review and publication code read those declarations
+through the registry (`adapterFor`, `adapterRequiresRender`,
+`adapterHasSankeyView`, …) and never compare Adapter ids;
+`tests/adapter-seam.test.mjs` fails on any such branch outside the registry and
+on a module missing part of the contract. Source object rules stay keyed by the
+SSOT family an Adapter declares (`scripts/lib/source-objects.mjs`), so a new
+family needs its typed `ssotRef` form and reconciliation before the Adapter can
+register. Source media (extensions, classification protocol, reference role)
+are registered once in `scripts/lib/source-media.mjs`.
+
 ## Hashes, time, and invalidation
 
 `acceptedAt` is recorded once when a seal succeeds and is stable lifecycle

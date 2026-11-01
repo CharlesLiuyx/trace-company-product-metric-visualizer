@@ -1,8 +1,8 @@
 import { createHash, randomUUID } from 'node:crypto';
-import { DATASET_ADAPTERS } from './dataset-adapters.mjs';
+import { DATASET_ADAPTERS, adapterRequiresRender } from './adapters/index.mjs';
 import { SOURCE_OBJECTS_PROTOCOL, createSourceClassification } from './source-objects.mjs';
 
-export { DATASET_ADAPTERS } from './dataset-adapters.mjs';
+export { DATASET_ADAPTERS } from './adapters/index.mjs';
 
 export const DATASET_BUILD_PROTOCOL = 'dataset-build/v1';
 export const DATASET_BUILD_STATES = Object.freeze([
@@ -309,7 +309,7 @@ function closurePayload(build, command) {
     const item = evidence[axis];
     invariant(item && typeof item === 'object', 'CLOSURE_INVALID', `Closure evidence is missing the ${axis} axis`);
     assertDigest(item.digest, `${axis} evidence digest`);
-    const allowed = build.adapter !== 'income-statement' && axis === 'reference'
+    const allowed = !adapterRequiresRender(build.adapter) && axis === 'reference'
       ? ['passed', 'not-applicable']
       : ['passed'];
     invariant(allowed.includes(item.status), 'CLOSURE_INVALID', `${axis} evidence must be ${allowed.join(' or ')}`);
@@ -327,16 +327,16 @@ function baselinePayload(build, command) {
   const closure = [...build.receipts].reverse().find((receipt) => receipt.state === 'CLOSED')?.payload;
   invariant(closure, 'CLOSURE_REQUIRED', 'Baseline staging requires closure');
   invariant(command.closureDigest === closure.closureDigest, 'STALE_CLOSURE', 'Baseline claim does not match the current closure');
-  if (build.adapter !== 'income-statement') {
-    invariant(command.disposition === 'not-applicable', 'BASELINE_INVALID', 'Revenue Metric baseline must be not-applicable');
-    invariant(command.reason === `${build.adapter}-data-only`, 'BASELINE_INVALID', 'Revenue Metric baseline needs the data-only reason');
+  if (!adapterRequiresRender(build.adapter)) {
+    invariant(command.disposition === 'not-applicable', 'BASELINE_INVALID', `${build.adapter} baseline must be not-applicable`);
+    invariant(command.reason === `${build.adapter}-data-only`, 'BASELINE_INVALID', `${build.adapter} baseline needs the data-only reason`);
     return {
       closureDigest: closure.closureDigest,
       disposition: 'not-applicable',
       reason: command.reason,
     };
   }
-  invariant(command.disposition === 'recorded', 'BASELINE_INVALID', 'Income Statement baseline must be recorded');
+  invariant(command.disposition === 'recorded', 'BASELINE_INVALID', `${build.adapter} baseline must be recorded`);
   invariant(command.use === 'future-regression-only', 'BASELINE_SELF_REFERENCE', 'A staged baseline is for future regression only');
   invariant(command.metrics && typeof command.metrics === 'object', 'BASELINE_INVALID', 'Baseline metrics are required');
   const claim = {

@@ -1,3 +1,4 @@
+import { adapterRequiresRender } from './adapters/index.mjs';
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { existsSync } from 'node:fs';
@@ -309,7 +310,7 @@ export async function finishReviewedBuild(input, options = {}) {
   // review-candidate/v1 has no stage freezes. Historical checkpoint Builds
   // keep their original ordered-freeze requirement.
   const checkpointPolicy = plan.checkpointProtocol;
-  if (checkpointPolicy && build.adapter === 'income-statement') {
+  if (checkpointPolicy && adapterRequiresRender(build.adapter)) {
     invariant(['fidelity-checkpoints/v1', 'review-candidate/v1'].includes(checkpointPolicy), 'CHECKPOINT_PROTOCOL_INVALID', 'Unsupported checkpoint policy');
     if (checkpointPolicy === 'fidelity-checkpoints/v1') {
       const { validateCheckpointClosure } = await import('./workflow-checkpoints.mjs');
@@ -329,8 +330,8 @@ export async function finishReviewedBuild(input, options = {}) {
     }
   );
   let evidence = [];
-  if (build.adapter === 'income-statement') {
-    invariant(Array.isArray(input.evidenceManifests) && input.evidenceManifests.length > 0, 'AUTOMATIC_EVIDENCE_REQUIRED', 'Income Statement review needs recorded fidelity evidence manifests');
+  if (adapterRequiresRender(build.adapter)) {
+    invariant(Array.isArray(input.evidenceManifests) && input.evidenceManifests.length > 0, 'AUTOMATIC_EVIDENCE_REQUIRED', `${build.adapter} review needs recorded fidelity evidence manifests`);
     evidence = await Promise.all(input.evidenceManifests.map((locator) =>
       evidenceFromManifest(locator, {
         buildId: build.buildId,
@@ -379,7 +380,7 @@ export async function finishReviewedBuild(input, options = {}) {
     evidence: {
       candidate: { status: 'passed', digest: resultEvidenceDigest },
       reference: {
-        status: build.adapter === 'income-statement' ? 'passed' : 'not-applicable',
+        status: adapterRequiresRender(build.adapter) ? 'passed' : 'not-applicable',
         digest: fidelityResult.resultDigest,
       },
       process: { status: 'passed', digest: planDigest },
@@ -404,7 +405,7 @@ export async function stageReviewedBaseline(input, options = {}) {
   const projectRoot = buildProjectRoot(build, options.projectRoot);
   const closure = latestReceipt(build, 'CLOSED');
   invariant(closure, 'BUILD_NOT_CLOSED', 'Build must be CLOSED before baseline staging');
-  const command = build.adapter !== 'income-statement'
+  const command = !adapterRequiresRender(build.adapter)
     ? {
         type: 'stage-baseline',
         expectedRevision: build.revision,
@@ -521,13 +522,13 @@ export async function sealReviewedBuild(input, options = {}) {
   // (checked under the final write lock) pins renderer, fonts, adapter and semantic data. Reuse
   // that proof unless the caller asks for a fresh render. Revenue Metric
   // render obligations are Adapter-owned notApplicable and record no row.
-  if (build.adapter === 'income-statement') {
+  if (adapterRequiresRender(build.adapter)) {
     const plan = await readAuthoredObject(build.buildId, authored.payload.verificationPlan, { buildRoot });
     const requiredLocales = plan?.requiredLocales;
     invariant(
       Array.isArray(requiredLocales) && requiredLocales.length > 0,
       'SEAL_PLAN_LOCALES_REQUIRED',
-      'Sealing an Income Statement Build requires the authored VerificationPlan locales'
+      `Sealing a ${build.adapter} Build requires the authored VerificationPlan locales`
     );
     // Historical v2 accepted results retain their original evidence.
     const reusable = !options.freshRender && !options.freshChecks && sameAcceptance

@@ -1,3 +1,4 @@
+import { adapterRequiresRender } from './adapters/index.mjs';
 import { resolveWorkspaceRead } from './workspace-storage.mjs';
 import { encodeRecord, decodeRecord } from './record-storage.mjs';
 import { withFileLock } from './workflow-files.mjs';
@@ -211,7 +212,7 @@ export async function recordDatasetBuildReviewClosure(buildId, { outcome, closur
     if (seal) {
       const closurePayload = latestReceipt(next, 'CLOSED').payload;
       const metrics = result.evidence?.find((item) => item.locale === 'en')?.metrics;
-      if (next.adapter === 'income-statement' && (!Number.isFinite(metrics?.similarity)
+      if (adapterRequiresRender(next.adapter) && (!Number.isFinite(metrics?.similarity)
         || !Number.isFinite(metrics?.mae) || !Number.isInteger(metrics?.width) || metrics.width <= 0
         || !Number.isInteger(metrics?.height) || metrics.height <= 0)) {
         throw buildError('BASELINE_INVALID', 'Accepted English baseline needs similarity, mae, width and height');
@@ -219,7 +220,7 @@ export async function recordDatasetBuildReviewClosure(buildId, { outcome, closur
       next = advanceDatasetBuild(next, {
         type: 'stage-baseline', expectedRevision: next.revision,
         closureDigest: closurePayload.closureDigest,
-        ...(next.adapter === 'income-statement'
+        ...(adapterRequiresRender(next.adapter)
           ? { disposition: 'recorded', use: 'future-regression-only', metrics }
           : { disposition: 'not-applicable', reason: `${next.adapter}-data-only` }),
       }, { now: options.now });

@@ -1,3 +1,4 @@
+import { adapterHasSankeyView } from './adapters/index.mjs';
 // B15 node-face policy. A Build-bound render expects every value node in the
 // Build's source-objects/v1 to render a painted face, and every rendered node
 // to be painted and at least MIN_VISIBLE_FACE_PX tall unless the author listed
@@ -26,7 +27,7 @@ export function isFaceBelowVisibilityFloor(height) {
 // Expectations for a Build-bound render. Only Income Statement Builds render
 // Sankey nodes; other Adapters (and diagnostics without a Build) return null.
 export function nodeFaceExpectations(sourceObjects) {
-  if (!sourceObjects || sourceObjects.adapter !== 'income-statement') return null;
+  if (!sourceObjects || !adapterHasSankeyView(sourceObjects.adapter)) return null;
   return {
     visible: [...(sourceObjects.summary?.valueNodeIds || [])].sort(),
     short: [...(sourceObjects.summary?.shortNodeIds || [])].sort(),

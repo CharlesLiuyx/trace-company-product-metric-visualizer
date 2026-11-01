@@ -1,3 +1,4 @@
+import { adapterDisplayTimeKey } from './adapters/index.mjs';
 import { readInside } from './workspace-storage.mjs';
 // A disposable review projection. It never publishes data or writes a Build.
 import path from 'node:path';
@@ -67,8 +68,8 @@ export async function composeReviewData(root, snapshot, tasks, manifest = fileMa
         await mkdir(path.dirname(inside(snapshot, file)), { recursive: true });
         await writeFile(inside(snapshot, file), merged);
       }
-      const timeKey = build.adapter === 'revenue-metric' ? 'data/revenue-metrics.js' : task.key;
-      const time = (await metadata(workspace))?.files?.[timeKey];
+      const timeKey = adapterDisplayTimeKey(build.adapter, task.key);
+      const time = timeKey ? (await metadata(workspace))?.files?.[timeKey] : null;
       if (time && times) {
         if (ownedTimes.has(timeKey) && digestValue(ownedTimes.get(timeKey)) !== digestValue(time)) throw new Error(`显示时间冲突：${timeKey}`);
         ownedTimes.set(timeKey, time); times.files[timeKey] = time;

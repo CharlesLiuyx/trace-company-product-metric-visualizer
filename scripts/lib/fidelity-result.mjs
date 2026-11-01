@@ -1,3 +1,4 @@
+import { adapterRequiresRender, isAdapter } from './adapters/index.mjs';
 import { createHash } from 'node:crypto';
 
 // A FidelityResult records the operator's acceptance of one authored snapshot
@@ -8,7 +9,6 @@ import { createHash } from 'node:crypto';
 export const FIDELITY_RESULT_SCHEMA_VERSION = 3;
 export const FIDELITY_RESULT_PROTOCOL = 'fidelity-result/v3';
 
-const ADAPTERS = new Set(['income-statement', 'revenue-metric', 'metric-observation']);
 const DIGEST_RE = /^sha256:[a-f0-9]{64}$/;
 const GATE_STATUSES = new Set(['passed', 'failed']);
 
@@ -128,12 +128,13 @@ function normalizeEvidence(input, requiredLocales) {
  */
 export function createFidelityResult(input) {
   invariant(input && typeof input === 'object', 'FIDELITY_RESULT_INVALID', 'FidelityResult input is required');
-  invariant(ADAPTERS.has(input.adapter), 'FIDELITY_RESULT_INVALID', `Unsupported Adapter: ${input.adapter}`);
-  const requiredLocales = input.adapter === 'income-statement' ? [...(input.requiredLocales || [])].sort() : [];
+  invariant(isAdapter(input.adapter), 'FIDELITY_RESULT_INVALID', `Unsupported Adapter: ${input.adapter}`);
+  const rendered = adapterRequiresRender(input.adapter);
+  const requiredLocales = rendered ? [...(input.requiredLocales || [])].sort() : [];
   invariant(
-    input.adapter !== 'income-statement' || requiredLocales.length > 0,
+    !rendered || requiredLocales.length > 0,
     'FIDELITY_RESULT_INVALID',
-    'Income Statement review needs at least one required locale'
+    `${input.adapter} review needs at least one required locale`
   );
   invariant(
     input.consistency?.status === 'passed',
@@ -142,7 +143,7 @@ export function createFidelityResult(input) {
   );
   const evidence = normalizeEvidence(input.evidence || [], requiredLocales);
   invariant(
-    input.adapter === 'income-statement' || evidence.length === 0,
+    rendered || evidence.length === 0,
     'ADAPTER_EVIDENCE_INVALID',
     `${input.adapter} review does not take Sankey render evidence`
   );

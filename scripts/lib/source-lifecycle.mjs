@@ -1,3 +1,4 @@
+import { SOURCE_FILE_RE, SOURCE_FORMAT_LABEL, SOURCE_MEDIA, sourceMediaForExtension } from './source-media.mjs';
 import { createHash } from 'node:crypto';
 import { constants as fsConstants, existsSync } from 'node:fs';
 import { copyFile, mkdir, readFile, rm, unlink } from 'node:fs/promises';
@@ -33,8 +34,8 @@ function assertDatasetKey(key) {
 export function sourceLifecyclePaths(key, options = {}) {
   assertDatasetKey(key);
   const projectRoot = path.resolve(options.projectRoot || rootDir);
-  const extension = options.extension || '.png';
-  if (!['.png', '.txt', '.md'].includes(extension)) throw lifecycleError('SOURCE_FORMAT_INVALID', 'Supported Sources: PNG, UTF-8 TXT, Markdown');
+  const extension = options.extension || SOURCE_MEDIA.image.extensions[0];
+  if (!sourceMediaForExtension(extension)) throw lifecycleError('SOURCE_FORMAT_INVALID', `Supported Sources: ${SOURCE_FORMAT_LABEL}`);
   const processingUri = `input/processing/${key}${extension}`;
   const processedUri = `input/processed/${key}${extension}`;
   return {
@@ -49,8 +50,8 @@ export function pendingSourcePath(requested, options = {}) {
   const projectRoot = path.resolve(options.projectRoot || rootDir);
   const absolute = path.resolve(projectRoot, requested);
   assertInsideProject(absolute, projectRoot, 'Pending Source');
-  if (path.dirname(absolute) !== path.join(projectRoot, 'input', 'pending') || !/\.(png|txt|md)$/i.test(absolute)) {
-    throw lifecycleError('SOURCE_PATH_INVALID', 'Source must be PNG, TXT or Markdown directly under input/pending/');
+  if (path.dirname(absolute) !== path.join(projectRoot, 'input', 'pending') || !SOURCE_FILE_RE.test(absolute)) {
+    throw lifecycleError('SOURCE_PATH_INVALID', `Source must be ${SOURCE_FORMAT_LABEL} directly under input/pending/`);
   }
   return {
     originUri: slashPath(path.relative(projectRoot, absolute)),

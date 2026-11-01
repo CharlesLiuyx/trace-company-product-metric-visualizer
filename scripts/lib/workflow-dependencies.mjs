@@ -1,3 +1,5 @@
+import { adapterFor } from './adapters/index.mjs';
+import { sourceMediaForDescriptor } from './source-media.mjs';
 import { readInside } from './workspace-storage.mjs';
 import path from 'node:path';
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
@@ -42,12 +44,14 @@ async function datasetAt(root, key, loaded) {
 // The same semantic slice binds isolated authoring and a combined review view.
 export async function readSemanticContribution(build, root, loaded = null) {
   loaded ||= await loadWorkspaceData(root);
-  const dataset = build.adapter === 'income-statement' ? await datasetAt(root, build.key, loaded) : null;
-  const record = (build.adapter === 'metric-observation' ? loaded.metricRecords : build.adapter === 'income-statement' ? loaded.records : loaded.revenueRecords).find((item) => item.key === build.key);
+  const adapter = adapterFor(build.adapter);
+  const dataset = adapter.view === 'sankey' ? await datasetAt(root, build.key, loaded) : null;
+  const record = adapter.records(loaded).find((item) => item.key === build.key);
   if (!record) throw new Error(`Missing authored record: ${build.key}`);
-  if (build.adapter === 'income-statement' && !dataset) throw new Error(`Missing View Adapter: ${build.key}`);
+  if (adapter.view === 'sankey' && !dataset) throw new Error(`Missing View Adapter: ${build.key}`);
   const company = loaded.companies.find((item) => item.name === record.company || item.key === record.subject?.id) || null;
-  const displayTime = loaded.context.DATASET_FILE_METADATA?.files?.[build.adapter === 'revenue-metric' ? 'data/revenue-metrics.js' : build.key] || null;
+  const timeKey = adapter.displayTimeKey(build.key);
+  const displayTime = (timeKey && loaded.context.DATASET_FILE_METADATA?.files?.[timeKey]) || null;
   return { key: build.key, adapter: build.adapter, record, company, dataset, displayTime };
 }
 export async function deriveArtifactManifest(build, root, { writeProjection = true, knownDigests = new Map() } = {}) {
@@ -59,7 +63,7 @@ export async function deriveArtifactManifest(build, root, { writeProjection = tr
   const loaded = await loadWorkspaceData(root);
   const contribution = await readSemanticContribution(build, root, loaded);
   const { dataset, record } = contribution;
-  const sources = build.sources.map((source) => ({ path: [source.processingUri, source.processedUri].find((file) => file && existsSync(readInside(root, file))), role: source.format === 'text' ? 'reference-text' : 'reference-image' }));
+  const sources = build.sources.map((source) => ({ path: [source.processingUri, source.processedUri].find((file) => file && existsSync(readInside(root, file))), role: sourceMediaForDescriptor(source).referenceRole }));
   for (const source of sources) await add(source.path, source.role);
   // These are complete verifier/runtime inputs. Unknown executable dependencies
   // remain conservative; scoped reuse is limited to the semantic slices below.
@@ -74,8 +78,7 @@ export async function deriveArtifactManifest(build, root, { writeProjection = tr
   for (const file of await filesUnder(root, ['input/icon-crop-specs'])) if (file.endsWith('.json')) await add(file, 'asset-recipe');
   if (existsSync(readInside(root, 'output/workflow/source-facts.json'))) await add('output/workflow/source-facts.json', 'source-facts');
   if (existsSync(readInside(root, 'output/workflow/review-context.json'))) await add('output/workflow/review-context.json', 'review-context');
-  if (dataset) await add(`data/datasets/${build.key}.js`, 'view-adapter');
-  if (build.adapter === 'metric-observation') await add(`data/metric-observations/${build.key}.json`, 'metric-ssot');
+  for (const artifact of adapterFor(build.adapter).artifacts(build.key)) await add(artifact.path, artifact.role);
   // Shared registries and company files are checked by the final consistency
   // profile. Their semantic contribution is pinned here, so unrelated additions
   // cannot invalidate this Build. Publication still owns their global merge.
