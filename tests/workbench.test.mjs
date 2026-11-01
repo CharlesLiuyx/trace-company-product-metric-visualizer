@@ -10,6 +10,9 @@ import { compactWorkspace } from '../scripts/lib/workspace-storage.mjs';
 import { siteContentDigest } from '../scripts/lib/site-release-identity.mjs';
 const version = 'd'.repeat(64);
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+// A bounded wait: a pending promise must become a visible failure, otherwise the
+// cancelled test leaves its workbench listening and the process never exits.
+function within(ms, promise, message) { let timer; return Promise.race([promise, new Promise((_, reject) => { timer = setTimeout(() => reject(new Error(message)), ms); })]).finally(() => clearTimeout(timer)); }
 async function until(work, predicate) { for (let i = 0; i < 150; i++) { const result = await work(); if (predicate(result)) return result; await sleep(40); } throw new Error('Workbench condition timed out'); }
 test('closing the workbench drains an in-flight preview before workspace cleanup', async () => {
   const root = await mkdtemp(path.join(os.tmpdir(), 'trace-workbench-close-'));
@@ -22,12 +25,12 @@ test('closing the workbench drains an in-flight preview before workspace cleanup
   } });
   try {
     await fetch(server.url + '__trace/status?source=project');
-    await entered;
+    await within(20000, entered, 'the workbench never started the fixture build');
     let closed = false;
     const closing = server.close().then(() => { closed = true; });
     await sleep(40);
     assert.equal(closed, false, 'close must wait for the complete preview transaction');
-    release(); await closing;
+    release(); await within(20000, closing, 'the workbench did not close after the build released');
     await rm(root, { recursive: true, force: true });
   } finally {
     release(); await server.close(); await rm(root, { recursive: true, force: true });
