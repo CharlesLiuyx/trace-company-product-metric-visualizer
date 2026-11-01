@@ -20,7 +20,12 @@ import {
 const defaultHtml = 'output/trace-company-product-metric-visualizer.html';
 // Raster datasets are swept by up to three loaded documents at once; every
 // dataset is still rendered and asserted exactly once.
-const RASTER_PAGES = Math.min(3, Math.max(1, os.availableParallelism() - 1));
+// Extra pages share the raster sweep. Each one parses the complete standalone
+// document, so on a small runner two parallel loads already saturate it.
+const RASTER_PAGES = Math.min(3, Math.max(1, Math.floor(os.availableParallelism() / 2)));
+// Loading the 100+ MB document on a 4 vCPU runner takes well over Playwright's
+// default 30 s navigation timeout.
+const DOCUMENT_LOAD_TIMEOUT_MS = 180000;
 
 function primaryFontFamily(value) {
   return String(value || '').split(',')[0].trim().replace(/^(['"])(.*)\1$/, '$2');
@@ -157,14 +162,16 @@ async function verifyInBrowser(filePath) {
       if (url.startsWith('http://') || url.startsWith('https://')) externalRequests.push(url);
       if (url.startsWith('file:') && url !== documentUrl) externalRequests.push(url);
     });
-    await documentPage.goto(documentUrl, { waitUntil: 'load' });
+    await documentPage.goto(documentUrl, { waitUntil: 'load', timeout: DOCUMENT_LOAD_TIMEOUT_MS });
     await documentPage.waitForSelector('#chart svg', { timeout: 10000 });
     return documentPage;
   };
 
   try {
-    const pages = await Promise.all(Array.from({ length: RASTER_PAGES }, openDocument));
-    const [page] = pages;
+    // The first page loads alone so the main checks never wait on the sweep pages.
+    const page = await openDocument();
+    const extraPages = Promise.all(Array.from({ length: RASTER_PAGES - 1 }, openDocument));
+    extraPages.catch(() => {}); // surfaced where it is awaited, never as an unhandled rejection
     const fontStatus = await assertProjectFontsLoaded(page);
     const d3State = await page.evaluate(() => ({
       activeDataset:
@@ -239,6 +246,7 @@ async function verifyInBrowser(filePath) {
     );
 
     const rasterResults = new Array(rasterDatasets.length);
+    const pages = [page, ...await extraPages];
     await Promise.all(pages.map(async (rasterPage, worker) => {
       for (let index = worker; index < rasterDatasets.length; index += pages.length) {
         const { key, expected } = rasterDatasets[index];

@@ -55,7 +55,7 @@
 
 | 步骤 | 前 | 后 |
 | --- | --- | --- |
-| `verify:standalone` | 81 s（主检出；慢的主因是对 2009 张本机 processed 图逐张 `includes` 扫描 140 MB 字符串 38.6 s，而非整页重载） | 约 16 s（一次性 data URI 索引 0.26 s + hash 切换 + 3 页并行；新增一条扫描后 page error 断言） |
+| `verify:standalone` | 81 s（主检出；慢的主因是对 2009 张本机 processed 图逐张 `includes` 扫描 140 MB 字符串 38.6 s，而非整页重载） | 约 16 s（一次性 data URI 索引 0.26 s + hash 切换 + 最多 3 页并行（CI 的 4 vCPU 下 2 页，文档加载超时放宽到 180 s）；新增一条扫描后 page error 断言） |
 | `verify:app` | 44 s（串行） | 17 s（3 个 context 并发，4 次连续运行与双实例并跑均无 flaky） |
 | `pnpm check` 的 `test` 步骤 | 25.7 s | 18.7 s（本机 fsync 跨进程串行，约 17 s 是下限；CI 上未测） |
 | `pnpm check` worker / 墙钟 | 固定 2 / 32 s | min(4, 可用核数) / 21.5 s |
