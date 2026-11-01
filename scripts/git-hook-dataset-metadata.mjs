@@ -67,16 +67,18 @@ function postCommit() {
   }
 }
 
-// Best-effort housekeeping after the metadata gate passed: removes only the
-// regenerable artifacts listed in sweepDerivedArtifacts. A failure (including a
-// checkout without the retention module) prints one line and never blocks the push.
-async function sweepDerivedBestEffort() {
+// Best-effort housekeeping after the metadata gate passed: the fixed garbage
+// collection of `pnpm clean:artifacts -- --gc` (docs/artifact-retention.md).
+// A failure (including a checkout without the retention module) prints one
+// line and never blocks the push.
+async function garbageCollectBestEffort() {
   try {
-    const { sweepDerivedArtifacts } = await import('./lib/workflow-retention.mjs');
-    const { removed, bytes } = await sweepDerivedArtifacts(rootDir);
-    if (removed.length) console.error(`pre-push: removed ${removed.length} derived artifact path(s), ${(bytes / 1024 ** 2).toFixed(1)} MiB (${removed.map((item) => item.path).join(', ')})`);
+    const { runGarbageCollection } = await import('./lib/workflow-retention.mjs');
+    const { gc, bytes } = await runGarbageCollection(rootDir);
+    const counts = Object.entries(gc).map(([name, item]) => [name, Array.isArray(item.removed) ? item.removed.length : item.removed || 0]).filter(([, n]) => n);
+    if (counts.length) console.error(`pre-push: garbage collection removed ${(bytes / 1024 ** 2).toFixed(1)} MiB (${counts.map(([name, n]) => `${name} ${n}`).join(', ')})`);
   } catch (error) {
-    console.error(`pre-push: derived-artifact sweep skipped: ${error.message}`);
+    console.error(`pre-push: garbage collection skipped: ${error.message}`);
   }
 }
 
@@ -88,7 +90,7 @@ async function prePush() {
     committedDiffStatus,
   });
   if (decision.ok) {
-    await sweepDerivedBestEffort();
+    await garbageCollectBestEffort();
     return;
   }
 

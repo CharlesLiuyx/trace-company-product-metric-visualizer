@@ -4,7 +4,8 @@ import path from 'node:path';
 import { lstat, readdir, readFile, rm, mkdir, writeFile } from 'node:fs/promises';
 import { atomicJson, bytesDigest, readJson, withFileLock } from './workflow-files.mjs';
 
-const HISTORY = 'output/meta/history.json';
+export const HISTORY = 'output/meta/history.json';
+const HISTORY_LOCK = 'output/meta/.history.lock';
 async function entries(directory) {
   try {
     const info = await lstat(directory);
@@ -50,21 +51,42 @@ function mergeRecords(previous = [], current = [], key) {
   return [...new Map([...previous, ...current].map((item) => [item[key], item])).values()]
     .sort((a, b) => String(a[key]).localeCompare(String(b[key])));
 }
-async function collectHistory(root) {
+// One Build's historical summary, read from the raw manifest bytes so a
+// missing shared record chunk never blocks it. Shared with the Build retirement GC.
+export async function buildHistoryEntry(file, buildId) {
+  const info = await lstat(file).catch((error) => { if (error.code === 'ENOENT') return null; throw error; });
+  if (!info) return null;
+  if (!info.isFile() || info.isSymbolicLink()) throw new Error(`Cleanup metadata must be a regular file: ${file}`);
+  const bytes = await readFile(file), manifest = JSON.parse(bytes.toString('utf8'));
+  const last = manifest.receipts?.at(-1);
+  return { buildId: manifest.buildId || buildId, key: manifest.key, adapter: manifest.adapter,
+    historicalState: manifest.state, revision: manifest.revision, reviewStatus: manifest.review?.status || null,
+    manifestDigest: bytesDigest(bytes), lastReceiptDigest: last?.digest || null,
+    lastRecordedAt: last?.recordedAt || null,
+    sources: (manifest.sources || []).map(({ uri, processingUri, processedUri, digest }) => ({ uri, processingUri, processedUri, digest })) };
+}
+export async function readHistory(root) {
   const previous = await optionalJson(path.join(root, HISTORY));
   if (previous && previous.protocol !== 'artifact-history/v1') throw new Error('Unknown cleanup history protocol');
+  return previous;
+}
+// Merge retired Build summaries into history.json. Callers remove a Build
+// directory only after this returns, so no summary is ever lost.
+export async function recordHistoryBuilds(root, builds) {
+  return withFileLock(path.join(root, HISTORY_LOCK), async () => {
+    const previous = await readHistory(root);
+    await atomicJson(path.join(root, HISTORY), { protocol: 'artifact-history/v1', historicalOnly: true, evidenceRetained: false,
+      builds: mergeRecords(previous?.builds, builds, 'buildId'),
+      publications: previous?.publications || [], transports: previous?.transports || [] });
+  }, { timeoutMs: 5000 });
+}
+async function collectHistory(root) {
+  const previous = await readHistory(root);
   const builds = [], publications = [], transports = [];
   for (const entry of await entries(path.join(root, 'output/builds'))) {
     if (!entry.isDirectory() || !/^build-[a-z0-9-]+$/.test(entry.name)) continue;
-    const file = path.join(root, 'output/builds', entry.name, 'manifest.json');
-    const manifest = await optionalJson(file);
-    if (!manifest) continue;
-    const last = manifest.receipts?.at(-1);
-    builds.push({ buildId: manifest.buildId || entry.name, key: manifest.key, adapter: manifest.adapter,
-      historicalState: manifest.state, revision: manifest.revision, reviewStatus: manifest.review?.status || null,
-      manifestDigest: bytesDigest(await readFile(file)), lastReceiptDigest: last?.digest || null,
-      lastRecordedAt: last?.recordedAt || null,
-      sources: (manifest.sources || []).map(({ uri, processingUri, processedUri, digest }) => ({ uri, processingUri, processedUri, digest })) });
+    const summary = await buildHistoryEntry(path.join(root, 'output/builds', entry.name, 'manifest.json'), entry.name);
+    if (summary) builds.push(summary);
   }
   for (const entry of await entries(path.join(root, 'output/publications/receipts'))) {
     if (!entry.isFile() || !entry.name.endsWith('.json')) continue;

@@ -11,6 +11,7 @@ pnpm clean:artifacts                         # 只统计，不删除
 pnpm clean:artifacts -- --completed          # 整个本机流程完成，执行清理
 pnpm clean:artifacts -- --completed --dry-run --json
 pnpm clean:artifacts -- --derived [--dry-run] [--json]   # 只删可再生派生物，见下表
+pnpm clean:artifacts -- --gc [--dry-run] [--json]        # 固定垃圾回收（含派生物），见下表
 ```
 
 `--completed` 表达操作员已确认所有本机处理及所需交付完成。已有的完成确认即为授权，
@@ -18,7 +19,6 @@ pnpm clean:artifacts -- --derived [--dry-run] [--json]   # 只删可再生派生
 先完成所需审阅与 `accept`、Source 归档及 Git 交接，再停止本项目 `pnpm dev`
 和其他正在运行的处理命令，执行清理。并发任务尚在使用这些目录时不能运行全局清理。
 命令遇到工作锁、存活的工作台进程或损坏的 metadata 会在删除前报错，不抢锁。
-旧版本工作台没有进程记录，执行者仍须先停止它。
 
 清理删除两个目录内的 Build 工作副本和对象、图形证据、截图、Diff、处理单、临时脚本、
 报告、回归与 Pages 缓存、预览、发布树及候选、Git transport workspace，以及 standalone。
@@ -54,30 +54,23 @@ SSOT 或执行 Git 推送。
 | `release:git push` 成功 | 该候选的 `workspace/`（含 `_site`）与私有 index | plan、approval、journal、receipt |
 | `release:git prepare` | 失败的本次候选目录；基线 HEAD 已过期且未开始提交的旧候选 workspace | 同上 |
 | 上述四个命令之后（持发布锁） | 不再被引用的 `output/publications/trees/*` 与 `output/workflow-bases/*` | 当前指针树；尚未推送的发布的基线与结果树；未清理 Build 的 `base.json` 所指基线。尚无发布时不清扫 |
-| `release:git push` 成功后、`clean:artifacts -- --derived`、pre-push hook（metadata 判定通过后 best-effort，失败只打印一行） | 可再生派生物的固定清单：根 `_site/`、`output/trace-company-product-metric-visualizer.html`、`output/site-benchmark/`、`output/site-releases/` 中非当前版本（当前 = `releases.json` 第一项；无法读取则不删）、`.playwright-cli/`、`scripts/__pycache__/`、根目录与 `output/` 一级的 `.DS_Store` | 其余一切，包括 `releases.json`、`output/render-regression`、`output/storage`、Build / publication / transport / workbench / meta 记录、`input/`、`data/`、`compare/`；符号链接不跟随、不删除。允许在 `pnpm dev` 与其他 Session 运行时执行 |
+| 上述前四个命令之后（best-effort）；`clean:artifacts -- --gc` 与 pre-push hook 另加 `compare/runs` 与派生物 | 退役 Build：已清理、所属发布已被某次 Git 推送覆盖、全部 Source 已离开 `input/processing/` 且该删除已在 HEAD 提交，删整个 Build 目录与 local-view 条目；Source 字节已在 `input/processed/` 时一并删其 Source claim。`output/storage/lists/` 中没有任何记录（直接或经索引）引用且写入超过 1 小时的块。已退出进程的工作台服务记录；无存活服务时的 `output/workbench/previews/`。超过 7 天的 `compare/runs/*`（`verify:d3 --keep` scratch） | 退役 Build 的摘要先合并写入 `output/meta/history.json`（同下文历史摘要），此后 `record:workflow` 对它报 `BUILD_RETIRED`；被引用或 1 小时内写入的块；存活服务的预览。允许在 `pnpm dev` 与其他 Session 运行时执行；`--dry-run` 不写任何文件 |
+| `release:git push` 成功后、`clean:artifacts -- --derived` / `--gc`、pre-push hook（metadata 判定通过后 best-effort，失败只打印一行） | 可再生派生物的固定清单：根 `_site/`、`output/trace-company-product-metric-visualizer.html`、`output/site-releases/` 中非当前版本（当前 = `releases.json` 第一项；无法读取则不删）、`.playwright-cli/`、`scripts/__pycache__/`、根目录与 `output/` 一级的 `.DS_Store` | 其余一切，包括 `releases.json`、`output/render-regression`、`output/storage`、Build / publication / transport / workbench / meta 记录、`input/`、`data/`、`compare/`；符号链接不跟随、不删除。允许在 `pnpm dev` 与其他 Session 运行时执行 |
 
-命令输出的 `retention`（派生物清扫为 `retention.derived`）列出删除与跳过的条目及逻辑字节。全局 `clean:artifacts --completed` 仍是
+命令输出的 `retention`（派生物清扫为 `retention.derived`，垃圾回收为 `retention.gc`）列出各类删除与跳过的条目及逻辑字节。全局 `clean:artifacts --completed` 仍是
 最终复位入口。
 
 ## 处理中减少输出
 
 - 草稿两层存储（共享基线 + 自有改动，`compact` / `materialize` / `share-assets`）只由
   [本地环境](local-environments.md#草稿的共享存储与再次编辑)定义。
-- 大型 `entries` / `artifacts` 数组以 `trace-record-list/v1` 按路径目录分块，
-  同一内容在 `output/storage/lists/` 只保存一份。读取时验证块摘要、长度与完整数组
-  摘要并还原原 JSON；receipt、Build object 与 Plan 的逻辑 digest 不变。
-  基线在自己的根目录保存一份 `.trace-snapshot.json`，不属于 canonical 数据。
-  尚未刷新工具的旧 Build 继续使用完整文件与普通 JSON，不就地改写旧证据。
-  共享记录块保留至全局完成清理；运行中不按时间删除，以保留历史 receipt 的引用。
+- 大型记录数组在 `output/storage/lists/` 的共享分块存储只由
+  [Workspace storage](architecture/dataset-lifecycle.md#workspace-storage) 定义；无引用的块由上表垃圾回收清扫。
 - `clean:artifacts` 的只读报告可在服务和工作锁存在时运行，列出 `groups` 的逻辑字节
   与 `blockers`；这不是删除授权或可立即释放的物理空间。真正删除仍要求完整完成
   确认、无操作锁、无存活服务。扫描会跳过并发消失的文件，报告注明非原子现场统计。
 - 工作台预览输入不复制 `data/assets/icon-references/`，工具只复制运行所需脚本
   与配置；审阅绑定仍检查参考资产的完整逻辑摘要，并纳入草稿改变的资产。
-  `copyStatistics()` 区分进程内克隆成功与回退的文件数，不把逻辑字节称为物理节省。
-- 整树副本（Build workspace、冻结基线、发布 plan 与快照树、release 与 Git 交接候选、
-  工作台预览快照、工具目录）在 macOS 上用 APFS 克隆（`cp -c`），未修改的文件不占
-  数据块；其他平台或无法克隆时退回普通复制。`du` 仍按表观大小统计，以 `df` 判断实占。
 - 基线已是不可变发布树时，草稿直接引用该树，不再冻结到 `output/workflow-bases/`。
 - `publish:datasets commit` 结束后，已提交的 plan，以及基线已被正式指针越过、永远无法
   提交的 plan，只保留 `plan.json`（与 `conflict.json`）；候选树随即删除。
@@ -89,7 +82,7 @@ SSOT 或执行 Git 推送。
   再渲染一遍。临时截图与调试记录放在命令拥有的私有目录，成功和失败路径都负责清理。
 - 工作台构建后立即删除 source/cache；失败候选连同半成品 site 删除。服务运行期间
   每个来源只保留当前与上一版成功站点（供仍停在旧版的标签页），更早的站点删除；
-  正常退出时等待在途构建完成，删除本进程生成的 site，仅保留 candidate meta。启动时
+  正常退出时等待在途构建完成，删除本进程生成的 site，仅保留 candidate meta。启动时与垃圾回收
   删除已退出进程的服务记录；没有存活服务时清空 `output/workbench/previews/`。
   重启重新构建候选，不将旧预览 URL 当成永久交付地址。
 - standalone 与 HTML 处理单按交付/审阅需要生成，不再提交生成的 standalone 到 Git。

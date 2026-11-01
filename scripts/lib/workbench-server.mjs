@@ -15,6 +15,7 @@ import { showAsset } from './asset-workflow.mjs';
 import { composeReviewData, bindReviewMembers, assertReviewMembersFresh, reviewTasks } from './workbench-review.mjs';
 import { createPreviewManifest } from './workbench-manifest.mjs';
 import { updateMetricCatalog } from './metric-catalog.mjs';
+import { sweepStaleWorkbenchRecords } from './workbench-records.mjs';
 
 const exec = promisify(execFile);
 const productionUrl = PRODUCTION_URL;
@@ -29,22 +30,6 @@ function run(file, args, root) {
     child.on('error', reject); child.on('close', (code) => code === 0 ? resolve(output) : reject(new Error(output || `Build exited ${code}`)));
   });
 }
-// Server records of exited processes are stale, and so is every preview when
-// no live server remains: sites are served only by the process that built them.
-async function sweepStalePreviews(root) {
-  const folder = path.join(root, 'output/workbench/servers');
-  let live = 0;
-  for (const name of await readdir(folder).catch(() => [])) {
-    const record = await readJson(path.join(folder, name)).catch(() => null);
-    let alive = false;
-    if (Number.isInteger(record?.pid) && record.pid > 0) {
-      try { process.kill(record.pid, 0); alive = true; } catch (error) { alive = error.code !== 'ESRCH'; }
-    }
-    if (alive) live++;
-    else await rm(path.join(folder, name), { force: true });
-  }
-  if (!live) await rm(path.join(root, 'output/workbench/previews'), { recursive: true, force: true });
-}
 // A compacted Build keeps unchanged files, index.html included, in its shared
 // base; readiness is a property of the logical workspace, not its local files.
 function workspaceReady(workspace) {
@@ -52,7 +37,7 @@ function workspaceReady(workspace) {
 }
 
 export async function startWorkbench({ root = rootDir, port = 8000, build = run, productionFetch = fetch, readCi = null, maxBuilds = 2, scheduleDebounce = setTimeout } = {}) {
-  await sweepStalePreviews(root);
+  await sweepStaleWorkbenchRecords(root);
   const previews = new Map(), events = new Set(), watchers = [], timers = new Set();
   const ownedPreviews = new Set();
   const serverRecord = path.join(root, `output/workbench/servers/${randomUUID()}.json`);

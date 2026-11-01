@@ -89,6 +89,15 @@ export async function discardInitializedDatasetBuild(buildId, options = {}) {
   await rm(buildDir, { recursive: true, force: false });
 }
 
+// A retired Build keeps only its summary in output/meta/history.json.
+async function retiredBuildSummary(buildId, options) {
+  const history = path.resolve(options.buildRoot || DEFAULT_BUILD_ROOT, '../meta/history.json');
+  try {
+    const parsed = JSON.parse(await readFile(history, 'utf8'));
+    return parsed?.protocol === 'artifact-history/v1' && parsed.builds?.find((build) => build.buildId === buildId) || null;
+  } catch { return null; }
+}
+
 export async function readDatasetBuild(buildId, options = {}) {
   const manifestPath = datasetBuildManifestPath(buildId, options);
   let source;
@@ -96,6 +105,12 @@ export async function readDatasetBuild(buildId, options = {}) {
     source = await readFile(manifestPath, 'utf8');
   } catch (cause) {
     if (cause?.code === 'ENOENT') {
+      const retired = await retiredBuildSummary(buildId, options);
+      if (retired) {
+        const error = buildError('BUILD_RETIRED', `Dataset Build ${buildId} (${retired.key}) was retired after publication, Git push and Source archive; historicalState ${retired.historicalState}, lastRecordedAt ${retired.lastRecordedAt}. Its summary is in output/meta/history.json; start a new Build to change ${retired.key}`);
+        Object.assign(error, { key: retired.key, historicalState: retired.historicalState, lastRecordedAt: retired.lastRecordedAt });
+        throw error;
+      }
       throw buildError('BUILD_NOT_FOUND', `Dataset Build not found: ${buildId}`);
     }
     throw cause;

@@ -190,3 +190,19 @@ export async function freezeSnapshot(snapshot, root) {
   if ((await fileManifest(destination)).digest !== snapshot.digest) throw new Error('Immutable workflow base changed');
   return { ...snapshot, root: destination };
 }
+
+// Logical bytes and newest mtime of a file or tree. Symlinks count as
+// themselves and are never followed; entries vanishing concurrently are skipped.
+export async function treeStats(file) {
+  const info = await lstat(file).catch((error) => { if (error.code === 'ENOENT') return null; throw error; });
+  if (!info) return { bytes: 0, newestMtimeMs: 0 };
+  let bytes = info.size, newestMtimeMs = info.mtimeMs;
+  if (info.isDirectory()) {
+    bytes = 0;
+    for (const name of await readdir(file).catch((error) => { if (error.code === 'ENOENT') return []; throw error; })) {
+      const child = await treeStats(path.join(file, name));
+      bytes += child.bytes; newestMtimeMs = Math.max(newestMtimeMs, child.newestMtimeMs);
+    }
+  }
+  return { bytes, newestMtimeMs };
+}

@@ -8,13 +8,13 @@ import { sweepDerivedArtifacts } from '../scripts/lib/workflow-retention.mjs';
 
 const CURRENT = 'a'.repeat(64), OLDER = 'b'.repeat(64), OLDEST = 'c'.repeat(64);
 const SWEPT = ['_site/index.html', '_site/releases/x/app.js', 'output/trace-company-product-metric-visualizer.html',
-  'output/site-benchmark/results.json', `output/site-releases/${OLDER}/assets/app.js`, `output/site-releases/${OLDEST}/index.js`,
+  `output/site-releases/${OLDER}/assets/app.js`, `output/site-releases/${OLDEST}/index.js`,
   '.playwright-cli/console.log', 'scripts/__pycache__/x.pyc', '.DS_Store', 'output/.DS_Store'];
 const KEPT = [`output/site-releases/${CURRENT}/assets/app.js`, 'output/site-releases/releases.json', 'output/site-releases/notes.txt',
   'output/render-regression/alpha.png', 'output/storage/lists/x.json', 'output/builds/build-a/manifest.json', 'output/builds/build-a/.DS_Store',
   'output/publications/current.json', 'output/git-transports/transport-a/receipt.json', 'output/workbench/servers/a.json',
   'output/meta/history.json', 'input/processed/a.png', 'input/.DS_Store', 'data/datasets/a.js', 'compare/.gitkeep',
-  'scripts/build-site.mjs', 'output/site-benchmark-notes.txt'];
+  'scripts/build-site.mjs', 'output/site-benchmark-notes.txt', 'output/site-benchmark/results.json'];
 
 async function fixture() {
   const root = await mkdtemp(path.join(os.tmpdir(), 'trace-derived-sweep-'));
@@ -33,7 +33,7 @@ test('the derived sweep removes exactly the fixed list and keeps the current sit
   const result = await sweepDerivedArtifacts(root);
   assert.deepEqual(result.removed, preview.removed);
   assert.deepEqual(result.removed.map((item) => item.path).sort(), ['.DS_Store', '.playwright-cli', '_site', 'output/.DS_Store',
-    `output/site-releases/${OLDER}`, `output/site-releases/${OLDEST}`, 'output/site-benchmark', 'output/trace-company-product-metric-visualizer.html', 'scripts/__pycache__'].sort());
+    `output/site-releases/${OLDER}`, `output/site-releases/${OLDEST}`, 'output/trace-company-product-metric-visualizer.html', 'scripts/__pycache__'].sort());
   assert.equal(result.bytes, SWEPT.reduce((sum, file) => sum + Buffer.byteLength(`bytes:${file}`), 0));
   for (const file of SWEPT) assert.equal(existsSync(path.join(root, file)), false, file);
   for (const file of KEPT) assert.equal(existsSync(path.join(root, file)), true, file);
@@ -54,9 +54,9 @@ test('the derived sweep never follows symlinks', async (t) => {
   await writeFile(path.join(outside, 'keep.txt'), 'outside');
   await rm(path.join(root, '_site'), { recursive: true });
   await symlink(outside, path.join(root, '_site'));
-  await symlink(outside, path.join(root, 'output/site-benchmark/linked'));
+  await symlink(outside, path.join(root, '.playwright-cli/linked'));
   const result = await sweepDerivedArtifacts(root);
   assert.deepEqual(result.skipped, [{ path: '_site', reason: 'not a regular file or directory' }]);
   assert.equal(existsSync(path.join(outside, 'keep.txt')), true);
-  assert.equal(existsSync(path.join(root, 'output/site-benchmark')), false);
+  assert.equal(existsSync(path.join(root, '.playwright-cli')), false);
 });
