@@ -5,8 +5,8 @@
 **Turn metric images and text into traceable company and product data.**
 Trace turns company financials into the earnings infographics you see go
 viral — green for value retained, red for costs, teal for revenue collected —
-covering **235+ companies** from NVIDIA, Apple, and Microsoft to TSMC, LVMH,
-Tencent, and SpaceX, across quarterly and annual periods.
+covering companies from NVIDIA, Apple, and Microsoft to TSMC, LVMH, Tencent,
+and SpaceX, across quarterly and annual periods.
 
 ### [▶ Open the live viewer](https://charlesliuyx.github.io/trace-company-product-metric-visualizer/) — nothing to install, runs entirely in your browser.
 
@@ -23,9 +23,8 @@ workbench and concurrent Sessions: [local environments](docs/local-environments.
 
 ## Highlights
 
-- **A large, growing catalog** — 1,080+ income-statement datasets across 235+
-  public and private companies, plus ARR trend series for OpenAI and
-  Anthropic. NVIDIA alone spans 16 quarters back to Q3 FY23.
+- **A large, growing catalog** — income-statement datasets for public and
+  private companies across many periods, plus ARR trend series.
 - **Traced, not approximated** — every chart is hand-authored against a
   published reference infographic, then pixel-diffed against it by a
   headless-Chromium verifier. The source image is the standard to measure
@@ -63,55 +62,26 @@ magnitudes may start sub-pixel at fit and can be inspected with comparison
 zoom. If any selected record lacks trustworthy geometry or money metadata,
 the whole comparison shows a calibration error instead of mixing scales.
 
+### Company list sort modes
+
+The sidebar list, Table view, CSV export and localized names read the same
+fields for each sort mode. A company without a value for the mode sorts after
+those with one; ties fall back to localized name, canonical name, then latest
+period.
+
+| sort mode | source fields |
+|---|---|
+| Alphabetical | `name`, or `i18n.<language>.displayName` (`aliases` only match financial records) |
+| Recently updated | newest `data/dataset-file-metadata.js` entry of the company's registered datasets (latest Git author time; kept current by the hooks in [commit messages](docs/commit-messages.md), Dataset metadata) |
+| Market cap | `marketCap.valueUsd`, else `marketCap.value/currency/unit`, normalized to USD with `USD_FX_SNAPSHOT` (`src/trace-domain.js`, applied by `src/app/financial.js`); unsupported currencies count as missing |
+| Net profit | latest matching `data/income-statements/<company-key>.js` record's `profit.net.value`, converted to USD with the same snapshot |
+| Founded date | first four-digit year in `founded`, ascending |
+
 ## Add your own company
 
-Datasets are plain JS files — a node/link graph plus an explicit layout tuned
-against a reference image. A minimal dataset:
-
-```js
-// data/datasets/my-company-fy25.js
-const dataset = {
-  key: 'my-company-fy25',
-  name: 'My Company · FY25',
-  meta: {
-    title: 'My Company FY25 Income Statement',
-    period: 'FY2025',
-    currency: '$',
-    unit: 'M',
-    decimals: 0,
-    referenceImage: { src: 'input/processed/my-company-fy25.png', width: 2862, height: 1536 },
-  },
-  nodes: [
-    { id: 'product', label: 'Product', value: 800, type: 'revenue' },
-    { id: 'services', label: 'Services', value: 200, type: 'revenue' },
-    { id: 'revenue', label: 'Revenue', value: 1000, type: 'total' },
-    { id: 'cost_of_revenue', label: 'Cost of revenue', value: 300, type: 'cost' },
-    { id: 'gross_profit', label: 'Gross profit', value: 700, type: 'profit' },
-  ],
-  links: [
-    { source: 'product', target: 'revenue', value: 800 },
-    { source: 'services', target: 'revenue', value: 200 },
-    { source: 'revenue', target: 'gross_profit', value: 700 },
-    { source: 'revenue', target: 'cost_of_revenue', value: 300 },
-  ],
-};
-
-(window.DATASETS = window.DATASETS || []).push(dataset);
-```
-
-Then register it and keep the financial single source of truth in sync:
-
-1. `pnpm sync:index-datasets` — registers the file in the generated
-   `data/dataset-manifest.js` (the viewer loads adapters progressively from
-   the manifest; no `index.html` edits needed).
-2. Add the reported totals and line items to
-   `data/income-statements/<company-key>.js` and the company profile to
-   `data/company-metadata/<company-key>.js`.
-3. `pnpm verify:ssot` — confirms the financial record covers the dataset.
-
-See [`data/schema.md`](data/schema.md) for the full format, including
-fixed-position `layout` labels, and `data/datasets/nvidia-q1-fy27.js` for a
-compact hand-authored example.
+New companies and periods enter as Sources through the
+[asset workflow](docs/asset-workflow.md), never as hand-edited adapters. Field
+formats are indexed in [`data/schema.md`](data/schema.md).
 
 ## What keeps every chart consistent
 
@@ -171,9 +141,7 @@ New datasets follow the workflow above: claim a Source from `input/pending/`,
 author the data SSOTs and dataset adapter, localize fixed-layout text, pass the
 automated render gates once per locale, then your review. The rendered output
 under comparison is always the SVG produced by `SankeyEngine.render()` — never
-the source PNG or crops of it. Git tracks the `input/pending/` queue and active
-`input/processing/` claims; archived references stay in the Git-ignored
-`input/processed/` on the local machine.
+the source PNG or crops of it. Source directories: [`input/README.md`](input/README.md).
 
 The owning documents:
 

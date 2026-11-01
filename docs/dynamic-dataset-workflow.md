@@ -4,7 +4,8 @@ This document owns how a Source is read and modeled: the pre-intake Adapter
 Type Gate, the flat Source-object list and its anti-omission invariants,
 authoring reconciliation, and recurring traps. The process
 (commands, order, checks, review, publication, archive, reporting) is owned by
-[asset-workflow.md](asset-workflow.md). Fields belong to `data/schema.md`;
+[asset-workflow.md](asset-workflow.md). Fields belong to
+[data/schema.md](../data/schema.md) and its per-Adapter files in `data/schema/`;
 fidelity rules to `docs/fidelity-loop-rules.md`; assets to `data/assets/README.md`.
 
 A finding that breaks any rule here stops the dependent step: fix the facts or
@@ -29,8 +30,8 @@ derives the Adapter from it, and a missing array silently selects
 An Income Statement with supplemental operating cards (ARR, retention, customer
 counts) also records `supplemental-operating-metrics`. The Source objects must
 then contain one `value` entry per card (`ssotRef.path: "operatingMetrics"`) and
-the typed `operatingMetrics` SSOT/View contract in `data/schema.md`. That signal
-alone selects no Adapter.
+the typed contract in `data/schema/operating-metrics.md`. That signal alone
+selects no Adapter.
 
 Company, title, "revenue", or one period token are not classifiers. Mixed,
 incomplete, or contradictory signals stop before intake.
@@ -64,13 +65,9 @@ Each entry has a stable `id` and one `class`:
 { "id": "watermark", "class": "residual" }
 ```
 
-`ssotRef` is `{ family: "income-statement", path, id }` (the `id` may be omitted
-for the fixed totals such as `revenue.total`), `{ family: "revenue-metric",
-path: "observations", date }`, or `operatingMetrics` for supplemental cards. A
-supplemental card is a `value` entry that keeps the typed `operatingMetrics`
-shape — `label`, `literal`, `value`, `unit`, `currency`, `comparison`, `quote`
-— and names no node. `label` and `literal` may appear on any entry; `reason`
-explains a residual or an unusual decision.
+Typed `ssotRef` forms: [income-statement.md](../data/schema/income-statement.md#value-references)
+(other Adapters: their `data/schema/` file); optional value-field shapes:
+[data/schema.md](../data/schema.md#source-object-value-references).
 
 Invariants checked by `prepare`:
 
@@ -106,16 +103,17 @@ Invariants checked by `prepare`:
   equals the value; the reason names its source). Otherwise it is a typo.
   When no authoritative higher-precision value can be recovered, the Build
   stops instead of writing `0`.
-- Source typos: a confirmed unit or numeric typo keeps the original literal and
-  needs a user-directed `authoritativeCorrection: { literal, reason, approval:
-  "user-directed-source-correction" }`, where `literal` is the corrected display
-  and the reason names the authoritative source. It is never inferred or
-  combined with precision recovery.
+- Source typos: a confirmed unit or numeric typo keeps the printed text in the
+  entry's `literal` and needs a user-directed `authoritativeCorrection: {
+  literal, reason, approval: "user-directed-source-correction" }` whose
+  `literal` is the corrected display and whose reason names the authoritative
+  source. It is never inferred or combined with precision recovery. An
+  `operatingMetrics` card inverts the fields: corrected text in `literal`,
+  printed text in `authoritativeCorrection.sourceLiteral`.
 - Net labels: when a Source label prints a node's net amount while other
   Source amounts flow into that node (Expenses `($9.2B)` fed by Other income
   `$0.5B`), the value entry declares `netOfInflows: [<inflow node ids>]`; SSOT
-  and node values stay gross and `valueText` prints the net literal
-  (`data/schema.md`).
+  and node values stay gross and `valueText` prints the net literal.
 - Topology absent from the exported raster: only when the operator directs
   restoring it, author the node and its `value` entry as usual; the human
   review records that decision.
@@ -168,8 +166,9 @@ contradiction with the intaked Adapter.
 - Fidelity definitions and formulas live only in the fidelity catalog.
 - Title/period placement uses rendered bboxes, not authored baselines.
 - Preserve displayed integer decimals through schema `valueText`.
-- Resolve raster/localized-text collisions by moving the annotation in that
-  locale's raster list, without shared geometry changes.
+- Raster annotations are source-owned and not localizable: resolve a
+  raster/localized-text collision by moving that locale's text, without shared
+  geometry changes.
 - Interim spans (`3M`, `H1`, `YTD`, etc.) keep the intended viewer variant
   label/order/state.
 - Reference crops never become runtime rasters; follow the asset doc and G4.

@@ -43,7 +43,7 @@ data(nvidia-q1-fy27): tune operating expense label placement
 | `fix` | 修复错误行为、计算错误、注册遗漏、UI 失效 |
 | `verify` | 修改 `scripts/verify-d3.mjs`、验证指标、纯度检查、比较流程 |
 | `docs` | 修改 `README.md`、`docs/*.md`、说明文字 |
-| `schema` | 修改 `data/schema.md` 或数据集字段约定 |
+| `schema` | 修改 `data/schema.md`、`data/schema/` 或数据集字段约定 |
 | `refactor` | 不改变行为的代码重组 |
 | `test` | 新增或调整检查、测试夹具、验证用例 |
 | `chore` | 依赖、锁文件、格式化、仓库维护 |
@@ -77,15 +77,16 @@ Adjusts the explicit node layout to reduce overlap around gross profit while
 keeping all source values unchanged.
 
 Verification:
-- node --check data/datasets/nvidia-q4-fy26.js
-- pnpm verify:d3 -- nvidia-q4-fy26
-- RGB MAE: 12.84, MAE similarity: 0.9496, imageCount: 0
+- pnpm check
+- pnpm verify:d3 -- nvidia-q4-fy26 --language en
+- pnpm verify:d3 -- nvidia-q4-fy26 --language zh
 ```
 
 ### Batch 提交的人工审阅指标
 
-当一个 `data(batch)` 提交或同一批交付包含多个独立对象（例如多个数据集、
-Source 图片或产品条目）时，提交正文必须记录本批次的人工审阅介入情况。
+`release:git commit` 自动生成 `data(publication): transport reviewed datasets` 提交及其
+`Human review` 块；本节只适用于不经 `release:git` 的直接提交。当一个 `data(batch)`
+提交包含多个独立对象（数据集、Source 图片或产品条目）时，正文必须记录人工审阅介入情况。
 统计单位是“对象”，不是修改意见条数；同一对象即使收到多条人工修改意见，
 也只计为一个“有人工介入”对象。
 
@@ -137,12 +138,9 @@ chore(deps): pin playwright 1.61.0
 
 ## 拆分提交建议
 
-- 新数据集提交：把 `data/datasets/<dataset-key>.js` 和
-  `data/dataset-manifest.js` 注册（`pnpm sync:index-datasets` 生成）放在同一个
-  `data(<dataset-key>)` 提交中。`input/pending/` 与 `input/processing/` 是
-  Git-tracked 共享队列；提交属于该数据集的 queue/claim 变更，让其他项目能看到
-  当前归属。`input/processed/` 是忽略的本机归档，永不 force-add。Source 何时、
-  按什么范围搬移只由 [`docs/asset-workflow.md`](asset-workflow.md) §7 定义；搬移后提交 processing 队列中的删除。
+- 新数据集直接提交（不经 `release:git`）：把 `data/datasets/<dataset-key>.js`、
+  `data/dataset-manifest.js` 注册与该数据集的 queue/claim 变更放在同一个
+  `data(<dataset-key>)` 提交中（队列规则见 [`input/README.md`](../input/README.md)）。
 - 渲染器支持提交：如果为了某个数据集新增通用渲染能力，单独用
   `render(engine)` 提交，再用 `data(<dataset-key>)` 提交应用调参。
 - 验证脚本提交：任何改变 d3 评分、纯度断言或截图流程的改动，用

@@ -7,12 +7,16 @@ exactly one owner below. Update it together with `docs/AGENTS.zh-CN.review.md`.
 
 The operator starts a dataset task with `处理{文件名}` (`{文件名}` is the full
 filename, extension included, of a Source in `input/pending/`). For that task,
-read only `docs/asset-workflow.md` §1–§5, `docs/dynamic-dataset-workflow.md`,
-the relevant `data/schema.md` sections, and one published dataset of the same
-Adapter. Do not load `CONTEXT.md` or `docs/architecture/`; they are for
-lifecycle, verifier and generated-file changes. `docs/asset-workflow.md` owns
-every step, check boundary, approval and hand-off; never follow a restatement.
-Three facts change what you do:
+read only `docs/asset-workflow.md` §1–§4 and §9 (later sections when the
+operator moves on), `docs/dynamic-dataset-workflow.md`, the Adapter's
+`data/schema/` files (Income Statement: `income-statement.md` and
+`sankey-adapter.md`, plus `operating-metrics.md` when the facts carry
+`supplemental-operating-metrics`) and one published dataset of the same
+Adapter. When a gate fails, read `docs/fidelity-loop-rules.md` §2; for a
+hoverable leader, the "Renderer-owned semantics" section of `CONTEXT.md`. Load
+no other `CONTEXT.md` part and no `docs/architecture/`. `docs/asset-workflow.md`
+owns every step, check boundary, approval and hand-off; never follow a
+restatement. Three facts change what you do:
 
 - The facts file's top-level `signals` array selects the Adapter through the
   Type Gate in `docs/dynamic-dataset-workflow.md`; without it `start` silently
@@ -43,7 +47,7 @@ each works in its own Build workspace with owner and generation
 | dataset modeling rules: Adapter Type Gate and facts `signals`, flat Source-object list, anti-omission invariants, reconciliation, traps | `docs/dynamic-dataset-workflow.md` |
 | d3 fidelity machine gates, reviewer checklist, feedback protocol | `docs/fidelity-loop-rules.md` (catalog section generated from `scripts/lib/fidelity-rules-catalog.mjs` by `pnpm update:fidelity-rules-doc`) |
 | user-reported fidelity defects that landed a machine gate | `docs/fidelity-feedback-casebook.md` (protocol: `docs/fidelity-loop-rules.md` §4) |
-| dataset / SSOT field format | `data/schema.md` |
+| dataset / SSOT field format | `data/schema.md` (index and shared contracts), one file per Adapter in `data/schema/` |
 | data-adjacent assets (icon crop workflow, raster annotations) | `data/assets/README.md` |
 | Trace product and data model | `docs/trace-specification.zh-CN.md` |
 | same-checkout Sessions, workbench behavior, draft storage, Git transport mechanism (locks, private index, journal, recovery) | `docs/local-environments.md` |
@@ -77,18 +81,12 @@ Describe only what the code implements.
 - `verify:*` is read-only, `record:*` writes build-local state, `publish:*` is
   the only canonical mutation, `release:*` acts on a published digest.
   `compat:baseline` is deliberately outside these classes (legacy ledger).
-- Git tracks `input/pending/` and `input/processing/` as a shared queue;
-  `input/processed/` is an ignored local archive — never force-add it.
-- Pure Metric SSOTs: `data/income-statements/<company>.js`,
-  `data/revenue-metrics.js`, `data/metric-observations/<source>.json` (catalog
-  `data/metric-observations.js` via `pnpm update:metric-catalog`). Sankey View
-  Adapters live in `data/datasets/<key>.js`; keep nodes, links, layout, colors
-  and geometry out of SSOTs. `data/company-metadata/<company>.js` must be
-  complete before a company's first dataset. `data/products.js` is a
-  placeholder; never hide product identity in Sankey adapters.
-- Income Statement `operatingMetrics` (ARR, retention, customers) stay separate
-  from accounting sums; ownership: `data/schema.md`,
-  `scripts/lib/operating-metrics.mjs`.
+- Source directories and the Git queue: `input/README.md`; their semantics:
+  `docs/architecture/dataset-lifecycle.md`.
+- Pure Metric SSOTs and Sankey View Adapters (`data/datasets/<key>.js`) are
+  indexed in `data/schema.md`: no nodes, links, layout, colors or geometry in
+  SSOTs, complete company metadata before a company's first dataset, no product
+  identity in Sankey adapters, `operatingMetrics` outside accounting sums.
 - SSOT `<script>` tags live in `index.html`; Adapters register in the generated
   `data/dataset-manifest.js` (never hand-edited). `pnpm sync:index-datasets`
   repairs both; `verify:ssot` enforces parity.

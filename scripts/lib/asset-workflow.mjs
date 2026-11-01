@@ -153,7 +153,7 @@ export async function assertMergeableSsots(workspace) {
     const bytes = await readFile(readInside(workspace, file));
     if (base.get(file) === bytesDigest(bytes)) continue;
     try { parseSsotRecords(bytes.toString('utf8'), file); }
-    catch (error) { throw new Error(`${error.message}. Keep the SSOT wrapper format from data/schema.md so drafts can be merged.`); }
+    catch (error) { throw new Error(`${error.message}. Keep the SSOT wrapper format from data/schema/income-statement.md so drafts can be merged.`); }
   }
 }
 export async function prepareAsset(buildId, facts = null, root = rootDir) {

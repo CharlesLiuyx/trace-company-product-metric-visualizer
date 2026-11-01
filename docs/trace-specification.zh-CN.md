@@ -3,8 +3,7 @@
 版本：0.1
 
 本文定义 Trace 的最顶层产品与数据模型。当前仓库围绕 Company / Product 的
-Metric，已把 Income Statement 与 Revenue Metric 结构化，并分别通过 Sankey、
-Table 与 Trend 视图表达。
+Metric 实现了三个 Adapter（见第 2 节 Metric），通过 Sankey、Table 与 Trend 视图表达。
 
 ## 1. 产品定位
 
@@ -58,8 +57,8 @@ Metric 是 Trace 最重要的关注点。一个有效 Metric 必须完整描述�
 - 来源：至少来自一个可追溯 Source，或来自可追溯观测的推理结果；
 - 置信度：说明当前系统对该值的可信程度。
 
-当前项目实现了三个 Metric 家族：Income Statement（收入、成本、毛利、运营
-利润、税、净利润等结构化指标）、Revenue Metric（多期收入/ARR 观测、条件、
+当前项目实现了三个 Adapter（Metric 家族）：Income Statement（收入、成本、毛利、
+运营利润、税、净利润等结构化指标）、Revenue Metric（多期收入/ARR 观测、条件、
 事件、来源与置信度）与 Metric Observation（图片或文字中的通用公司/产品指标，
 见第 7 节）。
 
@@ -191,9 +190,8 @@ InputFile {
 `data/metric-observations/<source-key>.json`，由 `metric-observations.js` 提供只读展示。
 指标保留精确数值、单位、口径、原文位置；主查看器右上角不提供指标资产入口。
 它保留 Source 声明的主体，不推断完整产品隶属历史，`data/products.js` 仍是占位。
-字段规范由 [data/schema.md](../data/schema.md) 拥有；操作由
+字段规范由 [data/schema/metric-observation.md](../data/schema/metric-observation.md) 拥有；操作由
 [asset-workflow.md](asset-workflow.md) 拥有。利润表和收入序列继续使用各自 SSOT。
-
 
 | Trace 概念 | 当前实现 |
 | --- | --- |
@@ -218,16 +216,9 @@ InputFile {
 - `data/products.js` 当前只建立 Product 和 Company/Product 关系的稳定位置，不改变现有视图；
 - `data/datasets/` 是 View Adapter，不是财务事实源；
 - `src/trace-domain.js` 承担领域归一化和目录构建，`src/app/` 各模块保持为 UI 控制层；
-- authored Source reference 始终指向最终稳定的
-  `input/processed/<dataset-key>.png`；活动 Build 期间，本地工具可按 intake
-  记录的稳定 key 回退到 `input/processing/<dataset-key>.png`；
-- Git 跟踪 `input/pending/` 与 `input/processing/` 的共享队列/claim；
-  `input/processed/` 整目录忽略并只作为本机完整归档。此版本控制策略不创造
-  DatasetBuild 状态；
-- Source 搬移规则只由 [asset-workflow.md](asset-workflow.md) §7 拥有；搬移不补造
-  Build receipt、不是 Publication，processing 非空不应让全局 `pnpm check` 失败；
-- `input/processed/` 的图片是本机验证参考，不是运行时事实，也不得 force-add；
-- processed 图片一经物化永不改名或覆盖；
+- Source 定位、Git 队列与目录规则见 [input/README.md](../input/README.md)，语义见
+  [dataset-lifecycle.md](architecture/dataset-lifecycle.md)，搬移只由
+  [asset-workflow.md](asset-workflow.md) §7 授权；
 - i18n 覆盖只改变显示文本和文本布局，不改变 Metric 语义、数值或关系。
 
 ## 8. Income Statement 当前规格
@@ -275,7 +266,8 @@ Resolved Metric 必须记录来源列表、推理方法和置信度，避免把�
 - View 不产生事实，只读取 Metric 和关系；
 - Source Observation 不被覆盖，冲突通过推理解决；
 - 英文可作为默认语义数据，其他语言只做显示层覆盖；
-- 稳定 ID 使用小写 kebab-case。
+- dataset key 与 company key 使用小写 kebab-case（`nvidia-q1-fy27`），node 与 SSOT
+  item id 使用小写 snake_case（`data_center`、`cost_of_revenue`）。
 
 ## 11. 后续演进方向
 
@@ -287,4 +279,4 @@ Resolved Metric 必须记录来源列表、推理方法和置信度，避免把�
 
 ## 利润表附带经营指标
 
-利润表记录的可选 `operatingMetrics` 保存同一来源中的 ARR、留存率、客户数等指标。每项保留原文、原生像素位置、精确十进制字符串、独立单位与币种、比较符号和来源口径。`>119%` 表示严格下界，不能改写为恰好 119%。它们不参与财务加总和桑基图所占比例，卡片逐项绑定到可见数值文本；表格显示指标摘要，CSV 同时保留完整结构。生命周期仍由同一个 DatasetBuild 承担；字段和验证规则见 [data/schema.md](../data/schema.md)。
+利润表记录的可选 `operatingMetrics` 保存同一来源中的 ARR、留存率、客户数等指标，不参与财务加总与桑基图所占比例，生命周期仍由同一个 DatasetBuild 承担；字段与验证规则见 [data/schema/operating-metrics.md](../data/schema/operating-metrics.md)。

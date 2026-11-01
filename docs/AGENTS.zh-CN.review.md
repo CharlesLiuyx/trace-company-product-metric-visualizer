@@ -6,10 +6,13 @@
 ## 数据集处理
 
 操作员用 `处理{文件名}` 启动数据集任务（`{文件名}` 是 `input/pending/` 中来源的完整
-文件名，含扩展名）。该任务只读 `docs/asset-workflow.md` §1–§5、
-`docs/dynamic-dataset-workflow.md`、`data/schema.md` 的相关节，以及一个同 Adapter 的
-已发布数据集。不加载 `CONTEXT.md` 或 `docs/architecture/`；它们只用于修改生命周期、
-验证器和生成物。每个步骤、检查边界、批准与交接都由 `docs/asset-workflow.md` 拥有；
+文件名，含扩展名）。该任务只读 `docs/asset-workflow.md` §1–§4 与 §9（操作员推进到
+后续阶段时再读相应节）、`docs/dynamic-dataset-workflow.md`、该 Adapter 的 `data/schema/`
+文件（利润表：`income-statement.md` 与 `sankey-adapter.md`，facts 含
+`supplemental-operating-metrics` 时加 `operating-metrics.md`），以及一个同 Adapter 的已发布
+数据集。门槛失败时读 `docs/fidelity-loop-rules.md` §2；编写可 Hover 引导线时读
+`CONTEXT.md` 的 "Renderer-owned semantics" 节。不加载 `CONTEXT.md` 其余部分与
+`docs/architecture/`。每个步骤、检查边界、批准与交接都由 `docs/asset-workflow.md` 拥有；
 不要依据任何转述。以下三点会改变你的行动：
 
 - facts 文件顶层的 `signals` 数组经 `docs/dynamic-dataset-workflow.md` 的分型门选择
@@ -38,7 +41,7 @@ workspace 中工作，携带 owner 与 generation（`docs/local-environments.md`
 | 数据集建模规则：Adapter 分型门与 facts `signals`、扁平来源对象清单、防漏不变量、对账、陷阱 | `docs/dynamic-dataset-workflow.md` |
 | d3 保真机器门槛、审阅者清单、反馈协议 | `docs/fidelity-loop-rules.md`（规则目录区由 `pnpm update:fidelity-rules-doc` 从 `scripts/lib/fidelity-rules-catalog.mjs` 生成） |
 | 用户反馈过且落地了机器门槛的保真缺陷 | `docs/fidelity-feedback-casebook.md`（协议见 `docs/fidelity-loop-rules.md` §4） |
-| 数据集 / SSOT 字段格式 | `data/schema.md` |
+| 数据集 / SSOT 字段格式 | `data/schema.md`（索引与共享契约），每个 Adapter 一个文件，位于 `data/schema/` |
 | 数据相邻资产（图标裁剪流程、raster annotation） | `data/assets/README.md` |
 | Trace 产品与数据模型 | `docs/trace-specification.zh-CN.md` |
 | 同目录 Session、工作台行为、草稿存储、Git 传输机制（锁、私有 index、journal、恢复） | `docs/local-environments.md` |
@@ -67,16 +70,10 @@ workspace 中工作，携带 owner 与 generation（`docs/local-environments.md`
   `FidelityRun` 没有正式写入权（ADR-0001）。
 - `verify:*` 只读，`record:*` 写 Build 本地状态，`publish:*` 是唯一的正式写入，
   `release:*` 作用于已发布摘要。`compat:baseline` 有意不属于这些类别（旧账本）。
-- Git 跟踪 `input/pending/` 与 `input/processing/` 作为共享队列；`input/processed/`
-  是被忽略的本机归档，永不 force-add。
-- 纯 Metric SSOT：`data/income-statements/<company>.js`、`data/revenue-metrics.js`、
-  `data/metric-observations/<source>.json`（目录 `data/metric-observations.js` 由
-  `pnpm update:metric-catalog` 生成）。桑基 View Adapter 位于 `data/datasets/<key>.js`；
-  节点、连线、布局、颜色和几何不进入 SSOT。公司首个数据集前
-  `data/company-metadata/<company>.js` 必须完整。`data/products.js` 是占位；不要把产品
-  身份藏进桑基 Adapter。
-- 利润表 `operatingMetrics`（ARR、留存、客户数）与会计合计分开；属主：`data/schema.md`、
-  `scripts/lib/operating-metrics.mjs`。
+- 来源目录与 Git 队列：`input/README.md`；其语义：`docs/architecture/dataset-lifecycle.md`。
+- 纯 Metric SSOT 与桑基 View Adapter（`data/datasets/<key>.js`）的索引在 `data/schema.md`：
+  节点、连线、布局、颜色和几何不进入 SSOT；公司首个数据集前公司元数据必须完整；产品身份
+  不藏进桑基 Adapter；`operatingMetrics` 不参与会计合计。
 - SSOT 的 `<script>` 标签在 `index.html`；Adapter 注册在生成的
   `data/dataset-manifest.js`（永不手改）。`pnpm sync:index-datasets` 修复二者，
   `verify:ssot` 强制一致。

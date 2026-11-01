@@ -4,10 +4,9 @@
 检查范围、人工审阅、发布、上线、归档与汇报都只在这里定义。
 读图与建模规则见 [dynamic-dataset-workflow.md](dynamic-dataset-workflow.md)，
 桑基图保真规则见 [fidelity-loop-rules.md](fidelity-loop-rules.md)，字段见
-[data/schema.md](../data/schema.md)，命令与协议清单见
-[workflow-command-reference.md](workflow-command-reference.md)（自动生成）。
-`review-candidate/v1` 之前的历史 Build 按
-[archive/legacy-direct-edit-workflow.md](archive/legacy-direct-edit-workflow.md) 解释。
+[data/schema.md](../data/schema.md)（索引，各 Adapter 在 `data/schema/`），命令与协议清单见
+[workflow-command-reference.md](workflow-command-reference.md)（自动生成），历史 Build 见
+[archive/legacy-direct-edit-workflow.md](archive/legacy-direct-edit-workflow.md)。
 
 ## 1. 三条原则
 
@@ -28,7 +27,7 @@
 
 | # | 执行者做什么 | 命令 |
 | --- | --- | --- |
-| 1 | 完整读原材料，按建模规则过 Type Gate，写 `source-facts/v1`：顶层 `signals` 数组选择 Adapter（缺少时静默落成 metric-observation）；桑基图与收入序列写扁平 `objects[]` 来源对象清单（[示例](examples/source-facts.sankey.example.json)）；读不清的写进 `questions` | — |
+| 1 | 完整读原材料，写 `source-facts/v1`：顶层 `signals` 数组按[分型门](dynamic-dataset-workflow.md#adapter-type-gate)选择 Adapter；桑基图与收入序列写扁平 `objects[]` 来源对象清单（[示例](examples/source-facts.sankey.example.json)）；读不清的写进 `questions` | — |
 | 2 | 接收并认领来源，建立独立草稿 | `pnpm record:workflow -- start --source <pending> --key <key> --facts <facts.json> --session <owner>` |
 | 3 | 桑基图 / 收入序列：在返回的 workspace 中编写 SSOT、Adapter、i18n | — |
 | 4 | 连续跑完全部自动步骤：准备与对账 → 数据一致性 → 一次全语言渲染，停在待审阅 | `pnpm record:workflow -- continue <build> --session <owner> --generation <gen> --json` |
@@ -52,7 +51,7 @@ workspace；此后再改文件，先 `record:workflow materialize <build> --sess
 | 场景 | 必须运行 | 不运行 |
 | --- | --- | --- |
 | 单份材料处理 | `continue` 内置：prepare 对账、`verify:dataset --skip-render`、每语言一次渲染证据 | `pnpm check`、`pnpm test`、`verify:app`、`verify:site`、`verify:standalone`、`verify:workbench`、手写浏览器脚本 |
-| 审阅后 seal | 一次核对输入字节，复用已接受的数据一致性与逐语言渲染证据 | 重跑数据检查或渲染；诊断需要时显式 `seal --fresh-checks` 或 `seal --fresh-render` |
+| 审阅后 `accept` | 一次核对输入字节，复用已接受的数据一致性与逐语言渲染证据并 seal | 重跑数据检查或渲染；`seal --fresh-checks` / `--fresh-render` 仅用于诊断 |
 | 本机发布 | `publish:datasets plan` 对整批跑一次 `verify:dataset --skip-render` | 浏览器检查 |
 | Git 交接 | `release:git prepare`：`check` + `build:site` | render regression、`verify:site`（交给 CI；本机要跑用 `--full`） |
 | 推送后 | CI 全套；`pnpm verify:release -- --online --key <key> ...`（HTTP） | 打开线上页面 |
@@ -114,12 +113,10 @@ Build workspace；根目录后续工具、文档更新不会要求整批刷新�
 }
 ```
 
-运行 `record:workflow accept --input <acceptances.json> --session <owner> --concurrency 2`。
-成员可单独指定 `previewId`；Session 身份始终来自执行者，清单不能代替转交或恢复授权。
-同一预览整批只校验一次站点字节，每个 Build 在锁内核对当前 generation 和输入，
-依次产生 CLOSED、BASELINE_STAGED、SEALED 收据后一次写入。任一步失败都保留原 manifest。
-每个成员独立完成；部分失败时命令返回非零并列出原因，修复后可重试同一清单，已封存且
-接受内容一致的成员直接复用。`review` + `seal` 保留给旧调用；`seal` 默认同样复用证据。
+运行 `record:workflow accept --input <acceptances.json> --session <owner> --concurrency 2`
+（成员可单独指定 `previewId`；清单不能代替转交或恢复授权）。每个成员独立接受并 seal；
+部分失败时命令返回非零并列出原因，修复后重试同一清单，已封存的成员直接复用。
+`accept` 是现行入口；`seal --fresh-checks/--fresh-render` 仅用于诊断。
 
 随后执行 `publish:datasets -- plan <build> [...]`、`publish:datasets -- commit <plan-digest>`。
 整批合并候选只跑一次数据一致性检查。正式基线冲突仍须重新规划；应用代码与审阅版本
