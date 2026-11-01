@@ -20,8 +20,8 @@ Source folders are locators, not a lifecycle scope; see
 ## Renderer-owned semantics
 
 This file owns the renderer semantics below (Hover Share, Comparison Visual
-Scale, and the fit/zoom transaction). `data/schema.md` holds only the Adapter
-field formats (`comparisonScale`, `meta`), and Adapters cannot override them.
+Scale, and the fit/zoom transaction). `data/schema/sankey-adapter.md` holds only the
+Adapter field formats (`comparisonScale`, `meta`); Adapters cannot override them.
 
 Within a Sankey View, **Hover Share（所占比例）** is renderer-owned rather
 than Adapter-configurable. The default formula, used on every hover surface
