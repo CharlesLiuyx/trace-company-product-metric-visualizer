@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { chromium } from 'playwright';
@@ -17,6 +18,9 @@ import {
 } from './lib/comparison-scale-browser.mjs';
 
 const defaultHtml = 'output/trace-company-product-metric-visualizer.html';
+// Raster datasets are swept by up to three loaded documents at once; every
+// dataset is still rendered and asserted exactly once.
+const RASTER_PAGES = Math.min(3, Math.max(1, os.availableParallelism() - 1));
 
 function primaryFontFamily(value) {
   return String(value || '').split(',')[0].trim().replace(/^(['"])(.*)\1$/, '$2');
@@ -46,17 +50,63 @@ function inspectMarkup(filePath) {
   assertProcessedImagesNotInlined(html);
 }
 
+// Equivalent to html.includes(`data:<mime>;base64,<payload>`) per reference
+// image, but the 140MB document is scanned once: every inlined data URI is
+// indexed by MIME type and its first payload characters, and only matching
+// candidates are compared in full.
+const DATA_URI_PREFIX_CHARS = 64;
+
+function inlinedDataUriIndex(html) {
+  const index = new Map();
+  for (const match of html.matchAll(/data:(image\/(?:png|jpeg|webp));base64,/g)) {
+    const start = match.index + match[0].length;
+    const key = `${match[1]};${html.slice(start, start + DATA_URI_PREFIX_CHARS)}`;
+    if (!index.has(key)) index.set(key, []);
+    index.get(key).push(start);
+  }
+  return index;
+}
+
 function assertProcessedImagesNotInlined(html) {
   const processedDir = path.join(rootDir, 'input/processed');
   if (!existsSync(processedDir)) return;
+  let index;
   for (const fileName of readdirSync(processedDir)) {
     if (!/\.(?:png|jpe?g|webp)$/i.test(fileName)) continue;
     const filePath = path.join(processedDir, fileName);
     const ext = path.extname(fileName).toLowerCase();
     const mimeType = ext === '.webp' ? 'image/webp' : ext === '.png' ? 'image/png' : 'image/jpeg';
-    const dataUri = `data:${mimeType};base64,${readFileSync(filePath).toString('base64')}`;
-    assert(!html.includes(dataUri), `Standalone HTML inlined processed reference image: ${fileName}`);
+    const payload = readFileSync(filePath).toString('base64');
+    let inlined;
+    if (payload.length < DATA_URI_PREFIX_CHARS) {
+      inlined = html.includes(`data:${mimeType};base64,${payload}`);
+    } else {
+      index ??= inlinedDataUriIndex(html);
+      const starts = index.get(`${mimeType};${payload.slice(0, DATA_URI_PREFIX_CHARS)}`) || [];
+      inlined = starts.some((start) => html.startsWith(payload, start));
+    }
+    assert(!inlined, `Standalone HTML inlined processed reference image: ${fileName}`);
   }
+}
+
+// Switch datasets inside the already-loaded document through the viewer's
+// hashchange route. A same-document navigation keeps the previous #chart svg,
+// so the wait is bound to the target key and to a freshly rendered svg (the
+// engine replaces the svg element on every render).
+async function showDatasetByHash(page, key, timeoutMs = 10000) {
+  const failure = await page.evaluate(async ({ target, timeoutMs }) => {
+    const chartSvg = () => document.querySelector('#chart svg');
+    // An already-active target has no hashchange to wait for; its svg is current.
+    const stale = currentDataset()?.key === target ? null : chartSvg();
+    window.location.hash = encodeURIComponent(target);
+    const deadline = performance.now() + timeoutMs;
+    while (!(currentDataset()?.key === target && chartSvg() && chartSvg() !== stale)) {
+      if (performance.now() > deadline) return `active ${currentDataset()?.key || 'none'}`;
+      await new Promise((resolve) => setTimeout(resolve, 0));
+    }
+    return '';
+  }, { target: key, timeoutMs });
+  assert(!failure, `${key} did not render within ${timeoutMs}ms of hash navigation (${failure})`);
 }
 
 async function waitForSvgImages(page) {
@@ -92,21 +142,29 @@ async function waitForSvgImages(page) {
 
 async function verifyInBrowser(filePath) {
   const browser = await chromium.launch({ headless: true });
-  const page = await browser.newPage({ viewport: { width: 1366, height: 900 }, deviceScaleFactor: 1 });
+  const context = await browser.newContext({ viewport: { width: 1366, height: 900 }, deviceScaleFactor: 1 });
   const pageErrors = [];
   const externalRequests = [];
   const documentUrl = pathToFileURL(filePath).toString();
 
-  page.on('pageerror', (err) => pageErrors.push(err.message));
-  page.on('request', (request) => {
-    const url = request.url();
-    if (url.startsWith('http://') || url.startsWith('https://')) externalRequests.push(url);
-    if (url.startsWith('file:') && url !== documentUrl) externalRequests.push(url);
-  });
+  // Each page loads the document exactly once; the extra pages only share the
+  // raster sweep and load in parallel with the first.
+  const openDocument = async () => {
+    const documentPage = await context.newPage();
+    documentPage.on('pageerror', (err) => pageErrors.push(err.message));
+    documentPage.on('request', (request) => {
+      const url = request.url();
+      if (url.startsWith('http://') || url.startsWith('https://')) externalRequests.push(url);
+      if (url.startsWith('file:') && url !== documentUrl) externalRequests.push(url);
+    });
+    await documentPage.goto(documentUrl, { waitUntil: 'load' });
+    await documentPage.waitForSelector('#chart svg', { timeout: 10000 });
+    return documentPage;
+  };
 
   try {
-    await page.goto(documentUrl, { waitUntil: 'load' });
-    await page.waitForSelector('#chart svg', { timeout: 10000 });
+    const pages = await Promise.all(Array.from({ length: RASTER_PAGES }, openDocument));
+    const [page] = pages;
     const fontStatus = await assertProjectFontsLoaded(page);
     const d3State = await page.evaluate(() => ({
       activeDataset:
@@ -180,24 +238,25 @@ async function verifyInBrowser(filePath) {
         .map((d) => ({ key: d.key, expected: d.rasterAnnotations.length }))
     );
 
-    const rasterResults = [];
-    for (const { key, expected } of rasterDatasets) {
-      await page.goto(`${documentUrl}#${key}`, { waitUntil: 'load' });
-      await page.waitForSelector('#chart svg', { timeout: 10000 });
-      const images = await waitForSvgImages(page);
-      assert(
-        images.count === expected,
-        `${key} should render ${expected} raster annotation image(s), got ${images.count}`
-      );
-      assert(
-        images.hrefs.every((href) => /^data:image\/(?:png|jpeg|webp|svg\+xml);base64,/.test(href)),
-        `${key} raster annotation(s) were not inlined:\n${images.hrefs.join('\n')}`
-      );
-      rasterResults.push({ key, count: images.count });
-    }
+    const rasterResults = new Array(rasterDatasets.length);
+    await Promise.all(pages.map(async (rasterPage, worker) => {
+      for (let index = worker; index < rasterDatasets.length; index += pages.length) {
+        const { key, expected } = rasterDatasets[index];
+        await showDatasetByHash(rasterPage, key);
+        const images = await waitForSvgImages(rasterPage);
+        assert(
+          images.count === expected,
+          `${key} should render ${expected} raster annotation image(s), got ${images.count}`
+        );
+        assert(
+          images.hrefs.every((href) => /^data:image\/(?:png|jpeg|webp|svg\+xml);base64,/.test(href)),
+          `${key} raster annotation(s) were not inlined:\n${images.hrefs.join('\n')}`
+        );
+        rasterResults[index] = { key, count: images.count };
+      }
+    }));
 
-    await page.goto(`${documentUrl}#apple-q2-fy26`, { waitUntil: 'load' });
-    await page.waitForSelector('#chart svg', { timeout: 10000 });
+    await showDatasetByHash(page, 'apple-q2-fy26');
     const comparisonCount = await selectAllIncomeStatementPeriods(page, 'Apple');
     assert(comparisonCount === 16, `standalone Apple fixture has ${comparisonCount} periods, expected 16`);
     await waitForCalibratedComparison(page, comparisonCount);
@@ -207,6 +266,8 @@ async function verifyInBrowser(filePath) {
       comparisonCount,
       'standalone Apple all-periods'
     );
+    assert(!pageErrors.length, `Page errors:\n${pageErrors.join('\n')}`);
+    assert(!externalRequests.length, `Standalone HTML made external request(s):\n${externalRequests.join('\n')}`);
 
     console.log(
       JSON.stringify(
