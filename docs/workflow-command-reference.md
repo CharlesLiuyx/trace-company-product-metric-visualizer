@@ -79,7 +79,12 @@
 | workbench | `trace-workbench/v1` |
 | workflowTimestamps | `workflow-timestamps/v1` |
 | application | `workflow-application/v1` |
+| sourceClassification | `source-classification/v1` |
 | verificationPlan | `verification-plan/v6` |
 | reviewPacket | `review-packet/v5` |
+| datasetVerification | `dataset-verification/v1` |
+| fidelityRun | `fidelity-run/2` |
+| feedbackNote | `feedback-note/v1` |
+| fidelityResult | `fidelity-result/v3` |
 
 历史 Build 不因本表更新而获得新的审阅或检查点。

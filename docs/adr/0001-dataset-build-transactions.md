@@ -139,8 +139,8 @@ The migration is incremental:
 - M4: add pure global projections and canonical CAS Publication.
 - M5: separate Release and add generated architecture/contract checks.
 
-The authoritative milestone table and current-versus-target summary are in
-the [`architecture index`](../architecture/README.md).
+The dated milestone table is archived in
+[`migration-milestones.md`](../archive/migration-milestones.md).
 
 ## Amendments
 

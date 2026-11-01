@@ -1,7 +1,6 @@
 {
   "schemaVersion": 1,
-  "contractStatus": "accepted-target-with-migration-status-in-README",
-  "currentImplementationStatusDocument": "docs/architecture/README.md#migration-milestones",
+  "contractStatus": "accepted",
   "protocols": {
     "datasetBuild": "dataset-build/v1",
     "fidelityRun": "fidelity-run/2",
@@ -11,6 +10,7 @@
     "reviewPacket": "review-packet/v5",
     "datasetVerification": "dataset-verification/v1",
     "fidelityResult": "fidelity-result/v3",
+    "feedbackNote": "feedback-note/v1",
     "publication": "dataset-publication/v2",
     "sourceFacts": "source-facts/v1",
     "textSourceClassification": "source-classification/v2",

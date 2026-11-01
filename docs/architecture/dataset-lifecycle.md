@@ -9,8 +9,8 @@ Adapter Seam. Verification and canonical write semantics are owned by
 The operational entry point is [asset-workflow.md](../asset-workflow.md):
 `record:workflow` drives every new Build through the states below. Metric
 Observation keeps real text/image anchors in its metric record and derives the
-same flat Source object list. Historical protocol readers stay explicit
-compatibility paths.
+same flat Source object list. Historical protocol readers are recorded in the
+[archive](../archive/migration-milestones.md).
 
 ## Scope model
 
@@ -109,31 +109,22 @@ combined. Multiple runs may exist, but `CLOSED` names the exact accepted run
 or compatible accepted evidence set it consumes.
 
 The current review-evidence protocol is `fidelity-run/2`. Its durable
-automatic terminal is `EVIDENCE_READY`, not human acceptance. `verify:d3`
-uses only ephemeral diagnostic scratch; the fidelity `record` operation
-(`scripts/record-fidelity.mjs`, run by `record:workflow continue`) is the only
-one that may finalize a build-bound `evidence-ready` archive, and only after
-every gate of that run passed. The
-operator acceptance is joined later by the Dataset Build Module rather than
-inferred from this run.
+automatic terminal is `EVIDENCE_READY`, not human acceptance; the operator
+acceptance is joined later by the Dataset Build Module. Finalization is owned by
+[verification-publication.md](verification-publication.md#fidelityrun-finalization).
 
 ## Durable lifecycle objects
-
-New protocol identifiers use `<name>/v<n>`. The existing `fidelity-run/1` and
-`fidelity-run/2` strings predate this convention and stay unchanged: renaming
-a recorded protocol identity would invalidate existing archives for no
-semantic gain.
 
 ### SourceClassification
 
 The pre-intake Type Gate records an explicit, Source-bound classification, not
 a claim that a vision model inferred the input type. `record:workflow start`
-reads the positive signals from the facts file's top-level `signals` and
-derives exactly one Adapter from them; there is no Adapter flag. The record
-binds the locator, digest, stable dataset key, confirmed status, review method
-(`full-source-type-gate`), signals, and derived Adapter, plus the complete
-native Source scope. `createSourceClassification`
-(`scripts/lib/source-objects.mjs`) picks the protocol from the media format:
+derives exactly one Adapter from the facts' top-level `signals` (facts contract:
+[dynamic-dataset-workflow.md](../dynamic-dataset-workflow.md)); there is no
+Adapter flag. The record binds the locator, digest, stable dataset key,
+confirmed status, review method (`full-source-type-gate`), signals, and derived
+Adapter, plus the complete native Source scope. The media format selects the
+protocol:
 
 | protocol | Source | complete-Source scope | Adapters |
 | --- | --- | --- | --- |
@@ -149,11 +140,10 @@ overlap, so a signal set matches at most one Adapter:
 | Revenue Metric | `revenue-metric-definition`, `time-series-observations` | `income-statement-values`, `sankey-flow-topology`, `metric-observations`, `supplemental-operating-metrics` |
 | Metric Observation | `metric-observations` | every other signal |
 
-Facts without `signals` default to `metric-observations`. Income Statement
-optionally accepts `supplemental-operating-metrics` when the Source includes
-separate operating cards; this signal alone cannot select an Adapter. Each card
-is one `value` Source object bound to `operatingMetrics` on the same SSOT
-record (fields: `data/schema.md`); cards stay out of accounting sums and node
+Income Statement optionally accepts `supplemental-operating-metrics` when the
+Source includes separate operating cards; this signal alone cannot select an
+Adapter. Each card is one `value` Source object bound to `operatingMetrics`
+on the same SSOT record (fields: `data/schema.md`); cards stay out of accounting sums and node
 faces, need one dedicated value text per locale, and are reconciled with their
 exact values, comparison operators, labels and quotes against the loaded
 SSOT/View.
@@ -171,7 +161,7 @@ review preparation: the author's flat `source-facts/v1` `objects[]` list
 independent Source object with a stable ID and one class — `value`, `flow`,
 `label`, `asset`, or `residual`. The Build Module binds the list to
 `SourceClassification` and the Build Source digest; entries carry no Source
-pixel evidence. `prepareBuildReview` validates the list and reconciles every
+pixel evidence. Review preparation validates the list and reconciles every
 value against the actually loaded SSOT (and, for an Income Statement financial
 value, exactly one Adapter node or non-node metric) before it records
 `AUTHORED`. It also derives `Other` identities, value node IDs, non-node metric
@@ -212,16 +202,13 @@ acceptance satisfies; Revenue Metric and Metric Observation plans require
 `data-consistency` and `human-review`. The render check lists the always-on and
 attribute-driven gates, plus T18 when the source objects declare a label
 position. The Plan binds the source-objects digest, the immutable Source
-digest, the required locales, and the recorded `ChangeImpact`. Plans prepared
-through `record:workflow` also carry `checkpointProtocol: review-candidate/v1`
-and the derived dependency scopes: one all-locale review candidate and no stage
-freezes. Historical `fidelity-checkpoints/v1` Plans keep their ordered stage
-freezes.
+digest, the required locales, and the recorded `ChangeImpact`. Plans also carry
+`checkpointProtocol: review-candidate/v1` and the derived dependency scopes: one
+all-locale review candidate and no stage freezes.
 
 Local execution and CI consume the same plan. A plan change invalidates any
-closure or seal that depended on its old digest. Builds authored under older
-Plans stay readable; `record:workflow continue` or `refresh` re-prepares them
-under v6 before review.
+closure or seal that depended on its old digest. Historical Plans are
+re-prepared by `record:workflow continue` or `refresh`.
 
 ### ReviewPacket
 
@@ -229,10 +216,8 @@ under v6 before review.
 automatic and human review. It binds `buildId`, authored digest, Verification
 Plan digest, source-objects digest, required locales, and references to the
 recorded source objects and Plan. `record:workflow continue --json` (and
-`show --json`) return its digest as `reviewToken`; `accept` consumes that token
-(`packetDigest` remains a compatibility alias). The token identifies the packet
-and cannot select a different Build. Older packets must be regenerated by
-re-preparing the Build.
+`show --json`) return its digest as `reviewToken`; `accept` consumes that token.
+The token identifies the packet and cannot select a different Build.
 
 ### DatasetVerification
 
@@ -267,8 +252,7 @@ The `AUTHORED` receipt does not embed the SourceObjects or the VerificationPlan.
 Each is recorded once as a build-local object, and the receipt keeps
 `{ digest, protocol, object: { kind, digest, path } }`; recording fails unless
 the object reference matches the content digest. Readers resolve the reference
-and re-check the object digest. Receipts recorded before this format embedded
-the content inline and remain readable as recorded.
+and re-check the object digest.
 
 ### FidelityResult
 
@@ -285,19 +269,15 @@ the content inline and remain readable as recorded.
 - `resultDigest`.
 
 It contains facts and one human decision, not canonical mutations.
-`finishReviewedBuild` creates it only from an explicit acceptance on fresh
+`accept` creates it only from an explicit acceptance on fresh
 inputs and never records a pending or rejected result. A missing acceptance, a
 required locale without evidence-ready render evidence on the current authored
 snapshot, a recorded failed gate, or missing or stale consistency evidence
 fails the operation and leaves the Build `AUTHORED`. Render gates decided
 pass/fail when the run was recorded, so the result does not re-judge them;
 everything outside the machine gates is covered by the operator's acceptance,
-not by per-check entries.
-
-Closed or sealed v1/v2 results are never rewritten. They stay inspectable and
-sealable because one read model surfaces their status, subject, consistency, and
-per-locale evidence. A new closure requires VerificationPlan v6 and
-ReviewPacket v5; Builds authored under older protocols are re-prepared first.
+not by per-check entries. A new closure requires VerificationPlan v6 and
+ReviewPacket v5.
 
 ### FeedbackNote
 
@@ -394,31 +374,6 @@ historical `SEALED` receipt remains auditable while `effectiveState` becomes
   Plan plus the operator acceptance; absence is not success.
 - `SEALED` is fresh only for its exact digest set.
 - Only fresh sealed contributions enter Publication.
-
-## Current implementation note
-
-`record:workflow` drives the current path (`start → continue → accept`) through
-the deep `prepareBuildReview`, `finishReviewedBuild`, `stageReviewedBaseline`,
-`sealReviewedBuild`, and `inspectBuildCloseout` Interfaces. Together with the
-consistency step it records content-addressed SourceClassification,
-SourceObjects, VerificationPlan, ReviewPacket, DatasetVerification,
-FidelityResult, FeedbackNote, closure, staged baseline, and seal objects under
-the per-Build store; `accept` records acceptance, closure, baseline staging and
-seal in one locked transaction. Inspection also produces `CloseoutReport`, Task
-information, and Loop Fidelity Summary as pure Views over the recorded
-`FidelityResult`. Closures recorded before `fidelity-result/v3` may still
-reference a feedback-ledger object; it is no longer read. The historical
-per-step commands behind these Interfaces were removed on 2026-10-18 (the
-[legacy workflow](../archive/legacy-direct-edit-workflow.md) records them),
-and `compat:baseline` is only the legacy baseline writer.
-
-Sealing re-hashes authored files under the write lock and, by default, reuses
-the accepted non-render consistency evidence and, for Income Statement, the
-per-locale d3 render proof on the same authored snapshot (`--fresh-checks`
-reruns both; `--fresh-render` reruns rendering) before recording `SEALED`
-against an accepted closure. New Builds use immutable-tree Publication and
-path-claim CAS; the local Source archive move stays outside that canonical
-publication boundary. Milestone history: [`README.md`](README.md#migration-milestones).
 
 ## Workspace storage
 

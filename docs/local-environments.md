@@ -47,10 +47,10 @@
 工作台自动构建只证明产物完整、摘要自洽，不替代人工接受或 `verify:site`。
 每个候选绑定源文件摘要、工具摘要；可接受成员另绑定有效的 reviewToken。带 Session 所有权的新 Build
 执行接受时必须引用对应 previewId，成员输入已变或站点字节被改写的候选不能通过。
-Git 集成候选默认执行 `check` 与 `build:site`；`release:git -- prepare --full` 才在本机追加 render regression 与 `verify:site`。
 
-保存事件合并 500 ms 后开始重建；工作台最多同时构建 2 个候选。先比较实际输入摘要，相同内容的重写不重建；工作报告生成不触发汇总。失败保留上次成功结果，
-明确标示过期；后续保存成功后自动恢复。草稿文件以有并发上限的读取计算摘要，只有文件身份、大小、mtime 与 ctime 均一致才复用摘要；新增、删除、重命名仍重新枚举。该缓存仅用于预览，正式审阅与发布继续独立校验原始字节。验收绑定先比较应用、资产和语义贡献，再对可绑定项执行完整检查；独立 Build 检查最多并发 4 项。CI 和生产状态最多每 30 秒刷新，线上数据查询在后台进行，同一请求合并，不阻塞本机操作；工作台关闭后停止这些查询。页面事件合并推送，折叠的版本详情按需生成；工作台页面模板变化也自动重新载入。
+保存事件经短暂合并后以有限并发重建；实际输入摘要相同的重写不重建，工作报告生成不触发汇总。失败保留上次成功结果并标示过期，后续保存成功后自动恢复。
+草稿摘要仅在文件元数据未变时复用，且只用于预览；正式审阅与发布继续独立校验原始字节。验收绑定先比较应用、资产和语义贡献，再对可绑定项执行完整检查。
+CI 与生产状态在后台限频刷新、不阻塞本机操作，工作台关闭后停止；工作台页面模板变化也自动重新载入。
 激活预览前按实际源文件摘要、草稿摘要和成员列表核对新鲜度；审阅报告保存或内容相同的
 文件重写不会仅因触发文件事件而作废候选。实际数据或成员变化仍会阻止过期候选激活。
 打开工作台不授予浏览器写盘审批、提交或推送权限，`/__trace/*` 的写请求会被拒绝。
@@ -59,9 +59,8 @@ Git 集成候选默认执行 `check` 与 `build:site`；`release:git -- prepare 
 
 ### 草稿的共享存储与再次编辑
 
-新 Build 先共享未改动的图标参考文件，待审时进一步共享完整 canonical 基线。
-完整逻辑树由工作目录中的改动与 digest 绑定的不可变基线组成，不使用可写硬链接。
-工作台 HTTP 预览、工作流检查和发布支持该表示。人工接受、seal 与 Source 归档要求不变。
+草稿由本地改动加 digest 绑定的不可变共享基线组成（编码见
+[dataset-lifecycle.md](architecture/dataset-lifecycle.md#workspace-storage)），不改变人工接受、seal 与 Source 归档要求。
 
 外部脚本、编辑器、直接运行底层工具或 `file://` 打开工作目录前，先从项目根目录执行：
 
@@ -71,14 +70,9 @@ pnpm record:workflow -- materialize <build-id> --session <owner> --generation <g
 pnpm record:workflow -- continue <build-id> --session <owner> --generation <generation>
 ```
 
-`prepare`、检查、接受和封存的工作流操作会在原有操作锁内恢复完整目录，结束后
-恢复共享存储。`compact` 可在不改变状态与审阅绑定的情况下压缩当前草稿；
-`share-assets` 只处理图标参考资产。这些命令都检查原 owner/generation，不能接管其他 Session。
-只有引用记录落盘后才移除相同字节的副本；中断留下的多余副本可重试，改动字节不会被覆盖。
-
-旧 Build 的冻结工具不支持新存储时继续保留原表示。原 owner 通过正常 `refresh`
-升级后才能使用新表示；刷新仍按原规则重新准备和检查，不能借存储升级绕过审阅。
-共享对象缺失、摘要变化或路径跳出本项目的不可变基线时操作失败，不回退到当前根目录数据。
+工作流操作在操作锁内恢复完整目录、结束后重新共享；`compact` 与 `share-assets`（仅图标参考资产）只改存储，
+不改状态与审阅绑定。这些命令都核对原 owner/generation，不能接管其他 Session。
+共享对象缺失、摘要变化或越出本项目时操作失败，不回退到根目录数据。
 
 ```bash
 pnpm record:workflow -- start --source input/pending/example.png \
@@ -89,13 +83,8 @@ pnpm record:workflow -- continue <build-id> --session session-a --generation <ge
 pnpm record:workflow -- show <build-id> --json
 ```
 
-Codex 可从 `CODEX_THREAD_ID` 取得默认 owner；Claude Code 也可显式传 `--session`。
-没有会话标识时 CLI 会生成并返回一个，执行者必须保存它。
-省略 `--generation` 时，CLI 以 `--session`（缺省时为 `TRACE_SESSION_ID` / `CODEX_THREAD_ID` /
-`CLAUDE_SESSION_ID` 环境身份）读取该 Build 的 `output/builds/<build-id>/session.json`：
-owner 与该身份相同且 `released` 为 `false` 才采用其中的 generation（stderr 提示一行），否则保持原错误；
-显式 `--generation` 照常核对，`session` / `release-session` / `recover-session` 不使用该默认值。
-历史 Build 的低层命令使用同样的 `TRACE_SESSION_ID` 与 `TRACE_SESSION_GENERATION` 环境变量，Build store 在写入前核对它们。
+owner 取自 `--session` 或 `TRACE_SESSION_ID` / `CODEX_THREAD_ID` / `CLAUDE_SESSION_ID`，都没有时 CLI 生成并返回一个，执行者必须保存；
+省略 `--generation` 时仅沿用同一 owner 未释放的 Build 执行权记录（`session` / `release-session` / `recover-session` 除外）。
 
 - 同一 Source 的内容摘要只允许一个 key 认领；共享队列锁只覆盖短认领操作。
   大文件复制和后续验证在各自的 workspace 中完成。初始基线也保存为不可变普通目录。
@@ -119,13 +108,11 @@ owner 与该身份相同且 `released` 为 `false` 才采用其中的 generation
 旧 Publication base 已变化时执行 `refresh`，检查合并结果，再 `continue`、审阅、`accept`。
 当前采取保守的重新审阅策略；历史接受仍保留，但不会凭“看起来无关”自动套用到新 seal。
 应用代码升级需要刷新受影响草稿；仅根目录工具或文档升级可继续接受已冻结候选。
-具有旧共享 `.git` 链接的历史草稿仍应先 refresh 移除链接。
 
 ## 从已发布贡献生成可推送提交
 
-操作步骤与 `record:transport-review` 的 review JSON 只由 [输入流程](asset-workflow.md) §6 定义；本节只写机制。
-默认 prepare 只跑 `check` 与 `build:site`，浏览器检查由 CI 执行；`prepare --full` 在本机追加
-render regression 与 `verify:site`。候选工作台地址为 `/?source=<transport-id>`。既有数据处理单的历史不会被重写。
+操作步骤、检查范围与 `record:transport-review` 的 review JSON 只由 [输入流程](asset-workflow.md) §3/§6 定义；本节只写机制。
+候选工作台地址为 `/?source=<transport-id>`。既有数据处理单的历史不会被重写。
 
 prepare 要求应用、数据与执行工具已进入 Git，以 HEAD 作为可复现起点，沿发布收据链
 只整合已接受贡献；已推送发布的贡献已在 HEAD 中，不再重放，其 Build 只贡献 Source
@@ -146,7 +133,6 @@ push 限制 main 位于这个已审阅提交，普通推送，不使用 force；
 CI 的 `verify:release` 重新计算实际文件摘要。带 `Trace-Transport` 的提交还必须匹配
 `docs/releases/current.json` 中的输入、人工确认和产物映射；普通历史/代码提交明确报告无此映射。
 `site-release.json` 的 sourceCommit 来自 CI 的真实 SHA，部署复用已验证的 `_site`。
-线上服务保持原 GitHub Pages 地址；远端 Staging 属于后续阶段，本次未新增托管环境。
 
 ## 运行与验证
 
@@ -161,17 +147,9 @@ pnpm 版本以 packageManager 为准，依赖以锁文件为准。
 
 ## 退出与收尾清理
 
-工作台收到 SIGINT/SIGTERM 后等待本进程的预览构建结束，清除本次生成的站点文件，
-仅留候选 meta；运行中的固定标签页仍保留全部成功候选。失败预览立即清除半成品。
-其余产物的保留与清理只由 [artifact-retention.md](artifact-retention.md) 定义。
+工作台退出与其余产物的清理只由 [artifact-retention.md](artifact-retention.md) 定义。
 
 ## 未验收草稿的接收记录恢复
 
-若旧利润表接收记录缺少后来支持的经营指标信号，可执行
-`record:workflow recover-intake <build-id> --facts <facts.json> --session <owner> --generation <generation>`。
-仅允许历史始终处于 INTAKED / AUTHORED、从未验收的同类利润表增加 `supplemental-operating-metrics`；不得更换 Source、key 或 Adapter。
-操作核对 owner/generation 和 processing 字节，创建带新分类的后继 Build，保留原始接收记录。
-原 Build 的 `successor.json` 提交执行权交接，此后原 Build 拒绝写入；来源不移动。
-原草稿退出新的统一审阅候选。后继从当前正式基线开始；执行者可迁入仍适用的数据贡献，
-但旧审阅包、证据和冻结记录不能移作新 Build 的接受依据，必须重新准备和检查。
-中断时用相同参数重试，pending journal 保留后继 ID，避免重复创建。
+`record:workflow recover-intake <build-id> --facts <facts.json> --session <owner> --generation <generation>` 只为从未验收的利润表草稿补登记 `supplemental-operating-metrics`，不得更换 Source、key 或 Adapter。
+它创建带新分类的后继 Build 并使原 Build 拒绝写入；旧审阅包与证据不能作为后继的接受依据，后继须重新准备和检查。中断时以相同参数重试，不会重复创建。

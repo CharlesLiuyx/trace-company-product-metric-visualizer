@@ -317,16 +317,14 @@ async function main() {
     assert.ok(contract.durableObjects.includes(objectName), `lifecycle contract must include ${objectName}`);
   }
   assert.equal(contract.scopes.ReleaseAttempt.retryCreatesNewAttempt, true, 'Release retry must create a new Attempt');
-  assert.equal(
-    contract.currentImplementationStatusDocument,
-    'docs/architecture/README.md#migration-milestones',
-    'machine-readable target contract must route current implementation status'
-  );
+  // The architecture documents describe only the current implementation; the
+  // dated migration record lives in docs/archive/.
+  assert.equal(contract.contractStatus, 'accepted', 'lifecycle contract status drift');
+  assert.equal(contract.currentImplementationStatusDocument, undefined, 'migration status is archived, not routed by the contract');
+  assert.ok(existsSync(projectPath('docs/archive/migration-milestones.md')), 'docs/archive/migration-milestones.md must keep the dated migration record');
 
   const packageJson = JSON.parse(await readFile(projectPath('package.json'), 'utf8'));
-  // The historical per-step Build commands were removed on 2026-10-18; their
-  // library operations live in scripts/lib/ and only record:workflow drives
-  // them. scripts/record-fidelity.mjs stays as the render worker it spawns.
+  // Only record:workflow drives the Build library operations; record-fidelity.mjs is its render worker.
   for (const script of ['record:intake', 'record:build', 'record:fidelity', 'record:verification', 'verify:closeout', 'check:pending', 'audit:interface-risk', 'release:dataset']) {
     assert.ok(!packageJson.scripts[script], `${script} must stay removed; record:workflow owns the dataset process`);
   }
@@ -466,7 +464,7 @@ async function main() {
     assert.doesNotMatch(
       source,
       /same-name/,
-      `${name} restates operator relocation details owned by docs/dynamic-dataset-workflow.md`
+      `${name} restates operator relocation details owned by docs/asset-workflow.md §7`
     );
   }
   assert.match(flowchart, /辅助 View，不拥有规则/, 'workflow flowchart must disclaim rule ownership');

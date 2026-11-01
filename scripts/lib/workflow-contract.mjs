@@ -5,7 +5,11 @@ import path from 'node:path';
 import assert from 'node:assert/strict';
 import { rootDir } from './project.mjs';
 import { SOURCE_FACTS_PROTOCOL, METRIC_RECORD_PROTOCOL } from './metric-source.mjs';
-import { SOURCE_OBJECTS_PROTOCOL } from './source-objects.mjs';
+import { SOURCE_CLASSIFICATION_PROTOCOL, SOURCE_OBJECTS_PROTOCOL } from './source-objects.mjs';
+import { FIDELITY_PROTOCOL_VERSION } from './compare-workspace.mjs';
+import { DATASET_VERIFICATION_PROTOCOL } from './dataset-verification.mjs';
+import { FIDELITY_RESULT_PROTOCOL } from './fidelity-result.mjs';
+import { FEEDBACK_NOTE_PROTOCOL } from './workflow-feedback.mjs';
 import { ARTIFACT_MANIFEST_PROTOCOL, CHECKPOINT_PROTOCOL, REVIEW_CANDIDATE_PROTOCOL } from './workflow-dependencies.mjs';
 import { PUBLICATION_PROTOCOL } from './workflow-publication.mjs';
 import { VERIFICATION_PLAN_PROTOCOL } from './verification-plan.mjs';
@@ -27,14 +31,16 @@ export const WORKFLOW_ACTIONS = Object.freeze({
   'archive-list': '只读枚举完整的待归档来源', archive: '消费操作员确认的精确清单并归档',
 });
 export const WORKFLOW_PROTOCOLS = Object.freeze({ recordStorage: RECORD_STORAGE_PROTOCOL, workspaceStorage: WORKSPACE_STORAGE_PROTOCOL, sourceFacts: SOURCE_FACTS_PROTOCOL, sourceObjects: SOURCE_OBJECTS_PROTOCOL, textSourceClassification: 'source-classification/v2', metricObservations: METRIC_RECORD_PROTOCOL, artifactManifest: ARTIFACT_MANIFEST_PROTOCOL, checkpoint: CHECKPOINT_PROTOCOL, reviewCandidate: REVIEW_CANDIDATE_PROTOCOL, publication: PUBLICATION_PROTOCOL, releaseAttempt: 'release-attempt/v1', session: 'workflow-session/v1', gitTransport: 'git-transport/v1', workbench: 'trace-workbench/v1', workflowTimestamps: 'workflow-timestamps/v1', application: 'workflow-application/v1' });
+// Build-lifecycle protocols, listed so the generated reference names every protocol a current Build records.
+const BUILD_PROTOCOLS = Object.freeze({ sourceClassification: SOURCE_CLASSIFICATION_PROTOCOL, verificationPlan: VERIFICATION_PLAN_PROTOCOL, reviewPacket: REVIEW_PACKET_PROTOCOL, datasetVerification: DATASET_VERIFICATION_PROTOCOL, fidelityRun: FIDELITY_PROTOCOL_VERSION, feedbackNote: FEEDBACK_NOTE_PROTOCOL, fidelityResult: FIDELITY_RESULT_PROTOCOL });
 export async function workflowCommandReference(root = rootDir) {
   const pkg = JSON.parse(await readFile(path.join(root, 'package.json'), 'utf8'));
   const scripts = Object.entries(pkg.scripts).filter(([key]) => /^(clean:artifacts|record:workflow|record:transport-review|publish:datasets|release:git|verify:release|verify:workbench|view:published|(?:verify|update):(?:metric-catalog|metrics|asset-catalog|workflow|workflow-reference|workflow-graph))$/.test(key));
-  return `# 当前 Workflow 命令与协议\n\n由 \`scripts/lib/workflow-contract.mjs\` 与 \`package.json\` 生成，请勿手工修改。\n操作说明：[asset-workflow.md](asset-workflow.md)。\n\n## 一张处理单的操作\n\n| 命令 | 作用 |\n| --- | --- |\n${Object.entries(WORKFLOW_ACTIONS).map(([name, label]) => `| \`pnpm record:workflow -- ${name}\` | ${label} |`).join('\n')}\n\n\`start\` 需要 \`--source <pending-file> --key <key> --facts <facts.json>\`；\n其他单项操作使用 \`<build-id>\`。\`accept\`、\`review\`、\`checkpoint\`、\`feedback\`、\`asset-version\`、\`archive\`\n使用 \`--input <json>\`。\`batch\` 使用 \`--input <json> --concurrency 2\`。\n\n## 项目入口\n\n| 命令 | 执行文件 |\n| --- | --- |\n${scripts.map(([name, script]) => `| \`pnpm ${name}\` | \`${script}\` |`).join('\n')}\n\n发布先 \`publish:datasets -- plan <build-id> [...]\`，再 \`publish:datasets -- commit <plan-digest>\`。\n推送经 \`release:git -- prepare <published-digest>\`、\`commit\`、\`push\` 交接，站点由 CI 构建与部署。\n\n## 当前协议\n\n| 对象 | 协议 |\n| --- | --- |\n${Object.entries({ ...WORKFLOW_PROTOCOLS, verificationPlan: VERIFICATION_PLAN_PROTOCOL, reviewPacket: REVIEW_PACKET_PROTOCOL }).map(([key, value]) => `| ${key} | \`${value}\` |`).join('\n')}\n\n历史 Build 不因本表更新而获得新的审阅或检查点。\n`;
+  return `# 当前 Workflow 命令与协议\n\n由 \`scripts/lib/workflow-contract.mjs\` 与 \`package.json\` 生成，请勿手工修改。\n操作说明：[asset-workflow.md](asset-workflow.md)。\n\n## 一张处理单的操作\n\n| 命令 | 作用 |\n| --- | --- |\n${Object.entries(WORKFLOW_ACTIONS).map(([name, label]) => `| \`pnpm record:workflow -- ${name}\` | ${label} |`).join('\n')}\n\n\`start\` 需要 \`--source <pending-file> --key <key> --facts <facts.json>\`；\n其他单项操作使用 \`<build-id>\`。\`accept\`、\`review\`、\`checkpoint\`、\`feedback\`、\`asset-version\`、\`archive\`\n使用 \`--input <json>\`。\`batch\` 使用 \`--input <json> --concurrency 2\`。\n\n## 项目入口\n\n| 命令 | 执行文件 |\n| --- | --- |\n${scripts.map(([name, script]) => `| \`pnpm ${name}\` | \`${script}\` |`).join('\n')}\n\n发布先 \`publish:datasets -- plan <build-id> [...]\`，再 \`publish:datasets -- commit <plan-digest>\`。\n推送经 \`release:git -- prepare <published-digest>\`、\`commit\`、\`push\` 交接，站点由 CI 构建与部署。\n\n## 当前协议\n\n| 对象 | 协议 |\n| --- | --- |\n${Object.entries({ ...WORKFLOW_PROTOCOLS, ...BUILD_PROTOCOLS }).map(([key, value]) => `| ${key} | \`${value}\` |`).join('\n')}\n\n历史 Build 不因本表更新而获得新的审阅或检查点。\n`;
 }
 export async function verifyWorkflowContract(root = rootDir) {
   const contract = JSON.parse(await readFile(path.join(root, 'docs/architecture/lifecycle-contract.json'), 'utf8'));
-  for (const [name, protocol] of Object.entries(WORKFLOW_PROTOCOLS)) assert.equal(contract.protocols[name], protocol, `${name} protocol drift`);
+  for (const [name, protocol] of Object.entries({ ...WORKFLOW_PROTOCOLS, ...BUILD_PROTOCOLS })) assert.equal(contract.protocols[name], protocol, `${name} protocol drift`);
   assert.deepEqual(contract.workflow.sourceFormats, ['png', 'txt', 'md']);
   assert.equal(contract.workflow.canonicalVisibility, 'immutable-tree-with-atomic-pointer');
   const actual = await readFile(path.join(root, 'docs/workflow-command-reference.md'), 'utf8');

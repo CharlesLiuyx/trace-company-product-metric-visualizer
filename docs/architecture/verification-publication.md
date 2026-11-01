@@ -62,17 +62,12 @@ record:workflow accept    -> fidelity-result/v3 -> CLOSED -> BASELINE_STAGED -> 
 publish:datasets plan/commit -> PublicationBatch
 ```
 
-`prepareBuildReview`, `finishReviewedBuild`, `stageReviewedBaseline`,
-`sealReviewedBuild`, and `inspectBuildCloseout` are the deep Module Interfaces
-behind those actions. The review token is the digest of the recorded
-ReviewPacket; a JSON document cannot redirect an operation to another Build.
-`accept` records acceptance, closure, baseline and seal in one locked manifest
-transaction using the existing checks; it preserves every state-machine
-receipt, leaves no partial acceptance if any transition fails, and commits each
-Build in a batch independently. Historically the same Interfaces were driven
-step by step through low-level commands; those were removed on 2026-10-18 and
-survive only in the [legacy workflow](../archive/legacy-direct-edit-workflow.md)
-record.
+The review token is the digest of the recorded ReviewPacket; a JSON document
+cannot redirect an operation to another Build. `accept` records acceptance,
+closure, baseline and seal in one locked manifest transaction using the
+existing checks; it preserves every state-machine receipt, leaves no partial
+acceptance if any transition fails, and commits each Build in a batch
+independently.
 
 The intake Type Gate derives exactly one Adapter from the facts' top-level
 `signals` before Build initialization or the working-Source claim (rules:
@@ -83,7 +78,6 @@ View Adapter node or non-node metric each value names. A mismatch fails before
 the new authored snapshot, Plan, or packet can become review input. These are
 build-local validation and recording operations; they neither publish
 canonical files nor materialize a stable Source projection.
-
 
 ### Evidence purposes
 
@@ -135,15 +129,13 @@ annotation, and Interface audits complete. The fidelity `record` operation
 (`scripts/record-fidelity.mjs`, run by `record:workflow continue`) is the only
 fidelity operation that may archive durable evidence. Bound to a Build, the archive is
 bound to Build, authored, and Verification Plan digests and is finalized as
-`evidence-ready (human review required)`. Unbound legacy manual archives retain
-the v1 compatibility identity and explicitly do not imply Build closure.
+`evidence-ready (human review required)`.
 
 `evidence-ready` is not `ACCEPTED` and is not `DatasetBuild.CLOSED`.
 The consistency step of `record:workflow continue` first records the non-render
 dataset consistency profile against the current Build/authored/Plan identity.
-`finishReviewedBuild` requires the ReviewPacket's `reviewToken`, that
-consistency reference, and,
-for Income Statement, one evidence-ready run per required locale bound to the
+`accept` requires the ReviewPacket's `reviewToken`, that consistency reference,
+and, for Income Statement, one evidence-ready run per required locale bound to the
 current Build, authored digest, and Plan digest. It re-hashes each run's
 artifacts, rejects a run whose recorded gate summary contains a failed gate,
 and records the operator acceptance `{ reviewer, decision: "accepted", note,
@@ -154,11 +146,8 @@ recorded with `record:workflow feedback` as a `FeedbackNote`, which expires
 the current review candidate.
 
 VerificationPlan v6 binds the source-objects digest and the immutable Source
-digest, and the accepted result binds the Plan digest. Each Build-bound
-render expects every value node from the source objects to paint a face, and
-every rendered node to reach the 3px floor unless the author declared it in
-`shortNodes`. The fidelity rules document remains the owner of rule semantics
-and thresholds.
+digest, and the accepted result binds the Plan digest. Node paint follows
+[B15](../fidelity-loop-rules.md#rule-b15).
 
 ## Baseline does not prove itself
 
@@ -182,13 +171,12 @@ candidate, reference, interface, or manual failures.
 
 No-key, full-catalog baseline updates are not a close-out operation for one
 Build and are rejected by the current CLI. `compat:baseline -- <key> [...]`
-(renamed from `record:baseline`; it mutates the canonical ledger, so it sits
-deliberately outside the `record:*` class) is a subset-only legacy mutation: it
-writes atomically only after all selected render/structure checks pass, but it
-is not build-local staging. Batch baseline changes require their own explicit
+(outside `record:*` because it mutates the canonical ledger) is a subset-only
+legacy mutation: it writes atomically only after all selected render/structure
+checks pass, but it is not build-local staging. Batch baseline changes require their own explicit
 scope and Verification Plan.
 
-Build-local staging is separate: `stageReviewedBaseline` consumes the exact
+Build-local staging is separate: it consumes the exact
 closure digest, records Income Statement metrics with
 `future-regression-only`, and records the Revenue Metric baseline as explicitly
 `not-applicable`. It does not update the canonical baseline ledger; the legacy
@@ -197,8 +185,8 @@ transaction.
 
 ## SEALED final verification
 
-Sealing is a non-mutating check after closure and baseline staging.
-`sealReviewedBuild` takes no caller pass JSON: under the write lock it
+Sealing is a non-mutating check after closure and baseline staging. It takes
+no caller pass JSON: under the write lock it
 re-hashes the authored files, recomputes the seal-input digest, validates every
 ArtifactManifest reference, requires `BASELINE_STAGED` with an accepted
 closure, completes the Adapter's final profile, and verifies that no open
@@ -227,8 +215,7 @@ result and the Build reopens at the recovery point defined in the lifecycle
 document, where a new preparation reconciles the new values. New Builds derive
 the complete artifact set and semantic contributions at preparation and
 recompute those dependencies at inspection; Publication then checks the
-combined canonical projection before its pointer swap. Legacy Builds retain
-the artifact lists and protocol they actually recorded.
+combined canonical projection before its pointer swap.
 
 After sealing, inspection preserves both truths. `historicalState=SEALED`
 records what happened; if an authored file is missing or its bytes change,
@@ -238,7 +225,7 @@ when its effective state is `SEALED`, it is fresh, and its review status is
 
 ## Reporting Views
 
-`inspectBuildCloseout` may read the recorded `FidelityResult` (any version)
+Inspection may read the recorded `FidelityResult` (any version)
 into a deterministic `CloseoutReport`, then render Task information and Loop
 Fidelity Summary. These are pure Views: status and confidence are derived from
 structured facts, and the rendered text is never fed back as evidence,
@@ -322,16 +309,6 @@ new Attempt, but against the newer digest.
 | Publication CAS conflict | Publication is `CONFLICTED` | new plan + reseal; never retry old plan |
 | Publication outcome unknown | no guessed state | inspect receipt by plan digest |
 | Release failure | Publication remains `PUBLISHED` | retry Release independently |
-
-## Migration record
-
-Milestones are recorded in the
-[`architecture index`](README.md#migration-milestones). The migration followed
-"replace, not layer indefinitely": existing verifiers were wrapped as
-evidence-producing Adapters, `verify:d3` stayed read-only, closure, staging and
-sealing moved into the Build Module, writers became pure projectors behind
-`publish:*` CAS, and standalone output became a Release Adapter. Old Shallow
-orchestration is deleted only once tests at the new Module Interfaces cover it.
 
 ## Completed-work artifact retirement
 

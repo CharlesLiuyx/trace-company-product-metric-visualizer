@@ -69,42 +69,14 @@ an earlier company request from replacing the currently selected company.
 
 ## Click-layer warm
 
-On GitHub Pages every request costs one round trip (about 300 ms observed),
-and a company click needs three of them in sequence: the company detail JSON
-and the default period adapter in parallel, then the raster annotations that
-the committed SVG references. Without warming, a click shows the previous
-chart, the loading placeholder, the new chart, and finally its logos. The
-viewer therefore warms the data a click is predicted to need before it
-happens, in memory rather than only in the HTTP cache, so `ready()` is true
-synchronously and `draw()` swaps charts inside the click task.
-
-- **Click layer of a company** (`companyWarmPlan` in `src/app/state.js`):
-  the plan mirrors `selectCompanyGroup`. When the click would land on a
-  Sankey, it names the company's detail chunk and its default period
-  adapter; the Dataset Loader warms that adapter's raster annotations through
-  detached, pre-decoded `Image` elements once the adapter is in memory
-  (`data:` URIs are skipped). Table and trend Views depend on family chunks
-  and the lazy Chart runtime, which warm once for every company, so they
-  produce no plan.
-- **Visible companies** (`src/app/company-panel.js`): after the first
-  successful Sankey render and an idle period, an `IntersectionObserver`
-  rooted at the company list warms every item that stays inside the list
-  viewport plus a 240 px look-ahead for 200 ms; it re-targets the rebuilt
-  buttons on every list render and follows scrolling. Pointer or keyboard
-  focus on an item warms it immediately and link-prefetches its other
-  periods.
-- **Periods of the selected company**: selecting a company still preloads
-  every period adapter of the scope, now about 400 ms after the click and
-  including each adapter's raster annotations, so period chips swap without a
-  request even where periods use different crops.
-- **Fonts**: the same first idle loads every declared font face that no
-  chart has used yet, so a later chart does not repaint when a new weight
-  arrives.
-
-Warming is speculative and bounded: it never starts before the first render,
-it is limited to the visible list, every request is low priority, and it is
-skipped under `Save-Data` or a 2G effective connection. The budgets below
-hold this boundary.
+The viewer warms in memory what a click is predicted to need, so a warmed
+click renders inside the click task without a loading placeholder: the detail
+chunk, default period Adapter and its raster annotations of each company
+visible in the list (immediately on pointer or keyboard focus), every period
+Adapter of the selected company, and declared font faces no chart used yet.
+Warming starts only after the first Sankey render, stays within the visible
+list, runs at low priority, and is skipped under `Save-Data` or a 2G effective
+connection; the budgets below hold this boundary.
 
 ## Version and deployment behavior
 
@@ -126,13 +98,9 @@ is best effort: cache eviction, a fresh checkout, and sufficiently old tabs
 can make an old version unavailable. A failed load offers retry and reload of
 the latest index. It never fetches a new unversioned chunk into an old catalog.
 
-For the migration from the earlier unversioned site, the old `assets/*.js`
-bootstrap/Chart URLs and registered `data/datasets/*.js` URLs serve small
-upgrade scripts. A cached old index or an already-open tab navigates to the
-latest index with a runtime-version query to bypass its cached HTML, preserving
-the hash and other query parameters. A version guard prevents reload loops.
-These bridges contain no data and never merge current details into an old
-catalog. New pages continue to request only their immutable runtime paths.
+Retired unversioned entry URLs serve data-free upgrade scripts that navigate a
+cached index or open tab once to the latest index, keeping hash and query
+([history](../archive/migration-milestones.md#pages-migration-from-the-unversioned-site)).
 
 ## Verification and limits
 
@@ -158,17 +126,6 @@ catalog. New pages continue to request only their immutable runtime paths.
 - `verify:site` also exercises a cached unversioned index and an old tab's
   on-demand script request against the new artifact, then requires a rendered
   Sankey and no metric-library toolbar entry after upgrading.
-
-The site benchmark (`scripts/benchmark-site.mjs`, removed on 2026-10-18; check
-out an earlier commit to rerun it) compared two immutable site directories with
-identical gzip, a fresh context per run, disabled browser cache, 4× CPU
-slowdown, 100 ms network latency, and 1.6 Mbps download bandwidth, alternating
-run order, and recorded raw samples plus median and p90 for first Sankey node,
-cold/warm company switch, transfer size and long tasks in
-`output/site-benchmark/results.json`. It was a controlled local diagnostic, not
-a production percentile or a wall-clock CI gate. Its measured results are
-archived in [CI timing history](../archive/ci-timing-history.md); check routing
-is in [CI verification](../ci-verification.zh-CN.md).
 
 An uncached company switch adds one JSON request; a warmed one adds none.
 Global Tables still download the requested full family. Database adoption should be reconsidered for
