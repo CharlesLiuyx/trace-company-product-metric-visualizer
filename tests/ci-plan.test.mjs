@@ -1,5 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { spawnSync } from 'node:child_process';
+import { diffPlanOptions } from '../scripts/plan-ci.mjs';
+import { rootDir } from '../scripts/lib/project.mjs';
 import {
   createFullCiPlan,
   incomeStatementKeysFromSource,
@@ -237,6 +240,29 @@ test('an actual data batch with generated ledgers and assets stays scoped to its
   assert.equal(assetConsumers('invalid', catalog([])), null);
   assert.equal(planCiChecks([{ path: file }]).renderScope, 'full');
   assert.equal(planCiChecks([{ path: 'data/assets/icon-references/new-runtime.js' }]).renderScope, 'full');
+});
+
+test('the acd799d data hand-off replays as scoped renders: asset documentation is provenance, not a full route', (t) => {
+  const git = (...args) => spawnSync('git', args, { cwd: rootDir, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+  if (git('rev-parse', '--is-shallow-repository').stdout.trim() === 'true') return t.skip('shallow clone lacks acd799d');
+  const shown = git('show', '--name-status', '-z', '--format=', '--find-renames', 'acd799d');
+  assert.equal(shown.status, 0, shown.stderr);
+  const entries = parseNameStatusZ(shown.stdout);
+  const doc = 'data/assets/icon-references/match-group/match-group-q4-fy22-model-validation.md';
+  assert.ok(entries.some((entry) => entry.path === doc), 'replayed commit must contain the asset documentation file');
+  const plan = planCiChecks(entries, diffPlanOptions(entries, 'acd799d~1', 'acd799d'));
+  assert.equal(plan.verifyApp, false);
+  assert.equal(plan.renderScope, 'changed');
+  assert.ok(plan.renderKeys.includes('match-group-q4-fy22') && plan.renderKeys.includes('comcast-q4-fy22'));
+  assert.equal(plan.verifySite, false);
+  assert.equal(plan.siteProjection, true);
+  assert.equal(plan.buildSite, true);
+  assert.equal(plan.buildStandalone, true);
+  assert.equal(plan.verifyStandalone, true);
+  assert.ok(plan.reasons.includes('runtime asset changed: data/assets/raster-annotations/match-group/brand-tinder-q4-fy22.png'));
+  assert.ok(plan.reasons.includes(`fast checks cover asset documentation: ${doc}`));
+  assert.ok(!plan.reasons.some((reason) => reason.startsWith('render asset changed')));
+  assert.equal(planCiChecks([{ path: 'data/assets/README.md' }]).needsBrowser, false);
 });
 
 test('failed main pushes remain uncovered until a successful ancestor is found; API failure cannot skip checks', async () => {

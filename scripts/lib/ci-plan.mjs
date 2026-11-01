@@ -168,9 +168,16 @@ function classifyPath(plan, file, status, options) {
   }
 
   if (file.startsWith('data/assets/')) {
+    // Asset documentation (README, icon-reference model-validation records) is
+    // read by people and the workbench, never by the viewer runtime.
+    if (file.endsWith('.md')) {
+      addImpact(plan, 'docs-only');
+      addReason(plan, `fast checks cover asset documentation: ${file}`);
+      return;
+    }
     addImpact(plan, 'asset');
     if (file === 'data/assets/catalog.json' || /^data\/assets\/versions\/[^/]+\.json$/.test(file)
-      || /^data\/assets\/icon-references\/.+\.(?:json|png|jpe?g|webp|svg)$/i.test(file)) {
+      || /^data\/assets\/icon-references\/.+\.(?:json|png|jpe?g|webp|svg|txt)$/i.test(file)) {
       addReason(plan, `asset provenance covered by catalog verification: ${file}`);
       return;
     }

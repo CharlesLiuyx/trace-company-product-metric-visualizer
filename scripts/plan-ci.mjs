@@ -69,6 +69,16 @@ function incomeStatementKeys(entries) {
   return result;
 }
 
+// The facts planCiChecks needs beyond the path list; tests replay real
+// commits through the same facts.
+export function diffPlanOptions(entries, base, head) {
+  return {
+    existingDatasetKeys: currentDatasetKeys(),
+    incomeStatementKeysByPath: incomeStatementKeys(entries),
+    ...contentFacts(entries, base, head),
+  };
+}
+
 function readChangedEntries(base, head) {
   if (!base || !head || ZERO_SHA.test(base) || ZERO_SHA.test(head)) return null;
   const result = spawnSync('git', ['diff', '--name-status', '-z', '--find-renames', `${base}...${head}`], {
@@ -152,11 +162,7 @@ async function main() {
     const entries = readChangedEntries(options.base, options.head);
     plan = entries == null
       ? createFullCiPlan('missing or zero Git comparison SHA; strict fallback')
-      : planCiChecks(entries, {
-          existingDatasetKeys: currentDatasetKeys(),
-          incomeStatementKeysByPath: incomeStatementKeys(entries),
-          ...contentFacts(entries, options.base, options.head),
-        });
+      : planCiChecks(entries, diffPlanOptions(entries, options.base, options.head));
   } catch (error) {
     console.warn(`CI planner could not classify the diff: ${error.message}`);
     plan = createFullCiPlan('diff classification failed; strict fallback');
