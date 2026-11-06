@@ -117,6 +117,10 @@ export async function prepareGitTransport(publishedDigest, root, options = {}) {
   try { return await prepareCandidate(publishedDigest, root, options, baseHead, directory); }
   catch (error) { await rm(directory, { recursive: true, force: true }); throw error; }
 }
+async function retiredBuildIds(root) {
+  const history = await readFile(path.join(root, 'output/meta/history.json'), 'utf8').then(JSON.parse).catch(() => null);
+  return new Set(history?.protocol === 'artifact-history/v1' ? history.builds.map((build) => build.buildId) : []);
+}
 async function prepareCandidate(publishedDigest, root, options, baseHead, directory) {
   if (git(root, ['status', '--porcelain', '--', ...runtimeRoots]).trim()) throw new Error('Commit application/tool changes first; the transport candidate must start from reproducible Git inputs');
   const lineage = await publications(root, publishedDigest);
@@ -167,8 +171,12 @@ async function prepareCandidate(publishedDigest, root, options, baseHead, direct
   }
   const queue = [];
   const queuePaths = new Set();
-  for (const { plan: publication } of lineage) for (const item of publication.builds) {
+  // Retention retires a Build only after its publication was pushed and its
+  // Source archive reached HEAD, so its queue changes are already committed.
+  const retired = await retiredBuildIds(root), skipped = new Set();
+  for (const { plan: publication, pushed } of lineage) for (const item of publication.builds) {
     const buildFile = inside(root, `output/builds/${item.buildId}/manifest.json`);
+    if (!existsSync(buildFile) && pushed && retired.has(item.buildId)) { skipped.add(item.buildId); continue; }
     if (!existsSync(buildFile)) throw new Error('Build Source history is required for coherent Git transport');
     for (const source of (await readJson(buildFile)).sources) {
       if (/^input\/processing\/[^/]+\.(png|txt|md)$/i.test(source.processingUri || '') && !existsSync(inside(root, source.processingUri))) {
@@ -236,7 +244,7 @@ async function prepareCandidate(publishedDigest, root, options, baseHead, direct
   const before = await fileManifest(root), after = await fileManifest(candidate);
   const paths = after.entries.filter((entry) => before.entries.find((item) => item.path === entry.path)?.digest !== entry.digest);
   if (git(root, ['rev-parse', 'HEAD']).trim() !== baseHead || git(root, ['status', '--porcelain', '--', ...runtimeRoots]).trim()) throw new Error('Git inputs changed during candidate verification; prepare a new candidate');
-  const plan = { schema: 'git-transport/v1', id, state: 'REVIEW_PENDING', baseHead, publishedDigest, lineage: lineage.map(({ receipt }) => receipt.planDigest), builds: lineage.flatMap(({ plan: item }) => item.builds), candidateDigest: (await fileManifest(candidate, runtimeRoots)).digest, release: { version: release.version, contentDigest: release.contentDigest }, validation, acceptance, paths: [...paths.map((entry) => ({ ...entry, before: before.entries.find((item) => item.path === entry.path)?.digest || null })), ...queue], receiptBefore: await hashAt(root, trackedReceipt), preparedAt: new Date().toISOString() };
+  const plan = { schema: 'git-transport/v1', id, state: 'REVIEW_PENDING', baseHead, publishedDigest, lineage: lineage.map(({ receipt }) => receipt.planDigest), builds: lineage.flatMap(({ plan: item }) => item.builds).filter((build) => !skipped.has(build.buildId)), candidateDigest: (await fileManifest(candidate, runtimeRoots)).digest, release: { version: release.version, contentDigest: release.contentDigest }, validation, acceptance, paths: [...paths.map((entry) => ({ ...entry, before: before.entries.find((item) => item.path === entry.path)?.digest || null })), ...queue], receiptBefore: await hashAt(root, trackedReceipt), preparedAt: new Date().toISOString() };
   plan.planDigest = digestValue(plan);
   await atomicJson(path.join(directory, 'plan.json'), plan);
   return { ...plan, workspace: candidate, preview: `_site/index.html`, reviewRequired: acceptance.inheritsBuildAcceptance ? 'Covered by the operator push instruction: record the transport review with basis inherited-build-acceptance' : 'Confirm this exact integrated candidate in the task; earlier Build acceptance does not accept changed application code' };

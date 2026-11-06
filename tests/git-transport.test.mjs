@@ -124,6 +124,17 @@ test('contributions of a pushed publication are not re-applied over later HEAD e
   assert.equal(next.paths.some((item) => item.path === file), false);
   assert.equal(await readFile(path.join(next.workspace, file), 'utf8'), '{"value":43}\n');
 });
+test('Builds retired after a pushed publication need no manifest in a later transport', async (t) => {
+  const { root, prepare } = await fixture(t), plan = await prepare();
+  await approve(plan, root); const receipt = await commitGitTransport(plan.id, root);
+  await atomicJson(path.join(root, 'output/git-transports', plan.id, 'receipt.json'), { ...receipt, state: 'PUSHED' });
+  const buildId = 'build-aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee';
+  await rm(path.join(root, 'output/builds', buildId), { recursive: true });
+  await assert.rejects(prepare(), /Build Source history is required/);
+  await atomicJson(path.join(root, 'output/meta/history.json'), { protocol: 'artifact-history/v1', builds: [{ buildId, key: 'example' }] });
+  const next = await prepare();
+  assert.deepEqual(next.builds, []);
+});
 test('an interrupted application is resumable and an edited approved candidate is rejected', async (t) => {
   const { root, prepare } = await fixture(t), plan = await prepare(); await approve(plan, root);
   await assert.rejects(commitGitTransport(plan.id, root, { afterApply() { throw new Error('simulated copy interruption'); } }), /simulated copy/);
