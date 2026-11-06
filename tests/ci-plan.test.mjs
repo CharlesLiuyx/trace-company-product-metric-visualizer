@@ -244,7 +244,10 @@ test('an actual data batch with generated ledgers and assets stays scoped to its
 
 test('the acd799d data hand-off replays as scoped renders: asset documentation is provenance, not a full route', (t) => {
   const git = (...args) => spawnSync('git', args, { cwd: rootDir, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
-  if (git('rev-parse', '--is-shallow-repository').stdout.trim() === 'true') return t.skip('shallow clone lacks acd799d');
+  const shallow = git('rev-parse', '--is-shallow-repository');
+  // Transport candidates run check with Git disabled; CI runs it in a full clone.
+  if (shallow.status !== 0) return t.skip('no readable Git history');
+  if (shallow.stdout.trim() === 'true') return t.skip('shallow clone lacks acd799d');
   const shown = git('show', '--name-status', '-z', '--format=', '--find-renames', 'acd799d');
   assert.equal(shown.status, 0, shown.stderr);
   const entries = parseNameStatusZ(shown.stdout);
