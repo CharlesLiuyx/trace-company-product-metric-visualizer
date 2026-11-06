@@ -1,0 +1,124 @@
+{
+  "source": "input/processed/cadence-q3-fy26.png",
+  "spec": "input/icon-crop-specs/cadence-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T14:18:58.875813+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/cadence",
+  "crops": [
+    {
+      "key": "company-logo-q3-fy26",
+      "output": "data/assets/icon-references/cadence/crops/company-logo-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3944,
+        "losslessBytes": 15217,
+        "savingsVsLossless": 0.7408,
+        "metrics": {
+          "meanAbsoluteError": 0.2244,
+          "rootMeanSquareError": 1.3093,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 48,
+          "changedPixelRatio": 0.0855
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 53690,
+        "transparentPixelRatio": 0.7041
+      },
+      "searchBox": {
+        "x": 560,
+        "y": 259,
+        "width": 610,
+        "height": 125
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 570,
+        "y0": 264,
+        "x1": 1167,
+        "y1": 376
+      },
+      "cropBox": {
+        "x0": 560,
+        "y0": 259,
+        "x1": 1170,
+        "y1": 384
+      },
+      "validation": {
+        "width": 610,
+        "height": 125,
+        "foregroundPixels": 20260,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 10,
+          "right": 3,
+          "top": 5,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0057,
+          "y": -0.012
+        },
+        "passes": true
+      },
+      "note": "Full Cadence wordmark and registration sign; excludes surrounding labels.",
+      "runtimeOutput": "data/assets/raster-annotations/cadence/company-logo-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3944,
+        "losslessBytes": 15217,
+        "savingsVsLossless": 0.7408,
+        "metrics": {
+          "meanAbsoluteError": 0.2244,
+          "rootMeanSquareError": 1.3093,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 48,
+          "changedPixelRatio": 0.0855
+        }
+      }
+    }
+  ]
+}

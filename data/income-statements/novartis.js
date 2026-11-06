@@ -125,4 +125,309 @@
       },
     },
   });
+ssot.records.push({
+  "key": "novartis-q3-fy26",
+  "company": "Novartis",
+  "period": "Q3 FY26",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/novartis-q3-fy26.png",
+  "roundingTolerance": 0.6,
+  "revenue": {
+    "total": 14.5,
+    "notes": [
+      "+4% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "promoted_brands",
+        "label": "Promoted brands",
+        "value": 11.2,
+        "notes": [
+          "+11% Y/Y"
+        ],
+        "children": [
+          {
+            "id": "cardiovascular_renal_metabolic",
+            "label": [
+              "Cardiovascular,",
+              "renal & metabolic"
+            ],
+            "value": 1.7,
+            "notes": [
+              "(22%) Y/Y"
+            ]
+          },
+          {
+            "id": "immunology",
+            "label": "Immunology",
+            "value": 2.9,
+            "notes": [
+              "+10% Y/Y"
+            ]
+          },
+          {
+            "id": "neuroscience",
+            "label": "Neuroscience",
+            "value": 2,
+            "notes": [
+              "+23% Y/Y"
+            ]
+          },
+          {
+            "id": "oncology",
+            "label": "Oncology",
+            "value": 4.7,
+            "notes": [
+              "+26% Y/Y"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "established_brands",
+        "label": "Established brands",
+        "value": 3.3,
+        "notes": [
+          "(14%) Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_sales",
+      "label": "Cost of sales",
+      "value": 3.6
+    },
+    "operatingExpenses": {
+      "total": 9.6,
+      "items": [
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 5.2,
+          "notes": [
+            "35% of revenue",
+            "+19pp Y/Y"
+          ]
+        },
+        {
+          "id": "sga",
+          "label": "SG&A",
+          "value": 3.1,
+          "notes": [
+            "21% of revenue",
+            "(1pp) Y/Y"
+          ]
+        },
+        {
+          "id": "other_opex",
+          "label": "Other",
+          "value": 1.3,
+          "notes": [
+            "9% of revenue",
+            "+8pp Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.1
+    }
+  },
+  "operatingOtherIncome": {
+    "total": 0.5,
+    "items": [
+      {
+        "id": "other_gross_reconciliation",
+        "label": "Other",
+        "value": 0.5,
+        "notes": [
+          "Source displays this Other inflow before gross profit; the printed gross-profit total already includes it."
+        ]
+      }
+    ]
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0.5,
+    "items": [
+      {
+        "id": "other_expenses",
+        "label": "Other",
+        "value": 0.5
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 11.4,
+      "notes": [
+        "79% margin",
+        "+18pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 1.8,
+      "notes": [
+        "13% margin",
+        "(7pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 1.2,
+      "notes": [
+        "8% margin",
+        "(8%) Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "revenue": {
+        "notes": [
+          "同比 +4%"
+        ],
+        "items": [
+          {
+            "id": "promoted_brands",
+            "label": "重点推广品牌",
+            "children": [
+              {
+                "id": "cardiovascular_renal_metabolic",
+                "label": [
+                  "心血管、肾脏",
+                  "与代谢"
+                ],
+                "notes": [
+                  "同比 (22%)"
+                ]
+              },
+              {
+                "id": "immunology",
+                "label": "免疫学",
+                "notes": [
+                  "同比 +10%"
+                ]
+              },
+              {
+                "id": "neuroscience",
+                "label": "神经科学",
+                "notes": [
+                  "同比 +23%"
+                ]
+              },
+              {
+                "id": "oncology",
+                "label": "肿瘤学",
+                "notes": [
+                  "同比 +26%"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "established_brands",
+            "label": "成熟品牌",
+            "notes": [
+              "同比 (14%)"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "销售成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 35%",
+                "同比 +19 个百分点"
+              ]
+            },
+            {
+              "id": "sga",
+              "label": "销售及管理费用",
+              "notes": [
+                "占收入 21%",
+                "同比 (1 个百分点)"
+              ]
+            },
+            {
+              "id": "other_opex",
+              "label": "其他",
+              "notes": [
+                "占收入 9%",
+                "同比 +8 个百分点"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "operatingOtherIncome": {
+        "items": [
+          {
+            "id": "other_gross_reconciliation",
+            "label": "其他",
+            "notes": [
+              "来源在毛利润前列出此项；印刷毛利润已包含该流入。"
+            ]
+          }
+        ]
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other_expenses",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 79%",
+            "同比 +18 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 13%",
+            "同比 (7 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 8%",
+            "同比 (8%)"
+          ]
+        }
+      }
+    }
+  }
+});
 })(window);

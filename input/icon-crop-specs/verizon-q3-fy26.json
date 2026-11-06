@@ -1,0 +1,34 @@
+{
+  "source": "input/processing/verizon-q3-fy26.png",
+  "outputDir": "data/assets/icon-references/verizon",
+  "runtimeOutputDir": "data/assets/raster-annotations/verizon",
+  "report": "crop-report-q3-fy26.json",
+  "backgroundRemoval": {
+    "enabled": false
+  },
+  "crops": [
+    {
+      "key": "verizon-logo-q3-fy26",
+      "output": "crops/logo-q3-fy26.png",
+      "runtimeOutput": "logo-q3-fy26.png",
+      "cropBox": {
+        "x": 908,
+        "y": 222,
+        "width": 557,
+        "height": 133
+      },
+      "searchBox": {
+        "x": 908,
+        "y": 222,
+        "width": 557,
+        "height": 133
+      },
+      "note": "Complete source Verizon wordmark; no surrounding financial content.",
+      "validation": {
+        "borderBand": 4,
+        "maxCenterOffset": 0.15,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ]
+}

@@ -3671,6 +3671,263 @@
         }
       }
     }
+  },
+{
+  "key": "appfolio-q3-fy26",
+  "company": "AppFolio",
+  "period": "Q3 FY26",
+  "periodNote": "Ending Sep. 2026",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/appfolio-q3-fy26.png",
+  "roundingTolerance": 1.5,
+  "revenue": {
+    "total": 296,
+    "notes": [
+      "+19% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "subscription_services",
+        "label": "Subscription Services",
+        "value": 62,
+        "notes": [
+          "+14% Y/Y"
+        ]
+      },
+      {
+        "id": "value_added_services",
+        "label": "Value Added Services",
+        "value": 232,
+        "notes": [
+          "+21% Y/Y"
+        ]
+      },
+      {
+        "id": "other_revenue",
+        "label": "Other",
+        "value": 2,
+        "notes": [
+          "(37%) Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 106
+    },
+    "operatingExpenses": {
+      "total": 133,
+      "items": [
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 53,
+          "notes": [
+            "18% of revenue",
+            "(4pp) Y/Y"
+          ]
+        },
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 49,
+          "notes": [
+            "16% of revenue",
+            "+2pp Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 26,
+          "notes": [
+            "9% of revenue",
+            "(2pp) Y/Y"
+          ]
+        },
+        {
+          "id": "depreciation",
+          "label": "Depreciation",
+          "value": 5,
+          "notes": [
+            "2% of revenue",
+            "(0pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 14
+    }
+  },
+  "otherIncome": {
+    "total": 2,
+    "items": [
+      {
+        "id": "interest",
+        "label": "Interest",
+        "value": 2,
+        "notes": [
+          "Interest income, net plus other loss, net; source chart labels the combined line as Interest."
+        ]
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 190,
+      "notes": [
+        "64% margin",
+        "+1pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 57,
+      "notes": [
+        "19% margin",
+        "+5pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 46,
+      "notes": [
+        "16% margin",
+        "+2pp Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "periodNote": "截至 2026 年 9 月",
+      "revenue": {
+        "notes": [
+          "同比 +19%"
+        ],
+        "items": [
+          {
+            "id": "subscription_services",
+            "label": [
+              "订阅",
+              "服务"
+            ],
+            "notes": [
+              "同比 +14%"
+            ]
+          },
+          {
+            "id": "value_added_services",
+            "label": "增值服务",
+            "notes": [
+              "同比 +21%"
+            ]
+          },
+          {
+            "id": "other_revenue",
+            "label": "其他",
+            "notes": [
+              "同比 (37%)"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 18%",
+                "同比 (4 个百分点)"
+              ]
+            },
+            {
+              "id": "sm",
+              "label": "销售与市场",
+              "notes": [
+                "占收入 16%",
+                "同比 +2 个百分点"
+              ]
+            },
+            {
+              "id": "ga",
+              "label": "管理费用",
+              "notes": [
+                "占收入 9%",
+                "同比 (2 个百分点)"
+              ]
+            },
+            {
+              "id": "depreciation",
+              "label": "折旧",
+              "notes": [
+                "占收入 2%",
+                "同比 (0 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "interest",
+            "label": "利息",
+            "notes": [
+              "包括净利息收入和净其他亏损；来源图将合并项目标为利息。"
+            ]
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 64%",
+            "同比 +1 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 19%",
+            "同比 +5 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 16%",
+            "同比 +2 个百分点"
+          ]
+        }
+      }
+    }
   }
+}
 ]);
 })(window);

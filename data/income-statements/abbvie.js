@@ -267,4 +267,274 @@
       },
     },
   });
+  ssot.records.push({
+  "key": "abbvie-q3-fy26",
+  "company": "AbbVie",
+  "period": "Q3 FY26",
+  "periodNote": "Quarter ended Sep. 30, 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/abbvie-q3-fy26.png",
+  "roundingTolerance": 0.2,
+  "revenue": {
+    "total": 17.4,
+    "notes": [
+      "+10% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "immunology",
+        "label": "Immunology",
+        "value": 9.2,
+        "notes": [
+          "+16% Y/Y"
+        ]
+      },
+      {
+        "id": "oncology",
+        "label": "Oncology",
+        "value": 1.7,
+        "notes": [
+          "+1% Y/Y"
+        ]
+      },
+      {
+        "id": "aesthetics",
+        "label": "Aesthetics",
+        "value": 1.2,
+        "notes": [
+          "(1%) Y/Y"
+        ]
+      },
+      {
+        "id": "neuroscience",
+        "label": "Neuroscience",
+        "value": 3.4,
+        "notes": [
+          "+19% Y/Y"
+        ]
+      },
+      {
+        "id": "other_revenue",
+        "label": "Other",
+        "value": 2,
+        "notes": [
+          "(9%) Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_products_sold",
+      "label": "Cost of products sold",
+      "value": 4.3
+    },
+    "operatingExpenses": {
+      "total": 6.9,
+      "items": [
+        {
+          "id": "sga",
+          "label": "SG&A",
+          "value": 4.1,
+          "notes": [
+            "23% of revenue",
+            "+1pp Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 2.6,
+          "notes": [
+            "15% of revenue",
+            "+0pp Y/Y"
+          ]
+        },
+        {
+          "id": "other_opex",
+          "label": "Other",
+          "value": 0.2,
+          "notes": [
+            "1% of revenue",
+            "(16pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.6
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 1.4,
+    "items": [
+      {
+        "id": "other_expense",
+        "label": "Other",
+        "value": 0.7
+      },
+      {
+        "id": "interest",
+        "label": "Interest",
+        "value": 0.7
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 13.1,
+      "notes": [
+        "75% margin",
+        "+9pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 6.3,
+      "notes": [
+        "36% margin",
+        "+24pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 4.2,
+      "notes": [
+        "24% margin",
+        "+23% Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "periodNote": "截至 2026 年 9 月 30 日的季度",
+      "revenue": {
+        "notes": [
+          "同比 +10%"
+        ],
+        "items": [
+          {
+            "id": "immunology",
+            "label": "免疫",
+            "notes": [
+              "同比 +16%"
+            ]
+          },
+          {
+            "id": "oncology",
+            "label": "肿瘤",
+            "notes": [
+              "同比 +1%"
+            ]
+          },
+          {
+            "id": "aesthetics",
+            "label": "美学",
+            "notes": [
+              "同比 (1%)"
+            ]
+          },
+          {
+            "id": "neuroscience",
+            "label": "神经科学",
+            "notes": [
+              "同比 +19%"
+            ]
+          },
+          {
+            "id": "other_revenue",
+            "label": "其他",
+            "notes": [
+              "同比 (9%)"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "产品销售成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sga",
+              "label": "销售、一般及行政费用",
+              "notes": [
+                "占收入 23%",
+                "同比 +1 个百分点"
+              ]
+            },
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 15%",
+                "同比 +0 个百分点"
+              ]
+            },
+            {
+              "id": "other_opex",
+              "label": "其他",
+              "notes": [
+                "占收入 1%",
+                "同比 (16 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other_expense",
+            "label": "其他"
+          },
+          {
+            "id": "interest",
+            "label": "利息"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 75%",
+            "同比 +9 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 36%",
+            "同比 +24 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 24%",
+            "同比 +23%"
+          ]
+        }
+      }
+    }
+  }
+});
 })(window);

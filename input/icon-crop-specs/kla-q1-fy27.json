@@ -1,0 +1,37 @@
+{
+  "source": "input/processed/kla-q1-fy27.png",
+  "outputDir": "data/assets/icon-references/kla",
+  "runtimeOutputDir": "data/assets/raster-annotations/kla",
+  "report": "crop-report-kla-q1-fy27.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "crops": [
+    {
+      "key": "company-logo-kla-q1-fy27",
+      "output": "crops/company-logo-kla-q1-fy27.png",
+      "runtimeOutput": "company-logo-kla-q1-fy27.png",
+      "searchBox": {
+        "x": 787,
+        "y": 318,
+        "width": 430,
+        "height": 102
+      },
+      "cropBox": {
+        "x": 787,
+        "y": 318,
+        "width": 430,
+        "height": 102
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ]
+}

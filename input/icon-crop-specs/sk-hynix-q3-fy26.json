@@ -1,0 +1,36 @@
+{
+  "source": "input/processing/sk-hynix-q3-fy26.png",
+  "outputDir": "data/assets/icon-references/sk-hynix/q3-fy26/",
+  "runtimeOutputDir": "data/assets/raster-annotations/sk-hynix/",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "crops": [
+    {
+      "key": "sk-hynix-company-logo-q3-fy26",
+      "output": "crops/company-logo-q3-fy26.png",
+      "runtimeOutput": "company-logo-q3-fy26.png",
+      "cropBox": {
+        "x": 625,
+        "y": 234,
+        "width": 599,
+        "height": 317
+      },
+      "searchBox": {
+        "x": 625,
+        "y": 234,
+        "width": 599,
+        "height": 317
+      },
+      "threshold": 24,
+      "minComponentArea": 50
+    }
+  ]
+}

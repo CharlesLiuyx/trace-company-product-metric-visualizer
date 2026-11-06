@@ -304,4 +304,265 @@
       },
     },
   });
+ssot.records.push({
+  "key": "lam-research-q1-fy27",
+  "company": "Lam Research",
+  "period": "Q1 FY27",
+  "periodNote": "Ending Sep. 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 3,
+  "sourceImage": "input/processed/lam-research-q1-fy27.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 8.2,
+    "notes": [
+      "+54% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "systems",
+        "label": "Systems",
+        "value": 5.7,
+        "notes": [
+          "+62% Y/Y"
+        ],
+        "children": [
+          {
+            "id": "memory",
+            "label": "Memory",
+            "value": 2.6,
+            "notes": [
+              "+119% Y/Y"
+            ]
+          },
+          {
+            "id": "foundry",
+            "label": "Foundry",
+            "value": 2.6,
+            "notes": [
+              "+24% Y/Y"
+            ]
+          },
+          {
+            "id": "logic",
+            "label": "Logic",
+            "value": 0.5,
+            "notes": [
+              "+115% Y/Y"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "customer_support",
+        "label": [
+          "Customer",
+          "Support"
+        ],
+        "value": 2.5,
+        "notes": [
+          "+40% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_goods_sold",
+      "label": [
+        "Cost of",
+        "goods sold"
+      ],
+      "value": 3.9
+    },
+    "operatingExpenses": {
+      "total": 1,
+      "items": [
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 0.7,
+          "notes": [
+            "8% of revenue",
+            "(3pp) Y/Y"
+          ]
+        },
+        {
+          "id": "sga",
+          "label": "SG&A",
+          "value": 0.3,
+          "notes": [
+            "4% of revenue",
+            "(1pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.6
+    }
+  },
+  "otherIncome": {
+    "total": 0.029,
+    "items": [
+      {
+        "id": "interest",
+        "label": "Interest",
+        "value": 0.029
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 4.3,
+      "notes": [
+        "52% margin",
+        "+2pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 3.3,
+      "notes": [
+        "40% margin",
+        "+6pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 2.8,
+      "notes": [
+        "33% margin",
+        "+4pp Y/Y"
+      ]
+    }
+  },
+  "sources": [],
+  "i18n": {
+    "zh": {
+      "period": "2027 财年第一季度",
+      "periodNote": "截至 2026 年 9 月",
+      "revenue": {
+        "notes": [
+          "同比 +54%"
+        ],
+        "items": [
+          {
+            "id": "systems",
+            "label": "系统",
+            "notes": [
+              "同比 +62%"
+            ],
+            "children": [
+              {
+                "id": "memory",
+                "label": "存储",
+                "notes": [
+                  "同比 +119%"
+                ]
+              },
+              {
+                "id": "foundry",
+                "label": "代工",
+                "notes": [
+                  "同比 +24%"
+                ]
+              },
+              {
+                "id": "logic",
+                "label": "逻辑",
+                "notes": [
+                  "同比 +115%"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "customer_support",
+            "label": [
+              "客户",
+              "支持"
+            ],
+            "notes": [
+              "同比 +40%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": [
+            "销售",
+            "成本"
+          ]
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 8%",
+                "同比 (3 个百分点)"
+              ]
+            },
+            {
+              "id": "sga",
+              "label": "销售、一般及管理",
+              "notes": [
+                "占收入 4%",
+                "同比 (1 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "interest",
+            "label": "利息收入"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 52%",
+            "同比 +2 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 40%",
+            "同比 +6 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 33%",
+            "同比 +4 个百分点"
+          ]
+        }
+      }
+    }
+  }
+});
 })(window);

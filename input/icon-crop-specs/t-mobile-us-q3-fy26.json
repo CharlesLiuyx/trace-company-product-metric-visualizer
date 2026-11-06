@@ -1,0 +1,47 @@
+{
+  "source": "input/processed/t-mobile-us-q3-fy26.png",
+  "outputDir": "data/assets/icon-references/t-mobile-us",
+  "runtimeOutputDir": "data/assets/raster-annotations/t-mobile-us",
+  "report": "crop-report-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [
+      242,
+      242,
+      242
+    ]
+  },
+  "crops": [
+    {
+      "key": "t-mobile-logo-q3-fy26",
+      "output": "crops/logo-q3-fy26.png",
+      "runtimeOutput": "logo-q3-fy26.png",
+      "cropBox": {
+        "x": 600,
+        "y": 245,
+        "width": 711,
+        "height": 154
+      },
+      "searchBox": {
+        "x": 600,
+        "y": 245,
+        "width": 711,
+        "height": 154
+      },
+      "threshold": 8,
+      "minComponentArea": 2,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ]
+}

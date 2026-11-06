@@ -118,88 +118,88 @@
     },
     "i18n": {
       "zh": {
-        "period": "2026 \u8d22\u5e74\u7b2c\u4e8c\u5b63\u5ea6",
-        "periodNote": "\u622a\u81f3 2025 \u5e74 12 \u6708",
+        "period": "2026 财年第二季度",
+        "periodNote": "截至 2025 年 12 月",
         "revenue": {
           "notes": [
-            "\u540c\u6bd4 +61%"
+            "同比 +61%"
           ],
           "items": [
             {
               "id": "datacenter",
-              "label": "\u6570\u636e\u4e2d\u5fc3",
+              "label": "数据中心",
               "notes": [
-                "\u540c\u6bd4 +76%"
+                "同比 +76%"
               ]
             },
             {
               "id": "edge",
-              "label": "\u8fb9\u7f18",
+              "label": "边缘",
               "notes": [
-                "\u540c\u6bd4 +63%"
+                "同比 +63%"
               ]
             },
             {
               "id": "consumer",
-              "label": "\u6d88\u8d39\u7ea7",
+              "label": "消费级",
               "notes": [
-                "\u540c\u6bd4 +52%"
+                "同比 +52%"
               ]
             }
           ]
         },
         "costs": {
           "costOfRevenue": {
-            "label": "\u6536\u5165\u6210\u672c"
+            "label": "收入成本"
           },
           "operatingExpenses": {
             "items": [
               {
                 "id": "rnd",
-                "label": "\u7814\u53d1"
+                "label": "研发"
               },
               {
                 "id": "sga",
-                "label": "\u9500\u552e\u3001\u4e00\u822c\u53ca\u884c\u653f"
+                "label": "销售、一般及行政"
               },
               {
                 "id": "other_opex",
-                "label": "\u5176\u4ed6"
+                "label": "其他"
               }
             ]
           },
           "tax": {
-            "label": "\u7a0e\u8d39"
+            "label": "税费"
           }
         },
         "otherExpenses": {
           "items": [
             {
               "id": "other_non_operating",
-              "label": "\u5176\u4ed6"
+              "label": "其他"
             }
           ]
         },
         "profit": {
           "gross": {
-            "label": "\u6bdb\u5229\u6da6",
+            "label": "毛利润",
             "notes": [
-              "\u5229\u6da6\u7387 51%",
-              "\u540c\u6bd4 +19 \u4e2a\u767e\u5206\u70b9"
+              "利润率 51%",
+              "同比 +19 个百分点"
             ]
           },
           "operating": {
-            "label": "\u8425\u4e1a\u5229\u6da6",
+            "label": "营业利润",
             "notes": [
-              "\u5229\u6da6\u7387 35%",
-              "\u540c\u6bd4 +25 \u4e2a\u767e\u5206\u70b9"
+              "利润率 35%",
+              "同比 +25 个百分点"
             ]
           },
           "net": {
-            "label": "\u51c0\u5229\u6da6",
+            "label": "净利润",
             "notes": [
-              "\u5229\u6da6\u7387 27%",
-              "\u540c\u6bd4 +21 \u4e2a\u767e\u5206\u70b9"
+              "利润率 27%",
+              "同比 +21 个百分点"
             ]
           }
         }
@@ -325,88 +325,88 @@
     },
     "i18n": {
       "zh": {
-        "period": "2026 \u8d22\u5e74\u7b2c\u4e09\u5b63\u5ea6",
-        "periodNote": "\u622a\u81f3 2026 \u5e74 3 \u6708",
+        "period": "2026 财年第三季度",
+        "periodNote": "截至 2026 年 3 月",
         "revenue": {
           "notes": [
-            "\u540c\u6bd4 +252%"
+            "同比 +252%"
           ],
           "items": [
             {
               "id": "datacenter",
-              "label": "\u6570\u636e\u4e2d\u5fc3",
+              "label": "数据中心",
               "notes": [
-                "\u540c\u6bd4 +645%"
+                "同比 +645%"
               ]
             },
             {
               "id": "edge",
-              "label": "\u8fb9\u7f18",
+              "label": "边缘",
               "notes": [
-                "\u540c\u6bd4 +295%"
+                "同比 +295%"
               ]
             },
             {
               "id": "consumer",
-              "label": "\u6d88\u8d39\u7ea7",
+              "label": "消费级",
               "notes": [
-                "\u540c\u6bd4 +44%"
+                "同比 +44%"
               ]
             }
           ]
         },
         "costs": {
           "costOfRevenue": {
-            "label": "\u6536\u5165\u6210\u672c"
+            "label": "收入成本"
           },
           "operatingExpenses": {
             "items": [
               {
                 "id": "rnd",
-                "label": "\u7814\u53d1"
+                "label": "研发"
               },
               {
                 "id": "sga",
-                "label": "\u9500\u552e\u3001\u4e00\u822c\u53ca\u884c\u653f"
+                "label": "销售、一般及行政"
               },
               {
                 "id": "other_opex",
-                "label": "\u5176\u4ed6"
+                "label": "其他"
               }
             ]
           },
           "tax": {
-            "label": "\u7a0e\u8d39"
+            "label": "税费"
           }
         },
         "otherExpenses": {
           "items": [
             {
               "id": "other_non_operating",
-              "label": "\u5176\u4ed6"
+              "label": "其他"
             }
           ]
         },
         "profit": {
           "gross": {
-            "label": "\u6bdb\u5229\u6da6",
+            "label": "毛利润",
             "notes": [
-              "\u5229\u6da6\u7387 78%",
-              "\u540c\u6bd4 +56 \u4e2a\u767e\u5206\u70b9"
+              "利润率 78%",
+              "同比 +56 个百分点"
             ]
           },
           "operating": {
-            "label": "\u8425\u4e1a\u5229\u6da6",
+            "label": "营业利润",
             "notes": [
-              "\u5229\u6da6\u7387 69%",
-              "\u540c\u6bd4 +180 \u4e2a\u767e\u5206\u70b9"
+              "利润率 69%",
+              "同比 +180 个百分点"
             ]
           },
           "net": {
-            "label": "\u51c0\u5229\u6da6",
+            "label": "净利润",
             "notes": [
-              "\u5229\u6da6\u7387 61%",
-              "\u540c\u6bd4 +175 \u4e2a\u767e\u5206\u70b9"
+              "利润率 61%",
+              "同比 +175 个百分点"
             ]
           }
         }
@@ -527,32 +527,32 @@
     },
     "i18n": {
       "zh": {
-        "period": "2026 \u8d22\u5e74\u7b2c\u56db\u5b63\u5ea6",
-        "periodNote": "\u622a\u81f3 2026 \u5e74 6 \u6708",
+        "period": "2026 财年第四季度",
+        "periodNote": "截至 2026 年 6 月",
         "revenue": {
           "notes": [
-            "\u540c\u6bd4 +372%"
+            "同比 +372%"
           ],
           "items": [
             {
               "id": "datacenter",
-              "label": "\u6570\u636e\u4e2d\u5fc3",
+              "label": "数据中心",
               "notes": [
-                "\u540c\u6bd4 +1,298%"
+                "同比 +1,298%"
               ]
             },
             {
               "id": "edge",
-              "label": "\u8fb9\u7f18",
+              "label": "边缘",
               "notes": [
-                "\u540c\u6bd4 +392%"
+                "同比 +392%"
               ]
             },
             {
               "id": "consumer",
-              "label": "\u6d88\u8d39\u7ea7",
+              "label": "消费级",
               "notes": [
-                "\u540c\u6bd4 (5%)"
+                "同比 (5%)"
               ]
             }
           ]
@@ -560,30 +560,30 @@
         "costs": {
           "costOfRevenue": {
             "id": "cost_of_revenue",
-            "label": "\u6536\u5165\u6210\u672c"
+            "label": "收入成本"
           },
           "operatingExpenses": {
             "items": [
               {
                 "id": "rnd",
-                "label": "\u7814\u53d1"
+                "label": "研发"
               },
               {
                 "id": "sga",
-                "label": "\u9500\u552e\u53ca\u884c\u653f"
+                "label": "销售及行政"
               }
             ]
           },
           "tax": {
             "id": "tax",
-            "label": "\u7a0e\u8d39"
+            "label": "税费"
           }
         },
         "otherIncome": {
           "items": [
             {
               "id": "other",
-              "label": "\u5176\u4ed6"
+              "label": "其他"
             }
           ]
         },
@@ -593,26 +593,232 @@
         "profit": {
           "gross": {
             "id": "gross_profit",
-            "label": "\u6bdb\u5229\u6da6",
+            "label": "毛利润",
             "notes": [
-              "\u5229\u6da6\u7387 85%",
-              "\u540c\u6bd4 +58 \u4e2a\u767e\u5206\u70b9"
+              "利润率 85%",
+              "同比 +58 个百分点"
             ]
           },
           "operating": {
             "id": "operating_profit",
-            "label": "\u8425\u4e1a\u5229\u6da6",
+            "label": "营业利润",
             "notes": [
-              "\u5229\u6da6\u7387 78%",
-              "\u540c\u6bd4 +78 \u4e2a\u767e\u5206\u70b9"
+              "利润率 78%",
+              "同比 +78 个百分点"
             ]
           },
           "net": {
             "id": "net_profit",
-            "label": "\u51c0\u5229\u6da6",
+            "label": "净利润",
             "notes": [
-              "\u5229\u6da6\u7387 77%",
-              "\u540c\u6bd4 +78 \u4e2a\u767e\u5206\u70b9"
+              "利润率 77%",
+              "同比 +78 个百分点"
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "key": "sandisk-q1-fy27",
+    "company": "Sandisk",
+    "period": "Q1 FY27",
+    "periodNote": "Ending Sep. 2026",
+    "currency": "$",
+    "unit": "B",
+    "decimals": 1,
+    "sourceImage": "input/processed/sandisk-q1-fy27.png",
+    "roundingTolerance": 0.15,
+    "revenue": {
+      "total": 11,
+      "notes": [
+        "+378% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "datacenter",
+          "label": "Datacenter",
+          "value": 4.8,
+          "notes": [
+            "+1,685% Y/Y"
+          ]
+        },
+        {
+          "id": "edge",
+          "label": "Edge",
+          "value": 5.8,
+          "notes": [
+            "+320% Y/Y"
+          ]
+        },
+        {
+          "id": "consumer",
+          "label": "Consumer",
+          "value": 0.4,
+          "notes": [
+            "(39%) Y/Y"
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_revenue",
+        "label": "Cost of revenue",
+        "value": 1.7
+      },
+      "operatingExpenses": {
+        "total": 0.6,
+        "items": [
+          {
+            "id": "rnd",
+            "label": "R&D",
+            "value": 0.4
+          },
+          {
+            "id": "sga",
+            "label": "SG&A",
+            "value": 0.2
+          }
+        ]
+      },
+      "tax": {
+        "id": "tax",
+        "label": "Tax",
+        "value": 1.2
+      }
+    },
+    "otherIncome": {
+      "total": 0.5,
+      "items": [
+        {
+          "id": "other",
+          "label": "Other",
+          "value": 0.5
+        }
+      ]
+    },
+    "otherExpenses": {
+      "total": 0,
+      "items": []
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 9.4,
+        "notes": [
+          "85% margin",
+          "+55pp Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_profit",
+        "label": "Operating profit",
+        "value": 8.8,
+        "notes": [
+          "80% margin",
+          "+72pp Y/Y"
+        ]
+      },
+      "net": {
+        "id": "net_profit",
+        "label": "Net profit",
+        "value": 8.1,
+        "notes": [
+          "73% margin",
+          "+69pp Y/Y"
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2027 财年第一季度",
+        "periodNote": "截至 2026 年 9 月",
+        "revenue": {
+          "notes": [
+            "同比 +378%"
+          ],
+          "items": [
+            {
+              "id": "datacenter",
+              "label": "数据中心",
+              "notes": [
+                "同比 +1,685%"
+              ]
+            },
+            {
+              "id": "edge",
+              "label": "边缘",
+              "notes": [
+                "同比 +320%"
+              ]
+            },
+            {
+              "id": "consumer",
+              "label": "消费级",
+              "notes": [
+                "同比 (39%)"
+              ]
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "id": "cost_of_revenue",
+            "label": "收入成本"
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "rnd",
+                "label": "研发"
+              },
+              {
+                "id": "sga",
+                "label": "销售及行政"
+              }
+            ]
+          },
+          "tax": {
+            "id": "tax",
+            "label": "税费"
+          }
+        },
+        "otherIncome": {
+          "items": [
+            {
+              "id": "other",
+              "label": "其他"
+            }
+          ]
+        },
+        "otherExpenses": {
+          "items": []
+        },
+        "profit": {
+          "gross": {
+            "id": "gross_profit",
+            "label": "毛利润",
+            "notes": [
+              "利润率 85%",
+              "同比 +55 个百分点"
+            ]
+          },
+          "operating": {
+            "id": "operating_profit",
+            "label": "营业利润",
+            "notes": [
+              "利润率 80%",
+              "同比 +72 个百分点"
+            ]
+          },
+          "net": {
+            "id": "net_profit",
+            "label": "净利润",
+            "notes": [
+              "利润率 73%",
+              "同比 +69 个百分点"
             ]
           }
         }

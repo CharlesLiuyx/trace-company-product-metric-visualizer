@@ -1,0 +1,48 @@
+{
+  "source": "input/processing/mastercard-q3-fy26.png",
+  "outputDir": "data/assets/icon-references/mastercard",
+  "runtimeOutputDir": "data/assets/raster-annotations/mastercard",
+  "report": "crop-report-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [
+      242,
+      242,
+      242
+    ]
+  },
+  "crops": [
+    {
+      "key": "mastercard-company-logo-q3-fy26",
+      "output": "crops/company-logo-q3-fy26.png",
+      "runtimeOutput": "company-logo-q3-fy26.png",
+      "searchBox": {
+        "x": 659,
+        "y": 292,
+        "width": 244,
+        "height": 190
+      },
+      "cropBox": {
+        "x": 654,
+        "y": 286,
+        "width": 254,
+        "height": 201
+      },
+      "threshold": 8,
+      "minComponentArea": 16,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Mastercard logo and wordmark; excludes title and financial flows."
+    }
+  ]
+}

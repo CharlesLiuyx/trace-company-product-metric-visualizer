@@ -1,0 +1,115 @@
+{
+  "source": "input/processing/verizon-q3-fy26.png",
+  "spec": "input/icon-crop-specs/verizon-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T14:27:47.810630+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": false,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/verizon",
+  "crops": [
+    {
+      "key": "verizon-logo-q3-fy26",
+      "output": "data/assets/icon-references/verizon/crops/logo-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 4132,
+        "losslessBytes": 13281,
+        "savingsVsLossless": 0.6889,
+        "metrics": {
+          "meanAbsoluteError": 0.2007,
+          "rootMeanSquareError": 1.4823,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 61,
+          "changedPixelRatio": 0.0504
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": false
+      },
+      "searchBox": {
+        "x": 908,
+        "y": 222,
+        "width": 557,
+        "height": 133
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 918,
+        "y0": 230,
+        "x1": 1457,
+        "y1": 351
+      },
+      "cropBox": {
+        "x0": 908,
+        "y0": 222,
+        "x1": 1465,
+        "y1": 355
+      },
+      "validation": {
+        "width": 557,
+        "height": 133,
+        "foregroundPixels": 27060,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 10,
+          "right": 8,
+          "top": 8,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": 0.0018,
+          "y": 0.015
+        },
+        "passes": true
+      },
+      "note": "Complete source Verizon wordmark; no surrounding financial content.",
+      "runtimeOutput": "data/assets/raster-annotations/verizon/logo-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 4132,
+        "losslessBytes": 13281,
+        "savingsVsLossless": 0.6889,
+        "metrics": {
+          "meanAbsoluteError": 0.2007,
+          "rootMeanSquareError": 1.4823,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 61,
+          "changedPixelRatio": 0.0504
+        }
+      }
+    }
+  ]
+}

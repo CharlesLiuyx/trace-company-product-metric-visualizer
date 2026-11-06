@@ -1,0 +1,455 @@
+{
+  "source": "input/processing/astrazeneca-q3-fy26.png",
+  "spec": "input/icon-crop-specs/astrazeneca-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T14:14:30.696342+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 12
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/astrazeneca",
+  "crops": [
+    {
+      "key": "company-logo-q3-fy26",
+      "output": "data/assets/icon-references/astrazeneca/crops/company-logo-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 34062,
+        "losslessBytes": 34062,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 12,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 104088,
+        "transparentPixelRatio": 0.7716
+      },
+      "searchBox": {
+        "x": 610,
+        "y": 205,
+        "width": 710,
+        "height": 190
+      },
+      "componentCount": 12,
+      "subjectBox": {
+        "x0": 624,
+        "y0": 214,
+        "x1": 1310,
+        "y1": 382
+      },
+      "cropBox": {
+        "x0": 610,
+        "y0": 205,
+        "x1": 1320,
+        "y1": 395
+      },
+      "validation": {
+        "width": 710,
+        "height": 190,
+        "foregroundPixels": 25026,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 14,
+          "right": 10,
+          "top": 9,
+          "bottom": 13
+        },
+        "centerOffset": {
+          "x": 0.0028,
+          "y": -0.0105
+        },
+        "passes": true
+      },
+      "note": "",
+      "excludedPixels": 18550,
+      "runtimeOutput": "data/assets/raster-annotations/astrazeneca/company-logo-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 34062,
+        "losslessBytes": 34062,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "tagrisso-q3-fy26",
+      "output": "data/assets/icon-references/astrazeneca/crops/tagrisso-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 1573,
+        "losslessBytes": 6578,
+        "savingsVsLossless": 0.7609,
+        "metrics": {
+          "meanAbsoluteError": 1.134,
+          "rootMeanSquareError": 2.8667,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.3983
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 12,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 3264,
+        "transparentPixelRatio": 0.6301
+      },
+      "searchBox": {
+        "x": 182,
+        "y": 461,
+        "width": 140,
+        "height": 37
+      },
+      "componentCount": 14,
+      "subjectBox": {
+        "x0": 187,
+        "y0": 465,
+        "x1": 314,
+        "y1": 493
+      },
+      "cropBox": {
+        "x0": 182,
+        "y0": 461,
+        "x1": 322,
+        "y1": 498
+      },
+      "validation": {
+        "width": 140,
+        "height": 37,
+        "foregroundPixels": 1727,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 5,
+          "right": 8,
+          "top": 4,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": -0.0107,
+          "y": -0.0135
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/astrazeneca/tagrisso-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 1573,
+        "losslessBytes": 6578,
+        "savingsVsLossless": 0.7609,
+        "metrics": {
+          "meanAbsoluteError": 1.134,
+          "rootMeanSquareError": 2.8667,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.3983
+        }
+      }
+    },
+    {
+      "key": "forxiga-q3-fy26",
+      "output": "data/assets/icon-references/astrazeneca/crops/forxiga-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 1048,
+        "losslessBytes": 3758,
+        "savingsVsLossless": 0.7211,
+        "metrics": {
+          "meanAbsoluteError": 0.8706,
+          "rootMeanSquareError": 2.408,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 35,
+          "changedPixelRatio": 0.3407
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 12,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 2654,
+        "transparentPixelRatio": 0.6999
+      },
+      "searchBox": {
+        "x": 210,
+        "y": 730,
+        "width": 79,
+        "height": 48
+      },
+      "componentCount": 5,
+      "subjectBox": {
+        "x0": 213,
+        "y0": 734,
+        "x1": 282,
+        "y1": 775
+      },
+      "cropBox": {
+        "x0": 210,
+        "y0": 730,
+        "x1": 289,
+        "y1": 778
+      },
+      "validation": {
+        "width": 79,
+        "height": 48,
+        "foregroundPixels": 956,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 3,
+          "right": 7,
+          "top": 4,
+          "bottom": 3
+        },
+        "centerOffset": {
+          "x": -0.0253,
+          "y": 0.0104
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/astrazeneca/forxiga-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 1048,
+        "losslessBytes": 3758,
+        "savingsVsLossless": 0.7211,
+        "metrics": {
+          "meanAbsoluteError": 0.8706,
+          "rootMeanSquareError": 2.408,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 35,
+          "changedPixelRatio": 0.3407
+        }
+      }
+    },
+    {
+      "key": "symbicort-q3-fy26",
+      "output": "data/assets/icon-references/astrazeneca/crops/symbicort-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 1470,
+        "losslessBytes": 6177,
+        "savingsVsLossless": 0.762,
+        "metrics": {
+          "meanAbsoluteError": 1.0493,
+          "rootMeanSquareError": 2.6886,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.381
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 12,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 3703,
+        "transparentPixelRatio": 0.6747
+      },
+      "searchBox": {
+        "x": 190,
+        "y": 894,
+        "width": 112,
+        "height": 49
+      },
+      "componentCount": 7,
+      "subjectBox": {
+        "x0": 197,
+        "y0": 898,
+        "x1": 298,
+        "y1": 940
+      },
+      "cropBox": {
+        "x0": 190,
+        "y0": 894,
+        "x1": 302,
+        "y1": 943
+      },
+      "validation": {
+        "width": 112,
+        "height": 49,
+        "foregroundPixels": 1622,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 4,
+          "top": 4,
+          "bottom": 3
+        },
+        "centerOffset": {
+          "x": 0.0134,
+          "y": 0.0102
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/astrazeneca/symbicort-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 1470,
+        "losslessBytes": 6177,
+        "savingsVsLossless": 0.762,
+        "metrics": {
+          "meanAbsoluteError": 1.0493,
+          "rootMeanSquareError": 2.6886,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.381
+        }
+      }
+    },
+    {
+      "key": "synagis-q3-fy26",
+      "output": "data/assets/icon-references/astrazeneca/crops/synagis-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1341,
+        "losslessBytes": 6253,
+        "savingsVsLossless": 0.7855,
+        "metrics": {
+          "meanAbsoluteError": 1.0993,
+          "rootMeanSquareError": 2.755,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 25,
+          "changedPixelRatio": 0.3968
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 12,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 3418,
+        "transparentPixelRatio": 0.6718
+      },
+      "searchBox": {
+        "x": 191,
+        "y": 1063,
+        "width": 106,
+        "height": 48
+      },
+      "componentCount": 14,
+      "subjectBox": {
+        "x0": 196,
+        "y0": 1068,
+        "x1": 294,
+        "y1": 1109
+      },
+      "cropBox": {
+        "x0": 191,
+        "y0": 1063,
+        "x1": 297,
+        "y1": 1111
+      },
+      "validation": {
+        "width": 106,
+        "height": 48,
+        "foregroundPixels": 1499,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 5,
+          "right": 3,
+          "top": 5,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": 0.0094,
+          "y": 0.0312
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/astrazeneca/synagis-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1341,
+        "losslessBytes": 6253,
+        "savingsVsLossless": 0.7855,
+        "metrics": {
+          "meanAbsoluteError": 1.0993,
+          "rootMeanSquareError": 2.755,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 25,
+          "changedPixelRatio": 0.3968
+        }
+      }
+    }
+  ]
+}

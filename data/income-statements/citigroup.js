@@ -1,7 +1,4 @@
-/* Pure INCOME_STATEMENT_SSOT records. Merged by the Publication Module. */
-(function (global) {
-  const target = global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || { schemaVersion: 1, records: [] };
-  target.records.push(...[
+(function(global){ const target=global.INCOME_STATEMENT_SSOT=global.INCOME_STATEMENT_SSOT||{schemaVersion:1,records:[]};target.records.push(...[
   {
     "key": "citigroup-q4-fy25",
     "company": "Citigroup",
@@ -5264,6 +5261,374 @@
         }
       }
     ]
+  },
+  {
+    "key": "citigroup-q3-fy26",
+    "company": "Citigroup",
+    "period": "Q3 FY26",
+    "periodNote": "Ending Sep. 2026",
+    "currency": "$",
+    "unit": "B",
+    "decimals": 1,
+    "sourceImage": "input/processed/citigroup-q3-fy26.png",
+    "roundingTolerance": 0.25,
+    "revenue": {
+      "total": 23.8,
+      "notes": [
+        "+8% Y/Y",
+        "Net of interest expenses"
+      ],
+      "items": [
+        {
+          "id": "services",
+          "label": "Services",
+          "value": 6.6,
+          "notes": [
+            "+15% Y/Y",
+            "40% net margin"
+          ]
+        },
+        {
+          "id": "markets",
+          "label": "Markets",
+          "value": 6.1,
+          "notes": [
+            "+6% Y/Y",
+            "29% net margin"
+          ]
+        },
+        {
+          "id": "banking",
+          "label": "Banking",
+          "value": 1.7,
+          "notes": [
+            "+6% Y/Y",
+            "22% net margin"
+          ]
+        },
+        {
+          "id": "wealth",
+          "label": "Wealth",
+          "value": 3.3,
+          "notes": [
+            "+15% Y/Y",
+            "18% net margin"
+          ]
+        },
+        {
+          "id": "uspb",
+          "label": "USPB",
+          "value": 4.7,
+          "notes": [
+            "+0% Y/Y",
+            "18% net margin"
+          ]
+        },
+        {
+          "id": "all_other",
+          "label": "All other",
+          "value": 1.4,
+          "notes": [
+            "(2%) Y/Y"
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "provision_for_credit_losses",
+        "label": "Provision for credit losses",
+        "value": 2.6,
+        "notes": [
+          "Source depicts this as a pre-pretax cost."
+        ]
+      },
+      "operatingExpenses": {
+        "total": 14,
+        "notes": [
+          "Noninterest expenses",
+          "Printed expense components and total differ because each is independently rounded; verified against the official quarterly financial supplement."
+        ],
+        "items": [
+          {
+            "id": "compensation_benefits",
+            "label": "Compensation & benefits",
+            "value": 7.5
+          },
+          {
+            "id": "other_general_operating",
+            "label": "Other general operating",
+            "value": 3.2
+          },
+          {
+            "id": "technology_communication",
+            "label": "Technology & Communication",
+            "value": 2.3
+          },
+          {
+            "id": "premises_equipment",
+            "label": "Premises & equipment",
+            "value": 0.6
+          },
+          {
+            "id": "marketing",
+            "label": "Marketing",
+            "value": 0.2
+          }
+        ]
+      },
+      "tax": {
+        "id": "tax",
+        "label": "Tax",
+        "value": 1.9
+      }
+    },
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 0,
+      "items": []
+    },
+    "profit": {
+      "gross": {
+        "label": "Revenue after credit loss provision",
+        "value": 21.2,
+        "notes": [
+          "Balancing subtotal; not labeled separately in the source chart."
+        ]
+      },
+      "operating": {
+        "id": "pretax_income",
+        "label": "Pretax income",
+        "value": 7.3,
+        "notes": [
+          "Source amounts are rounded to $0.1B precision."
+        ]
+      },
+      "net": {
+        "id": "net_income",
+        "label": "Net income",
+        "value": 5.4,
+        "notes": [
+          "+43% Y/Y"
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2026 财年第三季度",
+        "periodNote": "截至 2026 年 9 月",
+        "revenue": {
+          "notes": [
+            "同比 +8%",
+            "扣除利息支出后"
+          ],
+          "items": [
+            {
+              "id": "services",
+              "label": "服务",
+              "notes": [
+                "同比 +15%",
+                "净利率 40%"
+              ]
+            },
+            {
+              "id": "markets",
+              "label": "市场",
+              "notes": [
+                "同比 +6%",
+                "净利率 29%"
+              ]
+            },
+            {
+              "id": "banking",
+              "label": "银行",
+              "notes": [
+                "同比 +6%",
+                "净利率 22%"
+              ]
+            },
+            {
+              "id": "wealth",
+              "label": "财富管理",
+              "notes": [
+                "同比 +15%",
+                "净利率 18%"
+              ]
+            },
+            {
+              "id": "uspb",
+              "label": "美国个人银行",
+              "notes": [
+                "同比 +0%",
+                "净利率 18%"
+              ]
+            },
+            {
+              "id": "all_other",
+              "label": "所有其他",
+              "notes": [
+                "同比 (2%)"
+              ]
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "信用损失拨备",
+            "notes": [
+              "来源图将其展示为税前利润前成本。"
+            ]
+          },
+          "operatingExpenses": {
+            "notes": [
+              "非利息费用",
+              "印刷费用分项与总额分别舍入，因此合计存在差额；已核对官方季度财务补充报表。"
+            ],
+            "items": [
+              {
+                "id": "compensation_benefits",
+                "label": "薪酬与福利"
+              },
+              {
+                "id": "other_general_operating",
+                "label": "其他一般运营"
+              },
+              {
+                "id": "technology_communication",
+                "label": "技术与通信"
+              },
+              {
+                "id": "premises_equipment",
+                "label": "场地与设备"
+              },
+              {
+                "id": "marketing",
+                "label": "营销"
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费"
+          }
+        },
+        "profit": {
+          "gross": {
+            "label": "扣除信用损失拨备后的收入",
+            "notes": [
+              "用于平衡的小计；来源图未单独标注。"
+            ]
+          },
+          "operating": {
+            "label": "税前利润",
+            "notes": [
+              "来源金额按 $0.1B 精度取整。"
+            ]
+          },
+          "net": {
+            "label": "净利润",
+            "notes": [
+              "同比 +43%"
+            ]
+          }
+        },
+        "operatingMetrics": [
+          {
+            "id": "deposits",
+            "label": "存款",
+            "notes": [
+              "同比 +11%，环比 +2%"
+            ]
+          },
+          {
+            "id": "loans",
+            "label": "贷款",
+            "notes": [
+              "同比 +12%，环比 +3%"
+            ]
+          },
+          {
+            "id": "cet1",
+            "label": "CET1 比率",
+            "notes": [
+              "同比 (0.5 个百分点)"
+            ]
+          }
+        ]
+      }
+    },
+    "operatingMetrics": [
+      {
+        "id": "deposits",
+        "label": "Deposits",
+        "value": "1.53",
+        "unit": "T",
+        "currency": "USD",
+        "comparison": "eq",
+        "literal": "$1.53T",
+        "quote": "Deposits\n$1.53T\n+11% Y/Y & +2% Q/Q",
+        "notes": [
+          "+11% Y/Y & +2% Q/Q"
+        ],
+        "basis": "unspecified",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            79,
+            1211,
+            264,
+            149
+          ]
+        }
+      },
+      {
+        "id": "loans",
+        "label": "Loans",
+        "value": "0.80",
+        "unit": "T",
+        "currency": "USD",
+        "comparison": "eq",
+        "literal": "$0.80T",
+        "quote": "Loans\n$0.80T\n+12% Y/Y & +3% Q/Q",
+        "notes": [
+          "+12% Y/Y & +3% Q/Q"
+        ],
+        "basis": "unspecified",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            351,
+            1211,
+            242,
+            149
+          ]
+        }
+      },
+      {
+        "id": "cet1",
+        "label": "CET1 ratio",
+        "value": "12.8",
+        "unit": "%",
+        "currency": null,
+        "comparison": "eq",
+        "literal": "12.8%",
+        "quote": "CET1 ratio\n12.8%\n(0.5pp) Y/Y",
+        "notes": [
+          "(0.5pp) Y/Y"
+        ],
+        "basis": "unspecified",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            600,
+            1211,
+            242,
+            149
+          ]
+        }
+      }
+    ]
   }
-]);
-})(window);
+]);})(window);

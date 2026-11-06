@@ -1,0 +1,133 @@
+{
+  "source": "input/processing/citigroup-q3-fy26.png",
+  "spec": "input/icon-crop-specs/citigroup-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T14:17:09.289232+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/citigroup",
+  "crops": [
+    {
+      "key": "citi-logo-q3-fy26",
+      "output": "data/assets/icon-references/citigroup/crops/company-logo-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2140,
+        "losslessBytes": 9292,
+        "savingsVsLossless": 0.7697,
+        "metrics": {
+          "meanAbsoluteError": 0.2084,
+          "rootMeanSquareError": 1.4615,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.115
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 36451,
+        "transparentPixelRatio": 0.6731
+      },
+      "searchBox": {
+        "x": 940,
+        "y": 245,
+        "width": 285,
+        "height": 190
+      },
+      "componentCount": 5,
+      "subjectBox": {
+        "x0": 950,
+        "y0": 253,
+        "x1": 1216,
+        "y1": 426
+      },
+      "cropBox": {
+        "x0": 940,
+        "y0": 245,
+        "x1": 1225,
+        "y1": 435
+      },
+      "validation": {
+        "width": 285,
+        "height": 190,
+        "foregroundPixels": 17439,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 10,
+          "right": 9,
+          "top": 8,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": 0.0018,
+          "y": -0.0026
+        },
+        "passes": true
+      },
+      "note": "Citi company logo only; excludes Revenue label and title.",
+      "runtimeOutput": "data/assets/raster-annotations/citigroup/company-logo-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2140,
+        "losslessBytes": 9292,
+        "savingsVsLossless": 0.7697,
+        "metrics": {
+          "meanAbsoluteError": 0.2084,
+          "rootMeanSquareError": 1.4615,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.115
+        }
+      },
+      "validationSheet": "data/assets/icon-references/citigroup/validation-sheets/citi-logo-q3-fy26.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 291214,
+        "losslessBytes": 291214,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

@@ -273,4 +273,267 @@
       },
     },
   });
+  ssot.records.push({
+  "key": "ge-vernova-q3-fy26",
+  "company": "GE Vernova",
+  "period": "Q3 FY26",
+  "periodNote": "Quarter ended Sep. 30, 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 3,
+  "sourceImage": "input/processed/ge-vernova-q3-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 12.6,
+    "notes": [
+      "+27% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "power",
+        "label": "Power",
+        "value": 6.1,
+        "notes": [
+          "+25% Y/Y",
+          "21% segment margin",
+          "+8pp Y/Y"
+        ]
+      },
+      {
+        "id": "wind",
+        "label": "Wind",
+        "value": 2.7,
+        "notes": [
+          "+4% Y/Y",
+          "+3% segment margin",
+          "+5pp Y/Y"
+        ]
+      },
+      {
+        "id": "electrification",
+        "label": "Electrification",
+        "value": 3.9,
+        "notes": [
+          "+51% Y/Y",
+          "19% segment margin",
+          "+4pp Y/Y"
+        ]
+      },
+      {
+        "id": "eliminations",
+        "label": "Eliminations",
+        "value": -0.028,
+        "notes": [
+          "Source displays ($28M); its approximately 1px terminal face remains visible."
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "label": "Cost of equipment and services",
+      "value": 9.5,
+      "items": [
+        {
+          "id": "cost_of_equipment",
+          "label": "Cost of equipment",
+          "value": 6.4
+        },
+        {
+          "id": "cost_of_services",
+          "label": "Cost of services",
+          "value": 3.1
+        }
+      ]
+    },
+    "operatingExpenses": {
+      "total": 1.7,
+      "items": [
+        {
+          "id": "sga",
+          "label": "SG&A",
+          "value": 1.4,
+          "notes": [
+            "11% of revenue",
+            "(2pp) Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 0.4,
+          "notes": [
+            "3% of revenue",
+            "(0pp) Y/Y"
+          ]
+        }
+      ],
+      "notes": [
+        "Printed SG&A and R&D sum to $1.8B versus the $1.7B total; preserve source rounding with 0.15B tolerance."
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.5
+    }
+  },
+  "otherIncome": {
+    "total": 0.4,
+    "items": [
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 0.4
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 3.1,
+      "notes": [
+        "25% margin",
+        "+6pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 1.4,
+      "notes": [
+        "11% margin",
+        "+7pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 1.3,
+      "notes": [
+        "10% margin",
+        "+6pp Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "periodNote": "截至 2026 年 9 月 30 日的季度",
+      "revenue": {
+        "notes": [
+          "同比 +27%"
+        ],
+        "items": [
+          {
+            "id": "power",
+            "label": "电力",
+            "notes": [
+              "同比 +25%",
+              "部门利润率 21%",
+              "同比 +8 个百分点"
+            ]
+          },
+          {
+            "id": "wind",
+            "label": "风电",
+            "notes": [
+              "同比 +4%",
+              "部门利润率 +3%",
+              "同比 +5 个百分点"
+            ]
+          },
+          {
+            "id": "electrification",
+            "label": "电气化",
+            "notes": [
+              "同比 +51%",
+              "部门利润率 19%",
+              "同比 +4 个百分点"
+            ]
+          },
+          {
+            "id": "eliminations",
+            "label": "抵销",
+            "notes": []
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "设备与服务成本",
+          "items": [
+            {
+              "id": "cost_of_equipment",
+              "label": "设备成本"
+            },
+            {
+              "id": "cost_of_services",
+              "label": "服务成本"
+            }
+          ]
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sga",
+              "label": "销售、一般及管理费用",
+              "notes": [
+                "占收入 11%",
+                "同比 (2 个百分点)"
+              ]
+            },
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 3%",
+                "同比 (0 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "other",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 25%",
+            "同比 +6 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 11%",
+            "同比 +7 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 10%",
+            "同比 +6 个百分点"
+          ]
+        }
+      }
+    }
+  }
+});
 })(window);

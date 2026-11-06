@@ -482,3 +482,277 @@ window.INCOME_STATEMENT_SSOT.records.push({
     }
   }
 });
+
+(function(global){global.INCOME_STATEMENT_SSOT.records.push({
+  "key": "merck-q3-fy26",
+  "company": "Merck",
+  "period": "Q3 FY26",
+  "periodNote": "Q3 FY26",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/merck-q3-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 18.1,
+    "notes": [
+      "+5% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "pharma",
+        "label": "Pharma",
+        "value": 16.3,
+        "notes": [
+          "+4% Y/Y"
+        ],
+        "children": [
+          {
+            "id": "oncology",
+            "label": "Oncology",
+            "value": 9.7,
+            "notes": [
+              "+7% Y/Y"
+            ]
+          },
+          {
+            "id": "vaccines",
+            "label": "Vaccines",
+            "value": 4.1,
+            "notes": [
+              "(4%) Y/Y"
+            ]
+          },
+          {
+            "id": "cardiology",
+            "label": "Cardiology",
+            "value": 1.5,
+            "notes": [
+              "+23% Y/Y"
+            ]
+          },
+          {
+            "id": "other_pharma",
+            "label": "Other",
+            "value": 1,
+            "notes": [
+              "(4%) Y/Y"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "animal_health",
+        "label": "Animal Health",
+        "value": 1.7,
+        "notes": [
+          "+4% Y/Y"
+        ]
+      },
+      {
+        "id": "other_revenue",
+        "label": "Other",
+        "value": 0.1,
+        "notes": [
+          "+182% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_sales",
+      "label": "Cost of sales",
+      "value": 4.9,
+      "notes": []
+    },
+    "operatingExpenses": {
+      "total": 7.6,
+      "items": [
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 4.5,
+          "notes": [
+            "25% of revenue",
+            "+1pp Y/Y"
+          ]
+        },
+        {
+          "id": "sga",
+          "label": "SG&A",
+          "value": 2.9,
+          "notes": [
+            "16% of revenue",
+            "+1pp Y/Y"
+          ]
+        },
+        {
+          "id": "other_opex",
+          "label": "Other",
+          "value": 0.2,
+          "notes": [
+            "1% of revenue"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.5,
+      "notes": []
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 13.2,
+      "notes": [
+        "73% margin",
+        "(5pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "pretax_profit",
+      "label": "Pretax profit",
+      "value": 5.6,
+      "notes": [
+        "31% margin",
+        "(8pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 5.1,
+      "notes": [
+        "28% margin",
+        "(5pp) Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "periodNote": "2026 财年第三季度",
+      "revenue": {
+        "notes": [
+          "同比 +5%"
+        ],
+        "items": [
+          {
+            "label": "制药业务",
+            "notes": [
+              "同比 +4%"
+            ],
+            "children": [
+              {
+                "label": "肿瘤",
+                "notes": [
+                  "同比 +7%"
+                ]
+              },
+              {
+                "label": "疫苗",
+                "notes": [
+                  "同比下降 4%"
+                ]
+              },
+              {
+                "label": "心血管",
+                "notes": [
+                  "同比 +23%"
+                ]
+              },
+              {
+                "label": "其他",
+                "notes": [
+                  "同比下降 4%"
+                ]
+              }
+            ]
+          },
+          {
+            "label": "动物保健",
+            "notes": [
+              "同比 +4%"
+            ]
+          },
+          {
+            "label": "其他",
+            "notes": [
+              "同比 +182%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "销售成本",
+          "notes": []
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "label": "研发",
+              "notes": [
+                "占收入 25%",
+                "同比上升 1 个百分点"
+              ]
+            },
+            {
+              "label": "销售、一般及管理费用",
+              "notes": [
+                "占收入 16%",
+                "同比上升 1 个百分点"
+              ]
+            },
+            {
+              "label": "其他",
+              "notes": [
+                "占收入 1%"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费",
+          "notes": []
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 73%",
+            "同比下降 5 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "税前利润",
+          "notes": [
+            "利润率 31%",
+            "同比下降 8 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 28%",
+            "同比下降 5 个百分点"
+          ]
+        }
+      }
+    }
+  }
+});})(window);

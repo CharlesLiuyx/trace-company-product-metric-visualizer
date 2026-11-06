@@ -1,0 +1,11 @@
+{
+  "source": "input/processed/schwab-q3-fy26.png",
+  "crop": [
+    899,
+    257,
+    232,
+    232
+  ],
+  "runtime": "data/assets/raster-annotations/schwab/logo-q3-fy26.png",
+  "validation": "Complete company logo only; no adjacent text or chart marks."
+}

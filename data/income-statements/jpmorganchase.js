@@ -1,7 +1,4 @@
-/* Pure INCOME_STATEMENT_SSOT records. Merged by the Publication Module. */
-(function (global) {
-  const target = global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || { schemaVersion: 1, records: [] };
-  target.records.push(...[
+(function(global){const target=global.INCOME_STATEMENT_SSOT=global.INCOME_STATEMENT_SSOT||{schemaVersion:1,records:[]};target.records.push(...[
   {
     "key": "jpmorganchase-q4-fy25",
     "company": "JPMorganChase",
@@ -5463,6 +5460,379 @@
         }
       }
     ]
+  },
+  {
+    "key": "jpmorganchase-q3-fy26",
+    "company": "JPMorganChase",
+    "period": "Q3 FY26",
+    "periodNote": "",
+    "currency": "$",
+    "unit": "B",
+    "decimals": 1,
+    "sourceImage": "input/processed/jpmorganchase-q3-fy26.png",
+    "roundingTolerance": 0.2,
+    "revenue": {
+      "total": 50.2,
+      "notes": [
+        "+8% Y/Y",
+        "Source segment amounts net of adjustments total $50.2B; expense items total $27.2B versus $27.3B displayed. Independently rounded to $0.1B."
+      ],
+      "items": [
+        {
+          "id": "consumer_community_banking",
+          "label": [
+            "Consumer &",
+            "Community",
+            "Banking"
+          ],
+          "value": 21.2,
+          "notes": [
+            "+9% Y/Y",
+            "27% net margin"
+          ]
+        },
+        {
+          "id": "commercial_investment_bank",
+          "label": [
+            "Commercial &",
+            "Investment Bank"
+          ],
+          "value": 22.7,
+          "notes": [
+            "+14% Y/Y",
+            "36% net margin"
+          ]
+        },
+        {
+          "id": "asset_wealth_management",
+          "label": [
+            "Asset & Wealth",
+            "Management"
+          ],
+          "value": 6.9,
+          "notes": [
+            "+14% Y/Y",
+            "27% net margin"
+          ]
+        },
+        {
+          "id": "corporate",
+          "label": "Corporate",
+          "value": 0.1,
+          "notes": [
+            "(95%) Y/Y"
+          ]
+        },
+        {
+          "id": "adjustments",
+          "label": "Adjustments",
+          "value": -0.7
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "noninterest_expenses",
+        "label": "Noninterest expenses",
+        "value": 27.3,
+        "items": [
+          {
+            "id": "compensation_benefits",
+            "label": "Compensation & benefits",
+            "value": 14.8
+          },
+          {
+            "id": "occupancy",
+            "label": "Occupancy",
+            "value": 1.5
+          },
+          {
+            "id": "technology_communications",
+            "label": [
+              "Technology,",
+              "communications"
+            ],
+            "value": 3.3
+          },
+          {
+            "id": "professional_services",
+            "label": [
+              "Professional",
+              "services"
+            ],
+            "value": 3.9
+          },
+          {
+            "id": "marketing",
+            "label": "Marketing",
+            "value": 1.9
+          },
+          {
+            "id": "other_expenses",
+            "label": "Other",
+            "value": 1.8
+          }
+        ]
+      },
+      "operatingExpenses": {
+        "total": 2.7,
+        "notes": [
+          "Mapped to the operating-expenses schema slot for the source chart’s provision for credit losses."
+        ],
+        "items": [
+          {
+            "id": "operating_expenses",
+            "label": "Provision for credit losses",
+            "value": 2.7
+          }
+        ]
+      },
+      "tax": {
+        "id": "tax",
+        "label": "Tax",
+        "value": 4.8
+      }
+    },
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 0,
+      "items": []
+    },
+    "profit": {
+      "gross": {
+        "label": "Income after noninterest expenses",
+        "value": 22.9,
+        "notes": [
+          "Schema adapter subtotal; the source chart does not show a separate gross-profit node."
+        ]
+      },
+      "operating": {
+        "id": "pretax_income",
+        "label": "Pretax income",
+        "value": 20.1,
+        "notes": [
+          "Source amounts are rounded to $0.1B precision."
+        ]
+      },
+      "net": {
+        "id": "net_income",
+        "label": "Net income",
+        "value": 15.3,
+        "notes": [
+          "+6% Y/Y"
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2026 财年第三季度",
+        "periodNote": "",
+        "revenue": {
+          "notes": [
+            "同比 +8%",
+            "来源分部减调整项合计 $50.2B；费用子项合计 $27.2B，对比所印总额 $27.3B，分别按 $0.1B 舍入。"
+          ],
+          "items": [
+            {
+              "id": "consumer_community_banking",
+              "label": "消费者与社区银行",
+              "notes": [
+                "同比 +9%",
+                "净利率 27%"
+              ]
+            },
+            {
+              "id": "commercial_investment_bank",
+              "label": "商业与投资银行",
+              "notes": [
+                "同比 +14%",
+                "净利率 36%"
+              ]
+            },
+            {
+              "id": "asset_wealth_management",
+              "label": "资产与财富管理",
+              "notes": [
+                "同比 +14%",
+                "净利率 27%"
+              ]
+            },
+            {
+              "id": "corporate",
+              "label": "公司业务",
+              "notes": [
+                "同比 (95%)"
+              ]
+            },
+            {
+              "id": "adjustments",
+              "label": "调整项"
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "非利息费用",
+            "items": [
+              {
+                "id": "compensation_benefits",
+                "label": "薪酬与福利"
+              },
+              {
+                "id": "occupancy",
+                "label": "场地占用"
+              },
+              {
+                "id": "technology_communications",
+                "label": "技术与通信"
+              },
+              {
+                "id": "professional_services",
+                "label": "专业服务"
+              },
+              {
+                "id": "marketing",
+                "label": "市场营销"
+              },
+              {
+                "id": "other_expenses",
+                "label": "其他"
+              }
+            ]
+          },
+          "operatingExpenses": {
+            "notes": [
+              "映射到通用 schema 的营业费用槽位，对应来源图的信用损失拨备。"
+            ],
+            "items": [
+              {
+                "id": "operating_expenses",
+                "label": "信用损失拨备"
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费"
+          }
+        },
+        "profit": {
+          "gross": {
+            "label": "扣除非利息费用后的收入",
+            "notes": [
+              "Schema 适配小计；来源图未显示独立的毛利润节点。"
+            ]
+          },
+          "operating": {
+            "label": "税前利润",
+            "notes": [
+              "来源金额按 $0.1B 精度取整。"
+            ]
+          },
+          "net": {
+            "label": "净利润",
+            "notes": [
+              "同比 +6%"
+            ]
+          }
+        },
+        "operatingMetrics": [
+          {
+            "id": "average_deposits",
+            "label": "平均存款",
+            "notes": [
+              "同比 +8%，环比 +2%"
+            ]
+          },
+          {
+            "id": "average_loans",
+            "label": "平均贷款",
+            "notes": [
+              "同比 +10%，环比 +2%"
+            ]
+          },
+          {
+            "id": "cet1_ratio",
+            "label": "CET1 比率",
+            "notes": [
+              "同比 -0.9 个百分点，环比 -0.3 个百分点"
+            ]
+          }
+        ]
+      }
+    },
+    "operatingMetrics": [
+      {
+        "id": "average_deposits",
+        "label": "Average deposits",
+        "value": "2.7",
+        "unit": "T",
+        "currency": "USD",
+        "literal": "$2.7T",
+        "notes": [
+          "+8% Y/Y & +2% Q/Q"
+        ],
+        "comparison": "eq",
+        "basis": "unspecified",
+        "quote": "Average deposits\n$2.7T\n+8% Y/Y & +2% Q/Q",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            34,
+            1192,
+            372,
+            148
+          ]
+        }
+      },
+      {
+        "id": "average_loans",
+        "label": "Average loans",
+        "value": "1.6",
+        "unit": "T",
+        "currency": "USD",
+        "literal": "$1.6T",
+        "notes": [
+          "+10% Y/Y & +2% Q/Q"
+        ],
+        "comparison": "eq",
+        "basis": "unspecified",
+        "quote": "Average loans\n$1.6T\n+10% Y/Y & +2% Q/Q",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            414,
+            1192,
+            310,
+            148
+          ]
+        }
+      },
+      {
+        "id": "cet1_ratio",
+        "label": "CET1 ratio",
+        "value": "13.9",
+        "unit": "%",
+        "currency": null,
+        "literal": "13.9%",
+        "notes": [
+          "-0.9pp Y/Y & -0.3pp Q/Q"
+        ],
+        "comparison": "eq",
+        "basis": "unspecified",
+        "quote": "CET1 ratio\n13.9%\n-0.9pp Y/Y & -0.3pp Q/Q",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            732,
+            1192,
+            311,
+            148
+          ]
+        }
+      }
+    ]
   }
-]);
-})(window);
+]);})(window);

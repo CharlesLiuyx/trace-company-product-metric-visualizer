@@ -1147,5 +1147,275 @@
         },
       },
     }
-  );
+,
+{
+  "key": "pepsico-q3-fy26",
+  "company": "PepsiCo",
+  "period": "Q3 FY26",
+  "periodNote": "",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/pepsico-q3-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 25.3,
+    "notes": [
+      "+6% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "north_america",
+        "label": "North America",
+        "value": 14.2,
+        "notes": [
+          "+3% Y/Y"
+        ],
+        "children": [
+          {
+            "id": "foods",
+            "label": "Foods",
+            "value": 6.5,
+            "notes": [
+              "(0%) Y/Y"
+            ]
+          },
+          {
+            "id": "pepsico_beverages",
+            "label": "PepsiCo Beverages",
+            "value": 7.7,
+            "notes": [
+              "+5% Y/Y"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ib_franchise",
+        "label": "IB franchise",
+        "value": 1.4,
+        "notes": [
+          "+9% Y/Y"
+        ]
+      },
+      {
+        "id": "latam",
+        "label": "LATAM",
+        "value": 3,
+        "notes": [
+          "+14% Y/Y"
+        ]
+      },
+      {
+        "id": "emea",
+        "label": "EMEA",
+        "value": 5.4,
+        "notes": [
+          "+8% Y/Y"
+        ]
+      },
+      {
+        "id": "apac",
+        "label": "APAC",
+        "value": 1.2,
+        "notes": [
+          "+10% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 11.5,
+      "notes": []
+    },
+    "operatingExpenses": {
+      "total": 9.5,
+      "items": [
+        {
+          "id": "operating_expenses",
+          "label": "Operating expenses SG&A",
+          "value": 9.5,
+          "notes": []
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.8,
+      "notes": []
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0.3,
+    "items": [
+      {
+        "id": "interest",
+        "label": "Interest",
+        "value": 0.2,
+        "notes": []
+      },
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 0.1,
+        "notes": []
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 13.8,
+      "notes": [
+        "54% margin",
+        "+1pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 4.3,
+      "notes": [
+        "17% margin",
+        "+2pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 3.1,
+      "notes": [
+        "12% margin",
+        "+1pp Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "periodNote": "",
+      "revenue": {
+        "notes": [
+          "同比 +6%"
+        ],
+        "items": [
+          {
+            "id": "north_america",
+            "label": "北美",
+            "notes": [
+              "同比 +3%"
+            ],
+            "children": [
+              {
+                "id": "foods",
+                "label": "食品",
+                "notes": [
+                  "同比 (0%)"
+                ]
+              },
+              {
+                "id": "pepsico_beverages",
+                "label": "百事饮料",
+                "notes": [
+                  "同比 +5%"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "ib_franchise",
+            "label": "国际饮料特许经营",
+            "notes": [
+              "同比 +9%"
+            ]
+          },
+          {
+            "id": "latam",
+            "label": "拉丁美洲",
+            "notes": [
+              "同比 +14%"
+            ]
+          },
+          {
+            "id": "emea",
+            "label": "欧洲中东非洲",
+            "notes": [
+              "同比 +8%"
+            ]
+          },
+          {
+            "id": "apac",
+            "label": "亚太",
+            "notes": [
+              "同比 +10%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "operating_expenses",
+              "label": "运营费用 SG&A",
+              "notes": []
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "interest",
+            "label": "利息",
+            "notes": []
+          },
+          {
+            "id": "other",
+            "label": "其他",
+            "notes": []
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 54%",
+            "同比 +1 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 17%",
+            "同比 +2 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 12%",
+            "同比 +1 个百分点"
+          ]
+        }
+      }
+    }
+  }
+}  );
 })(window);

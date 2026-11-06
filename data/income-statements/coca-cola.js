@@ -1356,5 +1356,276 @@
         },
       },
     }
+
+,
+{
+  "key": "coca-cola-q3-fy26",
+  "company": "Coca-Cola",
+  "period": "Q3 FY26",
+  "periodNote": "Ending Sep. 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 3,
+  "sourceImage": "input/processed/coca-cola-q3-fy26.png",
+  "roundingTolerance": 0.2,
+  "revenue": {
+    "total": 13.4,
+    "notes": [
+      "+7% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "emea",
+        "label": "EMEA",
+        "value": 3.1,
+        "notes": [
+          "+4% Y/Y"
+        ]
+      },
+      {
+        "id": "latam",
+        "label": "LATAM",
+        "value": 2,
+        "notes": [
+          "+24% Y/Y"
+        ]
+      },
+      {
+        "id": "ucan",
+        "label": "UCAN",
+        "value": 5.4,
+        "notes": [
+          "+3% Y/Y"
+        ]
+      },
+      {
+        "id": "apac",
+        "label": "APAC",
+        "value": 1.6,
+        "notes": [
+          "+4% Y/Y"
+        ]
+      },
+      {
+        "id": "bottling_investments",
+        "label": "Bottling investments",
+        "value": 1.5,
+        "notes": [
+          "+13% Y/Y"
+        ]
+      },
+      {
+        "id": "other_revenue",
+        "label": "Other",
+        "value": 0.038
+      },
+      {
+        "id": "eliminations",
+        "label": "Eliminations",
+        "value": -0.2,
+        "notes": [
+          "Inter-segment eliminations shown in the source chart as a separate red outflow."
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 4.9
+    },
+    "operatingExpenses": {
+      "total": 4,
+      "items": [
+        {
+          "id": "sga",
+          "label": "SG&A",
+          "value": 4,
+          "notes": [
+            "30% of revenue"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.8
+    }
+  },
+  "otherIncome": {
+    "total": 0.5,
+    "items": [
+      {
+        "id": "other_income",
+        "label": "Other",
+        "value": 0.5
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0.1,
+    "items": [
+      {
+        "id": "interest",
+        "label": "Interest",
+        "value": 0.1,
+        "notes": [
+          "Non-operating interest bridging operating profit to net profit."
+        ]
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 8.5,
+      "notes": [
+        "63% margin",
+        "+2pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 4.5,
+      "notes": [
+        "33% margin",
+        "+1pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 4.1,
+      "notes": [
+        "30% margin",
+        "+1pp Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "periodNote": "截至 2026 年 9 月",
+      "revenue": {
+        "notes": [
+          "同比 +7%"
+        ],
+        "items": [
+          {
+            "id": "emea",
+            "label": "EMEA",
+            "notes": [
+              "同比 +4%"
+            ]
+          },
+          {
+            "id": "latam",
+            "label": "LATAM",
+            "notes": [
+              "同比 +24%"
+            ]
+          },
+          {
+            "id": "ucan",
+            "label": "UCAN",
+            "notes": [
+              "同比 +3%"
+            ]
+          },
+          {
+            "id": "apac",
+            "label": "APAC",
+            "notes": [
+              "同比 +4%"
+            ]
+          },
+          {
+            "id": "bottling_investments",
+            "label": "装瓶投资业务",
+            "notes": [
+              "同比 +13%"
+            ]
+          },
+          {
+            "id": "other_revenue",
+            "label": "其他"
+          },
+          {
+            "id": "eliminations",
+            "label": "抵销",
+            "notes": [
+              "来源图中作为单独的红色流出列示的分部间抵销。"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sga",
+              "label": "销售及管理费用",
+              "notes": [
+                "占收入 30%"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "other_income",
+            "label": "其他"
+          }
+        ]
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "interest",
+            "label": "利息",
+            "notes": [
+              "连接营业利润与净利润的非经营性利息。"
+            ]
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 63%",
+            "同比 +2 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 33%",
+            "同比 +1 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 30%",
+            "同比 +1 个百分点"
+          ]
+        }
+      }
+    }
+  }
+}
   );
 })(window);

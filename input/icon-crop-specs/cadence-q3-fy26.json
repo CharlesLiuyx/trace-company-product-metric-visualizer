@@ -1,0 +1,37 @@
+{
+  "source": "input/processed/cadence-q3-fy26.png",
+  "outputDir": "data/assets/icon-references/cadence",
+  "runtimeOutputDir": "data/assets/raster-annotations/cadence",
+  "report": "crop-report-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "company-logo-q3-fy26",
+      "output": "crops/company-logo-q3-fy26.png",
+      "searchBox": {
+        "x": 560,
+        "y": 259,
+        "width": 610,
+        "height": 125
+      },
+      "cropBox": {
+        "x": 560,
+        "y": 259,
+        "width": 610,
+        "height": 125
+      },
+      "threshold": 16,
+      "minComponentArea": 5,
+      "note": "Full Cadence wordmark and registration sign; excludes surrounding labels."
+    }
+  ]
+}

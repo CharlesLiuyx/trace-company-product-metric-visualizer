@@ -4798,5 +4798,189 @@
       }
     }
   }
+,
+{
+  "key": "sap-q3-fy26",
+  "company": "SAP",
+  "period": "Q3 FY26",
+  "periodNote": "Ending Sep. 2026",
+  "currency": "€",
+  "unit": "B",
+  "decimals": 2,
+  "sourceImage": "input/processed/sap-q3-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 10.3,
+    "notes": [
+      "+13% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "cloud",
+        "label": "Cloud",
+        "value": 6.7,
+        "notes": [
+          "+26% Y/Y"
+        ],
+        "children": [
+          {
+            "id": "saas_paas",
+            "label": "SaaS/PaaS",
+            "value": 6.6,
+            "notes": [
+              "+27% Y/Y"
+            ]
+          },
+          {
+            "id": "iaas",
+            "label": "IaaS",
+            "value": 0.1,
+            "notes": [
+              "(28%) Y/Y"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "licenses_support",
+        "label": "Licenses & Support",
+        "value": 2.6,
+        "notes": [
+          "(5%) Y/Y"
+        ],
+        "children": [
+          {
+            "id": "software_licenses",
+            "label": "Software Licenses",
+            "value": 0.1,
+            "notes": [
+              "(9%) Y/Y"
+            ]
+          },
+          {
+            "id": "software_support",
+            "label": "Software Support",
+            "value": 2.4,
+            "notes": [
+              "(5%) Y/Y"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "services",
+        "label": "Services",
+        "value": 1,
+        "notes": [
+          "(4%) Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 2.8,
+      "notes": []
+    },
+    "operatingExpenses": {
+      "total": 4.6,
+      "notes": [
+        "Printed components total €4.62B versus €4.6B; source rounding retained."
+      ],
+      "items": [
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 2.3,
+          "notes": [
+            "22% of revenue",
+            "(2pp) Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 1.9,
+          "notes": [
+            "18% of revenue",
+            "+0pp Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 0.4,
+          "notes": [
+            "4% of revenue",
+            "+0pp Y/Y"
+          ]
+        },
+        {
+          "id": "other_opex",
+          "label": "Other",
+          "value": 0.02
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.7,
+      "notes": []
+    }
+  },
+  "otherIncome": {
+    "total": 0.1,
+    "items": [
+      {
+        "id": "other_income",
+        "label": "Other",
+        "value": 0.1,
+        "notes": []
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 7.5,
+      "notes": [
+        "73% margin",
+        "(0pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 2.9,
+      "notes": [
+        "29% margin",
+        "+1pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 2.3,
+      "notes": [
+        "22% margin",
+        "(1pp) Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "periodNote": "截至 2026 年 9 月"
+    }
+  }
+}
 ]);
 })(window);

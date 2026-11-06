@@ -1,0 +1,158 @@
+{
+  "source": "input/processing/astrazeneca-q3-fy26.png",
+  "outputDir": "data/assets/icon-references/astrazeneca",
+  "report": "crop-report-q3-fy26.json",
+  "runtimeOutputDir": "data/assets/raster-annotations/astrazeneca",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [
+      242,
+      242,
+      242
+    ],
+    "tolerance": 12
+  },
+  "crops": [
+    {
+      "key": "company-logo-q3-fy26",
+      "output": "crops/company-logo-q3-fy26.png",
+      "cropBox": {
+        "x": 610,
+        "y": 205,
+        "width": 710,
+        "height": 190
+      },
+      "searchBox": {
+        "x": 610,
+        "y": 205,
+        "width": 710,
+        "height": 190
+      },
+      "threshold": 18,
+      "minComponentArea": 4,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "excludeBoxes": [
+        {
+          "x": 610,
+          "y": 205,
+          "width": 530,
+          "height": 16
+        },
+        {
+          "x": 1295,
+          "y": 333,
+          "width": 25,
+          "height": 62
+        },
+        {
+          "x": 610,
+          "y": 383,
+          "width": 710,
+          "height": 12
+        }
+      ]
+    },
+    {
+      "key": "tagrisso-q3-fy26",
+      "output": "crops/tagrisso-q3-fy26.png",
+      "cropBox": {
+        "x": 182,
+        "y": 461,
+        "width": 140,
+        "height": 37
+      },
+      "searchBox": {
+        "x": 182,
+        "y": 461,
+        "width": 140,
+        "height": 37
+      },
+      "threshold": 18,
+      "minComponentArea": 4,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "forxiga-q3-fy26",
+      "output": "crops/forxiga-q3-fy26.png",
+      "cropBox": {
+        "x": 210,
+        "y": 730,
+        "width": 79,
+        "height": 48
+      },
+      "searchBox": {
+        "x": 210,
+        "y": 730,
+        "width": 79,
+        "height": 48
+      },
+      "threshold": 18,
+      "minComponentArea": 4,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "symbicort-q3-fy26",
+      "output": "crops/symbicort-q3-fy26.png",
+      "cropBox": {
+        "x": 190,
+        "y": 894,
+        "width": 112,
+        "height": 49
+      },
+      "searchBox": {
+        "x": 190,
+        "y": 894,
+        "width": 112,
+        "height": 49
+      },
+      "threshold": 18,
+      "minComponentArea": 4,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "synagis-q3-fy26",
+      "output": "crops/synagis-q3-fy26.png",
+      "cropBox": {
+        "x": 191,
+        "y": 1063,
+        "width": 106,
+        "height": 48
+      },
+      "searchBox": {
+        "x": 191,
+        "y": 1063,
+        "width": 106,
+        "height": 48
+      },
+      "threshold": 18,
+      "minComponentArea": 4,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ]
+}

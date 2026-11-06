@@ -317,4 +317,251 @@
       },
     },
   });
+  ssot.records.push({
+  "key": "southwest-q3-fy26",
+  "company": "Southwest Airlines",
+  "period": "Q3 FY26",
+  "periodNote": "Quarter ended Sep. 30, 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 3,
+  "sourceImage": "input/processed/southwest-q3-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 8.4,
+    "notes": [
+      "+21% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "passenger",
+        "label": "Passenger",
+        "value": 7.8,
+        "notes": [
+          "+23% Y/Y"
+        ]
+      },
+      {
+        "id": "freight",
+        "label": "Freight",
+        "value": 0.048,
+        "notes": [
+          "+14% Y/Y"
+        ]
+      },
+      {
+        "id": "other_revenue",
+        "label": "Other",
+        "value": 0.6,
+        "notes": [
+          "+5% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue (not separately presented)",
+      "value": 0,
+      "notes": [
+        "The source infographic moves directly from revenue to operating profit and operating expenses."
+      ]
+    },
+    "operatingExpenses": {
+      "total": 8,
+      "items": [
+        {
+          "id": "salaries_benefits",
+          "label": "Salaries & benefits",
+          "value": 3.5
+        },
+        {
+          "id": "fuel_oil",
+          "label": "Fuel & Oil",
+          "value": 2.2
+        },
+        {
+          "id": "maintenance",
+          "label": "Maintenance",
+          "value": 0.3
+        },
+        {
+          "id": "landing_fees",
+          "label": "Landing fees",
+          "value": 0.6
+        },
+        {
+          "id": "depreciation_amortization",
+          "label": "D&A",
+          "value": 0.4
+        },
+        {
+          "id": "other_operating",
+          "label": "Other",
+          "value": 1
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.1
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0.024,
+    "items": [
+      {
+        "id": "interest",
+        "label": "Interest",
+        "value": 0.024
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit (not separately presented)",
+      "value": 8.4,
+      "notes": [
+        "Bookkeeping value for SSOT parity; the source infographic has no gross-profit stage."
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 0.4,
+      "notes": [
+        "4% margin",
+        "+4pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 0.3,
+      "notes": [
+        "3% margin",
+        "+2pp Y/Y"
+      ]
+    }
+  },
+  "sources": [
+    {
+      "name": "Southwest Q3 FY26 Income Statement infographic",
+      "url": "input/processed/southwest-q3-fy26.png"
+    }
+  ],
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "periodNote": "截至 2026 年 9 月 30 日的季度",
+      "revenue": {
+        "notes": [
+          "同比 +21%"
+        ],
+        "items": [
+          {
+            "id": "passenger",
+            "label": "客运",
+            "notes": [
+              "同比 +23%"
+            ]
+          },
+          {
+            "id": "freight",
+            "label": "货运",
+            "notes": [
+              "同比 +14%"
+            ]
+          },
+          {
+            "id": "other_revenue",
+            "label": "其他",
+            "notes": [
+              "同比 +5%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本（未单列）",
+          "notes": [
+            "来源信息图从收入直接拆分为营业利润和运营费用。"
+          ]
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "salaries_benefits",
+              "label": "薪酬与福利"
+            },
+            {
+              "id": "fuel_oil",
+              "label": "燃油与石油"
+            },
+            {
+              "id": "maintenance",
+              "label": "维护"
+            },
+            {
+              "id": "landing_fees",
+              "label": "着陆费"
+            },
+            {
+              "id": "depreciation_amortization",
+              "label": "折旧与摊销"
+            },
+            {
+              "id": "other_operating",
+              "label": "其他"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": []
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "interest",
+            "label": "利息"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润（未单列）",
+          "notes": [
+            "用于 SSOT 对齐的账面值；来源信息图未展示毛利润阶段。"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 4%",
+            "同比 +4 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 3%",
+            "同比 +2 个百分点"
+          ]
+        }
+      }
+    }
+  }
+});
 })(window);

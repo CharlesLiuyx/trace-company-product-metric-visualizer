@@ -1,0 +1,37 @@
+{
+  "source": "input/processed/braze-q2-fy27.png",
+  "outputDir": "data/assets/icon-references/braze",
+  "runtimeOutputDir": "data/assets/raster-annotations/braze",
+  "validationSheetDir": "data/assets/icon-references/braze/validation-sheets",
+  "report": "crop-report-q2-fy27.json",
+  "crops": [
+    {
+      "key": "braze-company-q2-fy27",
+      "output": "crops/company-q2-fy27.png",
+      "searchBox": {
+        "x": 599,
+        "y": 245,
+        "width": 508,
+        "height": 240
+      },
+      "cropBox": {
+        "x": 599,
+        "y": 245,
+        "width": 508,
+        "height": 240
+      },
+      "threshold": 18,
+      "minComponentArea": 5,
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10
+      },
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.4,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ]
+}

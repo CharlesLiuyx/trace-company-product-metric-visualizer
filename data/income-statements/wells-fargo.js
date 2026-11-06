@@ -1,7 +1,4 @@
-/* Pure INCOME_STATEMENT_SSOT records. Merged by the Publication Module. */
-(function (global) {
-  const target = global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || { schemaVersion: 1, records: [] };
-  target.records.push(...[
+(function(global){const t=global.INCOME_STATEMENT_SSOT=global.INCOME_STATEMENT_SSOT||{schemaVersion:1,records:[]};t.records.push(...[
   {
     "key": "wells-fargo-q2-fy26",
     "company": "Wells Fargo",
@@ -123,7 +120,7 @@
       "operatingExpenses": {
         "total": 0.9,
         "notes": [
-          "Mapped to the operating-expenses schema slot for the source chart’s provision for credit losses."
+          "Mapped to the operating-expenses schema slot for the source chart\u2019s provision for credit losses."
         ],
         "items": [
           {
@@ -171,117 +168,117 @@
     },
     "i18n": {
       "zh": {
-        "period": "2026 财年第二季度",
-        "periodNote": "截至 2026 年 6 月",
+        "period": "2026 \u8d22\u5e74\u7b2c\u4e8c\u5b63\u5ea6",
+        "periodNote": "\u622a\u81f3 2026 \u5e74 6 \u6708",
         "revenue": {
           "notes": [
-            "同比 +9%",
-            "业务分部收入合计 $22.7B，图中另列 $0.1B 的其他调整；图中数字经四舍五入。"
+            "\u540c\u6bd4 +9%",
+            "\u4e1a\u52a1\u5206\u90e8\u6536\u5165\u5408\u8ba1 $22.7B\uff0c\u56fe\u4e2d\u53e6\u5217 $0.1B \u7684\u5176\u4ed6\u8c03\u6574\uff1b\u56fe\u4e2d\u6570\u5b57\u7ecf\u56db\u820d\u4e94\u5165\u3002"
           ],
           "items": [
             {
               "id": "consumer_banking",
-              "label": "消费者银行",
+              "label": "\u6d88\u8d39\u8005\u94f6\u884c",
               "notes": [
-                "同比 +6%",
-                "净利率 22%"
+                "\u540c\u6bd4 +6%",
+                "\u51c0\u5229\u7387 22%"
               ]
             },
             {
               "id": "commercial_banking",
-              "label": "商业银行",
+              "label": "\u5546\u4e1a\u94f6\u884c",
               "notes": [
-                "同比 +6%",
-                "净利率 38%"
+                "\u540c\u6bd4 +6%",
+                "\u51c0\u5229\u7387 38%"
               ]
             },
             {
               "id": "corporate_investment_banking",
-              "label": "企业与投资银行",
+              "label": "\u4f01\u4e1a\u4e0e\u6295\u8d44\u94f6\u884c",
               "notes": [
-                "同比 +16%",
-                "净利率 43%"
+                "\u540c\u6bd4 +16%",
+                "\u51c0\u5229\u7387 43%"
               ]
             },
             {
               "id": "wealth_investment_management",
-              "label": "财富与投资管理",
+              "label": "\u8d22\u5bcc\u4e0e\u6295\u8d44\u7ba1\u7406",
               "notes": [
-                "同比 +13%",
-                "净利率 14%"
+                "\u540c\u6bd4 +13%",
+                "\u51c0\u5229\u7387 14%"
               ]
             },
             {
               "id": "other",
-              "label": "其他",
+              "label": "\u5176\u4ed6",
               "notes": [
-                "来源图以不带符号的方式显示取整后的金额。"
+                "\u6765\u6e90\u56fe\u4ee5\u4e0d\u5e26\u7b26\u53f7\u7684\u65b9\u5f0f\u663e\u793a\u53d6\u6574\u540e\u7684\u91d1\u989d\u3002"
               ]
             }
           ]
         },
         "costs": {
           "costOfRevenue": {
-            "label": "非利息费用",
+            "label": "\u975e\u5229\u606f\u8d39\u7528",
             "notes": [
-              "费用明细合计为 $13.8B；图中数字经四舍五入。"
+              "\u8d39\u7528\u660e\u7ec6\u5408\u8ba1\u4e3a $13.8B\uff1b\u56fe\u4e2d\u6570\u5b57\u7ecf\u56db\u820d\u4e94\u5165\u3002"
             ],
             "items": [
               {
                 "id": "personnel",
-                "label": "人员费用"
+                "label": "\u4eba\u5458\u8d39\u7528"
               },
               {
                 "id": "technology",
-                "label": "技术"
+                "label": "\u6280\u672f"
               },
               {
                 "id": "occupancy",
-                "label": "场地占用"
+                "label": "\u573a\u5730\u5360\u7528"
               },
               {
                 "id": "professional_fees",
-                "label": "专业服务费"
+                "label": "\u4e13\u4e1a\u670d\u52a1\u8d39"
               },
               {
                 "id": "advertising",
-                "label": "广告"
+                "label": "\u5e7f\u544a"
               },
               {
                 "id": "other_expenses",
-                "label": "其他"
+                "label": "\u5176\u4ed6"
               }
             ]
           },
           "operatingExpenses": {
             "notes": [
-              "映射到通用 schema 的营业费用槽位，对应来源图的信用损失拨备。"
+              "\u6620\u5c04\u5230\u901a\u7528 schema \u7684\u8425\u4e1a\u8d39\u7528\u69fd\u4f4d\uff0c\u5bf9\u5e94\u6765\u6e90\u56fe\u7684\u4fe1\u7528\u635f\u5931\u62e8\u5907\u3002"
             ],
             "items": [
               {
                 "id": "operating_expenses",
-                "label": "信用损失拨备"
+                "label": "\u4fe1\u7528\u635f\u5931\u62e8\u5907"
               }
             ]
           },
           "tax": {
-            "label": "税费"
+            "label": "\u7a0e\u8d39"
           }
         },
         "profit": {
           "gross": {
-            "label": "扣除非利息费用后的收入",
+            "label": "\u6263\u9664\u975e\u5229\u606f\u8d39\u7528\u540e\u7684\u6536\u5165",
             "notes": [
-              "Schema 适配小计；来源图未显示独立的毛利润节点。"
+              "Schema \u9002\u914d\u5c0f\u8ba1\uff1b\u6765\u6e90\u56fe\u672a\u663e\u793a\u72ec\u7acb\u7684\u6bdb\u5229\u6da6\u8282\u70b9\u3002"
             ]
           },
           "operating": {
-            "label": "税前利润"
+            "label": "\u7a0e\u524d\u5229\u6da6"
           },
           "net": {
-            "label": "净利润",
+            "label": "\u51c0\u5229\u6da6",
             "notes": [
-              "同比 +20%"
+              "\u540c\u6bd4 +20%"
             ]
           }
         }
@@ -409,7 +406,7 @@
       "operatingExpenses": {
         "total": 1.1,
         "notes": [
-          "Mapped to the operating-expenses schema slot for the source chart’s provision for credit losses."
+          "Mapped to the operating-expenses schema slot for the source chart\u2019s provision for credit losses."
         ],
         "items": [
           {
@@ -457,117 +454,117 @@
     },
     "i18n": {
       "zh": {
-        "period": "2026 财年第一季度",
-        "periodNote": "截至 2026 年 3 月",
+        "period": "2026 \u8d22\u5e74\u7b2c\u4e00\u5b63\u5ea6",
+        "periodNote": "\u622a\u81f3 2026 \u5e74 3 \u6708",
         "revenue": {
           "notes": [
-            "同比 +6%",
-            "业务分部收入合计 $22.3B，图中另列 $0.8B 的其他调整；图中数字经四舍五入。"
+            "\u540c\u6bd4 +6%",
+            "\u4e1a\u52a1\u5206\u90e8\u6536\u5165\u5408\u8ba1 $22.3B\uff0c\u56fe\u4e2d\u53e6\u5217 $0.8B \u7684\u5176\u4ed6\u8c03\u6574\uff1b\u56fe\u4e2d\u6570\u5b57\u7ecf\u56db\u820d\u4e94\u5165\u3002"
           ],
           "items": [
             {
               "id": "consumer_banking",
-              "label": "消费者银行",
+              "label": "\u6d88\u8d39\u8005\u94f6\u884c",
               "notes": [
-                "同比 +7%",
-                "净利率 19%"
+                "\u540c\u6bd4 +7%",
+                "\u51c0\u5229\u7387 19%"
               ]
             },
             {
               "id": "commercial_banking",
-              "label": "商业银行",
+              "label": "\u5546\u4e1a\u94f6\u884c",
               "notes": [
-                "同比 +7%",
-                "净利率 33%"
+                "\u540c\u6bd4 +7%",
+                "\u51c0\u5229\u7387 33%"
               ]
             },
             {
               "id": "corporate_investment_banking",
-              "label": "企业与投资银行",
+              "label": "\u4f01\u4e1a\u4e0e\u6295\u8d44\u94f6\u884c",
               "notes": [
-                "同比 +4%",
-                "净利率 34%"
+                "\u540c\u6bd4 +4%",
+                "\u51c0\u5229\u7387 34%"
               ]
             },
             {
               "id": "wealth_investment_management",
-              "label": "财富与投资管理",
+              "label": "\u8d22\u5bcc\u4e0e\u6295\u8d44\u7ba1\u7406",
               "notes": [
-                "同比 +14%",
-                "净利率 12%"
+                "\u540c\u6bd4 +14%",
+                "\u51c0\u5229\u7387 12%"
               ]
             },
             {
               "id": "other",
-              "label": "其他",
+              "label": "\u5176\u4ed6",
               "notes": [
-                "来源图以不带符号的方式显示取整后的金额。"
+                "\u6765\u6e90\u56fe\u4ee5\u4e0d\u5e26\u7b26\u53f7\u7684\u65b9\u5f0f\u663e\u793a\u53d6\u6574\u540e\u7684\u91d1\u989d\u3002"
               ]
             }
           ]
         },
         "costs": {
           "costOfRevenue": {
-            "label": "非利息费用",
+            "label": "\u975e\u5229\u606f\u8d39\u7528",
             "notes": [
-              "费用明细合计为 $14.4B；图中数字经四舍五入。"
+              "\u8d39\u7528\u660e\u7ec6\u5408\u8ba1\u4e3a $14.4B\uff1b\u56fe\u4e2d\u6570\u5b57\u7ecf\u56db\u820d\u4e94\u5165\u3002"
             ],
             "items": [
               {
                 "id": "personnel",
-                "label": "人员费用"
+                "label": "\u4eba\u5458\u8d39\u7528"
               },
               {
                 "id": "technology",
-                "label": "技术"
+                "label": "\u6280\u672f"
               },
               {
                 "id": "occupancy",
-                "label": "场地占用"
+                "label": "\u573a\u5730\u5360\u7528"
               },
               {
                 "id": "professional_fees",
-                "label": "专业服务费"
+                "label": "\u4e13\u4e1a\u670d\u52a1\u8d39"
               },
               {
                 "id": "advertising",
-                "label": "广告"
+                "label": "\u5e7f\u544a"
               },
               {
                 "id": "other_expenses",
-                "label": "其他"
+                "label": "\u5176\u4ed6"
               }
             ]
           },
           "operatingExpenses": {
             "notes": [
-              "映射到通用 schema 的营业费用槽位，对应来源图的信用损失拨备。"
+              "\u6620\u5c04\u5230\u901a\u7528 schema \u7684\u8425\u4e1a\u8d39\u7528\u69fd\u4f4d\uff0c\u5bf9\u5e94\u6765\u6e90\u56fe\u7684\u4fe1\u7528\u635f\u5931\u62e8\u5907\u3002"
             ],
             "items": [
               {
                 "id": "operating_expenses",
-                "label": "信用损失拨备"
+                "label": "\u4fe1\u7528\u635f\u5931\u62e8\u5907"
               }
             ]
           },
           "tax": {
-            "label": "税费"
+            "label": "\u7a0e\u8d39"
           }
         },
         "profit": {
           "gross": {
-            "label": "扣除非利息费用后的收入",
+            "label": "\u6263\u9664\u975e\u5229\u606f\u8d39\u7528\u540e\u7684\u6536\u5165",
             "notes": [
-              "Schema 适配小计；来源图未显示独立的毛利润节点。"
+              "Schema \u9002\u914d\u5c0f\u8ba1\uff1b\u6765\u6e90\u56fe\u672a\u663e\u793a\u72ec\u7acb\u7684\u6bdb\u5229\u6da6\u8282\u70b9\u3002"
             ]
           },
           "operating": {
-            "label": "税前利润"
+            "label": "\u7a0e\u524d\u5229\u6da6"
           },
           "net": {
-            "label": "净利润",
+            "label": "\u51c0\u5229\u6da6",
             "notes": [
-              "同比 +7%"
+              "\u540c\u6bd4 +7%"
             ]
           }
         }
@@ -695,7 +692,7 @@
       "operatingExpenses": {
         "total": 1,
         "notes": [
-          "Mapped to the operating-expenses schema slot for the source chart’s provision for credit losses."
+          "Mapped to the operating-expenses schema slot for the source chart\u2019s provision for credit losses."
         ],
         "items": [
           {
@@ -743,117 +740,117 @@
     },
     "i18n": {
       "zh": {
-        "period": "2025 财年第四季度",
-        "periodNote": "截至 2025 年 12 月",
+        "period": "2025 \u8d22\u5e74\u7b2c\u56db\u5b63\u5ea6",
+        "periodNote": "\u622a\u81f3 2025 \u5e74 12 \u6708",
         "revenue": {
           "notes": [
-            "同比 +4%",
-            "业务分部收入合计 $21.7B，图中另列 $0.3B 的其他调整；图中数字经四舍五入。"
+            "\u540c\u6bd4 +4%",
+            "\u4e1a\u52a1\u5206\u90e8\u6536\u5165\u5408\u8ba1 $21.7B\uff0c\u56fe\u4e2d\u53e6\u5217 $0.3B \u7684\u5176\u4ed6\u8c03\u6574\uff1b\u56fe\u4e2d\u6570\u5b57\u7ecf\u56db\u820d\u4e94\u5165\u3002"
           ],
           "items": [
             {
               "id": "consumer_banking",
-              "label": "消费者银行",
+              "label": "\u6d88\u8d39\u8005\u94f6\u884c",
               "notes": [
-                "同比 +7%",
-                "净利率 22%"
+                "\u540c\u6bd4 +7%",
+                "\u51c0\u5229\u7387 22%"
               ]
             },
             {
               "id": "commercial_banking",
-              "label": "商业银行",
+              "label": "\u5546\u4e1a\u94f6\u884c",
               "notes": [
-                "同比 (3%)",
-                "净利率 37%"
+                "\u540c\u6bd4 (3%)",
+                "\u51c0\u5229\u7387 37%"
               ]
             },
             {
               "id": "corporate_investment_banking",
-              "label": "企业与投资银行",
+              "label": "\u4f01\u4e1a\u4e0e\u6295\u8d44\u94f6\u884c",
               "notes": [
-                "同比 +0%",
-                "净利率 36%"
+                "\u540c\u6bd4 +0%",
+                "\u51c0\u5229\u7387 36%"
               ]
             },
             {
               "id": "wealth_investment_management",
-              "label": "财富与投资管理",
+              "label": "\u8d22\u5bcc\u4e0e\u6295\u8d44\u7ba1\u7406",
               "notes": [
-                "同比 +10%",
-                "净利率 15%"
+                "\u540c\u6bd4 +10%",
+                "\u51c0\u5229\u7387 15%"
               ]
             },
             {
               "id": "other",
-              "label": "其他",
+              "label": "\u5176\u4ed6",
               "notes": [
-                "来源图以不带符号的方式显示取整后的金额。"
+                "\u6765\u6e90\u56fe\u4ee5\u4e0d\u5e26\u7b26\u53f7\u7684\u65b9\u5f0f\u663e\u793a\u53d6\u6574\u540e\u7684\u91d1\u989d\u3002"
               ]
             }
           ]
         },
         "costs": {
           "costOfRevenue": {
-            "label": "非利息费用",
+            "label": "\u975e\u5229\u606f\u8d39\u7528",
             "notes": [
-              "费用明细合计为 $13.7B；图中数字经四舍五入。"
+              "\u8d39\u7528\u660e\u7ec6\u5408\u8ba1\u4e3a $13.7B\uff1b\u56fe\u4e2d\u6570\u5b57\u7ecf\u56db\u820d\u4e94\u5165\u3002"
             ],
             "items": [
               {
                 "id": "personnel",
-                "label": "人员费用"
+                "label": "\u4eba\u5458\u8d39\u7528"
               },
               {
                 "id": "technology",
-                "label": "技术"
+                "label": "\u6280\u672f"
               },
               {
                 "id": "occupancy",
-                "label": "场地占用"
+                "label": "\u573a\u5730\u5360\u7528"
               },
               {
                 "id": "professional_fees",
-                "label": "专业服务费"
+                "label": "\u4e13\u4e1a\u670d\u52a1\u8d39"
               },
               {
                 "id": "advertising",
-                "label": "广告"
+                "label": "\u5e7f\u544a"
               },
               {
                 "id": "other_expenses",
-                "label": "其他"
+                "label": "\u5176\u4ed6"
               }
             ]
           },
           "operatingExpenses": {
             "notes": [
-              "映射到通用 schema 的营业费用槽位，对应来源图的信用损失拨备。"
+              "\u6620\u5c04\u5230\u901a\u7528 schema \u7684\u8425\u4e1a\u8d39\u7528\u69fd\u4f4d\uff0c\u5bf9\u5e94\u6765\u6e90\u56fe\u7684\u4fe1\u7528\u635f\u5931\u62e8\u5907\u3002"
             ],
             "items": [
               {
                 "id": "operating_expenses",
-                "label": "信用损失拨备"
+                "label": "\u4fe1\u7528\u635f\u5931\u62e8\u5907"
               }
             ]
           },
           "tax": {
-            "label": "税费"
+            "label": "\u7a0e\u8d39"
           }
         },
         "profit": {
           "gross": {
-            "label": "扣除非利息费用后的收入",
+            "label": "\u6263\u9664\u975e\u5229\u606f\u8d39\u7528\u540e\u7684\u6536\u5165",
             "notes": [
-              "Schema 适配小计；来源图未显示独立的毛利润节点。"
+              "Schema \u9002\u914d\u5c0f\u8ba1\uff1b\u6765\u6e90\u56fe\u672a\u663e\u793a\u72ec\u7acb\u7684\u6bdb\u5229\u6da6\u8282\u70b9\u3002"
             ]
           },
           "operating": {
-            "label": "税前利润"
+            "label": "\u7a0e\u524d\u5229\u6da6"
           },
           "net": {
-            "label": "净利润",
+            "label": "\u51c0\u5229\u6da6",
             "notes": [
-              "同比 +6%"
+              "\u540c\u6bd4 +6%"
             ]
           }
         }
@@ -990,7 +987,7 @@
       "operatingExpenses": {
         "total": 1.7,
         "notes": [
-          "Mapped to the operating-expenses schema slot for the source chart’s provision for credit losses."
+          "Mapped to the operating-expenses schema slot for the source chart\u2019s provision for credit losses."
         ],
         "items": [
           {
@@ -1039,145 +1036,145 @@
     },
     "i18n": {
       "zh": {
-        "period": "2023 财年第二季度",
-        "periodNote": "截至 2023 年 6 月",
+        "period": "2023 \u8d22\u5e74\u7b2c\u4e8c\u5b63\u5ea6",
+        "periodNote": "\u622a\u81f3 2023 \u5e74 6 \u6708",
         "revenue": {
           "notes": [
-            "同比 +20%"
+            "\u540c\u6bd4 +20%"
           ],
           "items": [
             {
               "id": "consumer_banking",
-              "label": "消费者银行",
+              "label": "\u6d88\u8d39\u8005\u94f6\u884c",
               "notes": [
-                "同比 +11%",
-                "净利率 20%"
+                "\u540c\u6bd4 +11%",
+                "\u51c0\u5229\u7387 20%"
               ]
             },
             {
               "id": "commercial_banking",
-              "label": "商业银行",
+              "label": "\u5546\u4e1a\u94f6\u884c",
               "notes": [
-                "同比 +35%",
-                "净利率 38%"
+                "\u540c\u6bd4 +35%",
+                "\u51c0\u5229\u7387 38%"
               ]
             },
             {
               "id": "corporate_investment_banking",
-              "label": "企业与投资银行",
+              "label": "\u4f01\u4e1a\u4e0e\u6295\u8d44\u94f6\u884c",
               "notes": [
-                "同比 +30%",
-                "净利率 26%"
+                "\u540c\u6bd4 +30%",
+                "\u51c0\u5229\u7387 26%"
               ]
             },
             {
               "id": "wealth_investment_management",
-              "label": "财富与投资管理",
+              "label": "\u8d22\u5bcc\u4e0e\u6295\u8d44\u7ba1\u7406",
               "notes": [
-                "同比 (2%)",
-                "净利率 13%"
+                "\u540c\u6bd4 (2%)",
+                "\u51c0\u5229\u7387 13%"
               ]
             },
             {
               "id": "other",
-              "label": "所有其他（非利息亏损）"
+              "label": "\u6240\u6709\u5176\u4ed6\uff08\u975e\u5229\u606f\u4e8f\u635f\uff09"
             }
           ]
         },
         "costs": {
           "costOfRevenue": {
-            "label": "非利息费用",
+            "label": "\u975e\u5229\u606f\u8d39\u7528",
             "notes": [
-              "原图费用分项合计 $12.9B；总额 $13.0B 的差异在舍入区间内。"
+              "\u539f\u56fe\u8d39\u7528\u5206\u9879\u5408\u8ba1 $12.9B\uff1b\u603b\u989d $13.0B \u7684\u5dee\u5f02\u5728\u820d\u5165\u533a\u95f4\u5185\u3002"
             ],
             "items": [
               {
                 "id": "personnel",
-                "label": "人员费用"
+                "label": "\u4eba\u5458\u8d39\u7528"
               },
               {
                 "id": "technology",
-                "label": "技术"
+                "label": "\u6280\u672f"
               },
               {
                 "id": "occupancy",
-                "label": "场地占用"
+                "label": "\u573a\u5730\u5360\u7528"
               },
               {
                 "id": "operating_losses",
-                "label": "经营损失"
+                "label": "\u7ecf\u8425\u635f\u5931"
               },
               {
                 "id": "leases",
-                "label": "租赁"
+                "label": "\u79df\u8d41"
               },
               {
                 "id": "advertising",
-                "label": "广告"
+                "label": "\u5e7f\u544a"
               },
               {
                 "id": "professional_fees",
-                "label": "专业服务费"
+                "label": "\u4e13\u4e1a\u670d\u52a1\u8d39"
               },
               {
                 "id": "other_expenses",
-                "label": "其他"
+                "label": "\u5176\u4ed6"
               }
             ]
           },
           "operatingExpenses": {
             "notes": [
-              "映射到通用 schema 的营业费用槽位，对应来源图的信用损失拨备。"
+              "\u6620\u5c04\u5230\u901a\u7528 schema \u7684\u8425\u4e1a\u8d39\u7528\u69fd\u4f4d\uff0c\u5bf9\u5e94\u6765\u6e90\u56fe\u7684\u4fe1\u7528\u635f\u5931\u62e8\u5907\u3002"
             ],
             "items": [
               {
                 "id": "operating_expenses",
-                "label": "信用损失拨备"
+                "label": "\u4fe1\u7528\u635f\u5931\u62e8\u5907"
               }
             ]
           },
           "tax": {
-            "label": "税费"
+            "label": "\u7a0e\u8d39"
           }
         },
         "profit": {
           "gross": {
-            "label": "扣除非利息费用后的收入",
+            "label": "\u6263\u9664\u975e\u5229\u606f\u8d39\u7528\u540e\u7684\u6536\u5165",
             "notes": [
-              "Schema 适配小计；来源图未显示独立的毛利润节点。"
+              "Schema \u9002\u914d\u5c0f\u8ba1\uff1b\u6765\u6e90\u56fe\u672a\u663e\u793a\u72ec\u7acb\u7684\u6bdb\u5229\u6da6\u8282\u70b9\u3002"
             ]
           },
           "operating": {
-            "label": "税前利润"
+            "label": "\u7a0e\u524d\u5229\u6da6"
           },
           "net": {
-            "label": "净利润",
+            "label": "\u51c0\u5229\u6da6",
             "notes": [
-              "同比 +57%",
-              "每股收益 $1.25"
+              "\u540c\u6bd4 +57%",
+              "\u6bcf\u80a1\u6536\u76ca $1.25"
             ]
           }
         },
         "operatingMetrics": [
           {
             "id": "cet1",
-            "label": "CET1 比率",
+            "label": "CET1 \u6bd4\u7387",
             "notes": [
-              "同比 +0.3 个百分点"
+              "\u540c\u6bd4 +0.3 \u4e2a\u767e\u5206\u70b9"
             ]
           },
           {
             "id": "deposits",
-            "label": "平均存款",
+            "label": "\u5e73\u5747\u5b58\u6b3e",
             "notes": [
-              "同比 (6%)"
+              "\u540c\u6bd4 (6%)"
             ]
           },
           {
             "id": "loans",
-            "label": "平均贷款与租赁",
+            "label": "\u5e73\u5747\u8d37\u6b3e\u4e0e\u79df\u8d41",
             "notes": [
-              "同比 +2%"
+              "\u540c\u6bd4 +2%"
             ]
           }
         ]
@@ -1495,89 +1492,89 @@
     ],
     "i18n": {
       "zh": {
-        "period": "2025 财年第二季度",
-        "periodNote": "截至 2025 年 6 月",
+        "period": "2025 \u8d22\u5e74\u7b2c\u4e8c\u5b63\u5ea6",
+        "periodNote": "\u622a\u81f3 2025 \u5e74 6 \u6708",
         "revenue": {
           "notes": [
-            "同比 +1%"
+            "\u540c\u6bd4 +1%"
           ],
           "items": [
             {
               "id": "consumer_banking",
-              "label": "消费者银行",
+              "label": "\u6d88\u8d39\u8005\u94f6\u884c",
               "notes": [
-                "同比 +2%",
-                "净利率 20%"
+                "\u540c\u6bd4 +2%",
+                "\u51c0\u5229\u7387 20%"
               ]
             },
             {
               "id": "commercial_banking",
-              "label": "商业银行",
+              "label": "\u5546\u4e1a\u94f6\u884c",
               "notes": [
-                "同比 (6%)",
-                "净利率 37%"
+                "\u540c\u6bd4 (6%)",
+                "\u51c0\u5229\u7387 37%"
               ]
             },
             {
               "id": "corporate_investment_banking",
-              "label": "企业与投资银行",
+              "label": "\u4f01\u4e1a\u4e0e\u6295\u8d44\u94f6\u884c",
               "notes": [
-                "同比 (3%)",
-                "净利率 37%"
+                "\u540c\u6bd4 (3%)",
+                "\u51c0\u5229\u7387 37%"
               ]
             },
             {
               "id": "wealth_investment_management",
-              "label": "财富与投资管理",
+              "label": "\u8d22\u5bcc\u4e0e\u6295\u8d44\u7ba1\u7406",
               "notes": [
-                "同比 +1%",
-                "净利率 12%"
+                "\u540c\u6bd4 +1%",
+                "\u51c0\u5229\u7387 12%"
               ]
             },
             {
               "id": "other",
-              "label": "其他"
+              "label": "\u5176\u4ed6"
             }
           ]
         },
         "costs": {
           "costOfRevenue": {
-            "label": "非利息费用",
+            "label": "\u975e\u5229\u606f\u8d39\u7528",
             "notes": [
-              "原图费用分项合计 $13.5B，与总额 $13.4B 的差异在舍入范围内。"
+              "\u539f\u56fe\u8d39\u7528\u5206\u9879\u5408\u8ba1 $13.5B\uff0c\u4e0e\u603b\u989d $13.4B \u7684\u5dee\u5f02\u5728\u820d\u5165\u8303\u56f4\u5185\u3002"
             ],
             "items": [
               {
                 "id": "personnel",
-                "label": "人员费用"
+                "label": "\u4eba\u5458\u8d39\u7528"
               },
               {
                 "id": "technology",
-                "label": "技术"
+                "label": "\u6280\u672f"
               },
               {
                 "id": "occupancy",
-                "label": "场地占用"
+                "label": "\u573a\u5730\u5360\u7528"
               },
               {
                 "id": "operating_losses",
-                "label": "经营损失"
+                "label": "\u7ecf\u8425\u635f\u5931"
               },
               {
                 "id": "professional_fees",
-                "label": "专业服务费"
+                "label": "\u4e13\u4e1a\u670d\u52a1\u8d39"
               },
               {
                 "id": "advertising",
-                "label": "广告"
+                "label": "\u5e7f\u544a"
               },
               {
                 "id": "leases",
-                "label": "租赁"
+                "label": "\u79df\u8d41"
               },
               {
                 "id": "other_expenses",
-                "label": "其他"
+                "label": "\u5176\u4ed6"
               }
             ]
           },
@@ -1585,48 +1582,48 @@
             "items": [
               {
                 "id": "operating_expenses",
-                "label": "信用损失拨备"
+                "label": "\u4fe1\u7528\u635f\u5931\u62e8\u5907"
               }
             ]
           },
           "tax": {
-            "label": "税费"
+            "label": "\u7a0e\u8d39"
           }
         },
         "profit": {
           "gross": {
-            "label": "扣除非利息费用后利润"
+            "label": "\u6263\u9664\u975e\u5229\u606f\u8d39\u7528\u540e\u5229\u6da6"
           },
           "operating": {
-            "label": "税前利润"
+            "label": "\u7a0e\u524d\u5229\u6da6"
           },
           "net": {
-            "label": "净利润",
+            "label": "\u51c0\u5229\u6da6",
             "notes": [
-              "同比 +12%"
+              "\u540c\u6bd4 +12%"
             ]
           }
         },
         "operatingMetrics": [
           {
             "id": "average_deposits",
-            "label": "平均存款",
+            "label": "\u5e73\u5747\u5b58\u6b3e",
             "notes": [
-              "同比 (1%)"
+              "\u540c\u6bd4 (1%)"
             ]
           },
           {
             "id": "average_loans",
-            "label": "平均贷款与租赁",
+            "label": "\u5e73\u5747\u8d37\u6b3e\u4e0e\u79df\u8d41",
             "notes": [
-              "同比持平"
+              "\u540c\u6bd4\u6301\u5e73"
             ]
           },
           {
             "id": "cet1",
-            "label": "CET1 比率",
+            "label": "CET1 \u6bd4\u7387",
             "notes": [
-              "同比 +0.1 个百分点"
+              "\u540c\u6bd4 +0.1 \u4e2a\u767e\u5206\u70b9"
             ]
           }
         ]
@@ -1847,70 +1844,70 @@
     ],
     "i18n": {
       "zh": {
-        "period": "2022 财年第四季度",
-        "periodNote": "截至 2022 年 12 月",
+        "period": "2022 \u8d22\u5e74\u7b2c\u56db\u5b63\u5ea6",
+        "periodNote": "\u622a\u81f3 2022 \u5e74 12 \u6708",
         "revenue": {
           "notes": [
-            "同比 (6%)"
+            "\u540c\u6bd4 (6%)"
           ],
           "items": [
             {
               "id": "consumer_banking",
-              "label": "消费者银行"
+              "label": "\u6d88\u8d39\u8005\u94f6\u884c"
             },
             {
               "id": "commercial_banking",
-              "label": "商业银行"
+              "label": "\u5546\u4e1a\u94f6\u884c"
             },
             {
               "id": "corporate_investment_banking",
-              "label": "企业与投资银行"
+              "label": "\u4f01\u4e1a\u4e0e\u6295\u8d44\u94f6\u884c"
             },
             {
               "id": "wealth_investment_management",
-              "label": "财富与投资管理"
+              "label": "\u8d22\u5bcc\u4e0e\u6295\u8d44\u7ba1\u7406"
             },
             {
               "id": "other",
-              "label": "其他（非利息亏损）"
+              "label": "\u5176\u4ed6\uff08\u975e\u5229\u606f\u4e8f\u635f\uff09"
             }
           ]
         },
         "costs": {
           "costOfRevenue": {
-            "label": "非利息费用",
+            "label": "\u975e\u5229\u606f\u8d39\u7528",
             "items": [
               {
                 "id": "personnel",
-                "label": "人员费用"
+                "label": "\u4eba\u5458\u8d39\u7528"
               },
               {
                 "id": "information_processing",
-                "label": "信息处理"
+                "label": "\u4fe1\u606f\u5904\u7406"
               },
               {
                 "id": "occupancy",
-                "label": "场地占用"
+                "label": "\u573a\u5730\u5360\u7528"
               },
               {
                 "id": "operating_losses",
-                "label": "经营损失"
+                "label": "\u7ecf\u8425\u635f\u5931"
               },
               {
                 "id": "leases",
-                "label": "租赁"
+                "label": "\u79df\u8d41"
               },
               {
                 "id": "advertising",
-                "label": "广告"
+                "label": "\u5e7f\u544a"
               },
               {
                 "id": "professional_fees",
-                "label": "专业服务费"
+                "label": "\u4e13\u4e1a\u670d\u52a1\u8d39"
               },
               {
                 "id": "other_expenses",
-                "label": "其他"
+                "label": "\u5176\u4ed6"
               }
             ]
           },
@@ -1918,49 +1915,49 @@
             "items": [
               {
                 "id": "operating_expenses",
-                "label": "信用损失拨备"
+                "label": "\u4fe1\u7528\u635f\u5931\u62e8\u5907"
               }
             ]
           },
           "tax": {
-            "label": "税费"
+            "label": "\u7a0e\u8d39"
           }
         },
         "profit": {
           "gross": {
-            "label": "扣除非利息费用后的收入"
+            "label": "\u6263\u9664\u975e\u5229\u606f\u8d39\u7528\u540e\u7684\u6536\u5165"
           },
           "operating": {
-            "label": "税前利润"
+            "label": "\u7a0e\u524d\u5229\u6da6"
           },
           "net": {
-            "label": "净利润",
+            "label": "\u51c0\u5229\u6da6",
             "notes": [
-              "同比 (59%)",
-              "每股收益 $0.67"
+              "\u540c\u6bd4 (59%)",
+              "\u6bcf\u80a1\u6536\u76ca $0.67"
             ]
           }
         },
         "operatingMetrics": [
           {
             "id": "cet1",
-            "label": "CET1 比率",
+            "label": "CET1 \u6bd4\u7387",
             "notes": [
-              "同比 (0.8 个百分点)"
+              "\u540c\u6bd4 (0.8 \u4e2a\u767e\u5206\u70b9)"
             ]
           },
           {
             "id": "deposits",
-            "label": "平均存款",
+            "label": "\u5e73\u5747\u5b58\u6b3e",
             "notes": [
-              "同比 (6%)"
+              "\u540c\u6bd4 (6%)"
             ]
           },
           {
             "id": "loans",
-            "label": "平均贷款与租赁",
+            "label": "\u5e73\u5747\u8d37\u6b3e\u4e0e\u79df\u8d41",
             "notes": [
-              "同比 +8%"
+              "\u540c\u6bd4 +8%"
             ]
           }
         ],
@@ -1968,7 +1965,7 @@
           "items": [
             {
               "id": "tax",
-              "label": "税收收益"
+              "label": "\u7a0e\u6536\u6536\u76ca"
             }
           ]
         }
@@ -2202,87 +2199,87 @@
     ],
     "i18n": {
       "zh": {
-        "period": "2025 财年第一季度",
-        "periodNote": "截至 2025 年 3 月",
+        "period": "2025 \u8d22\u5e74\u7b2c\u4e00\u5b63\u5ea6",
+        "periodNote": "\u622a\u81f3 2025 \u5e74 3 \u6708",
         "revenue": {
           "notes": [
-            "同比 (3%)",
-            "图中分部金额减去其他业务为 $20.2B，与总收入 $20.1B 存在逐项舍入差异。"
+            "\u540c\u6bd4 (3%)",
+            "\u56fe\u4e2d\u5206\u90e8\u91d1\u989d\u51cf\u53bb\u5176\u4ed6\u4e1a\u52a1\u4e3a $20.2B\uff0c\u4e0e\u603b\u6536\u5165 $20.1B \u5b58\u5728\u9010\u9879\u820d\u5165\u5dee\u5f02\u3002"
           ],
           "items": [
             {
               "id": "consumer_banking",
-              "label": "消费者银行",
+              "label": "\u6d88\u8d39\u8005\u94f6\u884c",
               "notes": [
-                "同比 (2%)",
-                "净利率 19%"
+                "\u540c\u6bd4 (2%)",
+                "\u51c0\u5229\u7387 19%"
               ]
             },
             {
               "id": "commercial_banking",
-              "label": "商业银行",
+              "label": "\u5546\u4e1a\u94f6\u884c",
               "notes": [
-                "同比 (7%)",
-                "净利率 27%"
+                "\u540c\u6bd4 (7%)",
+                "\u51c0\u5229\u7387 27%"
               ]
             },
             {
               "id": "corporate_investment_banking",
-              "label": "企业与投资银行",
+              "label": "\u4f01\u4e1a\u4e0e\u6295\u8d44\u94f6\u884c",
               "notes": [
-                "同比 +2%",
-                "净利率 38%"
+                "\u540c\u6bd4 +2%",
+                "\u51c0\u5229\u7387 38%"
               ]
             },
             {
               "id": "wealth_investment_management",
-              "label": "财富与投资管理",
+              "label": "\u8d22\u5bcc\u4e0e\u6295\u8d44\u7ba1\u7406",
               "notes": [
-                "同比 +4%",
-                "净利率 10%"
+                "\u540c\u6bd4 +4%",
+                "\u51c0\u5229\u7387 10%"
               ]
             },
             {
               "id": "other",
-              "label": "其他业务"
+              "label": "\u5176\u4ed6\u4e1a\u52a1"
             }
           ]
         },
         "costs": {
           "costOfRevenue": {
-            "label": "非利息费用",
+            "label": "\u975e\u5229\u606f\u8d39\u7528",
             "items": [
               {
                 "id": "personnel",
-                "label": "人员费用"
+                "label": "\u4eba\u5458\u8d39\u7528"
               },
               {
                 "id": "technology",
-                "label": "技术"
+                "label": "\u6280\u672f"
               },
               {
                 "id": "occupancy",
-                "label": "场地占用"
+                "label": "\u573a\u5730\u5360\u7528"
               },
               {
                 "id": "operating_losses",
-                "label": "经营损失"
+                "label": "\u7ecf\u8425\u635f\u5931"
               },
               {
                 "id": "professional_fees",
-                "label": "专业服务费"
+                "label": "\u4e13\u4e1a\u670d\u52a1\u8d39"
               },
               {
                 "id": "leases",
-                "label": "租赁"
+                "label": "\u79df\u8d41"
               },
               {
                 "id": "advertising",
-                "label": "广告"
+                "label": "\u5e7f\u544a"
               },
               {
                 "id": "other_expenses",
-                "label": "其他"
+                "label": "\u5176\u4ed6"
               }
             ]
           },
@@ -2290,51 +2287,51 @@
             "items": [
               {
                 "id": "operating_expenses",
-                "label": "信用损失拨备"
+                "label": "\u4fe1\u7528\u635f\u5931\u62e8\u5907"
               }
             ]
           },
           "tax": {
-            "label": "税费"
+            "label": "\u7a0e\u8d39"
           }
         },
         "profit": {
           "gross": {
-            "label": "扣除非利息费用后利润",
+            "label": "\u6263\u9664\u975e\u5229\u606f\u8d39\u7528\u540e\u5229\u6da6",
             "notes": [
-              "用于表格的中间合计；原图未绘制独立节点。"
+              "\u7528\u4e8e\u8868\u683c\u7684\u4e2d\u95f4\u5408\u8ba1\uff1b\u539f\u56fe\u672a\u7ed8\u5236\u72ec\u7acb\u8282\u70b9\u3002"
             ]
           },
           "operating": {
-            "label": "税前利润"
+            "label": "\u7a0e\u524d\u5229\u6da6"
           },
           "net": {
-            "label": "净利润",
+            "label": "\u51c0\u5229\u6da6",
             "notes": [
-              "同比 +4%"
+              "\u540c\u6bd4 +4%"
             ]
           }
         },
         "operatingMetrics": [
           {
             "id": "average_deposits",
-            "label": "平均存款",
+            "label": "\u5e73\u5747\u5b58\u6b3e",
             "notes": [
-              "同比 (0%)"
+              "\u540c\u6bd4 (0%)"
             ]
           },
           {
             "id": "average_loans",
-            "label": "平均贷款与租赁",
+            "label": "\u5e73\u5747\u8d37\u6b3e\u4e0e\u79df\u8d41",
             "notes": [
-              "同比 (3%)"
+              "\u540c\u6bd4 (3%)"
             ]
           },
           {
             "id": "cet1",
-            "label": "CET1 比率",
+            "label": "CET1 \u6bd4\u7387",
             "notes": [
-              "同比 (0.1 个百分点)"
+              "\u540c\u6bd4 (0.1 \u4e2a\u767e\u5206\u70b9)"
             ]
           }
         ]
@@ -2568,87 +2565,87 @@
     ],
     "i18n": {
       "zh": {
-        "period": "2024 财年第二季度",
-        "periodNote": "截至 2024 年 6 月",
+        "period": "2024 \u8d22\u5e74\u7b2c\u4e8c\u5b63\u5ea6",
+        "periodNote": "\u622a\u81f3 2024 \u5e74 6 \u6708",
         "revenue": {
           "notes": [
-            "同比 +1%",
-            "分部取整收入合计 $20.8B，所有其他为 ($0.1B)。"
+            "\u540c\u6bd4 +1%",
+            "\u5206\u90e8\u53d6\u6574\u6536\u5165\u5408\u8ba1 $20.8B\uff0c\u6240\u6709\u5176\u4ed6\u4e3a ($0.1B)\u3002"
           ],
           "items": [
             {
               "id": "consumer_banking",
-              "label": "消费者银行",
+              "label": "\u6d88\u8d39\u8005\u94f6\u884c",
               "notes": [
-                "同比 (5%)",
-                "净利率 20%"
+                "\u540c\u6bd4 (5%)",
+                "\u51c0\u5229\u7387 20%"
               ]
             },
             {
               "id": "commercial_banking",
-              "label": "商业银行",
+              "label": "\u5546\u4e1a\u94f6\u884c",
               "notes": [
-                "同比 (7%)",
-                "净利率 38%"
+                "\u540c\u6bd4 (7%)",
+                "\u51c0\u5229\u7387 38%"
               ]
             },
             {
               "id": "corporate_investment_banking",
-              "label": "企业与投资银行",
+              "label": "\u4f01\u4e1a\u4e0e\u6295\u8d44\u94f6\u884c",
               "notes": [
-                "同比 +4%",
-                "净利率 37%"
+                "\u540c\u6bd4 +4%",
+                "\u51c0\u5229\u7387 37%"
               ]
             },
             {
               "id": "wealth_investment_management",
-              "label": "财富与投资管理",
+              "label": "\u8d22\u5bcc\u4e0e\u6295\u8d44\u7ba1\u7406",
               "notes": [
-                "同比 +6%",
-                "净利率 13%"
+                "\u540c\u6bd4 +6%",
+                "\u51c0\u5229\u7387 13%"
               ]
             },
             {
               "id": "other",
-              "label": "所有其他"
+              "label": "\u6240\u6709\u5176\u4ed6"
             }
           ]
         },
         "costs": {
           "costOfRevenue": {
-            "label": "非利息费用",
+            "label": "\u975e\u5229\u606f\u8d39\u7528",
             "items": [
               {
                 "id": "personnel",
-                "label": "人员费用"
+                "label": "\u4eba\u5458\u8d39\u7528"
               },
               {
                 "id": "technology",
-                "label": "技术"
+                "label": "\u6280\u672f"
               },
               {
                 "id": "occupancy",
-                "label": "场地占用"
+                "label": "\u573a\u5730\u5360\u7528"
               },
               {
                 "id": "operating_losses",
-                "label": "经营损失"
+                "label": "\u7ecf\u8425\u635f\u5931"
               },
               {
                 "id": "leases",
-                "label": "租赁"
+                "label": "\u79df\u8d41"
               },
               {
                 "id": "advertising",
-                "label": "广告"
+                "label": "\u5e7f\u544a"
               },
               {
                 "id": "professional_fees",
-                "label": "专业服务费"
+                "label": "\u4e13\u4e1a\u670d\u52a1\u8d39"
               },
               {
                 "id": "other_expenses",
-                "label": "其他"
+                "label": "\u5176\u4ed6"
               }
             ]
           },
@@ -2656,51 +2653,51 @@
             "items": [
               {
                 "id": "operating_expenses",
-                "label": "信用损失拨备"
+                "label": "\u4fe1\u7528\u635f\u5931\u62e8\u5907"
               }
             ]
           },
           "tax": {
-            "label": "税费"
+            "label": "\u7a0e\u8d39"
           }
         },
         "profit": {
           "gross": {
-            "label": "扣除非利息费用后的收入",
+            "label": "\u6263\u9664\u975e\u5229\u606f\u8d39\u7528\u540e\u7684\u6536\u5165",
             "notes": [
-              "Schema 适配小计；来源图未显示独立节点。"
+              "Schema \u9002\u914d\u5c0f\u8ba1\uff1b\u6765\u6e90\u56fe\u672a\u663e\u793a\u72ec\u7acb\u8282\u70b9\u3002"
             ]
           },
           "operating": {
-            "label": "税前利润"
+            "label": "\u7a0e\u524d\u5229\u6da6"
           },
           "net": {
-            "label": "净利润",
+            "label": "\u51c0\u5229\u6da6",
             "notes": [
-              "同比 +0%"
+              "\u540c\u6bd4 +0%"
             ]
           }
         },
         "operatingMetrics": [
           {
             "id": "cet1",
-            "label": "CET1 比率",
+            "label": "CET1 \u6bd4\u7387",
             "notes": [
-              "同比 +0.3 个百分点"
+              "\u540c\u6bd4 +0.3 \u4e2a\u767e\u5206\u70b9"
             ]
           },
           {
             "id": "deposits",
-            "label": "平均存款",
+            "label": "\u5e73\u5747\u5b58\u6b3e",
             "notes": [
-              "同比持平"
+              "\u540c\u6bd4\u6301\u5e73"
             ]
           },
           {
             "id": "loans",
-            "label": "平均贷款与租赁",
+            "label": "\u5e73\u5747\u8d37\u6b3e\u4e0e\u79df\u8d41",
             "notes": [
-              "同比 (3%)"
+              "\u540c\u6bd4 (3%)"
             ]
           }
         ]
@@ -2838,7 +2835,7 @@
       "operatingExpenses": {
         "total": 0.7,
         "notes": [
-          "Mapped to the operating-expenses schema slot for the source chart’s provision for credit losses."
+          "Mapped to the operating-expenses schema slot for the source chart\u2019s provision for credit losses."
         ],
         "items": [
           {
@@ -2886,148 +2883,148 @@
     },
     "i18n": {
       "zh": {
-        "period": "2025 财年第三季度",
-        "periodNote": "截至 2025 年 9 月",
+        "period": "2025 \u8d22\u5e74\u7b2c\u4e09\u5b63\u5ea6",
+        "periodNote": "\u622a\u81f3 2025 \u5e74 9 \u6708",
         "revenue": {
           "notes": [
-            "同比 +5%",
-            "业务分部收入合计 $21.8B，另列 $0.3B 其他调整；来源数字经四舍五入。"
+            "\u540c\u6bd4 +5%",
+            "\u4e1a\u52a1\u5206\u90e8\u6536\u5165\u5408\u8ba1 $21.8B\uff0c\u53e6\u5217 $0.3B \u5176\u4ed6\u8c03\u6574\uff1b\u6765\u6e90\u6570\u5b57\u7ecf\u56db\u820d\u4e94\u5165\u3002"
           ],
           "items": [
             {
               "id": "consumer_banking",
-              "label": "消费者银行",
+              "label": "\u6d88\u8d39\u8005\u94f6\u884c",
               "notes": [
-                "同比 +6%",
-                "净利率 23%"
+                "\u540c\u6bd4 +6%",
+                "\u51c0\u5229\u7387 23%"
               ]
             },
             {
               "id": "commercial_banking",
-              "label": "商业银行",
+              "label": "\u5546\u4e1a\u94f6\u884c",
               "notes": [
-                "同比 (9%)",
-                "净利率 38%"
+                "\u540c\u6bd4 (9%)",
+                "\u51c0\u5229\u7387 38%"
               ]
             },
             {
               "id": "corporate_investment_banking",
-              "label": "企业与投资银行",
+              "label": "\u4f01\u4e1a\u4e0e\u6295\u8d44\u94f6\u884c",
               "notes": [
-                "同比 (1%)",
-                "净利率 40%"
+                "\u540c\u6bd4 (1%)",
+                "\u51c0\u5229\u7387 40%"
               ]
             },
             {
               "id": "wealth_investment_management",
-              "label": "财富与投资管理",
+              "label": "\u8d22\u5bcc\u4e0e\u6295\u8d44\u7ba1\u7406",
               "notes": [
-                "同比 +8%",
-                "净利率 14%"
+                "\u540c\u6bd4 +8%",
+                "\u51c0\u5229\u7387 14%"
               ]
             },
             {
               "id": "other",
-              "label": "其他",
+              "label": "\u5176\u4ed6",
               "notes": [
-                "来源图以不带符号的方式显示取整后的金额。"
+                "\u6765\u6e90\u56fe\u4ee5\u4e0d\u5e26\u7b26\u53f7\u7684\u65b9\u5f0f\u663e\u793a\u53d6\u6574\u540e\u7684\u91d1\u989d\u3002"
               ]
             }
           ]
         },
         "costs": {
           "costOfRevenue": {
-            "label": "非利息费用",
+            "label": "\u975e\u5229\u606f\u8d39\u7528",
             "notes": [
-              "费用明细合计 $13.7B，图示总额 $13.8B；来源数字经四舍五入。"
+              "\u8d39\u7528\u660e\u7ec6\u5408\u8ba1 $13.7B\uff0c\u56fe\u793a\u603b\u989d $13.8B\uff1b\u6765\u6e90\u6570\u5b57\u7ecf\u56db\u820d\u4e94\u5165\u3002"
             ],
             "items": [
               {
                 "id": "personnel",
-                "label": "人员费用"
+                "label": "\u4eba\u5458\u8d39\u7528"
               },
               {
                 "id": "technology",
-                "label": "技术"
+                "label": "\u6280\u672f"
               },
               {
                 "id": "occupancy",
-                "label": "场地占用"
+                "label": "\u573a\u5730\u5360\u7528"
               },
               {
                 "id": "professional_fees",
-                "label": "专业服务费"
+                "label": "\u4e13\u4e1a\u670d\u52a1\u8d39"
               },
               {
                 "id": "advertising",
-                "label": "广告"
+                "label": "\u5e7f\u544a"
               },
               {
                 "id": "other_expenses",
-                "label": "其他"
+                "label": "\u5176\u4ed6"
               },
               {
                 "id": "operating_losses",
-                "label": "经营损失"
+                "label": "\u7ecf\u8425\u635f\u5931"
               },
               {
                 "id": "leases",
-                "label": "租赁"
+                "label": "\u79df\u8d41"
               }
             ]
           },
           "operatingExpenses": {
             "notes": [
-              "映射到通用 schema 的营业费用槽位，对应来源图的信用损失拨备。"
+              "\u6620\u5c04\u5230\u901a\u7528 schema \u7684\u8425\u4e1a\u8d39\u7528\u69fd\u4f4d\uff0c\u5bf9\u5e94\u6765\u6e90\u56fe\u7684\u4fe1\u7528\u635f\u5931\u62e8\u5907\u3002"
             ],
             "items": [
               {
                 "id": "operating_expenses",
-                "label": "信用损失拨备"
+                "label": "\u4fe1\u7528\u635f\u5931\u62e8\u5907"
               }
             ]
           },
           "tax": {
-            "label": "税费"
+            "label": "\u7a0e\u8d39"
           }
         },
         "profit": {
           "gross": {
-            "label": "扣除非利息费用后的收入",
+            "label": "\u6263\u9664\u975e\u5229\u606f\u8d39\u7528\u540e\u7684\u6536\u5165",
             "notes": [
-              "Schema 适配小计；来源图未显示独立的毛利润节点。"
+              "Schema \u9002\u914d\u5c0f\u8ba1\uff1b\u6765\u6e90\u56fe\u672a\u663e\u793a\u72ec\u7acb\u7684\u6bdb\u5229\u6da6\u8282\u70b9\u3002"
             ]
           },
           "operating": {
-            "label": "税前利润"
+            "label": "\u7a0e\u524d\u5229\u6da6"
           },
           "net": {
-            "label": "净利润",
+            "label": "\u51c0\u5229\u6da6",
             "notes": [
-              "同比 +9%"
+              "\u540c\u6bd4 +9%"
             ]
           }
         },
         "operatingMetrics": [
           {
             "id": "average_deposits",
-            "label": "平均存款",
+            "label": "\u5e73\u5747\u5b58\u6b3e",
             "notes": [
-              "同比持平"
+              "\u540c\u6bd4\u6301\u5e73"
             ]
           },
           {
             "id": "average_loans_leases",
-            "label": "平均贷款与租赁",
+            "label": "\u5e73\u5747\u8d37\u6b3e\u4e0e\u79df\u8d41",
             "notes": [
-              "同比持平"
+              "\u540c\u6bd4\u6301\u5e73"
             ]
           },
           {
             "id": "cet1_ratio",
-            "label": "CET1 比率",
+            "label": "CET1 \u6bd4\u7387",
             "notes": [
-              "同比 (0.3 个百分点)"
+              "\u540c\u6bd4 (0.3 \u4e2a\u767e\u5206\u70b9)"
             ]
           }
         ]
@@ -3258,86 +3255,86 @@
     },
     "i18n": {
       "zh": {
-        "period": "2024 财年第三季度",
-        "periodNote": "截至 2024 年 9 月",
+        "period": "2024 \u8d22\u5e74\u7b2c\u4e09\u5b63\u5ea6",
+        "periodNote": "\u622a\u81f3 2024 \u5e74 9 \u6708",
         "revenue": {
           "notes": [
-            "同比 (2%)"
+            "\u540c\u6bd4 (2%)"
           ],
           "items": [
             {
               "id": "consumer_banking",
-              "label": "消费者银行",
+              "label": "\u6d88\u8d39\u8005\u94f6\u884c",
               "notes": [
-                "同比 (5%)",
-                "净利率 21%"
+                "\u540c\u6bd4 (5%)",
+                "\u51c0\u5229\u7387 21%"
               ]
             },
             {
               "id": "commercial_banking",
-              "label": "商业银行",
+              "label": "\u5546\u4e1a\u94f6\u884c",
               "notes": [
-                "同比 (2%)",
-                "净利率 40%"
+                "\u540c\u6bd4 (2%)",
+                "\u51c0\u5229\u7387 40%"
               ]
             },
             {
               "id": "corporate_investment_banking",
-              "label": "企业与投资银行",
+              "label": "\u4f01\u4e1a\u4e0e\u6295\u8d44\u94f6\u884c",
               "notes": [
-                "同比 (0%)",
-                "净利率 41%"
+                "\u540c\u6bd4 (0%)",
+                "\u51c0\u5229\u7387 41%"
               ]
             },
             {
               "id": "wealth_investment_management",
-              "label": "财富与投资管理",
+              "label": "\u8d22\u5bcc\u4e0e\u6295\u8d44\u7ba1\u7406",
               "notes": [
-                "同比 +5%",
-                "净利率 14%"
+                "\u540c\u6bd4 +5%",
+                "\u51c0\u5229\u7387 14%"
               ]
             },
             {
               "id": "other",
-              "label": "所有其他"
+              "label": "\u6240\u6709\u5176\u4ed6"
             }
           ]
         },
         "costs": {
           "costOfRevenue": {
-            "label": "非利息费用",
+            "label": "\u975e\u5229\u606f\u8d39\u7528",
             "items": [
               {
                 "id": "personnel",
-                "label": "人员费用"
+                "label": "\u4eba\u5458\u8d39\u7528"
               },
               {
                 "id": "technology",
-                "label": "技术"
+                "label": "\u6280\u672f"
               },
               {
                 "id": "occupancy",
-                "label": "场地占用"
+                "label": "\u573a\u5730\u5360\u7528"
               },
               {
                 "id": "operating_losses",
-                "label": "经营损失"
+                "label": "\u7ecf\u8425\u635f\u5931"
               },
               {
                 "id": "professional_fees",
-                "label": "专业服务费"
+                "label": "\u4e13\u4e1a\u670d\u52a1\u8d39"
               },
               {
                 "id": "leases",
-                "label": "租赁"
+                "label": "\u79df\u8d41"
               },
               {
                 "id": "advertising",
-                "label": "广告"
+                "label": "\u5e7f\u544a"
               },
               {
                 "id": "other_expenses",
-                "label": "其他"
+                "label": "\u5176\u4ed6"
               }
             ]
           },
@@ -3345,48 +3342,48 @@
             "items": [
               {
                 "id": "operating_expenses",
-                "label": "信用损失拨备"
+                "label": "\u4fe1\u7528\u635f\u5931\u62e8\u5907"
               }
             ]
           },
           "tax": {
-            "label": "税费"
+            "label": "\u7a0e\u8d39"
           }
         },
         "profit": {
           "gross": {
-            "label": "扣除非利息费用后的收入"
+            "label": "\u6263\u9664\u975e\u5229\u606f\u8d39\u7528\u540e\u7684\u6536\u5165"
           },
           "operating": {
-            "label": "税前利润"
+            "label": "\u7a0e\u524d\u5229\u6da6"
           },
           "net": {
-            "label": "净利润",
+            "label": "\u51c0\u5229\u6da6",
             "notes": [
-              "同比 (10%)"
+              "\u540c\u6bd4 (10%)"
             ]
           }
         },
         "operatingMetrics": [
           {
             "id": "deposits",
-            "label": "平均存款",
+            "label": "\u5e73\u5747\u5b58\u6b3e",
             "notes": [
-              "同比持平"
+              "\u540c\u6bd4\u6301\u5e73"
             ]
           },
           {
             "id": "loans",
-            "label": "平均贷款与租赁",
+            "label": "\u5e73\u5747\u8d37\u6b3e\u4e0e\u79df\u8d41",
             "notes": [
-              "同比 (3%)"
+              "\u540c\u6bd4 (3%)"
             ]
           },
           {
             "id": "cet1",
-            "label": "CET1 比率",
+            "label": "CET1 \u6bd4\u7387",
             "notes": [
-              "同比 +0.3 个百分点"
+              "\u540c\u6bd4 +0.3 \u4e2a\u767e\u5206\u70b9"
             ]
           }
         ]
@@ -3653,118 +3650,118 @@
     },
     "i18n": {
       "zh": {
-        "period": "2023 财年第一季度",
-        "periodNote": "截至 2023 年 3 月",
+        "period": "2023 \u8d22\u5e74\u7b2c\u4e00\u5b63\u5ea6",
+        "periodNote": "\u622a\u81f3 2023 \u5e74 3 \u6708",
         "revenue": {
           "notes": [
-            "同比 +17%"
+            "\u540c\u6bd4 +17%"
           ],
           "items": [
             {
               "id": "consumer_banking",
               "label": [
-                "消费者",
-                "银行"
+                "\u6d88\u8d39\u8005",
+                "\u94f6\u884c"
               ],
               "notes": [
-                "同比 +9%",
-                "净利率 20%"
+                "\u540c\u6bd4 +9%",
+                "\u51c0\u5229\u7387 20%"
               ]
             },
             {
               "id": "commercial_banking",
               "label": [
-                "商业",
-                "银行"
+                "\u5546\u4e1a",
+                "\u94f6\u884c"
               ],
               "notes": [
-                "同比 +42%",
-                "净利率 36%"
+                "\u540c\u6bd4 +42%",
+                "\u51c0\u5229\u7387 36%"
               ]
             },
             {
               "id": "corporate_investment_banking",
               "label": [
-                "企业与",
-                "投资",
-                "银行"
+                "\u4f01\u4e1a\u4e0e",
+                "\u6295\u8d44",
+                "\u94f6\u884c"
               ],
               "notes": [
-                "同比 +41%",
-                "净利率 37%"
+                "\u540c\u6bd4 +41%",
+                "\u51c0\u5229\u7387 37%"
               ]
             },
             {
               "id": "wealth_investment_management",
               "label": [
-                "财富与",
-                "投资",
-                "管理"
+                "\u8d22\u5bcc\u4e0e",
+                "\u6295\u8d44",
+                "\u7ba1\u7406"
               ],
               "notes": [
-                "同比 (2%)",
-                "净利率 12%"
+                "\u540c\u6bd4 (2%)",
+                "\u51c0\u5229\u7387 12%"
               ]
             },
             {
               "id": "other",
               "label": [
-                "其他",
-                "（非利息亏损）"
+                "\u5176\u4ed6",
+                "\uff08\u975e\u5229\u606f\u4e8f\u635f\uff09"
               ]
             }
           ]
         },
         "costs": {
           "costOfRevenue": {
-            "label": "非利息费用",
+            "label": "\u975e\u5229\u606f\u8d39\u7528",
             "items": [
               {
                 "id": "personnel",
                 "label": [
-                  "人员费用"
+                  "\u4eba\u5458\u8d39\u7528"
                 ]
               },
               {
                 "id": "technology",
                 "label": [
-                  "技术"
+                  "\u6280\u672f"
                 ]
               },
               {
                 "id": "occupancy",
                 "label": [
-                  "场地占用"
+                  "\u573a\u5730\u5360\u7528"
                 ]
               },
               {
                 "id": "operating_losses",
                 "label": [
-                  "经营损失"
+                  "\u7ecf\u8425\u635f\u5931"
                 ]
               },
               {
                 "id": "leases",
                 "label": [
-                  "租赁"
+                  "\u79df\u8d41"
                 ]
               },
               {
                 "id": "advertising",
                 "label": [
-                  "广告"
+                  "\u5e7f\u544a"
                 ]
               },
               {
                 "id": "professional_fees",
                 "label": [
-                  "专业服务费"
+                  "\u4e13\u4e1a\u670d\u52a1\u8d39"
                 ]
               },
               {
                 "id": "other_expenses",
                 "label": [
-                  "其他"
+                  "\u5176\u4ed6"
                 ]
               }
             ]
@@ -3774,51 +3771,51 @@
               {
                 "id": "operating_expenses",
                 "label": [
-                  "信用损失",
-                  "拨备"
+                  "\u4fe1\u7528\u635f\u5931",
+                  "\u62e8\u5907"
                 ]
               }
             ]
           },
           "tax": {
-            "label": "税费"
+            "label": "\u7a0e\u8d39"
           }
         },
         "profit": {
           "gross": {
-            "label": "扣除非利息费用后的收入"
+            "label": "\u6263\u9664\u975e\u5229\u606f\u8d39\u7528\u540e\u7684\u6536\u5165"
           },
           "operating": {
-            "label": "税前利润"
+            "label": "\u7a0e\u524d\u5229\u6da6"
           },
           "net": {
-            "label": "净利润",
+            "label": "\u51c0\u5229\u6da6",
             "notes": [
-              "同比 (59%)",
-              "每股收益 $1.23"
+              "\u540c\u6bd4 (59%)",
+              "\u6bcf\u80a1\u6536\u76ca $1.23"
             ]
           }
         },
         "operatingMetrics": [
           {
             "id": "cet1",
-            "label": "CET1 比率",
+            "label": "CET1 \u6bd4\u7387",
             "notes": [
-              "同比 +0.3 个百分点"
+              "\u540c\u6bd4 +0.3 \u4e2a\u767e\u5206\u70b9"
             ]
           },
           {
             "id": "deposits",
-            "label": "平均存款",
+            "label": "\u5e73\u5747\u5b58\u6b3e",
             "notes": [
-              "同比 (7%)"
+              "\u540c\u6bd4 (7%)"
             ]
           },
           {
             "id": "loans",
-            "label": "平均贷款与租赁",
+            "label": "\u5e73\u5747\u8d37\u6b3e\u4e0e\u79df\u8d41",
             "notes": [
-              "同比 +6%"
+              "\u540c\u6bd4 +6%"
             ]
           }
         ]
@@ -4066,86 +4063,86 @@
     },
     "i18n": {
       "zh": {
-        "period": "2024 财年第一季度",
-        "periodNote": "截至 2024 年 3 月",
+        "period": "2024 \u8d22\u5e74\u7b2c\u4e00\u5b63\u5ea6",
+        "periodNote": "\u622a\u81f3 2024 \u5e74 3 \u6708",
         "revenue": {
           "notes": [
-            "同比 +1%"
+            "\u540c\u6bd4 +1%"
           ],
           "items": [
             {
               "id": "consumer_banking",
-              "label": "消费者银行",
+              "label": "\u6d88\u8d39\u8005\u94f6\u884c",
               "notes": [
-                "同比 (3%)",
-                "净利率 19%"
+                "\u540c\u6bd4 (3%)",
+                "\u51c0\u5229\u7387 19%"
               ]
             },
             {
               "id": "commercial_banking",
-              "label": "商业银行",
+              "label": "\u5546\u4e1a\u94f6\u884c",
               "notes": [
-                "同比 (5%)",
-                "净利率 31%"
+                "\u540c\u6bd4 (5%)",
+                "\u51c0\u5229\u7387 31%"
               ]
             },
             {
               "id": "corporate_investment_banking",
-              "label": "企业与投资银行",
+              "label": "\u4f01\u4e1a\u4e0e\u6295\u8d44\u94f6\u884c",
               "notes": [
-                "同比 +2%",
-                "净利率 40%"
+                "\u540c\u6bd4 +2%",
+                "\u51c0\u5229\u7387 40%"
               ]
             },
             {
               "id": "wealth_investment_management",
-              "label": "财富与投资管理",
+              "label": "\u8d22\u5bcc\u4e0e\u6295\u8d44\u7ba1\u7406",
               "notes": [
-                "同比 +2%",
-                "净利率 10%"
+                "\u540c\u6bd4 +2%",
+                "\u51c0\u5229\u7387 10%"
               ]
             },
             {
               "id": "other",
-              "label": "其他业务"
+              "label": "\u5176\u4ed6\u4e1a\u52a1"
             }
           ]
         },
         "costs": {
           "costOfRevenue": {
-            "label": "非利息费用",
+            "label": "\u975e\u5229\u606f\u8d39\u7528",
             "items": [
               {
                 "id": "personnel",
-                "label": "人员费用"
+                "label": "\u4eba\u5458\u8d39\u7528"
               },
               {
                 "id": "technology",
-                "label": "技术"
+                "label": "\u6280\u672f"
               },
               {
                 "id": "occupancy",
-                "label": "场地占用"
+                "label": "\u573a\u5730\u5360\u7528"
               },
               {
                 "id": "operating_losses",
-                "label": "经营损失"
+                "label": "\u7ecf\u8425\u635f\u5931"
               },
               {
                 "id": "leases",
-                "label": "租赁"
+                "label": "\u79df\u8d41"
               },
               {
                 "id": "advertising",
-                "label": "广告"
+                "label": "\u5e7f\u544a"
               },
               {
                 "id": "professional_fees",
-                "label": "专业服务费"
+                "label": "\u4e13\u4e1a\u670d\u52a1\u8d39"
               },
               {
                 "id": "other_expenses",
-                "label": "其他"
+                "label": "\u5176\u4ed6"
               }
             ]
           },
@@ -4153,49 +4150,49 @@
             "items": [
               {
                 "id": "operating_expenses",
-                "label": "信用损失拨备"
+                "label": "\u4fe1\u7528\u635f\u5931\u62e8\u5907"
               }
             ]
           },
           "tax": {
-            "label": "税费"
+            "label": "\u7a0e\u8d39"
           }
         },
         "profit": {
           "gross": {
-            "label": "扣除非利息费用后的收入"
+            "label": "\u6263\u9664\u975e\u5229\u606f\u8d39\u7528\u540e\u7684\u6536\u5165"
           },
           "operating": {
-            "label": "税前利润"
+            "label": "\u7a0e\u524d\u5229\u6da6"
           },
           "net": {
-            "label": "净利润",
+            "label": "\u51c0\u5229\u6da6",
             "notes": [
-              "同比 (5%)",
-              "每股收益 $1.20"
+              "\u540c\u6bd4 (5%)",
+              "\u6bcf\u80a1\u6536\u76ca $1.20"
             ]
           }
         },
         "operatingMetrics": [
           {
             "id": "cet1",
-            "label": "CET1 比率",
+            "label": "CET1 \u6bd4\u7387",
             "notes": [
-              "同比 +0.4 个百分点"
+              "\u540c\u6bd4 +0.4 \u4e2a\u767e\u5206\u70b9"
             ]
           },
           {
             "id": "deposits",
-            "label": "平均存款",
+            "label": "\u5e73\u5747\u5b58\u6b3e",
             "notes": [
-              "同比 +2%"
+              "\u540c\u6bd4 +2%"
             ]
           },
           {
             "id": "loans",
-            "label": "平均贷款与租赁",
+            "label": "\u5e73\u5747\u8d37\u6b3e\u4e0e\u79df\u8d41",
             "notes": [
-              "同比 (3%)"
+              "\u540c\u6bd4 (3%)"
             ]
           }
         ]
@@ -4402,7 +4399,7 @@
       "operatingExpenses": {
         "total": 1.1,
         "notes": [
-          "Mapped to the operating-expenses schema slot for the source chart’s provision for credit losses."
+          "Mapped to the operating-expenses schema slot for the source chart\u2019s provision for credit losses."
         ],
         "items": [
           {
@@ -4450,74 +4447,74 @@
     },
     "i18n": {
       "zh": {
-        "period": "2024 财年第四季度",
-        "periodNote": "截至 2024 年 12 月",
+        "period": "2024 \u8d22\u5e74\u7b2c\u56db\u5b63\u5ea6",
+        "periodNote": "\u622a\u81f3 2024 \u5e74 12 \u6708",
         "revenue": {
           "notes": [
-            "同比 (0%)",
-            "分部金额扣除其他业务后为 $20.5B，图示总收入为 $20.4B；差异在分项舍入范围内。"
+            "\u540c\u6bd4 (0%)",
+            "\u5206\u90e8\u91d1\u989d\u6263\u9664\u5176\u4ed6\u4e1a\u52a1\u540e\u4e3a $20.5B\uff0c\u56fe\u793a\u603b\u6536\u5165\u4e3a $20.4B\uff1b\u5dee\u5f02\u5728\u5206\u9879\u820d\u5165\u8303\u56f4\u5185\u3002"
           ],
           "items": [
             {
               "id": "consumer_banking",
-              "label": "消费者银行"
+              "label": "\u6d88\u8d39\u8005\u94f6\u884c"
             },
             {
               "id": "commercial_banking",
-              "label": "商业银行"
+              "label": "\u5546\u4e1a\u94f6\u884c"
             },
             {
               "id": "corporate_investment_banking",
-              "label": "企业与投资银行"
+              "label": "\u4f01\u4e1a\u4e0e\u6295\u8d44\u94f6\u884c"
             },
             {
               "id": "wealth_investment_management",
-              "label": "财富与投资管理"
+              "label": "\u8d22\u5bcc\u4e0e\u6295\u8d44\u7ba1\u7406"
             },
             {
               "id": "other",
-              "label": "所有其他业务"
+              "label": "\u6240\u6709\u5176\u4ed6\u4e1a\u52a1"
             }
           ]
         },
         "costs": {
           "costOfRevenue": {
-            "label": "非利息费用",
+            "label": "\u975e\u5229\u606f\u8d39\u7528",
             "notes": [
-              "图示费用明细合计 $13.9B。"
+              "\u56fe\u793a\u8d39\u7528\u660e\u7ec6\u5408\u8ba1 $13.9B\u3002"
             ],
             "items": [
               {
                 "id": "personnel",
-                "label": "人员费用"
+                "label": "\u4eba\u5458\u8d39\u7528"
               },
               {
                 "id": "technology",
-                "label": "技术"
+                "label": "\u6280\u672f"
               },
               {
                 "id": "occupancy",
-                "label": "场地占用"
+                "label": "\u573a\u5730\u5360\u7528"
               },
               {
                 "id": "operating_losses",
-                "label": "经营损失"
+                "label": "\u7ecf\u8425\u635f\u5931"
               },
               {
                 "id": "professional_fees",
-                "label": "专业服务费"
+                "label": "\u4e13\u4e1a\u670d\u52a1\u8d39"
               },
               {
                 "id": "leases",
-                "label": "租赁"
+                "label": "\u79df\u8d41"
               },
               {
                 "id": "advertising",
-                "label": "广告"
+                "label": "\u5e7f\u544a"
               },
               {
                 "id": "other_expenses",
-                "label": "其他"
+                "label": "\u5176\u4ed6"
               }
             ]
           },
@@ -4525,48 +4522,48 @@
             "items": [
               {
                 "id": "operating_expenses",
-                "label": "信用损失拨备"
+                "label": "\u4fe1\u7528\u635f\u5931\u62e8\u5907"
               }
             ]
           },
           "tax": {
-            "label": "税费"
+            "label": "\u7a0e\u8d39"
           }
         },
         "profit": {
           "gross": {
-            "label": "扣除非利息费用后的收入"
+            "label": "\u6263\u9664\u975e\u5229\u606f\u8d39\u7528\u540e\u7684\u6536\u5165"
           },
           "operating": {
-            "label": "税前利润"
+            "label": "\u7a0e\u524d\u5229\u6da6"
           },
           "net": {
-            "label": "净利润",
+            "label": "\u51c0\u5229\u6da6",
             "notes": [
-              "同比 +50%"
+              "\u540c\u6bd4 +50%"
             ]
           }
         },
         "operatingMetrics": [
           {
             "id": "average_deposits",
-            "label": "平均存款",
+            "label": "\u5e73\u5747\u5b58\u6b3e",
             "notes": [
-              "同比 +1%"
+              "\u540c\u6bd4 +1%"
             ]
           },
           {
             "id": "average_loans",
-            "label": "平均贷款与租赁",
+            "label": "\u5e73\u5747\u8d37\u6b3e\u4e0e\u79df\u8d41",
             "notes": [
-              "同比 (3%)"
+              "\u540c\u6bd4 (3%)"
             ]
           },
           {
             "id": "cet1",
-            "label": "CET1 比率",
+            "label": "CET1 \u6bd4\u7387",
             "notes": [
-              "同比 (0.3 个百分点)"
+              "\u540c\u6bd4 (0.3 \u4e2a\u767e\u5206\u70b9)"
             ]
           }
         ]
@@ -4885,87 +4882,87 @@
     ],
     "i18n": {
       "zh": {
-        "period": "2023 财年第三季度",
-        "periodNote": "截至 2023 年 9 月",
+        "period": "2023 \u8d22\u5e74\u7b2c\u4e09\u5b63\u5ea6",
+        "periodNote": "\u622a\u81f3 2023 \u5e74 9 \u6708",
         "revenue": {
           "notes": [
-            "同比 +7%",
-            "图中数字经四舍五入。"
+            "\u540c\u6bd4 +7%",
+            "\u56fe\u4e2d\u6570\u5b57\u7ecf\u56db\u820d\u4e94\u5165\u3002"
           ],
           "items": [
             {
               "id": "consumer_banking",
-              "label": "消费者银行",
+              "label": "\u6d88\u8d39\u8005\u94f6\u884c",
               "notes": [
-                "同比 +3%",
-                "净利率 23%"
+                "\u540c\u6bd4 +3%",
+                "\u51c0\u5229\u7387 23%"
               ]
             },
             {
               "id": "commercial_banking",
-              "label": "商业银行",
+              "label": "\u5546\u4e1a\u94f6\u884c",
               "notes": [
-                "同比 +15%",
-                "净利率 40%"
+                "\u540c\u6bd4 +15%",
+                "\u51c0\u5229\u7387 40%"
               ]
             },
             {
               "id": "corporate_investment_banking",
-              "label": "企业与投资银行",
+              "label": "\u4f01\u4e1a\u4e0e\u6295\u8d44\u94f6\u884c",
               "notes": [
-                "同比 +21%",
-                "净利率 37%"
+                "\u540c\u6bd4 +21%",
+                "\u51c0\u5229\u7387 37%"
               ]
             },
             {
               "id": "wealth_investment_management",
-              "label": "财富与投资管理",
+              "label": "\u8d22\u5bcc\u4e0e\u6295\u8d44\u7ba1\u7406",
               "notes": [
-                "同比 +32%",
-                "净利率 14%"
+                "\u540c\u6bd4 +32%",
+                "\u51c0\u5229\u7387 14%"
               ]
             },
             {
               "id": "other",
-              "label": "所有其他"
+              "label": "\u6240\u6709\u5176\u4ed6"
             }
           ]
         },
         "costs": {
           "costOfRevenue": {
-            "label": "非利息费用",
+            "label": "\u975e\u5229\u606f\u8d39\u7528",
             "items": [
               {
                 "id": "personnel",
-                "label": "人员费用"
+                "label": "\u4eba\u5458\u8d39\u7528"
               },
               {
                 "id": "technology",
-                "label": "技术"
+                "label": "\u6280\u672f"
               },
               {
                 "id": "occupancy",
-                "label": "场地占用"
+                "label": "\u573a\u5730\u5360\u7528"
               },
               {
                 "id": "operating_losses",
-                "label": "经营损失"
+                "label": "\u7ecf\u8425\u635f\u5931"
               },
               {
                 "id": "leases",
-                "label": "租赁"
+                "label": "\u79df\u8d41"
               },
               {
                 "id": "advertising",
-                "label": "广告"
+                "label": "\u5e7f\u544a"
               },
               {
                 "id": "professional_fees",
-                "label": "专业服务费"
+                "label": "\u4e13\u4e1a\u670d\u52a1\u8d39"
               },
               {
                 "id": "other_expenses",
-                "label": "其他"
+                "label": "\u5176\u4ed6"
               }
             ]
           },
@@ -4973,49 +4970,49 @@
             "items": [
               {
                 "id": "operating_expenses",
-                "label": "信用损失拨备"
+                "label": "\u4fe1\u7528\u635f\u5931\u62e8\u5907"
               }
             ]
           },
           "tax": {
-            "label": "税费"
+            "label": "\u7a0e\u8d39"
           }
         },
         "profit": {
           "gross": {
-            "label": "扣除非利息费用后的利润"
+            "label": "\u6263\u9664\u975e\u5229\u606f\u8d39\u7528\u540e\u7684\u5229\u6da6"
           },
           "operating": {
-            "label": "税前利润"
+            "label": "\u7a0e\u524d\u5229\u6da6"
           },
           "net": {
-            "label": "净利润",
+            "label": "\u51c0\u5229\u6da6",
             "notes": [
-              "同比 +61%",
-              "每股收益 $1.48"
+              "\u540c\u6bd4 +61%",
+              "\u6bcf\u80a1\u6536\u76ca $1.48"
             ]
           }
         },
         "operatingMetrics": [
           {
             "id": "cet1",
-            "label": "CET1 比率",
+            "label": "CET1 \u6bd4\u7387",
             "notes": [
-              "同比 +0.7 个百分点"
+              "\u540c\u6bd4 +0.7 \u4e2a\u767e\u5206\u70b9"
             ]
           },
           {
             "id": "deposits",
-            "label": "平均存款",
+            "label": "\u5e73\u5747\u5b58\u6b3e",
             "notes": [
-              "同比 (5%)"
+              "\u540c\u6bd4 (5%)"
             ]
           },
           {
             "id": "loans",
-            "label": "平均贷款与租赁",
+            "label": "\u5e73\u5747\u8d37\u6b3e\u4e0e\u79df\u8d41",
             "notes": [
-              "同比 (0.2%)"
+              "\u540c\u6bd4 (0.2%)"
             ]
           }
         ]
@@ -5151,7 +5148,7 @@
       "operatingExpenses": {
         "total": 1.3,
         "notes": [
-          "Mapped to the operating-expenses schema slot for the source chart’s provision for credit losses."
+          "Mapped to the operating-expenses schema slot for the source chart\u2019s provision for credit losses."
         ],
         "items": [
           {
@@ -5205,148 +5202,148 @@
     },
     "i18n": {
       "zh": {
-        "period": "2023 财年第四季度",
-        "periodNote": "截至 2023 年 12 月",
+        "period": "2023 \u8d22\u5e74\u7b2c\u56db\u5b63\u5ea6",
+        "periodNote": "\u622a\u81f3 2023 \u5e74 12 \u6708",
         "revenue": {
           "notes": [
-            "同比 +2%"
+            "\u540c\u6bd4 +2%"
           ],
           "items": [
             {
               "id": "consumer_banking",
-              "label": "消费者银行",
+              "label": "\u6d88\u8d39\u8005\u94f6\u884c",
               "notes": [
-                "同比 +1%",
-                "净利率 21%"
+                "\u540c\u6bd4 +1%",
+                "\u51c0\u5229\u7387 21%"
               ]
             },
             {
               "id": "commercial_banking",
-              "label": "商业银行",
+              "label": "\u5546\u4e1a\u94f6\u884c",
               "notes": [
-                "同比 +7%",
-                "净利率 38%"
+                "\u540c\u6bd4 +7%",
+                "\u51c0\u5229\u7387 38%"
               ]
             },
             {
               "id": "corporate_investment_banking",
-              "label": "企业与投资银行",
+              "label": "\u4f01\u4e1a\u4e0e\u6295\u8d44\u94f6\u884c",
               "notes": [
-                "同比 +14%",
-                "净利率 33%"
+                "\u540c\u6bd4 +14%",
+                "\u51c0\u5229\u7387 33%"
               ]
             },
             {
               "id": "wealth_investment_management",
-              "label": "财富与投资管理",
+              "label": "\u8d22\u5bcc\u4e0e\u6295\u8d44\u7ba1\u7406",
               "notes": [
-                "同比 (1%)",
-                "净利率 13%"
+                "\u540c\u6bd4 (1%)",
+                "\u51c0\u5229\u7387 13%"
               ]
             },
             {
               "id": "other",
-              "label": "其他调整",
+              "label": "\u5176\u4ed6\u8c03\u6574",
               "notes": []
             }
           ]
         },
         "costs": {
           "costOfRevenue": {
-            "label": "非利息费用",
+            "label": "\u975e\u5229\u606f\u8d39\u7528",
             "items": [
               {
                 "id": "personnel",
-                "label": "人员费用"
+                "label": "\u4eba\u5458\u8d39\u7528"
               },
               {
                 "id": "technology",
-                "label": "技术"
+                "label": "\u6280\u672f"
               },
               {
                 "id": "occupancy",
-                "label": "场地占用"
+                "label": "\u573a\u5730\u5360\u7528"
               },
               {
                 "id": "operating_losses",
-                "label": "经营损失"
+                "label": "\u7ecf\u8425\u635f\u5931"
               },
               {
                 "id": "leases",
-                "label": "租赁"
+                "label": "\u79df\u8d41"
               },
               {
                 "id": "advertising",
-                "label": "广告"
+                "label": "\u5e7f\u544a"
               },
               {
                 "id": "professional_fees",
-                "label": "专业服务费"
+                "label": "\u4e13\u4e1a\u670d\u52a1\u8d39"
               },
               {
                 "id": "other_expenses",
-                "label": "其他"
+                "label": "\u5176\u4ed6"
               }
             ],
             "notes": [
-              "来源图的费用分项合计为 $15.9B；显示金额经过四舍五入。"
+              "\u6765\u6e90\u56fe\u7684\u8d39\u7528\u5206\u9879\u5408\u8ba1\u4e3a $15.9B\uff1b\u663e\u793a\u91d1\u989d\u7ecf\u8fc7\u56db\u820d\u4e94\u5165\u3002"
             ]
           },
           "operatingExpenses": {
             "items": [
               {
                 "id": "operating_expenses",
-                "label": "信用损失拨备"
+                "label": "\u4fe1\u7528\u635f\u5931\u62e8\u5907"
               }
             ]
           },
           "tax": {
-            "label": "税费"
+            "label": "\u7a0e\u8d39"
           }
         },
         "otherIncome": {
           "items": [
             {
               "id": "tax_benefit",
-              "label": "税收收益"
+              "label": "\u7a0e\u6536\u6536\u76ca"
             }
           ]
         },
         "profit": {
           "gross": {
-            "label": "扣除非利息费用后的收入"
+            "label": "\u6263\u9664\u975e\u5229\u606f\u8d39\u7528\u540e\u7684\u6536\u5165"
           },
           "operating": {
-            "label": "税前利润"
+            "label": "\u7a0e\u524d\u5229\u6da6"
           },
           "net": {
-            "label": "净利润",
+            "label": "\u51c0\u5229\u6da6",
             "notes": [
-              "同比 +20%",
-              "每股收益 $0.86"
+              "\u540c\u6bd4 +20%",
+              "\u6bcf\u80a1\u6536\u76ca $0.86"
             ]
           }
         },
         "operatingMetrics": [
           {
             "id": "cet1",
-            "label": "CET1 比率",
+            "label": "CET1 \u6bd4\u7387",
             "notes": [
-              "同比 +0.8 个百分点"
+              "\u540c\u6bd4 +0.8 \u4e2a\u767e\u5206\u70b9"
             ]
           },
           {
             "id": "deposits",
-            "label": "平均存款",
+            "label": "\u5e73\u5747\u5b58\u6b3e",
             "notes": [
-              "同比 (3%)"
+              "\u540c\u6bd4 (3%)"
             ]
           },
           {
             "id": "loans",
-            "label": "平均贷款与租赁",
+            "label": "\u5e73\u5747\u8d37\u6b3e\u4e0e\u79df\u8d41",
             "notes": [
-              "同比 (1%)"
+              "\u540c\u6bd4 (1%)"
             ]
           }
         ]
@@ -5423,6 +5420,385 @@
         }
       }
     ]
+  },
+  {
+    "key": "wells-fargo-q3-fy26",
+    "company": "Wells Fargo",
+    "period": "Q3 FY26",
+    "periodNote": "Ending Sep. 2026",
+    "currency": "$",
+    "unit": "B",
+    "decimals": 1,
+    "sourceImage": "input/processed/wells-fargo-q3-fy26.png",
+    "roundingTolerance": 0.25,
+    "revenue": {
+      "total": 21.9,
+      "notes": [
+        "+2% Y/Y",
+        "Source components are rounded; segment inputs total $23.0B, less $1.1B Other."
+      ],
+      "items": [
+        {
+          "id": "consumer_banking",
+          "label": [
+            "Consumer",
+            "Banking"
+          ],
+          "value": 10.7,
+          "notes": [
+            "+5% Y/Y",
+            "26% net margin"
+          ]
+        },
+        {
+          "id": "commercial_banking",
+          "label": [
+            "Commercial",
+            "Banking"
+          ],
+          "value": 3.2,
+          "notes": [
+            "+6% Y/Y",
+            "37% net margin"
+          ]
+        },
+        {
+          "id": "corporate_investment_banking",
+          "label": [
+            "Corporate &",
+            "Investment",
+            "Banking"
+          ],
+          "value": 5,
+          "notes": [
+            "+3% Y/Y",
+            "38% net margin"
+          ]
+        },
+        {
+          "id": "wealth_investment_management",
+          "label": [
+            "Wealth &",
+            "Investment",
+            "Management"
+          ],
+          "value": 4.1,
+          "notes": [
+            "+12% Y/Y",
+            "15% net margin"
+          ]
+        },
+        {
+          "id": "other",
+          "label": "Other",
+          "value": -1.1,
+          "notes": [
+            "Source displays magnitude of the negative Other revenue adjustment."
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "noninterest_expenses",
+        "label": "Noninterest expenses",
+        "value": 13.7,
+        "notes": [
+          "Source expense details total $13.7B."
+        ],
+        "items": [
+          {
+            "id": "personnel",
+            "label": "Personnel",
+            "value": 8.7
+          },
+          {
+            "id": "technology",
+            "label": "Technology",
+            "value": 1.5
+          },
+          {
+            "id": "occupancy",
+            "label": "Occupancy",
+            "value": 0.8
+          },
+          {
+            "id": "professional_fees",
+            "label": "Professional fees",
+            "value": 1.2
+          },
+          {
+            "id": "advertising",
+            "label": "Advertising",
+            "value": 0.3
+          },
+          {
+            "id": "other_expenses",
+            "label": "Other",
+            "value": 1.2
+          }
+        ]
+      },
+      "operatingExpenses": {
+        "total": 1,
+        "notes": [
+          "Mapped to the operating-expenses schema slot for the source chart\u2019s provision for credit losses."
+        ],
+        "items": [
+          {
+            "id": "operating_expenses",
+            "label": "Provision for credit losses",
+            "value": 1
+          }
+        ]
+      },
+      "tax": {
+        "id": "tax",
+        "label": "Tax",
+        "value": 1.2
+      }
+    },
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 0,
+      "items": []
+    },
+    "profit": {
+      "gross": {
+        "label": "Income after noninterest expenses",
+        "value": 8.2,
+        "notes": [
+          "Schema adapter subtotal; the source chart does not show a separate gross-profit node."
+        ]
+      },
+      "operating": {
+        "id": "pretax_income",
+        "label": "Pretax income",
+        "value": 7.1
+      },
+      "net": {
+        "id": "net_income",
+        "label": "Net income",
+        "value": 5.9,
+        "notes": [
+          "+6% Y/Y"
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2026 \u8d22\u5e74\u7b2c\u4e09\u5b63\u5ea6",
+        "periodNote": "\u622a\u81f3 2026 \u5e74 9 \u6708",
+        "revenue": {
+          "notes": [
+            "\u540c\u6bd4 +2%",
+            "\u5206\u90e8\u6536\u5165\u5408\u8ba1 $23.0B\uff0c\u6263\u9664\u5176\u4ed6\u8c03\u6574 $1.1B\u3002\u56fe\u4e2d\u6570\u5b57\u7ecf\u56db\u820d\u4e94\u5165\u3002"
+          ],
+          "items": [
+            {
+              "id": "consumer_banking",
+              "label": "\u6d88\u8d39\u8005\u94f6\u884c",
+              "notes": [
+                "\u540c\u6bd4 +5%",
+                "\u51c0\u5229\u7387 26%"
+              ]
+            },
+            {
+              "id": "commercial_banking",
+              "label": "\u5546\u4e1a\u94f6\u884c",
+              "notes": [
+                "\u540c\u6bd4 +6%",
+                "\u51c0\u5229\u7387 37%"
+              ]
+            },
+            {
+              "id": "corporate_investment_banking",
+              "label": "\u4f01\u4e1a\u4e0e\u6295\u8d44\u94f6\u884c",
+              "notes": [
+                "\u540c\u6bd4 +3%",
+                "\u51c0\u5229\u7387 38%"
+              ]
+            },
+            {
+              "id": "wealth_investment_management",
+              "label": "\u8d22\u5bcc\u4e0e\u6295\u8d44\u7ba1\u7406",
+              "notes": [
+                "\u540c\u6bd4 +12%",
+                "\u51c0\u5229\u7387 15%"
+              ]
+            },
+            {
+              "id": "other",
+              "label": "\u5176\u4ed6",
+              "notes": [
+                "\u6765\u6e90\u56fe\u663e\u793a\u8d1f\u5411\u5176\u4ed6\u6536\u5165\u8c03\u6574\u7684\u7edd\u5bf9\u503c\u3002"
+              ]
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "\u975e\u5229\u606f\u8d39\u7528",
+            "notes": [
+              "\u56fe\u4e2d\u8d39\u7528\u660e\u7ec6\u5408\u8ba1 $13.7B\u3002"
+            ],
+            "items": [
+              {
+                "id": "personnel",
+                "label": "\u4eba\u5458\u8d39\u7528"
+              },
+              {
+                "id": "technology",
+                "label": "\u6280\u672f"
+              },
+              {
+                "id": "occupancy",
+                "label": "\u573a\u5730\u5360\u7528"
+              },
+              {
+                "id": "professional_fees",
+                "label": "\u4e13\u4e1a\u670d\u52a1\u8d39"
+              },
+              {
+                "id": "advertising",
+                "label": "\u5e7f\u544a"
+              },
+              {
+                "id": "other_expenses",
+                "label": "\u5176\u4ed6"
+              }
+            ]
+          },
+          "operatingExpenses": {
+            "notes": [
+              "\u6620\u5c04\u5230\u901a\u7528 schema \u7684\u8425\u4e1a\u8d39\u7528\u69fd\u4f4d\uff0c\u5bf9\u5e94\u6765\u6e90\u56fe\u7684\u4fe1\u7528\u635f\u5931\u62e8\u5907\u3002"
+            ],
+            "items": [
+              {
+                "id": "operating_expenses",
+                "label": "\u4fe1\u7528\u635f\u5931\u62e8\u5907"
+              }
+            ]
+          },
+          "tax": {
+            "label": "\u7a0e\u8d39"
+          }
+        },
+        "profit": {
+          "gross": {
+            "label": "\u6263\u9664\u975e\u5229\u606f\u8d39\u7528\u540e\u7684\u6536\u5165",
+            "notes": [
+              "Schema \u9002\u914d\u5c0f\u8ba1\uff1b\u6765\u6e90\u56fe\u672a\u663e\u793a\u72ec\u7acb\u7684\u6bdb\u5229\u6da6\u8282\u70b9\u3002"
+            ]
+          },
+          "operating": {
+            "label": "\u7a0e\u524d\u5229\u6da6"
+          },
+          "net": {
+            "label": "\u51c0\u5229\u6da6",
+            "notes": [
+              "\u540c\u6bd4 +6%"
+            ]
+          }
+        },
+        "operatingMetrics": [
+          {
+            "id": "average_deposits",
+            "label": "\u5e73\u5747\u5b58\u6b3e",
+            "notes": [
+              "\u540c\u6bd4 +11%"
+            ]
+          },
+          {
+            "id": "average_loans_leases",
+            "label": "\u5e73\u5747\u8d37\u6b3e\u4e0e\u79df\u8d41",
+            "notes": [
+              "\u540c\u6bd4 +11%"
+            ]
+          },
+          {
+            "id": "cet1_ratio",
+            "label": "CET1 \u6bd4\u7387",
+            "notes": [
+              "\u540c\u6bd4 (1 \u4e2a\u767e\u5206\u70b9)"
+            ]
+          }
+        ]
+      }
+    },
+    "operatingMetrics": [
+      {
+        "id": "average_deposits",
+        "label": "Average deposits",
+        "value": "1.48",
+        "unit": "T",
+        "currency": "USD",
+        "comparison": "eq",
+        "literal": "$1.48T",
+        "basis": "unspecified",
+        "notes": [
+          "+11% Y/Y"
+        ],
+        "quote": "Average deposits\n$1.48T\n+11% Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            23,
+            1220,
+            371,
+            135
+          ]
+        }
+      },
+      {
+        "id": "average_loans_leases",
+        "label": "Average loans and leases",
+        "value": "1.03",
+        "unit": "T",
+        "currency": "USD",
+        "comparison": "eq",
+        "literal": "$1.03T",
+        "basis": "unspecified",
+        "notes": [
+          "+11% Y/Y"
+        ],
+        "quote": "Average loans and leases\n$1.03T\n+11% Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            404,
+            1220,
+            431,
+            135
+          ]
+        }
+      },
+      {
+        "id": "cet1_ratio",
+        "label": "CET1 ratio",
+        "value": "10.0",
+        "unit": "%",
+        "currency": null,
+        "comparison": "eq",
+        "literal": "10.0%",
+        "basis": "unspecified",
+        "notes": [
+          "(1pp) Y/Y"
+        ],
+        "quote": "CET1 ratio\n10.0%\n(1pp) Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            843,
+            1220,
+            241,
+            135
+          ]
+        }
+      }
+    ]
   }
-]);
-})(window);
+]);})(window);

@@ -16,12 +16,14 @@
         "abbott-q1-fy26",
         "abbott-q2-fy26",
         "abbott-q3-fy25",
+        "abbott-q3-fy26",
         "abbott-q4-fy25"
       ],
       "consumers": [
         "abbott-q1-fy26",
         "abbott-q2-fy26",
         "abbott-q3-fy25",
+        "abbott-q3-fy26",
         "abbott-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -42,12 +44,14 @@
         "abbott-q1-fy26",
         "abbott-q2-fy26",
         "abbott-q3-fy25",
+        "abbott-q3-fy26",
         "abbott-q4-fy25"
       ],
       "consumers": [
         "abbott-q1-fy26",
         "abbott-q2-fy26",
         "abbott-q3-fy25",
+        "abbott-q3-fy26",
         "abbott-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -68,12 +72,14 @@
         "abbott-q1-fy26",
         "abbott-q2-fy26",
         "abbott-q3-fy25",
+        "abbott-q3-fy26",
         "abbott-q4-fy25"
       ],
       "consumers": [
         "abbott-q1-fy26",
         "abbott-q2-fy26",
         "abbott-q3-fy25",
+        "abbott-q3-fy26",
         "abbott-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -94,12 +100,14 @@
         "abbott-q1-fy26",
         "abbott-q2-fy26",
         "abbott-q3-fy25",
+        "abbott-q3-fy26",
         "abbott-q4-fy25"
       ],
       "consumers": [
         "abbott-q1-fy26",
         "abbott-q2-fy26",
         "abbott-q3-fy25",
+        "abbott-q3-fy26",
         "abbott-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -120,12 +128,14 @@
         "abbott-q1-fy26",
         "abbott-q2-fy26",
         "abbott-q3-fy25",
+        "abbott-q3-fy26",
         "abbott-q4-fy25"
       ],
       "consumers": [
         "abbott-q1-fy26",
         "abbott-q2-fy26",
         "abbott-q3-fy25",
+        "abbott-q3-fy26",
         "abbott-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -145,11 +155,13 @@
       "directConsumers": [
         "abbvie-q1-fy26",
         "abbvie-q2-fy26",
+        "abbvie-q3-fy26",
         "abbvie-q4-fy25"
       ],
       "consumers": [
         "abbvie-q1-fy26",
         "abbvie-q2-fy26",
+        "abbvie-q3-fy26",
         "abbvie-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -169,11 +181,13 @@
       "directConsumers": [
         "abbvie-q1-fy26",
         "abbvie-q2-fy26",
+        "abbvie-q3-fy26",
         "abbvie-q4-fy25"
       ],
       "consumers": [
         "abbvie-q1-fy26",
         "abbvie-q2-fy26",
+        "abbvie-q3-fy26",
         "abbvie-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -211,10 +225,12 @@
         }
       ],
       "directConsumers": [
-        "abbvie-q2-fy26"
+        "abbvie-q2-fy26",
+        "abbvie-q3-fy26"
       ],
       "consumers": [
-        "abbvie-q2-fy26"
+        "abbvie-q2-fy26",
+        "abbvie-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -255,11 +271,13 @@
       "directConsumers": [
         "abbvie-q1-fy26",
         "abbvie-q2-fy26",
+        "abbvie-q3-fy26",
         "abbvie-q4-fy25"
       ],
       "consumers": [
         "abbvie-q1-fy26",
         "abbvie-q2-fy26",
+        "abbvie-q3-fy26",
         "abbvie-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -279,12 +297,34 @@
       "directConsumers": [
         "abbvie-q1-fy26",
         "abbvie-q2-fy26",
+        "abbvie-q3-fy26",
         "abbvie-q4-fy25"
       ],
       "consumers": [
         "abbvie-q1-fy26",
         "abbvie-q2-fy26",
+        "abbvie-q3-fy26",
         "abbvie-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/accenture/company-logo-q4-fy26.png",
+      "digest": "sha256:5ced9136803926600941950ab56796b2e0352c4069883b1e2be6f12726a2b010",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/accenture-q4-fy26.json",
+          "recipeDigest": "sha256:d58f633c787a39b240253f1be32e6ce186b5ffc9a8e265e2c6f01c80a8b08fb3",
+          "source": "input/processed/accenture-q4-fy26.png",
+          "cropKey": "company-logo-q4-fy26"
+        }
+      ],
+      "directConsumers": [
+        "accenture-q4-fy26"
+      ],
+      "consumers": [
+        "accenture-q4-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -790,10 +830,12 @@
       "digest": "sha256:8578c2cf5ff8e33b463d4c84e2bc088172faa2c1c23df2d50e535d9a273cd0c6",
       "provenance": [],
       "directConsumers": [
-        "airbus-q2-fy26"
+        "airbus-q2-fy26",
+        "airbus-q3-fy26"
       ],
       "consumers": [
-        "airbus-q2-fy26"
+        "airbus-q2-fy26",
+        "airbus-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -824,14 +866,16 @@
         "airbus-fy25",
         "airbus-h1-fy24",
         "airbus-q1-fy26",
-        "airbus-q2-fy26"
+        "airbus-q2-fy26",
+        "airbus-q3-fy26"
       ],
       "consumers": [
         "airbus-fy23",
         "airbus-fy25",
         "airbus-h1-fy24",
         "airbus-q1-fy26",
-        "airbus-q2-fy26"
+        "airbus-q2-fy26",
+        "airbus-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -857,13 +901,15 @@
         "airbus-fy23",
         "airbus-h1-fy24",
         "airbus-q1-fy26",
-        "airbus-q2-fy26"
+        "airbus-q2-fy26",
+        "airbus-q3-fy26"
       ],
       "consumers": [
         "airbus-fy23",
         "airbus-h1-fy24",
         "airbus-q1-fy26",
-        "airbus-q2-fy26"
+        "airbus-q2-fy26",
+        "airbus-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -877,14 +923,16 @@
         "airbus-fy25",
         "airbus-h1-fy24",
         "airbus-q1-fy26",
-        "airbus-q2-fy26"
+        "airbus-q2-fy26",
+        "airbus-q3-fy26"
       ],
       "consumers": [
         "airbus-fy23",
         "airbus-fy25",
         "airbus-h1-fy24",
         "airbus-q1-fy26",
-        "airbus-q2-fy26"
+        "airbus-q2-fy26",
+        "airbus-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -991,6 +1039,7 @@
         "align-q3-fy23",
         "align-q3-fy24",
         "align-q3-fy25",
+        "align-q3-fy26",
         "align-q4-fy22",
         "align-q4-fy23",
         "align-q4-fy24",
@@ -1009,6 +1058,7 @@
         "align-q3-fy23",
         "align-q3-fy24",
         "align-q3-fy25",
+        "align-q3-fy26",
         "align-q4-fy22",
         "align-q4-fy23",
         "align-q4-fy24",
@@ -1040,6 +1090,7 @@
         "align-q3-fy23",
         "align-q3-fy24",
         "align-q3-fy25",
+        "align-q3-fy26",
         "align-q4-fy22",
         "align-q4-fy23",
         "align-q4-fy24",
@@ -1057,6 +1108,7 @@
         "align-q3-fy23",
         "align-q3-fy24",
         "align-q3-fy25",
+        "align-q3-fy26",
         "align-q4-fy22",
         "align-q4-fy23",
         "align-q4-fy24",
@@ -1088,6 +1140,7 @@
         "align-q3-fy23",
         "align-q3-fy24",
         "align-q3-fy25",
+        "align-q3-fy26",
         "align-q4-fy22",
         "align-q4-fy23",
         "align-q4-fy24",
@@ -1105,6 +1158,7 @@
         "align-q3-fy23",
         "align-q3-fy24",
         "align-q3-fy25",
+        "align-q3-fy26",
         "align-q4-fy22",
         "align-q4-fy23",
         "align-q4-fy24",
@@ -1266,16 +1320,31 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/american-express/logo-q3-fy26.png",
+      "digest": "sha256:f095958721236fb4cb82e7cc9426940f7a59c7b61e36f6db3f8cec6f11c58ce4",
+      "provenance": [],
+      "directConsumers": [
+        "american-express-q3-fy26"
+      ],
+      "consumers": [
+        "american-express-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/american/company-lockup.png",
       "digest": "sha256:09574a5d2a5d951ad444c20695675af60b6aff6bc39f9acd7bb3668baf31cc27",
       "provenance": [],
       "directConsumers": [
         "american-q2-fy26",
+        "american-q3-fy26",
         "american-q4-fy25",
         "american-q4-fy25-operating-loss"
       ],
       "consumers": [
         "american-q2-fy26",
+        "american-q3-fy26",
         "american-q4-fy25",
         "american-q4-fy25-operating-loss"
       ],
@@ -1465,6 +1534,19 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/appfolio/company-wordmark-q3-fy26.png",
+      "digest": "sha256:9d0c6e8eb7ce7455f3ed03725be24a6b52a294873f5a7a905916a07d9b25125f",
+      "provenance": [],
+      "directConsumers": [
+        "appfolio-q3-fy26"
+      ],
+      "consumers": [
+        "appfolio-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/aramco/company-lockup-fy23.png",
       "digest": "sha256:660b348d2ae10c70828867a6fef13b886164cf9060580406769abf089e23701a",
       "provenance": [],
@@ -1600,6 +1682,19 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/asml/company-wordmark-q3-fy26.png",
+      "digest": "sha256:ed9ee687ed94cb52642c3840b54bd269423d5ba3f3658aeb1ab288370544e9a8",
+      "provenance": [],
+      "directConsumers": [
+        "asml-q3-fy26"
+      ],
+      "consumers": [
+        "asml-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/astera-labs/company-logo-q2-fy26.png",
       "digest": "sha256:4fe47f2a16cef882a9373512bba6ecce262f41df6d7382747bf1498813e98b9c",
       "provenance": [
@@ -1620,6 +1715,71 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/astrazeneca/company-logo-q3-fy26.png",
+      "digest": "sha256:b6c71cdf7e2e7a24ee1c07500bd69f367be780249782cb89984a3ef27b1b683d",
+      "provenance": [],
+      "directConsumers": [
+        "astrazeneca-q3-fy26"
+      ],
+      "consumers": [
+        "astrazeneca-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/astrazeneca/forxiga-q3-fy26.png",
+      "digest": "sha256:fc73a1db8362b005524626b0286da194db5b234007214efbe34aaa791c7e106b",
+      "provenance": [],
+      "directConsumers": [
+        "astrazeneca-q3-fy26"
+      ],
+      "consumers": [
+        "astrazeneca-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/astrazeneca/symbicort-q3-fy26.png",
+      "digest": "sha256:f75ab364546771bf87d4af8cb2b1e153c19275e7a97846f285e2a786c4469789",
+      "provenance": [],
+      "directConsumers": [
+        "astrazeneca-q3-fy26"
+      ],
+      "consumers": [
+        "astrazeneca-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/astrazeneca/synagis-q3-fy26.png",
+      "digest": "sha256:32f6aad04bae320bd66e0357f646d8e4265b39f9029e1bcbb8cd24ca730a1b45",
+      "provenance": [],
+      "directConsumers": [
+        "astrazeneca-q3-fy26"
+      ],
+      "consumers": [
+        "astrazeneca-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/astrazeneca/tagrisso-q3-fy26.png",
+      "digest": "sha256:d895b4f01de48a07b255eac460e799f23e26be7ab4a6949f9484e570d96fc0c3",
+      "provenance": [],
+      "directConsumers": [
+        "astrazeneca-q3-fy26"
+      ],
+      "consumers": [
+        "astrazeneca-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/at-t/company-logo.png",
       "digest": "sha256:09276a27b85b53671082d87e84f2e3535156a267b19a80df3eb2a76fa43c1713",
       "provenance": [
@@ -1633,11 +1793,13 @@
       "directConsumers": [
         "at-t-q1-fy26",
         "at-t-q2-fy26",
+        "at-t-q3-fy26",
         "at-t-q4-fy25"
       ],
       "consumers": [
         "at-t-q1-fy26",
         "at-t-q2-fy26",
+        "at-t-q3-fy26",
         "at-t-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -1746,6 +1908,26 @@
         "sha256:b4b46bf9e9eda807a6a07e4c34431b024c8097bd82de344e16fcaf7bf1876cad"
       ],
       "reusable": true
+    },
+    {
+      "path": "data/assets/raster-annotations/bank-of-america/logo-q3-fy26.png",
+      "digest": "sha256:e7d54b4ebfa92a3288c892a453a1340a950d79f7493b312f37bf0879bc8cfc94",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/bank-of-america-q3-fy26.json",
+          "recipeDigest": "sha256:606ac5b9a86ebf4112d1c28fbcb2c4f855ab57630cb49183f027c39a640f2dc2",
+          "source": "input/processed/bank-of-america-q3-fy26.png",
+          "cropKey": "logo-q3-fy26"
+        }
+      ],
+      "directConsumers": [
+        "bank-of-america-q3-fy26"
+      ],
+      "consumers": [
+        "bank-of-america-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
     },
     {
       "path": "data/assets/raster-annotations/berkshire-hathaway/business-bhe-logo.png",
@@ -1938,6 +2120,19 @@
       ],
       "consumers": [
         "birkenstock-q1-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/blackrock/company-wordmark-q3-fy26.png",
+      "digest": "sha256:e6150f95db59159eea0e9acf33c42a2fb34503349a62287ac6683ee46f3829a4",
+      "provenance": [],
+      "directConsumers": [
+        "blackrock-q3-fy26"
+      ],
+      "consumers": [
+        "blackrock-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -2282,11 +2477,13 @@
       "provenance": [],
       "directConsumers": [
         "boeing-q1-fy26",
-        "boeing-q2-fy26"
+        "boeing-q2-fy26",
+        "boeing-q3-fy26"
       ],
       "consumers": [
         "boeing-q1-fy26",
-        "boeing-q2-fy26"
+        "boeing-q2-fy26",
+        "boeing-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -2297,11 +2494,26 @@
       "provenance": [],
       "directConsumers": [
         "boeing-q1-fy26",
-        "boeing-q2-fy26"
+        "boeing-q2-fy26",
+        "boeing-q3-fy26"
       ],
       "consumers": [
         "boeing-q1-fy26",
-        "boeing-q2-fy26"
+        "boeing-q2-fy26",
+        "boeing-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/boeing/logo-q3-fy26.png",
+      "digest": "sha256:e2dbb5ed1483f9d857872f1e69323d3332437e5fa1dcbb013ebdd7e0ecf5dea9",
+      "provenance": [],
+      "directConsumers": [
+        "boeing-q3-fy26"
+      ],
+      "consumers": [
+        "boeing-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -2533,6 +2745,19 @@
       "reusable": true
     },
     {
+      "path": "data/assets/raster-annotations/braze/company-q2-fy27.png",
+      "digest": "sha256:e125c7ca2f293f05b913a9ad2d633686d828040663a35f3b071a607b06671126",
+      "provenance": [],
+      "directConsumers": [
+        "braze-q2-fy27"
+      ],
+      "consumers": [
+        "braze-q2-fy27"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/byd/automobiles-product-cluster.png",
       "digest": "sha256:287a178d4e030165908875383981629a2d190a7e11e999a5a98d05db5fea4fdf",
       "provenance": [
@@ -2568,6 +2793,19 @@
       ],
       "consumers": [
         "byd-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/cadence/company-logo-q3-fy26.png",
+      "digest": "sha256:12237dcfb76077a5e8a9bc98b835702ae6c347b806ec9de5f2489a853135a647",
+      "provenance": [],
+      "directConsumers": [
+        "cadence-q3-fy26"
+      ],
+      "consumers": [
+        "cadence-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -3046,11 +3284,13 @@
       "directConsumers": [
         "chipotle-q1-fy26",
         "chipotle-q2-fy26",
+        "chipotle-q3-fy26",
         "chipotle-q4-fy25"
       ],
       "consumers": [
         "chipotle-q1-fy26",
         "chipotle-q2-fy26",
+        "chipotle-q3-fy26",
         "chipotle-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -3063,11 +3303,13 @@
       "directConsumers": [
         "chipotle-q1-fy26",
         "chipotle-q2-fy26",
+        "chipotle-q3-fy26",
         "chipotle-q4-fy25"
       ],
       "consumers": [
         "chipotle-q1-fy26",
         "chipotle-q2-fy26",
+        "chipotle-q3-fy26",
         "chipotle-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -3080,11 +3322,13 @@
       "directConsumers": [
         "chipotle-q1-fy26",
         "chipotle-q2-fy26",
+        "chipotle-q3-fy26",
         "chipotle-q4-fy25"
       ],
       "consumers": [
         "chipotle-q1-fy26",
         "chipotle-q2-fy26",
+        "chipotle-q3-fy26",
         "chipotle-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -3106,6 +3350,26 @@
       ],
       "consumers": [
         "circle-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/citigroup/company-logo-q3-fy26.png",
+      "digest": "sha256:383dcf59a3046e5e90b4504edccb48a789c26770bec0b32231e58f8aea4c1af1",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/citigroup-q3-fy26.json",
+          "recipeDigest": "sha256:dc348bef57235ed245e11ce8f415f1d0df98e8592e7fb5186fe3390958d46533",
+          "source": "input/processing/citigroup-q3-fy26.png",
+          "cropKey": "citi-logo-q3-fy26"
+        }
+      ],
+      "directConsumers": [
+        "citigroup-q3-fy26"
+      ],
+      "consumers": [
+        "citigroup-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -3177,6 +3441,7 @@
         "coca-cola-q3-fy23",
         "coca-cola-q3-fy24",
         "coca-cola-q3-fy25",
+        "coca-cola-q3-fy26",
         "coca-cola-q4-fy22",
         "coca-cola-q4-fy23",
         "coca-cola-q4-fy24",
@@ -3194,6 +3459,7 @@
         "coca-cola-q3-fy23",
         "coca-cola-q3-fy24",
         "coca-cola-q3-fy25",
+        "coca-cola-q3-fy26",
         "coca-cola-q4-fy22",
         "coca-cola-q4-fy23",
         "coca-cola-q4-fy24",
@@ -3225,6 +3491,7 @@
         "coca-cola-q3-fy23",
         "coca-cola-q3-fy24",
         "coca-cola-q3-fy25",
+        "coca-cola-q3-fy26",
         "coca-cola-q4-fy22",
         "coca-cola-q4-fy23",
         "coca-cola-q4-fy24",
@@ -3242,6 +3509,7 @@
         "coca-cola-q3-fy23",
         "coca-cola-q3-fy24",
         "coca-cola-q3-fy25",
+        "coca-cola-q3-fy26",
         "coca-cola-q4-fy22",
         "coca-cola-q4-fy23",
         "coca-cola-q4-fy24",
@@ -3273,6 +3541,7 @@
         "coca-cola-q3-fy23",
         "coca-cola-q3-fy24",
         "coca-cola-q3-fy25",
+        "coca-cola-q3-fy26",
         "coca-cola-q4-fy22",
         "coca-cola-q4-fy23",
         "coca-cola-q4-fy24",
@@ -3290,6 +3559,7 @@
         "coca-cola-q3-fy23",
         "coca-cola-q3-fy24",
         "coca-cola-q3-fy25",
+        "coca-cola-q3-fy26",
         "coca-cola-q4-fy22",
         "coca-cola-q4-fy23",
         "coca-cola-q4-fy24",
@@ -3321,6 +3591,7 @@
         "coca-cola-q3-fy23",
         "coca-cola-q3-fy24",
         "coca-cola-q3-fy25",
+        "coca-cola-q3-fy26",
         "coca-cola-q4-fy22",
         "coca-cola-q4-fy23",
         "coca-cola-q4-fy24",
@@ -3338,6 +3609,7 @@
         "coca-cola-q3-fy23",
         "coca-cola-q3-fy24",
         "coca-cola-q3-fy25",
+        "coca-cola-q3-fy26",
         "coca-cola-q4-fy22",
         "coca-cola-q4-fy23",
         "coca-cola-q4-fy24",
@@ -3369,6 +3641,7 @@
         "coca-cola-q3-fy23",
         "coca-cola-q3-fy24",
         "coca-cola-q3-fy25",
+        "coca-cola-q3-fy26",
         "coca-cola-q4-fy22",
         "coca-cola-q4-fy23",
         "coca-cola-q4-fy24",
@@ -3386,6 +3659,7 @@
         "coca-cola-q3-fy23",
         "coca-cola-q3-fy24",
         "coca-cola-q3-fy25",
+        "coca-cola-q3-fy26",
         "coca-cola-q4-fy22",
         "coca-cola-q4-fy23",
         "coca-cola-q4-fy24",
@@ -3417,6 +3691,7 @@
         "comcast-q3-fy23",
         "comcast-q3-fy24",
         "comcast-q3-fy25",
+        "comcast-q3-fy26",
         "comcast-q4-fy22",
         "comcast-q4-fy23",
         "comcast-q4-fy24",
@@ -3434,6 +3709,7 @@
         "comcast-q3-fy23",
         "comcast-q3-fy24",
         "comcast-q3-fy25",
+        "comcast-q3-fy26",
         "comcast-q4-fy22",
         "comcast-q4-fy23",
         "comcast-q4-fy24",
@@ -3530,11 +3806,13 @@
       "directConsumers": [
         "comcast-q1-fy26",
         "comcast-q2-fy26",
+        "comcast-q3-fy26",
         "comcast-q4-fy25"
       ],
       "consumers": [
         "comcast-q1-fy26",
         "comcast-q2-fy26",
+        "comcast-q3-fy26",
         "comcast-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -3563,6 +3841,7 @@
         "comcast-q3-fy23",
         "comcast-q3-fy24",
         "comcast-q3-fy25",
+        "comcast-q3-fy26",
         "comcast-q4-fy23",
         "comcast-q4-fy24",
         "comcast-q4-fy25"
@@ -3579,6 +3858,7 @@
         "comcast-q3-fy23",
         "comcast-q3-fy24",
         "comcast-q3-fy25",
+        "comcast-q3-fy26",
         "comcast-q4-fy23",
         "comcast-q4-fy24",
         "comcast-q4-fy25"
@@ -3609,6 +3889,7 @@
         "comcast-q3-fy23",
         "comcast-q3-fy24",
         "comcast-q3-fy25",
+        "comcast-q3-fy26",
         "comcast-q4-fy22",
         "comcast-q4-fy23",
         "comcast-q4-fy24",
@@ -3626,6 +3907,7 @@
         "comcast-q3-fy23",
         "comcast-q3-fy24",
         "comcast-q3-fy25",
+        "comcast-q3-fy26",
         "comcast-q4-fy22",
         "comcast-q4-fy23",
         "comcast-q4-fy24",
@@ -3657,6 +3939,7 @@
         "comcast-q3-fy23",
         "comcast-q3-fy24",
         "comcast-q3-fy25",
+        "comcast-q3-fy26",
         "comcast-q4-fy22",
         "comcast-q4-fy23",
         "comcast-q4-fy24",
@@ -3674,6 +3957,7 @@
         "comcast-q3-fy23",
         "comcast-q3-fy24",
         "comcast-q3-fy25",
+        "comcast-q3-fy26",
         "comcast-q4-fy22",
         "comcast-q4-fy23",
         "comcast-q4-fy24",
@@ -3727,6 +4011,7 @@
         "comcast-q3-fy23",
         "comcast-q3-fy24",
         "comcast-q3-fy25",
+        "comcast-q3-fy26",
         "comcast-q4-fy22",
         "comcast-q4-fy23",
         "comcast-q4-fy24",
@@ -3744,6 +4029,7 @@
         "comcast-q3-fy23",
         "comcast-q3-fy24",
         "comcast-q3-fy25",
+        "comcast-q3-fy26",
         "comcast-q4-fy22",
         "comcast-q4-fy23",
         "comcast-q4-fy24",
@@ -4018,11 +4304,13 @@
       "directConsumers": [
         "delta-q1-fy26",
         "delta-q2-fy26",
+        "delta-q3-fy26",
         "delta-q4-fy25"
       ],
       "consumers": [
         "delta-q1-fy26",
         "delta-q2-fy26",
+        "delta-q3-fy26",
         "delta-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -4255,6 +4543,26 @@
       ],
       "consumers": [
         "docebo-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/domino-s/company-logo-q3-fy26.png",
+      "digest": "sha256:5696eec07688c8805bd80433b2916fa37169e95037c66217f1dabc485ed2ba99",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/domino-s-q3-fy26.json",
+          "recipeDigest": "sha256:13b7e21a73939c8aa3064467db317de03d5ade6280fc65ebf96c689960f6264d",
+          "source": "input/processed/domino-s-q3-fy26.png",
+          "cropKey": "company-logo-q3-fy26"
+        }
+      ],
+      "directConsumers": [
+        "domino-s-q3-fy26"
+      ],
+      "consumers": [
+        "domino-s-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -4819,10 +5127,12 @@
         }
       ],
       "directConsumers": [
-        "eli-lilly-q2-fy26"
+        "eli-lilly-q2-fy26",
+        "eli-lilly-q3-fy26"
       ],
       "consumers": [
-        "eli-lilly-q2-fy26"
+        "eli-lilly-q2-fy26",
+        "eli-lilly-q3-fy26"
       ],
       "acceptedVersions": [
         "sha256:170baf0399525f5e5b1298752a422289875944ae0d77154e56ac63fde1f61727"
@@ -4841,10 +5151,12 @@
         }
       ],
       "directConsumers": [
-        "eli-lilly-q2-fy26"
+        "eli-lilly-q2-fy26",
+        "eli-lilly-q3-fy26"
       ],
       "consumers": [
-        "eli-lilly-q2-fy26"
+        "eli-lilly-q2-fy26",
+        "eli-lilly-q3-fy26"
       ],
       "acceptedVersions": [
         "sha256:37ac3ad1196ad63c44f7fdb5b208f13dc0ecda077f8a8fb45bee2d10068d4944"
@@ -4863,10 +5175,12 @@
         }
       ],
       "directConsumers": [
-        "eli-lilly-q2-fy26"
+        "eli-lilly-q2-fy26",
+        "eli-lilly-q3-fy26"
       ],
       "consumers": [
-        "eli-lilly-q2-fy26"
+        "eli-lilly-q2-fy26",
+        "eli-lilly-q3-fy26"
       ],
       "acceptedVersions": [
         "sha256:3fb40ab8f8f84cd595d0dacd64bc9f8a6ce720b7387e6081a0110bc3ff569aea"
@@ -4885,10 +5199,12 @@
         }
       ],
       "directConsumers": [
-        "eli-lilly-q2-fy26"
+        "eli-lilly-q2-fy26",
+        "eli-lilly-q3-fy26"
       ],
       "consumers": [
-        "eli-lilly-q2-fy26"
+        "eli-lilly-q2-fy26",
+        "eli-lilly-q3-fy26"
       ],
       "acceptedVersions": [
         "sha256:a61f6e8c41c5d8a4795b5ced129329f4aeeaa72556d746b8862f7d8cd8c1c5c6"
@@ -4907,10 +5223,12 @@
         }
       ],
       "directConsumers": [
-        "eli-lilly-q2-fy26"
+        "eli-lilly-q2-fy26",
+        "eli-lilly-q3-fy26"
       ],
       "consumers": [
-        "eli-lilly-q2-fy26"
+        "eli-lilly-q2-fy26",
+        "eli-lilly-q3-fy26"
       ],
       "acceptedVersions": [
         "sha256:3497ad52ab2dac0975376d31dc92b827bd7e1a6e9eef393bf615c083cab9feae"
@@ -4993,6 +5311,32 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/etsy/company-logo-q3-fy26.png",
+      "digest": "sha256:2bbf507b9a18877ba348969f5a976c8e8dab0513d8f23bb39b781d6cab6ddeac",
+      "provenance": [],
+      "directConsumers": [
+        "etsy-q3-fy26"
+      ],
+      "consumers": [
+        "etsy-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/marketplace-wordmark-q3-fy26.png",
+      "digest": "sha256:304967e7d46b88ba092104a3eb345e88cdaa4842feb0a1cc1890d8c1b2284cc9",
+      "provenance": [],
+      "directConsumers": [
+        "etsy-q3-fy26"
+      ],
+      "consumers": [
+        "etsy-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/fedex/company-wordmark.png",
       "digest": "sha256:bce7715dab3eedf64af87ad4a2524d619090e75b439558c2b63f19d7f91787a0",
       "provenance": [
@@ -5004,11 +5348,13 @@
         }
       ],
       "directConsumers": [
+        "fedex-q1-fy27",
         "fedex-q2-fy23",
         "fedex-q2-fy24",
         "fedex-q2-fy25"
       ],
       "consumers": [
+        "fedex-q1-fy27",
         "fedex-q2-fy23",
         "fedex-q2-fy24",
         "fedex-q2-fy25"
@@ -5028,11 +5374,13 @@
         }
       ],
       "directConsumers": [
+        "fedex-q1-fy27",
         "fedex-q2-fy23",
         "fedex-q2-fy24",
         "fedex-q2-fy25"
       ],
       "consumers": [
+        "fedex-q1-fy27",
         "fedex-q2-fy23",
         "fedex-q2-fy24",
         "fedex-q2-fy25"
@@ -5422,6 +5770,19 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/fortinet/logo-q3-fy26.png",
+      "digest": "sha256:4b68fecfd8eb4d4e04d566bd252f7771a15f82f9cea1c7a7bb2f9fbe728f3500",
+      "provenance": [],
+      "directConsumers": [
+        "fortinet-q3-fy26"
+      ],
+      "consumers": [
+        "fortinet-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/fox/cable-network-cluster.png",
       "digest": "sha256:30d55c0ecaedeccfd34ac79bb247c8d9cb26128ad3fe611dad0889ec7f6c91ac",
       "provenance": [
@@ -5761,11 +6122,13 @@
       "directConsumers": [
         "ge-vernova-q1-fy26",
         "ge-vernova-q2-fy26",
+        "ge-vernova-q3-fy26",
         "ge-vernova-q4-fy25"
       ],
       "consumers": [
         "ge-vernova-q1-fy26",
         "ge-vernova-q2-fy26",
+        "ge-vernova-q3-fy26",
         "ge-vernova-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -5785,11 +6148,13 @@
       "directConsumers": [
         "ge-vernova-q1-fy26",
         "ge-vernova-q2-fy26",
+        "ge-vernova-q3-fy26",
         "ge-vernova-q4-fy25"
       ],
       "consumers": [
         "ge-vernova-q1-fy26",
         "ge-vernova-q2-fy26",
+        "ge-vernova-q3-fy26",
         "ge-vernova-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -5809,11 +6174,13 @@
       "directConsumers": [
         "ge-vernova-q1-fy26",
         "ge-vernova-q2-fy26",
+        "ge-vernova-q3-fy26",
         "ge-vernova-q4-fy25"
       ],
       "consumers": [
         "ge-vernova-q1-fy26",
         "ge-vernova-q2-fy26",
+        "ge-vernova-q3-fy26",
         "ge-vernova-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -5833,11 +6200,13 @@
       "directConsumers": [
         "ge-vernova-q1-fy26",
         "ge-vernova-q2-fy26",
+        "ge-vernova-q3-fy26",
         "ge-vernova-q4-fy25"
       ],
       "consumers": [
         "ge-vernova-q1-fy26",
         "ge-vernova-q2-fy26",
+        "ge-vernova-q3-fy26",
         "ge-vernova-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -6357,11 +6726,13 @@
       "provenance": [],
       "directConsumers": [
         "hershey-q1-fy26",
-        "hershey-q2-fy26"
+        "hershey-q2-fy26",
+        "hershey-q3-fy26"
       ],
       "consumers": [
         "hershey-q1-fy26",
-        "hershey-q2-fy26"
+        "hershey-q2-fy26",
+        "hershey-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -6372,11 +6743,13 @@
       "provenance": [],
       "directConsumers": [
         "hershey-q1-fy26",
-        "hershey-q2-fy26"
+        "hershey-q2-fy26",
+        "hershey-q3-fy26"
       ],
       "consumers": [
         "hershey-q1-fy26",
-        "hershey-q2-fy26"
+        "hershey-q2-fy26",
+        "hershey-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -6387,11 +6760,13 @@
       "provenance": [],
       "directConsumers": [
         "hershey-q1-fy26",
-        "hershey-q2-fy26"
+        "hershey-q2-fy26",
+        "hershey-q3-fy26"
       ],
       "consumers": [
         "hershey-q1-fy26",
-        "hershey-q2-fy26"
+        "hershey-q2-fy26",
+        "hershey-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -6402,11 +6777,26 @@
       "provenance": [],
       "directConsumers": [
         "hershey-q1-fy26",
-        "hershey-q2-fy26"
+        "hershey-q2-fy26",
+        "hershey-q3-fy26"
       ],
       "consumers": [
         "hershey-q1-fy26",
-        "hershey-q2-fy26"
+        "hershey-q2-fy26",
+        "hershey-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/hilton/company-logo-q3-fy26.png",
+      "digest": "sha256:2dee509116abb19075397ab0ffa96e7bb85c85d791c19c90f3b50e9e4cd26236",
+      "provenance": [],
+      "directConsumers": [
+        "hilton-q3-fy26"
+      ],
+      "consumers": [
+        "hilton-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -6668,6 +7058,26 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/intel/company-logo-q3-fy26.png",
+      "digest": "sha256:043340cbe66f57aadd8d565161a569d78c02d092f7e3a08871dfbef1a9ceac90",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/intel-q3-fy26.json",
+          "recipeDigest": "sha256:129a80a0d343634a21edd355a5f9b0a8fc80caa8e95bd3e5b1585b2cbbd87191",
+          "source": "input/processing/intel-q3-fy26.png",
+          "cropKey": "company-logo-q3-fy26"
+        }
+      ],
+      "directConsumers": [
+        "intel-q3-fy26"
+      ],
+      "consumers": [
+        "intel-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/intuit/company-wordmark.png",
       "digest": "sha256:fb62d9ec925efe3247d33e0526c157caeb85ba96eb747bd783c80379c965be85",
       "provenance": [],
@@ -6778,11 +7188,13 @@
       "directConsumers": [
         "intuitive-q1-fy26",
         "intuitive-q2-fy26",
+        "intuitive-q3-fy26",
         "intuitive-q4-fy25"
       ],
       "consumers": [
         "intuitive-q1-fy26",
         "intuitive-q2-fy26",
+        "intuitive-q3-fy26",
         "intuitive-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -6802,11 +7214,13 @@
       "directConsumers": [
         "intuitive-q1-fy26",
         "intuitive-q2-fy26",
+        "intuitive-q3-fy26",
         "intuitive-q4-fy25"
       ],
       "consumers": [
         "intuitive-q1-fy26",
         "intuitive-q2-fy26",
+        "intuitive-q3-fy26",
         "intuitive-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -6826,11 +7240,13 @@
       "directConsumers": [
         "intuitive-q1-fy26",
         "intuitive-q2-fy26",
+        "intuitive-q3-fy26",
         "intuitive-q4-fy25"
       ],
       "consumers": [
         "intuitive-q1-fy26",
         "intuitive-q2-fy26",
+        "intuitive-q3-fy26",
         "intuitive-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -6852,6 +7268,7 @@
         "j-j-q2-fy25",
         "j-j-q2-fy26",
         "j-j-q3-fy25",
+        "j-j-q3-fy26",
         "j-j-q4-fy25"
       ],
       "consumers": [
@@ -6859,6 +7276,7 @@
         "j-j-q2-fy25",
         "j-j-q2-fy26",
         "j-j-q3-fy25",
+        "j-j-q3-fy26",
         "j-j-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -6879,12 +7297,14 @@
         "j-j-q1-fy26",
         "j-j-q2-fy26",
         "j-j-q3-fy25",
+        "j-j-q3-fy26",
         "j-j-q4-fy25"
       ],
       "consumers": [
         "j-j-q1-fy26",
         "j-j-q2-fy26",
         "j-j-q3-fy25",
+        "j-j-q3-fy26",
         "j-j-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -6905,12 +7325,14 @@
         "j-j-q1-fy26",
         "j-j-q2-fy26",
         "j-j-q3-fy25",
+        "j-j-q3-fy26",
         "j-j-q4-fy25"
       ],
       "consumers": [
         "j-j-q1-fy26",
         "j-j-q2-fy26",
         "j-j-q3-fy25",
+        "j-j-q3-fy26",
         "j-j-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -7268,6 +7690,39 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/jpmorganchase/logo-q3-fy26.png",
+      "digest": "sha256:888c99a311189d6e0c379c9aad85037853cc50d37c67fd2ff673beea68b8f0d9",
+      "provenance": [],
+      "directConsumers": [
+        "jpmorganchase-q3-fy26"
+      ],
+      "consumers": [
+        "jpmorganchase-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kla/company-logo-kla-q1-fy27.png",
+      "digest": "sha256:7f14227c6745fb7f3c67ef9cdaeacbaf39d9d527ca57fd199d9205e7ecc78582",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/kla-q1-fy27.json",
+          "recipeDigest": "sha256:8fd498c1db313c058c1b732d41e2c261bac4c131152bacf7ed4fa2c177518245",
+          "source": "input/processed/kla-q1-fy27.png",
+          "cropKey": "company-logo-kla-q1-fy27"
+        }
+      ],
+      "directConsumers": [
+        "kla-q1-fy27"
+      ],
+      "consumers": [
+        "kla-q1-fy27"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/klarna/company-logo-klarna-q2-fy26.png",
       "digest": "sha256:436c3949434d1857ca28872c76f0192826e643a8ec0fdb09d0585522d5c2dcdc",
       "provenance": [
@@ -7446,6 +7901,19 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/lam-research/logo-q1-fy27.png",
+      "digest": "sha256:1636476e325bad7458ce801345d91387005890f74f2a0ec1c7c9bb55db7e5b2f",
+      "provenance": [],
+      "directConsumers": [
+        "lam-research-q1-fy27"
+      ],
+      "consumers": [
+        "lam-research-q1-fy27"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/live-nation/company-logo.png",
       "digest": "sha256:02f7def484c5512613de1382ee8abf6a99454656efc7b359a55160859504cfce",
       "provenance": [],
@@ -7489,11 +7957,13 @@
       "provenance": [],
       "directConsumers": [
         "lockheed-martin-q1-fy26",
-        "lockheed-martin-q2-fy26"
+        "lockheed-martin-q2-fy26",
+        "lockheed-martin-q3-fy26"
       ],
       "consumers": [
         "lockheed-martin-q1-fy26",
-        "lockheed-martin-q2-fy26"
+        "lockheed-martin-q2-fy26",
+        "lockheed-martin-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -7512,16 +7982,31 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/lockheed-martin/logo-q3-fy26.png",
+      "digest": "sha256:791f15f9033541f4f4d6e6f8fc75633417c08df44ed1491a0aba5b3d76289627",
+      "provenance": [],
+      "directConsumers": [
+        "lockheed-martin-q3-fy26"
+      ],
+      "consumers": [
+        "lockheed-martin-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/lockheed-martin/missile-fire-control-q1-fy26.png",
       "digest": "sha256:1b9628ac16ec14658917e208114e5df936ae42a5225a5aa1585b9ef4e88b3405",
       "provenance": [],
       "directConsumers": [
         "lockheed-martin-q1-fy26",
-        "lockheed-martin-q2-fy26"
+        "lockheed-martin-q2-fy26",
+        "lockheed-martin-q3-fy26"
       ],
       "consumers": [
         "lockheed-martin-q1-fy26",
-        "lockheed-martin-q2-fy26"
+        "lockheed-martin-q2-fy26",
+        "lockheed-martin-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -7545,11 +8030,13 @@
       "provenance": [],
       "directConsumers": [
         "lockheed-martin-q1-fy26",
-        "lockheed-martin-q2-fy26"
+        "lockheed-martin-q2-fy26",
+        "lockheed-martin-q3-fy26"
       ],
       "consumers": [
         "lockheed-martin-q1-fy26",
-        "lockheed-martin-q2-fy26"
+        "lockheed-martin-q2-fy26",
+        "lockheed-martin-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -7573,11 +8060,13 @@
       "provenance": [],
       "directConsumers": [
         "lockheed-martin-q1-fy26",
-        "lockheed-martin-q2-fy26"
+        "lockheed-martin-q2-fy26",
+        "lockheed-martin-q3-fy26"
       ],
       "consumers": [
         "lockheed-martin-q1-fy26",
-        "lockheed-martin-q2-fy26"
+        "lockheed-martin-q2-fy26",
+        "lockheed-martin-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -8220,6 +8709,26 @@
         "sha256:364eeea65f37669ff2d9b819e5680accbdf2274b49dab012a0343d3e005083be"
       ],
       "reusable": true
+    },
+    {
+      "path": "data/assets/raster-annotations/mastercard/company-logo-q3-fy26.png",
+      "digest": "sha256:779b8c18ba96d4ec8466f336cd9112fab3163deeb442611d0a0c6e785be207e2",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/mastercard-q3-fy26.json",
+          "recipeDigest": "sha256:652f32a02dbc01dbf84b5862d621c8fc37084d8705711aae49a331a79dd922a6",
+          "source": "input/processing/mastercard-q3-fy26.png",
+          "cropKey": "mastercard-company-logo-q3-fy26"
+        }
+      ],
+      "directConsumers": [
+        "mastercard-q3-fy26"
+      ],
+      "consumers": [
+        "mastercard-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
     },
     {
       "path": "data/assets/raster-annotations/match-group/brand-asia-cluster-q1-fy26.png",
@@ -8899,11 +9408,13 @@
       "directConsumers": [
         "merck-q1-fy26",
         "merck-q2-fy26",
+        "merck-q3-fy26",
         "merck-q4-fy25"
       ],
       "consumers": [
         "merck-q1-fy26",
         "merck-q2-fy26",
+        "merck-q3-fy26",
         "merck-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -8923,11 +9434,13 @@
       "directConsumers": [
         "merck-q1-fy26",
         "merck-q2-fy26",
+        "merck-q3-fy26",
         "merck-q4-fy25"
       ],
       "consumers": [
         "merck-q1-fy26",
         "merck-q2-fy26",
+        "merck-q3-fy26",
         "merck-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -8947,11 +9460,13 @@
       "directConsumers": [
         "merck-q1-fy26",
         "merck-q2-fy26",
+        "merck-q3-fy26",
         "merck-q4-fy25"
       ],
       "consumers": [
         "merck-q1-fy26",
         "merck-q2-fy26",
+        "merck-q3-fy26",
         "merck-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -8971,11 +9486,13 @@
       "directConsumers": [
         "merck-q1-fy26",
         "merck-q2-fy26",
+        "merck-q3-fy26",
         "merck-q4-fy25"
       ],
       "consumers": [
         "merck-q1-fy26",
         "merck-q2-fy26",
+        "merck-q3-fy26",
         "merck-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -8995,11 +9512,13 @@
       "directConsumers": [
         "merck-q1-fy26",
         "merck-q2-fy26",
+        "merck-q3-fy26",
         "merck-q4-fy25"
       ],
       "consumers": [
         "merck-q1-fy26",
         "merck-q2-fy26",
+        "merck-q3-fy26",
         "merck-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -9012,11 +9531,13 @@
       "directConsumers": [
         "mondelez-q1-fy26",
         "mondelez-q2-fy26",
+        "mondelez-q3-fy26",
         "mondelez-q4-fy25"
       ],
       "consumers": [
         "mondelez-q1-fy26",
         "mondelez-q2-fy26",
+        "mondelez-q3-fy26",
         "mondelez-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -9029,11 +9550,13 @@
       "directConsumers": [
         "mondelez-q1-fy26",
         "mondelez-q2-fy26",
+        "mondelez-q3-fy26",
         "mondelez-q4-fy25"
       ],
       "consumers": [
         "mondelez-q1-fy26",
         "mondelez-q2-fy26",
+        "mondelez-q3-fy26",
         "mondelez-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -9046,11 +9569,13 @@
       "directConsumers": [
         "mondelez-q1-fy26",
         "mondelez-q2-fy26",
+        "mondelez-q3-fy26",
         "mondelez-q4-fy25"
       ],
       "consumers": [
         "mondelez-q1-fy26",
         "mondelez-q2-fy26",
+        "mondelez-q3-fy26",
         "mondelez-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -9063,11 +9588,13 @@
       "directConsumers": [
         "mondelez-q1-fy26",
         "mondelez-q2-fy26",
+        "mondelez-q3-fy26",
         "mondelez-q4-fy25"
       ],
       "consumers": [
         "mondelez-q1-fy26",
         "mondelez-q2-fy26",
+        "mondelez-q3-fy26",
         "mondelez-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -9080,11 +9607,13 @@
       "directConsumers": [
         "mondelez-q1-fy26",
         "mondelez-q2-fy26",
+        "mondelez-q3-fy26",
         "mondelez-q4-fy25"
       ],
       "consumers": [
         "mondelez-q1-fy26",
         "mondelez-q2-fy26",
+        "mondelez-q3-fy26",
         "mondelez-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -9097,11 +9626,13 @@
       "directConsumers": [
         "mondelez-q1-fy26",
         "mondelez-q2-fy26",
+        "mondelez-q3-fy26",
         "mondelez-q4-fy25"
       ],
       "consumers": [
         "mondelez-q1-fy26",
         "mondelez-q2-fy26",
+        "mondelez-q3-fy26",
         "mondelez-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -9114,11 +9645,13 @@
       "directConsumers": [
         "mondelez-q1-fy26",
         "mondelez-q2-fy26",
+        "mondelez-q3-fy26",
         "mondelez-q4-fy25"
       ],
       "consumers": [
         "mondelez-q1-fy26",
         "mondelez-q2-fy26",
+        "mondelez-q3-fy26",
         "mondelez-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -9131,11 +9664,13 @@
       "directConsumers": [
         "mondelez-q1-fy26",
         "mondelez-q2-fy26",
+        "mondelez-q3-fy26",
         "mondelez-q4-fy25"
       ],
       "consumers": [
         "mondelez-q1-fy26",
         "mondelez-q2-fy26",
+        "mondelez-q3-fy26",
         "mondelez-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -9148,12 +9683,27 @@
       "directConsumers": [
         "mondelez-q1-fy26",
         "mondelez-q2-fy26",
+        "mondelez-q3-fy26",
         "mondelez-q4-fy25"
       ],
       "consumers": [
         "mondelez-q1-fy26",
         "mondelez-q2-fy26",
+        "mondelez-q3-fy26",
         "mondelez-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/moodys/wordmark-q3-fy26.png",
+      "digest": "sha256:210b92f7cb31683504fe16779cc1ea2fab9d0e11754f5e4e45d2191f7bbd2c61",
+      "provenance": [],
+      "directConsumers": [
+        "moodys-q3-fy26"
+      ],
+      "consumers": [
+        "moodys-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -9974,6 +10524,7 @@
         "nike-q1-fy24",
         "nike-q1-fy25",
         "nike-q1-fy26",
+        "nike-q1-fy27",
         "nike-q2-fy23",
         "nike-q2-fy24",
         "nike-q2-fy25",
@@ -9991,6 +10542,7 @@
         "nike-q1-fy24",
         "nike-q1-fy25",
         "nike-q1-fy26",
+        "nike-q1-fy27",
         "nike-q2-fy23",
         "nike-q2-fy24",
         "nike-q2-fy25",
@@ -10041,6 +10593,7 @@
       "directConsumers": [
         "nike-q1-fy25",
         "nike-q1-fy26",
+        "nike-q1-fy27",
         "nike-q2-fy25",
         "nike-q2-fy26",
         "nike-q3-fy24",
@@ -10051,6 +10604,7 @@
       "consumers": [
         "nike-q1-fy25",
         "nike-q1-fy26",
+        "nike-q1-fy27",
         "nike-q2-fy25",
         "nike-q2-fy26",
         "nike-q3-fy24",
@@ -10092,6 +10646,7 @@
         "nike-q1-fy24",
         "nike-q1-fy25",
         "nike-q1-fy26",
+        "nike-q1-fy27",
         "nike-q2-fy23",
         "nike-q2-fy24",
         "nike-q2-fy25",
@@ -10109,6 +10664,7 @@
         "nike-q1-fy24",
         "nike-q1-fy25",
         "nike-q1-fy26",
+        "nike-q1-fy27",
         "nike-q2-fy23",
         "nike-q2-fy24",
         "nike-q2-fy25",
@@ -10133,6 +10689,7 @@
         "nike-q1-fy24",
         "nike-q1-fy25",
         "nike-q1-fy26",
+        "nike-q1-fy27",
         "nike-q2-fy23",
         "nike-q2-fy24",
         "nike-q2-fy25",
@@ -10150,6 +10707,7 @@
         "nike-q1-fy24",
         "nike-q1-fy25",
         "nike-q1-fy26",
+        "nike-q1-fy27",
         "nike-q2-fy23",
         "nike-q2-fy24",
         "nike-q2-fy25",
@@ -10174,6 +10732,7 @@
         "nike-q1-fy24",
         "nike-q1-fy25",
         "nike-q1-fy26",
+        "nike-q1-fy27",
         "nike-q2-fy23",
         "nike-q2-fy24",
         "nike-q2-fy25",
@@ -10191,6 +10750,7 @@
         "nike-q1-fy24",
         "nike-q1-fy25",
         "nike-q1-fy26",
+        "nike-q1-fy27",
         "nike-q2-fy23",
         "nike-q2-fy24",
         "nike-q2-fy25",
@@ -10695,10 +11255,12 @@
         }
       ],
       "directConsumers": [
-        "novartis-q1-fy26"
+        "novartis-q1-fy26",
+        "novartis-q3-fy26"
       ],
       "consumers": [
-        "novartis-q1-fy26"
+        "novartis-q1-fy26",
+        "novartis-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -10715,10 +11277,12 @@
         }
       ],
       "directConsumers": [
-        "novartis-q1-fy26"
+        "novartis-q1-fy26",
+        "novartis-q3-fy26"
       ],
       "consumers": [
-        "novartis-q1-fy26"
+        "novartis-q1-fy26",
+        "novartis-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -10735,10 +11299,12 @@
         }
       ],
       "directConsumers": [
-        "novartis-q1-fy26"
+        "novartis-q1-fy26",
+        "novartis-q3-fy26"
       ],
       "consumers": [
-        "novartis-q1-fy26"
+        "novartis-q1-fy26",
+        "novartis-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -10755,10 +11321,12 @@
         }
       ],
       "directConsumers": [
-        "novartis-q1-fy26"
+        "novartis-q1-fy26",
+        "novartis-q3-fy26"
       ],
       "consumers": [
-        "novartis-q1-fy26"
+        "novartis-q1-fy26",
+        "novartis-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -10775,10 +11343,12 @@
         }
       ],
       "directConsumers": [
-        "novartis-q1-fy26"
+        "novartis-q1-fy26",
+        "novartis-q3-fy26"
       ],
       "consumers": [
-        "novartis-q1-fy26"
+        "novartis-q1-fy26",
+        "novartis-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -11291,9 +11861,11 @@
         }
       ],
       "directConsumers": [
+        "p-g-q1-fy27",
         "p-g-q4-fy26"
       ],
       "consumers": [
+        "p-g-q1-fy27",
         "p-g-q4-fy26"
       ],
       "acceptedVersions": [],
@@ -11351,9 +11923,11 @@
         }
       ],
       "directConsumers": [
+        "p-g-q1-fy27",
         "p-g-q4-fy26"
       ],
       "consumers": [
+        "p-g-q1-fy27",
         "p-g-q4-fy26"
       ],
       "acceptedVersions": [],
@@ -11411,9 +11985,11 @@
         }
       ],
       "directConsumers": [
+        "p-g-q1-fy27",
         "p-g-q4-fy26"
       ],
       "consumers": [
+        "p-g-q1-fy27",
         "p-g-q4-fy26"
       ],
       "acceptedVersions": [],
@@ -11471,9 +12047,11 @@
         }
       ],
       "directConsumers": [
+        "p-g-q1-fy27",
         "p-g-q4-fy26"
       ],
       "consumers": [
+        "p-g-q1-fy27",
         "p-g-q4-fy26"
       ],
       "acceptedVersions": [],
@@ -11531,9 +12109,11 @@
         }
       ],
       "directConsumers": [
+        "p-g-q1-fy27",
         "p-g-q4-fy26"
       ],
       "consumers": [
+        "p-g-q1-fy27",
         "p-g-q4-fy26"
       ],
       "acceptedVersions": [],
@@ -11591,9 +12171,11 @@
         }
       ],
       "directConsumers": [
+        "p-g-q1-fy27",
         "p-g-q4-fy26"
       ],
       "consumers": [
+        "p-g-q1-fy27",
         "p-g-q4-fy26"
       ],
       "acceptedVersions": [],
@@ -11938,12 +12520,14 @@
       "directConsumers": [
         "paypal-q1-fy23",
         "paypal-q1-fy26",
-        "paypal-q2-fy26"
+        "paypal-q2-fy26",
+        "paypal-q3-fy26"
       ],
       "consumers": [
         "paypal-q1-fy23",
         "paypal-q1-fy26",
-        "paypal-q2-fy26"
+        "paypal-q2-fy26",
+        "paypal-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -12006,12 +12590,14 @@
       "directConsumers": [
         "paypal-q1-fy23",
         "paypal-q1-fy26",
-        "paypal-q2-fy26"
+        "paypal-q2-fy26",
+        "paypal-q3-fy26"
       ],
       "consumers": [
         "paypal-q1-fy23",
         "paypal-q1-fy26",
-        "paypal-q2-fy26"
+        "paypal-q2-fy26",
+        "paypal-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -12596,6 +13182,7 @@
         "pepsico-q2-fy26",
         "pepsico-q3-fy23",
         "pepsico-q3-fy25",
+        "pepsico-q3-fy26",
         "pepsico-q4-fy22",
         "pepsico-q4-fy23",
         "pepsico-q4-fy24",
@@ -12611,6 +13198,7 @@
         "pepsico-q2-fy26",
         "pepsico-q3-fy23",
         "pepsico-q3-fy25",
+        "pepsico-q3-fy26",
         "pepsico-q4-fy22",
         "pepsico-q4-fy23",
         "pepsico-q4-fy24",
@@ -12633,6 +13221,7 @@
         "pepsico-q2-fy26",
         "pepsico-q3-fy23",
         "pepsico-q3-fy25",
+        "pepsico-q3-fy26",
         "pepsico-q4-fy23",
         "pepsico-q4-fy24",
         "pepsico-q4-fy25"
@@ -12647,6 +13236,7 @@
         "pepsico-q2-fy26",
         "pepsico-q3-fy23",
         "pepsico-q3-fy25",
+        "pepsico-q3-fy26",
         "pepsico-q4-fy23",
         "pepsico-q4-fy24",
         "pepsico-q4-fy25"
@@ -12664,6 +13254,7 @@
         "pepsico-q2-fy25",
         "pepsico-q2-fy26",
         "pepsico-q3-fy25",
+        "pepsico-q3-fy26",
         "pepsico-q4-fy25"
       ],
       "consumers": [
@@ -12672,6 +13263,7 @@
         "pepsico-q2-fy25",
         "pepsico-q2-fy26",
         "pepsico-q3-fy25",
+        "pepsico-q3-fy26",
         "pepsico-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -12882,6 +13474,7 @@
         "pepsico-q2-fy26",
         "pepsico-q3-fy23",
         "pepsico-q3-fy25",
+        "pepsico-q3-fy26",
         "pepsico-q4-fy23",
         "pepsico-q4-fy24",
         "pepsico-q4-fy25"
@@ -12896,6 +13489,7 @@
         "pepsico-q2-fy26",
         "pepsico-q3-fy23",
         "pepsico-q3-fy25",
+        "pepsico-q3-fy26",
         "pepsico-q4-fy23",
         "pepsico-q4-fy24",
         "pepsico-q4-fy25"
@@ -12913,6 +13507,7 @@
         "pepsico-q2-fy25",
         "pepsico-q2-fy26",
         "pepsico-q3-fy25",
+        "pepsico-q3-fy26",
         "pepsico-q4-fy25"
       ],
       "consumers": [
@@ -12921,6 +13516,7 @@
         "pepsico-q2-fy25",
         "pepsico-q2-fy26",
         "pepsico-q3-fy25",
+        "pepsico-q3-fy26",
         "pepsico-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -12999,6 +13595,7 @@
         "pepsico-q2-fy26",
         "pepsico-q3-fy23",
         "pepsico-q3-fy25",
+        "pepsico-q3-fy26",
         "pepsico-q4-fy23",
         "pepsico-q4-fy24",
         "pepsico-q4-fy25"
@@ -13013,6 +13610,7 @@
         "pepsico-q2-fy26",
         "pepsico-q3-fy23",
         "pepsico-q3-fy25",
+        "pepsico-q3-fy26",
         "pepsico-q4-fy23",
         "pepsico-q4-fy24",
         "pepsico-q4-fy25"
@@ -13034,6 +13632,7 @@
         "pepsico-q2-fy26",
         "pepsico-q3-fy23",
         "pepsico-q3-fy25",
+        "pepsico-q3-fy26",
         "pepsico-q4-fy23",
         "pepsico-q4-fy24",
         "pepsico-q4-fy25"
@@ -13048,6 +13647,7 @@
         "pepsico-q2-fy26",
         "pepsico-q3-fy23",
         "pepsico-q3-fy25",
+        "pepsico-q3-fy26",
         "pepsico-q4-fy23",
         "pepsico-q4-fy24",
         "pepsico-q4-fy25"
@@ -13062,12 +13662,14 @@
       "directConsumers": [
         "pepsico-q1-fy25",
         "pepsico-q2-fy25",
-        "pepsico-q2-fy26"
+        "pepsico-q2-fy26",
+        "pepsico-q3-fy26"
       ],
       "consumers": [
         "pepsico-q1-fy25",
         "pepsico-q2-fy25",
-        "pepsico-q2-fy26"
+        "pepsico-q2-fy26",
+        "pepsico-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -13206,6 +13808,7 @@
         "pepsico-q2-fy26",
         "pepsico-q3-fy23",
         "pepsico-q3-fy25",
+        "pepsico-q3-fy26",
         "pepsico-q4-fy23",
         "pepsico-q4-fy24",
         "pepsico-q4-fy25"
@@ -13220,6 +13823,7 @@
         "pepsico-q2-fy26",
         "pepsico-q3-fy23",
         "pepsico-q3-fy25",
+        "pepsico-q3-fy26",
         "pepsico-q4-fy23",
         "pepsico-q4-fy24",
         "pepsico-q4-fy25"
@@ -13702,11 +14306,26 @@
       ],
       "directConsumers": [
         "rivian-q1-fy26",
-        "rivian-q2-fy26"
+        "rivian-q2-fy26",
+        "rivian-q3-fy26"
       ],
       "consumers": [
         "rivian-q1-fy26",
-        "rivian-q2-fy26"
+        "rivian-q2-fy26",
+        "rivian-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/rivian/logo-q3-fy26.png",
+      "digest": "sha256:8630f6734dae25ee53e25daf2b11f139cdb623d1dcf940077af496d26e3e9039",
+      "provenance": [],
+      "directConsumers": [
+        "rivian-q3-fy26"
+      ],
+      "consumers": [
+        "rivian-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -16234,10 +16853,12 @@
         }
       ],
       "directConsumers": [
+        "sandisk-q1-fy27",
         "sandisk-q2-fy26",
         "sandisk-q4-fy26"
       ],
       "consumers": [
+        "sandisk-q1-fy27",
         "sandisk-q2-fy26",
         "sandisk-q4-fy26"
       ],
@@ -16256,10 +16877,12 @@
         }
       ],
       "directConsumers": [
+        "sandisk-q1-fy27",
         "sandisk-q2-fy26",
         "sandisk-q4-fy26"
       ],
       "consumers": [
+        "sandisk-q1-fy27",
         "sandisk-q2-fy26",
         "sandisk-q4-fy26"
       ],
@@ -16278,10 +16901,12 @@
         }
       ],
       "directConsumers": [
+        "sandisk-q1-fy27",
         "sandisk-q2-fy26",
         "sandisk-q4-fy26"
       ],
       "consumers": [
+        "sandisk-q1-fy27",
         "sandisk-q2-fy26",
         "sandisk-q4-fy26"
       ],
@@ -16300,10 +16925,12 @@
         }
       ],
       "directConsumers": [
+        "sandisk-q1-fy27",
         "sandisk-q2-fy26",
         "sandisk-q4-fy26"
       ],
       "consumers": [
+        "sandisk-q1-fy27",
         "sandisk-q2-fy26",
         "sandisk-q4-fy26"
       ],
@@ -16526,6 +17153,32 @@
       ],
       "consumers": [
         "sanofi-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/sap/company-logo-q3-fy26.png",
+      "digest": "sha256:f2991d109dce0c09758e6f3c6b4511de88b0e22672fb0cddd8345939744634a5",
+      "provenance": [],
+      "directConsumers": [
+        "sap-q3-fy26"
+      ],
+      "consumers": [
+        "sap-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/schwab/logo-q3-fy26.png",
+      "digest": "sha256:fad1b798a59810e1d5e3bd211bb3f5652a989a8beae1d3ad877977d10a94f804",
+      "provenance": [],
+      "directConsumers": [
+        "schwab-q3-fy26"
+      ],
+      "consumers": [
+        "schwab-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -16859,6 +17512,19 @@
       "reusable": true
     },
     {
+      "path": "data/assets/raster-annotations/servicenow/company-wordmark-q3-fy26.png",
+      "digest": "sha256:58c5abb2ee1889694087697ce5f84806c100a1c6e69ceb554d2168a901a83eeb",
+      "provenance": [],
+      "directConsumers": [
+        "servicenow-q3-fy26"
+      ],
+      "consumers": [
+        "servicenow-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/shopify-q2-fy26/company-bag.png",
       "digest": "sha256:18beea4582d3bbf6c0c97db33174dfa9820a144a253b0946698509e7e879b861",
       "provenance": [],
@@ -16885,6 +17551,26 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/sk-hynix/company-logo-q3-fy26.png",
+      "digest": "sha256:704d452d46e1280e4c213e68cecf09265b3e67fd9e56faeee2437d4683606692",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/sk-hynix-q3-fy26.json",
+          "recipeDigest": "sha256:c2f008077f178ad3bf5ff5bcc856836de6ae9149cd35af9692592f4fd5e4f7d9",
+          "source": "input/processing/sk-hynix-q3-fy26.png",
+          "cropKey": "sk-hynix-company-logo-q3-fy26"
+        }
+      ],
+      "directConsumers": [
+        "sk-hynix-q3-fy26"
+      ],
+      "consumers": [
+        "sk-hynix-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/sofi/company-wordmark-q4-fy25.png",
       "digest": "sha256:fdf5413e5a944284d196a070c201cc9b2a57cc3b7e23444aa182417467621cca",
       "provenance": [
@@ -16898,11 +17584,13 @@
       "directConsumers": [
         "sofi-q1-fy26",
         "sofi-q2-fy26",
+        "sofi-q3-fy26",
         "sofi-q4-fy25"
       ],
       "consumers": [
         "sofi-q1-fy26",
         "sofi-q2-fy26",
+        "sofi-q3-fy26",
         "sofi-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -16915,11 +17603,13 @@
       "directConsumers": [
         "southwest-q1-fy26",
         "southwest-q2-fy26",
+        "southwest-q3-fy26",
         "southwest-q4-fy25"
       ],
       "consumers": [
         "southwest-q1-fy26",
         "southwest-q2-fy26",
+        "southwest-q3-fy26",
         "southwest-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -17228,6 +17918,26 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/t-mobile-us/logo-q3-fy26.png",
+      "digest": "sha256:b0df5b1b89b3433d014744936040c54b0cd2286804c7d587e19f316316955f9f",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/t-mobile-us-q3-fy26.json",
+          "recipeDigest": "sha256:78c9b44d33f39d51e73e83625fc990e06bbd29079d7dc9c78f503c4e4356fe71",
+          "source": "input/processed/t-mobile-us-q3-fy26.png",
+          "cropKey": "t-mobile-logo-q3-fy26"
+        }
+      ],
+      "directConsumers": [
+        "t-mobile-us-q3-fy26"
+      ],
+      "consumers": [
+        "t-mobile-us-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/take-two/company-logo.png",
       "digest": "sha256:fe2ecfe7d15f05be1eb336ae3fc4da3ae698a45d0839485bc5faac4e401540b4",
       "provenance": [
@@ -17463,6 +18173,45 @@
         "take-two-q4-fy23",
         "take-two-q4-fy25",
         "take-two-q4-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/teladoc/betterhelp-q3-fy26.png",
+      "digest": "sha256:3026597ca13f76bd83ff9b9df16f53162e756f3283c3cc589488e88890f5e490",
+      "provenance": [],
+      "directConsumers": [
+        "teladoc-q3-fy26"
+      ],
+      "consumers": [
+        "teladoc-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/teladoc/company-logo-q3-fy26.png",
+      "digest": "sha256:e317bdc2b78ebba6e8c89847dd867cad074d23f84800acfa07ef1a49fa78dcd1",
+      "provenance": [],
+      "directConsumers": [
+        "teladoc-q3-fy26"
+      ],
+      "consumers": [
+        "teladoc-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/teladoc/integrated-care-q3-fy26.png",
+      "digest": "sha256:6a03ee35ebd61866121f23b60ca148a2b61b0db90a0325bd70db190034aedbb6",
+      "provenance": [],
+      "directConsumers": [
+        "teladoc-q3-fy26"
+      ],
+      "consumers": [
+        "teladoc-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -17718,11 +18467,13 @@
       "directConsumers": [
         "texas-instruments-q1-fy26",
         "texas-instruments-q2-fy26",
+        "texas-instruments-q3-fy26",
         "texas-instruments-q4-fy25"
       ],
       "consumers": [
         "texas-instruments-q1-fy26",
         "texas-instruments-q2-fy26",
+        "texas-instruments-q3-fy26",
         "texas-instruments-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -17753,6 +18504,26 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/tilray/beverage-cans-q1-fy27.png",
+      "digest": "sha256:cc427be387395137a25ee303f84e3c5e2526e628cee114961a4d8bfc0d582987",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/tilray-q1-fy27.json",
+          "recipeDigest": "sha256:67db9667b8888390679a1ce51e5dca0986f5ee22b76031a3946cd6b3cbc82c1e",
+          "source": "input/processing/tilray-q1-fy27.png",
+          "cropKey": "beverage-cans-q1-fy27"
+        }
+      ],
+      "directConsumers": [
+        "tilray-q1-fy27"
+      ],
+      "consumers": [
+        "tilray-q1-fy27"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/tilray/cannabis-leaf.png",
       "digest": "sha256:5d4a1df0d763db5a26d646d39887f5fd4d617cc24d9dbc699f51feff9b0b107e",
       "provenance": [
@@ -17764,11 +18535,13 @@
         }
       ],
       "directConsumers": [
+        "tilray-q1-fy27",
         "tilray-q2-fy26",
         "tilray-q3-fy26",
         "tilray-q4-fy26"
       ],
       "consumers": [
+        "tilray-q1-fy27",
         "tilray-q2-fy26",
         "tilray-q3-fy26",
         "tilray-q4-fy26"
@@ -17805,6 +18578,26 @@
         "tilray-q2-fy26",
         "tilray-q3-fy26",
         "tilray-q4-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/tilray/tilray-logo-q1-fy27.png",
+      "digest": "sha256:2e05d1cabda4b938b6828db6cc8f4ec6c6211d72ad39c90ae6bfbddeec940a66",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/tilray-q1-fy27.json",
+          "recipeDigest": "sha256:67db9667b8888390679a1ce51e5dca0986f5ee22b76031a3946cd6b3cbc82c1e",
+          "source": "input/processing/tilray-q1-fy27.png",
+          "cropKey": "tilray-logo-q1-fy27"
+        }
+      ],
+      "directConsumers": [
+        "tilray-q1-fy27"
+      ],
+      "consumers": [
+        "tilray-q1-fy27"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -18014,12 +18807,74 @@
       "directConsumers": [
         "united-q1-fy26",
         "united-q2-fy26",
+        "united-q3-fy26",
         "united-q4-fy25"
       ],
       "consumers": [
         "united-q1-fy26",
         "united-q2-fy26",
+        "united-q3-fy26",
         "united-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/unitedhealth/company-wordmark-q3-fy26.png",
+      "digest": "sha256:c22eb405c00a391ed45dacc6268d9178ece846abd2840901b9f7204ab13744df",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/unitedhealth-q3-fy26.json",
+          "recipeDigest": "sha256:d8d00b78896108c33645b5d98a6b0c69852de4568e68e75d6b5de99ab228d170",
+          "source": "input/processed/unitedhealth-q3-fy26.png",
+          "cropKey": "company-wordmark-q3-fy26"
+        }
+      ],
+      "directConsumers": [
+        "unitedhealth-q3-fy26"
+      ],
+      "consumers": [
+        "unitedhealth-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/unitedhealth/optum-logo-q3-fy26.png",
+      "digest": "sha256:8e6b4a91566322919c101d163a104a89e8deb6b583bd9e71aadaeb1f4efa1dab",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/unitedhealth-q3-fy26.json",
+          "recipeDigest": "sha256:d8d00b78896108c33645b5d98a6b0c69852de4568e68e75d6b5de99ab228d170",
+          "source": "input/processed/unitedhealth-q3-fy26.png",
+          "cropKey": "optum-logo-q3-fy26"
+        }
+      ],
+      "directConsumers": [
+        "unitedhealth-q3-fy26"
+      ],
+      "consumers": [
+        "unitedhealth-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/unitedhealth/uhc-logo-q3-fy26.png",
+      "digest": "sha256:d1f1a2977790ca922dedbbd3c2c3acf1701681d13d72c13c1c0f1a7ceb4888b1",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/unitedhealth-q3-fy26.json",
+          "recipeDigest": "sha256:d8d00b78896108c33645b5d98a6b0c69852de4568e68e75d6b5de99ab228d170",
+          "source": "input/processed/unitedhealth-q3-fy26.png",
+          "cropKey": "uhc-logo-q3-fy26"
+        }
+      ],
+      "directConsumers": [
+        "unitedhealth-q3-fy26"
+      ],
+      "consumers": [
+        "unitedhealth-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -18247,6 +19102,58 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/ups/globe-q3-fy26.png",
+      "digest": "sha256:02b9f398bb5f7135817f77d0894924c4ed4c7b2d9b94e521a9c3ab3e20ca3d4c",
+      "provenance": [],
+      "directConsumers": [
+        "ups-q3-fy26"
+      ],
+      "consumers": [
+        "ups-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/ups/logo-q3-fy26.png",
+      "digest": "sha256:a15ddc36c96b4d6bb2f448c944e1f790c255af7833a0292a10360eb22ad910cf",
+      "provenance": [],
+      "directConsumers": [
+        "ups-q3-fy26"
+      ],
+      "consumers": [
+        "ups-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/ups/package-q3-fy26.png",
+      "digest": "sha256:5473e61b8576c47e10b4f19055694a8ce432d6c01f86d21207b1a8f1169a343f",
+      "provenance": [],
+      "directConsumers": [
+        "ups-q3-fy26"
+      ],
+      "consumers": [
+        "ups-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/ups/truck-q3-fy26.png",
+      "digest": "sha256:41101b260153f088f65fcaa5214844b00ccdafe191fbd4c23f2ec5a2a15d3720",
+      "provenance": [],
+      "directConsumers": [
+        "ups-q3-fy26"
+      ],
+      "consumers": [
+        "ups-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/vail-resorts/lift-gondola-q3-fy26.png",
       "digest": "sha256:886d61e2b2aa3dbf919c9e112adb6787646749ad54e463c02b242eb3085a10b1",
       "provenance": [
@@ -18362,6 +19269,46 @@
         "vail-resorts-fy26",
         "vail-resorts-q2-fy26",
         "vail-resorts-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/verizon/logo-q3-fy26.png",
+      "digest": "sha256:a2312175f27f1b17c4fa159754aac5cd5b7d5a9e47b7e2fde4d5114eb5538d05",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/verizon-q3-fy26.json",
+          "recipeDigest": "sha256:036a1d7f84bf34556631bbb1d40324e6f501011e367643dd49d70b215ff489a7",
+          "source": "input/processing/verizon-q3-fy26.png",
+          "cropKey": "verizon-logo-q3-fy26"
+        }
+      ],
+      "directConsumers": [
+        "verizon-q3-fy26"
+      ],
+      "consumers": [
+        "verizon-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/visa/logo-q4-fy26.png",
+      "digest": "sha256:4fa7931d8bc7e1b5bb308c334ff7606f4362f523b4861bf66952ba5abf310a90",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/visa-q4-fy26.json",
+          "recipeDigest": "sha256:dd978ad6ade6b9396865c44ca3cf9e5473c11273e6bbfa41ac11270bd7052235",
+          "source": "input/processing/visa-q4-fy26.png",
+          "cropKey": "visa-logo-q4-fy26"
+        }
+      ],
+      "directConsumers": [
+        "visa-q4-fy26"
+      ],
+      "consumers": [
+        "visa-q4-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -18772,6 +19719,26 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/wells-fargo/logo-q3-fy26.png",
+      "digest": "sha256:4ee4b8c0c7fcf68074c499198edf093a83e32294787af6616bdb706b747effd7",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/wells-fargo-q3-fy26.json",
+          "recipeDigest": "sha256:c79a1822fa3c289aaf553649833eed7be54a509478e08baf1b147626e92175f7",
+          "source": "input/processed/wells-fargo-q3-fy26.png",
+          "cropKey": "logo-q3-fy26"
+        }
+      ],
+      "directConsumers": [
+        "wells-fargo-q3-fy26"
+      ],
+      "consumers": [
+        "wells-fargo-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/workday/company-logo-q2-fy27.png",
       "digest": "sha256:b952d7909c7a06c794e09faf68f387ba9563555effba0d07b4f4b0c563253f57",
       "provenance": [
@@ -19093,6 +20060,11 @@
       "source": "input/processed/abbvie-q4-fy25.png"
     },
     {
+      "path": "input/icon-crop-specs/accenture-q4-fy26.json",
+      "digest": "sha256:d58f633c787a39b240253f1be32e6ce186b5ffc9a8e265e2c6f01c80a8b08fb3",
+      "source": "input/processed/accenture-q4-fy26.png"
+    },
+    {
       "path": "input/icon-crop-specs/adidas-q3-fy25.json",
       "digest": "sha256:f37a6c166172dc132546591f79d2425e3ac1f52891e2016536afa82d2cee1376",
       "source": "input/processed/adidas-q3-fy25.png"
@@ -19273,6 +20245,11 @@
       "source": "input/processing/astera-labs-q2-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/astrazeneca-q3-fy26.json",
+      "digest": "sha256:df1f397e0b3f73f3e747ad5e147f74df56044b856f1c367582b483ef51b3c356",
+      "source": "input/processing/astrazeneca-q3-fy26.png"
+    },
+    {
       "path": "input/icon-crop-specs/astrazeneca-q4-fy25.json",
       "digest": "sha256:81ff2b5d91cbf8d410ef9346c93e08601f224d9c9b297d773b6468ada0e607e3",
       "source": "input/processed/astrazeneca-q4-fy25.png"
@@ -19301,6 +20278,11 @@
       "path": "input/icon-crop-specs/axon-q4-fy25.json",
       "digest": "sha256:084fd23a8603dcb7c7d1a4fd327143819ef255c39439baedfd1f083753ea0df5",
       "source": "input/processed/axon-q4-fy25.png"
+    },
+    {
+      "path": "input/icon-crop-specs/bank-of-america-q3-fy26.json",
+      "digest": "sha256:606ac5b9a86ebf4112d1c28fbcb2c4f855ab57630cb49183f027c39a640f2dc2",
+      "source": "input/processed/bank-of-america-q3-fy26.png"
     },
     {
       "path": "input/icon-crop-specs/berkshire-hathaway-q1-fy26.json",
@@ -19353,6 +20335,11 @@
       "source": "input/processed/booking-q4-fy25.png"
     },
     {
+      "path": "input/icon-crop-specs/braze-q2-fy27.json",
+      "digest": "sha256:1e3134a1dd601234d8e2f8bd3e859ffcd8d12cee83130b554b01f33f70ce5706",
+      "source": "input/processed/braze-q2-fy27.png"
+    },
+    {
       "path": "input/icon-crop-specs/broadcom-q2-fy26.json",
       "digest": "sha256:6b463cbe097807dd3443a5e5bd4da33b375c8b319bb837fa4ecfe67ec709a0ea",
       "source": "input/processed/broadcom-q2-fy26.png"
@@ -19366,6 +20353,11 @@
       "path": "input/icon-crop-specs/byd-fy23.json",
       "digest": "sha256:d5a0727178c45a5fcda443aeedffa4a18248f8a62514ee5d4414f0dd06625c7d",
       "source": "input/processing/byd-fy23.png"
+    },
+    {
+      "path": "input/icon-crop-specs/cadence-q3-fy26.json",
+      "digest": "sha256:631708e014152e6a1b2cb347cbbd0a18906be496a26bdd1b62089ca399448934",
+      "source": "input/processed/cadence-q3-fy26.png"
     },
     {
       "path": "input/icon-crop-specs/carnival-q2-fy26.json",
@@ -19436,6 +20428,11 @@
       "path": "input/icon-crop-specs/cisco-q4-fy26.json",
       "digest": "sha256:264f21b524b4d84a19662cd105317c052875cd722ac8171c9763f750a672e5b4",
       "source": "input/processed/cisco-q4-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/citigroup-q3-fy26.json",
+      "digest": "sha256:dc348bef57235ed245e11ce8f415f1d0df98e8592e7fb5186fe3390958d46533",
+      "source": "input/processing/citigroup-q3-fy26.png"
     },
     {
       "path": "input/icon-crop-specs/cloudflare-q1-fy26.json",
@@ -19546,6 +20543,11 @@
       "path": "input/icon-crop-specs/docebo-q2-fy26-company-logo.json",
       "digest": "sha256:a5689c008cc58e32f3dbb30dccfef454a2b00c83b66bdbcefb5feadd4e5c0e85",
       "source": "input/processing/docebo-q2-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/domino-s-q3-fy26.json",
+      "digest": "sha256:13b7e21a73939c8aa3064467db317de03d5ade6280fc65ebf96c689960f6264d",
+      "source": "input/processed/domino-s-q3-fy26.png"
     },
     {
       "path": "input/icon-crop-specs/doordash-q2-fy26.json",
@@ -19753,6 +20755,11 @@
       "source": "input/processed/ibm-q1-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/intel-q3-fy26.json",
+      "digest": "sha256:129a80a0d343634a21edd355a5f9b0a8fc80caa8e95bd3e5b1585b2cbbd87191",
+      "source": "input/processing/intel-q3-fy26.png"
+    },
+    {
       "path": "input/icon-crop-specs/intuit-q3-fy26.json",
       "digest": "sha256:5a7152c5d6a306300a5dd94ce42bc918a3909a9a97f498dee36578623fb9126d",
       "source": "input/processed/intuit-q3-fy26.png"
@@ -19781,6 +20788,11 @@
       "path": "input/icon-crop-specs/jd-com-q1-fy26.json",
       "digest": "sha256:914617360fb0b27f19e48396d40b33113ce7bce6ef31c9db60819bd88193ccc5",
       "source": "input/processed/jd-com-q1-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/kla-q1-fy27.json",
+      "digest": "sha256:8fd498c1db313c058c1b732d41e2c261bac4c131152bacf7ed4fa2c177518245",
+      "source": "input/processed/kla-q1-fy27.png"
     },
     {
       "path": "input/icon-crop-specs/klarna-q2-fy26-company-logo.json",
@@ -19871,6 +20883,11 @@
       "path": "input/icon-crop-specs/marvell-q4-fy26.json",
       "digest": "sha256:7dbacc905657e7dabf31980be7de1b05f109ccdf27792d210ce3f7bd2aab9371",
       "source": "input/processed/marvell-q4-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/mastercard-q3-fy26.json",
+      "digest": "sha256:652f32a02dbc01dbf84b5862d621c8fc37084d8705711aae49a331a79dd922a6",
+      "source": "input/processing/mastercard-q3-fy26.png"
     },
     {
       "path": "input/icon-crop-specs/match-group-q1-fy26.json",
@@ -20458,6 +21475,11 @@
       "source": "input/processing/shopify-q2-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/sk-hynix-q3-fy26.json",
+      "digest": "sha256:c2f008077f178ad3bf5ff5bcc856836de6ae9149cd35af9692592f4fd5e4f7d9",
+      "source": "input/processing/sk-hynix-q3-fy26.png"
+    },
+    {
       "path": "input/icon-crop-specs/snap-q1-fy26.json",
       "digest": "sha256:16f0a1915ebb2f1ead883a3aad52f8f8b5f3e097fda36e477623cc5a17038602",
       "source": "input/processed/snap-q1-fy26.png"
@@ -20503,9 +21525,19 @@
       "source": "input/processed/synopsys-q2-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/t-mobile-us-q3-fy26.json",
+      "digest": "sha256:78c9b44d33f39d51e73e83625fc990e06bbd29079d7dc9c78f503c4e4356fe71",
+      "source": "input/processed/t-mobile-us-q3-fy26.png"
+    },
+    {
       "path": "input/icon-crop-specs/take-two-q3-fy26.json",
       "digest": "sha256:227292090565011b21ede105f2edcfcb985ad3594ab502ffa813f43380c52dad",
       "source": "input/processed/take-two-q3-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/teladoc-q3-fy26.json",
+      "digest": "sha256:7f8ef51292d32bbbc9e336d1b059152171623714edb2770b8930ac7e3a7120fc",
+      "source": "input/processed/teladoc-q3-fy26.png"
     },
     {
       "path": "input/icon-crop-specs/tencent-q1-fy24.json",
@@ -20538,6 +21570,11 @@
       "source": "input/processing/the-trade-desk-q2-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/tilray-q1-fy27.json",
+      "digest": "sha256:67db9667b8888390679a1ce51e5dca0986f5ee22b76031a3946cd6b3cbc82c1e",
+      "source": "input/processing/tilray-q1-fy27.png"
+    },
+    {
       "path": "input/icon-crop-specs/tilray-q2-fy26.json",
       "digest": "sha256:72382ebddbe7675664f42a1a8cfbed0f840f9cda9d3501a620dc374b7ad3f9ed",
       "source": "input/processed/tilray-q2-fy26.png"
@@ -20568,6 +21605,11 @@
       "source": "input/processed/united-q4-fy25.png"
     },
     {
+      "path": "input/icon-crop-specs/unitedhealth-q3-fy26.json",
+      "digest": "sha256:d8d00b78896108c33645b5d98a6b0c69852de4568e68e75d6b5de99ab228d170",
+      "source": "input/processed/unitedhealth-q3-fy26.png"
+    },
+    {
       "path": "input/icon-crop-specs/unity-q4-fy22.json",
       "digest": "sha256:4d6dfc22bcd21c067a5f944e4e7eee730db0b927ca0541f7243d0b8f86591617",
       "source": "input/processed/unity-q4-fy22.png"
@@ -20576,6 +21618,16 @@
       "path": "input/icon-crop-specs/vail-resorts-q3-fy26.json",
       "digest": "sha256:5f48921c8ea5bb6500a9ae8ac399a5dbad122967724c536ee86b4e072d39bc0a",
       "source": "input/processed/vail-resorts-q3-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/verizon-q3-fy26.json",
+      "digest": "sha256:036a1d7f84bf34556631bbb1d40324e6f501011e367643dd49d70b215ff489a7",
+      "source": "input/processing/verizon-q3-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/visa-q4-fy26.json",
+      "digest": "sha256:dd978ad6ade6b9396865c44ca3cf9e5473c11273e6bbfa41ac11270bd7052235",
+      "source": "input/processing/visa-q4-fy26.png"
     },
     {
       "path": "input/icon-crop-specs/walmart-q1-fy27.json",
@@ -20601,6 +21653,11 @@
       "path": "input/icon-crop-specs/wealthfront-q2-fy27.json",
       "digest": "sha256:313f4b7a114768bbf8686d1c6a82cb14fbfe3919a598e8317df064849fbcd6ff",
       "source": "input/processing/wealthfront-q2-fy27.png"
+    },
+    {
+      "path": "input/icon-crop-specs/wells-fargo-q3-fy26.json",
+      "digest": "sha256:c79a1822fa3c289aaf553649833eed7be54a509478e08baf1b147626e92175f7",
+      "source": "input/processed/wells-fargo-q3-fy26.png"
     },
     {
       "path": "input/icon-crop-specs/workday-q1-fy27.json",

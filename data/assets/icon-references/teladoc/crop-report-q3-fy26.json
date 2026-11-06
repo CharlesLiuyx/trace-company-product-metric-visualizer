@@ -1,0 +1,296 @@
+{
+  "source": "input/processed/teladoc-q3-fy26.png",
+  "spec": "input/icon-crop-specs/teladoc-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T14:13:36.292499+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/teladoc",
+  "crops": [
+    {
+      "key": "company-logo-q3-fy26",
+      "output": "data/assets/icon-references/teladoc/crops/company-logo-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3397,
+        "losslessBytes": 16135,
+        "savingsVsLossless": 0.7895,
+        "metrics": {
+          "meanAbsoluteError": 0.409,
+          "rootMeanSquareError": 2.085,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 46,
+          "changedPixelRatio": 0.2766
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 50333,
+        "transparentPixelRatio": 0.6942
+      },
+      "searchBox": {
+        "x": 587,
+        "y": 271,
+        "width": 456,
+        "height": 159
+      },
+      "componentCount": 14,
+      "subjectBox": {
+        "x0": 596,
+        "y0": 281,
+        "x1": 1040,
+        "y1": 426
+      },
+      "cropBox": {
+        "x0": 587,
+        "y0": 271,
+        "x1": 1043,
+        "y1": 430
+      },
+      "validation": {
+        "width": 456,
+        "height": 159,
+        "foregroundPixels": 19345,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 9,
+          "right": 3,
+          "top": 10,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": 0.0066,
+          "y": 0.0189
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/teladoc/company-logo-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3397,
+        "losslessBytes": 16135,
+        "savingsVsLossless": 0.7895,
+        "metrics": {
+          "meanAbsoluteError": 0.409,
+          "rootMeanSquareError": 2.085,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 46,
+          "changedPixelRatio": 0.2766
+        }
+      }
+    },
+    {
+      "key": "integrated-care-q3-fy26",
+      "output": "data/assets/icon-references/teladoc/crops/integrated-care-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1765,
+        "losslessBytes": 12191,
+        "savingsVsLossless": 0.8552,
+        "metrics": {
+          "meanAbsoluteError": 0.8983,
+          "rootMeanSquareError": 2.6256,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 53,
+          "changedPixelRatio": 0.6921
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 7831,
+        "transparentPixelRatio": 0.3098
+      },
+      "searchBox": {
+        "x": 103,
+        "y": 362,
+        "width": 159,
+        "height": 159
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 108,
+        "y0": 367,
+        "x1": 255,
+        "y1": 518
+      },
+      "cropBox": {
+        "x0": 103,
+        "y0": 362,
+        "x1": 262,
+        "y1": 521
+      },
+      "validation": {
+        "width": 159,
+        "height": 159,
+        "foregroundPixels": 12391,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 5,
+          "right": 7,
+          "top": 5,
+          "bottom": 3
+        },
+        "centerOffset": {
+          "x": -0.0063,
+          "y": 0.0063
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/teladoc/integrated-care-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1765,
+        "losslessBytes": 12191,
+        "savingsVsLossless": 0.8552,
+        "metrics": {
+          "meanAbsoluteError": 0.8983,
+          "rootMeanSquareError": 2.6256,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 53,
+          "changedPixelRatio": 0.6921
+        }
+      }
+    },
+    {
+      "key": "betterhelp-q3-fy26",
+      "output": "data/assets/icon-references/teladoc/crops/betterhelp-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 3004,
+        "losslessBytes": 13634,
+        "savingsVsLossless": 0.7797,
+        "metrics": {
+          "meanAbsoluteError": 0.274,
+          "rootMeanSquareError": 1.1969,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 16,
+          "changedPixelRatio": 0.2192
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 30220,
+        "transparentPixelRatio": 0.7401
+      },
+      "searchBox": {
+        "x": 20,
+        "y": 871,
+        "width": 319,
+        "height": 128
+      },
+      "componentCount": 11,
+      "subjectBox": {
+        "x0": 27,
+        "y0": 876,
+        "x1": 336,
+        "y1": 996
+      },
+      "cropBox": {
+        "x0": 20,
+        "y0": 871,
+        "x1": 339,
+        "y1": 999
+      },
+      "validation": {
+        "width": 319,
+        "height": 128,
+        "foregroundPixels": 9923,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 3,
+          "top": 5,
+          "bottom": 3
+        },
+        "centerOffset": {
+          "x": 0.0063,
+          "y": 0.0078
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/teladoc/betterhelp-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 3004,
+        "losslessBytes": 13634,
+        "savingsVsLossless": 0.7797,
+        "metrics": {
+          "meanAbsoluteError": 0.274,
+          "rootMeanSquareError": 1.1969,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 16,
+          "changedPixelRatio": 0.2192
+        }
+      }
+    }
+  ]
+}

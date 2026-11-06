@@ -1,0 +1,196 @@
+{
+  "source": "input/processing/tilray-q1-fy27.png",
+  "spec": "input/icon-crop-specs/tilray-q1-fy27.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T14:18:00.095000+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/tilray",
+  "crops": [
+    {
+      "key": "beverage-cans-q1-fy27",
+      "output": "data/assets/icon-references/tilray/crops/beverage-cans-q1-fy27.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 30582,
+        "losslessBytes": 30582,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 7437,
+        "transparentPixelRatio": 0.3355
+      },
+      "searchBox": {
+        "x": 154,
+        "y": 365,
+        "width": 163,
+        "height": 136
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 166,
+        "y0": 376,
+        "x1": 304,
+        "y1": 494
+      },
+      "cropBox": {
+        "x0": 154,
+        "y0": 365,
+        "x1": 317,
+        "y1": 501
+      },
+      "validation": {
+        "width": 163,
+        "height": 136,
+        "foregroundPixels": 13276,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 12,
+          "right": 13,
+          "top": 11,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": -0.0031,
+          "y": 0.0147
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/tilray/beverage-cans-q1-fy27.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 30582,
+        "losslessBytes": 30582,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "tilray-logo-q1-fy27",
+      "output": "data/assets/icon-references/tilray/crops/tilray-logo-q1-fy27.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 6847,
+        "losslessBytes": 29395,
+        "savingsVsLossless": 0.7671,
+        "metrics": {
+          "meanAbsoluteError": 0.3356,
+          "rootMeanSquareError": 1.7845,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 48,
+          "changedPixelRatio": 0.1344
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 73095,
+        "transparentPixelRatio": 0.5919
+      },
+      "searchBox": {
+        "x": 560,
+        "y": 255,
+        "width": 650,
+        "height": 190
+      },
+      "componentCount": 13,
+      "subjectBox": {
+        "x0": 571,
+        "y0": 267,
+        "x1": 1198,
+        "y1": 438
+      },
+      "cropBox": {
+        "x0": 560,
+        "y0": 255,
+        "x1": 1210,
+        "y1": 445
+      },
+      "validation": {
+        "width": 650,
+        "height": 190,
+        "foregroundPixels": 46705,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 11,
+          "right": 12,
+          "top": 12,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": -0.0008,
+          "y": 0.0132
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/tilray/tilray-logo-q1-fy27.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 6847,
+        "losslessBytes": 29395,
+        "savingsVsLossless": 0.7671,
+        "metrics": {
+          "meanAbsoluteError": 0.3356,
+          "rootMeanSquareError": 1.7845,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 48,
+          "changedPixelRatio": 0.1344
+        }
+      }
+    }
+  ]
+}

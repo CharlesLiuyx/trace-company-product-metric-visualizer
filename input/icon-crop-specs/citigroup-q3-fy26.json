@@ -1,0 +1,39 @@
+{
+  "source": "input/processing/citigroup-q3-fy26.png",
+  "outputDir": "data/assets/icon-references/citigroup",
+  "runtimeOutputDir": "data/assets/raster-annotations/citigroup",
+  "validationSheetDir": "data/assets/icon-references/citigroup/validation-sheets",
+  "report": "crop-report-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "citi-logo-q3-fy26",
+      "output": "crops/company-logo-q3-fy26.png",
+      "runtimeOutput": "company-logo-q3-fy26.png",
+      "cropBox": {
+        "x": 940,
+        "y": 245,
+        "width": 285,
+        "height": 190
+      },
+      "searchBox": {
+        "x": 940,
+        "y": 245,
+        "width": 285,
+        "height": 190
+      },
+      "threshold": 18,
+      "minComponentArea": 30,
+      "note": "Citi company logo only; excludes Revenue label and title."
+    }
+  ]
+}

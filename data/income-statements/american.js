@@ -318,4 +318,261 @@
       },
     },
   });
+  ssot.records.push({
+  "key": "american-q3-fy26",
+  "company": "American Airlines",
+  "period": "Q3 FY26",
+  "periodNote": "",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/american-q3-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 16.3,
+    "notes": [
+      "+19% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "passenger",
+        "label": "Passenger",
+        "value": 14.9,
+        "notes": [
+          "+19% Y/Y"
+        ]
+      },
+      {
+        "id": "cargo",
+        "label": "Cargo",
+        "value": 0.3,
+        "notes": [
+          "+29% Y/Y"
+        ]
+      },
+      {
+        "id": "other_revenue",
+        "label": "Other",
+        "value": 1.2,
+        "notes": [
+          "+15% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue (not separately presented)",
+      "value": 0,
+      "notes": [
+        "The source infographic moves directly from revenue to operating profit and operating expenses."
+      ]
+    },
+    "operatingExpenses": {
+      "total": 16.2,
+      "items": [
+        {
+          "id": "salaries_benefits",
+          "label": "Salaries & benefits",
+          "value": 4.7
+        },
+        {
+          "id": "aircraft_fuel",
+          "label": "Aircraft fuel",
+          "value": 4.6
+        },
+        {
+          "id": "regional",
+          "label": "Regional",
+          "value": 1.4
+        },
+        {
+          "id": "maintenance",
+          "label": "Maintenance",
+          "value": 1.1
+        },
+        {
+          "id": "landing_fees",
+          "label": "Landing fees",
+          "value": 1.0
+        },
+        {
+          "id": "aircraft_rent",
+          "label": "Aircraft rent",
+          "value": 0.3
+        },
+        {
+          "id": "selling_expenses",
+          "label": "Selling expenses",
+          "value": 0.6
+        },
+        {
+          "id": "depreciation_amortization",
+          "label": "D&A",
+          "value": 0.5
+        },
+        {
+          "id": "other_operating",
+          "label": "Other",
+          "value": 2.0
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax (not separately presented)",
+      "value": 0
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0.4,
+    "items": [
+      {
+        "id": "other_expenses",
+        "label": "Other",
+        "value": 0.4
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit (not separately presented)",
+      "value": 16.3,
+      "notes": [
+        "Bookkeeping value for SSOT parity; the source infographic has no gross-profit stage."
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 0.1,
+      "notes": [
+        "1% margin",
+        "(0pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_loss",
+      "label": "Net loss",
+      "value": -0.3
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "periodNote": "",
+      "revenue": {
+        "notes": [
+          "同比 +19%"
+        ],
+        "items": [
+          {
+            "id": "passenger",
+            "label": "客运",
+            "notes": [
+              "同比 +19%"
+            ]
+          },
+          {
+            "id": "cargo",
+            "label": "货运",
+            "notes": [
+              "同比 +29%"
+            ]
+          },
+          {
+            "id": "other_revenue",
+            "label": "其他",
+            "notes": [
+              "同比 +15%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本（未单列）",
+          "notes": [
+            "来源信息图从收入直接拆分为营业利润和运营费用。"
+          ]
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "aircraft_fuel",
+              "label": "航空燃油"
+            },
+            {
+              "id": "salaries_benefits",
+              "label": "薪酬与福利"
+            },
+            {
+              "id": "regional",
+              "label": "支线业务"
+            },
+            {
+              "id": "maintenance",
+              "label": "维护"
+            },
+            {
+              "id": "landing_fees",
+              "label": "着陆费"
+            },
+            {
+              "id": "aircraft_rent",
+              "label": "飞机租赁"
+            },
+            {
+              "id": "selling_expenses",
+              "label": "销售费用"
+            },
+            {
+              "id": "depreciation_amortization",
+              "label": "折旧与摊销"
+            },
+            {
+              "id": "other_operating",
+              "label": "其他"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费（未单列）"
+        }
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other_expenses",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润（未单列）",
+          "notes": [
+            "用于 SSOT 对齐的账面值；来源信息图未展示毛利润阶段。"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 1%",
+            "同比 (0 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净亏损"
+        }
+      }
+    }
+  }
+});
 })(window);

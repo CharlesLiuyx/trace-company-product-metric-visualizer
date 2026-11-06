@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-10-29T16:57:05.758Z",
+  "generatedAt": "2026-11-06T14:19:27.266Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -12047,6 +12047,426 @@
       "path": "data/datasets/the-trade-desk-q4-fy24.js",
       "updatedAtMs": 1793292853750,
       "updatedAt": "2026-10-29T16:54:13.750Z",
+      "timeSource": "publication"
+    },
+    "abbott-q3-fy26": {
+      "path": "data/datasets/abbott-q3-fy26.js",
+      "updatedAtMs": 1793974324461,
+      "updatedAt": "2026-11-06T14:12:04.461Z",
+      "timeSource": "publication"
+    },
+    "abbvie-q3-fy26": {
+      "path": "data/datasets/abbvie-q3-fy26.js",
+      "updatedAtMs": 1793974308523,
+      "updatedAt": "2026-11-06T14:11:48.523Z",
+      "timeSource": "publication"
+    },
+    "accenture-q4-fy26": {
+      "path": "data/datasets/accenture-q4-fy26.js",
+      "updatedAtMs": 1793974259004,
+      "updatedAt": "2026-11-06T14:10:59.004Z",
+      "timeSource": "publication"
+    },
+    "airbus-q3-fy26": {
+      "path": "data/datasets/airbus-q3-fy26.js",
+      "updatedAtMs": 1793974398112,
+      "updatedAt": "2026-11-06T14:13:18.112Z",
+      "timeSource": "publication"
+    },
+    "align-q3-fy26": {
+      "path": "data/datasets/align-q3-fy26.js",
+      "updatedAtMs": 1793974316670,
+      "updatedAt": "2026-11-06T14:11:56.670Z",
+      "timeSource": "publication"
+    },
+    "american-express-q3-fy26": {
+      "path": "data/datasets/american-express-q3-fy26.js",
+      "updatedAtMs": 1793974606446,
+      "updatedAt": "2026-11-06T14:16:46.446Z",
+      "timeSource": "publication"
+    },
+    "american-q3-fy26": {
+      "path": "data/datasets/american-q3-fy26.js",
+      "updatedAtMs": 1793974362967,
+      "updatedAt": "2026-11-06T14:12:42.967Z",
+      "timeSource": "publication"
+    },
+    "appfolio-q3-fy26": {
+      "path": "data/datasets/appfolio-q3-fy26.js",
+      "updatedAtMs": 1793974508193,
+      "updatedAt": "2026-11-06T14:15:08.193Z",
+      "timeSource": "publication"
+    },
+    "asml-q3-fy26": {
+      "path": "data/datasets/asml-q3-fy26.js",
+      "updatedAtMs": 1793974589911,
+      "updatedAt": "2026-11-06T14:16:29.911Z",
+      "timeSource": "publication"
+    },
+    "astrazeneca-q3-fy26": {
+      "path": "data/datasets/astrazeneca-q3-fy26.js",
+      "updatedAtMs": 1793974306266,
+      "updatedAt": "2026-11-06T14:11:46.266Z",
+      "timeSource": "publication"
+    },
+    "at-t-q3-fy26": {
+      "path": "data/datasets/at-t-q3-fy26.js",
+      "updatedAtMs": 1793974557308,
+      "updatedAt": "2026-11-06T14:15:57.308Z",
+      "timeSource": "publication"
+    },
+    "bank-of-america-q3-fy26": {
+      "path": "data/datasets/bank-of-america-q3-fy26.js",
+      "updatedAtMs": 1793974639010,
+      "updatedAt": "2026-11-06T14:17:19.010Z",
+      "timeSource": "publication"
+    },
+    "blackrock-q3-fy26": {
+      "path": "data/datasets/blackrock-q3-fy26.js",
+      "updatedAtMs": 1793974421030,
+      "updatedAt": "2026-11-06T14:13:41.030Z",
+      "timeSource": "publication"
+    },
+    "boeing-q3-fy26": {
+      "path": "data/datasets/boeing-q3-fy26.js",
+      "updatedAtMs": 1793974427784,
+      "updatedAt": "2026-11-06T14:13:47.784Z",
+      "timeSource": "publication"
+    },
+    "braze-q2-fy27": {
+      "path": "data/datasets/braze-q2-fy27.js",
+      "updatedAtMs": 1793974254999,
+      "updatedAt": "2026-11-06T14:10:54.999Z",
+      "timeSource": "publication"
+    },
+    "cadence-q3-fy26": {
+      "path": "data/datasets/cadence-q3-fy26.js",
+      "updatedAtMs": 1793974650865,
+      "updatedAt": "2026-11-06T14:17:30.865Z",
+      "timeSource": "publication"
+    },
+    "chipotle-q3-fy26": {
+      "path": "data/datasets/chipotle-q3-fy26.js",
+      "updatedAtMs": 1793974284964,
+      "updatedAt": "2026-11-06T14:11:24.964Z",
+      "timeSource": "publication"
+    },
+    "citigroup-q3-fy26": {
+      "path": "data/datasets/citigroup-q3-fy26.js",
+      "updatedAtMs": 1793974482920,
+      "updatedAt": "2026-11-06T14:14:42.920Z",
+      "timeSource": "publication"
+    },
+    "coca-cola-q3-fy26": {
+      "path": "data/datasets/coca-cola-q3-fy26.js",
+      "updatedAtMs": 1793974353868,
+      "updatedAt": "2026-11-06T14:12:33.868Z",
+      "timeSource": "publication"
+    },
+    "coinbase-q3-fy26": {
+      "path": "data/datasets/coinbase-q3-fy26.js",
+      "updatedAtMs": 1793974410629,
+      "updatedAt": "2026-11-06T14:13:30.629Z",
+      "timeSource": "publication"
+    },
+    "comcast-q3-fy26": {
+      "path": "data/datasets/comcast-q3-fy26.js",
+      "updatedAtMs": 1793974632688,
+      "updatedAt": "2026-11-06T14:17:12.688Z",
+      "timeSource": "publication"
+    },
+    "delta-q3-fy26": {
+      "path": "data/datasets/delta-q3-fy26.js",
+      "updatedAtMs": 1793974371304,
+      "updatedAt": "2026-11-06T14:12:51.304Z",
+      "timeSource": "publication"
+    },
+    "domino-s-q3-fy26": {
+      "path": "data/datasets/domino-s-q3-fy26.js",
+      "updatedAtMs": 1793974295482,
+      "updatedAt": "2026-11-06T14:11:35.482Z",
+      "timeSource": "publication"
+    },
+    "eli-lilly-q3-fy26": {
+      "path": "data/datasets/eli-lilly-q3-fy26.js",
+      "updatedAtMs": 1793974325236,
+      "updatedAt": "2026-11-06T14:12:05.236Z",
+      "timeSource": "publication"
+    },
+    "etsy-q3-fy26": {
+      "path": "data/datasets/etsy-q3-fy26.js",
+      "updatedAtMs": 1793974257581,
+      "updatedAt": "2026-11-06T14:10:57.581Z",
+      "timeSource": "publication"
+    },
+    "fedex-q1-fy27": {
+      "path": "data/datasets/fedex-q1-fy27.js",
+      "updatedAtMs": 1793974272070,
+      "updatedAt": "2026-11-06T14:11:12.070Z",
+      "timeSource": "publication"
+    },
+    "fortinet-q3-fy26": {
+      "path": "data/datasets/fortinet-q3-fy26.js",
+      "updatedAtMs": 1793974489095,
+      "updatedAt": "2026-11-06T14:14:49.095Z",
+      "timeSource": "publication"
+    },
+    "ge-vernova-q3-fy26": {
+      "path": "data/datasets/ge-vernova-q3-fy26.js",
+      "updatedAtMs": 1793974274519,
+      "updatedAt": "2026-11-06T14:11:14.519Z",
+      "timeSource": "publication"
+    },
+    "goldman-sachs-q3-fy26": {
+      "path": "data/datasets/goldman-sachs-q3-fy26.js",
+      "updatedAtMs": 1793974475401,
+      "updatedAt": "2026-11-06T14:14:35.401Z",
+      "timeSource": "publication"
+    },
+    "hershey-q3-fy26": {
+      "path": "data/datasets/hershey-q3-fy26.js",
+      "updatedAtMs": 1793974341370,
+      "updatedAt": "2026-11-06T14:12:21.370Z",
+      "timeSource": "publication"
+    },
+    "hilton-q3-fy26": {
+      "path": "data/datasets/hilton-q3-fy26.js",
+      "updatedAtMs": 1793974297537,
+      "updatedAt": "2026-11-06T14:11:37.537Z",
+      "timeSource": "publication"
+    },
+    "ibm-q3-fy26": {
+      "path": "data/datasets/ibm-q3-fy26.js",
+      "updatedAtMs": 1793974498333,
+      "updatedAt": "2026-11-06T14:14:58.333Z",
+      "timeSource": "publication"
+    },
+    "intel-q3-fy26": {
+      "path": "data/datasets/intel-q3-fy26.js",
+      "updatedAtMs": 1793974562092,
+      "updatedAt": "2026-11-06T14:16:02.092Z",
+      "timeSource": "publication"
+    },
+    "intuitive-q3-fy26": {
+      "path": "data/datasets/intuitive-q3-fy26.js",
+      "updatedAtMs": 1793974335139,
+      "updatedAt": "2026-11-06T14:12:15.139Z",
+      "timeSource": "publication"
+    },
+    "j-j-q3-fy26": {
+      "path": "data/datasets/j-j-q3-fy26.js",
+      "updatedAtMs": 1793974328239,
+      "updatedAt": "2026-11-06T14:12:08.239Z",
+      "timeSource": "publication"
+    },
+    "jpmorganchase-q3-fy26": {
+      "path": "data/datasets/jpmorganchase-q3-fy26.js",
+      "updatedAtMs": 1793974501661,
+      "updatedAt": "2026-11-06T14:15:01.661Z",
+      "timeSource": "publication"
+    },
+    "kla-q1-fy27": {
+      "path": "data/datasets/kla-q1-fy27.js",
+      "updatedAtMs": 1793974617635,
+      "updatedAt": "2026-11-06T14:16:57.635Z",
+      "timeSource": "publication"
+    },
+    "lam-research-q1-fy27": {
+      "path": "data/datasets/lam-research-q1-fy27.js",
+      "updatedAtMs": 1793974549110,
+      "updatedAt": "2026-11-06T14:15:49.110Z",
+      "timeSource": "publication"
+    },
+    "lockheed-martin-q3-fy26": {
+      "path": "data/datasets/lockheed-martin-q3-fy26.js",
+      "updatedAtMs": 1793974394113,
+      "updatedAt": "2026-11-06T14:13:14.113Z",
+      "timeSource": "publication"
+    },
+    "mastercard-q3-fy26": {
+      "path": "data/datasets/mastercard-q3-fy26.js",
+      "updatedAtMs": 1793974536063,
+      "updatedAt": "2026-11-06T14:15:36.063Z",
+      "timeSource": "publication"
+    },
+    "merck-q3-fy26": {
+      "path": "data/datasets/merck-q3-fy26.js",
+      "updatedAtMs": 1793974315484,
+      "updatedAt": "2026-11-06T14:11:55.484Z",
+      "timeSource": "publication"
+    },
+    "mondelez-q3-fy26": {
+      "path": "data/datasets/mondelez-q3-fy26.js",
+      "updatedAtMs": 1793974357464,
+      "updatedAt": "2026-11-06T14:12:37.464Z",
+      "timeSource": "publication"
+    },
+    "moodys-q3-fy26": {
+      "path": "data/datasets/moodys-q3-fy26.js",
+      "updatedAtMs": 1793974383988,
+      "updatedAt": "2026-11-06T14:13:03.988Z",
+      "timeSource": "publication"
+    },
+    "morgan-stanley-q3-fy26": {
+      "path": "data/datasets/morgan-stanley-q3-fy26.js",
+      "updatedAtMs": 1793974516784,
+      "updatedAt": "2026-11-06T14:15:16.784Z",
+      "timeSource": "publication"
+    },
+    "nike-q1-fy27": {
+      "path": "data/datasets/nike-q1-fy27.js",
+      "updatedAtMs": 1793974277896,
+      "updatedAt": "2026-11-06T14:11:17.896Z",
+      "timeSource": "publication"
+    },
+    "novartis-q3-fy26": {
+      "path": "data/datasets/novartis-q3-fy26.js",
+      "updatedAtMs": 1793974322673,
+      "updatedAt": "2026-11-06T14:12:02.673Z",
+      "timeSource": "publication"
+    },
+    "p-g-q1-fy27": {
+      "path": "data/datasets/p-g-q1-fy27.js",
+      "updatedAtMs": 1793974288729,
+      "updatedAt": "2026-11-06T14:11:28.729Z",
+      "timeSource": "publication"
+    },
+    "paypal-q3-fy26": {
+      "path": "data/datasets/paypal-q3-fy26.js",
+      "updatedAtMs": 1793974415227,
+      "updatedAt": "2026-11-06T14:13:35.227Z",
+      "timeSource": "publication"
+    },
+    "pepsico-q3-fy26": {
+      "path": "data/datasets/pepsico-q3-fy26.js",
+      "updatedAtMs": 1793974346158,
+      "updatedAt": "2026-11-06T14:12:26.158Z",
+      "timeSource": "publication"
+    },
+    "rivian-q3-fy26": {
+      "path": "data/datasets/rivian-q3-fy26.js",
+      "updatedAtMs": 1793974627895,
+      "updatedAt": "2026-11-06T14:17:07.895Z",
+      "timeSource": "publication"
+    },
+    "robinhood-q3-fy26": {
+      "path": "data/datasets/robinhood-q3-fy26.js",
+      "updatedAtMs": 1793974436257,
+      "updatedAt": "2026-11-06T14:13:56.257Z",
+      "timeSource": "publication"
+    },
+    "samsung-q3-fy26": {
+      "path": "data/datasets/samsung-q3-fy26.js",
+      "updatedAtMs": 1793974671327,
+      "updatedAt": "2026-11-06T14:17:51.327Z",
+      "timeSource": "publication"
+    },
+    "sandisk-q1-fy27": {
+      "path": "data/datasets/sandisk-q1-fy27.js",
+      "updatedAtMs": 1793974676474,
+      "updatedAt": "2026-11-06T14:17:56.474Z",
+      "timeSource": "publication"
+    },
+    "sap-q3-fy26": {
+      "path": "data/datasets/sap-q3-fy26.js",
+      "updatedAtMs": 1793974643171,
+      "updatedAt": "2026-11-06T14:17:23.171Z",
+      "timeSource": "publication"
+    },
+    "schwab-q3-fy26": {
+      "path": "data/datasets/schwab-q3-fy26.js",
+      "updatedAtMs": 1793974466455,
+      "updatedAt": "2026-11-06T14:14:26.455Z",
+      "timeSource": "publication"
+    },
+    "servicenow-q3-fy26": {
+      "path": "data/datasets/servicenow-q3-fy26.js",
+      "updatedAtMs": 1793974767266,
+      "updatedAt": "2026-11-06T14:19:27.266Z",
+      "timeSource": "publication"
+    },
+    "sk-hynix-q3-fy26": {
+      "path": "data/datasets/sk-hynix-q3-fy26.js",
+      "updatedAtMs": 1793974601431,
+      "updatedAt": "2026-11-06T14:16:41.431Z",
+      "timeSource": "publication"
+    },
+    "sofi-q3-fy26": {
+      "path": "data/datasets/sofi-q3-fy26.js",
+      "updatedAtMs": 1793974440272,
+      "updatedAt": "2026-11-06T14:14:00.272Z",
+      "timeSource": "publication"
+    },
+    "southwest-q3-fy26": {
+      "path": "data/datasets/southwest-q3-fy26.js",
+      "updatedAtMs": 1793974377235,
+      "updatedAt": "2026-11-06T14:12:57.235Z",
+      "timeSource": "publication"
+    },
+    "t-mobile-us-q3-fy26": {
+      "path": "data/datasets/t-mobile-us-q3-fy26.js",
+      "updatedAtMs": 1793974542071,
+      "updatedAt": "2026-11-06T14:15:42.071Z",
+      "timeSource": "publication"
+    },
+    "teladoc-q3-fy26": {
+      "path": "data/datasets/teladoc-q3-fy26.js",
+      "updatedAtMs": 1793974304787,
+      "updatedAt": "2026-11-06T14:11:44.787Z",
+      "timeSource": "publication"
+    },
+    "texas-instruments-q3-fy26": {
+      "path": "data/datasets/texas-instruments-q3-fy26.js",
+      "updatedAtMs": 1793974611941,
+      "updatedAt": "2026-11-06T14:16:51.941Z",
+      "timeSource": "publication"
+    },
+    "tilray-q1-fy27": {
+      "path": "data/datasets/tilray-q1-fy27.js",
+      "updatedAtMs": 1793974272714,
+      "updatedAt": "2026-11-06T14:11:12.714Z",
+      "timeSource": "publication"
+    },
+    "tsmc-q3-fy26": {
+      "path": "data/datasets/tsmc-q3-fy26.js",
+      "updatedAtMs": 1793974594802,
+      "updatedAt": "2026-11-06T14:16:34.802Z",
+      "timeSource": "publication"
+    },
+    "united-q3-fy26": {
+      "path": "data/datasets/united-q3-fy26.js",
+      "updatedAtMs": 1793974388217,
+      "updatedAt": "2026-11-06T14:13:08.217Z",
+      "timeSource": "publication"
+    },
+    "unitedhealth-q3-fy26": {
+      "path": "data/datasets/unitedhealth-q3-fy26.js",
+      "updatedAtMs": 1793974336551,
+      "updatedAt": "2026-11-06T14:12:16.551Z",
+      "timeSource": "publication"
+    },
+    "ups-q3-fy26": {
+      "path": "data/datasets/ups-q3-fy26.js",
+      "updatedAtMs": 1793974364201,
+      "updatedAt": "2026-11-06T14:12:44.201Z",
+      "timeSource": "publication"
+    },
+    "verizon-q3-fy26": {
+      "path": "data/datasets/verizon-q3-fy26.js",
+      "updatedAtMs": 1793974622763,
+      "updatedAt": "2026-11-06T14:17:02.763Z",
+      "timeSource": "publication"
+    },
+    "visa-q4-fy26": {
+      "path": "data/datasets/visa-q4-fy26.js",
+      "updatedAtMs": 1793974524342,
+      "updatedAt": "2026-11-06T14:15:24.342Z",
+      "timeSource": "publication"
+    },
+    "wells-fargo-q3-fy26": {
+      "path": "data/datasets/wells-fargo-q3-fy26.js",
+      "updatedAtMs": 1793974529998,
+      "updatedAt": "2026-11-06T14:15:29.998Z",
       "timeSource": "publication"
     },
     "data/revenue-metrics.js": {

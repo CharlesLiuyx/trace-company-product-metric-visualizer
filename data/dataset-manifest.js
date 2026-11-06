@@ -44404,6 +44404,1551 @@
             }
           }
         }
+      },
+      {
+        "key": "abbott-q3-fy26",
+        "src": "data/datasets/abbott-q3-fy26.js",
+        "data": {
+          "name": "Abbott · Q3 FY26",
+          "company": "Abbott",
+          "meta": {
+            "title": "Abbott Q3 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "雅培 · 2026 财年第三季度",
+              "meta": {
+                "title": "雅培 2026 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "abbvie-q3-fy26",
+        "src": "data/datasets/abbvie-q3-fy26.js",
+        "data": {
+          "name": "AbbVie · Q3 FY26",
+          "company": "AbbVie",
+          "meta": {
+            "title": "Abbvie Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Quarter ended Sep. 30, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "艾伯维 · 2026 财年第三季度",
+              "meta": {
+                "title": "艾伯维 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "accenture-q4-fy26",
+        "src": "data/datasets/accenture-q4-fy26.js",
+        "data": {
+          "name": "Accenture · Q4 FY26",
+          "company": "Accenture",
+          "meta": {
+            "title": "Accenture Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending Aug. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "埃森哲 · 2026 财年第四季度",
+              "meta": {
+                "title": "埃森哲 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 8 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "airbus-q3-fy26",
+        "src": "data/datasets/airbus-q3-fy26.js",
+        "data": {
+          "name": "Airbus · Q3 FY26",
+          "company": "Airbus",
+          "meta": {
+            "title": "Airbus Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Airbus · 2026 财年第三季度",
+              "meta": {
+                "title": "Airbus 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "align-q3-fy26",
+        "src": "data/datasets/align-q3-fy26.js",
+        "data": {
+          "name": "Align Technology · Q3 FY26",
+          "company": "Align Technology",
+          "meta": {
+            "title": "Align Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "爱齐科技 · 2026 财年第三季度",
+              "meta": {
+                "title": "爱齐科技 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "american-express-q3-fy26",
+        "src": "data/datasets/american-express-q3-fy26.js",
+        "data": {
+          "name": "American Express · Q3 FY26",
+          "company": "American Express",
+          "meta": {
+            "title": "American Express Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "American Express · 2026 财年第三季度",
+              "meta": {
+                "title": "American Express 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "american-q3-fy26",
+        "src": "data/datasets/american-q3-fy26.js",
+        "data": {
+          "name": "American Airlines · Q3 FY26",
+          "company": "American Airlines",
+          "meta": {
+            "title": "American Q3 FY26 Income Statement",
+            "period": "Q3 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美国航空 · 2026 财年第三季度",
+              "meta": {
+                "title": "美国航空 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "appfolio-q3-fy26",
+        "src": "data/datasets/appfolio-q3-fy26.js",
+        "data": {
+          "name": "AppFolio · Q3 FY26",
+          "company": "AppFolio",
+          "meta": {
+            "title": "Appfolio Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AppFolio · 2026 财年第三季度",
+              "meta": {
+                "title": "Appfolio 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "asml-q3-fy26",
+        "src": "data/datasets/asml-q3-fy26.js",
+        "data": {
+          "name": "ASML · Q3 FY26",
+          "company": "ASML",
+          "meta": {
+            "title": "ASML Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ASML · 2026 财年第三季度",
+              "meta": {
+                "title": "ASML 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "astrazeneca-q3-fy26",
+        "src": "data/datasets/astrazeneca-q3-fy26.js",
+        "data": {
+          "name": "AstraZeneca · Q3 FY26",
+          "company": "AstraZeneca",
+          "meta": {
+            "title": "AstraZeneca Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "阿斯利康 · 2026 财年第三季度",
+              "meta": {
+                "title": "阿斯利康 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "at-t-q3-fy26",
+        "src": "data/datasets/at-t-q3-fy26.js",
+        "data": {
+          "name": "AT&T · Q3 FY26",
+          "company": "AT&T",
+          "meta": {
+            "title": "AT&T Q3 FY26 Income Statement",
+            "period": "Q3 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "AT&T · 2026 财年第三季度",
+              "meta": {
+                "title": "AT&T 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "bank-of-america-q3-fy26",
+        "src": "data/datasets/bank-of-america-q3-fy26.js",
+        "data": {
+          "name": "Bank of America · Q3 FY26",
+          "company": "Bank of America",
+          "meta": {
+            "title": "Bank of America Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美国银行 · 2026 财年第三季度",
+              "meta": {
+                "title": "美国银行 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "blackrock-q3-fy26",
+        "src": "data/datasets/blackrock-q3-fy26.js",
+        "data": {
+          "name": "BlackRock - Q3 FY26",
+          "company": "BlackRock",
+          "meta": {
+            "title": "BlackRock Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "BlackRock · 2026 财年第三季度",
+              "meta": {
+                "title": "BlackRock 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "boeing-q3-fy26",
+        "src": "data/datasets/boeing-q3-fy26.js",
+        "data": {
+          "name": "Boeing · Q3 FY26",
+          "company": "Boeing",
+          "meta": {
+            "title": "Boeing Q3 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "波音 · 2026 财年第三季度",
+              "meta": {
+                "title": "波音 2026 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "braze-q2-fy27",
+        "src": "data/datasets/braze-q2-fy27.js",
+        "data": {
+          "name": "Braze · Q2 FY27",
+          "company": "Braze",
+          "meta": {
+            "title": "Braze Q2 FY27 Income Statement",
+            "period": "Q2 FY27",
+            "periodNote": "Ending July 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Braze · 2027 财年第二季度",
+              "meta": {
+                "title": "Braze 2027 财年第二季度利润表",
+                "period": "2027 财年第二季度",
+                "periodNote": "截至 2026 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "cadence-q3-fy26",
+        "src": "data/datasets/cadence-q3-fy26.js",
+        "data": {
+          "name": "Cadence · Q3 FY26",
+          "company": "Cadence",
+          "meta": {
+            "title": "Cadence Q3 FY26 Income Statement",
+            "period": "Q3 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Cadence · 2026 财年第三季度",
+              "meta": {
+                "title": "Cadence 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "chipotle-q3-fy26",
+        "src": "data/datasets/chipotle-q3-fy26.js",
+        "data": {
+          "name": "Chipotle · Q3 FY26",
+          "company": "Chipotle",
+          "meta": {
+            "title": "Chipotle Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Quarter ended September 30, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Chipotle · 2026 财年第三季度",
+              "meta": {
+                "title": "Chipotle 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "citigroup-q3-fy26",
+        "src": "data/datasets/citigroup-q3-fy26.js",
+        "data": {
+          "name": "Citigroup · Q3 FY26",
+          "company": "Citigroup",
+          "meta": {
+            "title": "Citigroup Q3 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "花旗集团 · 2026 财年第三季度",
+              "meta": {
+                "title": "花旗集团 2026 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "coca-cola-q3-fy26",
+        "src": "data/datasets/coca-cola-q3-fy26.js",
+        "data": {
+          "name": "Coca-Cola · Q3 FY26",
+          "company": "Coca-Cola",
+          "meta": {
+            "title": "Coca-Cola Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Coca-Cola · 2026 财年第三季度",
+              "meta": {
+                "title": "可口可乐 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "coinbase-q3-fy26",
+        "src": "data/datasets/coinbase-q3-fy26.js",
+        "data": {
+          "name": "Coinbase · Q3 FY26",
+          "company": "Coinbase",
+          "meta": {
+            "title": "Coinbase Q3 FY26 Income Statement",
+            "period": "Q3 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Coinbase · 2026 财年第三季度",
+              "meta": {
+                "title": "Coinbase 2026 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "comcast-q3-fy26",
+        "src": "data/datasets/comcast-q3-fy26.js",
+        "data": {
+          "name": "Comcast · Q3 FY26",
+          "company": "Comcast",
+          "meta": {
+            "title": "Comcast Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Quarter ended Sep. 30, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "康卡斯特 · 2026 财年第三季度",
+              "meta": {
+                "title": "康卡斯特 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "delta-q3-fy26",
+        "src": "data/datasets/delta-q3-fy26.js",
+        "data": {
+          "name": "Delta · Q3 FY26",
+          "company": "Delta Air Lines",
+          "meta": {
+            "title": "Delta Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "达美航空 · 2026 财年第三季度",
+              "meta": {
+                "title": "达美航空 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "domino-s-q3-fy26",
+        "src": "data/datasets/domino-s-q3-fy26.js",
+        "data": {
+          "name": "Domino's · Q3 FY26",
+          "company": "Domino's",
+          "meta": {
+            "title": "Domino's Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Quarter ended Sep. 6, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "达美乐 · 2026 财年第三季度",
+              "meta": {
+                "title": "达美乐 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月 6 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "eli-lilly-q3-fy26",
+        "src": "data/datasets/eli-lilly-q3-fy26.js",
+        "data": {
+          "name": "Eli Lilly · Q3 FY26",
+          "company": "Eli Lilly",
+          "meta": {
+            "title": "Eli Lilly Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Eli Lilly · 2026 财年第三季度",
+              "meta": {
+                "title": "Eli Lilly 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "etsy-q3-fy26",
+        "src": "data/datasets/etsy-q3-fy26.js",
+        "data": {
+          "name": "Etsy · Q3 FY26",
+          "company": "Etsy",
+          "meta": {
+            "title": "Etsy Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Etsy · 2026 财年第三季度",
+              "meta": {
+                "title": "Etsy 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "fedex-q1-fy27",
+        "src": "data/datasets/fedex-q1-fy27.js",
+        "data": {
+          "name": "FedEx · Q1 FY27",
+          "company": "FedEx",
+          "meta": {
+            "title": "FedEx Q1 FY27 Income Statement",
+            "period": "Q1 FY27",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "联邦快递 · 2027 财年第一季度",
+              "meta": {
+                "title": "联邦快递 2027 财年第一季度利润表",
+                "period": "2027 财年第一季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "fortinet-q3-fy26",
+        "src": "data/datasets/fortinet-q3-fy26.js",
+        "data": {
+          "name": "Fortinet · Q3 FY26",
+          "company": "Fortinet",
+          "meta": {
+            "title": "Fortinet Q3 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Fortinet · 2026 财年第三季度",
+              "meta": {
+                "title": "Fortinet 2026 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ge-vernova-q3-fy26",
+        "src": "data/datasets/ge-vernova-q3-fy26.js",
+        "data": {
+          "name": "GE Vernova · Q3 FY26",
+          "company": "GE Vernova",
+          "meta": {
+            "title": "GE Vernova Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Quarter ended Sep. 30, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "GE Vernova · 2026 财年第三季度",
+              "meta": {
+                "title": "GE Vernova 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "goldman-sachs-q3-fy26",
+        "src": "data/datasets/goldman-sachs-q3-fy26.js",
+        "data": {
+          "name": "Goldman Sachs · Q3 FY26",
+          "company": "Goldman Sachs",
+          "meta": {
+            "title": "Goldman Sachs Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Goldman Sachs · 2026 财年第三季度",
+              "meta": {
+                "title": "Goldman Sachs 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hershey-q3-fy26",
+        "src": "data/datasets/hershey-q3-fy26.js",
+        "data": {
+          "name": "Hershey · Q3 FY26",
+          "company": "Hershey",
+          "meta": {
+            "title": "Hershey Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 27, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "好时 · 2026 财年第三季度",
+              "meta": {
+                "title": "好时 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月 27 日"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "hilton-q3-fy26",
+        "src": "data/datasets/hilton-q3-fy26.js",
+        "data": {
+          "name": "Hilton · Q3 FY26",
+          "company": "Hilton",
+          "meta": {
+            "title": "Hilton Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "希尔顿 · 2026 财年第三季度",
+              "meta": {
+                "title": "希尔顿 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ibm-q3-fy26",
+        "src": "data/datasets/ibm-q3-fy26.js",
+        "data": {
+          "name": "IBM · Q3 FY26",
+          "company": "IBM",
+          "meta": {
+            "title": "IBM Q3 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "IBM · 2026 财年第三季度",
+              "meta": {
+                "title": "IBM 2026 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intel-q3-fy26",
+        "src": "data/datasets/intel-q3-fy26.js",
+        "data": {
+          "name": "Intel · Q3 FY26",
+          "company": "Intel",
+          "meta": {
+            "title": "Intel Q3 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Intel · 2026 财年第三季度",
+              "meta": {
+                "title": "英特尔 2026 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intuitive-q3-fy26",
+        "src": "data/datasets/intuitive-q3-fy26.js",
+        "data": {
+          "name": "Intuitive · Q3 FY26",
+          "company": "Intuitive",
+          "meta": {
+            "title": "Intuitive Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "直觉外科 · 2026 财年第三季度",
+              "meta": {
+                "title": "直觉外科 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "j-j-q3-fy26",
+        "src": "data/datasets/j-j-q3-fy26.js",
+        "data": {
+          "name": "J&J · Q3 FY26",
+          "company": "Johnson & Johnson",
+          "meta": {
+            "title": "J&J Q3 FY26 Income Statement",
+            "period": "Q3 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "强生 · 2026 财年第三季度",
+              "meta": {
+                "title": "强生 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "jpmorganchase-q3-fy26",
+        "src": "data/datasets/jpmorganchase-q3-fy26.js",
+        "data": {
+          "name": "JPMorganChase · Q3 FY26",
+          "company": "JPMorganChase",
+          "meta": {
+            "title": "JPMorganChase Q3 FY26 Income Statement",
+            "period": "Q3 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "摩根大通 · 2026 财年第三季度",
+              "meta": {
+                "title": "摩根大通 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "kla-q1-fy27",
+        "src": "data/datasets/kla-q1-fy27.js",
+        "data": {
+          "name": "KLA · Q1 FY27",
+          "company": "KLA",
+          "meta": {
+            "title": "KLA Q1 FY27 Income Statement",
+            "period": "Q1 FY27",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "科磊 · 2027 财年第一季度",
+              "meta": {
+                "title": "科磊 2027 财年第一季度利润表",
+                "period": "2027 财年第一季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lam-research-q1-fy27",
+        "src": "data/datasets/lam-research-q1-fy27.js",
+        "data": {
+          "name": "Lam Research · Q1 FY27",
+          "company": "Lam Research",
+          "meta": {
+            "title": "LAM Research Q1 FY27 Income Statement",
+            "period": "Q1 FY27",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "泛林集团 · 2027 财年第一季度",
+              "meta": {
+                "title": "泛林集团 2027 财年第一季度利润表",
+                "period": "2027 财年第一季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "lockheed-martin-q3-fy26",
+        "src": "data/datasets/lockheed-martin-q3-fy26.js",
+        "data": {
+          "name": "Lockheed Martin · Q3 FY26",
+          "company": "Lockheed Martin",
+          "meta": {
+            "title": "Lockheed Martin Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "洛克希德·马丁 · 2026 财年第三季度",
+              "meta": {
+                "title": "洛克希德·马丁 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mastercard-q3-fy26",
+        "src": "data/datasets/mastercard-q3-fy26.js",
+        "data": {
+          "name": "Mastercard · Q3 FY26",
+          "company": "Mastercard",
+          "meta": {
+            "title": "Mastercard Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Mastercard · 2026 财年第三季度",
+              "meta": {
+                "title": "Mastercard 2026 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "merck-q3-fy26",
+        "src": "data/datasets/merck-q3-fy26.js",
+        "data": {
+          "name": "Merck · Q3 FY26",
+          "company": "Merck",
+          "meta": {
+            "title": "Merck Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Q3 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "默沙东 · 2026 财年第三季度",
+              "meta": {
+                "title": "默沙东 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "2026 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mondelez-q3-fy26",
+        "src": "data/datasets/mondelez-q3-fy26.js",
+        "data": {
+          "name": "Mondelēz · Q3 FY26",
+          "company": "Mondelēz International",
+          "meta": {
+            "title": "Mondelēz Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "亿滋国际 · 2026 财年第三季度",
+              "meta": {
+                "title": "亿滋国际 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "moodys-q3-fy26",
+        "src": "data/datasets/moodys-q3-fy26.js",
+        "data": {
+          "name": "Moody's · Q3 FY26",
+          "company": "Moody's",
+          "meta": {
+            "title": "Moody’s Q3 FY26 Income Statement",
+            "period": "Q3 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "穆迪 · 2026 财年第三季度",
+              "meta": {
+                "title": "穆迪 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "morgan-stanley-q3-fy26",
+        "src": "data/datasets/morgan-stanley-q3-fy26.js",
+        "data": {
+          "name": "Morgan Stanley · Q3 FY26",
+          "company": "Morgan Stanley",
+          "meta": {
+            "title": "Morgan Stanley Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "摩根士丹利 · 2026 财年第三季度",
+              "meta": {
+                "title": "摩根士丹利 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "nike-q1-fy27",
+        "src": "data/datasets/nike-q1-fy27.js",
+        "data": {
+          "name": "Nike · Q1 FY27",
+          "company": "Nike",
+          "meta": {
+            "title": "Nike Q1 FY27 Income Statement",
+            "period": "Q1 FY27",
+            "periodNote": "Ending Aug. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Nike · 2027 财年第一季度",
+              "meta": {
+                "title": "Nike 2027 财年第一季度利润表",
+                "period": "2027 财年第一季度",
+                "periodNote": "截至 2026 年 8 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "novartis-q3-fy26",
+        "src": "data/datasets/novartis-q3-fy26.js",
+        "data": {
+          "name": "Novartis · Q3 FY26",
+          "company": "Novartis",
+          "meta": {
+            "title": "Novartis Q3 FY26 Income Statement",
+            "period": "Q3 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "诺华 · 2026 财年第三季度",
+              "meta": {
+                "title": "诺华 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "p-g-q1-fy27",
+        "src": "data/datasets/p-g-q1-fy27.js",
+        "data": {
+          "name": "P&G · Q1 FY27",
+          "company": "P&G",
+          "meta": {
+            "title": "P&G Q1 FY27 Income Statement",
+            "period": "Q1 FY27",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "宝洁 · 2027 财年第一季度",
+              "meta": {
+                "title": "宝洁 2027 财年第一季度利润表",
+                "period": "2027 财年第一季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "paypal-q3-fy26",
+        "src": "data/datasets/paypal-q3-fy26.js",
+        "data": {
+          "name": "PayPal · Q3 FY26",
+          "company": "PayPal",
+          "meta": {
+            "title": "PayPal Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Quarter ended Sep. 30, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "PayPal · 2026 财年第三季度",
+              "meta": {
+                "title": "PayPal 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pepsico-q3-fy26",
+        "src": "data/datasets/pepsico-q3-fy26.js",
+        "data": {
+          "name": "PepsiCo · Q3 FY26",
+          "company": "PepsiCo",
+          "meta": {
+            "title": "PepsiCo Q3 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "百事公司 · 2026 财年第三季度",
+              "meta": {
+                "title": "百事公司 2026 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "rivian-q3-fy26",
+        "src": "data/datasets/rivian-q3-fy26.js",
+        "data": {
+          "name": "Rivian · Q3 FY26",
+          "company": "Rivian",
+          "meta": {
+            "title": "Rivian Q3 FY26 Income Statement",
+            "period": "Q3 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Rivian · 2026 财年第三季度",
+              "meta": {
+                "title": "Rivian 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "robinhood-q3-fy26",
+        "src": "data/datasets/robinhood-q3-fy26.js",
+        "data": {
+          "name": "Robinhood · Q3 FY26",
+          "company": "Robinhood",
+          "meta": {
+            "title": "Robinhood Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Robinhood · 2026 财年第三季度",
+              "meta": {
+                "title": "Robinhood 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "samsung-q3-fy26",
+        "src": "data/datasets/samsung-q3-fy26.js",
+        "data": {
+          "name": "Samsung · Q3 FY26",
+          "company": "Samsung",
+          "meta": {
+            "title": "Samsung Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Samsung · 2026 财年第三季度",
+              "meta": {
+                "title": "Samsung 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sandisk-q1-fy27",
+        "src": "data/datasets/sandisk-q1-fy27.js",
+        "data": {
+          "name": "Sandisk · Q1 FY27",
+          "company": "Sandisk",
+          "meta": {
+            "title": "Sandisk Q1 FY27 Income Statement",
+            "period": "Q1 FY27",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Sandisk · 2027 财年第一季度",
+              "meta": {
+                "title": "Sandisk 2027 财年第一季度利润表",
+                "period": "2027 财年第一季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sap-q3-fy26",
+        "src": "data/datasets/sap-q3-fy26.js",
+        "data": {
+          "name": "SAP · Q3 FY26",
+          "company": "SAP",
+          "meta": {
+            "title": "SAP Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "SAP · 2026 财年第三季度",
+              "meta": {
+                "title": "SAP 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "schwab-q3-fy26",
+        "src": "data/datasets/schwab-q3-fy26.js",
+        "data": {
+          "name": "Schwab · Q3 FY26",
+          "company": "Schwab",
+          "meta": {
+            "title": "Schwab Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "嘉信理财 · 2026 财年第三季度",
+              "meta": {
+                "title": "嘉信理财 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "servicenow-q3-fy26",
+        "src": "data/datasets/servicenow-q3-fy26.js",
+        "data": {
+          "name": "ServiceNow · Q3 FY26",
+          "company": "ServiceNow",
+          "meta": {
+            "title": "ServiceNow Q3 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "ServiceNow · 2026 财年第三季度",
+              "meta": {
+                "title": "ServiceNow 2026 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sk-hynix-q3-fy26",
+        "src": "data/datasets/sk-hynix-q3-fy26.js",
+        "data": {
+          "name": "SK hynix · Q3 FY26",
+          "company": "SK hynix",
+          "meta": {
+            "title": "SK hynix Q3 FY26 Income Statement",
+            "period": "Q3 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "SK 海力士 · 2026 财年第三季度",
+              "meta": {
+                "title": "SK 海力士 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "sofi-q3-fy26",
+        "src": "data/datasets/sofi-q3-fy26.js",
+        "data": {
+          "name": "SoFi · Q3 FY26",
+          "company": "SoFi",
+          "meta": {
+            "title": "SoFi Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Quarter ended Sep. 30, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "SoFi · 2026 财年第三季度",
+              "meta": {
+                "title": "SoFi 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "southwest-q3-fy26",
+        "src": "data/datasets/southwest-q3-fy26.js",
+        "data": {
+          "name": "Southwest Airlines · Q3 FY26",
+          "company": "Southwest Airlines",
+          "meta": {
+            "title": "Southwest Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "西南航空 · 2026 财年第三季度",
+              "meta": {
+                "title": "西南航空 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "t-mobile-us-q3-fy26",
+        "src": "data/datasets/t-mobile-us-q3-fy26.js",
+        "data": {
+          "name": "T-Mobile US · Q3 FY26",
+          "company": "T-Mobile US",
+          "meta": {
+            "title": "T-Mobile US Q3 FY26 Income Statement",
+            "period": "Q3 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美国 T-Mobile · 2026 财年第三季度",
+              "meta": {
+                "title": "美国 T-Mobile 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "teladoc-q3-fy26",
+        "src": "data/datasets/teladoc-q3-fy26.js",
+        "data": {
+          "name": "Teladoc Health · Q3 FY26",
+          "company": "Teladoc Health",
+          "meta": {
+            "title": "Teladoc Q3 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Teladoc Health · 2026 财年第三季度",
+              "meta": {
+                "title": "Teladoc 2026 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "texas-instruments-q3-fy26",
+        "src": "data/datasets/texas-instruments-q3-fy26.js",
+        "data": {
+          "name": "Texas Instruments · Q3 FY26",
+          "company": "Texas Instruments",
+          "meta": {
+            "title": "Texas Instruments Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "德州仪器 · 2026 财年第三季度",
+              "meta": {
+                "title": "德州仪器 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tilray-q1-fy27",
+        "src": "data/datasets/tilray-q1-fy27.js",
+        "data": {
+          "name": "Tilray Brands · Q1 FY27",
+          "company": "Tilray Brands",
+          "meta": {
+            "title": "Tilray Q1 FY27 Income Statement",
+            "period": "Q1 FY27",
+            "periodNote": "Ending Aug. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tilray Brands · 2027 财年第一季度",
+              "meta": {
+                "title": "Tilray 2027 财年第一季度利润表",
+                "period": "2027 财年第一季度",
+                "periodNote": "截至 2026 年 8 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tsmc-q3-fy26",
+        "src": "data/datasets/tsmc-q3-fy26.js",
+        "data": {
+          "name": "TSMC · Q3 FY26",
+          "company": "TSMC",
+          "meta": {
+            "title": "TSMC Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "TSMC · 2026 财年第三季度",
+              "meta": {
+                "title": "TSMC 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "united-q3-fy26",
+        "src": "data/datasets/united-q3-fy26.js",
+        "data": {
+          "name": "United Airlines · Q3 FY26",
+          "company": "United Airlines",
+          "meta": {
+            "title": "United Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Quarter ended Sep. 30, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "联合航空 · 2026 财年第三季度",
+              "meta": {
+                "title": "联合航空 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "unitedhealth-q3-fy26",
+        "src": "data/datasets/unitedhealth-q3-fy26.js",
+        "data": {
+          "name": "UnitedHealth Group · Q3 FY26",
+          "company": "UnitedHealth Group",
+          "meta": {
+            "title": "UnitedHealth Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "联合健康集团 · 2026 财年第三季度",
+              "meta": {
+                "title": "联合健康集团 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ups-q3-fy26",
+        "src": "data/datasets/ups-q3-fy26.js",
+        "data": {
+          "name": "UPS · Q3 FY26",
+          "company": "UPS",
+          "meta": {
+            "title": "UPS Q3 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "联合包裹 · 2026 财年第三季度",
+              "meta": {
+                "title": "联合包裹 2026 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "verizon-q3-fy26",
+        "src": "data/datasets/verizon-q3-fy26.js",
+        "data": {
+          "name": "Verizon · Q3 FY26",
+          "company": "Verizon",
+          "meta": {
+            "title": "Verizon Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Quarter ended Sep. 30, 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "威瑞森 · 2026 财年第三季度",
+              "meta": {
+                "title": "威瑞森 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月 30 日的季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "visa-q4-fy26",
+        "src": "data/datasets/visa-q4-fy26.js",
+        "data": {
+          "name": "Visa · Q4 FY26",
+          "company": "Visa",
+          "meta": {
+            "title": "Visa Q4 FY26 Income Statement",
+            "period": "Q4 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Visa · 2026 财年第四季度",
+              "meta": {
+                "title": "Visa 2026 财年第四季度利润表",
+                "period": "2026 财年第四季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "wells-fargo-q3-fy26",
+        "src": "data/datasets/wells-fargo-q3-fy26.js",
+        "data": {
+          "name": "Wells Fargo · Q3 FY26",
+          "company": "Wells Fargo",
+          "meta": {
+            "title": "Wells Fargo Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "富国银行 · 2026 财年第三季度",
+              "meta": {
+                "title": "富国银行 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

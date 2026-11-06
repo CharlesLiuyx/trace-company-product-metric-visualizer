@@ -1,7 +1,4 @@
-/* Pure INCOME_STATEMENT_SSOT records. Merged by the Publication Module. */
-(function (global) {
-  const target = global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || { schemaVersion: 1, records: [] };
-  target.records.push(...[
+(function(global){global.INCOME_STATEMENT_SSOT=global.INCOME_STATEMENT_SSOT||{schemaVersion:1,records:[]};global.INCOME_STATEMENT_SSOT.records.push(...[
   {
     "key": "comcast-q4-fy25",
     "company": "Comcast",
@@ -5190,6 +5187,380 @@
         }
       }
     }
+  },
+  {
+    "key": "comcast-q3-fy26",
+    "company": "Comcast",
+    "period": "Q3 FY26",
+    "periodNote": "Quarter ended Sep. 30, 2026",
+    "currency": "$",
+    "unit": "B",
+    "decimals": 1,
+    "sourceImage": "input/processed/comcast-q3-fy26.png",
+    "roundingTolerance": 0.15,
+    "revenue": {
+      "total": 29.3,
+      "notes": [
+        "(6%) Y/Y"
+      ],
+      "items": [
+        {
+          "id": "connectivity",
+          "label": "Connectivity",
+          "value": 19.7,
+          "notes": [
+            "(3%) Y/Y"
+          ],
+          "children": [
+            {
+              "id": "residential_connectivity",
+              "label": "Residential Connectivity",
+              "value": 17,
+              "notes": [
+                "(4%) Y/Y"
+              ]
+            },
+            {
+              "id": "comcast_business",
+              "label": "Comcast Business",
+              "value": 2.6,
+              "notes": [
+                "+3% Y/Y"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "corporate",
+          "label": "Corporate",
+          "value": 0.3,
+          "notes": [
+            "+8% Y/Y"
+          ]
+        },
+        {
+          "id": "content_experiences",
+          "label": "Content & Experiences",
+          "value": 10.5,
+          "notes": [
+            "+6% Y/Y"
+          ],
+          "children": [
+            {
+              "id": "media",
+              "label": "Media",
+              "value": 5.4,
+              "notes": [
+                "+13% Y/Y"
+              ]
+            },
+            {
+              "id": "studios",
+              "label": "Studios",
+              "value": 3,
+              "notes": [
+                "(1%) Y/Y"
+              ]
+            },
+            {
+              "id": "parks",
+              "label": "Parks",
+              "value": 2.6,
+              "notes": [
+                "(4%) Y/Y"
+              ]
+            },
+            {
+              "label": "Content & Experiences eliminations",
+              "value": -0.4
+            }
+          ]
+        },
+        {
+          "label": "Consolidated eliminations",
+          "value": -1.2,
+          "notes": [
+            "Source prints $1.2B consolidated eliminations."
+          ]
+        }
+      ],
+      "breakdowns": [
+        {
+          "id": "source_elimination_magnitudes",
+          "label": "Source elimination magnitudes",
+          "total": 29.3,
+          "items": [
+            {
+              "id": "eliminations_content",
+              "label": "Content & Experiences eliminations",
+              "value": 0.4
+            },
+            {
+              "id": "eliminations_gross",
+              "label": "Consolidated eliminations",
+              "value": 1.2
+            },
+            {
+              "label": "Revenue net of displayed elimination magnitudes",
+              "value": 27.7
+            }
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "programming_production",
+        "label": "Programming & production",
+        "value": 7.5
+      },
+      "operatingExpenses": {
+        "total": 16.5,
+        "items": [
+          {
+            "id": "other_operating_administrative",
+            "label": "Other operating & administrative",
+            "value": 10.6
+          },
+          {
+            "id": "depreciation",
+            "label": "Depreciation",
+            "value": 2.4
+          },
+          {
+            "id": "advertising",
+            "label": "Advertising",
+            "value": 2.1
+          },
+          {
+            "id": "amortization",
+            "label": "Amortization",
+            "value": 1.3
+          }
+        ]
+      },
+      "tax": {
+        "id": "tax",
+        "label": "Income tax expense",
+        "value": 1.1
+      }
+    },
+    "otherIncome": {
+      "total": 0.1,
+      "items": [
+        {
+          "id": "other",
+          "label": "Investment and other income (loss), net",
+          "value": 0.1
+        }
+      ]
+    },
+    "otherExpenses": {
+      "total": 1,
+      "items": [
+        {
+          "id": "interest",
+          "label": "Interest expense",
+          "value": 1
+        }
+      ]
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 21.8,
+        "notes": [
+          "74% margin",
+          "+2pp Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_profit",
+        "label": "Operating profit",
+        "value": 5.3,
+        "notes": [
+          "18% margin",
+          "+0pp Y/Y"
+        ]
+      },
+      "net": {
+        "id": "net_profit",
+        "label": "Net profit",
+        "value": 3.4,
+        "notes": [
+          "11% margin",
+          "+1pp Y/Y"
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2026 财年第三季度",
+        "periodNote": "截至 2026 年 9 月 30 日的季度",
+        "revenue": {
+          "notes": [
+            "同比 (6%)"
+          ],
+          "items": [
+            {
+              "id": "connectivity",
+              "label": "连接业务",
+              "notes": [
+                "同比 (3%)"
+              ],
+              "children": [
+                {
+                  "id": "residential_connectivity",
+                  "label": "住宅连接业务",
+                  "notes": [
+                    "同比 (4%)"
+                  ]
+                },
+                {
+                  "id": "comcast_business",
+                  "label": "Comcast 商务",
+                  "notes": [
+                    "同比 +3%"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "corporate",
+              "label": "企业及其他",
+              "notes": [
+                "同比 +8%"
+              ]
+            },
+            {
+              "id": "content_experiences",
+              "label": "内容与体验",
+              "notes": [
+                "同比 +6%"
+              ],
+              "children": [
+                {
+                  "id": "media",
+                  "label": "媒体",
+                  "notes": [
+                    "同比 +13%"
+                  ]
+                },
+                {
+                  "id": "studios",
+                  "label": "影视工作室",
+                  "notes": [
+                    "同比 (1%)"
+                  ]
+                },
+                {
+                  "id": "parks",
+                  "label": "主题公园",
+                  "notes": [
+                    "同比 (4%)"
+                  ]
+                },
+                {
+                  "label": "内容与体验抵销"
+                }
+              ]
+            },
+            {
+              "label": "抵销及合并调整",
+              "notes": [
+                "原图列示合并抵销 12 亿美元。"
+              ]
+            }
+          ],
+          "breakdowns": [
+            {
+              "id": "source_elimination_magnitudes",
+              "label": "来源抵销金额",
+              "items": [
+                {
+                  "id": "eliminations_content",
+                  "label": "内容与体验抵销"
+                },
+                {
+                  "id": "eliminations_gross",
+                  "label": "合并抵销"
+                },
+                {
+                  "label": "扣除图示抵销金额后的收入"
+                }
+              ]
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "节目制作"
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "other_operating_administrative",
+                "label": "其他运营及管理"
+              },
+              {
+                "id": "depreciation",
+                "label": "折旧"
+              },
+              {
+                "id": "advertising",
+                "label": "广告"
+              },
+              {
+                "id": "amortization",
+                "label": "摊销"
+              }
+            ]
+          },
+          "tax": {
+            "label": "所得税费用"
+          }
+        },
+        "otherIncome": {
+          "items": [
+            {
+              "id": "other",
+              "label": "投资及其他损益净额"
+            }
+          ]
+        },
+        "otherExpenses": {
+          "items": [
+            {
+              "id": "interest",
+              "label": "利息费用"
+            }
+          ]
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 74%",
+              "同比 +2 个百分点"
+            ]
+          },
+          "operating": {
+            "label": "营业利润",
+            "notes": [
+              "利润率 18%",
+              "同比 +0 个百分点"
+            ]
+          },
+          "net": {
+            "label": "净利润",
+            "notes": [
+              "利润率 11%",
+              "同比 +1 个百分点"
+            ]
+          }
+        }
+      }
+    }
   }
-]);
-})(window);
+]);})(window);

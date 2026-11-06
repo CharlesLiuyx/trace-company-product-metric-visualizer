@@ -1,7 +1,4 @@
-/* Pure INCOME_STATEMENT_SSOT records. Merged by the Publication Module. */
-(function (global) {
-  const target = global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || { schemaVersion: 1, records: [] };
-  target.records.push(...[
+(function(global){global.INCOME_STATEMENT_SSOT=global.INCOME_STATEMENT_SSOT||{schemaVersion:1,records:[]};global.INCOME_STATEMENT_SSOT.records.push(...[
   {
     "key": "airbus-h1-fy24",
     "company": "Airbus",
@@ -1292,6 +1289,337 @@
         }
       }
     ]
+  },
+  {
+    "key": "airbus-q3-fy26",
+    "company": "Airbus",
+    "period": "Q3 FY26",
+    "periodNote": "Ending Sep. 2026",
+    "currency": "€",
+    "unit": "B",
+    "decimals": 3,
+    "sourceImage": "input/processed/airbus-q3-fy26.png",
+    "roundingTolerance": 0.2,
+    "revenue": {
+      "total": 17.5,
+      "notes": [
+        "(2%) Y/Y"
+      ],
+      "items": [
+        {
+          "id": "airbus_segment",
+          "label": "Airbus",
+          "value": 12.9,
+          "notes": [
+            "(2%) Y/Y",
+            "9% segment margin"
+          ]
+        },
+        {
+          "id": "helicopters",
+          "label": "Helicopters",
+          "value": 2,
+          "notes": [
+            "+0% Y/Y",
+            "7% segment margin"
+          ]
+        },
+        {
+          "id": "defense_space",
+          "label": "Defense & Space",
+          "value": 3,
+          "notes": [
+            "(1%) Y/Y",
+            "(16%) segment margin"
+          ]
+        },
+        {
+          "id": "inter_segment",
+          "label": "Inter-segment",
+          "value": -0.3
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_sales",
+        "label": "Cost of sales",
+        "value": 14.3
+      },
+      "operatingExpenses": {
+        "total": 1.5,
+        "items": [
+          {
+            "id": "rnd",
+            "label": "R&D",
+            "value": 0.9,
+            "notes": [
+              "5% of revenue",
+              "+1pp Y/Y"
+            ]
+          },
+          {
+            "id": "administrative",
+            "label": "Administrative",
+            "value": 0.4,
+            "notes": [
+              "2% of revenue",
+              "+0pp Y/Y"
+            ]
+          },
+          {
+            "id": "selling",
+            "label": "Selling",
+            "value": 0.2,
+            "notes": [
+              "1% of revenue",
+              "+0pp Y/Y"
+            ]
+          }
+        ]
+      },
+      "tax": {
+        "id": "tax",
+        "label": "Tax",
+        "value": 0.4
+      }
+    },
+    "operatingOtherIncome": {
+      "total": 0.2,
+      "items": [
+        {
+          "id": "other_income",
+          "label": "Other",
+          "value": 0.2
+        }
+      ]
+    },
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 0.031,
+      "items": [
+        {
+          "id": "other_expense",
+          "label": "Other",
+          "value": 0.031
+        }
+      ]
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 3.1,
+        "notes": [
+          "18% margin",
+          "+2pp Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_profit",
+        "label": "Operating profit",
+        "value": 1.8,
+        "notes": [
+          "10% margin",
+          "+1pp Y/Y"
+        ]
+      },
+      "net": {
+        "id": "net_profit",
+        "label": "Net profit",
+        "value": 1.3,
+        "notes": [
+          "8% margin",
+          "+2pp Y/Y"
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2026 财年第三季度",
+        "periodNote": "截至 2026 年 9 月",
+        "revenue": {
+          "notes": [
+            "同比 (2%)"
+          ],
+          "items": [
+            {
+              "id": "airbus_segment",
+              "label": "空中客车",
+              "notes": [
+                "同比 (2%)",
+                "分部利润率 9%"
+              ]
+            },
+            {
+              "id": "helicopters",
+              "label": "直升机",
+              "notes": [
+                "同比 +0%",
+                "分部利润率 7%"
+              ]
+            },
+            {
+              "id": "defense_space",
+              "label": "防务与航天",
+              "notes": [
+                "同比 (1%)",
+                "分部利润率 (16%)"
+              ]
+            },
+            {
+              "id": "inter_segment",
+              "label": "分部间抵销"
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "销售成本"
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "rnd",
+                "label": "研发",
+                "notes": [
+                  "占收入 5%",
+                  "同比 +1 个百分点"
+                ]
+              },
+              {
+                "id": "administrative",
+                "label": "行政",
+                "notes": [
+                  "占收入 2%",
+                  "同比 +0 个百分点"
+                ]
+              },
+              {
+                "id": "selling",
+                "label": "销售",
+                "notes": [
+                  "占收入 1%",
+                  "同比 +0 个百分点"
+                ]
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费"
+          }
+        },
+        "operatingOtherIncome": {
+          "items": [
+            {
+              "id": "other_income",
+              "label": "其他"
+            }
+          ]
+        },
+        "otherExpenses": {
+          "items": [
+            {
+              "id": "other_expense",
+              "label": "其他"
+            }
+          ]
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 18%",
+              "同比 +2 个百分点"
+            ]
+          },
+          "operating": {
+            "label": "营业利润",
+            "notes": [
+              "利润率 10%",
+              "同比 +1 个百分点"
+            ]
+          },
+          "net": {
+            "label": "净利润",
+            "notes": [
+              "利润率 8%",
+              "同比 +2 个百分点"
+            ]
+          }
+        },
+        "operatingMetrics": [
+          {
+            "id": "deliveries",
+            "label": "交付量",
+            "notes": [
+              "商用飞机",
+              "同比 (2%)"
+            ]
+          },
+          {
+            "id": "backlog",
+            "label": "积压订单",
+            "notes": [
+              "飞机",
+              "同比 +7%"
+            ]
+          }
+        ]
+      }
+    },
+    "operatingMetrics": [
+      {
+        "id": "deliveries",
+        "label": "Deliveries",
+        "value": "196",
+        "literal": "196",
+        "notes": [
+          "commercial airplanes",
+          "(2%) Y/Y"
+        ],
+        "unit": "count",
+        "currency": null,
+        "comparison": "eq",
+        "basis": "unspecified",
+        "quote": "Deliveries\n196 commercial airplanes\n(2%) Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            72,
+            1177,
+            448,
+            159
+          ]
+        }
+      },
+      {
+        "id": "backlog",
+        "label": "Backlog",
+        "value": "9310",
+        "literal": "9,310",
+        "notes": [
+          "aircrafts",
+          "+7% Y/Y"
+        ],
+        "unit": "count",
+        "currency": null,
+        "comparison": "eq",
+        "basis": "unspecified",
+        "quote": "Backlog\n9,310 aircrafts\n+7% Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            530,
+            1177,
+            242,
+            159
+          ]
+        }
+      }
+    ]
   }
-]);
-})(window);
+]);})(window);

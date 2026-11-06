@@ -8,7 +8,293 @@
     records: [],
   });
 
-  ssot.records.push(
+  ssot.records.push({
+  "key": "lockheed-martin-q3-fy26",
+  "company": "Lockheed Martin",
+  "period": "Q3 FY26",
+  "periodNote": "Ending Sep. 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 3,
+  "sourceImage": "input/processed/lockheed-martin-q3-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 20.7,
+    "valueText": "$20.7B",
+    "notes": [
+      "+11% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "aeronautics",
+        "label": "Aeronautics",
+        "value": 8.2,
+        "valueText": "$8.2B",
+        "notes": [
+          "+13% Y/Y",
+          "9% segment margin"
+        ]
+      },
+      {
+        "id": "missile_fire_control",
+        "label": "Missile and Fire Control",
+        "value": 4.5,
+        "valueText": "$4.5B",
+        "notes": [
+          "+24% Y/Y",
+          "14% segment margin"
+        ]
+      },
+      {
+        "id": "rotary_mission_systems",
+        "label": "Rotary & Mission Systems",
+        "value": 4.5,
+        "valueText": "$4.5B",
+        "notes": [
+          "+3% Y/Y",
+          "12% segment margin"
+        ]
+      },
+      {
+        "id": "space",
+        "label": "Space",
+        "value": 3.5,
+        "valueText": "$3.5B",
+        "notes": [
+          "+4% Y/Y",
+          "9% segment margin"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_sales",
+      "label": "Cost of sales",
+      "value": 18.3,
+      "valueText": "($18.3B)"
+    },
+    "operatingExpenses": {
+      "total": 0,
+      "items": []
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.3,
+      "valueText": "($0.3B)"
+    }
+  },
+  "operatingOtherIncome": {
+    "total": 0.007,
+    "items": [
+      {
+        "id": "other_operating",
+        "label": "Other",
+        "value": 0.007,
+        "valueText": "$7M",
+        "notes": [
+          "Shown as $7M in the source chart."
+        ]
+      }
+    ]
+  },
+  "operatingOtherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0.3,
+    "items": [
+      {
+        "id": "other_nonoperating",
+        "label": "Interest & other",
+        "value": 0.3,
+        "valueText": "($0.3B)"
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 2.4,
+      "valueText": "$2.4B",
+      "notes": [
+        "12% margin",
+        "(0pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 2.4,
+      "valueText": "$2.4B",
+      "notes": [
+        "12% margin",
+        "(0pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 1.8,
+      "valueText": "$1.8B",
+      "notes": [
+        "9% margin",
+        "+0pp Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "operatingMetrics": [{"id":"aircraft_deliveries","label":"飞机交付","notes":["同比 -8"]},{"id":"backlog","label":"订单储备","notes":["同比 +51%"]}],
+      "periodNote": "截至 2026 年 9 月",
+      "revenue": {
+        "notes": [
+          "同比 +11%"
+        ],
+        "items": [
+          {
+            "id": "aeronautics",
+            "label": "航空",
+            "notes": [
+              "同比 +13%",
+              "分部利润率 9%"
+            ]
+          },
+          {
+            "id": "missile_fire_control",
+            "label": "导弹与火控",
+            "notes": [
+              "同比 +24%",
+              "分部利润率 14%"
+            ]
+          },
+          {
+            "id": "rotary_mission_systems",
+            "label": "旋翼与任务系统",
+            "notes": [
+              "同比 +3%",
+              "分部利润率 12%"
+            ]
+          },
+          {
+            "id": "space",
+            "label": "太空",
+            "notes": [
+              "同比 +4%",
+              "分部利润率 9%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "销售成本"
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "operatingOtherIncome": {
+        "items": [
+          {
+            "id": "other_operating",
+            "label": "其他",
+            "notes": [
+              "源图中显示为 $7M。"
+            ]
+          }
+        ]
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other_nonoperating",
+            "label": "利息及其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 12%",
+            "同比 0 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 12%",
+            "同比 0 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 9%",
+            "同比 0 个百分点"
+          ]
+        }
+      }
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "aircraft_deliveries",
+      "value": "72",
+      "unit": "count",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "72",
+      "label": "Aircraft Deliveries",
+      "basis": "unspecified",
+      "notes": [
+        "-8 Y/Y"
+      ],
+      "quote": "Aircraft Deliveries\n72\n-8 Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          73,
+          1194,
+          449,
+          158
+        ]
+      }
+    },
+    {
+      "id": "backlog",
+      "value": "292",
+      "unit": "B",
+      "currency": "USD",
+      "comparison": "eq",
+      "literal": "$292B",
+      "label": "Backlog",
+      "basis": "unspecified",
+      "notes": [
+        "+51% Y/Y"
+      ],
+      "quote": "Backlog\n$292B\n+51% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          531,
+          1194,
+          241,
+          158
+        ]
+      }
+    }
+  ]
+},
     {
       key: 'lockheed-martin-q2-fy26',
       company: 'Lockheed Martin',

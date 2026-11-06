@@ -1515,6 +1515,302 @@
           },
         },
       },
+    },
+    {
+  "key": "intel-q3-fy26",
+  "company": "Intel",
+  "period": "Q3 FY26",
+  "periodNote": "",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/intel-q3-fy26.png",
+  "roundingTolerance": 0.25,
+  "revenue": {
+    "total": 16.5,
+    "notes": [
+      "+21% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "intel_products",
+        "label": "Intel Products",
+        "value": 15.4,
+        "notes": [
+          "+22% Y/Y"
+        ],
+        "children": [
+          {
+            "id": "client_computing",
+            "label": "Client Computing",
+            "value": 8.1,
+            "notes": [
+              "(5%) Y/Y",
+              "28% operating margin"
+            ]
+          },
+          {
+            "id": "datacenter_ai",
+            "label": "Datacenter & AI",
+            "value": 7.3,
+            "notes": [
+              "+78% Y/Y",
+              "42% operating margin"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "intel_foundry",
+        "label": "Intel Foundry",
+        "value": 6.7,
+        "notes": [
+          "+58% Y/Y",
+          "(28%) operating margin"
+        ]
+      },
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 0.7,
+        "notes": [
+          "(30%) Y/Y",
+          "26% operating margin"
+        ]
+      },
+      {
+        "id": "eliminations",
+        "label": "Eliminations",
+        "value": -6.3,
+        "notes": []
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_sales",
+      "label": "Cost of sales",
+      "value": 9.4,
+      "notes": []
+    },
+    "operatingExpenses": {
+      "total": 4.6,
+      "items": [
+        {
+          "id": "rnd",
+          "label": "Research & Development",
+          "value": 3.5,
+          "notes": [
+            "21% of revenue",
+            "(3pp) Y/Y"
+          ]
+        },
+        {
+          "id": "marketing_ga",
+          "label": "Marketing, G&A",
+          "value": 1,
+          "notes": [
+            "6% of revenue",
+            "(2pp) Y/Y"
+          ],
+          "valueText": "($1.0B)"
+        },
+        {
+          "id": "restructuring",
+          "label": "Restructuring",
+          "value": 0.1,
+          "notes": [
+            "0% of revenue",
+            "(1pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.5,
+      "notes": []
     }
+  },
+  "otherIncome": {
+    "total": 1.5,
+    "items": [
+      {
+        "id": "other_income",
+        "label": "Other",
+        "value": 1.5,
+        "notes": []
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 7.1,
+      "notes": [
+        "43% margin",
+        "+5pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 2.5,
+      "notes": [
+        "15% margin",
+        "+10pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 3.5,
+      "notes": [
+        "21% margin",
+        "(10pp) Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "revenue": {
+        "items": [
+          {
+            "id": "intel_products",
+            "label": "英特尔产品",
+            "notes": [
+              "同比 +22%"
+            ],
+            "children": [
+              {
+                "id": "client_computing",
+                "label": "客户端计算",
+                "notes": [
+                  "同比 (5%)",
+                  "营业利润率 28%"
+                ]
+              },
+              {
+                "id": "datacenter_ai",
+                "label": "数据中心与 AI",
+                "notes": [
+                  "同比 +78%",
+                  "营业利润率 42%"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "intel_foundry",
+            "label": "英特尔代工",
+            "notes": [
+              "同比 +58%",
+              "营业利润率 (28%)"
+            ]
+          },
+          {
+            "id": "other",
+            "label": "其他",
+            "notes": [
+              "同比 (30%)",
+              "营业利润率 26%"
+            ]
+          },
+          {
+            "id": "eliminations",
+            "label": "内部抵销",
+            "notes": []
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "id": "cost_of_sales",
+          "label": "销售成本",
+          "notes": []
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 21%",
+                "同比 (3 个百分点)"
+              ]
+            },
+            {
+              "id": "marketing_ga",
+              "label": "营销及一般行政",
+              "notes": [
+                "占收入 6%",
+                "同比 (2 个百分点)"
+              ]
+            },
+            {
+              "id": "restructuring",
+              "label": "重组",
+              "notes": [
+                "占收入 0%",
+                "同比 (1 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "id": "tax",
+          "label": "税费",
+          "notes": []
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "other_income",
+            "label": "其他",
+            "notes": []
+          }
+        ]
+      },
+      "otherExpenses": {
+        "items": []
+      },
+      "profit": {
+        "gross": {
+          "id": "gross_profit",
+          "label": "毛利润",
+          "notes": [
+            "利润率 43%",
+            "同比 +5 个百分点"
+          ]
+        },
+        "operating": {
+          "id": "operating_profit",
+          "label": "营业利润",
+          "notes": [
+            "利润率 15%",
+            "同比 +10 个百分点"
+          ]
+        },
+        "net": {
+          "id": "net_profit",
+          "label": "净利润",
+          "notes": [
+            "利润率 21%",
+            "同比 (10 个百分点)"
+          ]
+        }
+      }
+    }
+  }
+},
+
   );
 })(window);

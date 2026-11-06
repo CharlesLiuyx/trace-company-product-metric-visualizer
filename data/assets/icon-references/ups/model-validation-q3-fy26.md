@@ -1,0 +1,1 @@
+Validated against the complete Source: UPS shield including registration mark; package, globe and truck icons. Crops exclude financial labels, chart connectors and publisher residue. Solid background removed.

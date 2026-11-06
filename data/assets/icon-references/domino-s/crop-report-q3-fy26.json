@@ -1,0 +1,124 @@
+{
+  "source": "input/processed/domino-s-q3-fy26.png",
+  "spec": "input/icon-crop-specs/domino-s-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T14:12:50.971172+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/domino-s",
+  "crops": [
+    {
+      "key": "company-logo-q3-fy26",
+      "output": "data/assets/icon-references/domino-s/crops/company-logo-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2476,
+        "losslessBytes": 11560,
+        "savingsVsLossless": 0.7858,
+        "metrics": {
+          "meanAbsoluteError": 0.2057,
+          "rootMeanSquareError": 0.8522,
+          "p99AbsoluteError": 3.0,
+          "maxChannelDiff": 31,
+          "changedPixelRatio": 0.4218
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 42419,
+        "transparentPixelRatio": 0.5819
+      },
+      "searchBox": {
+        "x": 755,
+        "y": 255,
+        "width": 270,
+        "height": 270
+      },
+      "componentCount": 4,
+      "subjectBox": {
+        "x0": 760,
+        "y0": 261,
+        "x1": 1016,
+        "y1": 518
+      },
+      "cropBox": {
+        "x0": 755,
+        "y0": 255,
+        "x1": 1025,
+        "y1": 525
+      },
+      "validation": {
+        "width": 270,
+        "height": 270,
+        "foregroundPixels": 26301,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 5,
+          "right": 9,
+          "top": 6,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": -0.0074,
+          "y": -0.0019
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/domino-s/company-logo-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 2476,
+        "losslessBytes": 11560,
+        "savingsVsLossless": 0.7858,
+        "metrics": {
+          "meanAbsoluteError": 0.2057,
+          "rootMeanSquareError": 0.8522,
+          "p99AbsoluteError": 3.0,
+          "maxChannelDiff": 31,
+          "changedPixelRatio": 0.4218
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "source": "input/processing/mastercard-q3-fy26.png",
+  "spec": "input/icon-crop-specs/mastercard-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T14:18:01.455374+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/mastercard",
+  "crops": [
+    {
+      "key": "mastercard-company-logo-q3-fy26",
+      "output": "data/assets/icon-references/mastercard/crops/company-logo-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2596,
+        "losslessBytes": 13608,
+        "savingsVsLossless": 0.8092,
+        "metrics": {
+          "meanAbsoluteError": 0.6616,
+          "rootMeanSquareError": 2.443,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.6493
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 16990,
+        "transparentPixelRatio": 0.3328
+      },
+      "searchBox": {
+        "x": 659,
+        "y": 292,
+        "width": 244,
+        "height": 190
+      },
+      "componentCount": 11,
+      "subjectBox": {
+        "x0": 660,
+        "y0": 292,
+        "x1": 902,
+        "y1": 480
+      },
+      "cropBox": {
+        "x0": 654,
+        "y0": 286,
+        "x1": 908,
+        "y1": 487
+      },
+      "validation": {
+        "width": 254,
+        "height": 201,
+        "foregroundPixels": 33770,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 6,
+          "top": 6,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0025
+        },
+        "passes": true
+      },
+      "note": "Mastercard logo and wordmark; excludes title and financial flows.",
+      "runtimeOutput": "data/assets/raster-annotations/mastercard/company-logo-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2596,
+        "losslessBytes": 13608,
+        "savingsVsLossless": 0.8092,
+        "metrics": {
+          "meanAbsoluteError": 0.6616,
+          "rootMeanSquareError": 2.443,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.6493
+        }
+      }
+    }
+  ]
+}

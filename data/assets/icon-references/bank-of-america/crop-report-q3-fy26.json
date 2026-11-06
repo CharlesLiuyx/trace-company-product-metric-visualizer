@@ -1,0 +1,121 @@
+{
+  "source": "input/processed/bank-of-america-q3-fy26.png",
+  "spec": "input/icon-crop-specs/bank-of-america-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T14:22:23.966612+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/bank-of-america",
+  "crops": [
+    {
+      "key": "logo-q3-fy26",
+      "output": "data/assets/icon-references/bank-of-america/crops/logo-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 18551,
+        "losslessBytes": 18551,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 59090,
+        "transparentPixelRatio": 0.7011
+      },
+      "searchBox": {
+        "x": 690,
+        "y": 282,
+        "width": 392,
+        "height": 215
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 693,
+        "y0": 285,
+        "x1": 1081,
+        "y1": 496
+      },
+      "cropBox": {
+        "x0": 690,
+        "y0": 282,
+        "x1": 1082,
+        "y1": 497
+      },
+      "validation": {
+        "width": 392,
+        "height": 215,
+        "foregroundPixels": 23402,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 3,
+          "right": 1,
+          "top": 3,
+          "bottom": 1
+        },
+        "centerOffset": {
+          "x": 0.0026,
+          "y": 0.0047
+        },
+        "passes": true
+      },
+      "note": "",
+      "excludedPixels": 4560,
+      "transparentColorPixels": 900,
+      "runtimeOutput": "data/assets/raster-annotations/bank-of-america/logo-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 18551,
+        "losslessBytes": 18551,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/bank-of-america/validation-sheets/logo-q3-fy26.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 309980,
+        "losslessBytes": 309980,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

@@ -1,7 +1,4 @@
-/* Pure INCOME_STATEMENT_SSOT records. Merged by the Publication Module. */
-(function (global) {
-  const target = global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || { schemaVersion: 1, records: [] };
-  target.records.push(...[
+(function(global){const target=global.INCOME_STATEMENT_SSOT=global.INCOME_STATEMENT_SSOT||{schemaVersion:1,records:[]};target.records.push(...[
   {
     "key": "bank-of-america-q1-fy23",
     "company": "Bank of America",
@@ -5780,6 +5777,387 @@
         }
       }
     ]
+  },
+  {
+    "key": "bank-of-america-q3-fy26",
+    "company": "Bank of America",
+    "period": "Q3 FY26",
+    "periodNote": "Ending Sep. 2026",
+    "currency": "$",
+    "unit": "B",
+    "decimals": 1,
+    "sourceImage": "input/processed/bank-of-america-q3-fy26.png",
+    "roundingTolerance": 0.2,
+    "revenue": {
+      "total": 30,
+      "notes": [
+        "+3% Y/Y",
+        "Printed values retained. Rounding differences: expense detail 19.8B vs total 19.7B; pretax 9.0B less tax 2.0B vs net 6.9B. Official 3Q26 release confirms printed totals and states amounts may not total due to rounding. https://www.sec.gov/Archives/edgar/data/70858/000007085826000481/bac09302026ex991.htm"
+      ],
+      "items": [
+        {
+          "id": "consumer_banking",
+          "label": [
+            "Consumer",
+            "Banking"
+          ],
+          "value": 11.6,
+          "notes": [
+            "+4% Y/Y",
+            "30% net margin"
+          ]
+        },
+        {
+          "id": "global_wealth_investment_management",
+          "label": [
+            "Global Wealth &",
+            "Investment Management"
+          ],
+          "value": 7.1,
+          "notes": [
+            "+13% Y/Y",
+            "22% net margin"
+          ]
+        },
+        {
+          "id": "global_banking",
+          "label": "Global Banking",
+          "value": 6.2,
+          "notes": [
+            "(1%) Y/Y",
+            "32% net margin"
+          ]
+        },
+        {
+          "id": "global_markets",
+          "label": "Global Markets",
+          "value": 5.9,
+          "notes": [
+            "(6%) Y/Y",
+            "21% net margin"
+          ]
+        },
+        {
+          "id": "all_other",
+          "label": [
+            "All Other",
+            "(noninterest loss)"
+          ],
+          "value": -0.8
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "noninterest_expenses",
+        "label": "Noninterest expenses",
+        "value": 19.7,
+        "notes": [
+          "Printed expense details total 19.8B; roundingTolerance 0.2B follows published same-company precedent."
+        ],
+        "items": [
+          {
+            "id": "compensation_benefits",
+            "label": "Compensation & benefits",
+            "value": 11
+          },
+          {
+            "id": "information_processing",
+            "label": "Information processing",
+            "value": 2
+          },
+          {
+            "id": "occupancy",
+            "label": "Occupancy",
+            "value": 2
+          },
+          {
+            "id": "product_delivery",
+            "label": "Product delivery",
+            "value": 1.2
+          },
+          {
+            "id": "professional_fees",
+            "label": "Professional fees",
+            "value": 0.7
+          },
+          {
+            "id": "marketing",
+            "label": "Marketing",
+            "value": 0.6
+          },
+          {
+            "id": "other_expenses",
+            "label": "Other",
+            "value": 2.3
+          }
+        ]
+      },
+      "operatingExpenses": {
+        "total": 1.3,
+        "notes": [
+          "Mapped to the operating-expenses schema slot for the source chart’s provision for credit losses."
+        ],
+        "items": [
+          {
+            "id": "operating_expenses",
+            "label": "Provision for credit losses",
+            "value": 1.3
+          }
+        ]
+      },
+      "tax": {
+        "id": "tax",
+        "label": "Tax",
+        "value": 2
+      }
+    },
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 0,
+      "items": []
+    },
+    "profit": {
+      "gross": {
+        "label": "Income after noninterest expenses",
+        "value": 10.3,
+        "notes": [
+          "Schema adapter subtotal; the source chart does not show a separate gross-profit node."
+        ]
+      },
+      "operating": {
+        "id": "pretax_income",
+        "label": "Pretax income",
+        "value": 9
+      },
+      "net": {
+        "id": "net_income",
+        "label": "Net income",
+        "value": 6.9,
+        "notes": [
+          "(17%) Y/Y"
+        ]
+      }
+    },
+    "operatingMetrics": [
+      {
+        "id": "average_deposits",
+        "label": "Average deposits",
+        "value": "2.02",
+        "unit": "T",
+        "currency": "USD",
+        "comparison": "eq",
+        "literal": "$2.02T",
+        "basis": "unspecified",
+        "notes": [
+          "+2% Y/Y & Flat Q/Q"
+        ],
+        "quote": "Average deposits\n$2.02T\n+2% Y/Y & Flat Q/Q",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            34,
+            1208,
+            373,
+            153
+          ]
+        }
+      },
+      {
+        "id": "average_loans_leases",
+        "label": "Average loans and leases",
+        "value": "1.23",
+        "unit": "T",
+        "currency": "USD",
+        "comparison": "eq",
+        "literal": "$1.23T",
+        "basis": "unspecified",
+        "notes": [
+          "+6% Y/Y & Flat Q/Q"
+        ],
+        "quote": "Average loans and leases\n$1.23T\n+6% Y/Y & Flat Q/Q",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            414,
+            1208,
+            440,
+            153
+          ]
+        }
+      },
+      {
+        "id": "cet1_ratio",
+        "label": "CET1 ratio",
+        "value": "10.9",
+        "unit": "%",
+        "currency": null,
+        "comparison": "eq",
+        "literal": "10.9%",
+        "basis": "unspecified",
+        "notes": [
+          "(0.4pp) Y/Y"
+        ],
+        "quote": "CET1 ratio\n10.9%\n(0.4pp) Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            862,
+            1208,
+            243,
+            153
+          ]
+        }
+      }
+    ],
+    "i18n": {
+      "zh": {
+        "revenue": {
+          "notes": [
+            "同比 +3%",
+            "保留印刷值。舍入差额：费用分项 19.8B 对照总额 19.7B；税前利润 9.0B 减税费 2.0B 对照净利润 6.9B。官方 3Q26 发布确认主要印刷合计，并注明金额可能因四舍五入而无法加总。 https://www.sec.gov/Archives/edgar/data/70858/000007085826000481/bac09302026ex991.htm"
+          ],
+          "items": [
+            {
+              "id": "consumer_banking",
+              "label": "消费者银行",
+              "notes": [
+                "同比 +4%",
+                "净利率 30%"
+              ]
+            },
+            {
+              "id": "global_wealth_investment_management",
+              "label": "全球财富与投资管理",
+              "notes": [
+                "同比 +13%",
+                "净利率 22%"
+              ]
+            },
+            {
+              "id": "global_banking",
+              "label": "全球银行",
+              "notes": [
+                "同比 (1%)",
+                "净利率 32%"
+              ]
+            },
+            {
+              "id": "global_markets",
+              "label": "全球市场",
+              "notes": [
+                "同比 (6%)",
+                "净利率 21%"
+              ]
+            },
+            {
+              "id": "all_other",
+              "label": "其他（非利息亏损）"
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "id": "noninterest_expenses",
+            "label": "非利息费用",
+            "notes": [
+              "印刷费用分项合计 19.8B；按同公司已发布先例采用 0.2B 舍入容差。"
+            ],
+            "items": [
+              {
+                "id": "compensation_benefits",
+                "label": "薪酬与福利"
+              },
+              {
+                "id": "information_processing",
+                "label": "信息处理"
+              },
+              {
+                "id": "occupancy",
+                "label": "场地占用"
+              },
+              {
+                "id": "product_delivery",
+                "label": "产品交付"
+              },
+              {
+                "id": "professional_fees",
+                "label": "专业费用"
+              },
+              {
+                "id": "marketing",
+                "label": "市场营销"
+              },
+              {
+                "id": "other_expenses",
+                "label": "其他"
+              }
+            ]
+          },
+          "operatingExpenses": {
+            "notes": [
+              "信用损失拨备映射到营业费用字段。"
+            ],
+            "items": [
+              {
+                "id": "operating_expenses",
+                "label": "信用损失拨备"
+              }
+            ]
+          },
+          "tax": {
+            "id": "tax",
+            "label": "税费"
+          }
+        },
+        "profit": {
+          "gross": {
+            "label": "扣除非利息费用后的收益",
+            "notes": [
+              "用于会计恒等式的中间小计；来源未单独绘制毛利润节点。"
+            ]
+          },
+          "operating": {
+            "id": "pretax_income",
+            "label": "税前利润"
+          },
+          "net": {
+            "id": "net_income",
+            "label": "净利润",
+            "notes": [
+              "同比 (17%)"
+            ]
+          }
+        },
+        "operatingMetrics": [
+          {
+            "id": "average_deposits",
+            "label": "平均存款",
+            "notes": [
+              "同比 +2% 、环比持平"
+            ]
+          },
+          {
+            "id": "average_loans_leases",
+            "label": "平均贷款与租赁",
+            "notes": [
+              "同比 +6% 、环比持平"
+            ]
+          },
+          {
+            "id": "cet1_ratio",
+            "label": "普通股一级资本比率",
+            "notes": [
+              "同比下降 0.4 个百分点"
+            ]
+          }
+        ],
+        "period": "2026 财年第三季度",
+        "periodNote": "截至 2026 年 9 月"
+      }
+    }
   }
-]);
-})(window);
+]);})(window);

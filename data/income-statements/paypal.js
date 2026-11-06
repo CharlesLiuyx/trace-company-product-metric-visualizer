@@ -1,7 +1,4 @@
-/* Pure INCOME_STATEMENT_SSOT records. Merged by the Publication Module. */
-(function (global) {
-  const target = global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || { schemaVersion: 1, records: [] };
-  target.records.push(...[
+(function(global){const target=global.INCOME_STATEMENT_SSOT=global.INCOME_STATEMENT_SSOT||{schemaVersion:1,records:[]};target.records.push(...[
   {
     "key": "paypal-q4-fy25",
     "company": "PayPal",
@@ -5236,6 +5233,353 @@
     "notes": [
       "Source rounded operating expense total ($1.5B) differs from its displayed components ($0.5B + $0.8B + $0.6B - $0.3B = $1.6B); restructuring is a benefit. Source rounded gross less operating expenses ($1.6B) differs from operating profit ($1.7B)."
     ]
+  },
+  {
+    "key": "paypal-q3-fy26",
+    "company": "PayPal",
+    "period": "Q3 FY26",
+    "periodNote": "Quarter ended Sep. 30, 2026",
+    "currency": "$",
+    "unit": "B",
+    "decimals": 3,
+    "sourceImage": "input/processed/paypal-q3-fy26.png",
+    "roundingTolerance": 0.15,
+    "revenue": {
+      "total": 8.6,
+      "notes": [
+        "+2% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "transaction_revenues",
+          "label": "Transaction revenues",
+          "value": 7.7,
+          "notes": [
+            "+3% Y/Y"
+          ]
+        },
+        {
+          "id": "other_value_added_services",
+          "label": "Other value-added services",
+          "value": 0.9,
+          "notes": [
+            "(2%) Y/Y"
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "label": "Transaction expense, transaction and credit losses, and customer support",
+        "value": 5.1,
+        "items": [
+          {
+            "id": "transaction_expense",
+            "label": "Transaction expense",
+            "value": 4.2
+          },
+          {
+            "id": "transaction_credit_losses",
+            "label": "Transaction & credit losses",
+            "value": 0.4
+          },
+          {
+            "id": "customer_support",
+            "label": "Customer support",
+            "value": 0.4
+          }
+        ]
+      },
+      "operatingExpenses": {
+        "total": 2.1,
+        "items": [
+          {
+            "id": "technology_development",
+            "label": "Technology & Development",
+            "value": 0.8,
+            "notes": [
+              "10% of revenue",
+              "+0pp Y/Y"
+            ]
+          },
+          {
+            "id": "sales_marketing",
+            "label": "S&M",
+            "value": 0.5,
+            "notes": [
+              "6% of revenue",
+              "(0pp) Y/Y"
+            ]
+          },
+          {
+            "id": "general_administrative",
+            "label": "G&A",
+            "value": 0.5,
+            "notes": [
+              "6% of revenue",
+              "(0pp) Y/Y"
+            ]
+          },
+          {
+            "id": "restructuring",
+            "label": "Restructuring",
+            "value": 0.3,
+            "notes": [
+              "3% of revenue",
+              "+2pp Y/Y"
+            ]
+          }
+        ]
+      },
+      "tax": {
+        "id": "tax",
+        "label": "Tax",
+        "value": 0.3
+      }
+    },
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 0.028,
+      "items": [
+        {
+          "id": "other_expense",
+          "label": "Other",
+          "value": 0.028
+        }
+      ]
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 3.5,
+        "notes": [
+          "41% margin",
+          "+0pp Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_profit",
+        "label": "Operating profit",
+        "value": 1.4,
+        "notes": [
+          "16% margin",
+          "(2pp) Y/Y"
+        ]
+      },
+      "net": {
+        "id": "net_profit",
+        "label": "Net profit",
+        "value": 1.1,
+        "notes": [
+          "13% margin",
+          "(2pp) Y/Y"
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2026 财年第三季度",
+        "periodNote": "截至 2026 年 9 月 30 日的季度",
+        "revenue": {
+          "notes": [
+            "同比 +2%"
+          ],
+          "items": [
+            {
+              "id": "transaction_revenues",
+              "label": "交易收入",
+              "notes": [
+                "同比 +3%"
+              ]
+            },
+            {
+              "id": "other_value_added_services",
+              "label": "其他增值服务",
+              "notes": [
+                "同比 (2%)"
+              ]
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "交易费用、交易与信贷损失以及客户支持",
+            "items": [
+              {
+                "id": "transaction_expense",
+                "label": "交易费用"
+              },
+              {
+                "id": "transaction_credit_losses",
+                "label": "交易与信贷损失"
+              },
+              {
+                "id": "customer_support",
+                "label": "客户支持"
+              }
+            ]
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "technology_development",
+                "label": "技术与开发",
+                "notes": [
+                  "占收入 10%",
+                  "同比 +0 个百分点"
+                ]
+              },
+              {
+                "id": "sales_marketing",
+                "label": "销售与营销",
+                "notes": [
+                  "占收入 6%",
+                  "同比 (0 个百分点)"
+                ]
+              },
+              {
+                "id": "general_administrative",
+                "label": "一般及行政费用",
+                "notes": [
+                  "占收入 6%",
+                  "同比 (0 个百分点)"
+                ]
+              },
+              {
+                "id": "restructuring",
+                "label": "重组",
+                "notes": [
+                  "占收入 3%",
+                  "同比 +2 个百分点"
+                ]
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费"
+          }
+        },
+        "otherExpenses": {
+          "items": [
+            {
+              "id": "other_expense",
+              "label": "其他"
+            }
+          ]
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 41%",
+              "同比 +0 个百分点"
+            ]
+          },
+          "operating": {
+            "label": "营业利润",
+            "notes": [
+              "利润率 16%",
+              "同比 (2 个百分点)"
+            ]
+          },
+          "net": {
+            "label": "净利润",
+            "notes": [
+              "利润率 13%",
+              "同比 (2 个百分点)"
+            ]
+          }
+        },
+        "operatingMetrics": [
+          {
+            "id": "tpv",
+            "label": "TPV"
+          },
+          {
+            "id": "active_accounts",
+            "label": "活跃账户"
+          },
+          {
+            "id": "tpa",
+            "label": "TPA"
+          }
+        ]
+      }
+    },
+    "operatingMetrics": [
+      {
+        "id": "tpv",
+        "label": "TPV",
+        "value": "487",
+        "unit": "B",
+        "currency": "USD",
+        "literal": "$487B",
+        "notes": [
+          "+6% Y/Y"
+        ],
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            30,
+            1113,
+            203,
+            151
+          ]
+        },
+        "comparison": "eq",
+        "basis": "unspecified",
+        "quote": "TPV\n$487B\n+6% Y/Y"
+      },
+      {
+        "id": "active_accounts",
+        "label": "Active accounts",
+        "value": "440000000",
+        "unit": "count",
+        "currency": null,
+        "literal": "440M",
+        "notes": [
+          "+1% Y/Y"
+        ],
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            246,
+            1113,
+            380,
+            151
+          ]
+        },
+        "comparison": "eq",
+        "basis": "unspecified",
+        "quote": "Active accounts\n440M\n+1% Y/Y"
+      },
+      {
+        "id": "tpa",
+        "label": "TPA",
+        "value": "61",
+        "unit": "count",
+        "currency": null,
+        "literal": "61",
+        "notes": [
+          "+6% Y/Y"
+        ],
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            637,
+            1113,
+            190,
+            151
+          ]
+        },
+        "comparison": "eq",
+        "basis": "unspecified",
+        "quote": "TPA\n61\n+6% Y/Y"
+      }
+    ]
   }
-]);
-})(window);
+]);})(window);

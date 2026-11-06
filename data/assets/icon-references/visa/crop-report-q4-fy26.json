@@ -1,0 +1,119 @@
+{
+  "source": "input/processing/visa-q4-fy26.png",
+  "spec": "input/icon-crop-specs/visa-q4-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T14:17:54.657819+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/visa",
+  "crops": [
+    {
+      "key": "visa-logo-q4-fy26",
+      "output": "data/assets/icon-references/visa/crops/logo-q4-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 15705,
+        "losslessBytes": 15705,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 24845,
+        "transparentPixelRatio": 0.515
+      },
+      "searchBox": {
+        "x": 664,
+        "y": 238,
+        "width": 374,
+        "height": 129
+      },
+      "componentCount": 4,
+      "subjectBox": {
+        "x0": 668,
+        "y0": 245,
+        "x1": 1028,
+        "y1": 362
+      },
+      "cropBox": {
+        "x0": 664,
+        "y0": 238,
+        "x1": 1038,
+        "y1": 367
+      },
+      "validation": {
+        "width": 374,
+        "height": 129,
+        "foregroundPixels": 22729,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 4,
+          "right": 10,
+          "top": 7,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": -0.008,
+          "y": 0.0078
+        },
+        "passes": true
+      },
+      "note": "Complete VISA wordmark without adjacent chart marks.",
+      "runtimeOutput": "data/assets/raster-annotations/visa/logo-q4-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 15705,
+        "losslessBytes": 15705,
+        "savingsVsLossless": 0.0
+      },
+      "validationSheet": "data/assets/icon-references/visa/validation-sheets/q4-fy26/visa-logo-q4-fy26.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 257674,
+        "losslessBytes": 257674,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

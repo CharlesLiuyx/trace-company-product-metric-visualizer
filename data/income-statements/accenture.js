@@ -179,4 +179,320 @@
       },
     },
   });
+ssot.records.push({
+  "key": "accenture-q4-fy26",
+  "company": "Accenture",
+  "period": "Q4 FY26",
+  "periodNote": "Ending Aug. 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/accenture-q4-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 18.7,
+    "notes": [
+      "+6% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "communications_media_tech",
+        "label": [
+          "Communications",
+          "Media & Tech"
+        ],
+        "value": 3.3,
+        "notes": [
+          "+10% Y/Y"
+        ]
+      },
+      {
+        "id": "financial_services",
+        "label": [
+          "Financial",
+          "Services"
+        ],
+        "value": 3.5,
+        "notes": [
+          "+5% Y/Y"
+        ]
+      },
+      {
+        "id": "health_public_services",
+        "label": [
+          "Health &",
+          "Public Services"
+        ],
+        "value": 3.9,
+        "notes": [
+          "+8% Y/Y"
+        ]
+      },
+      {
+        "id": "products",
+        "label": "Products",
+        "value": 5.6,
+        "notes": [
+          "+3% Y/Y"
+        ]
+      },
+      {
+        "id": "resources",
+        "label": "Resources",
+        "value": 2.5,
+        "notes": [
+          "+6% Y/Y"
+        ]
+      }
+    ],
+    "breakdowns": [
+      {
+        "id": "service_type",
+        "label": "Revenue by service type",
+        "total": 18.7,
+        "items": [
+          {
+            "id": "consulting",
+            "label": "Consulting",
+            "value": 9.3,
+            "notes": [
+              "+6% Y/Y"
+            ]
+          },
+          {
+            "id": "managed_services",
+            "label": "Managed Services",
+            "value": 9.4,
+            "notes": [
+              "+7% Y/Y"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_services",
+      "label": [
+        "Cost of",
+        "services"
+      ],
+      "value": 12.7
+    },
+    "operatingExpenses": {
+      "total": 3.1,
+      "items": [
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 1.8,
+          "notes": [
+            "10% of revenue",
+            "(1pp) Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 1.3,
+          "notes": [
+            "7% of revenue",
+            "+0pp Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.7
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0.1,
+    "items": [
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 0.1
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 6,
+      "notes": [
+        "32% margin",
+        "+0pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 2.9,
+      "notes": [
+        "15% margin",
+        "+4pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 2.2,
+      "notes": [
+        "12% margin",
+        "(1pp) Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第四季度",
+      "periodNote": "截至 2026 年 8 月",
+      "revenue": {
+        "notes": [
+          "同比 +6%"
+        ],
+        "items": [
+          {
+            "id": "communications_media_tech",
+            "label": [
+              "通信",
+              "媒体与科技"
+            ],
+            "notes": [
+              "同比 +10%"
+            ]
+          },
+          {
+            "id": "financial_services",
+            "label": [
+              "金融",
+              "服务"
+            ],
+            "notes": [
+              "同比 +5%"
+            ]
+          },
+          {
+            "id": "health_public_services",
+            "label": [
+              "医疗健康与",
+              "公共服务"
+            ],
+            "notes": [
+              "同比 +8%"
+            ]
+          },
+          {
+            "id": "products",
+            "label": "产品",
+            "notes": [
+              "同比 +3%"
+            ]
+          },
+          {
+            "id": "resources",
+            "label": "资源",
+            "notes": [
+              "同比 +6%"
+            ]
+          }
+        ],
+        "breakdowns": [
+          {
+            "id": "service_type",
+            "label": "按服务类型划分的收入",
+            "items": [
+              {
+                "id": "consulting",
+                "label": "咨询",
+                "notes": [
+                  "同比 +6%"
+                ]
+              },
+              {
+                "id": "managed_services",
+                "label": "托管服务",
+                "notes": [
+                  "同比 +7%"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": [
+            "服务",
+            "成本"
+          ]
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sm",
+              "label": "销售与市场",
+              "notes": [
+                "占收入 10%",
+                "同比 (1 个百分点)"
+              ]
+            },
+            {
+              "id": "ga",
+              "label": "一般及行政",
+              "notes": [
+                "占收入 7%",
+                "同比 +0 个百分点"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 32%",
+            "同比 +0 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 15%",
+            "同比 +4 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 12%",
+            "同比 (1 个百分点)"
+          ]
+        }
+      }
+    }
+  }
+})
 })(window);
+

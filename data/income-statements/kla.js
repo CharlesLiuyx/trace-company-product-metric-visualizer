@@ -343,6 +343,273 @@
           },
         },
       },
+    },
+{
+  "key": "kla-q1-fy27",
+  "company": "KLA",
+  "period": "Q1 FY27",
+  "periodNote": "Ending Sep. 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 3,
+  "sourceImage": "input/processed/kla-q1-fy27.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 4.1,
+    "notes": [
+      "+29% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "wafer_inspection",
+        "label": "Wafer Inspection",
+        "value": 2.1,
+        "notes": [
+          "+37% Y/Y"
+        ]
+      },
+      {
+        "id": "patterning",
+        "label": "Patterning",
+        "value": 0.9,
+        "notes": [
+          "+29% Y/Y"
+        ]
+      },
+      {
+        "id": "specialty_semi_process",
+        "label": "Specialty Semi Process",
+        "value": 0.1,
+        "notes": [
+          "+14% Y/Y"
+        ]
+      },
+      {
+        "id": "pcb_component_inspection",
+        "label": "PCB and Component Inspection",
+        "value": 0.2,
+        "notes": [
+          "+44% Y/Y"
+        ]
+      },
+      {
+        "id": "services",
+        "label": "Services",
+        "value": 0.9,
+        "notes": [
+          "+14% Y/Y"
+        ]
+      },
+      {
+        "id": "other_revenue",
+        "label": "Other",
+        "value": 0.031,
+        "notes": [
+          "(28%) Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 1.6
+    },
+    "operatingExpenses": {
+      "total": 0.7,
+      "items": [
+        {
+          "id": "rnd",
+          "label": "Research & Development",
+          "value": 0.4,
+          "notes": [
+            "10% of revenue",
+            "(2pp) Y/Y"
+          ]
+        },
+        {
+          "id": "sga",
+          "label": "Sales, General & Admin",
+          "value": 0.3,
+          "notes": [
+            "7% of revenue",
+            "(1pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.3
     }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0.038,
+    "items": [
+      {
+        "id": "other_expense",
+        "label": "Other",
+        "value": 0.038
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 2.6,
+      "notes": [
+        "62% margin",
+        "+1pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 1.9,
+      "notes": [
+        "45% margin",
+        "+3pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 1.5,
+      "notes": [
+        "37% margin",
+        "+3pp Y/Y"
+      ]
+    }
+  },
+  "sources": [
+    {
+      "name": "KLA Q1 FY27 source infographic",
+      "note": "Printed values preserved. Independently rounded components differ from totals by up to $0.131B; roundingTolerance 0.15 follows published KLA Q2 FY26 precedent. Official release confirms rounded statement values.",
+      "url": "https://ir.kla.com/news-events/press-releases/detail/523/kla-corporation-reports-fiscal-2027-first-quarter-results"
+    }
+  ],
+  "i18n": {
+    "zh": {
+      "period": "2027 财年第一季度",
+      "periodNote": "截至 2026 年 9 月",
+      "revenue": {
+        "notes": [
+          "同比 +29%"
+        ],
+        "items": [
+          {
+            "id": "wafer_inspection",
+            "label": "晶圆检测",
+            "notes": [
+              "同比 +37%"
+            ]
+          },
+          {
+            "id": "patterning",
+            "label": "图形化",
+            "notes": [
+              "同比 +29%"
+            ]
+          },
+          {
+            "id": "specialty_semi_process",
+            "label": "专用半导体制程",
+            "notes": [
+              "同比 +14%"
+            ]
+          },
+          {
+            "id": "pcb_component_inspection",
+            "label": "PCB 与元器件检测",
+            "notes": [
+              "同比 +44%"
+            ]
+          },
+          {
+            "id": "services",
+            "label": "服务",
+            "notes": [
+              "同比 +14%"
+            ]
+          },
+          {
+            "id": "other_revenue",
+            "label": "其他",
+            "notes": [
+              "同比 (28%)"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 10%",
+                "同比 (2 个百分点)"
+              ]
+            },
+            {
+              "id": "sga",
+              "label": "销售、一般及管理",
+              "notes": [
+                "占收入 7%",
+                "同比 (1 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other_expense",
+            "label": "其他",
+            "notes": []
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "毛利率 62%",
+            "同比 +1 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "营业利润率 45%",
+            "同比 +3 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "净利率 37%",
+            "同比 +3 个百分点"
+          ]
+        }
+      }
+    }
+  }
+}
   );
 })(window);

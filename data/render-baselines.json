@@ -12044,6 +12044,426 @@
       "mae": 5.919835687205766,
       "width": 2667,
       "height": 1500
+    },
+    "abbott-q3-fy26": {
+      "similarity": 0.969996318434052,
+      "mae": 7.650938799316752,
+      "width": 2667,
+      "height": 1500
+    },
+    "abbvie-q3-fy26": {
+      "similarity": 0.9696004881742724,
+      "mae": 7.751875515560555,
+      "width": 2667,
+      "height": 1500
+    },
+    "accenture-q4-fy26": {
+      "similarity": 0.966386509529446,
+      "mae": 8.571440069991251,
+      "width": 2667,
+      "height": 1500
+    },
+    "airbus-q3-fy26": {
+      "similarity": 0.9702888665060658,
+      "mae": 7.576339040953214,
+      "width": 2667,
+      "height": 1500
+    },
+    "align-q3-fy26": {
+      "similarity": 0.9788210607660971,
+      "mae": 5.400629504645253,
+      "width": 2667,
+      "height": 1500
+    },
+    "american-express-q3-fy26": {
+      "similarity": 0.9558058239452094,
+      "mae": 11.269514893971587,
+      "width": 2667,
+      "height": 1500
+    },
+    "american-q3-fy26": {
+      "similarity": 0.9712263346166696,
+      "mae": 7.33728467274924,
+      "width": 2667,
+      "height": 1500
+    },
+    "appfolio-q3-fy26": {
+      "similarity": 0.9768424234552381,
+      "mae": 5.905182018914302,
+      "width": 2667,
+      "height": 1500
+    },
+    "asml-q3-fy26": {
+      "similarity": 0.9770602625652186,
+      "mae": 5.8496330458692665,
+      "width": 2667,
+      "height": 1500
+    },
+    "astrazeneca-q3-fy26": {
+      "similarity": 0.960638775708592,
+      "mae": 10.037112194309044,
+      "width": 2667,
+      "height": 1500
+    },
+    "at-t-q3-fy26": {
+      "similarity": 0.9685712678072104,
+      "mae": 8.014326709161354,
+      "width": 2667,
+      "height": 1500
+    },
+    "bank-of-america-q3-fy26": {
+      "similarity": 0.9550552932517422,
+      "mae": 11.460900220805733,
+      "width": 2667,
+      "height": 1500
+    },
+    "blackrock-q3-fy26": {
+      "similarity": 0.9704353939417704,
+      "mae": 7.5389745448485606,
+      "width": 2667,
+      "height": 1500
+    },
+    "boeing-q3-fy26": {
+      "similarity": 0.9751579464331664,
+      "mae": 6.334723659542557,
+      "width": 2667,
+      "height": 1500
+    },
+    "braze-q2-fy27": {
+      "similarity": 0.9768072059619999,
+      "mae": 5.914162479690039,
+      "width": 2667,
+      "height": 1500
+    },
+    "cadence-q3-fy26": {
+      "similarity": 0.9769688717014948,
+      "mae": 5.872937716118819,
+      "width": 2667,
+      "height": 1500
+    },
+    "chipotle-q3-fy26": {
+      "similarity": 0.9657639311425941,
+      "mae": 8.730197558638503,
+      "width": 2667,
+      "height": 1500
+    },
+    "citigroup-q3-fy26": {
+      "similarity": 0.9698475876789912,
+      "mae": 7.688865141857268,
+      "width": 2667,
+      "height": 1500
+    },
+    "coca-cola-q3-fy26": {
+      "similarity": 0.9635888716524813,
+      "mae": 9.284837728617257,
+      "width": 2667,
+      "height": 1500
+    },
+    "coinbase-q3-fy26": {
+      "similarity": 0.970725476635682,
+      "mae": 7.465003457901096,
+      "width": 2667,
+      "height": 1500
+    },
+    "comcast-q3-fy26": {
+      "similarity": 0.9424844221269727,
+      "mae": 14.666472357621965,
+      "width": 2667,
+      "height": 1500
+    },
+    "delta-q3-fy26": {
+      "similarity": 0.96932564213787,
+      "mae": 7.821961254843145,
+      "width": 2667,
+      "height": 1500
+    },
+    "domino-s-q3-fy26": {
+      "similarity": 0.9671359289239172,
+      "mae": 8.380338124401117,
+      "width": 2667,
+      "height": 1500
+    },
+    "eli-lilly-q3-fy26": {
+      "similarity": 0.965091303456349,
+      "mae": 8.901717618631004,
+      "width": 2667,
+      "height": 1500
+    },
+    "etsy-q3-fy26": {
+      "similarity": 0.9740000545683424,
+      "mae": 6.629986085072699,
+      "width": 2667,
+      "height": 1500
+    },
+    "fedex-q1-fy27": {
+      "similarity": 0.9747717195481284,
+      "mae": 6.4332115152272635,
+      "width": 2667,
+      "height": 1500
+    },
+    "fortinet-q3-fy26": {
+      "similarity": 0.9796940846446481,
+      "mae": 5.178008415614715,
+      "width": 2667,
+      "height": 1500
+    },
+    "ge-vernova-q3-fy26": {
+      "similarity": 0.9683224730895567,
+      "mae": 8.077769362163062,
+      "width": 2667,
+      "height": 1500
+    },
+    "goldman-sachs-q3-fy26": {
+      "similarity": 0.9674012967333332,
+      "mae": 8.312669333000041,
+      "width": 2667,
+      "height": 1500
+    },
+    "hershey-q3-fy26": {
+      "similarity": 0.9590742810743428,
+      "mae": 10.436058326042579,
+      "width": 2667,
+      "height": 1500
+    },
+    "hilton-q3-fy26": {
+      "similarity": 0.9702741111609415,
+      "mae": 7.580101653959922,
+      "width": 2667,
+      "height": 1500
+    },
+    "ibm-q3-fy26": {
+      "similarity": 0.9702842641401851,
+      "mae": 7.577512644252802,
+      "width": 2667,
+      "height": 1500
+    },
+    "intel-q3-fy26": {
+      "similarity": 0.9632846185076539,
+      "mae": 9.362422280548264,
+      "width": 2667,
+      "height": 1500
+    },
+    "intuitive-q3-fy26": {
+      "similarity": 0.9707440213764129,
+      "mae": 7.460274549014707,
+      "width": 2667,
+      "height": 1500
+    },
+    "j-j-q3-fy26": {
+      "similarity": 0.9712831343794444,
+      "mae": 7.322800733241678,
+      "width": 2667,
+      "height": 1500
+    },
+    "jpmorganchase-q3-fy26": {
+      "similarity": 0.9653604211238301,
+      "mae": 8.833092613423322,
+      "width": 2667,
+      "height": 1500
+    },
+    "kla-q1-fy27": {
+      "similarity": 0.9779749518238324,
+      "mae": 5.616387284922718,
+      "width": 2667,
+      "height": 1500
+    },
+    "lam-research-q1-fy27": {
+      "similarity": 0.9726720545552721,
+      "mae": 6.968626088405616,
+      "width": 2667,
+      "height": 1500
+    },
+    "lockheed-martin-q3-fy26": {
+      "similarity": 0.9750088735640071,
+      "mae": 6.372737241178186,
+      "width": 2667,
+      "height": 1500
+    },
+    "mastercard-q3-fy26": {
+      "similarity": 0.9696312424999163,
+      "mae": 7.744033162521352,
+      "width": 2667,
+      "height": 1500
+    },
+    "merck-q3-fy26": {
+      "similarity": 0.9605006357865398,
+      "mae": 10.072337874432362,
+      "width": 2667,
+      "height": 1500
+    },
+    "mondelez-q3-fy26": {
+      "similarity": 0.9676363876084118,
+      "mae": 8.252721159855017,
+      "width": 2667,
+      "height": 1500
+    },
+    "moodys-q3-fy26": {
+      "similarity": 0.9697074754544571,
+      "mae": 7.724593759113445,
+      "width": 2667,
+      "height": 1500
+    },
+    "morgan-stanley-q3-fy26": {
+      "similarity": 0.9558050776332697,
+      "mae": 11.269705203516228,
+      "width": 2667,
+      "height": 1500
+    },
+    "nike-q1-fy27": {
+      "similarity": 0.9681638233129356,
+      "mae": 8.118225055201433,
+      "width": 2667,
+      "height": 1500
+    },
+    "novartis-q3-fy26": {
+      "similarity": 0.9676412553006037,
+      "mae": 8.251479898346041,
+      "width": 2667,
+      "height": 1500
+    },
+    "p-g-q1-fy27": {
+      "similarity": 0.9724985474854859,
+      "mae": 7.0128703912010995,
+      "width": 2667,
+      "height": 1500
+    },
+    "paypal-q3-fy26": {
+      "similarity": 0.9679216143733668,
+      "mae": 8.179988334791485,
+      "width": 2667,
+      "height": 1500
+    },
+    "pepsico-q3-fy26": {
+      "similarity": 0.969905745768707,
+      "mae": 7.6740348289797105,
+      "width": 2667,
+      "height": 1500
+    },
+    "rivian-q3-fy26": {
+      "similarity": 0.9779470866795246,
+      "mae": 5.623492896721243,
+      "width": 2667,
+      "height": 1500
+    },
+    "robinhood-q3-fy26": {
+      "similarity": 0.9657596264519223,
+      "mae": 8.731295254759821,
+      "width": 2667,
+      "height": 1500
+    },
+    "samsung-q3-fy26": {
+      "similarity": 0.960423762062422,
+      "mae": 10.091940674082407,
+      "width": 2667,
+      "height": 1500
+    },
+    "sandisk-q1-fy27": {
+      "similarity": 0.9753833898213704,
+      "mae": 6.2772355955505565,
+      "width": 2667,
+      "height": 1500
+    },
+    "sap-q3-fy26": {
+      "similarity": 0.9765087988184483,
+      "mae": 5.9902563012956715,
+      "width": 2667,
+      "height": 1500
+    },
+    "schwab-q3-fy26": {
+      "similarity": 0.9731486198212151,
+      "mae": 6.8471019455901345,
+      "width": 2667,
+      "height": 1500
+    },
+    "servicenow-q3-fy26": {
+      "similarity": 0.9650474945533769,
+      "mae": 8.912888888888888,
+      "width": 2667,
+      "height": 1500
+    },
+    "sk-hynix-q3-fy26": {
+      "similarity": 0.9806861678237933,
+      "mae": 4.925027204932717,
+      "width": 2667,
+      "height": 1500
+    },
+    "sofi-q3-fy26": {
+      "similarity": 0.9738522155318821,
+      "mae": 6.667685039370078,
+      "width": 2667,
+      "height": 1500
+    },
+    "southwest-q3-fy26": {
+      "similarity": 0.9678087977564895,
+      "mae": 8.208756572095155,
+      "width": 2667,
+      "height": 1500
+    },
+    "t-mobile-us-q3-fy26": {
+      "similarity": 0.973752138825784,
+      "mae": 6.693204599425072,
+      "width": 2667,
+      "height": 1500
+    },
+    "teladoc-q3-fy26": {
+      "similarity": 0.9745113795416096,
+      "mae": 6.499598216889556,
+      "width": 2667,
+      "height": 1500
+    },
+    "texas-instruments-q3-fy26": {
+      "similarity": 0.973265991097518,
+      "mae": 6.8171722701329,
+      "width": 2667,
+      "height": 1500
+    },
+    "tilray-q1-fy27": {
+      "similarity": 0.9768088305955219,
+      "mae": 5.913748198141899,
+      "width": 2667,
+      "height": 1500
+    },
+    "tsmc-q3-fy26": {
+      "similarity": 0.9723267369356609,
+      "mae": 7.056682081406491,
+      "width": 2667,
+      "height": 1500
+    },
+    "united-q3-fy26": {
+      "similarity": 0.973933440019344,
+      "mae": 6.646972795067283,
+      "width": 2667,
+      "height": 1500
+    },
+    "unitedhealth-q3-fy26": {
+      "similarity": 0.9764340202572718,
+      "mae": 6.0093248343957,
+      "width": 2667,
+      "height": 1500
+    },
+    "ups-q3-fy26": {
+      "similarity": 0.9739001811048129,
+      "mae": 6.655453818272716,
+      "width": 2667,
+      "height": 1500
+    },
+    "verizon-q3-fy26": {
+      "similarity": 0.949709464094766,
+      "mae": 12.824086655834687,
+      "width": 2667,
+      "height": 1500
+    },
+    "visa-q4-fy26": {
+      "similarity": 0.9790041375547011,
+      "mae": 5.353944923551222,
+      "width": 2667,
+      "height": 1500
+    },
+    "wells-fargo-q3-fy26": {
+      "similarity": 0.9717553475750171,
+      "mae": 7.20238636837062,
+      "width": 2667,
+      "height": 1500
     }
   }
 }

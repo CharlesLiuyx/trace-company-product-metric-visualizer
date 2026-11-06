@@ -1,0 +1,124 @@
+{
+  "source": "input/processing/intel-q3-fy26.png",
+  "spec": "input/icon-crop-specs/intel-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T14:18:13.467368+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/intel",
+  "crops": [
+    {
+      "key": "company-logo-q3-fy26",
+      "output": "data/assets/icon-references/intel/q3-fy26/crops/company-logo-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2483,
+        "losslessBytes": 10487,
+        "savingsVsLossless": 0.7632,
+        "metrics": {
+          "meanAbsoluteError": 0.2885,
+          "rootMeanSquareError": 1.4112,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 34,
+          "changedPixelRatio": 0.391
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 56366,
+        "transparentPixelRatio": 0.6163
+      },
+      "searchBox": {
+        "x": 807,
+        "y": 215,
+        "width": 469,
+        "height": 195
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 827,
+        "y0": 229,
+        "x1": 1265,
+        "y1": 402
+      },
+      "cropBox": {
+        "x0": 807,
+        "y0": 215,
+        "x1": 1276,
+        "y1": 410
+      },
+      "validation": {
+        "width": 469,
+        "height": 195,
+        "foregroundPixels": 33297,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 20,
+          "right": 11,
+          "top": 14,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": 0.0096,
+          "y": 0.0154
+        },
+        "passes": true
+      },
+      "note": "Intel company logo; no financial text, title or connectors.",
+      "runtimeOutput": "data/assets/raster-annotations/intel/company-logo-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2483,
+        "losslessBytes": 10487,
+        "savingsVsLossless": 0.7632,
+        "metrics": {
+          "meanAbsoluteError": 0.2885,
+          "rootMeanSquareError": 1.4112,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 34,
+          "changedPixelRatio": 0.391
+        }
+      }
+    }
+  ]
+}

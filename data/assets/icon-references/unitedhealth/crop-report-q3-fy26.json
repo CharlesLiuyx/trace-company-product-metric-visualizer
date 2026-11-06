@@ -1,0 +1,323 @@
+{
+  "source": "input/processed/unitedhealth-q3-fy26.png",
+  "spec": "input/icon-crop-specs/unitedhealth-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T14:16:31.198741+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/unitedhealth",
+  "crops": [
+    {
+      "key": "company-wordmark-q3-fy26",
+      "output": "data/assets/icon-references/unitedhealth/crops/company-wordmark-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2744,
+        "losslessBytes": 11295,
+        "savingsVsLossless": 0.7571,
+        "metrics": {
+          "meanAbsoluteError": 0.3891,
+          "rootMeanSquareError": 2.0582,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 30,
+          "changedPixelRatio": 0.11
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 46276,
+        "transparentPixelRatio": 0.6583
+      },
+      "searchBox": {
+        "x": 620,
+        "y": 238,
+        "width": 740,
+        "height": 95
+      },
+      "componentCount": 12,
+      "subjectBox": {
+        "x0": 636,
+        "y0": 245,
+        "x1": 1344,
+        "y1": 324
+      },
+      "cropBox": {
+        "x0": 620,
+        "y0": 238,
+        "x1": 1360,
+        "y1": 333
+      },
+      "validation": {
+        "width": 740,
+        "height": 95,
+        "foregroundPixels": 21656,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 16,
+          "right": 16,
+          "top": 7,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0105
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/unitedhealth/company-wordmark-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2744,
+        "losslessBytes": 11295,
+        "savingsVsLossless": 0.7571,
+        "metrics": {
+          "meanAbsoluteError": 0.3891,
+          "rootMeanSquareError": 2.0582,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 30,
+          "changedPixelRatio": 0.11
+        }
+      },
+      "validationSheet": "data/assets/icon-references/unitedhealth/validation-sheets/company-wordmark-q3-fy26.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 227505,
+        "losslessBytes": 227505,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "uhc-logo-q3-fy26",
+      "output": "data/assets/icon-references/unitedhealth/crops/uhc-logo-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2285,
+        "losslessBytes": 10647,
+        "savingsVsLossless": 0.7854,
+        "metrics": {
+          "meanAbsoluteError": 0.4673,
+          "rootMeanSquareError": 1.4068,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 12,
+          "changedPixelRatio": 0.3187
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 11334,
+        "transparentPixelRatio": 0.6899
+      },
+      "searchBox": {
+        "x": 37,
+        "y": 1155,
+        "width": 222,
+        "height": 74
+      },
+      "componentCount": 13,
+      "subjectBox": {
+        "x0": 44,
+        "y0": 1158,
+        "x1": 251,
+        "y1": 1223
+      },
+      "cropBox": {
+        "x0": 37,
+        "y0": 1155,
+        "x1": 259,
+        "y1": 1229
+      },
+      "validation": {
+        "width": 222,
+        "height": 74,
+        "foregroundPixels": 4479,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 8,
+          "top": 3,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": -0.0023,
+          "y": -0.0203
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/unitedhealth/uhc-logo-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2285,
+        "losslessBytes": 10647,
+        "savingsVsLossless": 0.7854,
+        "metrics": {
+          "meanAbsoluteError": 0.4673,
+          "rootMeanSquareError": 1.4068,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 12,
+          "changedPixelRatio": 0.3187
+        }
+      },
+      "validationSheet": "data/assets/icon-references/unitedhealth/validation-sheets/uhc-logo-q3-fy26.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 256471,
+        "losslessBytes": 256471,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "optum-logo-q3-fy26",
+      "output": "data/assets/icon-references/unitedhealth/crops/optum-logo-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1028,
+        "losslessBytes": 4683,
+        "savingsVsLossless": 0.7805,
+        "metrics": {
+          "meanAbsoluteError": 0.5853,
+          "rootMeanSquareError": 2.1022,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 25,
+          "changedPixelRatio": 0.3957
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 7341,
+        "transparentPixelRatio": 0.6133
+      },
+      "searchBox": {
+        "x": 512,
+        "y": 1166,
+        "width": 190,
+        "height": 63
+      },
+      "componentCount": 5,
+      "subjectBox": {
+        "x0": 521,
+        "y0": 1173,
+        "x1": 693,
+        "y1": 1223
+      },
+      "cropBox": {
+        "x0": 512,
+        "y0": 1166,
+        "x1": 702,
+        "y1": 1229
+      },
+      "validation": {
+        "width": 190,
+        "height": 63,
+        "foregroundPixels": 4085,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 9,
+          "right": 9,
+          "top": 7,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0079
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/unitedhealth/optum-logo-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1028,
+        "losslessBytes": 4683,
+        "savingsVsLossless": 0.7805,
+        "metrics": {
+          "meanAbsoluteError": 0.5853,
+          "rootMeanSquareError": 2.1022,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 25,
+          "changedPixelRatio": 0.3957
+        }
+      },
+      "validationSheet": "data/assets/icon-references/unitedhealth/validation-sheets/optum-logo-q3-fy26.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 241892,
+        "losslessBytes": 241892,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

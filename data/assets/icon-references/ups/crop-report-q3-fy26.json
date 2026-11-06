@@ -1,0 +1,48 @@
+{
+  "crops": [
+    {
+      "id": "logo",
+      "source": "input/processed/ups-q3-fy26.png",
+      "cropBox": [
+        917,
+        259,
+        1126,
+        518
+      ],
+      "output": "data/assets/raster-annotations/ups/logo-q3-fy26.png"
+    },
+    {
+      "id": "package",
+      "source": "input/processed/ups-q3-fy26.png",
+      "cropBox": [
+        146,
+        492,
+        230,
+        573
+      ],
+      "output": "data/assets/raster-annotations/ups/package-q3-fy26.png"
+    },
+    {
+      "id": "globe",
+      "source": "input/processed/ups-q3-fy26.png",
+      "cropBox": [
+        152,
+        751,
+        224,
+        820
+      ],
+      "output": "data/assets/raster-annotations/ups/globe-q3-fy26.png"
+    },
+    {
+      "id": "truck",
+      "source": "input/processed/ups-q3-fy26.png",
+      "cropBox": [
+        143,
+        983,
+        237,
+        1037
+      ],
+      "output": "data/assets/raster-annotations/ups/truck-q3-fy26.png"
+    }
+  ]
+}

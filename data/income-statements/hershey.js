@@ -196,4 +196,195 @@
       },
     },
   });
+ssot.records.push({
+  "key": "hershey-q3-fy26",
+  "company": "Hershey",
+  "period": "Q3 FY26",
+  "periodNote": "Ending Sep. 27, 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/hershey-q3-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 3.3,
+    "notes": [
+      "+3% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "north_america_confectionery",
+        "label": "North America Confectionery",
+        "value": 2.7,
+        "notes": [
+          "+2% Y/Y",
+          "36% segment margin"
+        ]
+      },
+      {
+        "id": "north_america_salty_snacks",
+        "label": "North America Salty Snacks",
+        "value": 0.4,
+        "notes": [
+          "+22% Y/Y",
+          "12% segment margin"
+        ]
+      },
+      {
+        "id": "international",
+        "label": "International",
+        "value": 0.2,
+        "notes": [
+          "(8%) Y/Y",
+          "(13%) segment margin"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_sales",
+      "label": "Cost of sales",
+      "value": 1.8
+    },
+    "operatingExpenses": {
+      "total": 0.7,
+      "items": [
+        {
+          "id": "operating_expenses",
+          "label": "Selling, marketing & administrative expenses",
+          "value": 0.7
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.2
+    }
+  },
+  "otherExpenses": {
+    "total": 0.1,
+    "items": [
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 0.1
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 1.5,
+      "notes": [
+        "46% margin",
+        "+14pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 0.8,
+      "notes": [
+        "25% margin",
+        "+11pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 0.6,
+      "notes": [
+        "18% margin",
+        "+9pp Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "periodNote": "截至 2026 年 9 月 27 日",
+      "revenue": {
+        "notes": [
+          "同比 +3%"
+        ],
+        "items": [
+          {
+            "id": "north_america_confectionery",
+            "label": "北美糖果业务",
+            "notes": [
+              "同比 +2%",
+              "分部利润率 36%"
+            ]
+          },
+          {
+            "id": "north_america_salty_snacks",
+            "label": "北美咸味零食业务",
+            "notes": [
+              "同比 +22%",
+              "分部利润率 12%"
+            ]
+          },
+          {
+            "id": "international",
+            "label": "国际业务",
+            "notes": [
+              "同比 (8%)",
+              "分部利润率 (13%)"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "销售成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "operating_expenses",
+              "label": "销售、营销及管理费用"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 46%",
+            "同比 +14 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 25%",
+            "同比 +11 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 18%",
+            "同比 +9 个百分点"
+          ]
+        }
+      }
+    }
+  }
+});
 })(window);

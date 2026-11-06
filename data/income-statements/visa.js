@@ -4914,5 +4914,365 @@
       }
     }
   }
-]);
+,
+{
+  "key": "visa-q4-fy26",
+  "company": "Visa",
+  "period": "Q4 FY26",
+  "periodNote": "Ending Sep. 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/visa-q4-fy26.png",
+  "roundingTolerance": 0.15,
+  "notes": [
+    "Printed values retained. Net revenue $12.1B less operating expenses $4.9B differs from operating profit $7.3B by $0.1B due to independent rounding. SEC Q4 FY26 reports $12.139B - $4.877B = $7.262B; https://www.sec.gov/Archives/edgar/data/1403161/000140316126000126/q42026earningsrelease.htm"
+  ],
+  "revenue": {
+    "total": 12.1,
+    "items": [
+      {
+        "id": "revenue",
+        "label": "Net revenue",
+        "value": 12.1,
+        "notes": [
+          "+13% Y/Y"
+        ]
+      }
+    ],
+    "paymentNetwork": {
+      "gross": {
+        "id": "gross_revenue",
+        "label": "Gross revenue",
+        "value": 17.2
+      },
+      "grossItems": [
+        {
+          "id": "service",
+          "label": "Service",
+          "value": 5.3,
+          "notes": [
+            "+14% Y/Y"
+          ]
+        },
+        {
+          "id": "data_processing",
+          "label": "Data processing",
+          "value": 6.2,
+          "notes": [
+            "+16% Y/Y"
+          ]
+        },
+        {
+          "id": "international",
+          "label": "International transaction",
+          "value": 4.1,
+          "notes": [
+            "+8% Y/Y"
+          ]
+        },
+        {
+          "id": "other_rev",
+          "label": "Other",
+          "value": 1.6,
+          "notes": [
+            "+40% Y/Y"
+          ]
+        }
+      ],
+      "rebates": {
+        "id": "client_incentives",
+        "label": "Client incentives",
+        "value": 5.1
+      }
+    },
+    "notes": [
+      "+13% Y/Y"
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 0
+    },
+    "operatingExpenses": {
+      "total": 4.9,
+      "items": [
+        {
+          "id": "personnel",
+          "label": "Personnel",
+          "value": 1.9
+        },
+        {
+          "id": "general_admin",
+          "label": "General & admin",
+          "value": 0.8
+        },
+        {
+          "id": "marketing",
+          "label": "Marketing",
+          "value": 0.7
+        },
+        {
+          "id": "provisions",
+          "label": "Provisions",
+          "value": 0.5
+        },
+        {
+          "id": "da",
+          "label": "D&A",
+          "value": 0.4
+        },
+        {
+          "id": "network",
+          "label": "Network",
+          "value": 0.3
+        },
+        {
+          "id": "professional_fees",
+          "label": "Professional fees",
+          "value": 0.3
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 1.4
+    }
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 12.1
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 7.3,
+      "notes": [
+        "60% margin",
+        "+2pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 6.0,
+      "notes": [
+        "49% margin",
+        "+2pp Y/Y"
+      ]
+    }
+  },
+  "otherIncome": {
+    "total": 0.1,
+    "items": [
+      {
+        "id": "other_income",
+        "label": "Other",
+        "value": 0.1
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "operatingMetrics": [
+    {
+      "id": "payment_volume",
+      "label": "Payment Volume",
+      "value": "9",
+      "unit": "%",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "+9%",
+      "basis": "unspecified",
+      "notes": [
+        "Y/Y"
+      ],
+      "quote": "Payment Volume\n+9% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          77,
+          1188,
+          204,
+          150
+        ]
+      }
+    },
+    {
+      "id": "cross_border_volume",
+      "label": "Cross-Border Volume",
+      "value": "14",
+      "unit": "%",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "+14%",
+      "basis": "unspecified",
+      "notes": [
+        "Y/Y"
+      ],
+      "quote": "Cross-Border Volume\n+14% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          290,
+          1188,
+          292,
+          150
+        ]
+      }
+    },
+    {
+      "id": "processed_transactions",
+      "label": "Processed Transactions",
+      "value": "10",
+      "unit": "%",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "+10%",
+      "basis": "unspecified",
+      "notes": [
+        "Y/Y"
+      ],
+      "quote": "Processed Transactions\n+10% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          590,
+          1188,
+          292,
+          150
+        ]
+      }
+    }
+  ],
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第四季度",
+      "periodNote": "截至 2026 年 9 月",
+      "revenue": {
+        "items": [
+          {
+            "id": "revenue",
+            "label": "净收入"
+          }
+        ],
+        "paymentNetwork": {
+          "gross": {
+            "label": "总收入"
+          },
+          "grossItems": [
+            {
+              "id": "service",
+              "label": "服务"
+            },
+            {
+              "id": "data_processing",
+              "label": "数据处理"
+            },
+            {
+              "id": "international",
+              "label": "国际交易"
+            },
+            {
+              "id": "other_rev",
+              "label": "其他"
+            }
+          ],
+          "rebates": {
+            "label": "客户激励"
+          }
+        }
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "personnel",
+              "label": "人员"
+            },
+            {
+              "id": "general_admin",
+              "label": "综合及行政"
+            },
+            {
+              "id": "marketing",
+              "label": "市场营销"
+            },
+            {
+              "id": "provisions",
+              "label": "拨备"
+            },
+            {
+              "id": "da",
+              "label": "折旧摊销"
+            },
+            {
+              "id": "network",
+              "label": "网络"
+            },
+            {
+              "id": "professional_fees",
+              "label": "专业服务费"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润"
+        },
+        "operating": {
+          "label": "营业利润"
+        },
+        "net": {
+          "label": "净利润"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "other_income",
+            "label": "其他"
+          }
+        ]
+      },
+      "operatingMetrics": [
+        {
+          "id": "payment_volume",
+          "label": "支付交易额",
+          "notes": [
+            "同比"
+          ]
+        },
+        {
+          "id": "cross_border_volume",
+          "label": "跨境交易额",
+          "notes": [
+            "同比"
+          ]
+        },
+        {
+          "id": "processed_transactions",
+          "label": "处理交易笔数",
+          "notes": [
+            "同比"
+          ]
+        }
+      ]
+    }
+  }
+}]);
 })(window);

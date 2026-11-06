@@ -325,4 +325,253 @@
       },
     },
   });
+  ssot.records.push({
+  "key": "united-q3-fy26",
+  "company": "United Airlines",
+  "period": "Q3 FY26",
+  "periodNote": "Quarter ended Sep. 30, 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/united-q3-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 17.9,
+    "notes": [
+      "+17% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "passenger",
+        "label": "Passenger",
+        "value": 16.2,
+        "notes": [
+          "+18% Y/Y"
+        ]
+      },
+      {
+        "id": "cargo",
+        "label": "Cargo",
+        "value": 0.5,
+        "notes": [
+          "+23% Y/Y"
+        ]
+      },
+      {
+        "id": "other_revenue",
+        "label": "Other",
+        "value": 1.1,
+        "notes": [
+          "+13% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue (not separately presented)",
+      "value": 0,
+      "notes": [
+        "The source infographic moves directly from revenue to operating profit and operating expenses."
+      ]
+    },
+    "operatingExpenses": {
+      "total": 16.4,
+      "items": [
+        {
+          "id": "salaries_benefits",
+          "label": "Salaries & benefits",
+          "value": 5
+        },
+        {
+          "id": "aircraft_fuel",
+          "label": "Aircraft fuel",
+          "value": 4.8
+        },
+        {
+          "id": "distribution",
+          "label": "Distribution",
+          "value": 0.7
+        },
+        {
+          "id": "landing_fees",
+          "label": "Landing fees",
+          "value": 1
+        },
+        {
+          "id": "depreciation_amortization",
+          "label": "D&A",
+          "value": 0.8
+        },
+        {
+          "id": "regional_carrier",
+          "label": "Regional carrier",
+          "value": 0.7
+        },
+        {
+          "id": "maintenance",
+          "label": "Maintenance",
+          "value": 0.8
+        },
+        {
+          "id": "other_operating",
+          "label": "Other",
+          "value": 2.5
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.3
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0.1,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit (not separately presented)",
+      "value": 17.9,
+      "notes": [
+        "Bookkeeping value for SSOT parity; the source infographic has no gross-profit stage."
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 1.4,
+      "notes": [
+        "8% margin",
+        "(1pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 1,
+      "notes": [
+        "6% margin",
+        "(0pp) Y/Y"
+      ]
+    }
+  },
+  "sources": [
+    {
+      "name": "United Airlines Reports Third-Quarter 2026 Results",
+      "url": "https://ir.united.com/static-files/535bcb38-b87a-4935-b7eb-e7e38050810e"
+    }
+  ],
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "periodNote": "截至 2026 年 9 月 30 日的季度",
+      "revenue": {
+        "notes": [
+          "同比 +17%"
+        ],
+        "items": [
+          {
+            "id": "passenger",
+            "label": "客运",
+            "notes": [
+              "同比 +18%"
+            ]
+          },
+          {
+            "id": "cargo",
+            "label": "货运",
+            "notes": [
+              "同比 +23%"
+            ]
+          },
+          {
+            "id": "other_revenue",
+            "label": "其他",
+            "notes": [
+              "同比 +13%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本（未单列）",
+          "notes": [
+            "来源信息图从收入直接拆分为营业利润和运营费用。"
+          ]
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "salaries_benefits",
+              "label": "薪酬与福利"
+            },
+            {
+              "id": "aircraft_fuel",
+              "label": "航空燃油"
+            },
+            {
+              "id": "distribution",
+              "label": "分销"
+            },
+            {
+              "id": "landing_fees",
+              "label": "着陆费"
+            },
+            {
+              "id": "depreciation_amortization",
+              "label": "折旧与摊销"
+            },
+            {
+              "id": "regional_carrier",
+              "label": "支线承运人"
+            },
+            {
+              "id": "maintenance",
+              "label": "维护"
+            },
+            {
+              "id": "other_operating",
+              "label": "其他"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherExpenses": {},
+      "profit": {
+        "gross": {
+          "label": "毛利润（未单列）",
+          "notes": [
+            "用于 SSOT 对齐的账面值；来源信息图未展示毛利润阶段。"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 8%",
+            "同比 (1 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 6%",
+            "同比 (0 个百分点)"
+          ]
+        }
+      }
+    }
+  }
+});
 })(window);

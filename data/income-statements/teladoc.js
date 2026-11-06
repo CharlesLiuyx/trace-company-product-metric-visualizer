@@ -1,7 +1,4 @@
-/* Pure INCOME_STATEMENT_SSOT records. Merged by the Publication Module. */
-(function (global) {
-  const target = global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || { schemaVersion: 1, records: [] };
-  target.records.push(...[
+(function(global){const target=global.INCOME_STATEMENT_SSOT=global.INCOME_STATEMENT_SSOT||{schemaVersion:1,records:[]};target.records.push(...[
   {
     "key": "teladoc-q4-fy25",
     "company": "Teladoc Health",
@@ -3525,6 +3522,336 @@
         }
       }
     ]
+  },
+  {
+    "key": "teladoc-q3-fy26",
+    "company": "Teladoc Health",
+    "period": "Q3 FY26",
+    "periodNote": "Quarter ended Sep. 30, 2026",
+    "currency": "$",
+    "unit": "M",
+    "decimals": 0,
+    "sourceImage": "input/processed/teladoc-q3-fy26.png",
+    "roundingTolerance": 1.5,
+    "revenue": {
+      "total": 605,
+      "notes": [
+        "(3%) Y/Y",
+        "Source amounts retain independent integer rounding. Filing contains multiple differences; no unique mistyped item identified."
+      ],
+      "items": [
+        {
+          "id": "integrated_care",
+          "label": "Teladoc Health Integrated Care",
+          "value": 399,
+          "notes": [
+            "+2% Y/Y",
+            "19% adjusted margin"
+          ]
+        },
+        {
+          "id": "betterhelp",
+          "label": "BetterHelp",
+          "value": 207,
+          "notes": [
+            "(13%) Y/Y",
+            "2% adjusted margin"
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_revenue",
+        "label": "Cost of revenue",
+        "value": 190
+      },
+      "operatingExpenses": {
+        "total": 444,
+        "items": [
+          {
+            "id": "sales_marketing",
+            "label": "Sales & marketing",
+            "value": 174,
+            "notes": [
+              "29% of revenue",
+              "(6pp) Y/Y"
+            ]
+          },
+          {
+            "id": "ga",
+            "label": "G&A",
+            "value": 107,
+            "notes": [
+              "18% of revenue",
+              "+1pp Y/Y"
+            ]
+          },
+          {
+            "id": "depreciation_amortization",
+            "label": "Depreciation & amortization",
+            "value": 91,
+            "notes": [
+              "15% of revenue",
+              "+1pp Y/Y"
+            ]
+          },
+          {
+            "id": "technology_development",
+            "label": "Technology & development",
+            "value": 66,
+            "notes": [
+              "11% of revenue",
+              "+0pp Y/Y"
+            ]
+          },
+          {
+            "id": "other",
+            "label": "Other",
+            "value": 7,
+            "notes": [
+              "1% of revenue"
+            ]
+          }
+        ]
+      },
+      "tax": {
+        "label": "Tax",
+        "value": 0
+      }
+    },
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 0,
+      "items": []
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 415,
+        "notes": [
+          "69% margin",
+          "(2pp) Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_loss",
+        "label": "Operating loss",
+        "value": -29,
+        "notes": [
+          "(5%) margin",
+          "(3pp) Y/Y"
+        ]
+      },
+      "net": {
+        "availability": "not-reported",
+        "value": null,
+        "label": "Net result not reported",
+        "notes": [
+          "Source ends at operating loss."
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2026 财年第三季度",
+        "periodNote": "截至 2026 年 9 月 30 日的季度",
+        "revenue": {
+          "notes": [
+            "同比 (3%)",
+            "保留原图独立整数舍入。申报文件存在多处差异，无法唯一定位印错的子项。"
+          ],
+          "items": [
+            {
+              "id": "integrated_care",
+              "label": "Teladoc Health 整合护理",
+              "notes": [
+                "同比 +2%",
+                "调整后利润率 19%"
+              ]
+            },
+            {
+              "id": "betterhelp",
+              "label": "BetterHelp",
+              "notes": [
+                "同比 (13%)",
+                "调整后利润率 2%"
+              ]
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "收入成本"
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "sales_marketing",
+                "label": "销售与市场",
+                "notes": [
+                  "占收入 29%",
+                  "同比 (6 个百分点)"
+                ]
+              },
+              {
+                "id": "ga",
+                "label": "一般及行政费用",
+                "notes": [
+                  "占收入 18%",
+                  "同比 +1 个百分点"
+                ]
+              },
+              {
+                "id": "depreciation_amortization",
+                "label": "折旧与摊销",
+                "notes": [
+                  "占收入 15%",
+                  "同比 +1 个百分点"
+                ]
+              },
+              {
+                "id": "technology_development",
+                "label": "技术与开发",
+                "notes": [
+                  "占收入 11%",
+                  "同比 +0 个百分点"
+                ]
+              },
+              {
+                "id": "other",
+                "label": "其他",
+                "notes": [
+                  "占收入 1%"
+                ]
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费"
+          }
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 69%",
+              "同比 (2 个百分点)"
+            ]
+          },
+          "operating": {
+            "label": "营业亏损",
+            "notes": [
+              "利润率 (5%)",
+              "同比 (3 个百分点)"
+            ]
+          },
+          "net": {
+            "label": "未报告净利润",
+            "notes": [
+              "来源图止于营业亏损。"
+            ]
+          }
+        },
+        "operatingMetrics": [
+          {
+            "id": "visits",
+            "label": "访问量",
+            "notes": [
+              "同比 (2%)"
+            ]
+          },
+          {
+            "id": "members",
+            "label": "美国整合护理会员",
+            "notes": [
+              "同比 (2%)"
+            ]
+          },
+          {
+            "id": "paying_users",
+            "label": "BetterHelp 付费用户",
+            "notes": [
+              "同比 (12%)"
+            ]
+          }
+        ]
+      }
+    },
+    "operatingMetrics": [
+      {
+        "id": "visits",
+        "label": "Visits",
+        "literal": "4.0M",
+        "value": "4000000",
+        "unit": "count",
+        "currency": null,
+        "comparison": "eq",
+        "quote": "Visits\n4.0M\n(2%) Y/Y",
+        "basis": "unspecified",
+        "notes": [
+          "(2%) Y/Y"
+        ],
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            29,
+            1184,
+            210,
+            148
+          ]
+        }
+      },
+      {
+        "id": "members",
+        "label": "US Integrated Care Members",
+        "literal": "100.1M",
+        "value": "100100000",
+        "unit": "count",
+        "currency": null,
+        "comparison": "eq",
+        "quote": "US Integrated Care Members\n100.1M\n(2%) Y/Y",
+        "basis": "unspecified",
+        "notes": [
+          "(2%) Y/Y"
+        ],
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            250,
+            1184,
+            500,
+            148
+          ]
+        }
+      },
+      {
+        "id": "paying_users",
+        "label": "BetterHelp Paying users",
+        "literal": "336K",
+        "value": "336000",
+        "unit": "count",
+        "currency": null,
+        "comparison": "eq",
+        "quote": "BetterHelp Paying users\n336K\n(12%) Y/Y",
+        "basis": "unspecified",
+        "notes": [
+          "(12%) Y/Y"
+        ],
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            763,
+            1184,
+            430,
+            148
+          ]
+        }
+      }
+    ]
   }
-]);
-})(window);
+]);})(window);

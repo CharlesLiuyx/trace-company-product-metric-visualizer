@@ -252,6 +252,236 @@
           },
         },
       },
+    },
+{
+  "key": "rivian-q3-fy26",
+  "company": "Rivian",
+  "period": "Q3 FY26",
+  "periodNote": "",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/rivian-q3-fy26.png",
+  "roundingTolerance": 0.01,
+  "revenue": {
+    "total": 2.2,
+    "notes": [
+      "+38% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "automotive",
+        "label": "Automotive",
+        "value": 1.6,
+        "notes": [
+          "+36% Y/Y",
+          "(5%) gross margin",
+          "+6pp Y/Y"
+        ]
+      },
+      {
+        "id": "software_services",
+        "label": "Software & Services",
+        "value": 0.6,
+        "notes": [
+          "+45% Y/Y",
+          "42% gross margin",
+          "+5pp Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 2
+    },
+    "operatingExpenses": {
+      "total": 1.1,
+      "items": [
+        {
+          "id": "rnd",
+          "label": "Research & development",
+          "value": 0.5,
+          "notes": [
+            "23% of revenue",
+            "(7pp) Y/Y"
+          ]
+        },
+        {
+          "id": "sga",
+          "label": "Selling, general, & admin",
+          "value": 0.6,
+          "notes": [
+            "27% of revenue",
+            "(9pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "label": "Tax",
+      "value": 0
     }
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 0.2,
+      "notes": [
+        "8% margin",
+        "+7pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_loss",
+      "label": "Operating loss",
+      "value": -0.9,
+      "notes": [
+        "(41%) margin",
+        "+22pp Y/Y"
+      ]
+    },
+    "net": {
+      "availability": "not-reported",
+      "value": null,
+      "label": "Net result not reported",
+      "notes": [
+        "Source ends at operating loss."
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "periodNote": "",
+      "revenue": {
+        "notes": [
+          "同比 +38%"
+        ],
+        "items": [
+          {
+            "id": "automotive",
+            "label": "汽车业务",
+            "notes": [
+              "同比 +36%",
+              "毛利率 (5%)",
+              "同比 +6 个百分点"
+            ]
+          },
+          {
+            "id": "software_services",
+            "label": "软件与服务",
+            "notes": [
+              "同比 +45%",
+              "毛利率 42%",
+              "同比 +5 个百分点"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 23%",
+                "同比 (7 个百分点)"
+              ]
+            },
+            {
+              "id": "sga",
+              "label": "销售、一般及行政费用",
+              "notes": [
+                "占收入 27%",
+                "同比 (9 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 8%",
+            "同比 +7 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业亏损",
+          "notes": [
+            "利润率 (41%)",
+            "同比 +22 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润未披露",
+          "notes": [
+            "来源图止于营业亏损。"
+          ]
+        }
+      }
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "production",
+      "label": "Production",
+      "value": "19800",
+      "literal": "19.8K",
+      "unit": "count",
+      "currency": null,
+      "comparison": "eq",
+      "basis": "unspecified",
+      "notes": [
+        "+84% Y/Y"
+      ],
+      "quote": "Production\n19.8K\n+84% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          2060,
+          1193,
+          190,
+          148
+        ]
+      }
+    },
+    {
+      "id": "deliveries",
+      "label": "Deliveries",
+      "value": "19200",
+      "literal": "19.2K",
+      "unit": "count",
+      "currency": null,
+      "comparison": "eq",
+      "basis": "unspecified",
+      "notes": [
+        "+46% Y/Y"
+      ],
+      "quote": "Deliveries\n19.2K\n+46% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          2255,
+          1193,
+          190,
+          148
+        ]
+      }
+    }
+  ]
+}
   );
 })(window);

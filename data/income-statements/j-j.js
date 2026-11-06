@@ -1,7 +1,4 @@
-/* Pure INCOME_STATEMENT_SSOT records. Merged by the Publication Module. */
-(function (global) {
-  const target = global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || { schemaVersion: 1, records: [] };
-  target.records.push(...[
+(function(global){global.INCOME_STATEMENT_SSOT=global.INCOME_STATEMENT_SSOT||{schemaVersion:1,records:[]};global.INCOME_STATEMENT_SSOT.records.push(...[
   {
     "key": "j-j-q4-fy25",
     "company": "Johnson & Johnson",
@@ -2899,6 +2896,162 @@
         }
       }
     }
+  },
+  {
+    "key": "j-j-q3-fy26",
+    "company": "Johnson & Johnson",
+    "period": "Q3 FY26",
+    "currency": "$",
+    "unit": "B",
+    "decimals": 3,
+    "sourceImage": "input/processed/j-j-q3-fy26.png",
+    "roundingTolerance": 0.2,
+    "revenue": {
+      "total": 25.4,
+      "notes": [
+        "+6% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "innovative_medicine",
+          "label": "Innovative Medicine",
+          "value": 16.8,
+          "notes": [
+            "+8% Y/Y"
+          ]
+        },
+        {
+          "id": "medtech",
+          "label": "MedTech",
+          "value": 8.6,
+          "notes": [
+            "+3% Y/Y"
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_products_sold",
+        "label": "Cost of products sold",
+        "value": 8.1
+      },
+      "operatingExpenses": {
+        "total": 17.3,
+        "items": [
+          {
+            "id": "sga",
+            "label": "Sales, marketing & administrative",
+            "value": 6.3
+          },
+          {
+            "id": "rnd",
+            "label": "R&D",
+            "value": 4.7
+          },
+          {
+            "id": "other_opex",
+            "label": "Other",
+            "value": 6.2
+          }
+        ]
+      }
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 17.3,
+        "notes": [
+          "68% margin",
+          "(1pp) Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "pretax_income",
+        "label": "Pretax income",
+        "value": 0.034,
+        "notes": [
+          "0% margin",
+          "(31pp) Y/Y"
+        ]
+      },
+      "net": {
+        "id": "net_profit",
+        "label": "Net income",
+        "value": 0.2,
+        "notes": [
+          "1% margin",
+          "(21pp) Y/Y"
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2026 财年第三季度",
+        "revenue": {
+          "items": [
+            {
+              "id": "innovative_medicine",
+              "label": "创新制药"
+            },
+            {
+              "id": "medtech",
+              "label": "医疗科技"
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "产品销售成本"
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "sga",
+                "label": "销售、市场及行政费用"
+              },
+              {
+                "id": "rnd",
+                "label": "研发"
+              },
+              {
+                "id": "other_opex",
+                "label": "其他"
+              }
+            ]
+          }
+        },
+        "otherIncome": {
+          "items": [
+            {
+              "id": "tax_benefit",
+              "label": "税收收益"
+            }
+          ]
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润"
+          },
+          "operating": {
+            "label": "税前利润"
+          },
+          "net": {
+            "label": "净利润"
+          }
+        }
+      }
+    },
+    "otherIncome": {
+      "total": 0.2,
+      "items": [
+        {
+          "id": "tax_benefit",
+          "label": "Tax benefit",
+          "value": 0.2
+        }
+      ]
+    }
   }
-]);
-})(window);
+]);})(window);

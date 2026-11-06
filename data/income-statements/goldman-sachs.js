@@ -4409,5 +4409,308 @@
       }
     ]
   }
+,
+{
+  "key": "goldman-sachs-q3-fy26",
+  "company": "Goldman Sachs",
+  "period": "Q3 FY26",
+  "periodNote": "Ending Sep. 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/goldman-sachs-q3-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 18.7,
+    "notes": [
+      "+23% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "global_banking_markets",
+        "label": "Global Banking & Markets",
+        "value": 13.5,
+        "notes": [
+          "+32% Y/Y",
+          "32% net margin"
+        ]
+      },
+      {
+        "id": "asset_wealth_management",
+        "label": "Asset & Wealth Management",
+        "value": 5.1,
+        "notes": [
+          "+14% Y/Y",
+          "20% net margin"
+        ]
+      },
+      {
+        "id": "platform_solutions",
+        "label": "Platform Solutions",
+        "value": 0.2,
+        "notes": [
+          "(72%) Y/Y",
+          "(45%) net margin"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "provision_for_credit_loss",
+      "label": "Provision for credit loss",
+      "value": 0.4,
+      "notes": [
+        "Modeled as a pre-pretax cost so the generic SSOT arithmetic matches the banking source chart."
+      ]
+    },
+    "operatingExpenses": {
+      "total": 11.3,
+      "items": [
+        {
+          "id": "compensation_benefits",
+          "label": "Compensation & benefits",
+          "value": 5.1
+        },
+        {
+          "id": "transaction_based",
+          "label": "Transaction based",
+          "value": 3
+        },
+        {
+          "id": "market_development",
+          "label": "Market development",
+          "value": 0.2
+        },
+        {
+          "id": "communication_technology",
+          "label": "Communication, Technology",
+          "value": 0.7
+        },
+        {
+          "id": "da",
+          "label": "D&A",
+          "value": 0.5
+        },
+        {
+          "id": "occupancy",
+          "label": "Occupancy",
+          "value": 0.3
+        },
+        {
+          "id": "professional_fees",
+          "label": "Professional fees",
+          "value": 0.4
+        },
+        {
+          "id": "other",
+          "label": "Other",
+          "value": 1.1
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 1.7
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Revenue after credit loss provision",
+      "value": 18.3,
+      "notes": [
+        "Balancing subtotal; not labeled separately in the source chart."
+      ]
+    },
+    "operating": {
+      "id": "pretax_income",
+      "label": "Pretax income",
+      "value": 7
+    },
+    "net": {
+      "id": "net_income",
+      "label": "Net income",
+      "value": 5.3,
+      "notes": [
+        "+29% Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "periodNote": "截至 2026 年 9 月",
+      "revenue": {
+        "notes": [
+          "同比 +23%"
+        ],
+        "items": [
+          {
+            "id": "global_banking_markets",
+            "label": "全球银行与市场",
+            "notes": [
+              "同比 +32%",
+              "净利率 32%"
+            ]
+          },
+          {
+            "id": "asset_wealth_management",
+            "label": "资产与财富管理",
+            "notes": [
+              "同比 +14%",
+              "净利率 20%"
+            ]
+          },
+          {
+            "id": "platform_solutions",
+            "label": "平台解决方案",
+            "notes": [
+              "同比 (72%)",
+              "净利率 (45%)"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "信用损失拨备",
+          "notes": [
+            "建模为税前利润前成本，使通用 SSOT 计算与银行业来源图匹配。"
+          ]
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "compensation_benefits",
+              "label": "薪酬与福利"
+            },
+            {
+              "id": "transaction_based",
+              "label": "交易相关"
+            },
+            {
+              "id": "market_development",
+              "label": "市场开发"
+            },
+            {
+              "id": "communication_technology",
+              "label": "通信与技术"
+            },
+            {
+              "id": "da",
+              "label": "折旧与摊销"
+            },
+            {
+              "id": "occupancy",
+              "label": "场地占用"
+            },
+            {
+              "id": "professional_fees",
+              "label": "专业费用"
+            },
+            {
+              "id": "other",
+              "label": "其他"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "扣除信用损失拨备后的收入",
+          "notes": [
+            "平衡小计；来源图未单独标注。"
+          ]
+        },
+        "operating": {
+          "label": "税前利润"
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "同比 +29%"
+          ]
+        }
+      },
+      "operatingMetrics": [
+        {
+          "id": "cet1",
+          "label": "CET1 比率",
+          "notes": [
+            "同比 (1.9 个百分点)"
+          ]
+        },
+        {
+          "id": "roe",
+          "label": "年化 ROE",
+          "notes": [
+            "同比 +4.5 个百分点"
+          ]
+        }
+      ]
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "cet1",
+      "label": "CET1 ratio",
+      "value": "12.4",
+      "literal": "12.4%",
+      "notes": [
+        "(1.9pp) Y/Y"
+      ],
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          129,
+          1142,
+          241,
+          148
+        ]
+      },
+      "unit": "%",
+      "currency": null,
+      "comparison": "eq",
+      "basis": "unspecified",
+      "quote": "CET1 ratio\n12.4%\n(1.9pp) Y/Y"
+    },
+    {
+      "id": "roe",
+      "label": "Annualized ROE",
+      "value": "18.7",
+      "literal": "18.7%",
+      "notes": [
+        "+4.5pp Y/Y"
+      ],
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          379,
+          1142,
+          350,
+          148
+        ]
+      },
+      "unit": "%",
+      "currency": null,
+      "comparison": "eq",
+      "basis": "unspecified",
+      "quote": "Annualized ROE\n18.7%\n+4.5pp Y/Y"
+    }
+  ]
+}
 ]);
 })(window);

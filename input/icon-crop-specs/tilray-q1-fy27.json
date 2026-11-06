@@ -1,0 +1,42 @@
+{
+  "source": "input/processing/tilray-q1-fy27.png",
+  "outputDir": "data/assets/icon-references/tilray",
+  "runtimeOutputDir": "data/assets/raster-annotations/tilray",
+  "report": "crop-report-q1-fy27.json",
+  "crops": [
+    {
+      "key": "beverage-cans-q1-fy27",
+      "output": "crops/beverage-cans-q1-fy27.png",
+      "runtimeOutput": "beverage-cans-q1-fy27.png",
+      "searchBox": {
+        "x": 154,
+        "y": 365,
+        "width": 163,
+        "height": 136
+      },
+      "cropBox": {
+        "x": 154,
+        "y": 365,
+        "width": 163,
+        "height": 136
+      }
+    },
+    {
+      "key": "tilray-logo-q1-fy27",
+      "output": "crops/tilray-logo-q1-fy27.png",
+      "runtimeOutput": "tilray-logo-q1-fy27.png",
+      "searchBox": {
+        "x": 560,
+        "y": 255,
+        "width": 650,
+        "height": 190
+      },
+      "cropBox": {
+        "x": 560,
+        "y": 255,
+        "width": 650,
+        "height": 190
+      }
+    }
+  ]
+}

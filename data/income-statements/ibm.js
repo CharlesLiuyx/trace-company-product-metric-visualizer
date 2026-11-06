@@ -1096,6 +1096,157 @@
           },
         },
       },
+    },
+{
+  "key": "ibm-q3-fy26",
+  "company": "IBM",
+  "period": "Q3 FY26",
+  "periodNote": "Ending Sep. 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/ibm-q3-fy26.png",
+  "roundingTolerance": 0.2,
+  "revenue": {
+    "total": 17.1,
+    "notes": [
+      "+5% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "software",
+        "label": "Software",
+        "value": 7.8,
+        "notes": [
+          "+8% Y/Y"
+        ]
+      },
+      {
+        "id": "consulting",
+        "label": "Consulting",
+        "value": 5.3,
+        "notes": [
+          "+0% Y/Y"
+        ]
+      },
+      {
+        "id": "infrastructure",
+        "label": "Infrastructure",
+        "value": 3.7,
+        "notes": [
+          "+4% Y/Y"
+        ]
+      },
+      {
+        "id": "financing",
+        "label": "Financing",
+        "value": 0.2,
+        "notes": [
+          "(4%) Y/Y"
+        ]
+      },
+      {
+        "id": "other_revenue",
+        "label": "Other",
+        "value": 0.1,
+        "notes": []
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 7.4
+    },
+    "operatingExpenses": {
+      "total": 7,
+      "items": [
+        {
+          "id": "sga",
+          "label": "SG&A",
+          "value": 4.6,
+          "notes": [
+            "27% of revenue",
+            "(2pp) Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 2.4,
+          "notes": [
+            "14% of revenue",
+            "+1pp Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.3
     }
+  },
+  "operatingOtherIncome": {
+    "total": 0.3,
+    "items": [
+      {
+        "id": "intellectual_property",
+        "label": "Intellectual property",
+        "value": 0.2
+      },
+      {
+        "id": "other_income",
+        "label": "Other income",
+        "value": 0.1
+      }
+    ]
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0.5,
+    "items": [
+      {
+        "id": "interest",
+        "label": "Interest",
+        "value": 0.5
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 9.7,
+      "notes": [
+        "57% margin",
+        "(1pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 3,
+      "notes": [
+        "17% margin",
+        "(0pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 2.2,
+      "notes": [
+        "13% margin",
+        "+2pp Y/Y"
+      ]
+    }
+  },
+"i18n": {"zh":{"period":"2026 财年第三季度","periodNote":"截至 2026 年 9 月","revenue":{"notes":["同比 +5%"],"items":[{"id":"software","label":"软件","notes":["同比 +8%"]},{"id":"consulting","label":"咨询","notes":["同比 +0%"]},{"id":"infrastructure","label":"基础设施","notes":["同比 +4%"]},{"id":"financing","label":"融资","notes":["同比 (4%)"]},{"id":"other_revenue","label":"其他","notes":[]}]},"costs":{"costOfRevenue":{"label":"收入成本"},"operatingExpenses":{"items":[{"id":"sga","label":"销售、一般及行政","notes":["占收入 27%","同比 (2 个百分点)"]},{"id":"rnd","label":"研发","notes":["占收入 14%","同比 +1 个百分点"]}]},"tax":{"label":"税费"}},"operatingOtherIncome":{"items":[{"id":"intellectual_property","label":"知识产权收入"},{"id":"other_income","label":"其他收入"}]},"otherExpenses":{"items":[{"id":"interest","label":"利息"}]},"profit":{"gross":{"label":"毛利润","notes":["利润率 57%","同比 (1 个百分点)"]},"operating":{"label":"营业利润","notes":["利润率 17%","同比 (0 个百分点)"]},"net":{"label":"净利润","notes":["利润率 13%","同比 +2 个百分点"]}}}}
+}
   );
 })(window);

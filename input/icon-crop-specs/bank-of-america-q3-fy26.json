@@ -1,0 +1,64 @@
+{
+  "source": "input/processed/bank-of-america-q3-fy26.png",
+  "outputDir": "data/assets/icon-references/bank-of-america",
+  "runtimeOutputDir": "data/assets/raster-annotations/bank-of-america",
+  "validationSheetDir": "data/assets/icon-references/bank-of-america/validation-sheets",
+  "report": "crop-report-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "crops": [
+    {
+      "key": "logo-q3-fy26",
+      "output": "crops/logo-q3-fy26.png",
+      "runtimeOutput": "logo-q3-fy26.png",
+      "searchBox": {
+        "x": 690,
+        "y": 282,
+        "width": 392,
+        "height": 215
+      },
+      "cropBox": {
+        "x": 690,
+        "y": 282,
+        "width": 392,
+        "height": 215
+      },
+      "threshold": 20,
+      "minComponentArea": 30,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "transparentColors": [
+        {
+          "channels": {
+            "r": {
+              "min": 100,
+              "max": 220
+            },
+            "g": {
+              "min": 100,
+              "max": 220
+            },
+            "b": {
+              "min": 150,
+              "max": 255
+            }
+          }
+        }
+      ],
+      "excludeBoxes": [
+        {
+          "x": 690,
+          "y": 440,
+          "width": 80,
+          "height": 57
+        }
+      ]
+    }
+  ]
+}

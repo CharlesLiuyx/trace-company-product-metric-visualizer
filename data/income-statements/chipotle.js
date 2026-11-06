@@ -1,350 +1,1165 @@
-/* Pure income-statement SSOT records. Financial data only — Sankey view
- * geometry stays in data/datasets/<dataset-key>.js. Format: data/schema.md. */
-(function (global) {
-  'use strict';
-
-  const ssot = (global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || {
-    schemaVersion: 1,
-    records: [],
-  });
-
-  ssot.records.push({
-    key: 'chipotle-q4-fy25',
-    company: 'Chipotle',
-    period: 'Q4 FY25',
-    periodNote: 'Quarter ended Dec. 31, 2025',
-    currency: '$',
-    unit: 'B',
-    decimals: 1,
-    sourceImage: 'input/processed/chipotle-q4-fy25.png',
-    roundingTolerance: 0.15,
-    revenue: {
-      total: 2.983511,
-      notes: ['+5% Y/Y'],
-      items: [
-        {
-          id: 'food_beverage',
-          label: 'Food & Beverage',
-          value: 2.969211,
-          notes: ['+5% Y/Y'],
-          children: [
-            { id: 'in_restaurant', label: 'In-restaurant', value: 1.869, notes: ['+2% Y/Y'] },
-            { id: 'digital_sales', label: 'Digital sales', value: 1.100211, notes: ['+11% Y/Y'] },
-          ],
-        },
-        { id: 'delivery', label: 'Delivery', value: 0.0143, notes: ['(8%) Y/Y'] },
-      ],
-    },
-    costs: {
-      costOfRevenue: {
-        id: 'cost_of_revenue',
-        label: 'Cost of revenue (not separately presented)',
-        value: 0,
-        notes: ['The source infographic begins at operating profit rather than showing a separate gross-profit stage.'],
-      },
-      operatingExpenses: {
-        total: 2.563192,
-        items: [
-          { id: 'food_beverage_packaging', label: 'Food, beverage & packaging', value: 0.900155 },
-          { id: 'labor', label: 'Labor', value: 0.760524 },
-          { id: 'other_opex', label: 'Other opex', value: 0.461567 },
-          { id: 'occupancy', label: 'Occupancy', value: 0.162493 },
-          { id: 'ga', label: 'G&A', value: 0.160341 },
-          { id: 'da', label: 'D&A', value: 0.092702 },
-          { id: 'pre_opening', label: 'Pre-opening', value: 0.016946 },
-          { id: 'impairment', label: 'Impairment', value: 0.008464 },
-        ],
-      },
-      tax: { id: 'tax', label: 'Tax', value: 0.102711 },
-    },
-    otherIncome: {
-      total: 0.013324,
-      items: [{ id: 'other_income', label: 'Other', value: 0.013324 }],
-    },
-    profit: {
-      gross: { id: 'gross_profit', label: 'Gross profit (not separately presented)', value: 2.983511, notes: ['Source infographic has no separate gross-profit stage.'] },
-      operating: { id: 'operating_profit', label: 'Operating profit', value: 0.420319, notes: ['14% margin', '(1pp) Y/Y'] },
-      net: { id: 'net_profit', label: 'Net profit', value: 0.330932, notes: ['11% margin', '(1pp) Y/Y'] },
-    },
-    sources: [
-      {
-        name: 'Chipotle Q4 and Full Year 2025 Results',
-        url: 'https://ir.chipotle.com/2026-02-03-CHIPOTLE-ANNOUNCES-FOURTH-QUARTER-AND-FULL-YEAR-2025-RESULTS?lv=true',
-      },
+(function(global){ const ssot=(global.INCOME_STATEMENT_SSOT=global.INCOME_STATEMENT_SSOT||{schemaVersion:1,records:[]});
+ssot.records.push({
+  "key": "chipotle-q4-fy25",
+  "company": "Chipotle",
+  "period": "Q4 FY25",
+  "periodNote": "Quarter ended Dec. 31, 2025",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/chipotle-q4-fy25.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 2.983511,
+    "notes": [
+      "+5% Y/Y"
     ],
-    i18n: {
-      zh: {
-        period: '2025 财年第四季度',
-        periodNote: '截至 2025 年 12 月 31 日的季度',
-        revenue: {
-          notes: ['同比 +5%'],
-          items: [
-            {
-              id: 'food_beverage', label: '餐饮收入', notes: ['同比 +5%'],
-              children: [
-                { id: 'in_restaurant', label: '餐厅内销售', notes: ['同比 +2%'] },
-                { id: 'digital_sales', label: '数字销售', notes: ['同比 +11%'] },
-              ],
-            },
-            { id: 'delivery', label: '配送服务', notes: ['同比 (8%)'] },
-          ],
-        },
-        costs: {
-          costOfRevenue: {
-            label: '收入成本（未单列）',
-            notes: ['来源信息图从营业利润口径开始，未单列毛利润阶段。'],
-          },
-          operatingExpenses: {
-            items: [
-              { id: 'food_beverage_packaging', label: '食品、饮料及包装' },
-              { id: 'labor', label: '人工' },
-              { id: 'other_opex', label: '其他运营费用' },
-              { id: 'occupancy', label: '租赁及占用成本' },
-              { id: 'ga', label: '一般及行政费用' },
-              { id: 'da', label: '折旧与摊销' },
-              { id: 'pre_opening', label: '开业前费用' },
-              { id: 'impairment', label: '减值' },
-            ],
-          },
-          tax: { label: '税费' },
-        },
-        otherIncome: { items: [{ id: 'other_income', label: '其他收入' }] },
-        profit: {
-          gross: { label: '营业利润', notes: ['来源信息图未单列毛利润阶段。'] },
-          operating: { label: '营业利润', notes: ['利润率 14%', '同比 (1 个百分点)'] },
-          net: { label: '净利润', notes: ['利润率 11%', '同比 (1 个百分点)'] },
-        },
-      },
-    },
-  });
-
-  ssot.records.push({
-    key: 'chipotle-q1-fy26',
-    company: 'Chipotle',
-    period: 'Q1 FY26',
-    periodNote: 'Quarter ended Mar. 31, 2026',
-    currency: '$',
-    unit: 'B',
-    decimals: 3,
-    sourceImage: 'input/processed/chipotle-q1-fy26.png',
-    roundingTolerance: 0.15,
-    revenue: {
-      total: 3.088242,
-      notes: ['+7% Y/Y'],
-      items: [
-        {
-          id: 'food_beverage',
-          label: 'Food & Beverage',
-          value: 3.07273,
-          notes: ['+7% Y/Y'],
-          children: [
-            { id: 'in_restaurant', label: 'In-restaurant', value: 1.88665622, notes: ['+2% Y/Y'] },
-            { id: 'digital_sales', label: 'Digital sales', value: 1.18607378, notes: ['+17% Y/Y'] },
-          ],
-        },
-        { id: 'delivery', label: 'Delivery', value: 0.016, notes: ['+1% Y/Y'] },
-      ],
-    },
-    costs: {
-      costOfRevenue: {
-        id: 'cost_of_revenue',
-        label: 'Cost of revenue (not separately presented)',
-        value: 0,
-        notes: ['The source infographic begins at operating profit rather than showing a separate gross-profit stage.'],
-      },
-      operatingExpenses: {
-        total: 2.691179,
-        items: [
-          { id: 'food_beverage_packaging', label: 'Food, beverage & packaging', value: 0.913346 },
-          { id: 'labor', label: 'Labor', value: 0.805411 },
-          { id: 'other_opex', label: 'Other opex', value: 0.480643 },
-          { id: 'occupancy', label: 'Occupancy', value: 0.169881 },
-          { id: 'ga', label: 'G&A', value: 0.20372 },
-          { id: 'da', label: 'D&A', value: 0.096718 },
-          { id: 'pre_opening', label: 'Pre-opening', value: 0.012 },
-          { id: 'impairment', label: 'Impairment', value: 0.01 },
-        ],
-      },
-      tax: { id: 'tax', label: 'Tax', value: 0.102981 },
-    },
-    otherIncome: {
-      total: 0.009,
-      items: [{ id: 'other_income', label: 'Other', value: 0.009 }],
-    },
-    profit: {
-      gross: {
-        id: 'gross_profit',
-        label: 'Gross profit (not separately presented)',
-        value: 3.088242,
-        notes: ['Source infographic has no separate gross-profit stage.'],
-      },
-      operating: { id: 'operating_profit', label: 'Operating profit', value: 0.397063, notes: ['13% margin', '(4pp) Y/Y'] },
-      net: { id: 'net_profit', label: 'Net profit', value: 0.302824, notes: ['10% margin', '(3pp) Y/Y'] },
-    },
-    sources: [
+    "items": [
       {
-        name: 'Chipotle First Quarter 2026 Results',
-        url: 'https://ir.chipotle.com/2026-04-29-CHIPOTLE-ANNOUNCES-FIRST-QUARTER-2026-RESULTS',
-      },
-    ],
-    i18n: {
-      zh: {
-        period: '2026 财年第一季度',
-        periodNote: '截至 2026 年 3 月 31 日的季度',
-        revenue: {
-          notes: ['同比 +7%'],
-          items: [
-            {
-              id: 'food_beverage', label: '餐饮收入', notes: ['同比 +7%'],
-              children: [
-                { id: 'in_restaurant', label: '餐厅内销售', notes: ['同比 +2%'] },
-                { id: 'digital_sales', label: '数字销售', notes: ['同比 +17%'] },
-              ],
-            },
-            { id: 'delivery', label: '配送服务', notes: ['同比 +1%'] },
-          ],
-        },
-        costs: {
-          costOfRevenue: {
-            label: '收入成本（未单列）',
-            notes: ['来源信息图从营业利润口径开始，未单列毛利润阶段。'],
-          },
-          operatingExpenses: {
-            items: [
-              { id: 'food_beverage_packaging', label: '食品、饮料及包装' },
-              { id: 'labor', label: '人工' },
-              { id: 'other_opex', label: '其他运营费用' },
-              { id: 'occupancy', label: '租赁及占用成本' },
-              { id: 'ga', label: '一般及行政费用' },
-              { id: 'da', label: '折旧与摊销' },
-              { id: 'pre_opening', label: '开业前费用' },
-              { id: 'impairment', label: '减值' },
-            ],
-          },
-          tax: { label: '税费' },
-        },
-        otherIncome: { items: [{ id: 'other_income', label: '其他收入' }] },
-        profit: {
-          gross: { label: '营业利润', notes: ['来源信息图未单列毛利润阶段。'] },
-          operating: { label: '营业利润', notes: ['利润率 13%', '同比 (4 个百分点)'] },
-          net: { label: '净利润', notes: ['利润率 10%', '同比 (3 个百分点)'] },
-        },
-      },
-    },
-  });
-
-  ssot.records.push({
-    key: 'chipotle-q2-fy26',
-    company: 'Chipotle',
-    period: 'Q2 FY26',
-    periodNote: 'Quarter ended June 30, 2026',
-    currency: '$',
-    unit: 'B',
-    decimals: 3,
-    sourceImage: 'input/processed/chipotle-q2-fy26.png',
-    roundingTolerance: 0.15,
-    revenue: {
-      total: 3.348562,
-      notes: ['+9% Y/Y'],
-      items: [
-        {
-          id: 'food_beverage',
-          label: 'Food & Beverage',
-          value: 3.332792,
-          notes: ['+9% Y/Y'],
-          children: [
-            { id: 'in_restaurant', label: 'In-restaurant', value: 2.056332664, notes: ['+5% Y/Y'] },
-            { id: 'digital_sales', label: 'Digital sales', value: 1.276459336, notes: ['+18% Y/Y'] },
-          ],
-        },
-        { id: 'delivery', label: 'Delivery', value: 0.016, notes: ['+1% Y/Y'] },
-      ],
-    },
-    costs: {
-      costOfRevenue: {
-        id: 'cost_of_revenue',
-        label: 'Cost of revenue (not separately presented)',
-        value: 0,
-        notes: ['The source infographic begins at operating profit rather than showing a separate gross-profit stage.'],
-      },
-      operatingExpenses: {
-        total: 2.822967,
-        items: [
-          { id: 'food_beverage_packaging', label: 'Food, beverage & packaging', value: 0.993573 },
-          { id: 'labor', label: 'Labor', value: 0.83645 },
-          { id: 'other_opex', label: 'Other opex', value: 0.499764 },
-          { id: 'ga', label: 'G&A', value: 0.190471 },
-          { id: 'occupancy', label: 'Occupancy', value: 0.17421 },
-          { id: 'da', label: 'D&A', value: 0.098327 },
-          { id: 'pre_opening', label: 'Pre-opening', value: 0.016 },
-          { id: 'impairment', label: 'Impairment', value: 0.014 },
+        "id": "food_beverage",
+        "label": "Food & Beverage",
+        "value": 2.969211,
+        "notes": [
+          "+5% Y/Y"
         ],
+        "children": [
+          {
+            "id": "in_restaurant",
+            "label": "In-restaurant",
+            "value": 1.869,
+            "notes": [
+              "+2% Y/Y"
+            ]
+          },
+          {
+            "id": "digital_sales",
+            "label": "Digital sales",
+            "value": 1.100211,
+            "notes": [
+              "+11% Y/Y"
+            ]
+          }
+        ]
       },
-      tax: { id: 'tax', label: 'Tax', value: 0.129725 },
-    },
-    otherIncome: {
-      total: 0.008,
-      items: [{ id: 'other_income', label: 'Other', value: 0.008 }],
-    },
-    profit: {
-      gross: {
-        id: 'gross_profit',
-        label: 'Gross profit (not separately presented)',
-        value: 3.348562,
-        notes: ['Source infographic has no separate gross-profit stage.'],
-      },
-      operating: { id: 'operating_profit', label: 'Operating profit', value: 0.525595, notes: ['16% margin', '(3pp) Y/Y'] },
-      net: { id: 'net_profit', label: 'Net profit', value: 0.403547, notes: ['12% margin', '(2pp) Y/Y'] },
-    },
-    sources: [
       {
-        name: 'Chipotle Second Quarter 2026 Results',
-        url: 'https://ir.chipotle.com/2026-07-29-CHIPOTLE-RAISES-FULL-YEAR-COMPARABLE-SALES-GUIDANCE-ON-STRONG-Q2-MOMENTUM',
-      },
-    ],
-    i18n: {
-      zh: {
-        period: '2026 财年第二季度',
-        periodNote: '截至 2026 年 6 月 30 日的季度',
-        revenue: {
-          notes: ['同比 +9%'],
-          items: [
-            {
-              id: 'food_beverage', label: '餐饮收入', notes: ['同比 +9%'],
-              children: [
-                { id: 'in_restaurant', label: '餐厅内销售', notes: ['同比 +5%'] },
-                { id: 'digital_sales', label: '数字销售', notes: ['同比 +18%'] },
-              ],
-            },
-            { id: 'delivery', label: '配送服务', notes: ['同比 +1%'] },
-          ],
-        },
-        costs: {
-          costOfRevenue: {
-            label: '收入成本（未单列）',
-            notes: ['来源信息图从营业利润口径开始，未单列毛利润阶段。'],
-          },
-          operatingExpenses: {
-            items: [
-              { id: 'food_beverage_packaging', label: '食品、饮料及包装' },
-              { id: 'labor', label: '人工' },
-              { id: 'other_opex', label: '其他运营费用' },
-              { id: 'ga', label: '一般及行政费用' },
-              { id: 'occupancy', label: '租赁及占用成本' },
-              { id: 'da', label: '折旧与摊销' },
-              { id: 'pre_opening', label: '开业前费用' },
-              { id: 'impairment', label: '减值' },
-            ],
-          },
-          tax: { label: '税费' },
-        },
-        otherIncome: { items: [{ id: 'other_income', label: '其他收入' }] },
-        profit: {
-          gross: { label: '营业利润', notes: ['来源信息图未单列毛利润阶段。'] },
-          operating: { label: '营业利润', notes: ['利润率 16%', '同比 (3 个百分点)'] },
-          net: { label: '净利润', notes: ['利润率 12%', '同比 (2 个百分点)'] },
-        },
-      },
+        "id": "delivery",
+        "label": "Delivery",
+        "value": 0.0143,
+        "notes": [
+          "(8%) Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue (not separately presented)",
+      "value": 0,
+      "notes": [
+        "The source infographic begins at operating profit rather than showing a separate gross-profit stage."
+      ]
     },
-  });
+    "operatingExpenses": {
+      "total": 2.563192,
+      "items": [
+        {
+          "id": "food_beverage_packaging",
+          "label": "Food, beverage & packaging",
+          "value": 0.900155
+        },
+        {
+          "id": "labor",
+          "label": "Labor",
+          "value": 0.760524
+        },
+        {
+          "id": "other_opex",
+          "label": "Other opex",
+          "value": 0.461567
+        },
+        {
+          "id": "occupancy",
+          "label": "Occupancy",
+          "value": 0.162493
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 0.160341
+        },
+        {
+          "id": "da",
+          "label": "D&A",
+          "value": 0.092702
+        },
+        {
+          "id": "pre_opening",
+          "label": "Pre-opening",
+          "value": 0.016946
+        },
+        {
+          "id": "impairment",
+          "label": "Impairment",
+          "value": 0.008464
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.102711
+    }
+  },
+  "otherIncome": {
+    "total": 0.013324,
+    "items": [
+      {
+        "id": "other_income",
+        "label": "Other",
+        "value": 0.013324
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit (not separately presented)",
+      "value": 2.983511,
+      "notes": [
+        "Source infographic has no separate gross-profit stage."
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 0.420319,
+      "notes": [
+        "14% margin",
+        "(1pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 0.330932,
+      "notes": [
+        "11% margin",
+        "(1pp) Y/Y"
+      ]
+    }
+  },
+  "sources": [
+    {
+      "name": "Chipotle Q4 and Full Year 2025 Results",
+      "url": "https://ir.chipotle.com/2026-02-03-CHIPOTLE-ANNOUNCES-FOURTH-QUARTER-AND-FULL-YEAR-2025-RESULTS?lv=true"
+    }
+  ],
+  "i18n": {
+    "zh": {
+      "period": "2025 财年第四季度",
+      "periodNote": "截至 2025 年 12 月 31 日的季度",
+      "revenue": {
+        "notes": [
+          "同比 +5%"
+        ],
+        "items": [
+          {
+            "id": "food_beverage",
+            "label": "餐饮收入",
+            "notes": [
+              "同比 +5%"
+            ],
+            "children": [
+              {
+                "id": "in_restaurant",
+                "label": "餐厅内销售",
+                "notes": [
+                  "同比 +2%"
+                ]
+              },
+              {
+                "id": "digital_sales",
+                "label": "数字销售",
+                "notes": [
+                  "同比 +11%"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "delivery",
+            "label": "配送服务",
+            "notes": [
+              "同比 (8%)"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本（未单列）",
+          "notes": [
+            "来源信息图从营业利润口径开始，未单列毛利润阶段。"
+          ]
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "food_beverage_packaging",
+              "label": "食品、饮料及包装"
+            },
+            {
+              "id": "labor",
+              "label": "人工"
+            },
+            {
+              "id": "other_opex",
+              "label": "其他运营费用"
+            },
+            {
+              "id": "occupancy",
+              "label": "租赁及占用成本"
+            },
+            {
+              "id": "ga",
+              "label": "一般及行政费用"
+            },
+            {
+              "id": "da",
+              "label": "折旧与摊销"
+            },
+            {
+              "id": "pre_opening",
+              "label": "开业前费用"
+            },
+            {
+              "id": "impairment",
+              "label": "减值"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "other_income",
+            "label": "其他收入"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "营业利润",
+          "notes": [
+            "来源信息图未单列毛利润阶段。"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 14%",
+            "同比 (1 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 11%",
+            "同比 (1 个百分点)"
+          ]
+        }
+      }
+    }
+  }
+});
+ssot.records.push({
+  "key": "chipotle-q1-fy26",
+  "company": "Chipotle",
+  "period": "Q1 FY26",
+  "periodNote": "Quarter ended Mar. 31, 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 3,
+  "sourceImage": "input/processed/chipotle-q1-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 3.088242,
+    "notes": [
+      "+7% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "food_beverage",
+        "label": "Food & Beverage",
+        "value": 3.07273,
+        "notes": [
+          "+7% Y/Y"
+        ],
+        "children": [
+          {
+            "id": "in_restaurant",
+            "label": "In-restaurant",
+            "value": 1.88665622,
+            "notes": [
+              "+2% Y/Y"
+            ]
+          },
+          {
+            "id": "digital_sales",
+            "label": "Digital sales",
+            "value": 1.18607378,
+            "notes": [
+              "+17% Y/Y"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "delivery",
+        "label": "Delivery",
+        "value": 0.016,
+        "notes": [
+          "+1% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue (not separately presented)",
+      "value": 0,
+      "notes": [
+        "The source infographic begins at operating profit rather than showing a separate gross-profit stage."
+      ]
+    },
+    "operatingExpenses": {
+      "total": 2.691179,
+      "items": [
+        {
+          "id": "food_beverage_packaging",
+          "label": "Food, beverage & packaging",
+          "value": 0.913346
+        },
+        {
+          "id": "labor",
+          "label": "Labor",
+          "value": 0.805411
+        },
+        {
+          "id": "other_opex",
+          "label": "Other opex",
+          "value": 0.480643
+        },
+        {
+          "id": "occupancy",
+          "label": "Occupancy",
+          "value": 0.169881
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 0.20372
+        },
+        {
+          "id": "da",
+          "label": "D&A",
+          "value": 0.096718
+        },
+        {
+          "id": "pre_opening",
+          "label": "Pre-opening",
+          "value": 0.012
+        },
+        {
+          "id": "impairment",
+          "label": "Impairment",
+          "value": 0.01
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.102981
+    }
+  },
+  "otherIncome": {
+    "total": 0.009,
+    "items": [
+      {
+        "id": "other_income",
+        "label": "Other",
+        "value": 0.009
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit (not separately presented)",
+      "value": 3.088242,
+      "notes": [
+        "Source infographic has no separate gross-profit stage."
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 0.397063,
+      "notes": [
+        "13% margin",
+        "(4pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 0.302824,
+      "notes": [
+        "10% margin",
+        "(3pp) Y/Y"
+      ]
+    }
+  },
+  "sources": [
+    {
+      "name": "Chipotle First Quarter 2026 Results",
+      "url": "https://ir.chipotle.com/2026-04-29-CHIPOTLE-ANNOUNCES-FIRST-QUARTER-2026-RESULTS"
+    }
+  ],
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第一季度",
+      "periodNote": "截至 2026 年 3 月 31 日的季度",
+      "revenue": {
+        "notes": [
+          "同比 +7%"
+        ],
+        "items": [
+          {
+            "id": "food_beverage",
+            "label": "餐饮收入",
+            "notes": [
+              "同比 +7%"
+            ],
+            "children": [
+              {
+                "id": "in_restaurant",
+                "label": "餐厅内销售",
+                "notes": [
+                  "同比 +2%"
+                ]
+              },
+              {
+                "id": "digital_sales",
+                "label": "数字销售",
+                "notes": [
+                  "同比 +17%"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "delivery",
+            "label": "配送服务",
+            "notes": [
+              "同比 +1%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本（未单列）",
+          "notes": [
+            "来源信息图从营业利润口径开始，未单列毛利润阶段。"
+          ]
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "food_beverage_packaging",
+              "label": "食品、饮料及包装"
+            },
+            {
+              "id": "labor",
+              "label": "人工"
+            },
+            {
+              "id": "other_opex",
+              "label": "其他运营费用"
+            },
+            {
+              "id": "occupancy",
+              "label": "租赁及占用成本"
+            },
+            {
+              "id": "ga",
+              "label": "一般及行政费用"
+            },
+            {
+              "id": "da",
+              "label": "折旧与摊销"
+            },
+            {
+              "id": "pre_opening",
+              "label": "开业前费用"
+            },
+            {
+              "id": "impairment",
+              "label": "减值"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "other_income",
+            "label": "其他收入"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "营业利润",
+          "notes": [
+            "来源信息图未单列毛利润阶段。"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 13%",
+            "同比 (4 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 10%",
+            "同比 (3 个百分点)"
+          ]
+        }
+      }
+    }
+  }
+});
+ssot.records.push({
+  "key": "chipotle-q2-fy26",
+  "company": "Chipotle",
+  "period": "Q2 FY26",
+  "periodNote": "Quarter ended June 30, 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 3,
+  "sourceImage": "input/processed/chipotle-q2-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 3.348562,
+    "notes": [
+      "+9% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "food_beverage",
+        "label": "Food & Beverage",
+        "value": 3.332792,
+        "notes": [
+          "+9% Y/Y"
+        ],
+        "children": [
+          {
+            "id": "in_restaurant",
+            "label": "In-restaurant",
+            "value": 2.056332664,
+            "notes": [
+              "+5% Y/Y"
+            ]
+          },
+          {
+            "id": "digital_sales",
+            "label": "Digital sales",
+            "value": 1.276459336,
+            "notes": [
+              "+18% Y/Y"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "delivery",
+        "label": "Delivery",
+        "value": 0.016,
+        "notes": [
+          "+1% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue (not separately presented)",
+      "value": 0,
+      "notes": [
+        "The source infographic begins at operating profit rather than showing a separate gross-profit stage."
+      ]
+    },
+    "operatingExpenses": {
+      "total": 2.822967,
+      "items": [
+        {
+          "id": "food_beverage_packaging",
+          "label": "Food, beverage & packaging",
+          "value": 0.993573
+        },
+        {
+          "id": "labor",
+          "label": "Labor",
+          "value": 0.83645
+        },
+        {
+          "id": "other_opex",
+          "label": "Other opex",
+          "value": 0.499764
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 0.190471
+        },
+        {
+          "id": "occupancy",
+          "label": "Occupancy",
+          "value": 0.17421
+        },
+        {
+          "id": "da",
+          "label": "D&A",
+          "value": 0.098327
+        },
+        {
+          "id": "pre_opening",
+          "label": "Pre-opening",
+          "value": 0.016
+        },
+        {
+          "id": "impairment",
+          "label": "Impairment",
+          "value": 0.014
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.129725
+    }
+  },
+  "otherIncome": {
+    "total": 0.008,
+    "items": [
+      {
+        "id": "other_income",
+        "label": "Other",
+        "value": 0.008
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit (not separately presented)",
+      "value": 3.348562,
+      "notes": [
+        "Source infographic has no separate gross-profit stage."
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 0.525595,
+      "notes": [
+        "16% margin",
+        "(3pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 0.403547,
+      "notes": [
+        "12% margin",
+        "(2pp) Y/Y"
+      ]
+    }
+  },
+  "sources": [
+    {
+      "name": "Chipotle Second Quarter 2026 Results",
+      "url": "https://ir.chipotle.com/2026-07-29-CHIPOTLE-RAISES-FULL-YEAR-COMPARABLE-SALES-GUIDANCE-ON-STRONG-Q2-MOMENTUM"
+    }
+  ],
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第二季度",
+      "periodNote": "截至 2026 年 6 月 30 日的季度",
+      "revenue": {
+        "notes": [
+          "同比 +9%"
+        ],
+        "items": [
+          {
+            "id": "food_beverage",
+            "label": "餐饮收入",
+            "notes": [
+              "同比 +9%"
+            ],
+            "children": [
+              {
+                "id": "in_restaurant",
+                "label": "餐厅内销售",
+                "notes": [
+                  "同比 +5%"
+                ]
+              },
+              {
+                "id": "digital_sales",
+                "label": "数字销售",
+                "notes": [
+                  "同比 +18%"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "delivery",
+            "label": "配送服务",
+            "notes": [
+              "同比 +1%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本（未单列）",
+          "notes": [
+            "来源信息图从营业利润口径开始，未单列毛利润阶段。"
+          ]
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "food_beverage_packaging",
+              "label": "食品、饮料及包装"
+            },
+            {
+              "id": "labor",
+              "label": "人工"
+            },
+            {
+              "id": "other_opex",
+              "label": "其他运营费用"
+            },
+            {
+              "id": "ga",
+              "label": "一般及行政费用"
+            },
+            {
+              "id": "occupancy",
+              "label": "租赁及占用成本"
+            },
+            {
+              "id": "da",
+              "label": "折旧与摊销"
+            },
+            {
+              "id": "pre_opening",
+              "label": "开业前费用"
+            },
+            {
+              "id": "impairment",
+              "label": "减值"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "other_income",
+            "label": "其他收入"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "营业利润",
+          "notes": [
+            "来源信息图未单列毛利润阶段。"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 16%",
+            "同比 (3 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 12%",
+            "同比 (2 个百分点)"
+          ]
+        }
+      }
+    }
+  }
+});
+ssot.records.push({
+  "key": "chipotle-q3-fy26",
+  "company": "Chipotle",
+  "period": "Q3 FY26",
+  "periodNote": "Quarter ended September 30, 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 3,
+  "sourceImage": "input/processed/chipotle-q3-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 3.3,
+    "notes": [
+      "+10% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "food_beverage",
+        "label": "Food & Beverage",
+        "value": 3.3,
+        "notes": [
+          "+10% Y/Y"
+        ],
+        "children": [
+          {
+            "id": "in_restaurant",
+            "label": "In-restaurant",
+            "value": 2,
+            "notes": [
+              "+6% Y/Y"
+            ]
+          },
+          {
+            "id": "digital_sales",
+            "label": "Digital sales",
+            "value": 1.3,
+            "notes": [
+              "+16% Y/Y"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "delivery",
+        "label": "Delivery",
+        "value": 0.015,
+        "notes": [
+          "+7% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue (not separately presented)",
+      "value": 0,
+      "notes": [
+        "The source infographic begins at operating profit rather than showing a separate gross-profit stage."
+      ]
+    },
+    "operatingExpenses": {
+      "total": 2.8,
+      "items": [
+        {
+          "id": "food_beverage_packaging",
+          "label": "Food, beverage & packaging",
+          "value": 1
+        },
+        {
+          "id": "labor",
+          "label": "Labor",
+          "value": 0.8
+        },
+        {
+          "id": "other_opex",
+          "label": "Other opex",
+          "value": 0.5
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 0.2
+        },
+        {
+          "id": "occupancy",
+          "label": "Occupancy",
+          "value": 0.2
+        },
+        {
+          "id": "da",
+          "label": "D&A",
+          "value": 0.1
+        },
+        {
+          "id": "pre_opening",
+          "label": "Pre-opening",
+          "value": 0.013
+        },
+        {
+          "id": "impairment",
+          "label": "Impairment",
+          "value": 0.015
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.1
+    }
+  },
+  "otherIncome": {
+    "total": 0.005,
+    "items": [
+      {
+        "id": "other_income",
+        "label": "Other",
+        "value": 0.005
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit (not separately presented)",
+      "value": 3.3,
+      "notes": [
+        "Source infographic has no separate gross-profit stage."
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 0.5,
+      "notes": [
+        "14% margin",
+        "(2pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 0.3,
+      "notes": [
+        "10% margin",
+        "(2pp) Y/Y"
+      ]
+    }
+  },
+  "sources": [
+    {
+      "name": "Source infographic",
+      "url": "https://www.appeconomyinsights.com/"
+    },
+    {
+      "name": "Chipotle third quarter 2026 results; printed pre-opening and impairment retained",
+      "url": "https://ir.chipotle.com/2026-10-28-CHIPOTLE-ANNOUNCES-THIRD-QUARTER-2026-RESULTS"
+    }
+  ],
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "periodNote": "截至 2026 年 9 月 30 日的季度",
+      "revenue": {
+        "notes": [
+          "同比 +10%"
+        ],
+        "items": [
+          {
+            "id": "food_beverage",
+            "label": "餐饮收入",
+            "notes": [
+              "同比 +10%"
+            ],
+            "children": [
+              {
+                "id": "in_restaurant",
+                "label": "餐厅内销售",
+                "notes": [
+                  "同比 +6%"
+                ]
+              },
+              {
+                "id": "digital_sales",
+                "label": "数字销售",
+                "notes": [
+                  "同比 +16%"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "delivery",
+            "label": "配送服务",
+            "notes": [
+              "同比 +7%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本（未单列）",
+          "notes": [
+            "来源信息图从营业利润口径开始，未单列毛利润阶段。"
+          ]
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "food_beverage_packaging",
+              "label": "食品、饮料及包装"
+            },
+            {
+              "id": "labor",
+              "label": "人工"
+            },
+            {
+              "id": "other_opex",
+              "label": "其他运营费用"
+            },
+            {
+              "id": "ga",
+              "label": "一般及行政费用"
+            },
+            {
+              "id": "occupancy",
+              "label": "租赁及占用成本"
+            },
+            {
+              "id": "da",
+              "label": "折旧与摊销"
+            },
+            {
+              "id": "pre_opening",
+              "label": "开业前费用"
+            },
+            {
+              "id": "impairment",
+              "label": "减值"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "other_income",
+            "label": "其他收入"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "营业利润",
+          "notes": [
+            "来源信息图未单列毛利润阶段。"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 14%",
+            "同比 (2 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 10%",
+            "同比 (2 个百分点)"
+          ]
+        }
+      }
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "comparable_sales",
+      "label": "Comparable restaurant sales",
+      "value": "2.1",
+      "unit": "%",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "+2.1%",
+      "basis": "unspecified",
+      "notes": [
+        "Y/Y"
+      ],
+      "quote": "Comparable restaurant sales\n+2.1% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          105,
+          1165,
+          313,
+          150
+        ]
+      }
+    },
+    {
+      "id": "average_sales",
+      "label": "Average restaurant sales",
+      "value": "3.1",
+      "unit": "M",
+      "currency": "USD",
+      "comparison": "eq",
+      "literal": "$3.1M",
+      "basis": "unspecified",
+      "notes": [
+        "+0% Y/Y"
+      ],
+      "quote": "Average restaurant sales\n$3.1M +0% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          429,
+          1165,
+          313,
+          150
+        ]
+      }
+    }
+  ],
+  "notes": [
+    "Printed rounded amounts retained; roundingTolerance 0.15B follows published Chipotle precedent. Pre-opening $13M and impairment $15M appear interchanged relative to company filing, retained under operator rules."
+  ]
+});
 })(window);

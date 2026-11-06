@@ -401,6 +401,330 @@
           },
         },
       },
+    },
+{
+  "key": "coinbase-q3-fy26",
+  "company": "Coinbase",
+  "period": "Q3 FY26",
+  "periodNote": "",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/coinbase-q3-fy26.png",
+  "roundingTolerance": 1.1,
+  "revenue": {
+    "total": 1216,
+    "notes": [
+      "(35%) Y/Y",
+      "Printed revenue components total $1,215M and subscription components total $571M; retain printed rounded figures."
+    ],
+    "items": [
+      {
+        "id": "transaction_based",
+        "label": "Transaction-based",
+        "value": 590,
+        "notes": [
+          "(44%) Y/Y"
+        ],
+        "children": [
+          {
+            "id": "consumer",
+            "label": "Consumer",
+            "value": 450,
+            "notes": [
+              "(47%) Y/Y"
+            ]
+          },
+          {
+            "id": "institutions",
+            "label": "Institutions",
+            "value": 92,
+            "notes": [
+              "(32%) Y/Y"
+            ]
+          },
+          {
+            "id": "other_transaction",
+            "label": "Other",
+            "value": 48,
+            "notes": [
+              "(28%) Y/Y"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "subscription_services",
+        "label": "Subscription & Services",
+        "value": 570,
+        "notes": [
+          "(24%) Y/Y"
+        ],
+        "children": [
+          {
+            "id": "stablecoin",
+            "label": "Stablecoin",
+            "value": 307,
+            "notes": [
+              "(13%) Y/Y"
+            ]
+          },
+          {
+            "id": "blockchain_rewards",
+            "label": "Blockchain rewards",
+            "value": 86,
+            "notes": [
+              "(54%) Y/Y"
+            ]
+          },
+          {
+            "id": "interest_income",
+            "label": "Interest income",
+            "value": 69,
+            "notes": [
+              "+6% Y/Y"
+            ]
+          },
+          {
+            "id": "other_subscription",
+            "label": "Other sub",
+            "value": 109,
+            "notes": [
+              "(24%) Y/Y"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "other_revenue",
+        "label": "Other",
+        "value": 55,
+        "notes": [
+          "(27%) Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "label": "Cost of revenue",
+      "value": 0,
+      "notes": [
+        "Source does not show cost of revenue or gross profit."
+      ]
+    },
+    "operatingExpenses": {
+      "total": 1203,
+      "items": [
+        {
+          "id": "technology",
+          "label": "Technology",
+          "value": 447,
+          "notes": [
+            "37% of revenue",
+            "+14pp Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 319,
+          "notes": [
+            "26% of revenue",
+            "+4pp Y/Y"
+          ]
+        },
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 243,
+          "notes": [
+            "20% of revenue",
+            "+6pp Y/Y"
+          ]
+        },
+        {
+          "id": "transaction_costs",
+          "label": "Transaction",
+          "value": 194,
+          "notes": [
+            "16% of revenue",
+            "+2pp Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "label": "Tax",
+      "value": 0
     }
+  },
+  "operatingOtherIncome": {
+    "total": 49,
+    "items": [
+      {
+        "id": "operating_other_income",
+        "label": "Other",
+        "value": 49
+      }
+    ]
+  },
+  "otherIncome": {
+    "total": 657,
+    "items": [
+      {
+        "id": "other_income",
+        "label": "Other",
+        "value": 657
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "label": "Revenue before operating expenses",
+      "value": 1216,
+      "notes": [
+        "Source does not show a separate gross-profit subtotal."
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 62,
+      "notes": [
+        "5% margin",
+        "(21pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net income",
+      "value": 719,
+      "notes": [
+        "59% margin",
+        "+36pp Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "revenue": {
+        "items": [
+          {
+            "id": "transaction_based",
+            "label": "交易收入",
+            "children": [
+              {
+                "id": "consumer",
+                "label": "消费者"
+              },
+              {
+                "id": "institutions",
+                "label": "机构"
+              },
+              {
+                "id": "other_transaction",
+                "label": "其他"
+              }
+            ]
+          },
+          {
+            "id": "subscription_services",
+            "label": "订阅与服务",
+            "children": [
+              {
+                "id": "stablecoin",
+                "label": "稳定币"
+              },
+              {
+                "id": "blockchain_rewards",
+                "label": "区块链奖励"
+              },
+              {
+                "id": "interest_income",
+                "label": "利息收入"
+              },
+              {
+                "id": "other_subscription",
+                "label": "其他订阅"
+              }
+            ]
+          },
+          {
+            "id": "other_revenue",
+            "label": "其他"
+          }
+        ],
+        "notes": [
+          "同比 (35%)",
+          "收入分项印刷值合计为 $1215M；订阅分项印刷值合计为 $571M。保留原图舍入金额。"
+        ]
+      },
+      "costs": {
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "technology",
+              "label": "技术"
+            },
+            {
+              "id": "ga",
+              "label": "管理费用"
+            },
+            {
+              "id": "sm",
+              "label": "销售与营销"
+            },
+            {
+              "id": "transaction_costs",
+              "label": "交易"
+            }
+          ]
+        },
+        "costOfRevenue": {
+          "label": "收入成本",
+          "notes": [
+            "来源图未单列收入成本或毛利润。"
+          ]
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "运营费用前收入",
+          "notes": [
+            "来源图未单列毛利润。"
+          ]
+        },
+        "operating": {
+          "label": "营业利润"
+        },
+        "net": {
+          "label": "净利润"
+        }
+      },
+      "operatingOtherIncome": {
+        "items": [
+          {
+            "id": "operating_other_income",
+            "label": "其他"
+          }
+        ]
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "other_income",
+            "label": "其他"
+          }
+        ]
+      }
+    }
+  }
+}
   );
 })(window);

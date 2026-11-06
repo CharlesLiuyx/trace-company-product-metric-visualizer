@@ -1,0 +1,1 @@
+Braze Q2 FY27 logo crop visually checked against source and validation sheet. Complete wordmark, centered, no financial copy, neighboring connectors or publisher marks. Source crop at [599,245,508,240].

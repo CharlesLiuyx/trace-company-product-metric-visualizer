@@ -1,0 +1,92 @@
+{
+  "source": "input/processed/teladoc-q3-fy26.png",
+  "outputDir": "data/assets/icon-references/teladoc",
+  "runtimeOutputDir": "data/assets/raster-annotations/teladoc",
+  "report": "crop-report-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [
+      242,
+      242,
+      242
+    ],
+    "tolerance": 10
+  },
+  "crops": [
+    {
+      "key": "company-logo-q3-fy26",
+      "output": "crops/company-logo-q3-fy26.png",
+      "cropBox": {
+        "x": 587,
+        "y": 271,
+        "width": 456,
+        "height": 159
+      },
+      "searchBox": {
+        "x": 587,
+        "y": 271,
+        "width": 456,
+        "height": 159
+      },
+      "threshold": 18,
+      "minComponentArea": 15,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "integrated-care-q3-fy26",
+      "output": "crops/integrated-care-q3-fy26.png",
+      "cropBox": {
+        "x": 103,
+        "y": 362,
+        "width": 159,
+        "height": 159
+      },
+      "searchBox": {
+        "x": 103,
+        "y": 362,
+        "width": 159,
+        "height": 159
+      },
+      "threshold": 18,
+      "minComponentArea": 15,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "betterhelp-q3-fy26",
+      "output": "crops/betterhelp-q3-fy26.png",
+      "cropBox": {
+        "x": 20,
+        "y": 871,
+        "width": 319,
+        "height": 128
+      },
+      "searchBox": {
+        "x": 20,
+        "y": 871,
+        "width": 319,
+        "height": 128
+      },
+      "threshold": 18,
+      "minComponentArea": 15,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ]
+}

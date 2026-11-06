@@ -1,0 +1,37 @@
+{
+  "source": "input/processing/intel-q3-fy26.png",
+  "outputDir": "data/assets/icon-references/intel/q3-fy26",
+  "runtimeOutputDir": "data/assets/raster-annotations/intel",
+  "report": "crop-report-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "company-logo-q3-fy26",
+      "output": "crops/company-logo-q3-fy26.png",
+      "runtimeOutput": "company-logo-q3-fy26.png",
+      "cropBox": {
+        "x": 807,
+        "y": 215,
+        "width": 469,
+        "height": 195
+      },
+      "padding": 0,
+      "note": "Intel company logo; no financial text, title or connectors.",
+      "searchBox": {
+        "x": 807,
+        "y": 215,
+        "width": 469,
+        "height": 195
+      }
+    }
+  ]
+}

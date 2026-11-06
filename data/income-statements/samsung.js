@@ -1380,6 +1380,258 @@
           },
         },
       },
+    },
+{
+  "key": "samsung-q3-fy26",
+  "company": "Samsung",
+  "period": "Q3 FY26",
+  "periodNote": "Ending Sep. 2026",
+  "currency": "KRW",
+  "unit": "T",
+  "decimals": 1,
+  "sourceImage": "input/processed/samsung-q3-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 195.3,
+    "notes": [
+      "+127% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "device_experience",
+        "label": "Device eXperience",
+        "value": 52.1,
+        "notes": [
+          "+8% Y/Y"
+        ]
+      },
+      {
+        "id": "device_solutions",
+        "label": "Device Solutions",
+        "value": 147.1,
+        "notes": [
+          "+344% Y/Y"
+        ]
+      },
+      {
+        "id": "samsung_display",
+        "label": "Samsung Display",
+        "value": 8,
+        "notes": [
+          "(1%) Y/Y"
+        ]
+      },
+      {
+        "id": "harman",
+        "label": "Harman",
+        "value": 4.3,
+        "notes": [
+          "+9% Y/Y"
+        ]
+      },
+      {
+        "id": "eliminations",
+        "label": "Eliminations",
+        "value": -16.2,
+        "notes": []
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 60
+    },
+    "operatingExpenses": {
+      "total": 27.8,
+      "items": [
+        {
+          "id": "rnd",
+          "label": "Research & development",
+          "value": 14.4,
+          "notes": [
+            "7% of revenue",
+            "(3pp) Y/Y"
+          ]
+        },
+        {
+          "id": "sga",
+          "label": "Sales, general & admin",
+          "value": 13.4,
+          "notes": [
+            "7% of revenue",
+            "(8pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 23.4,
+      "notes": [
+        "Source tax unit typo corrected from billions to trillions using the chart heading and net-profit reconciliation."
+      ]
     }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 8.9,
+    "items": [
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 8.9,
+        "notes": [
+          "Source Other unit typo corrected from billions to trillions using the chart heading and net-profit reconciliation."
+        ]
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 135.3,
+      "notes": [
+        "69% margin",
+        "+30pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 107.5,
+      "notes": [
+        "55% margin",
+        "+41pp Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 75.2,
+      "notes": [
+        "39% margin",
+        "+24pp Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "periodNote": "截至 2026 年 9 月",
+      "revenue": {
+        "notes": [
+          "同比 +127%"
+        ],
+        "items": [
+          {
+            "id": "device_experience",
+            "label": "设备体验",
+            "notes": [
+              "同比 +8%"
+            ]
+          },
+          {
+            "id": "device_solutions",
+            "label": "设备解决方案",
+            "notes": [
+              "同比 +344%"
+            ]
+          },
+          {
+            "id": "samsung_display",
+            "label": "三星显示",
+            "notes": [
+              "同比 (1%)"
+            ]
+          },
+          {
+            "id": "harman",
+            "label": "哈曼",
+            "notes": [
+              "同比 +9%"
+            ]
+          },
+          {
+            "id": "eliminations",
+            "label": "抵销",
+            "notes": []
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 7%",
+                "同比 (3 个百分点)"
+              ]
+            },
+            {
+              "id": "sga",
+              "label": "销售、一般及行政",
+              "notes": [
+                "占收入 7%",
+                "同比 (8 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费",
+          "notes": [
+            "原图税费单位误印，依据全图单位和净利润等式更正。"
+          ]
+        }
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other",
+            "label": "其他",
+            "notes": [
+              "原图其他费用单位误印，依据全图单位和净利润等式更正。"
+            ]
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 69%",
+            "同比 +30 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 55%",
+            "同比 +41 个百分点"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 39%",
+            "同比 +24 个百分点"
+          ]
+        }
+      }
+    }
+  }
+}
   );
 })(window);

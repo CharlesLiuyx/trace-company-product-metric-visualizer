@@ -4473,5 +4473,328 @@
       }
     ]
   }
+,
+{
+  "key": "american-express-q3-fy26",
+  "company": "American Express",
+  "period": "Q3 FY26",
+  "periodNote": "Ending Sep. 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/american-express-q3-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 20.1,
+    "notes": [
+      "+9% Y/Y",
+      "Net of interest expenses",
+      "Source segment amounts net to $20.1B; expense item sum $14.6B versus printed $14.5B total is rounding (SEC 10-Q 2026-09-30 Table 4: 5.090+1.795+2.006+1.770+2.570+1.315=14.546B). Printed amounts retained with existing 0.15B roundingTolerance. https://www.sec.gov/Archives/edgar/data/4962/000000496226000409/axp-20260930.htm"
+    ],
+    "items": [
+      {
+        "id": "us_consumer_services",
+        "label": "US Consumer Services",
+        "value": 9.8,
+        "notes": [
+          "+11% Y/Y",
+          "23% pretax margin"
+        ]
+      },
+      {
+        "id": "commercial_services",
+        "label": "Commercial Services",
+        "value": 4.6,
+        "notes": [
+          "+6% Y/Y",
+          "23% pretax margin"
+        ]
+      },
+      {
+        "id": "international_card_services",
+        "label": "International Card Services",
+        "value": 3.7,
+        "notes": [
+          "+10% Y/Y",
+          "12% pretax margin"
+        ]
+      },
+      {
+        "id": "global_merchant_network",
+        "label": "Global Merchant & Network Service",
+        "value": 2.1,
+        "notes": [
+          "+6% Y/Y",
+          "52% pretax margin"
+        ]
+      },
+      {
+        "id": "all_other",
+        "label": [
+          "All Other",
+          "(noninterest loss)"
+        ],
+        "value": -0.1
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "provision_for_credit_losses",
+      "label": "Provision for credit losses",
+      "value": 1,
+      "notes": [
+        "Modeled as a pre-pretax cost so the generic SSOT arithmetic matches the banking source chart."
+      ]
+    },
+    "operatingExpenses": {
+      "total": 14.5,
+      "items": [
+        {
+          "id": "card_members_rewards",
+          "label": "Card members rewards",
+          "value": 5.1
+        },
+        {
+          "id": "business_development",
+          "label": "Business development",
+          "value": 1.8
+        },
+        {
+          "id": "card_member_services",
+          "label": "Card Member services",
+          "value": 2
+        },
+        {
+          "id": "marketing",
+          "label": "Marketing",
+          "value": 1.8
+        },
+        {
+          "id": "sales_employee_benefits",
+          "label": "Sales & employee benefits",
+          "value": 2.6
+        },
+        {
+          "id": "other_general_operating",
+          "label": "Other general operating",
+          "value": 1.3
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.8
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "label": "Revenue after credit loss provision",
+      "value": 19.1,
+      "notes": [
+        "Balancing subtotal; not labeled separately in the source chart."
+      ]
+    },
+    "operating": {
+      "id": "pretax_income",
+      "label": "Pretax income",
+      "value": 4.5
+    },
+    "net": {
+      "id": "net_income",
+      "label": "Net income",
+      "value": 3.7,
+      "notes": [
+        "+28% Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "periodNote": "截至 2026 年 9 月",
+      "revenue": {
+        "notes": [
+          "同比 +9%",
+          "扣除利息支出后"
+        ],
+        "items": [
+          {
+            "id": "us_consumer_services",
+            "label": "美国消费者服务",
+            "notes": [
+              "同比 +11%",
+              "税前利润率 23%"
+            ]
+          },
+          {
+            "id": "commercial_services",
+            "label": "商务服务",
+            "notes": [
+              "同比 +6%",
+              "税前利润率 23%"
+            ]
+          },
+          {
+            "id": "international_card_services",
+            "label": "国际卡服务",
+            "notes": [
+              "同比 +10%",
+              "税前利润率 12%"
+            ]
+          },
+          {
+            "id": "global_merchant_network",
+            "label": "全球商户与网络服务",
+            "notes": [
+              "同比 +6%",
+              "税前利润率 52%"
+            ]
+          },
+          {
+            "id": "all_other",
+            "label": "所有其他（非利息亏损）"
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "信用损失拨备",
+          "notes": [
+            "建模为税前利润前成本，使通用 SSOT 计算与银行业来源图匹配。"
+          ]
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "card_members_rewards",
+              "label": "持卡人奖励"
+            },
+            {
+              "id": "business_development",
+              "label": "业务拓展"
+            },
+            {
+              "id": "card_member_services",
+              "label": "持卡人服务"
+            },
+            {
+              "id": "marketing",
+              "label": "营销"
+            },
+            {
+              "id": "sales_employee_benefits",
+              "label": "销售与员工福利"
+            },
+            {
+              "id": "other_general_operating",
+              "label": "其他一般运营"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "扣除信用损失拨备后的收入",
+          "notes": [
+            "用于平衡的小计；来源图未单独标注。"
+          ]
+        },
+        "operating": {
+          "label": "税前利润"
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "同比 +28%"
+          ]
+        }
+      }
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "deposits",
+      "label": "Deposits",
+      "value": "155",
+      "unit": "B",
+      "currency": "USD",
+      "literal": "$155B",
+      "comparison": "eq",
+      "basis": "unspecified",
+      "notes": [
+        "+3% Y/Y"
+      ],
+      "quote": "Deposits\n$155B\n+3% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          28,
+          1195,
+          172,
+          148
+        ]
+      }
+    },
+    {
+      "id": "billed_business",
+      "label": "Billed Business",
+      "value": "454",
+      "unit": "B",
+      "currency": "USD",
+      "literal": "$454B",
+      "comparison": "eq",
+      "basis": "unspecified",
+      "notes": [
+        "+8% Y/Y"
+      ],
+      "quote": "Billed Business\n$454B\n+8% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          209,
+          1195,
+          329,
+          148
+        ]
+      }
+    },
+    {
+      "id": "cet1",
+      "label": "CET1 ratio",
+      "value": "10.9",
+      "unit": "%",
+      "currency": null,
+      "literal": "10.9%",
+      "comparison": "eq",
+      "basis": "unspecified",
+      "notes": [
+        "+0.4pp Y/Y"
+      ],
+      "quote": "CET1 ratio\n10.9%\n+0.4pp Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          547,
+          1195,
+          240,
+          148
+        ]
+      }
+    }
+  ]
+}
 ]);
 })(window);

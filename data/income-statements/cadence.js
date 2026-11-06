@@ -299,6 +299,288 @@
           },
         },
       },
+    },
+{
+  "key": "cadence-q3-fy26",
+  "company": "Cadence",
+  "period": "Q3 FY26",
+  "periodNote": "",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/cadence-q3-fy26.png",
+  "roundingTolerance": 1.5,
+  "revenue": {
+    "total": 1633,
+    "notes": [
+      "+22% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "core_eda",
+        "label": "Core Electronic Design Automation",
+        "value": 1127,
+        "notes": [
+          "+20% Y/Y"
+        ]
+      },
+      {
+        "id": "ip",
+        "label": "IP",
+        "value": 245,
+        "notes": [
+          "+24% Y/Y"
+        ]
+      },
+      {
+        "id": "system_design_analysis",
+        "label": "System Design & Analysis",
+        "value": 261,
+        "notes": [
+          "+30% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 236,
+      "notes": [
+        "Printed revenue ($1,633M) minus printed cost ($236M) differs from printed gross profit ($1,398M) by $1M. Values retained; roundingTolerance follows existing Cadence records. SEC 2026 Q3 release: total revenue 1633.311M; costs 173.867M + 61.753M."
+      ],
+      "items": [
+        {
+          "id": "products_cor",
+          "label": "Products",
+          "value": 174
+        },
+        {
+          "id": "services_cor",
+          "label": "Services",
+          "value": 62
+        }
+      ]
+    },
+    "operatingExpenses": {
+      "total": 969,
+      "items": [
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 538,
+          "notes": [
+            "33% of revenue",
+            "+1pp Y/Y"
+          ]
+        },
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 243,
+          "notes": [
+            "15% of revenue",
+            "+0pp Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 113,
+          "notes": [
+            "7% of revenue",
+            "+1pp Y/Y"
+          ]
+        },
+        {
+          "id": "other_opex",
+          "label": "Other",
+          "value": 76,
+          "notes": [
+            "5% of revenue"
+          ]
+        }
+      ],
+      "notes": [
+        "Printed expense items sum to $970M versus printed total $969M; values retained within roundingTolerance 1.5M. SEC Q3 expenses are 968.975M; no unique Source typo established."
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 119
     }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 20,
+    "items": [
+      {
+        "id": "other_expenses",
+        "label": "Other",
+        "value": 20
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 1398,
+      "notes": [
+        "86% margin",
+        "(1pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 429,
+      "notes": [
+        "26% margin",
+        "(6pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 290,
+      "notes": [
+        "18% margin",
+        "(4pp) Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "periodNote": "",
+      "revenue": {
+        "notes": [
+          "同比 +22%"
+        ],
+        "items": [
+          {
+            "id": "core_eda",
+            "label": [
+              "核心电子",
+              "设计",
+              "自动化"
+            ],
+            "notes": [
+              "同比 +20%"
+            ]
+          },
+          {
+            "id": "ip",
+            "label": "IP",
+            "notes": [
+              "同比 +24%"
+            ]
+          },
+          {
+            "id": "system_design_analysis",
+            "label": [
+              "系统设计",
+              "与分析"
+            ],
+            "notes": [
+              "同比 +30%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本",
+          "notes": ["印刷收入 ($1,633M) 减去印刷收入成本 ($236M)，与印刷毛利润 ($1,398M) 相差 $1M。保留原值，沿用既有 Cadence 舍入容差。SEC 2026 Q3 申报：总收入 1633.311M；成本 173.867M + 61.753M。"],
+          "items": [
+            {
+              "id": "products_cor",
+              "label": "产品"
+            },
+            {
+              "id": "services_cor",
+              "label": "服务"
+            }
+          ]
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 33%",
+                "同比 +1 个百分点"
+              ]
+            },
+            {
+              "id": "sm",
+              "label": "销售与市场",
+              "notes": [
+                "占收入 15%",
+                "同比 +0 个百分点"
+              ]
+            },
+            {
+              "id": "ga",
+              "label": "管理费用",
+              "notes": [
+                "占收入 7%",
+                "同比 +1 个百分点"
+              ]
+            },
+            {
+              "id": "other_opex",
+              "label": "其他",
+              "notes": [
+                "占收入 5%"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other_expenses",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 86%",
+            "同比 (1 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 26%",
+            "同比 (6 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 18%",
+            "同比 (4 个百分点)"
+          ]
+        }
+      }
+    }
+  }
+}
   );
 })(window);

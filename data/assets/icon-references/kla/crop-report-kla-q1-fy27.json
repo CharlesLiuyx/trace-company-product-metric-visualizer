@@ -1,0 +1,110 @@
+{
+  "source": "output/builds/build-cbab43d2-f63a-49a8-8955-38bcdd61177a/workspace/input/processing/kla-q1-fy27.png",
+  "spec": "output/builds/build-cbab43d2-f63a-49a8-8955-38bcdd61177a/workspace/kla-crop-spec.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T14:19:13.396128+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "output/builds/build-cbab43d2-f63a-49a8-8955-38bcdd61177a/workspace/data/assets/raster-annotations/kla",
+  "crops": [
+    {
+      "key": "company-logo-kla-q1-fy27",
+      "output": "output/builds/build-cbab43d2-f63a-49a8-8955-38bcdd61177a/workspace/data/assets/icon-references/kla/crops/company-logo-kla-q1-fy27.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 8069,
+        "losslessBytes": 8069,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          70,
+          167,
+          225
+        ],
+        "transparentPixels": 0,
+        "transparentPixelRatio": 0.0
+      },
+      "searchBox": {
+        "x": 787,
+        "y": 318,
+        "width": 430,
+        "height": 102
+      },
+      "componentCount": 4,
+      "subjectBox": {
+        "x0": 798,
+        "y0": 322,
+        "x1": 1212,
+        "y1": 415
+      },
+      "cropBox": {
+        "x0": 787,
+        "y0": 318,
+        "x1": 1217,
+        "y1": 420
+      },
+      "validation": {
+        "width": 430,
+        "height": 102,
+        "foregroundPixels": 13077,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 11,
+          "right": 5,
+          "top": 4,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.007,
+          "y": -0.0049
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "output/builds/build-cbab43d2-f63a-49a8-8955-38bcdd61177a/workspace/data/assets/raster-annotations/kla/company-logo-kla-q1-fy27.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 8069,
+        "losslessBytes": 8069,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

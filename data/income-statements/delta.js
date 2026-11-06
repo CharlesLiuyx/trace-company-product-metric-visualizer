@@ -8,6 +8,248 @@
   });
 
   ssot.records.push(
+{
+  "key": "delta-q3-fy26",
+  "company": "Delta Air Lines",
+  "period": "Q3 FY26",
+  "periodNote": "Quarter ended Sep. 30, 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/delta-q3-fy26.png",
+  "roundingTolerance": 0.25,
+  "revenue": {
+    "total": 20.2,
+    "notes": [
+      "+21% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "passenger",
+        "label": "Passenger",
+        "value": 15.5,
+        "notes": [
+          "+15% Y/Y"
+        ]
+      },
+      {
+        "id": "cargo",
+        "label": "Cargo",
+        "value": 0.3,
+        "notes": [
+          "+29% Y/Y"
+        ]
+      },
+      {
+        "id": "other_revenue",
+        "label": "Other",
+        "value": 4.4,
+        "notes": [
+          "+48% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue (not separately presented)",
+      "value": 0,
+      "notes": [
+        "The source infographic moves directly from revenue to operating profit and operating expenses."
+      ]
+    },
+    "operatingExpenses": {
+      "total": 18.7,
+      "items": [
+        {
+          "id": "salaries_benefits",
+          "label": "Salaries & benefits",
+          "value": 4.8
+        },
+        {
+          "id": "aircraft_fuel",
+          "label": "Aircraft fuel",
+          "value": 4.4
+        },
+        {
+          "id": "ancillary_business",
+          "label": "Ancillary business",
+          "value": 2.6
+        },
+        {
+          "id": "contracted_services",
+          "label": "Contracted services",
+          "value": 1.3
+        },
+        {
+          "id": "landing_fees",
+          "label": "Landing fees",
+          "value": 1
+        },
+        {
+          "id": "maintenance",
+          "label": "Maintenance",
+          "value": 0.7
+        },
+        {
+          "id": "depreciation_amortization",
+          "label": "D&A",
+          "value": 0.7
+        },
+        {
+          "id": "regional_carrier",
+          "label": "Regional carrier",
+          "value": 0.7
+        },
+        {
+          "id": "other_operating",
+          "label": "Other",
+          "value": 2.6
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.4
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0.4,
+    "items": [
+      {
+        "id": "interest_other",
+        "label": "Interest & other",
+        "value": 0.4
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit (not separately presented)",
+      "value": 20.2,
+      "notes": [
+        "+21% Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 1.5,
+      "notes": [
+        "7% margin",
+        "(3pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 0.8,
+      "notes": [
+        "4% margin",
+        "(5pp) Y/Y"
+      ]
+    }
+  },
+  "sources": [
+    {
+      "name": "Delta September 2026 Form 10-Q",
+      "url": "https://www.sec.gov/Archives/edgar/data/27904/000002790426000038/dal-20260930.htm"
+    }
+  ],
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "periodNote": "截至 2026 年 9 月 30 日的季度",
+      "revenue": {
+        "items": [
+          {
+            "id": "passenger",
+            "label": "客运"
+          },
+          {
+            "id": "cargo",
+            "label": "货运"
+          },
+          {
+            "id": "other_revenue",
+            "label": "其他"
+          }
+        ]
+      },
+      "costs": {
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "salaries_benefits",
+              "label": "薪酬与福利"
+            },
+            {
+              "id": "aircraft_fuel",
+              "label": "航空燃油"
+            },
+            {
+              "id": "ancillary_business",
+              "label": "辅助业务"
+            },
+            {
+              "id": "contracted_services",
+              "label": "合同服务"
+            },
+            {
+              "id": "landing_fees",
+              "label": "着陆费"
+            },
+            {
+              "id": "maintenance",
+              "label": "维护"
+            },
+            {
+              "id": "depreciation_amortization",
+              "label": "折旧与摊销"
+            },
+            {
+              "id": "regional_carrier",
+              "label": "支线承运人"
+            },
+            {
+              "id": "other_operating",
+              "label": "其他"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "interest_other",
+            "label": "利息及其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润（未单列）"
+        },
+        "operating": {
+          "label": "营业利润"
+        },
+        "net": {
+          "label": "净利润"
+        }
+      }
+    }
+  }
+},
     {
       key: 'delta-q2-fy26',
       company: 'Delta Air Lines',

@@ -2,6 +2,316 @@
 (function (global) {
   const target = global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || { schemaVersion: 1, records: [] };
   target.records.push(...[
+{
+  "key": "morgan-stanley-q3-fy26",
+  "company": "Morgan Stanley",
+  "period": "Q3 FY26",
+  "periodNote": "Ending Sep. 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/morgan-stanley-q3-fy26.png",
+  "roundingTolerance": 0.2,
+  "revenue": {
+    "total": 20.3,
+    "notes": [
+      "+12% Y/Y",
+      "Segment revenue detail sums to $20.6B before $0.2B of eliminations; displayed figures are rounded."
+    ],
+    "items": [
+      {
+        "id": "institutional_securities",
+        "label": "Institutional Securities",
+        "value": 10,
+        "notes": [
+          "+18% Y/Y",
+          "29% net margin"
+        ]
+      },
+      {
+        "id": "wealth_management",
+        "label": "Wealth Management",
+        "value": 9.1,
+        "notes": [
+          "+10% Y/Y",
+          "24% net margin"
+        ]
+      },
+      {
+        "id": "investment_management",
+        "label": "Investment Management",
+        "value": 1.5,
+        "notes": [
+          "(11%) Y/Y",
+          "18% net margin"
+        ]
+      },
+      {
+        "id": "eliminations",
+        "label": "Eliminations",
+        "value": -0.2,
+        "notes": [
+          "Intersegment eliminations shown as a separate red outflow."
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "non_interest_expenses",
+      "label": "Noninterest expenses",
+      "value": 13.7,
+      "notes": [
+        "Noninterest expense detail sums to $13.8B due to rounded line items."
+      ],
+      "items": [
+        {
+          "id": "compensation_benefits",
+          "label": "Compensation & benefits",
+          "value": 8
+        },
+        {
+          "id": "brokerage_clearing_exchange",
+          "label": "Brokerage, clearing & exchange fees",
+          "value": 1.5
+        },
+        {
+          "id": "information_communications",
+          "label": "Information & communications",
+          "value": 1.3
+        },
+        {
+          "id": "professional_services",
+          "label": "Professional services",
+          "value": 0.7
+        },
+        {
+          "id": "occupancy",
+          "label": "Occupancy",
+          "value": 0.5
+        },
+        {
+          "id": "marketing_business_development",
+          "label": "Marketing & business development",
+          "value": 0.4
+        },
+        {
+          "id": "other_expenses",
+          "label": "Other",
+          "value": 1.4
+        }
+      ]
+    },
+    "operatingExpenses": {
+      "total": 0.1,
+      "notes": [
+        "Mapped to the existing operating-expenses schema slot for financial-institution credit-loss provision."
+      ],
+      "items": [
+        {
+          "id": "operating_expenses",
+          "label": "Provision for credit loss",
+          "value": 0.1
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 1.5
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "pre_provision_pretax",
+      "label": "Pre-provision pretax income",
+      "value": 6.6,
+      "notes": [
+        "Schema adapter subtotal for the financial-institution waterfall."
+      ]
+    },
+    "operating": {
+      "id": "pretax_income",
+      "label": "Pretax income",
+      "value": 6.5
+    },
+    "net": {
+      "id": "net_income",
+      "label": "Net income",
+      "value": 5,
+      "notes": [
+        "+7% Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "periodNote": "截至 2026 年 9 月",
+      "revenue": {
+        "notes": [
+          "同比 +12%",
+          "分部收入明细合计为 $20.6B，抵销 $0.2B；图中数字经四舍五入。"
+        ],
+        "items": [
+          {
+            "id": "institutional_securities",
+            "label": "机构证券",
+            "notes": [
+              "同比 +18%",
+              "净利率 29%"
+            ]
+          },
+          {
+            "id": "wealth_management",
+            "label": "财富管理",
+            "notes": [
+              "同比 +10%",
+              "净利率 24%"
+            ]
+          },
+          {
+            "id": "investment_management",
+            "label": "投资管理",
+            "notes": [
+              "同比 (11%)",
+              "净利率 18%"
+            ]
+          },
+          {
+            "id": "eliminations",
+            "label": "抵销",
+            "notes": [
+              "分部间抵销在来源图中显示为单独的红色流出。"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "非利息费用",
+          "notes": [
+            "非利息费用明细因项目取整合计为 $13.8B。"
+          ],
+          "items": [
+            {
+              "id": "compensation_benefits",
+              "label": "薪酬与福利"
+            },
+            {
+              "id": "brokerage_clearing_exchange",
+              "label": "经纪、清算与交易所费用"
+            },
+            {
+              "id": "information_communications",
+              "label": "信息与通信"
+            },
+            {
+              "id": "professional_services",
+              "label": "专业服务"
+            },
+            {
+              "id": "occupancy",
+              "label": "场地占用"
+            },
+            {
+              "id": "marketing_business_development",
+              "label": "市场与业务开发"
+            },
+            {
+              "id": "other_expenses",
+              "label": "其他"
+            }
+          ]
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "operating_expenses",
+              "label": "信用损失拨备"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "税前利润",
+          "notes": [
+            "金融机构瀑布图的 schema 适配小计。"
+          ]
+        },
+        "operating": {
+          "label": "税前利润"
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "同比 +7%"
+          ]
+        }
+      }
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "cet1",
+      "label": "CET1 ratio",
+      "value": "14.9",
+      "unit": "%",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "14.9%",
+      "basis": "unspecified",
+      "notes": [
+        "(0.2pp) Y/Y"
+      ],
+      "quote": "CET1 ratio\n14.9%\n(0.2pp) Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          123,
+          1122,
+          242,
+          149
+        ]
+      }
+    },
+    {
+      "id": "rotce",
+      "label": "ROTCE",
+      "value": "22.6",
+      "unit": "%",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "22.6%",
+      "basis": "unspecified",
+      "notes": [
+        "(0.9pp) Y/Y"
+      ],
+      "quote": "ROTCE\n22.6%\n(0.9pp) Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          373,
+          1122,
+          272,
+          149
+        ]
+      }
+    }
+  ]
+},
   {
     "key": "morgan-stanley-q2-fy26",
     "company": "Morgan Stanley",

@@ -1,7 +1,4 @@
-/* Pure INCOME_STATEMENT_SSOT records. Merged by the Publication Module. */
-(function (global) {
-  const target = global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || { schemaVersion: 1, records: [] };
-  target.records.push(...[
+(function(global){ const target=global.INCOME_STATEMENT_SSOT=global.INCOME_STATEMENT_SSOT||{schemaVersion:1,records:[]}; target.records.push(...[
   {
     "key": "align-q3-fy22",
     "company": "Align Technology",
@@ -3331,6 +3328,224 @@
       }
     },
     "roundingNote": "Source integer $M rounding: all printed amounts reconcile exactly; fixed measured link geometry is independent of rounding."
+  },
+  {
+    "key": "align-q3-fy26",
+    "company": "Align Technology",
+    "period": "Q3 FY26",
+    "periodNote": "Ending Sep. 2026",
+    "currency": "$",
+    "unit": "M",
+    "decimals": 0,
+    "sourceImage": "input/processed/align-q3-fy26.png",
+    "roundingTolerance": 2.1,
+    "revenue": {
+      "total": 1015,
+      "notes": [
+        "+2% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "clear_aligners",
+          "label": "Clear Aligners",
+          "value": 840,
+          "notes": [
+            "+4% Y/Y"
+          ]
+        },
+        {
+          "id": "systems_services",
+          "label": "Systems & Services",
+          "value": 176,
+          "notes": [
+            "(8%) Y/Y"
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_revenue",
+        "label": "Cost of revenue",
+        "value": 317
+      },
+      "operatingExpenses": {
+        "total": 528,
+        "items": [
+          {
+            "id": "sga",
+            "label": "SG&A",
+            "value": 411,
+            "notes": [
+              "40% of revenue",
+              "(1pp) Y/Y"
+            ]
+          },
+          {
+            "id": "rnd",
+            "label": "R&D",
+            "value": 94,
+            "notes": [
+              "9% of revenue",
+              "(0pp) Y/Y"
+            ]
+          },
+          {
+            "id": "restructuring",
+            "label": "Restructuring",
+            "value": 24,
+            "notes": [
+              "2% of revenue",
+              "(1pp) Y/Y"
+            ]
+          }
+        ]
+      },
+      "tax": {
+        "id": "tax",
+        "label": "Tax",
+        "value": 35
+      }
+    },
+    "otherIncome": {
+      "total": 0,
+      "items": []
+    },
+    "otherExpenses": {
+      "total": 1,
+      "items": [
+        {
+          "id": "other_expense",
+          "label": "Other",
+          "value": 1
+        }
+      ]
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 698,
+        "notes": [
+          "69% margin",
+          "+5pp Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_profit",
+        "label": "Operating profit",
+        "value": 169,
+        "notes": [
+          "17% margin",
+          "+7pp Y/Y"
+        ]
+      },
+      "net": {
+        "id": "net_profit",
+        "label": "Net profit",
+        "value": 135,
+        "notes": [
+          "13% margin",
+          "+8pp Y/Y"
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2026 财年第三季度",
+        "periodNote": "截至 2026 年 9 月",
+        "revenue": {
+          "notes": [
+            "同比 +2%"
+          ],
+          "items": [
+            {
+              "id": "clear_aligners",
+              "label": "透明矫治器",
+              "notes": [
+                "同比 +4%"
+              ]
+            },
+            {
+              "id": "systems_services",
+              "label": "系统与服务",
+              "notes": [
+                "同比 (8%)"
+              ]
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "收入成本"
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "sga",
+                "label": "销售及管理费用",
+                "notes": [
+                  "占收入 40%",
+                  "同比 (1 个百分点)"
+                ]
+              },
+              {
+                "id": "rnd",
+                "label": "研发",
+                "notes": [
+                  "占收入 9%",
+                  "同比 (0 个百分点)"
+                ]
+              },
+              {
+                "id": "restructuring",
+                "label": "重组",
+                "notes": [
+                  "占收入 2%",
+                  "同比 (1 个百分点)"
+                ]
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费"
+          }
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 69%",
+              "同比 +5 个百分点"
+            ]
+          },
+          "operating": {
+            "label": "营业利润",
+            "notes": [
+              "利润率 17%",
+              "同比 +7 个百分点"
+            ]
+          },
+          "net": {
+            "label": "净利润",
+            "notes": [
+              "利润率 13%",
+              "同比 +8 个百分点"
+            ]
+          }
+        },
+        "otherExpenses": {
+          "items": [
+            {
+              "id": "other_expense",
+              "label": "其他"
+            }
+          ]
+        }
+      }
+    },
+    "notes": [
+      "Source printed integer-million values are retained per operator decision. Segments total 1016 vs revenue 1015; gross 698 minus opex 528 is 170 vs operating 169; expense components total 529 vs opex 528. Printed operating 169 minus tax 35 and Other expense 1 is 133 vs printed net 135. Operator directs preserving Source Other expense ($1M), topology and text; Q3 2026 Form 10-Q p3 reports $0.910M net non-operating income. Difference reserved for human review."
+    ]
   }
-]);
-})(window);
+]); })(window);

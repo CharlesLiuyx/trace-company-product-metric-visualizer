@@ -1,0 +1,133 @@
+{
+  "source": "input/processed/braze-q2-fy27.png",
+  "spec": "input/icon-crop-specs/braze-q2-fy27.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T14:12:23.759526+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/braze",
+  "crops": [
+    {
+      "key": "braze-company-q2-fy27",
+      "output": "data/assets/icon-references/braze/crops/company-q2-fy27.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 6282,
+        "losslessBytes": 28353,
+        "savingsVsLossless": 0.7784,
+        "metrics": {
+          "meanAbsoluteError": 0.1986,
+          "rootMeanSquareError": 1.1068,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 31,
+          "changedPixelRatio": 0.1173
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 81771,
+        "transparentPixelRatio": 0.6707
+      },
+      "searchBox": {
+        "x": 599,
+        "y": 245,
+        "width": 508,
+        "height": 240
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 602,
+        "y0": 247,
+        "x1": 1103,
+        "y1": 483
+      },
+      "cropBox": {
+        "x0": 599,
+        "y0": 245,
+        "x1": 1107,
+        "y1": 485
+      },
+      "validation": {
+        "width": 508,
+        "height": 240,
+        "foregroundPixels": 32047,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 3,
+          "right": 4,
+          "top": 2,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": -0.001,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/braze/company-q2-fy27.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 6282,
+        "losslessBytes": 28353,
+        "savingsVsLossless": 0.7784,
+        "metrics": {
+          "meanAbsoluteError": 0.1986,
+          "rootMeanSquareError": 1.1068,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 31,
+          "changedPixelRatio": 0.1173
+        }
+      },
+      "validationSheet": "data/assets/icon-references/braze/validation-sheets/braze-company-q2-fy27.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 236478,
+        "losslessBytes": 236478,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

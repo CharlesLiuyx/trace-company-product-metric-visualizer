@@ -1,7 +1,7 @@
-/* Pure INCOME_STATEMENT_SSOT records. Merged by the Publication Module. */
+/* Pure INCOME_STATEMENT_SSOT records. */
 (function (global) {
-  const target = global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || { schemaVersion: 1, records: [] };
-  target.records.push(...[
+ const target = global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || { schemaVersion: 1, records: [] };
+ target.records.push(...[
   {
     "key": "servicenow-q4-fy25",
     "company": "ServiceNow",
@@ -4996,6 +4996,336 @@
         }
       }
     ]
+  },
+  {
+    "key": "servicenow-q3-fy26",
+    "company": "ServiceNow",
+    "period": "Q3 FY26",
+    "currency": "$",
+    "unit": "B",
+    "decimals": 1,
+    "sourceImage": "input/processed/servicenow-q3-fy26.png",
+    "roundingTolerance": 0.15,
+    "revenue": {
+      "total": 4.1,
+      "notes": [
+        "+21% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "subscription",
+          "label": "Subscription",
+          "value": 4,
+          "notes": [
+            "+21% Y/Y",
+            "74% gross margin"
+          ]
+        },
+        {
+          "id": "professional_services",
+          "label": "Professional services",
+          "value": 0.1,
+          "notes": [
+            "+9% Y/Y",
+            "(31%) gross margin"
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_revenue",
+        "label": "Cost of revenue",
+        "value": 1.2,
+        "notes": []
+      },
+      "operatingExpenses": {
+        "total": 2.5,
+        "items": [
+          {
+            "id": "sm",
+            "label": "S&M",
+            "value": 1.3,
+            "notes": [
+              "31% of revenue",
+              "(0pp) Y/Y"
+            ]
+          },
+          {
+            "id": "rnd",
+            "label": "R&D",
+            "value": 1,
+            "notes": [
+              "23% of revenue",
+              "+1pp Y/Y"
+            ]
+          },
+          {
+            "id": "ga",
+            "label": "G&A",
+            "value": 0.3,
+            "notes": [
+              "7% of revenue",
+              "(1pp) Y/Y"
+            ]
+          }
+        ]
+      },
+      "tax": {
+        "id": "tax",
+        "label": "Tax",
+        "value": 0.1,
+        "notes": []
+      }
+    },
+    "otherIncome": {
+      "total": 0.1,
+      "items": [
+        {
+          "id": "interest",
+          "label": "Interest",
+          "value": 0.1,
+          "notes": []
+        }
+      ]
+    },
+    "otherExpenses": {
+      "total": 0.1,
+      "items": [
+        {
+          "id": "other",
+          "label": "Other",
+          "value": 0.1,
+          "notes": []
+        }
+      ]
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 2.9,
+        "notes": [
+          "71% margin",
+          "(7pp) Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_profit",
+        "label": "Operating profit",
+        "value": 0.4,
+        "notes": [
+          "9% margin",
+          "(7pp) Y/Y"
+        ]
+      },
+      "net": {
+        "id": "net_profit",
+        "label": "Net profit",
+        "value": 0.3,
+        "notes": [
+          "7% margin",
+          "(8pp) Y/Y"
+        ]
+      }
+    },
+    "operatingMetrics": [
+      {
+        "id": "crpo",
+        "label": "cRPO",
+        "value": "13.7",
+        "unit": "B",
+        "currency": "USD",
+        "comparison": "eq",
+        "literal": "$13.7B",
+        "basis": "unspecified",
+        "notes": [
+          "+21% Y/Y"
+        ],
+        "quote": "cRPO\n$13.7B\n+21% Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            40,
+            1147,
+            145,
+            169
+          ]
+        }
+      },
+      {
+        "id": "renewal_rate",
+        "label": "Renewal rate",
+        "value": "98",
+        "unit": "%",
+        "currency": null,
+        "comparison": "eq",
+        "literal": "98%",
+        "basis": "unspecified",
+        "notes": [
+          "+1pp Y/Y"
+        ],
+        "quote": "Renewal rate\n98%\n+1pp Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            201,
+            1147,
+            323,
+            169
+          ]
+        }
+      },
+      {
+        "id": "customers_gt_5m",
+        "label": "Customers > $5M",
+        "value": "680",
+        "unit": "count",
+        "currency": null,
+        "comparison": "eq",
+        "literal": "680",
+        "basis": "unspecified",
+        "notes": [
+          "+23% Y/Y"
+        ],
+        "quote": "Customers > $5M\n680\n+23% Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            539,
+            1145,
+            380,
+            169
+          ]
+        }
+      }
+    ],
+    "i18n": {
+      "zh": {
+        "period": "2026 财年第三季度",
+        "revenue": {
+          "notes": [
+            "同比 +21%"
+          ],
+          "items": [
+            {
+              "id": "subscription",
+              "label": "订阅",
+              "notes": [
+                "同比 +21%",
+                "毛利率 74%"
+              ]
+            },
+            {
+              "id": "professional_services",
+              "label": "专业服务",
+              "notes": [
+                "同比 +9%",
+                "毛利率 (31%)"
+              ]
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "收入成本"
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "sm",
+                "label": "销售与市场",
+                "notes": [
+                  "占收入 31%",
+                  "同比 (0 个百分点)"
+                ]
+              },
+              {
+                "id": "rnd",
+                "label": "研发",
+                "notes": [
+                  "占收入 23%",
+                  "同比 +1 个百分点"
+                ]
+              },
+              {
+                "id": "ga",
+                "label": "管理费用",
+                "notes": [
+                  "占收入 7%",
+                  "同比 (1 个百分点)"
+                ]
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费"
+          }
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 71%",
+              "同比 (7 个百分点)"
+            ]
+          },
+          "operating": {
+            "label": "营业利润",
+            "notes": [
+              "利润率 9%",
+              "同比 (7 个百分点)"
+            ]
+          },
+          "net": {
+            "label": "净利润",
+            "notes": [
+              "利润率 7%",
+              "同比 (8 个百分点)"
+            ]
+          }
+        },
+        "otherIncome": {
+          "items": [
+            {
+              "id": "interest",
+              "label": "利息"
+            }
+          ]
+        },
+        "otherExpenses": {
+          "items": [
+            {
+              "id": "other",
+              "label": "其他"
+            }
+          ]
+        },
+        "operatingMetrics": [
+          {
+            "id": "crpo",
+            "label": "cRPO",
+            "notes": [
+              "同比 +21%"
+            ]
+          },
+          {
+            "id": "renewal_rate",
+            "label": "续约率",
+            "notes": [
+              "同比 +1 个百分点"
+            ]
+          },
+          {
+            "id": "customers_gt_5m",
+            "label": "客户数 > $5M",
+            "notes": [
+              "同比 +23%"
+            ]
+          }
+        ]
+      }
+    }
   }
 ]);
 })(window);

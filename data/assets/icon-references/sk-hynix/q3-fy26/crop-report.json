@@ -1,0 +1,124 @@
+{
+  "source": "input/processing/sk-hynix-q3-fy26.png",
+  "spec": "output/builds/build-dce46d54-f2b6-442e-9a41-49440cbb0fbb/workspace/input/icon-crop-specs/sk-hynix-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T14:41:36.006487+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/sk-hynix",
+  "crops": [
+    {
+      "key": "sk-hynix-company-logo-q3-fy26",
+      "output": "data/assets/icon-references/sk-hynix/q3-fy26/crops/company-logo-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 6340,
+        "losslessBytes": 29188,
+        "savingsVsLossless": 0.7828,
+        "metrics": {
+          "meanAbsoluteError": 0.2593,
+          "rootMeanSquareError": 1.7266,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.2236
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 148134,
+        "transparentPixelRatio": 0.7801
+      },
+      "searchBox": {
+        "x": 625,
+        "y": 234,
+        "width": 599,
+        "height": 317
+      },
+      "componentCount": 11,
+      "subjectBox": {
+        "x0": 636,
+        "y0": 245,
+        "x1": 1211,
+        "y1": 547
+      },
+      "cropBox": {
+        "x0": 625,
+        "y0": 234,
+        "x1": 1224,
+        "y1": 551
+      },
+      "validation": {
+        "width": 599,
+        "height": 317,
+        "foregroundPixels": 40720,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 11,
+          "right": 13,
+          "top": 11,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": -0.0017,
+          "y": 0.011
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/sk-hynix/company-logo-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 6340,
+        "losslessBytes": 29188,
+        "savingsVsLossless": 0.7828,
+        "metrics": {
+          "meanAbsoluteError": 0.2593,
+          "rootMeanSquareError": 1.7266,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.2236
+        }
+      }
+    }
+  ]
+}

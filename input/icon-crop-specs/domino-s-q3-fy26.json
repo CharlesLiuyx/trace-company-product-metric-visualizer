@@ -1,0 +1,34 @@
+{
+  "source": "input/processed/domino-s-q3-fy26.png",
+  "outputDir": "data/assets/icon-references/domino-s",
+  "runtimeOutputDir": "data/assets/raster-annotations/domino-s",
+  "report": "crop-report-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "crops": [
+    {
+      "key": "company-logo-q3-fy26",
+      "output": "crops/company-logo-q3-fy26.png",
+      "runtimeOutput": "company-logo-q3-fy26.png",
+      "searchBox": {
+        "x": 755,
+        "y": 255,
+        "width": 270,
+        "height": 270
+      },
+      "cropBox": {
+        "x": 755,
+        "y": 255,
+        "width": 270,
+        "height": 270
+      },
+      "minComponentArea": 8,
+      "validation": {
+        "maxCenterOffset": 0.2
+      }
+    }
+  ]
+}

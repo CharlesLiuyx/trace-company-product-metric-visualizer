@@ -1,0 +1,49 @@
+{
+  "source": "input/processing/visa-q4-fy26.png",
+  "outputDir": "data/assets/icon-references/visa",
+  "runtimeOutputDir": "data/assets/raster-annotations/visa",
+  "validationSheetDir": "data/assets/icon-references/visa/validation-sheets/q4-fy26",
+  "report": "crop-report-q4-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [
+      242,
+      242,
+      242
+    ],
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "visa-logo-q4-fy26",
+      "output": "crops/logo-q4-fy26.png",
+      "runtimeOutput": "logo-q4-fy26.png",
+      "searchBox": {
+        "x": 664,
+        "y": 238,
+        "width": 374,
+        "height": 129
+      },
+      "cropBox": {
+        "x": 664,
+        "y": 238,
+        "width": 374,
+        "height": 129
+      },
+      "threshold": 15,
+      "minComponentArea": 16,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete VISA wordmark without adjacent chart marks."
+    }
+  ]
+}

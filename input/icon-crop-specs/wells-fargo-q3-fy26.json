@@ -1,0 +1,22 @@
+{
+  "source": "input/processed/wells-fargo-q3-fy26.png",
+  "outputDir": "data/assets/icon-references/wells-fargo",
+  "runtimeOutputDir": "data/assets/raster-annotations/wells-fargo",
+  "backgroundRemoval": {
+    "enabled": false
+  },
+  "crops": [
+    {
+      "key": "logo-q3-fy26",
+      "output": "crops/logo-q3-fy26.png",
+      "runtimeOutput": "logo-q3-fy26.png",
+      "cropBox": {
+        "x": 781,
+        "y": 240,
+        "width": 236,
+        "height": 254
+      },
+      "note": "Complete company logo; no chart text or connectors."
+    }
+  ]
+}

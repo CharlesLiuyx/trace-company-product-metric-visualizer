@@ -9,6 +9,341 @@
   });
 
   ssot.records.push(
+{
+  "key": "moodys-q3-fy26",
+  "company": "Moody's",
+  "period": "Q3 FY26",
+  "periodNote": "",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/moodys-q3-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 2023,
+    "notes": [
+      "+1% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "moodys_analytics",
+        "label": "Moody's Analytics",
+        "value": 936,
+        "notes": [
+          "+3% Y/Y"
+        ],
+        "children": [
+          {
+            "id": "decision_solutions",
+            "label": "Decision Solutions",
+            "value": 426,
+            "notes": [
+              "+0% Y/Y"
+            ]
+          },
+          {
+            "id": "research_insights",
+            "label": "Research & Insights",
+            "value": 260,
+            "notes": [
+              "+3% Y/Y"
+            ]
+          },
+          {
+            "id": "data_information",
+            "label": "Data & Information",
+            "value": 250,
+            "notes": [
+              "+7% Y/Y"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "moodys_investors_service",
+        "label": "Moody's Investors Service",
+        "value": 1087,
+        "notes": [
+          "(1%) Y/Y"
+        ],
+        "children": [
+          {
+            "id": "corporate_finance",
+            "label": "Corporate Finance",
+            "value": 530,
+            "notes": [
+              "(8%) Y/Y"
+            ]
+          },
+          {
+            "id": "structured_finance",
+            "label": "Structured Finance",
+            "value": 153,
+            "notes": [
+              "+5% Y/Y"
+            ]
+          },
+          {
+            "id": "financial_institutions",
+            "label": "Financial Institutions",
+            "value": 213,
+            "notes": [
+              "+2% Y/Y"
+            ]
+          },
+          {
+            "id": "public_project",
+            "label": "Public, Project",
+            "value": 179,
+            "notes": [
+              "+11% Y/Y"
+            ]
+          },
+          {
+            "id": "other",
+            "label": "Other",
+            "value": 12,
+            "notes": [
+              "+71% Y/Y"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 0,
+      "notes": [
+        "Source chart does not show a separate gross profit or cost-of-revenue layer."
+      ]
+    },
+    "operatingExpenses": {
+      "total": 1117,
+      "items": [
+        {
+          "id": "operating",
+          "label": "Operating",
+          "value": 524,
+          "notes": []
+        },
+        {
+          "id": "sga",
+          "label": "SG&A",
+          "value": 442,
+          "notes": []
+        },
+        {
+          "id": "da",
+          "label": "D&A",
+          "value": 124,
+          "notes": []
+        },
+        {
+          "id": "restructuring",
+          "label": "Restructuring",
+          "value": 27,
+          "notes": []
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 232
+    }
+  },
+  "otherIncome": {
+    "total": 62,
+    "items": [
+      {
+        "id": "other_income",
+        "label": "Other",
+        "value": 62
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 2023,
+      "notes": [
+        "Source chart flows revenue directly to operating profit and operating expenses."
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 906,
+      "notes": [
+        "45% margin",
+        "(1pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 736,
+      "notes": [
+        "36% margin",
+        "+4pp Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "periodNote": "",
+      "revenue": {
+        "notes": [
+          "同比 +1%"
+        ],
+        "items": [
+          {
+            "id": "moodys_analytics",
+            "label": "穆迪分析",
+            "notes": [
+              "同比 +3%"
+            ],
+            "children": [
+              {
+                "id": "decision_solutions",
+                "label": "决策解决方案",
+                "notes": [
+                  "同比 +0%"
+                ]
+              },
+              {
+                "id": "research_insights",
+                "label": "研究与洞察",
+                "notes": [
+                  "同比 +3%"
+                ]
+              },
+              {
+                "id": "data_information",
+                "label": "数据与信息",
+                "notes": [
+                  "同比 +7%"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "moodys_investors_service",
+            "label": "穆迪投资者服务",
+            "notes": [
+              "同比 (1%)"
+            ],
+            "children": [
+              {
+                "id": "corporate_finance",
+                "label": "企业融资",
+                "notes": [
+                  "同比 (8%)"
+                ]
+              },
+              {
+                "id": "structured_finance",
+                "label": "结构性融资",
+                "notes": [
+                  "同比 +5%"
+                ]
+              },
+              {
+                "id": "financial_institutions",
+                "label": "金融机构",
+                "notes": [
+                  "同比 +2%"
+                ]
+              },
+              {
+                "id": "public_project",
+                "label": "公共、项目",
+                "notes": [
+                  "同比 +11%"
+                ]
+              },
+              {
+                "id": "other",
+                "label": "其他",
+                "notes": [
+                  "同比 +71%"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "operating",
+              "label": "运营"
+            },
+            {
+              "id": "sga",
+              "label": "销售及管理费用"
+            },
+            {
+              "id": "da",
+              "label": "折旧摊销"
+            },
+            {
+              "id": "restructuring",
+              "label": "重组"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "other_income",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "来源图将收入直接流向营业利润与营业费用。"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 45%",
+            "同比 (1 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 36%",
+            "同比 +4 个百分点"
+          ]
+        }
+      }
+    }
+  }
+},
+
     {
       key: 'moodys-q2-fy26',
       company: "Moody's",

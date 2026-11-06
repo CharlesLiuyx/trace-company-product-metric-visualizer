@@ -151,6 +151,316 @@
       },
     },
   });
+  ssot.records.push({
+  "key": "etsy-q3-fy26",
+  "company": "Etsy",
+  "period": "Q3 FY26",
+  "periodNote": "Ending Sep. 2026",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/etsy-q3-fy26.png",
+  "roundingTolerance": 1.5,
+  "revenue": {
+    "total": 692,
+    "notes": [
+      "+11% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "marketplace",
+        "label": "Marketplace",
+        "value": 468.0,
+        "notes": [
+          "+9% Y/Y"
+        ]
+      },
+      {
+        "id": "services",
+        "label": "Services",
+        "value": 224.0,
+        "notes": [
+          "+15% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 189
+    },
+    "operatingExpenses": {
+      "total": 392,
+      "items": [
+        {
+          "id": "marketing",
+          "label": "Marketing",
+          "value": 207.0,
+          "notes": [
+            "30% of revenue",
+            "+2pp Y/Y"
+          ]
+        },
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 111.0,
+          "notes": [
+            "16% of revenue",
+            "+0pp Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 74.0,
+          "notes": [
+            "11% of revenue",
+            "(1pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 15
+    }
+  },
+  "otherIncome": {
+    "total": 17,
+    "items": [
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 17.0
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 503.0,
+      "notes": [
+        "73% margin",
+        "(1pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 112.0,
+      "notes": [
+        "16% margin",
+        "(2pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 114.0,
+      "notes": [
+        "16% margin",
+        "(0pp) Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "periodNote": "截至 2026 年 9 月",
+      "revenue": {
+        "notes": [
+          "同比 +11%"
+        ],
+        "items": [
+          {
+            "id": "marketplace",
+            "label": "交易市场",
+            "notes": [
+              "同比 +9%"
+            ]
+          },
+          {
+            "id": "services",
+            "label": "服务",
+            "notes": [
+              "同比 +15%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "marketing",
+              "label": "营销",
+              "notes": [
+                "占收入 30%",
+                "同比 +2 个百分点"
+              ]
+            },
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 16%",
+                "同比 +0 个百分点"
+              ]
+            },
+            {
+              "id": "ga",
+              "label": "管理费用",
+              "notes": [
+                "占收入 11%",
+                "同比 (1 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "other",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 73%",
+            "同比 (1 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 16%",
+            "同比 (2 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 16%",
+            "同比 (0 个百分点)"
+          ]
+        }
+      },
+      "operatingMetrics": [
+        {
+          "id": "gms",
+          "label": "GMS",
+          "notes": [
+            "同比 +9%"
+          ]
+        },
+        {
+          "id": "active-sellers",
+          "label": "活跃卖家",
+          "notes": [
+            "同比 +7%"
+          ]
+        },
+        {
+          "id": "active-buyers",
+          "label": "活跃买家",
+          "notes": [
+            "同比 +1%"
+          ]
+        }
+      ]
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "gms",
+      "label": "GMS",
+      "value": "2.6",
+      "unit": "B",
+      "currency": "USD",
+      "comparison": "eq",
+      "literal": "$2.6B",
+      "quote": "GMS\n$2.6B\n+9% Y/Y",
+      "notes": [
+        "+9% Y/Y"
+      ],
+      "basis": "unspecified",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          79,
+          1154,
+          164,
+          164
+        ]
+      }
+    },
+    {
+      "id": "active-sellers",
+      "label": "Active sellers",
+      "value": "5800000",
+      "unit": "count",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "5.8M",
+      "quote": "Active sellers\n5.8M\n+7% Y/Y",
+      "notes": [
+        "+7% Y/Y"
+      ],
+      "basis": "unspecified",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          250,
+          1154,
+          335,
+          164
+        ]
+      }
+    },
+    {
+      "id": "active-buyers",
+      "label": "Active buyers",
+      "value": "87500000",
+      "unit": "count",
+      "currency": null,
+      "comparison": "eq",
+      "literal": "87.5M",
+      "quote": "Active buyers\n87.5M\n+1% Y/Y",
+      "notes": [
+        "+1% Y/Y"
+      ],
+      "basis": "unspecified",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          589,
+          1154,
+          331,
+          164
+        ]
+      }
+    }
+  ]
+});
 })(window);
 
 window.INCOME_STATEMENT_SSOT.records.push({

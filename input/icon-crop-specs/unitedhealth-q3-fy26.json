@@ -1,0 +1,83 @@
+{
+  "source": "input/processed/unitedhealth-q3-fy26.png",
+  "outputDir": "data/assets/icon-references/unitedhealth",
+  "runtimeOutputDir": "data/assets/raster-annotations/unitedhealth",
+  "validationSheetDir": "data/assets/icon-references/unitedhealth/validation-sheets",
+  "report": "crop-report-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "crops": [
+    {
+      "key": "company-wordmark-q3-fy26",
+      "output": "crops/company-wordmark-q3-fy26.png",
+      "runtimeOutput": "company-wordmark-q3-fy26.png",
+      "searchBox": {
+        "x": 620,
+        "y": 238,
+        "width": 740,
+        "height": 95
+      },
+      "cropBox": {
+        "x": 620,
+        "y": 238,
+        "width": 740,
+        "height": 95
+      },
+      "padding": 0,
+      "minComponentArea": 2,
+      "threshold": 20,
+      "validation": {
+        "maxCenterOffset": 0.5
+      }
+    },
+    {
+      "key": "uhc-logo-q3-fy26",
+      "output": "crops/uhc-logo-q3-fy26.png",
+      "runtimeOutput": "uhc-logo-q3-fy26.png",
+      "searchBox": {
+        "x": 37,
+        "y": 1155,
+        "width": 222,
+        "height": 74
+      },
+      "cropBox": {
+        "x": 37,
+        "y": 1155,
+        "width": 222,
+        "height": 74
+      },
+      "padding": 0,
+      "minComponentArea": 2,
+      "threshold": 20,
+      "validation": {
+        "maxCenterOffset": 0.5
+      }
+    },
+    {
+      "key": "optum-logo-q3-fy26",
+      "output": "crops/optum-logo-q3-fy26.png",
+      "runtimeOutput": "optum-logo-q3-fy26.png",
+      "searchBox": {
+        "x": 512,
+        "y": 1166,
+        "width": 190,
+        "height": 63
+      },
+      "cropBox": {
+        "x": 512,
+        "y": 1166,
+        "width": 190,
+        "height": 63
+      },
+      "padding": 0,
+      "minComponentArea": 2,
+      "threshold": 20,
+      "validation": {
+        "maxCenterOffset": 0.5
+      }
+    }
+  ]
+}

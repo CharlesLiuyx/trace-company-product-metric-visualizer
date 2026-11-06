@@ -4234,4 +4234,253 @@
     }
   }
 ]);
+  global.INCOME_STATEMENT_SSOT.records.push({
+  "key": "fedex-q1-fy27",
+  "company": "FedEx",
+  "period": "Q1 FY27",
+  "periodNote": "Ending Sep. 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/fedex-q1-fy27.png",
+  "roundingTolerance": 0.2,
+  "revenue": {
+    "total": 22.9,
+    "notes": [
+      "+12% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "us_domestic",
+        "label": "US Domestic",
+        "value": 14.7,
+        "notes": [
+          "+10% Y/Y",
+          "9% operating margin"
+        ]
+      },
+      {
+        "id": "international",
+        "label": "International",
+        "value": 7.5,
+        "notes": [
+          "+17% Y/Y",
+          "2% operating margin"
+        ]
+      },
+      {
+        "id": "other_revenue",
+        "label": "Other",
+        "value": 0.7,
+        "notes": [
+          "+0% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "label": "Cost of revenue",
+      "value": 0,
+      "notes": [
+        "Source has a direct revenue-to-operating-expenses waterfall; cost of revenue is not separately reported."
+      ]
+    },
+    "operatingExpenses": {
+      "total": 21.8,
+      "notes": [
+        "Printed details total $21.9B. SEC filing amounts round to the printed values; retain printed values with the existing FedEx 0.2B tolerance."
+      ],
+      "items": [
+        {
+          "id": "salaries_benefits",
+          "label": "Salaries & benefits",
+          "value": 7.4
+        },
+        {
+          "id": "purchased_transportation",
+          "label": "Purchased transportation",
+          "value": 6.5
+        },
+        {
+          "id": "rentals",
+          "label": "Rentals",
+          "value": 1.2
+        },
+        {
+          "id": "depreciation_amortization",
+          "label": "Depreciation & Amortization",
+          "value": 1
+        },
+        {
+          "id": "fuel",
+          "label": "Fuel",
+          "value": 1.3
+        },
+        {
+          "id": "maintenance",
+          "label": "Maintenance",
+          "value": 0.8
+        },
+        {
+          "id": "other_operating",
+          "label": "Other",
+          "value": 3.7
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.1
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0.6,
+    "items": [
+      {
+        "id": "other_expenses",
+        "label": "Other",
+        "value": 0.6
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "label": "Gross profit",
+      "value": 22.9,
+      "notes": [
+        "Bookkeeping value only; source has no gross-profit stage."
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 1.1,
+      "notes": [
+        "5% margin",
+        "(0pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 0.3,
+      "notes": [
+        "1% margin",
+        "(2pp) Y/Y"
+      ]
+    }
+  },
+  "notes": [
+    "SEC https://www.sec.gov/Archives/edgar/data/1048911/000104891126000128/fdx-earningsreleasety2026q3.htm confirms September 30 2026. The Source calls this Q1 FY27; retain its period label. Printed revenue items and expenses each have 0.1B rounding differences; operating profit less tax and other expense differs from printed net profit by 0.1B. Source US Domestic 9% and International 2% operating-margin notes differ from filing 6.4% and 2.9%; preserve Source notes."
+  ],
+  "i18n": {
+    "zh": {
+      "period": "2027 财年第一季度",
+      "periodNote": "截至 2026 年 9 月",
+      "revenue": {
+        "notes": [
+          "同比 +12%"
+        ],
+        "items": [
+          {
+            "id": "us_domestic",
+            "label": "美国国内",
+            "notes": [
+              "同比 +10%",
+              "营业利润率 9%"
+            ]
+          },
+          {
+            "id": "international",
+            "label": "国际",
+            "notes": [
+              "同比 +17%",
+              "营业利润率 2%"
+            ]
+          },
+          {
+            "id": "other_revenue",
+            "label": "其他",
+            "notes": [
+              "同比 +0%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "营业成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "salaries_benefits",
+              "label": "薪酬与福利"
+            },
+            {
+              "id": "purchased_transportation",
+              "label": "外购运输"
+            },
+            {
+              "id": "rentals",
+              "label": "租赁费用"
+            },
+            {
+              "id": "depreciation_amortization",
+              "label": "折旧与摊销"
+            },
+            {
+              "id": "fuel",
+              "label": "燃油"
+            },
+            {
+              "id": "maintenance",
+              "label": "维修"
+            },
+            {
+              "id": "other_operating",
+              "label": "其他"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other_expenses",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润"
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 5%",
+            "同比 (0 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 1%",
+            "同比 (2 个百分点)"
+          ]
+        }
+      }
+    }
+  }
+});
 })(window);

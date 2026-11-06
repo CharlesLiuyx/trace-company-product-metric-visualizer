@@ -1,0 +1,124 @@
+{
+  "source": "input/processed/t-mobile-us-q3-fy26.png",
+  "spec": "input/icon-crop-specs/t-mobile-us-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T14:29:37.058575+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/t-mobile-us",
+  "crops": [
+    {
+      "key": "t-mobile-logo-q3-fy26",
+      "output": "data/assets/icon-references/t-mobile-us/crops/logo-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 6854,
+        "losslessBytes": 27323,
+        "savingsVsLossless": 0.7491,
+        "metrics": {
+          "meanAbsoluteError": 0.3545,
+          "rootMeanSquareError": 1.7363,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 35,
+          "changedPixelRatio": 0.1618
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 64009,
+        "transparentPixelRatio": 0.5846
+      },
+      "searchBox": {
+        "x": 600,
+        "y": 245,
+        "width": 711,
+        "height": 154
+      },
+      "componentCount": 11,
+      "subjectBox": {
+        "x0": 605,
+        "y0": 247,
+        "x1": 1307,
+        "y1": 396
+      },
+      "cropBox": {
+        "x0": 600,
+        "y0": 245,
+        "x1": 1311,
+        "y1": 399
+      },
+      "validation": {
+        "width": 711,
+        "height": 154,
+        "foregroundPixels": 38291,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 5,
+          "right": 4,
+          "top": 2,
+          "bottom": 3
+        },
+        "centerOffset": {
+          "x": 0.0007,
+          "y": -0.0032
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/t-mobile-us/logo-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 6854,
+        "losslessBytes": 27323,
+        "savingsVsLossless": 0.7491,
+        "metrics": {
+          "meanAbsoluteError": 0.3545,
+          "rootMeanSquareError": 1.7363,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 35,
+          "changedPixelRatio": 0.1618
+        }
+      }
+    }
+  ]
+}
