@@ -1,0 +1,124 @@
+{
+  "source": "input/processed/accenture-q1-fy23.png",
+  "spec": "input/icon-crop-specs/accenture-q1-fy23.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T15:27:26.343345+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/accenture",
+  "crops": [
+    {
+      "key": "company-logo-q1-fy23",
+      "output": "data/assets/icon-references/accenture/crops/company-logo-q1-fy23.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4338,
+        "losslessBytes": 21742,
+        "savingsVsLossless": 0.8005,
+        "metrics": {
+          "meanAbsoluteError": 0.2973,
+          "rootMeanSquareError": 1.9902,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.0762
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 98201,
+        "transparentPixelRatio": 0.7106
+      },
+      "searchBox": {
+        "x": 745,
+        "y": 273,
+        "width": 716,
+        "height": 193
+      },
+      "componentCount": 10,
+      "subjectBox": {
+        "x0": 749,
+        "y0": 277,
+        "x1": 1456,
+        "y1": 464
+      },
+      "cropBox": {
+        "x0": 745,
+        "y0": 273,
+        "x1": 1461,
+        "y1": 466
+      },
+      "validation": {
+        "width": 716,
+        "height": 193,
+        "foregroundPixels": 38162,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 4,
+          "right": 5,
+          "top": 4,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": -0.0007,
+          "y": 0.0052
+        },
+        "passes": true
+      },
+      "note": "Complete Accenture wordmark and purple greater-than mark; excludes chart text and flows.",
+      "runtimeOutput": "data/assets/raster-annotations/accenture/company-logo-q1-fy23.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4338,
+        "losslessBytes": 21742,
+        "savingsVsLossless": 0.8005,
+        "metrics": {
+          "meanAbsoluteError": 0.2973,
+          "rootMeanSquareError": 1.9902,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.0762
+        }
+      }
+    }
+  ]
+}

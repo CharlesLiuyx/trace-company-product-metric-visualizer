@@ -1,0 +1,48 @@
+{
+  "source": "input/processing/health-equity-q3-fy26.png",
+  "outputDir": "data/assets/icon-references/health-equity",
+  "runtimeOutputDir": "data/assets/raster-annotations/health-equity",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [
+      242,
+      242,
+      242
+    ]
+  },
+  "report": "crop-report-q3-fy26.json",
+  "crops": [
+    {
+      "key": "health-equity-company-wordmark-q3-fy26",
+      "output": "crops/company-wordmark-q3-fy26.png",
+      "runtimeOutput": "company-wordmark-q3-fy26.png",
+      "searchBox": {
+        "x": 600,
+        "y": 331,
+        "width": 568,
+        "height": 93
+      },
+      "cropBox": {
+        "x": 594,
+        "y": 325,
+        "width": 580,
+        "height": 105
+      },
+      "threshold": 8,
+      "minComponentArea": 8,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.16,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Source company wordmark including registration mark; no chart or publisher marks."
+    }
+  ]
+}

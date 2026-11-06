@@ -1,0 +1,68 @@
+{
+  "source": "input/processed/etsy-q2-fy25.png",
+  "outputDir": "output/builds/build-0467684f-258b-458b-b41e-debe8e4029f4/workspace/data/assets/icon-references/etsy",
+  "runtimeOutputDir": "output/builds/build-0467684f-258b-458b-b41e-debe8e4029f4/workspace/data/assets/raster-annotations/etsy",
+  "report": "crop-report-q2-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "company-logo-q2-fy25",
+      "output": "crops/company-logo-q2-fy25.png",
+      "searchBox": {
+        "x": 755,
+        "y": 224,
+        "width": 262,
+        "height": 262
+      },
+      "cropBox": {
+        "x": 755,
+        "y": 224,
+        "width": 262,
+        "height": 262
+      },
+      "threshold": 24,
+      "minComponentArea": 12,
+      "padding": 0,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Source-owned Etsy logo/brand cluster, excludes financial labels and chart."
+    },
+    {
+      "key": "marketplace-brands-q2-fy25",
+      "output": "crops/marketplace-brands-q2-fy25.png",
+      "searchBox": {
+        "x": 29,
+        "y": 595,
+        "width": 347,
+        "height": 142
+      },
+      "cropBox": {
+        "x": 29,
+        "y": 595,
+        "width": 347,
+        "height": 142
+      },
+      "threshold": 24,
+      "minComponentArea": 12,
+      "padding": 0,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Source-owned Etsy logo/brand cluster, excludes financial labels and chart."
+    }
+  ]
+}

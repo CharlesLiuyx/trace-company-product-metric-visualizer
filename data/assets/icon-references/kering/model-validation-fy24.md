@@ -1,0 +1,1 @@
+FY24 source brand inspection: complete Kering wordmark and owl in separate crops to exclude the neighboring Revenue label; complete Gucci, Saint Laurent and Bottega Veneta wordmarks. Crop boundaries and source placements checked against the native source. Publisher marks excluded. All five extractor checks passed.

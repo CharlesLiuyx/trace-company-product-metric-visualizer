@@ -1,0 +1,124 @@
+{
+  "source": "input/processing/health-equity-q3-fy24.png",
+  "spec": "input/icon-crop-specs/health-equity-q3-fy24.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T15:31:38.630742+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/health-equity",
+  "crops": [
+    {
+      "key": "company-q3-fy24",
+      "output": "data/assets/icon-references/health-equity/q3-fy24/crops/company-q3-fy24.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3704,
+        "losslessBytes": 14074,
+        "savingsVsLossless": 0.7368,
+        "metrics": {
+          "meanAbsoluteError": 0.3001,
+          "rootMeanSquareError": 1.1749,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.3322
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 40502,
+        "transparentPixelRatio": 0.6726
+      },
+      "searchBox": {
+        "x": 593,
+        "y": 273,
+        "width": 579,
+        "height": 104
+      },
+      "componentCount": 14,
+      "subjectBox": {
+        "x0": 606,
+        "y0": 279,
+        "x1": 1162,
+        "y1": 371
+      },
+      "cropBox": {
+        "x0": 593,
+        "y0": 273,
+        "x1": 1172,
+        "y1": 377
+      },
+      "validation": {
+        "width": 579,
+        "height": 104,
+        "foregroundPixels": 18391,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 13,
+          "right": 10,
+          "top": 6,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": 0.0026,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/health-equity/company-q3-fy24.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3704,
+        "losslessBytes": 14074,
+        "savingsVsLossless": 0.7368,
+        "metrics": {
+          "meanAbsoluteError": 0.3001,
+          "rootMeanSquareError": 1.1749,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.3322
+        }
+      }
+    }
+  ]
+}

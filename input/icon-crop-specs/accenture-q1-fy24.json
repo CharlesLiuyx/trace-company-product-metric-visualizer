@@ -1,0 +1,47 @@
+{
+  "source": "input/processing/accenture-q1-fy24.png",
+  "outputDir": "data/assets/icon-references/accenture",
+  "runtimeOutputDir": "data/assets/raster-annotations/accenture",
+  "report": "crop-report-q1-fy24.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [
+      242,
+      242,
+      242
+    ],
+    "tolerance": 10
+  },
+  "crops": [
+    {
+      "key": "accenture-logo-q1-fy24",
+      "output": "crops/logo-q1-fy24.png",
+      "runtimeOutput": "logo-q1-fy24.png",
+      "cropBox": {
+        "x": 742,
+        "y": 270,
+        "width": 718,
+        "height": 197
+      },
+      "searchBox": {
+        "x": 746,
+        "y": 274,
+        "width": 710,
+        "height": 189
+      },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.4,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ]
+}

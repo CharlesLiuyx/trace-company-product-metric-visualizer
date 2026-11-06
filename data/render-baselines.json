@@ -12464,6 +12464,630 @@
       "mae": 7.20238636837062,
       "width": 2667,
       "height": 1500
+    },
+    "accenture-q1-fy23": {
+      "similarity": 0.974158557958033,
+      "mae": 6.589567720701579,
+      "width": 2667,
+      "height": 1500
+    },
+    "accenture-q1-fy24": {
+      "similarity": 0.971400391944471,
+      "mae": 7.2929000541598965,
+      "width": 2667,
+      "height": 1500
+    },
+    "accenture-q1-fy25": {
+      "similarity": 0.9636830291638382,
+      "mae": 9.260827563221264,
+      "width": 2667,
+      "height": 1500
+    },
+    "accenture-q1-fy26": {
+      "similarity": 0.9663195097344858,
+      "mae": 8.58852501770612,
+      "width": 2667,
+      "height": 1500
+    },
+    "accenture-q2-fy23": {
+      "similarity": 0.967642960316235,
+      "mae": 8.25104511936008,
+      "width": 2667,
+      "height": 1500
+    },
+    "accenture-q2-fy24": {
+      "similarity": 0.9698367831472047,
+      "mae": 7.691620297462817,
+      "width": 2667,
+      "height": 1500
+    },
+    "accenture-q2-fy25": {
+      "similarity": 0.9638839631974108,
+      "mae": 9.209589384660251,
+      "width": 2667,
+      "height": 1500
+    },
+    "accenture-q3-fy23": {
+      "similarity": 0.9666233661968724,
+      "mae": 8.511041619797526,
+      "width": 2667,
+      "height": 1500
+    },
+    "accenture-q3-fy24": {
+      "similarity": 0.9559679745914114,
+      "mae": 11.2281664791901,
+      "width": 2667,
+      "height": 1500
+    },
+    "accenture-q3-fy25": {
+      "similarity": 0.9713708678572042,
+      "mae": 7.300428696412949,
+      "width": 2667,
+      "height": 1500
+    },
+    "accenture-q4-fy23": {
+      "similarity": 0.9681945387545511,
+      "mae": 8.110392617589469,
+      "width": 2667,
+      "height": 1500
+    },
+    "accenture-q4-fy24": {
+      "similarity": 0.9726221147193203,
+      "mae": 6.981360746573345,
+      "width": 2667,
+      "height": 1500
+    },
+    "accenture-q4-fy25": {
+      "similarity": 0.9619059225439958,
+      "mae": 9.71398975128109,
+      "width": 2667,
+      "height": 1500
+    },
+    "alphabet-q3-fy26": {
+      "similarity": 0.9506821278059197,
+      "mae": 12.576057409490481,
+      "width": 2667,
+      "height": 1500
+    },
+    "amazon-q3-fy26": {
+      "similarity": 0.9601136054071673,
+      "mae": 10.171030621172353,
+      "width": 2667,
+      "height": 1500
+    },
+    "anthropic-h1-fy26": {
+      "similarity": 0.9597875546602427,
+      "mae": 10.254173561638128,
+      "width": 2667,
+      "height": 1500
+    },
+    "etsy-q1-fy23": {
+      "similarity": 0.9804207911919507,
+      "mae": 4.992698246052576,
+      "width": 2667,
+      "height": 1500
+    },
+    "etsy-q1-fy24": {
+      "similarity": 0.9794877006387274,
+      "mae": 5.230636337124526,
+      "width": 2667,
+      "height": 1500
+    },
+    "etsy-q1-fy25": {
+      "similarity": 0.9720674945043635,
+      "mae": 7.1227889013873265,
+      "width": 2667,
+      "height": 1500
+    },
+    "etsy-q2-fy23": {
+      "similarity": 0.968469102473302,
+      "mae": 8.040378869308004,
+      "width": 2667,
+      "height": 1500
+    },
+    "etsy-q2-fy24": {
+      "similarity": 0.9732366545685057,
+      "mae": 6.824653085031038,
+      "width": 2667,
+      "height": 1500
+    },
+    "etsy-q2-fy25": {
+      "similarity": 0.9740467879423569,
+      "mae": 6.618069074698996,
+      "width": 2667,
+      "height": 1500
+    },
+    "etsy-q3-fy22": {
+      "similarity": 0.9751812895937028,
+      "mae": 6.328771153605799,
+      "width": 2667,
+      "height": 1500
+    },
+    "etsy-q3-fy23": {
+      "similarity": 0.9781948135568022,
+      "mae": 5.560322543015457,
+      "width": 2667,
+      "height": 1500
+    },
+    "etsy-q3-fy24": {
+      "similarity": 0.9734391096537769,
+      "mae": 6.773027038286881,
+      "width": 2667,
+      "height": 1500
+    },
+    "etsy-q3-fy25": {
+      "similarity": 0.9653485595346334,
+      "mae": 8.8361173186685,
+      "width": 2667,
+      "height": 1500
+    },
+    "etsy-q4-fy22": {
+      "similarity": 0.9660956422930794,
+      "mae": 8.645611215264758,
+      "width": 2667,
+      "height": 1500
+    },
+    "etsy-q4-fy23": {
+      "similarity": 0.9731036751125064,
+      "mae": 6.858562846310877,
+      "width": 2667,
+      "height": 1500
+    },
+    "etsy-q4-fy24": {
+      "similarity": 0.968815166404853,
+      "mae": 7.952132566762488,
+      "width": 2667,
+      "height": 1500
+    },
+    "ford-q3-fy26": {
+      "similarity": 0.9720666364416867,
+      "mae": 7.123007707369912,
+      "width": 2667,
+      "height": 1500
+    },
+    "gm-q3-fy26": {
+      "similarity": 0.9749247883230282,
+      "mae": 6.394178977627797,
+      "width": 2667,
+      "height": 1500
+    },
+    "health-equity-q1-fy24": {
+      "similarity": 0.974346374350265,
+      "mae": 6.541674540682415,
+      "width": 2667,
+      "height": 1500
+    },
+    "health-equity-q1-fy25": {
+      "similarity": 0.9730711674112631,
+      "mae": 6.866852310127901,
+      "width": 2667,
+      "height": 1500
+    },
+    "health-equity-q1-fy26": {
+      "similarity": 0.9729124581649516,
+      "mae": 6.907323167937341,
+      "width": 2667,
+      "height": 1500
+    },
+    "health-equity-q2-fy24": {
+      "similarity": 0.972935030180051,
+      "mae": 6.901567304086989,
+      "width": 2667,
+      "height": 1500
+    },
+    "health-equity-q2-fy25": {
+      "similarity": 0.9703943944915382,
+      "mae": 7.549429404657751,
+      "width": 2667,
+      "height": 1500
+    },
+    "health-equity-q2-fy26": {
+      "similarity": 0.9728882324349979,
+      "mae": 6.913500729075532,
+      "width": 2667,
+      "height": 1500
+    },
+    "health-equity-q3-fy23": {
+      "similarity": 0.975981212479159,
+      "mae": 6.12479081781444,
+      "width": 2667,
+      "height": 1500
+    },
+    "health-equity-q3-fy24": {
+      "similarity": 0.9726828545124669,
+      "mae": 6.965872099320918,
+      "width": 2667,
+      "height": 1500
+    },
+    "health-equity-q3-fy25": {
+      "similarity": 0.97058451778495,
+      "mae": 7.500947964837729,
+      "width": 2667,
+      "height": 1500
+    },
+    "health-equity-q3-fy26": {
+      "similarity": 0.9714326212491412,
+      "mae": 7.284681581468983,
+      "width": 2667,
+      "height": 1500
+    },
+    "health-equity-q4-fy23": {
+      "similarity": 0.9765252555848819,
+      "mae": 5.986059825855102,
+      "width": 2667,
+      "height": 1500
+    },
+    "health-equity-q4-fy24": {
+      "similarity": 0.9721031256713826,
+      "mae": 7.113702953797442,
+      "width": 2667,
+      "height": 1500
+    },
+    "health-equity-q4-fy25": {
+      "similarity": 0.9743711438031031,
+      "mae": 6.535358330208724,
+      "width": 2667,
+      "height": 1500
+    },
+    "home-depot-fy23": {
+      "similarity": 0.970513893933193,
+      "mae": 7.518957047035787,
+      "width": 2667,
+      "height": 1500
+    },
+    "home-depot-q1-fy23": {
+      "similarity": 0.9669127594344824,
+      "mae": 8.437246344206974,
+      "width": 2667,
+      "height": 1500
+    },
+    "home-depot-q1-fy24": {
+      "similarity": 0.9701855232148269,
+      "mae": 7.6026915802191395,
+      "width": 2667,
+      "height": 1500
+    },
+    "home-depot-q2-fy23": {
+      "similarity": 0.9682519639293454,
+      "mae": 8.095749198016915,
+      "width": 2667,
+      "height": 1500
+    },
+    "home-depot-q3-fy22": {
+      "similarity": 0.9719675834638317,
+      "mae": 7.148266216722909,
+      "width": 2667,
+      "height": 1500
+    },
+    "home-depot-q3-fy23": {
+      "similarity": 0.9665294004916052,
+      "mae": 8.53500287464067,
+      "width": 2667,
+      "height": 1500
+    },
+    "home-depot-q4-fy22": {
+      "similarity": 0.9728462046819311,
+      "mae": 6.92421780610757,
+      "width": 2667,
+      "height": 1500
+    },
+    "intuitive-q1-fy23": {
+      "similarity": 0.9714610716144142,
+      "mae": 7.277426738324376,
+      "width": 2667,
+      "height": 1500
+    },
+    "intuitive-q1-fy24": {
+      "similarity": 0.969723959014927,
+      "mae": 7.720390451193601,
+      "width": 2667,
+      "height": 1500
+    },
+    "intuitive-q1-fy25": {
+      "similarity": 0.9754625446329013,
+      "mae": 6.257051118610174,
+      "width": 2667,
+      "height": 1500
+    },
+    "intuitive-q2-fy23": {
+      "similarity": 0.9731726217229382,
+      "mae": 6.840981460650752,
+      "width": 2667,
+      "height": 1500
+    },
+    "intuitive-q2-fy24": {
+      "similarity": 0.9734438780119805,
+      "mae": 6.771811106944965,
+      "width": 2667,
+      "height": 1500
+    },
+    "intuitive-q2-fy25": {
+      "similarity": 0.9752265058370971,
+      "mae": 6.317241011540224,
+      "width": 2667,
+      "height": 1500
+    },
+    "intuitive-q3-fy23": {
+      "similarity": 0.9704358729668595,
+      "mae": 7.538852393450819,
+      "width": 2667,
+      "height": 1500
+    },
+    "intuitive-q3-fy24": {
+      "similarity": 0.9724600826857427,
+      "mae": 7.022678915135608,
+      "width": 2667,
+      "height": 1500
+    },
+    "intuitive-q3-fy25": {
+      "similarity": 0.9716238071548247,
+      "mae": 7.235929175519726,
+      "width": 2667,
+      "height": 1500
+    },
+    "intuitive-q4-fy22": {
+      "similarity": 0.972628222125829,
+      "mae": 6.979803357913594,
+      "width": 2667,
+      "height": 1500
+    },
+    "intuitive-q4-fy23": {
+      "similarity": 0.9739308423048426,
+      "mae": 6.647635212265134,
+      "width": 2667,
+      "height": 1500
+    },
+    "intuitive-q4-fy24": {
+      "similarity": 0.9737670461126999,
+      "mae": 6.689403241261509,
+      "width": 2667,
+      "height": 1500
+    },
+    "kering-fy22": {
+      "similarity": 0.975093551214595,
+      "mae": 6.351144440278299,
+      "width": 2667,
+      "height": 1500
+    },
+    "kering-fy23": {
+      "similarity": 0.9729320651911975,
+      "mae": 6.902323376244636,
+      "width": 2667,
+      "height": 1500
+    },
+    "kering-fy24": {
+      "similarity": 0.9686736778817681,
+      "mae": 7.988212140149148,
+      "width": 2667,
+      "height": 1500
+    },
+    "kering-h1-fy22": {
+      "similarity": 0.9787320212424427,
+      "mae": 5.423334583177103,
+      "width": 2667,
+      "height": 1500
+    },
+    "kering-h1-fy23": {
+      "similarity": 0.975130651152266,
+      "mae": 6.341683956172145,
+      "width": 2667,
+      "height": 1500
+    },
+    "kering-h1-fy24": {
+      "similarity": 0.9757413156688747,
+      "mae": 6.185964504436946,
+      "width": 2667,
+      "height": 1500
+    },
+    "kering-h1-fy25": {
+      "similarity": 0.9698089395688284,
+      "mae": 7.6987204099487565,
+      "width": 2667,
+      "height": 1500
+    },
+    "mercadolibre-q1-fy23": {
+      "similarity": 0.9734745339839056,
+      "mae": 6.76399383410407,
+      "width": 2667,
+      "height": 1500
+    },
+    "mercadolibre-q1-fy24": {
+      "similarity": 0.9682905029028234,
+      "mae": 8.085921759780028,
+      "width": 2667,
+      "height": 1500
+    },
+    "mercadolibre-q1-fy25": {
+      "similarity": 0.9533928572653908,
+      "mae": 11.884821397325334,
+      "width": 2667,
+      "height": 1500
+    },
+    "mercadolibre-q2-fy23": {
+      "similarity": 0.9543670766644365,
+      "mae": 11.63639545056868,
+      "width": 2667,
+      "height": 1500
+    },
+    "mercadolibre-q2-fy24": {
+      "similarity": 0.9680037230640288,
+      "mae": 8.159050618672666,
+      "width": 2667,
+      "height": 1500
+    },
+    "mercadolibre-q2-fy25": {
+      "similarity": 0.962788817737652,
+      "mae": 9.488851476898722,
+      "width": 2667,
+      "height": 1500
+    },
+    "mercadolibre-q3-fy22": {
+      "similarity": 0.9641614553082826,
+      "mae": 9.13882889638795,
+      "width": 2667,
+      "height": 1500
+    },
+    "mercadolibre-q3-fy23": {
+      "similarity": 0.9639027866614712,
+      "mae": 9.204789401324835,
+      "width": 2667,
+      "height": 1500
+    },
+    "mercadolibre-q3-fy24": {
+      "similarity": 0.9654463607081795,
+      "mae": 8.811178019414239,
+      "width": 2667,
+      "height": 1500
+    },
+    "mercadolibre-q3-fy25": {
+      "similarity": 0.9603331194711772,
+      "mae": 10.115054534849811,
+      "width": 2667,
+      "height": 1500
+    },
+    "mercadolibre-q4-fy22": {
+      "similarity": 0.9543541916737532,
+      "mae": 11.639681123192934,
+      "width": 2667,
+      "height": 1500
+    },
+    "mercadolibre-q4-fy23": {
+      "similarity": 0.9659935073475293,
+      "mae": 8.671655626380035,
+      "width": 2667,
+      "height": 1500
+    },
+    "mercadolibre-q4-fy24": {
+      "similarity": 0.958617357470839,
+      "mae": 10.552573844936049,
+      "width": 2667,
+      "height": 1500
+    },
+    "meta-q3-fy26": {
+      "similarity": 0.9603496314594663,
+      "mae": 10.110843977836105,
+      "width": 2667,
+      "height": 1500
+    },
+    "microsoft-q1-fy27": {
+      "similarity": 0.9696943274247581,
+      "mae": 7.727946506686664,
+      "width": 2667,
+      "height": 1500
+    },
+    "netflix-q3-fy26": {
+      "similarity": 0.9686761180996166,
+      "mae": 7.987589884597758,
+      "width": 2667,
+      "height": 1500
+    },
+    "pinterest-q3-fy26": {
+      "similarity": 0.9585378562973745,
+      "mae": 10.572846644169479,
+      "width": 2667,
+      "height": 1500
+    },
+    "reddit-q3-fy26": {
+      "similarity": 0.9659523755608981,
+      "mae": 8.682144231971003,
+      "width": 2667,
+      "height": 1500
+    },
+    "roblox-q3-fy26": {
+      "similarity": 0.9771796077777859,
+      "mae": 5.819200016664584,
+      "width": 2667,
+      "height": 1500
+    },
+    "spacex-q3-fy26": {
+      "similarity": 0.9705157080855089,
+      "mae": 7.5184944381952254,
+      "width": 2667,
+      "height": 1500
+    },
+    "spotify-q3-fy26": {
+      "similarity": 0.9769997946335139,
+      "mae": 5.865052368453943,
+      "width": 2667,
+      "height": 1500
+    },
+    "stellantis-q3-fy26": {
+      "similarity": 0.9725649957154049,
+      "mae": 6.995926092571762,
+      "width": 2667,
+      "height": 1500
+    },
+    "tesla-q3-fy26": {
+      "similarity": 0.9524922188647987,
+      "mae": 12.114484189476315,
+      "width": 2667,
+      "height": 1500
+    },
+    "veeva-q1-fy24": {
+      "similarity": 0.9752491301332431,
+      "mae": 6.311471816022997,
+      "width": 2667,
+      "height": 1500
+    },
+    "veeva-q1-fy25": {
+      "similarity": 0.9780295038283613,
+      "mae": 5.602476523767862,
+      "width": 2667,
+      "height": 1500
+    },
+    "veeva-q1-fy26": {
+      "similarity": 0.9779456482972309,
+      "mae": 5.623859684206141,
+      "width": 2667,
+      "height": 1500
+    },
+    "veeva-q2-fy24": {
+      "similarity": 0.9748138110187207,
+      "mae": 6.422478190226221,
+      "width": 2667,
+      "height": 1500
+    },
+    "veeva-q2-fy25": {
+      "similarity": 0.9771181664383455,
+      "mae": 5.834867558221889,
+      "width": 2667,
+      "height": 1500
+    },
+    "veeva-q2-fy26": {
+      "similarity": 0.9808795822090867,
+      "mae": 4.875706536682914,
+      "width": 2667,
+      "height": 1500
+    },
+    "veeva-q3-fy23": {
+      "similarity": 0.9798099482662707,
+      "mae": 5.148463192100987,
+      "width": 2667,
+      "height": 1500
+    },
+    "veeva-q3-fy25": {
+      "similarity": 0.979828675010395,
+      "mae": 5.14368787234929,
+      "width": 2667,
+      "height": 1500
+    },
+    "veeva-q4-fy23": {
+      "similarity": 0.9731294133984886,
+      "mae": 6.85199958338541,
+      "width": 2667,
+      "height": 1500
+    },
+    "veeva-q4-fy24": {
+      "similarity": 0.9715223534966626,
+      "mae": 7.261799858351039,
+      "width": 2667,
+      "height": 1500
+    },
+    "veeva-q4-fy25": {
+      "similarity": 0.9800741534759135,
+      "mae": 5.081090863642045,
+      "width": 2667,
+      "height": 1500
     }
   }
 }

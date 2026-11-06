@@ -1,0 +1,44 @@
+{
+  "source": "input/processing/accenture-q4-fy23.png",
+  "outputDir": "data/assets/icon-references/accenture",
+  "runtimeOutputDir": "data/assets/raster-annotations/accenture",
+  "validationSheetDir": "data/assets/icon-references/accenture/validation-sheets",
+  "report": "crop-report-q4-fy23.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "company-logo-q4-fy23",
+      "output": "crops/company-logo-q4-fy23.png",
+      "cropBox": {
+        "x": 739,
+        "y": 271,
+        "width": 725,
+        "height": 197
+      },
+      "searchBox": {
+        "x": 739,
+        "y": 271,
+        "width": 725,
+        "height": 197
+      },
+      "threshold": 24,
+      "minComponentArea": 35,
+      "padding": 0,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete Accenture logo only, no labels, flow or publisher marks."
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "source": "input/processing/accenture-q4-fy24.png",
+  "spec": "input/icon-crop-specs/accenture-q4-fy24.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T15:27:56.426659+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/accenture",
+  "crops": [
+    {
+      "key": "company-wordmark-q4-fy24",
+      "output": "data/assets/icon-references/accenture/crops/company-wordmark-q4-fy24.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4350,
+        "losslessBytes": 21843,
+        "savingsVsLossless": 0.8009,
+        "metrics": {
+          "meanAbsoluteError": 0.3146,
+          "rootMeanSquareError": 2.0755,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.0723
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 106379,
+        "transparentPixelRatio": 0.7286
+      },
+      "searchBox": {
+        "x": 735,
+        "y": 245,
+        "width": 730,
+        "height": 195
+      },
+      "componentCount": 10,
+      "subjectBox": {
+        "x0": 749,
+        "y0": 252,
+        "x1": 1456,
+        "y1": 439
+      },
+      "cropBox": {
+        "x0": 735,
+        "y0": 245,
+        "x1": 1465,
+        "y1": 445
+      },
+      "validation": {
+        "width": 730,
+        "height": 200,
+        "foregroundPixels": 38162,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 14,
+          "right": 9,
+          "top": 7,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": 0.0034,
+          "y": 0.0025
+        },
+        "passes": true
+      },
+      "note": "Complete Accenture logo above Consulting; excludes financial labels.",
+      "runtimeOutput": "data/assets/raster-annotations/accenture/company-wordmark-q4-fy24.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4350,
+        "losslessBytes": 21843,
+        "savingsVsLossless": 0.8009,
+        "metrics": {
+          "meanAbsoluteError": 0.3146,
+          "rootMeanSquareError": 2.0755,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.0723
+        }
+      }
+    }
+  ]
+}

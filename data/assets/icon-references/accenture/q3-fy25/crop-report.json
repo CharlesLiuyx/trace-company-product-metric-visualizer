@@ -1,0 +1,124 @@
+{
+  "source": "input/processing/accenture-q3-fy25.png",
+  "spec": "output/builds/build-17a68ec2-4530-4f39-987a-c94379a2c430/workspace/input/icon-crop-specs/accenture-q3-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T15:27:48.666278+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "output/builds/build-17a68ec2-4530-4f39-987a-c94379a2c430/workspace/data/assets/raster-annotations/accenture",
+  "crops": [
+    {
+      "key": "logo-q3-fy25",
+      "output": "output/builds/build-17a68ec2-4530-4f39-987a-c94379a2c430/workspace/data/assets/icon-references/accenture/q3-fy25/logo-q3-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 4909,
+        "losslessBytes": 21777,
+        "savingsVsLossless": 0.7746,
+        "metrics": {
+          "meanAbsoluteError": 0.1618,
+          "rootMeanSquareError": 0.9423,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 19,
+          "changedPixelRatio": 0.074
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 100218,
+        "transparentPixelRatio": 0.7148
+      },
+      "searchBox": {
+        "x": 742,
+        "y": 247,
+        "width": 719,
+        "height": 195
+      },
+      "componentCount": 10,
+      "subjectBox": {
+        "x0": 749,
+        "y0": 252,
+        "x1": 1456,
+        "y1": 439
+      },
+      "cropBox": {
+        "x0": 742,
+        "y0": 247,
+        "x1": 1461,
+        "y1": 442
+      },
+      "validation": {
+        "width": 719,
+        "height": 195,
+        "foregroundPixels": 37934,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 5,
+          "top": 5,
+          "bottom": 3
+        },
+        "centerOffset": {
+          "x": 0.0014,
+          "y": 0.0051
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "output/builds/build-17a68ec2-4530-4f39-987a-c94379a2c430/workspace/data/assets/raster-annotations/accenture/logo-q3-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 4909,
+        "losslessBytes": 21777,
+        "savingsVsLossless": 0.7746,
+        "metrics": {
+          "meanAbsoluteError": 0.1618,
+          "rootMeanSquareError": 0.9423,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 19,
+          "changedPixelRatio": 0.074
+        }
+      }
+    }
+  ]
+}

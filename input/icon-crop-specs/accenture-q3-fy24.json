@@ -1,0 +1,34 @@
+{
+  "source": "input/processed/accenture-q3-fy24.png",
+  "outputDir": "data/assets/icon-references/accenture",
+  "runtimeOutputDir": "data/assets/raster-annotations/accenture",
+  "report": "crop-report-q3-fy24.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "crops": [
+    {
+      "key": "accenture-logo-q3-fy24",
+      "output": "crops/company-wordmark-q3-fy24.png",
+      "runtimeOutput": "company-wordmark-q3-fy24.png",
+      "searchBox": {
+        "x": 730,
+        "y": 240,
+        "width": 740,
+        "height": 210
+      },
+      "cropBox": {
+        "x": 730,
+        "y": 240,
+        "width": 740,
+        "height": 210
+      },
+      "minComponentArea": 10,
+      "validation": {
+        "maxCenterOffset": 0.4
+      }
+    }
+  ]
+}

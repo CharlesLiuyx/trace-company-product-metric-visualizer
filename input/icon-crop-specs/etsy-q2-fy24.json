@@ -1,0 +1,72 @@
+{
+  "source": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-abbd0346-0234-4b40-b9c4-a9ad66ab9048/workspace/input/processing/etsy-q2-fy24.png",
+  "outputDir": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-abbd0346-0234-4b40-b9c4-a9ad66ab9048/workspace/data/assets/icon-references/etsy",
+  "runtimeOutputDir": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-abbd0346-0234-4b40-b9c4-a9ad66ab9048/workspace/data/assets/raster-annotations/etsy",
+  "report": "crop-report-q2-fy24.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [
+      242,
+      242,
+      242
+    ],
+    "tolerance": 10
+  },
+  "compression": {
+    "enabled": false
+  },
+  "crops": [
+    {
+      "key": "company-logo-q2-fy24",
+      "output": "crops/company-logo-q2-fy24.png",
+      "searchBox": {
+        "x": 761,
+        "y": 244,
+        "width": 260,
+        "height": 260
+      },
+      "cropBox": {
+        "x": 761,
+        "y": 244,
+        "width": 260,
+        "height": 260
+      },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.25,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "brands-q2-fy24",
+      "output": "crops/brands-q2-fy24.png",
+      "searchBox": {
+        "x": 60,
+        "y": 622,
+        "width": 318,
+        "height": 150
+      },
+      "cropBox": {
+        "x": 60,
+        "y": 622,
+        "width": 318,
+        "height": 150
+      },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.25,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ]
+}

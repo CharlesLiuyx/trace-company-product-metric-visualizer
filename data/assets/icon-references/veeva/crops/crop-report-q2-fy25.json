@@ -1,0 +1,296 @@
+{
+  "source": "input/processed/veeva-q2-fy25.png",
+  "spec": "output/builds/build-b990fc44-3d62-43c2-82d5-d06f96639a00/workspace/input/icon-crop-specs/veeva-q2-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T15:55:41.334136+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "output/builds/build-b990fc44-3d62-43c2-82d5-d06f96639a00/workspace/data/assets/raster-annotations/veeva",
+  "crops": [
+    {
+      "key": "logo-q2-fy25",
+      "output": "output/builds/build-b990fc44-3d62-43c2-82d5-d06f96639a00/workspace/data/assets/icon-references/veeva/crops/logo-q2-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4793,
+        "losslessBytes": 23794,
+        "savingsVsLossless": 0.7986,
+        "metrics": {
+          "meanAbsoluteError": 0.3585,
+          "rootMeanSquareError": 1.4335,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.4406
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 43059,
+        "transparentPixelRatio": 0.5453
+      },
+      "searchBox": {
+        "x": 844,
+        "y": 278,
+        "width": 560,
+        "height": 141
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 852,
+        "y0": 285,
+        "x1": 1395,
+        "y1": 411
+      },
+      "cropBox": {
+        "x0": 844,
+        "y0": 278,
+        "x1": 1404,
+        "y1": 419
+      },
+      "validation": {
+        "width": 560,
+        "height": 141,
+        "foregroundPixels": 28669,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 8,
+          "right": 9,
+          "top": 7,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": -0.0009,
+          "y": -0.0035
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "output/builds/build-b990fc44-3d62-43c2-82d5-d06f96639a00/workspace/data/assets/raster-annotations/veeva/logo-q2-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4793,
+        "losslessBytes": 23794,
+        "savingsVsLossless": 0.7986,
+        "metrics": {
+          "meanAbsoluteError": 0.3585,
+          "rootMeanSquareError": 1.4335,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.4406
+        }
+      }
+    },
+    {
+      "key": "crm-q2-fy25",
+      "output": "output/builds/build-b990fc44-3d62-43c2-82d5-d06f96639a00/workspace/data/assets/icon-references/veeva/crops/crm-q2-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2179,
+        "losslessBytes": 10107,
+        "savingsVsLossless": 0.7844,
+        "metrics": {
+          "meanAbsoluteError": 0.7394,
+          "rootMeanSquareError": 2.3618,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.3962
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 8292,
+        "transparentPixelRatio": 0.6235
+      },
+      "searchBox": {
+        "x": 70,
+        "y": 587,
+        "width": 266,
+        "height": 50
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 77,
+        "y0": 594,
+        "x1": 327,
+        "y1": 630
+      },
+      "cropBox": {
+        "x0": 70,
+        "y0": 587,
+        "x1": 336,
+        "y1": 637
+      },
+      "validation": {
+        "width": 266,
+        "height": 50,
+        "foregroundPixels": 4211,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 9,
+          "top": 7,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": -0.0038,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "output/builds/build-b990fc44-3d62-43c2-82d5-d06f96639a00/workspace/data/assets/raster-annotations/veeva/crm-q2-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2179,
+        "losslessBytes": 10107,
+        "savingsVsLossless": 0.7844,
+        "metrics": {
+          "meanAbsoluteError": 0.7394,
+          "rootMeanSquareError": 2.3618,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.3962
+        }
+      }
+    },
+    {
+      "key": "vault-q2-fy25",
+      "output": "output/builds/build-b990fc44-3d62-43c2-82d5-d06f96639a00/workspace/data/assets/icon-references/veeva/crops/vault-q2-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2867,
+        "losslessBytes": 12306,
+        "savingsVsLossless": 0.767,
+        "metrics": {
+          "meanAbsoluteError": 0.7963,
+          "rootMeanSquareError": 2.2623,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.369
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 9279,
+        "transparentPixelRatio": 0.5961
+      },
+      "searchBox": {
+        "x": 62,
+        "y": 956,
+        "width": 283,
+        "height": 55
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 68,
+        "y0": 964,
+        "x1": 337,
+        "y1": 1004
+      },
+      "cropBox": {
+        "x0": 62,
+        "y0": 956,
+        "x1": 345,
+        "y1": 1011
+      },
+      "validation": {
+        "width": 283,
+        "height": 55,
+        "foregroundPixels": 5261,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 8,
+          "top": 8,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": -0.0035,
+          "y": 0.0091
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "output/builds/build-b990fc44-3d62-43c2-82d5-d06f96639a00/workspace/data/assets/raster-annotations/veeva/vault-q2-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2867,
+        "losslessBytes": 12306,
+        "savingsVsLossless": 0.767,
+        "metrics": {
+          "meanAbsoluteError": 0.7963,
+          "rootMeanSquareError": 2.2623,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.369
+        }
+      }
+    }
+  ]
+}

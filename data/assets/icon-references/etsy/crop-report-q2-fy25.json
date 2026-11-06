@@ -1,0 +1,210 @@
+{
+  "source": "input/processed/etsy-q2-fy25.png",
+  "spec": "output/builds/build-0467684f-258b-458b-b41e-debe8e4029f4/workspace/input/icon-crop-specs/etsy-q2-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T15:34:35.447557+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "output/builds/build-0467684f-258b-458b-b41e-debe8e4029f4/workspace/data/assets/raster-annotations/etsy",
+  "crops": [
+    {
+      "key": "company-logo-q2-fy25",
+      "output": "output/builds/build-0467684f-258b-458b-b41e-debe8e4029f4/workspace/data/assets/icon-references/etsy/crops/company-logo-q2-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3128,
+        "losslessBytes": 12501,
+        "savingsVsLossless": 0.7498,
+        "metrics": {
+          "meanAbsoluteError": 0.5849,
+          "rootMeanSquareError": 1.1047,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 21,
+          "changedPixelRatio": 0.9383
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 4169,
+        "transparentPixelRatio": 0.0607
+      },
+      "searchBox": {
+        "x": 755,
+        "y": 224,
+        "width": 262,
+        "height": 262
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 757,
+        "y0": 225,
+        "x1": 1016,
+        "y1": 485
+      },
+      "cropBox": {
+        "x0": 755,
+        "y0": 224,
+        "x1": 1017,
+        "y1": 486
+      },
+      "validation": {
+        "width": 262,
+        "height": 262,
+        "foregroundPixels": 60221,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 2,
+          "right": 1,
+          "top": 1,
+          "bottom": 1
+        },
+        "centerOffset": {
+          "x": 0.0019,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Source-owned Etsy logo/brand cluster, excludes financial labels and chart.",
+      "runtimeOutput": "output/builds/build-0467684f-258b-458b-b41e-debe8e4029f4/workspace/data/assets/raster-annotations/etsy/company-logo-q2-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3128,
+        "losslessBytes": 12501,
+        "savingsVsLossless": 0.7498,
+        "metrics": {
+          "meanAbsoluteError": 0.5849,
+          "rootMeanSquareError": 1.1047,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 21,
+          "changedPixelRatio": 0.9383
+        }
+      }
+    },
+    {
+      "key": "marketplace-brands-q2-fy25",
+      "output": "output/builds/build-0467684f-258b-458b-b41e-debe8e4029f4/workspace/data/assets/icon-references/etsy/crops/marketplace-brands-q2-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 3813,
+        "losslessBytes": 16828,
+        "savingsVsLossless": 0.7734,
+        "metrics": {
+          "meanAbsoluteError": 0.3789,
+          "rootMeanSquareError": 1.934,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.1961
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 39978,
+        "transparentPixelRatio": 0.8113
+      },
+      "searchBox": {
+        "x": 29,
+        "y": 595,
+        "width": 347,
+        "height": 142
+      },
+      "componentCount": 10,
+      "subjectBox": {
+        "x0": 34,
+        "y0": 603,
+        "x1": 374,
+        "y1": 731
+      },
+      "cropBox": {
+        "x0": 29,
+        "y0": 595,
+        "x1": 376,
+        "y1": 737
+      },
+      "validation": {
+        "width": 347,
+        "height": 142,
+        "foregroundPixels": 8421,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 5,
+          "right": 2,
+          "top": 8,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": 0.0043,
+          "y": 0.007
+        },
+        "passes": true
+      },
+      "note": "Source-owned Etsy logo/brand cluster, excludes financial labels and chart.",
+      "runtimeOutput": "output/builds/build-0467684f-258b-458b-b41e-debe8e4029f4/workspace/data/assets/raster-annotations/etsy/marketplace-brands-q2-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 3813,
+        "losslessBytes": 16828,
+        "savingsVsLossless": 0.7734,
+        "metrics": {
+          "meanAbsoluteError": 0.3789,
+          "rootMeanSquareError": 1.934,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.1961
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,296 @@
+{
+  "source": "input/processing/spotify-q3-fy26.png",
+  "spec": "input/icon-crop-specs/spotify-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T15:28:27.607589+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/spotify",
+  "crops": [
+    {
+      "key": "company-logo-q3-fy26",
+      "output": "data/assets/icon-references/spotify/crops/company-logo-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2517,
+        "losslessBytes": 12002,
+        "savingsVsLossless": 0.7903,
+        "metrics": {
+          "meanAbsoluteError": 0.2812,
+          "rootMeanSquareError": 1.384,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.4622
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          25,
+          20,
+          20
+        ],
+        "transparentPixels": 0,
+        "transparentPixelRatio": 0.0
+      },
+      "searchBox": {
+        "x": 807,
+        "y": 247,
+        "width": 236,
+        "height": 234
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 809,
+        "y0": 248,
+        "x1": 1041,
+        "y1": 479
+      },
+      "cropBox": {
+        "x0": 807,
+        "y0": 247,
+        "x1": 1043,
+        "y1": 481
+      },
+      "validation": {
+        "width": 236,
+        "height": 234,
+        "foregroundPixels": 52380,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 2,
+          "right": 2,
+          "top": 1,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0021
+        },
+        "passes": true
+      },
+      "note": "Source company or product branding only.",
+      "runtimeOutput": "data/assets/raster-annotations/spotify/company-logo-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2517,
+        "losslessBytes": 12002,
+        "savingsVsLossless": 0.7903,
+        "metrics": {
+          "meanAbsoluteError": 0.2812,
+          "rootMeanSquareError": 1.384,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.4622
+        }
+      }
+    },
+    {
+      "key": "premium-q3-fy26",
+      "output": "data/assets/icon-references/spotify/crops/premium-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 4101,
+        "losslessBytes": 18952,
+        "savingsVsLossless": 0.7836,
+        "metrics": {
+          "meanAbsoluteError": 0.6388,
+          "rootMeanSquareError": 2.4688,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.2104
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 14833,
+        "transparentPixelRatio": 0.5049
+      },
+      "searchBox": {
+        "x": 70,
+        "y": 652,
+        "width": 306,
+        "height": 96
+      },
+      "componentCount": 17,
+      "subjectBox": {
+        "x0": 73,
+        "y0": 654,
+        "x1": 370,
+        "y1": 746
+      },
+      "cropBox": {
+        "x0": 70,
+        "y0": 652,
+        "x1": 376,
+        "y1": 748
+      },
+      "validation": {
+        "width": 306,
+        "height": 96,
+        "foregroundPixels": 11566,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 3,
+          "right": 6,
+          "top": 2,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": -0.0049,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Source company or product branding only.",
+      "runtimeOutput": "data/assets/raster-annotations/spotify/premium-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 4101,
+        "losslessBytes": 18952,
+        "savingsVsLossless": 0.7836,
+        "metrics": {
+          "meanAbsoluteError": 0.6388,
+          "rootMeanSquareError": 2.4688,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.2104
+        }
+      }
+    },
+    {
+      "key": "advertising-q3-fy26",
+      "output": "data/assets/icon-references/spotify/crops/advertising-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2559,
+        "losslessBytes": 13160,
+        "savingsVsLossless": 0.8055,
+        "metrics": {
+          "meanAbsoluteError": 0.7095,
+          "rootMeanSquareError": 1.9239,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 14,
+          "changedPixelRatio": 0.3306
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          241,
+          241,
+          241
+        ],
+        "transparentPixels": 12937,
+        "transparentPixelRatio": 0.6855
+      },
+      "searchBox": {
+        "x": 44,
+        "y": 1012,
+        "width": 337,
+        "height": 56
+      },
+      "componentCount": 22,
+      "subjectBox": {
+        "x0": 47,
+        "y0": 1014,
+        "x1": 379,
+        "y1": 1064
+      },
+      "cropBox": {
+        "x0": 44,
+        "y0": 1012,
+        "x1": 381,
+        "y1": 1068
+      },
+      "validation": {
+        "width": 337,
+        "height": 56,
+        "foregroundPixels": 4257,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 3,
+          "right": 2,
+          "top": 2,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": 0.0015,
+          "y": -0.0179
+        },
+        "passes": true
+      },
+      "note": "Source company or product branding only.",
+      "runtimeOutput": "data/assets/raster-annotations/spotify/advertising-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2559,
+        "losslessBytes": 13160,
+        "savingsVsLossless": 0.8055,
+        "metrics": {
+          "meanAbsoluteError": 0.7095,
+          "rootMeanSquareError": 1.9239,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 14,
+          "changedPixelRatio": 0.3306
+        }
+      }
+    }
+  ]
+}

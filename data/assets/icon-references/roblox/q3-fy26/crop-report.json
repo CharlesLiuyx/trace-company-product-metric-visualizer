@@ -1,0 +1,111 @@
+{
+  "source": "input/processed/roblox-q3-fy26.png",
+  "spec": "input/icon-crop-specs/roblox-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T16:02:37.788348+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "all-matching",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/roblox",
+  "crops": [
+    {
+      "key": "characters-q3-fy26",
+      "output": "data/assets/icon-references/roblox/q3-fy26/characters-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 98384,
+        "losslessBytes": 98384,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "all-matching",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 23840,
+        "transparentPixelRatio": 0.3162
+      },
+      "searchBox": {
+        "x": 702,
+        "y": 908,
+        "width": 359,
+        "height": 210
+      },
+      "componentCount": 12,
+      "subjectBox": {
+        "x0": 726,
+        "y0": 921,
+        "x1": 1037,
+        "y1": 1104
+      },
+      "cropBox": {
+        "x0": 702,
+        "y0": 908,
+        "x1": 1061,
+        "y1": 1118
+      },
+      "validation": {
+        "width": 359,
+        "height": 210,
+        "foregroundPixels": 24342,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 24,
+          "right": 24,
+          "top": 13,
+          "bottom": 14
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0024
+        },
+        "passes": true
+      },
+      "note": "Period-specific native crop: reusable older crop contains opaque chart background that masks this period revenue interfaces.",
+      "transparentColorPixels": 13322,
+      "runtimeOutput": "data/assets/raster-annotations/roblox/characters-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 98384,
+        "losslessBytes": 98384,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

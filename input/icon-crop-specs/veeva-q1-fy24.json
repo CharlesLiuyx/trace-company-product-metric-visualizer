@@ -1,0 +1,90 @@
+{
+  "source": "input/processing/veeva-q1-fy24.png",
+  "outputDir": "data/assets/icon-references/veeva/veeva-q1-fy24",
+  "runtimeOutputDir": "data/assets/raster-annotations/veeva",
+  "report": "crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "crops": [
+    {
+      "key": "logo",
+      "output": "crops/logo-q1-fy24.png",
+      "runtimeOutput": "logo-q1-fy24.png",
+      "searchBox": {
+        "x": 504,
+        "y": 272,
+        "width": 552,
+        "height": 132
+      },
+      "cropBox": {
+        "x": 504,
+        "y": 272,
+        "width": 552,
+        "height": 132
+      },
+      "threshold": 16,
+      "minComponentArea": 3,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.4,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "crm",
+      "output": "crops/crm-q1-fy24.png",
+      "runtimeOutput": "crm-q1-fy24.png",
+      "searchBox": {
+        "x": 73,
+        "y": 614,
+        "width": 265,
+        "height": 44
+      },
+      "cropBox": {
+        "x": 73,
+        "y": 614,
+        "width": 265,
+        "height": 44
+      },
+      "threshold": 16,
+      "minComponentArea": 3,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.4,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "vault",
+      "output": "crops/vault-q1-fy24.png",
+      "runtimeOutput": "vault-q1-fy24.png",
+      "searchBox": {
+        "x": 65,
+        "y": 1004,
+        "width": 278,
+        "height": 46
+      },
+      "cropBox": {
+        "x": 65,
+        "y": 1004,
+        "width": 278,
+        "height": 46
+      },
+      "threshold": 16,
+      "minComponentArea": 3,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.4,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "source": "input/processed/health-equity-q2-fy24.png",
+  "outputDir": "data/assets/icon-references/health-equity",
+  "runtimeOutputDir": "data/assets/raster-annotations/health-equity",
+  "report": "crop-report-q2-fy24.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "crops": [
+    {
+      "key": "company-wordmark-q2-fy24",
+      "output": "crops/company-wordmark-q2-fy24.png",
+      "runtimeOutput": "company-wordmark-q2-fy24.png",
+      "searchBox": {
+        "x": 593,
+        "y": 275,
+        "width": 573,
+        "height": 105
+      },
+      "cropBox": {
+        "x": 593,
+        "y": 275,
+        "width": 573,
+        "height": 105
+      },
+      "minComponentArea": 4,
+      "threshold": 20,
+      "padding": 0,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ]
+}

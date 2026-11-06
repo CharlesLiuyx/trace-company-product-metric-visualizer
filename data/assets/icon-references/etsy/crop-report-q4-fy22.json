@@ -1,0 +1,210 @@
+{
+  "source": "input/processing/etsy-q4-fy22.png",
+  "spec": "input/icon-crop-specs/etsy-q4-fy22.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T15:36:25.153929+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/etsy",
+  "crops": [
+    {
+      "key": "company-logo-q4-fy22",
+      "output": "data/assets/icon-references/etsy/crops/company-logo-q4-fy22.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 3116,
+        "losslessBytes": 12590,
+        "savingsVsLossless": 0.7525,
+        "metrics": {
+          "meanAbsoluteError": 0.5777,
+          "rootMeanSquareError": 1.1827,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 23,
+          "changedPixelRatio": 0.8923
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 7714,
+        "transparentPixelRatio": 0.1066
+      },
+      "searchBox": {
+        "x": 757,
+        "y": 220,
+        "width": 269,
+        "height": 269
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 761,
+        "y0": 224,
+        "x1": 1021,
+        "y1": 484
+      },
+      "cropBox": {
+        "x0": 757,
+        "y0": 220,
+        "x1": 1026,
+        "y1": 489
+      },
+      "validation": {
+        "width": 269,
+        "height": 269,
+        "foregroundPixels": 60531,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 4,
+          "right": 5,
+          "top": 4,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": -0.0019,
+          "y": -0.0019
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/etsy/company-logo-q4-fy22.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 3116,
+        "losslessBytes": 12590,
+        "savingsVsLossless": 0.7525,
+        "metrics": {
+          "meanAbsoluteError": 0.5777,
+          "rootMeanSquareError": 1.1827,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 23,
+          "changedPixelRatio": 0.8923
+        }
+      }
+    },
+    {
+      "key": "marketplace-brands-q4-fy22",
+      "output": "data/assets/icon-references/etsy/crops/marketplace-brands-q4-fy22.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 5029,
+        "losslessBytes": 23345,
+        "savingsVsLossless": 0.7846,
+        "metrics": {
+          "meanAbsoluteError": 0.5418,
+          "rootMeanSquareError": 2.2739,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.274
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 44164,
+        "transparentPixelRatio": 0.7842
+      },
+      "searchBox": {
+        "x": 33,
+        "y": 633,
+        "width": 352,
+        "height": 160
+      },
+      "componentCount": 14,
+      "subjectBox": {
+        "x0": 43,
+        "y0": 644,
+        "x1": 377,
+        "y1": 784
+      },
+      "cropBox": {
+        "x0": 33,
+        "y0": 633,
+        "x1": 385,
+        "y1": 793
+      },
+      "validation": {
+        "width": 352,
+        "height": 160,
+        "foregroundPixels": 11024,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 10,
+          "right": 8,
+          "top": 11,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": 0.0028,
+          "y": 0.0063
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/etsy/marketplace-brands-q4-fy22.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 5029,
+        "losslessBytes": 23345,
+        "savingsVsLossless": 0.7846,
+        "metrics": {
+          "meanAbsoluteError": 0.5418,
+          "rootMeanSquareError": 2.2739,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.274
+        }
+      }
+    }
+  ]
+}

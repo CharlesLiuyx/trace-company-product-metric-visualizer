@@ -1,0 +1,82 @@
+{
+  "source": "input/processed/veeva-q2-fy24.png",
+  "outputDir": "data/assets/icon-references/veeva",
+  "runtimeOutputDir": "data/assets/raster-annotations/veeva",
+  "report": "crop-report-q2-fy24.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "crops": [
+    {
+      "key": "company-logo-q2-fy24",
+      "output": "crops/company-logo-q2-fy24.png",
+      "searchBox": {
+        "x": 846,
+        "y": 242,
+        "width": 557,
+        "height": 138
+      },
+      "cropBox": {
+        "x": 846,
+        "y": 242,
+        "width": 557,
+        "height": 138
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "crm-q2-fy24",
+      "output": "crops/crm-q2-fy24.png",
+      "searchBox": {
+        "x": 72,
+        "y": 547,
+        "width": 260,
+        "height": 44
+      },
+      "cropBox": {
+        "x": 72,
+        "y": 547,
+        "width": 260,
+        "height": 44
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "vault-q2-fy24",
+      "output": "crops/vault-q2-fy24.png",
+      "searchBox": {
+        "x": 65,
+        "y": 951,
+        "width": 276,
+        "height": 49
+      },
+      "cropBox": {
+        "x": 65,
+        "y": 951,
+        "width": 276,
+        "height": 49
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ]
+}

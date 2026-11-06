@@ -1,0 +1,124 @@
+{
+  "source": "input/processing/health-equity-q1-fy24.png",
+  "spec": "input/icon-crop-specs/health-equity-q1-fy24.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T15:32:01.962471+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/health-equity",
+  "crops": [
+    {
+      "key": "company-wordmark-q1-fy24",
+      "output": "data/assets/icon-references/health-equity/crops/company-wordmark-q1-fy24.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3751,
+        "losslessBytes": 14126,
+        "savingsVsLossless": 0.7345,
+        "metrics": {
+          "meanAbsoluteError": 0.2833,
+          "rootMeanSquareError": 1.1414,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.3136
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 44086,
+        "transparentPixelRatio": 0.691
+      },
+      "searchBox": {
+        "x": 591,
+        "y": 274,
+        "width": 575,
+        "height": 98
+      },
+      "componentCount": 14,
+      "subjectBox": {
+        "x0": 606,
+        "y0": 279,
+        "x1": 1162,
+        "y1": 371
+      },
+      "cropBox": {
+        "x0": 591,
+        "y0": 270,
+        "x1": 1171,
+        "y1": 380
+      },
+      "validation": {
+        "width": 580,
+        "height": 110,
+        "foregroundPixels": 18391,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 15,
+          "right": 9,
+          "top": 9,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": 0.0052,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/health-equity/company-wordmark-q1-fy24.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3751,
+        "losslessBytes": 14126,
+        "savingsVsLossless": 0.7345,
+        "metrics": {
+          "meanAbsoluteError": 0.2833,
+          "rootMeanSquareError": 1.1414,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.3136
+        }
+      }
+    }
+  ]
+}

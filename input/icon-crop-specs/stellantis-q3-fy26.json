@@ -1,0 +1,96 @@
+{
+  "source": "input/processed/stellantis-q3-fy26.png",
+  "outputDir": "data/assets/icon-references/stellantis",
+  "runtimeOutputDir": "data/assets/raster-annotations/stellantis",
+  "validationSheetDir": "data/assets/icon-references/stellantis/validation-sheets",
+  "report": "crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [
+      242,
+      242,
+      242
+    ],
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "company-logo",
+      "output": "crops/company-logo.png",
+      "searchBox": {
+        "x": 669,
+        "y": 260,
+        "width": 740,
+        "height": 169
+      },
+      "cropBox": {
+        "x": 669,
+        "y": 260,
+        "width": 740,
+        "height": 169
+      },
+      "threshold": 18,
+      "minComponentArea": 5,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.35,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Source brand cluster only; excludes financial text, nodes and publisher marks."
+    },
+    {
+      "key": "brands-north-america",
+      "output": "crops/brands-north-america.png",
+      "searchBox": {
+        "x": 29,
+        "y": 253,
+        "width": 216,
+        "height": 273
+      },
+      "cropBox": {
+        "x": 29,
+        "y": 253,
+        "width": 216,
+        "height": 273
+      },
+      "threshold": 18,
+      "minComponentArea": 5,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.35,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Source brand cluster only; excludes financial text, nodes and publisher marks."
+    },
+    {
+      "key": "brands-europe",
+      "output": "crops/brands-europe.png",
+      "searchBox": {
+        "x": 20,
+        "y": 547,
+        "width": 216,
+        "height": 272
+      },
+      "cropBox": {
+        "x": 20,
+        "y": 547,
+        "width": 216,
+        "height": 272
+      },
+      "threshold": 18,
+      "minComponentArea": 5,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.35,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Source brand cluster only; excludes financial text, nodes and publisher marks."
+    }
+  ]
+}

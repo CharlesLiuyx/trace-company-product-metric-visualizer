@@ -1,7 +1,4 @@
-/* Pure INCOME_STATEMENT_SSOT records. Merged by the Publication Module. */
-(function (global) {
-  const target = global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || { schemaVersion: 1, records: [] };
-  target.records.push(...[
+(function(global){global.INCOME_STATEMENT_SSOT=global.INCOME_STATEMENT_SSOT||{schemaVersion:1,records:[]};global.INCOME_STATEMENT_SSOT.records.push(...[
   {
     "key": "gm-q1-fy25",
     "company": "GM",
@@ -3399,6 +3396,235 @@
         }
       }
     }
+  },
+  {
+    "key": "gm-q3-fy26",
+    "company": "GM",
+    "period": "Q3 FY26",
+        "currency": "$",
+    "unit": "B",
+    "decimals": 1,
+    "sourceImage": "input/processed/gm-q3-fy26.png",
+    "roundingTolerance": 0.15,
+    "revenue": {
+      "total": 50,
+      "notes": [
+        "+3% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "auto",
+          "label": "Auto",
+          "value": 45.7,
+          "notes": [
+            "+3% Y/Y"
+          ],
+          "children": [
+            {
+              "id": "gm_north_america",
+              "label": "GM North America",
+              "value": 41.4,
+              "notes": [
+                "+2% Y/Y"
+              ]
+            },
+            {
+              "id": "gm_international",
+              "label": "GM International",
+              "value": 4.1,
+              "notes": [
+                "+12% Y/Y"
+              ]
+            },
+            {
+              "id": "corporate",
+              "label": "Corporate",
+              "value": 0.2,
+              "notes": [
+                "+235% Y/Y"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "gm_financial",
+          "label": "GM Financial",
+          "value": 4.3,
+          "notes": [
+            "(1%) Y/Y"
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_sales",
+        "label": "Cost of sales",
+        "value": 40.7
+      },
+      "operatingExpenses": {
+        "total": 5.7,
+        "items": [
+          {
+            "id": "other",
+            "label": "Other",
+            "value": 3.7
+          },
+          {
+            "id": "sga",
+            "label": "SG&A",
+            "value": 2
+          }
+        ]
+      },
+      "tax": {
+        "id": "tax",
+        "label": "Tax",
+        "value": 0.6
+      }
+    },
+    "otherIncome": {
+      "total": 0.3,
+      "items": [
+        {
+          "id": "interest",
+          "label": "Interest",
+          "value": 0.3
+        }
+      ]
+    },
+    "otherExpenses": {
+      "total": 0,
+      "items": []
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 9.3,
+        "notes": [
+          "19% margin",
+          "+5pp Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_profit",
+        "label": "Operating profit",
+        "value": 3.6,
+        "notes": [
+          "7% margin",
+          "+5pp Y/Y"
+        ]
+      },
+      "net": {
+        "id": "net_profit",
+        "label": "Net profit",
+        "value": 3.4,
+        "notes": [
+          "7% margin",
+          "+4pp Y/Y"
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2026 财年第三季度",
+                "revenue": {
+          "notes": [
+            "同比 +3%"
+          ],
+          "items": [
+            {
+              "id": "auto",
+              "label": "汽车业务",
+              "notes": [
+                "同比 +3%"
+              ],
+              "children": [
+                {
+                  "id": "gm_north_america",
+                  "label": "通用北美",
+                  "notes": [
+                    "同比 +2%"
+                  ]
+                },
+                {
+                  "id": "gm_international",
+                  "label": "通用国际",
+                  "notes": [
+                    "同比 +12%"
+                  ]
+                },
+                {
+                  "id": "corporate",
+                  "label": "公司及其他",
+                  "notes": [
+                    "同比 +235%"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "gm_financial",
+              "label": "通用金融",
+              "notes": [
+                "同比 (1%)"
+              ]
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "销售成本"
+          },
+          "operatingExpenses": {
+            "items": [
+              {
+                "id": "other",
+                "label": "其他"
+              },
+              {
+                "id": "sga",
+                "label": "销售及管理"
+              }
+            ]
+          },
+          "tax": {
+            "label": "税费"
+          }
+        },
+        "otherIncome": {
+          "items": [
+            {
+              "id": "interest",
+              "label": "利息收入"
+            }
+          ]
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 19%",
+              "同比 +5 个百分点"
+            ]
+          },
+          "operating": {
+            "label": "营业利润",
+            "notes": [
+              "利润率 7%",
+              "同比 +5 个百分点"
+            ]
+          },
+          "net": {
+            "label": "净利润",
+            "notes": [
+              "利润率 7%",
+              "同比 +4 个百分点"
+            ]
+          }
+        }
+      }
+    }
   }
-]);
-})(window);
+]);})(window);

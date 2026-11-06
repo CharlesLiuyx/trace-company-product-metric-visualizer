@@ -1,0 +1,133 @@
+{
+  "source": "input/processed/anthropic-h1-fy26.png",
+  "spec": "input/icon-crop-specs/anthropic-h1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T15:25:35.269867+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/anthropic",
+  "crops": [
+    {
+      "key": "claude-logo-h1-fy26",
+      "output": "data/assets/icon-references/anthropic/crops/claude-logo-h1-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2923,
+        "losslessBytes": 14884,
+        "savingsVsLossless": 0.8036,
+        "metrics": {
+          "meanAbsoluteError": 0.2289,
+          "rootMeanSquareError": 0.87,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 16,
+          "changedPixelRatio": 0.3866
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 28286,
+        "transparentPixelRatio": 0.6236
+      },
+      "searchBox": {
+        "x": 939,
+        "y": 219,
+        "width": 216,
+        "height": 210
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 947,
+        "y0": 224,
+        "x1": 1147,
+        "y1": 424
+      },
+      "cropBox": {
+        "x0": 939,
+        "y0": 219,
+        "x1": 1155,
+        "y1": 429
+      },
+      "validation": {
+        "width": 216,
+        "height": 210,
+        "foregroundPixels": 16865,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 8,
+          "right": 8,
+          "top": 5,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Claude star above revenue; no chart text.",
+      "runtimeOutput": "data/assets/raster-annotations/anthropic/claude-logo-h1-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2923,
+        "losslessBytes": 14884,
+        "savingsVsLossless": 0.8036,
+        "metrics": {
+          "meanAbsoluteError": 0.2289,
+          "rootMeanSquareError": 0.87,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 16,
+          "changedPixelRatio": 0.3866
+        }
+      },
+      "validationSheet": "data/assets/icon-references/anthropic/validation-sheets/claude-logo-h1-fy26.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 281501,
+        "losslessBytes": 281501,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

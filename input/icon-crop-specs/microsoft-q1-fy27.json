@@ -1,0 +1,59 @@
+{
+  "source": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/input/processing/microsoft-q1-fy27.png",
+  "outputDir": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-d8a2e9d2-f411-4057-9463-e397d4fa4130/workspace/data/assets/icon-references/microsoft/q1-fy27",
+  "runtimeOutputDir": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-d8a2e9d2-f411-4057-9463-e397d4fa4130/workspace/data/assets/raster-annotations/microsoft",
+  "report": "crop-report.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "crops": [
+    {
+      "key": "office",
+      "output": "crops/office-q1-fy27.png",
+      "runtimeOutput": "office-q1-fy27.png",
+      "cropBox": {
+        "x": 335,
+        "y": 695,
+        "width": 94,
+        "height": 111
+      },
+      "searchBox": {
+        "x": 335,
+        "y": 695,
+        "width": 94,
+        "height": 111
+      },
+      "minComponentArea": 5,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.4,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "industry",
+      "output": "crops/industry-q1-fy27.png",
+      "runtimeOutput": "industry-q1-fy27.png",
+      "cropBox": {
+        "x": 276,
+        "y": 1062,
+        "width": 169,
+        "height": 99
+      },
+      "searchBox": {
+        "x": 276,
+        "y": 1062,
+        "width": 169,
+        "height": 99
+      },
+      "minComponentArea": 5,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.4,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ]
+}

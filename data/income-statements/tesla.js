@@ -1623,6 +1623,229 @@
           },
         },
       },
+    },
+{
+  "key": "tesla-q3-fy26",
+  "company": "Tesla",
+  "period": "Q3 FY26",
+  "periodNote": "Ending Sep. 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/tesla-q3-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 28,
+    "notes": [
+      "(0%) Y/Y"
+    ],
+    "items": [
+      {
+        "id": "auto",
+        "label": "Auto",
+        "value": 20.6,
+        "notes": [
+          "(3%) Y/Y"
+        ],
+        "children": [
+          {
+            "id": "auto_sales",
+            "label": "Auto sales",
+            "value": 20.1,
+            "notes": [
+              "(1%) Y/Y"
+            ]
+          },
+          {
+            "id": "regulatory_credits",
+            "label": "Regulatory credits",
+            "value": 0.1,
+            "notes": [
+              "(73%) Y/Y"
+            ]
+          },
+          {
+            "id": "leasing",
+            "label": "Leasing",
+            "value": 0.4,
+            "notes": [
+              "(18%) Y/Y"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "energy_generation_storage",
+        "label": "Energy generation & storage",
+        "value": 2.9,
+        "notes": [
+          "(16%) Y/Y"
+        ]
+      },
+      {
+        "id": "services",
+        "label": "Services",
+        "value": 4.6,
+        "notes": [
+          "+33% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 22.6
+    },
+    "operatingExpenses": {
+      "total": 4.8,
+      "items": [
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 2.8,
+          "notes": [
+            "10% of revenue",
+            "+4pp Y/Y"
+          ]
+        },
+        {
+          "id": "sga",
+          "label": "SG&A",
+          "value": 2,
+          "notes": [
+            "7% of revenue",
+            "+2pp Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.1
     }
+  },
+  "otherIncome": {
+    "total": 0.4,
+    "items": [
+      {
+        "id": "interest",
+        "label": "Interest",
+        "value": 0.4
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 5.5,
+      "notes": [
+        "20% margin",
+        "+2pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 0.7,
+      "notes": [
+        "3% margin",
+        "(3pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 0.8,
+      "notes": [
+        "3% margin",
+        "(2pp) Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "periodNote": "截至 2026 年 9 月",
+      "operatingMetrics": [
+        {
+          "id": "production",
+          "label": "产量",
+          "notes": [
+            "同比 (0%)"
+          ]
+        },
+        {
+          "id": "deliveries",
+          "label": "交付量",
+          "notes": [
+            "同比 (2%)"
+          ]
+        }
+      ]
+    }
+  },
+  "otherExpenses": {
+    "total": 0.1,
+    "items": [
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 0.1
+      }
+    ]
+  },
+  "operatingMetrics": [
+    {
+      "id": "production",
+      "label": "Production",
+      "value": "464000",
+      "literal": "464K",
+      "unit": "count",
+      "currency": null,
+      "comparison": "eq",
+      "basis": "unspecified",
+      "notes": [
+        "(0%) Y/Y"
+      ],
+      "quote": "Production\n464K\n(0%) Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          2058,
+          1225,
+          188,
+          145
+        ]
+      }
+    },
+    {
+      "id": "deliveries",
+      "label": "Deliveries",
+      "value": "487000",
+      "literal": "487K",
+      "unit": "count",
+      "currency": null,
+      "comparison": "eq",
+      "basis": "unspecified",
+      "notes": [
+        "(2%) Y/Y"
+      ],
+      "quote": "Deliveries\n487K\n(2%) Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          2255,
+          1225,
+          188,
+          145
+        ]
+      }
+    }
+  ]
+}
   );
 })(window);

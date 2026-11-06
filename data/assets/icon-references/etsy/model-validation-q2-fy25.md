@@ -1,0 +1,1 @@
+Etsy Q2 FY25 Source logo crops visually verified: full orange company logo and Etsy/Reverb/depop brand cluster; no financial labels, chart marks or publisher residue. Native source rectangles retained.

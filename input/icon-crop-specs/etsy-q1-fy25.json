@@ -1,0 +1,59 @@
+{
+  "source": "input/processed/etsy-q1-fy25.png",
+  "outputDir": "data/assets/icon-references/etsy",
+  "runtimeOutputDir": "data/assets/raster-annotations/etsy",
+  "report": "crop-report-q1-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "crops": [
+    {
+      "key": "company-logo-q1-fy25",
+      "output": "crops/company-logo-q1-fy25.png",
+      "searchBox": {
+        "x": 760,
+        "y": 230,
+        "width": 265,
+        "height": 264
+      },
+      "cropBox": {
+        "x": 760,
+        "y": 230,
+        "width": 265,
+        "height": 264
+      },
+      "threshold": 18,
+      "minComponentArea": 15,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "brands-q1-fy25",
+      "output": "crops/brands-q1-fy25.png",
+      "searchBox": {
+        "x": 29,
+        "y": 583,
+        "width": 347,
+        "height": 137
+      },
+      "cropBox": {
+        "x": 29,
+        "y": 583,
+        "width": 347,
+        "height": 137
+      },
+      "threshold": 18,
+      "minComponentArea": 15,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ]
+}

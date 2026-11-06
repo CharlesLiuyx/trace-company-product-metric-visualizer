@@ -1,0 +1,124 @@
+{
+  "source": "input/processing/accenture-q3-fy23.png",
+  "spec": "output/builds/build-d8070ca1-d6ef-4546-a62b-a08536bbdf02/workspace/input/icon-crop-specs/accenture-q3-fy23.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T15:30:40.842544+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "output/builds/build-d8070ca1-d6ef-4546-a62b-a08536bbdf02/workspace/data/assets/raster-annotations/accenture",
+  "crops": [
+    {
+      "key": "company-logo-q3-fy23",
+      "output": "output/builds/build-d8070ca1-d6ef-4546-a62b-a08536bbdf02/workspace/data/assets/icon-references/accenture/crops/company-logo-q3-fy23.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4895,
+        "losslessBytes": 21796,
+        "savingsVsLossless": 0.7754,
+        "metrics": {
+          "meanAbsoluteError": 0.1677,
+          "rootMeanSquareError": 1.0047,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.0729
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 102652,
+        "transparentPixelRatio": 0.7207
+      },
+      "searchBox": {
+        "x": 741,
+        "y": 272,
+        "width": 723,
+        "height": 197
+      },
+      "componentCount": 10,
+      "subjectBox": {
+        "x0": 749,
+        "y0": 277,
+        "x1": 1456,
+        "y1": 464
+      },
+      "cropBox": {
+        "x0": 741,
+        "y0": 272,
+        "x1": 1464,
+        "y1": 469
+      },
+      "validation": {
+        "width": 723,
+        "height": 197,
+        "foregroundPixels": 38162,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 8,
+          "right": 8,
+          "top": 5,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Complete Accenture wordmark and purple chevron; excludes financial labels.",
+      "runtimeOutput": "output/builds/build-d8070ca1-d6ef-4546-a62b-a08536bbdf02/workspace/data/assets/raster-annotations/accenture/company-logo-q3-fy23.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 4895,
+        "losslessBytes": 21796,
+        "savingsVsLossless": 0.7754,
+        "metrics": {
+          "meanAbsoluteError": 0.1677,
+          "rootMeanSquareError": 1.0047,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.0729
+        }
+      }
+    }
+  ]
+}

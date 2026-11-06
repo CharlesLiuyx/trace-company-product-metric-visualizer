@@ -1,0 +1,89 @@
+{
+  "source": "input/processed/veeva-q4-fy23.png",
+  "outputDir": "data/assets/icon-references/veeva",
+  "runtimeOutputDir": "data/assets/raster-annotations/veeva",
+  "report": "crop-report-q4-fy23.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "crops": [
+    {
+      "key": "veeva-logo-q4-fy23",
+      "output": "crops/company-logo-q4-fy23.png",
+      "runtimeOutput": "company-logo-q4-fy23.png",
+      "searchBox": {
+        "x": 499,
+        "y": 267,
+        "width": 562,
+        "height": 144
+      },
+      "cropBox": {
+        "x": 499,
+        "y": 267,
+        "width": 562,
+        "height": 144
+      },
+      "threshold": 24,
+      "minComponentArea": 4,
+      "padding": 0,
+      "validation": {
+        "maxCenterOffset": 0.4,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Source-owned complete Veeva brand mark, Q4 FY23; excludes chart labels and flows."
+    },
+    {
+      "key": "veeva-crm-q4-fy23",
+      "output": "crops/crm-q4-fy23.png",
+      "runtimeOutput": "crm-q4-fy23.png",
+      "searchBox": {
+        "x": 68,
+        "y": 608,
+        "width": 269,
+        "height": 55
+      },
+      "cropBox": {
+        "x": 68,
+        "y": 608,
+        "width": 269,
+        "height": 55
+      },
+      "threshold": 24,
+      "minComponentArea": 4,
+      "padding": 0,
+      "validation": {
+        "maxCenterOffset": 0.4,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Source-owned complete Veeva brand mark, Q4 FY23; excludes chart labels and flows."
+    },
+    {
+      "key": "veeva-vault-q4-fy23",
+      "output": "crops/vault-q4-fy23.png",
+      "runtimeOutput": "vault-q4-fy23.png",
+      "searchBox": {
+        "x": 61,
+        "y": 1074,
+        "width": 284,
+        "height": 56
+      },
+      "cropBox": {
+        "x": 61,
+        "y": 1074,
+        "width": 284,
+        "height": 56
+      },
+      "threshold": 24,
+      "minComponentArea": 4,
+      "padding": 0,
+      "validation": {
+        "maxCenterOffset": 0.4,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Source-owned complete Veeva brand mark, Q4 FY23; excludes chart labels and flows."
+    }
+  ],
+  "validationSheetDir": "data/assets/icon-references/veeva/validation-sheets-q4-fy23"
+}

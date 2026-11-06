@@ -1,7 +1,4 @@
-/* Pure INCOME_STATEMENT_SSOT records. Merged by the Publication Module. */
-(function (global) {
-  const target = global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || { schemaVersion: 1, records: [] };
-  target.records.push(...[
+(function(global){const target=global.INCOME_STATEMENT_SSOT=global.INCOME_STATEMENT_SSOT||{schemaVersion:1,records:[]};target.records.push(...[
   {
     "key": "spotify-q1-fy26",
     "company": "Spotify",
@@ -4789,6 +4786,297 @@
         ]
       }
     }
+  },
+  {
+    "key": "spotify-q3-fy26",
+    "company": "Spotify",
+    "period": "Q3 FY26",
+    "periodNote": "",
+    "currency": "€",
+    "unit": "B",
+    "decimals": 3,
+    "sourceImage": "input/processed/spotify-q3-fy26.png",
+    "roundingTolerance": 0.15,
+    "revenue": {
+      "total": 5,
+      "notes": [
+        "+16% Y/Y",
+        "Source rounding difference: 0.1B."
+      ],
+      "items": [
+        {
+          "id": "premium",
+          "label": "Spotify Premium",
+          "value": 4.5,
+          "notes": [
+            "+17% Y/Y",
+            "35% gross margin",
+            "+1pp Y/Y"
+          ]
+        },
+        {
+          "id": "advertising",
+          "label": "Spotify Advertising",
+          "value": 0.5,
+          "notes": [
+            "+10% Y/Y",
+            "19% gross margin",
+            "+1pp Y/Y"
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_revenue",
+        "label": "Cost of revenue",
+        "value": 3.3
+      },
+      "operatingExpenses": {
+        "total": 1,
+        "items": [
+          {
+            "id": "sm",
+            "label": "Sales & Marketing",
+            "value": 0.4,
+            "notes": [
+              "8% of revenue",
+              "+0pp Y/Y"
+            ]
+          },
+          {
+            "id": "rnd",
+            "label": "R&D",
+            "value": 0.4,
+            "notes": [
+              "8% of revenue",
+              "+1pp Y/Y"
+            ]
+          },
+          {
+            "id": "ga",
+            "label": "General & Admin",
+            "value": 0.1,
+            "notes": [
+              "3% of revenue",
+              "+0pp Y/Y"
+            ]
+          }
+        ]
+      },
+      "tax": {
+        "id": "tax",
+        "label": "Tax",
+        "value": 0.2
+      }
+    },
+    "otherIncome": {
+      "total": 0.033,
+      "items": [
+        {
+          "id": "interest",
+          "label": "Interest",
+          "value": 0.033,
+          "notes": [
+            "Source prints $33M; currency symbol retained in View."
+          ]
+        }
+      ]
+    },
+    "otherExpenses": {
+      "total": 0,
+      "items": []
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 1.6,
+        "notes": [
+          "33% margin",
+          "+1pp Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_profit",
+        "label": "Operating profit",
+        "value": 0.7,
+        "notes": [
+          "14% margin",
+          "(0pp) Y/Y"
+        ]
+      },
+      "net": {
+        "id": "net_profit",
+        "label": "Net profit",
+        "value": 0.5,
+        "notes": [
+          "10% margin",
+          "(11pp) Y/Y",
+          "Source dollar symbols in net profit, tax and interest retained in View."
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2026 财年第三季度",
+        "periodNote": "",
+        "revenue": {
+          "notes": [
+            "同比 +16%",
+            "来源舍入差异：0.1B。"
+          ],
+          "items": [
+            {
+              "id": "premium",
+              "label": "Spotify Premium",
+              "notes": [
+                "同比 +17%",
+                "35% 毛利率",
+                "同比 +1 个百分点"
+              ]
+            },
+            {
+              "id": "advertising",
+              "label": "Spotify Advertising",
+              "notes": [
+                "同比 +10%",
+                "19% 毛利率",
+                "同比 +1 个百分点"
+              ]
+            }
+          ]
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 33%",
+              "同比 +1 个百分点"
+            ]
+          },
+          "operating": {
+            "label": "营业利润",
+            "notes": [
+              "利润率 14%",
+              "同比 (0 个百分点)"
+            ]
+          },
+          "net": {
+            "label": "净利润",
+            "notes": [
+              "利润率 10%",
+              "同比 (11 个百分点)",
+              "来源中净利润、税费和利息的美元符号按原样保留。"
+            ]
+          }
+        },
+        "operatingMetrics": [
+          {
+            "id": "mau",
+            "label": "月活跃用户",
+            "notes": [
+              "同比 +11%"
+            ]
+          },
+          {
+            "id": "premium_subscribers",
+            "label": "Premium 订阅数",
+            "notes": [
+              "同比 +9%"
+            ]
+          },
+          {
+            "id": "ad_supported_mau",
+            "label": "广告版月活跃用户",
+            "notes": [
+              "同比 +12%"
+            ]
+          }
+        ],
+        "otherIncome": {
+          "items": [
+            {
+              "id": "interest",
+              "label": "利息",
+              "notes": [
+                "来源印刷 $33M，视图保留该货币符号。"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "operatingMetrics": [
+      {
+        "id": "mau",
+        "label": "MAU",
+        "value": "788000000",
+        "unit": "count",
+        "currency": null,
+        "comparison": "eq",
+        "literal": "788M",
+        "quote": "MAU\n788M\n+11% Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            31,
+            1163,
+            208,
+            148
+          ]
+        },
+        "basis": "unspecified",
+        "notes": [
+          "+11% Y/Y"
+        ]
+      },
+      {
+        "id": "premium_subscribers",
+        "label": "Premium Subs",
+        "value": "306000000",
+        "unit": "count",
+        "currency": null,
+        "comparison": "eq",
+        "literal": "306M",
+        "quote": "Premium Subs\n306M\n+9% Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            254,
+            1163,
+            329,
+            148
+          ]
+        },
+        "basis": "unspecified",
+        "notes": [
+          "+9% Y/Y"
+        ]
+      },
+      {
+        "id": "ad_supported_mau",
+        "label": "Ad-supported MAUs",
+        "value": "499000000",
+        "unit": "count",
+        "currency": null,
+        "comparison": "eq",
+        "literal": "499M",
+        "quote": "Ad-supported MAUs\n499M\n+12% Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            599,
+            1163,
+            378,
+            148
+          ]
+        },
+        "basis": "unspecified",
+        "notes": [
+          "+12% Y/Y"
+        ]
+      }
+    ]
   }
-]);
-})(window);
+]);})(window);

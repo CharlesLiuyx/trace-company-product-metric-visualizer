@@ -1,0 +1,210 @@
+{
+  "source": "input/processed/etsy-q3-fy25.png",
+  "spec": "input/icon-crop-specs/etsy-q3-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T15:40:26.218222+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/etsy",
+  "crops": [
+    {
+      "key": "etsy-logo-q3-fy25",
+      "output": "data/assets/icon-references/etsy/q3-fy25/etsy-logo-q3-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2888,
+        "losslessBytes": 11427,
+        "savingsVsLossless": 0.7473,
+        "metrics": {
+          "meanAbsoluteError": 0.5477,
+          "rootMeanSquareError": 1.1097,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 21,
+          "changedPixelRatio": 0.822
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 11917,
+        "transparentPixelRatio": 0.1818
+      },
+      "searchBox": {
+        "x": 759,
+        "y": 205,
+        "width": 256,
+        "height": 256
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 769,
+        "y0": 215,
+        "x1": 1005,
+        "y1": 451
+      },
+      "cropBox": {
+        "x0": 759,
+        "y0": 205,
+        "x1": 1015,
+        "y1": 461
+      },
+      "validation": {
+        "width": 256,
+        "height": 256,
+        "foregroundPixels": 49919,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 10,
+          "right": 10,
+          "top": 10,
+          "bottom": 10
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/etsy/etsy-logo-q3-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2888,
+        "losslessBytes": 11427,
+        "savingsVsLossless": 0.7473,
+        "metrics": {
+          "meanAbsoluteError": 0.5477,
+          "rootMeanSquareError": 1.1097,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 21,
+          "changedPixelRatio": 0.822
+        }
+      }
+    },
+    {
+      "key": "marketplace-brands-q3-fy25",
+      "output": "data/assets/icon-references/etsy/q3-fy25/marketplace-brands-q3-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2100,
+        "losslessBytes": 9973,
+        "savingsVsLossless": 0.7894,
+        "metrics": {
+          "meanAbsoluteError": 0.4805,
+          "rootMeanSquareError": 2.2308,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 34,
+          "changedPixelRatio": 0.2349
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 20580,
+        "transparentPixelRatio": 0.7709
+      },
+      "searchBox": {
+        "x": 113,
+        "y": 590,
+        "width": 188,
+        "height": 142
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 124,
+        "y0": 603,
+        "x1": 290,
+        "y1": 723
+      },
+      "cropBox": {
+        "x0": 113,
+        "y0": 590,
+        "x1": 301,
+        "y1": 732
+      },
+      "validation": {
+        "width": 188,
+        "height": 142,
+        "foregroundPixels": 5603,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 11,
+          "right": 11,
+          "top": 13,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0141
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/etsy/marketplace-brands-q3-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2100,
+        "losslessBytes": 9973,
+        "savingsVsLossless": 0.7894,
+        "metrics": {
+          "meanAbsoluteError": 0.4805,
+          "rootMeanSquareError": 2.2308,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 34,
+          "changedPixelRatio": 0.2349
+        }
+      }
+    }
+  ]
+}

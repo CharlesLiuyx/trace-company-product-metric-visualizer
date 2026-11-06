@@ -5335,6 +5335,526 @@
       "digest": "sha256:b60ba36f64512019e0bf7039b004f39b45e9e60cf916fb4e3c177d8b66600342",
       "updatedAt": "2026-11-06T14:15:29.998Z",
       "publishedDigest": "sha256:93b49fc20ffcd19728ea823ceb0157982529a8e48e3ed3bea83fc0f444fd303e"
+    },
+    "data/datasets/accenture-q1-fy23.js": {
+      "digest": "sha256:192738057605a232000baa3016a3d82419fded975699df5fdafc046233e12335",
+      "updatedAt": "2026-11-06T15:25:46.572Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/accenture-q1-fy24.js": {
+      "digest": "sha256:a0155ea78cfaab88b4c3804981e37f66106b5599ab5208221161c3bc350b3bd8",
+      "updatedAt": "2026-11-06T15:25:16.049Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/accenture-q1-fy25.js": {
+      "digest": "sha256:cf575f82f896a497079fbd468dfb534ebe0ca2e5afb22602339c607335175e0a",
+      "updatedAt": "2026-11-06T15:26:29.706Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/accenture-q1-fy26.js": {
+      "digest": "sha256:3b42f092d221c5305545bddaaf04fbbd6d39aaa339e342e210b83a1182868405",
+      "updatedAt": "2026-11-06T15:27:43.374Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/accenture-q2-fy23.js": {
+      "digest": "sha256:3eaee1912ba2f15d226e3a9223c841878e16ed63968c7ce81d5df715d222adb1",
+      "updatedAt": "2026-11-06T15:37:02.848Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/accenture-q2-fy24.js": {
+      "digest": "sha256:b4896e8b4eb0da4dc087569aaa0438222b2ec1b4495f3e5864b7feb9df71c2d7",
+      "updatedAt": "2026-11-06T15:24:56.378Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/accenture-q2-fy25.js": {
+      "digest": "sha256:dbeb4ecf328287779ec4b06195fc08af8bd7a9d1dc3b07646bd1dd77a9a4ff4c",
+      "updatedAt": "2026-11-06T15:29:00.117Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/accenture-q3-fy23.js": {
+      "digest": "sha256:42d7d62718bcf51c551733de4a839297a43a7b47cb69a0df1a666bc094a4f718",
+      "updatedAt": "2026-11-06T15:28:20.048Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/accenture-q3-fy24.js": {
+      "digest": "sha256:66cc3585a9fb618fed119e0d9dca97634ff6a9ac9f6560d048e868913a67c45c",
+      "updatedAt": "2026-11-06T15:25:26.916Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/accenture-q3-fy25.js": {
+      "digest": "sha256:fc9b60bb08e03458a9d4b8d2808a6b92f4eefd83922bc83c317330532b0279c8",
+      "updatedAt": "2026-11-06T15:26:19.936Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/accenture-q4-fy23.js": {
+      "digest": "sha256:3146b88a7b184c34ceee414f9c27305da27fd305b4a65ec8229a8c4ae1222458",
+      "updatedAt": "2026-11-06T16:02:50.663Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/accenture-q4-fy24.js": {
+      "digest": "sha256:e60e3c13c7b6ff0b5f0e6b33a8a49448724a8b0b4f706ea07c0c15dc4b923363",
+      "updatedAt": "2026-11-06T15:26:16.294Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/accenture-q4-fy25.js": {
+      "digest": "sha256:0ae474bf35bcaaf8a49d72e94efa4afb933c2fd082961b3e42f471892578ce81",
+      "updatedAt": "2026-11-06T15:26:45.729Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/alphabet-q3-fy26.js": {
+      "digest": "sha256:88bf3ad809706eaa53960a02c4964a704b68d846cb3550a99af73345a53883a0",
+      "updatedAt": "2026-11-06T15:25:32.896Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/amazon-q3-fy26.js": {
+      "digest": "sha256:2d73709c9588b820c017298c2904ae86580e7fb96d3364e8586ddc9f33789892",
+      "updatedAt": "2026-11-06T15:25:35.239Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/anthropic-h1-fy26.js": {
+      "digest": "sha256:871d36d2e144e45e6133ccc5625298b5fccaa0190daf0406731d4cc182c82d7d",
+      "updatedAt": "2026-11-06T15:24:48.860Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/etsy-q1-fy23.js": {
+      "digest": "sha256:694193c2e84a2e628bf1d2c5a924e8207f20c2c545775631cc6208139e86b078",
+      "updatedAt": "2026-11-06T15:30:11.495Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/etsy-q1-fy24.js": {
+      "digest": "sha256:7c14a8d239637085af4c63783717cc7c3a1cde5f8f44cc39d7b9700e20fd5b17",
+      "updatedAt": "2026-11-06T15:31:45.798Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/etsy-q1-fy25.js": {
+      "digest": "sha256:f2b42110237af338e743e82de0377a334c0f72c66fa2bd1bac8ebe509a77bcfb",
+      "updatedAt": "2026-11-06T15:32:15.926Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/etsy-q2-fy23.js": {
+      "digest": "sha256:cbdf0793a01a68503adc95ec0234b2615cbb4e949d40820349729e6675757495",
+      "updatedAt": "2026-11-06T15:27:11.300Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/etsy-q2-fy24.js": {
+      "digest": "sha256:addffb5e6dde2fd319a40a317f0781dddb2c07ee8c8accf81e81e72a62219f99",
+      "updatedAt": "2026-11-06T15:35:42.303Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/etsy-q2-fy25.js": {
+      "digest": "sha256:7c006ad20cd9b276982d07073359b45cc88d0583a8f1d3315f35274c4cbfb0c4",
+      "updatedAt": "2026-11-06T15:32:55.339Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/etsy-q3-fy22.js": {
+      "digest": "sha256:adc3aae82c31cffa2948afe2247bee100c55de44f9a54a5a80ed7f766fb0ce70",
+      "updatedAt": "2026-11-06T15:25:28.071Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/etsy-q3-fy23.js": {
+      "digest": "sha256:bda0153be166ef1fe033598033f837c45773c107e50aa096cd381ec4a57972c0",
+      "updatedAt": "2026-11-06T15:28:42.388Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/etsy-q3-fy24.js": {
+      "digest": "sha256:a75d7bdafc657f42d6e06f9f036622b9295f40f80e4621c7b4ebd80c33764703",
+      "updatedAt": "2026-11-06T15:33:31.260Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/etsy-q3-fy25.js": {
+      "digest": "sha256:7c8bf0b943e1f6954693f0578d60efd8495b2dff0d5d9198925aee65e27fa1f1",
+      "updatedAt": "2026-11-06T15:38:58.680Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/etsy-q4-fy22.js": {
+      "digest": "sha256:25cadce8779f85ebae6b5f6d7675ec9f9b33debdf1f8b38f99f438a3077ebf80",
+      "updatedAt": "2026-11-06T15:33:20.680Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/etsy-q4-fy23.js": {
+      "digest": "sha256:8266de08971ef6140672f3387825e4b631bf72fa3cc33664f571d497b9c6da8f",
+      "updatedAt": "2026-11-06T15:39:12.234Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/etsy-q4-fy24.js": {
+      "digest": "sha256:c065c554e93fe2f765ecd38bbb9c3bf9f32e0aeb58a3c6b99a64401eedbeebcc",
+      "updatedAt": "2026-11-06T15:36:20.845Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/ford-q3-fy26.js": {
+      "digest": "sha256:cde41aeabf1ba85167e9b52e4790e6c62822289a9369991ebaa07ce17ce4ada6",
+      "updatedAt": "2026-11-06T15:28:48.279Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/gm-q3-fy26.js": {
+      "digest": "sha256:a4ced351766d13457e16cc2343a57866596fb6d6c8ad1d607c345e8521a63b02",
+      "updatedAt": "2026-11-06T15:28:54.365Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/health-equity-q1-fy24.js": {
+      "digest": "sha256:9641426dc88682d762acf06e978aba7cdb6244eebc3f0f9c920a378321042543",
+      "updatedAt": "2026-11-06T15:29:52.503Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/health-equity-q1-fy25.js": {
+      "digest": "sha256:c09e48e236fe4023a5f8e59d170700a339e60cae69f078bc167aadbef8456cd4",
+      "updatedAt": "2026-11-06T15:30:00.990Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/health-equity-q1-fy26.js": {
+      "digest": "sha256:e85f936ad4ac4fd56abed4886e47cef115c71d7b7bcde9869d85b91caf1ca813",
+      "updatedAt": "2026-11-06T15:27:57.658Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/health-equity-q2-fy24.js": {
+      "digest": "sha256:2c3c31ef3f144e08ca3bac79560723944e278dbbd2e3f64ef556cdbfe3678a09",
+      "updatedAt": "2026-11-06T15:28:25.382Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/health-equity-q2-fy25.js": {
+      "digest": "sha256:9af67b1cedd35b5e5a9a6499b0fd648d7182abfd40dad87f18a5be20f2cd9ac0",
+      "updatedAt": "2026-11-06T15:27:30.431Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/health-equity-q2-fy26.js": {
+      "digest": "sha256:4a5846fe229ee30c357f1e7c9d81365436ece24921966f53ec2e44935e11100b",
+      "updatedAt": "2026-11-06T15:28:36.435Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/health-equity-q3-fy23.js": {
+      "digest": "sha256:c31f7c4885c6231ed87129f23032f23cd7d34c21d0f0f48395d246903ea7ee5a",
+      "updatedAt": "2026-11-06T15:25:37.733Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/health-equity-q3-fy24.js": {
+      "digest": "sha256:fb9700742ae6fa0432e342dca65346077518641f959893611511f519c47751f7",
+      "updatedAt": "2026-11-06T15:30:21.735Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/health-equity-q3-fy25.js": {
+      "digest": "sha256:f614701e333685e60c8600820fada1d527d423ae517763ba19e4644f80b0a601",
+      "updatedAt": "2026-11-06T15:28:13.418Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/health-equity-q3-fy26.js": {
+      "digest": "sha256:06b19f78e148e1acd2a6085b95204b5d408a58bf89c33f4e6beb588efa40daa1",
+      "updatedAt": "2026-11-06T15:29:38.381Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/health-equity-q4-fy23.js": {
+      "digest": "sha256:ae7e98e5f65ee2f5a6cfa621140bd4b4176a89ede3f70ad9ae7621f3939093c9",
+      "updatedAt": "2026-11-06T15:30:36.922Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/health-equity-q4-fy24.js": {
+      "digest": "sha256:e34fa05667cdce6ff5444f9d936f7fa42d56ce31050ef90c5560d04f9eb9dca8",
+      "updatedAt": "2026-11-06T15:37:13.476Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/health-equity-q4-fy25.js": {
+      "digest": "sha256:c3def6c67a5d66367075ba8bd01bbe3a4c935e7c387c121ebe4667f47656d406",
+      "updatedAt": "2026-11-06T15:30:43.736Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/home-depot-fy23.js": {
+      "digest": "sha256:c651b3c5c89908be4c88b9c0c0f764cf206e71ccc2bceef21946452bf8fe4bc2",
+      "updatedAt": "2026-11-06T15:28:02.842Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/home-depot-q1-fy23.js": {
+      "digest": "sha256:8d48ccc4b9800cb59194b8985a8ded71cb8971fdf62dd7c873c7aea8e0b0fe7a",
+      "updatedAt": "2026-11-06T15:26:23.566Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/home-depot-q1-fy24.js": {
+      "digest": "sha256:2f7d916c499e1928132b1ef943056647b3185a91babcec8c864d3e29ae5fc600",
+      "updatedAt": "2026-11-06T15:25:47.321Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/home-depot-q2-fy23.js": {
+      "digest": "sha256:09ea1a125a3d6fd230704b6c5bcb9e1ae432dbaf8f40ed0c56632f955d87d464",
+      "updatedAt": "2026-11-06T15:37:21.453Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/home-depot-q3-fy22.js": {
+      "digest": "sha256:44cdc300e1e455661a925db9cfe20381e9313585d85601d0401eaeab586c8ee7",
+      "updatedAt": "2026-11-06T15:36:46.558Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/home-depot-q3-fy23.js": {
+      "digest": "sha256:066c7cd3b44fc4bb534b7bb88ad8f8f3b7d6508a7913d95ebee0921164ebd70e",
+      "updatedAt": "2026-11-06T15:35:08.769Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/home-depot-q4-fy22.js": {
+      "digest": "sha256:21965a482953b75cd144cc6a17041e193ae5ca37edb4e75f948101ba7d20cbcf",
+      "updatedAt": "2026-11-06T15:26:01.725Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/intuitive-q1-fy23.js": {
+      "digest": "sha256:b97dc23d9971f5d913dd04c03a8dbfc5c2252b5c57ad4db585ca9e1561daa93f",
+      "updatedAt": "2026-11-06T15:31:26.905Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/intuitive-q1-fy24.js": {
+      "digest": "sha256:8ccf14ad104730742f4a5ddbd63d5e5c2d3bc266557b8153893c98306d15e4ac",
+      "updatedAt": "2026-11-06T15:31:35.152Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/intuitive-q1-fy25.js": {
+      "digest": "sha256:166775daf3a28c06db527fbd2e60c3ce60ce185e11a1011ac3ee1a30a3935260",
+      "updatedAt": "2026-11-06T15:34:57.970Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/intuitive-q2-fy23.js": {
+      "digest": "sha256:5fd06ce3c0a04c2629a514f5e295ad0dbf26e39ddf4c8b76c5f65e7a065d9752",
+      "updatedAt": "2026-11-06T15:34:18.290Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/intuitive-q2-fy24.js": {
+      "digest": "sha256:fc33eeeea7a8802d00a1b3012b984559ec5c3b5ed5b267305b06fb61c5985ca5",
+      "updatedAt": "2026-11-06T15:38:27.542Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/intuitive-q2-fy25.js": {
+      "digest": "sha256:de92c846fa73c7c2270ee21ed7ad31ce9a97c7bd3fed589995c05effbf34e7fa",
+      "updatedAt": "2026-11-06T15:33:54.996Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/intuitive-q3-fy23.js": {
+      "digest": "sha256:6e3a7e906f5e9c9f8d62c42e5b825e8a6cfe73d4e2713b16f6d499ec43a6bd8b",
+      "updatedAt": "2026-11-06T15:36:56.094Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/intuitive-q3-fy24.js": {
+      "digest": "sha256:d8c1fdce60e2b780a6f3826644e08af840eddf30c0b094501a4b14abdd9a3275",
+      "updatedAt": "2026-11-06T15:31:55.678Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/intuitive-q3-fy25.js": {
+      "digest": "sha256:f99e67182bb5547d5920f5f0db56cea5ae178a9489614657696bdc61c04ba604",
+      "updatedAt": "2026-11-06T15:36:41.553Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/intuitive-q4-fy22.js": {
+      "digest": "sha256:fe69916a18b522a588dca560237f41a95efb53b7307276f12eed51563d8c5721",
+      "updatedAt": "2026-11-06T15:28:31.068Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/intuitive-q4-fy23.js": {
+      "digest": "sha256:d41e353c73d61df68d0ea89514533636cb15ed120cc5741882c29fefb691d129",
+      "updatedAt": "2026-11-06T15:34:42.293Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/intuitive-q4-fy24.js": {
+      "digest": "sha256:5dedb872ea2d82645988e14df7627c1664f9ccec1a4461530c6a01c37fd6e8e4",
+      "updatedAt": "2026-11-06T15:30:30.621Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/kering-fy22.js": {
+      "digest": "sha256:7941ed67fd6a51d829f133e20984deca3bb5a978d347d1ca71c90d9cc78f7e04",
+      "updatedAt": "2026-11-06T15:32:07.942Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/kering-fy23.js": {
+      "digest": "sha256:64e30ae53c304d3e1e4cca1f1ab30caa703a2856ab382896c2095fd61a92dca7",
+      "updatedAt": "2026-11-06T15:26:35.161Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/kering-fy24.js": {
+      "digest": "sha256:01cae0c43532e5c1c9f8637dac246c89ef6837bc817c96b6c3876878834ad389",
+      "updatedAt": "2026-11-06T15:39:27.606Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/kering-h1-fy22.js": {
+      "digest": "sha256:e45def85470bcabae456ca10186ab6144f63bb5c77d297253e90a9b4db9ce439",
+      "updatedAt": "2026-11-06T15:26:08.593Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/kering-h1-fy23.js": {
+      "digest": "sha256:4b68285dd5f7905efb6f9a468b2ab4ed34ea4682be80105293de0ad663d04d07",
+      "updatedAt": "2026-11-06T15:38:13.347Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/kering-h1-fy24.js": {
+      "digest": "sha256:5dff2909a5143f1a6804574d04673928f51b2c7cae0bff9bf8173b36c30b89e3",
+      "updatedAt": "2026-11-06T15:25:42.973Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/kering-h1-fy25.js": {
+      "digest": "sha256:7226717e15775782078869477712850f8736250b6a099ccf8f13d2b96e8fbfc4",
+      "updatedAt": "2026-11-06T15:32:33.294Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/mercadolibre-q1-fy23.js": {
+      "digest": "sha256:94369a7f662247b3e9bcaa8072486801a19f8f95717a2c9b48aeda0c4cecfc9b",
+      "updatedAt": "2026-11-06T15:36:10.607Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/mercadolibre-q1-fy24.js": {
+      "digest": "sha256:c6b8c1b4146a4dbc18457f089553260ae750ed9983c7a32f2760c7c1ecabb8fa",
+      "updatedAt": "2026-11-06T15:39:55.425Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/mercadolibre-q1-fy25.js": {
+      "digest": "sha256:1fcfbfce459d378a09efe23c7944817b762c2a4c6947a733fd770ffd73470a27",
+      "updatedAt": "2026-11-06T15:33:04.446Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/mercadolibre-q2-fy23.js": {
+      "digest": "sha256:969da9e8aaa45a33dec3888a4ee7ecd61c223c925b7e4ae1bcbfef9516295fb7",
+      "updatedAt": "2026-11-06T15:27:50.074Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/mercadolibre-q2-fy24.js": {
+      "digest": "sha256:983f46077eb85a0901291ff3acd7284efa1eb4f2deeff12116d1e32ff269bccb",
+      "updatedAt": "2026-11-06T15:34:01.023Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/mercadolibre-q2-fy25.js": {
+      "digest": "sha256:d0386ab8b15814c954bd2cbd60ce8aaaa09eb7948a8e8cd281aeaf72e770b1eb",
+      "updatedAt": "2026-11-06T15:32:24.678Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/mercadolibre-q3-fy22.js": {
+      "digest": "sha256:88fb4949d2977cc594ed4e3e3fec8544fd1c2980f0597dbecca008bd2bb2b510",
+      "updatedAt": "2026-11-06T15:28:56.892Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/mercadolibre-q3-fy23.js": {
+      "digest": "sha256:e624a44f38a5a96eace7e1299d0dcbeb0df44102dc8ee65c3c4a0a734e06ee4f",
+      "updatedAt": "2026-11-06T15:36:27.376Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/mercadolibre-q3-fy24.js": {
+      "digest": "sha256:791e8df02853e8c229b9fd6c672bc6297b115f9bf997c06b676d1f9bf9e29fa0",
+      "updatedAt": "2026-11-06T15:36:35.040Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/mercadolibre-q3-fy25.js": {
+      "digest": "sha256:0ce0b5e2b1135f69962108371491338d72d6eedaf3835321b46757de0b3f97bc",
+      "updatedAt": "2026-11-06T15:28:10.357Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/mercadolibre-q4-fy22.js": {
+      "digest": "sha256:a6226bb75f9442805432c784da5df3c51d92dafd6b0f0eb1d6631480def60037",
+      "updatedAt": "2026-11-06T15:35:48.352Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/mercadolibre-q4-fy23.js": {
+      "digest": "sha256:741b74d1ae13a6ec91b1a04743c235bd2c3302c08ef75a26b91fc33bda821168",
+      "updatedAt": "2026-11-06T15:37:58.221Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/mercadolibre-q4-fy24.js": {
+      "digest": "sha256:539e9f8999f371c0c6d7a6944424c869adf5a31dfc2bf7eacd3112b8c27bc22c",
+      "updatedAt": "2026-11-06T15:32:41.777Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/meta-q3-fy26.js": {
+      "digest": "sha256:dd3e7a94b8fd99d8af902698d02d6c80323f70e1f934fdc127c8fa5f3e48c54f",
+      "updatedAt": "2026-11-06T15:25:53.167Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/microsoft-q1-fy27.js": {
+      "digest": "sha256:4a2a97287a859e6c578836702c1167fad36acf4e0dc01777dd91922bfa8de45f",
+      "updatedAt": "2026-11-06T15:25:22.698Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/netflix-q3-fy26.js": {
+      "digest": "sha256:493dd0375b1efcef4ecfc95228ed4b038b4ae199de3c41bd270d2d359499be26",
+      "updatedAt": "2026-11-06T15:26:43.385Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/pinterest-q3-fy26.js": {
+      "digest": "sha256:2959070abd25cea4ba225d8ceba89ef45531ea39f569a226abe96b0d1c3c30e0",
+      "updatedAt": "2026-11-06T15:26:57.944Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/reddit-q3-fy26.js": {
+      "digest": "sha256:75451d9212f9a02d996c23952858111b18b6bf56e13016ab73141689a7c30143",
+      "updatedAt": "2026-11-06T15:26:39.997Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/roblox-q3-fy26.js": {
+      "digest": "sha256:fe9694c1ef48a1d1dfe3ef82269200f38d4fcf4cc2ba93466717f3bcfdb03310",
+      "updatedAt": "2026-11-06T15:27:19.884Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/spacex-q3-fy26.js": {
+      "digest": "sha256:65df88703e164f369d832187fcd8b149772d9dd6ee7783d78ae81235a218e59a",
+      "updatedAt": "2026-11-06T15:27:27.040Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/spotify-q3-fy26.js": {
+      "digest": "sha256:3065163b819550d33b6c33b284eb6605a1ce50df218c359273a544a6339706c7",
+      "updatedAt": "2026-11-06T15:27:16.371Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/stellantis-q3-fy26.js": {
+      "digest": "sha256:08228a4351efd4e8d8c0bc2ce159ab0ff29323f793d76f410a030bc000f49f87",
+      "updatedAt": "2026-11-06T15:38:39.403Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/tesla-q3-fy26.js": {
+      "digest": "sha256:adafdecc84392dd0f21ebe08efce6c17f7219cbea84484a0fc60ec939c03cdd0",
+      "updatedAt": "2026-11-06T15:32:02.315Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/veeva-q1-fy24.js": {
+      "digest": "sha256:09fc1a299e9cca0fd1f97d0598398fac9063b3f7640414c5fa6237cc9d531cdc",
+      "updatedAt": "2026-11-06T15:27:08.585Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/veeva-q1-fy25.js": {
+      "digest": "sha256:98b51eaa32c605c7c4259ab006f35d93a816ff5162f6c37c64c2224040dfc196",
+      "updatedAt": "2026-11-06T15:26:55.550Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/veeva-q1-fy26.js": {
+      "digest": "sha256:b867888b5663d4b5ca396553c24351e4603819852bc9351018093029f0c4a786",
+      "updatedAt": "2026-11-06T15:37:44.153Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/veeva-q2-fy24.js": {
+      "digest": "sha256:7aec2bb6e0199be43568fe7d46b1e16872250408d243248192cf729c4e31cde8",
+      "updatedAt": "2026-11-06T15:25:58.800Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/veeva-q2-fy25.js": {
+      "digest": "sha256:8e7fbef0930526c010e34e850b4ba9e8b5fedbaf7d84a3d0d3d3481fbc56f28e",
+      "updatedAt": "2026-11-06T15:27:34.885Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/veeva-q2-fy26.js": {
+      "digest": "sha256:88596d2577f18ef950ab246aec99f068693cd315e63a0b48091aa4a5bcbcfbc3",
+      "updatedAt": "2026-11-06T15:36:00.155Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/veeva-q3-fy23.js": {
+      "digest": "sha256:52aa3211c8d20ccf9ff130e6803de9b7c40c916c6885e02feab07444481acd26",
+      "updatedAt": "2026-11-06T15:24:52.991Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/veeva-q3-fy25.js": {
+      "digest": "sha256:b605001fe5d1049bdd79469c155f03a64b807a3d604907215db8ae1d548c0aae",
+      "updatedAt": "2026-11-06T15:25:45.405Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/veeva-q4-fy23.js": {
+      "digest": "sha256:3ae28799d40c4938f7319ebc09ec50e800490d1ad78787f5a1d16ee29a27700b",
+      "updatedAt": "2026-11-06T15:26:37.499Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/veeva-q4-fy24.js": {
+      "digest": "sha256:2ee7269c61e6f27075029202393ad389fbe86eb082c93d39866cadce17391089",
+      "updatedAt": "2026-11-06T15:37:37.713Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
+    },
+    "data/datasets/veeva-q4-fy25.js": {
+      "digest": "sha256:5a67da8407e525ce88dc21da10c4f9d70c99d55fadf60c5551852469db78caeb",
+      "updatedAt": "2026-11-06T15:26:50.918Z",
+      "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0"
     }
   }
 }

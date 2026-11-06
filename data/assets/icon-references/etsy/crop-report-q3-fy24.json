@@ -1,0 +1,228 @@
+{
+  "source": "input/processing/etsy-q3-fy24.png",
+  "spec": "output/builds/build-81d12076-1918-41bd-a27d-9db979e9cff0/workspace/input/icon-crop-specs/etsy-q3-fy24.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T15:37:07.404835+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "output/builds/build-81d12076-1918-41bd-a27d-9db979e9cff0/workspace/data/assets/raster-annotations/etsy",
+  "crops": [
+    {
+      "key": "logo-q3-fy24",
+      "output": "output/builds/build-81d12076-1918-41bd-a27d-9db979e9cff0/workspace/data/assets/icon-references/etsy/crops/logo-q3-fy24.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3144,
+        "losslessBytes": 12611,
+        "savingsVsLossless": 0.7507,
+        "metrics": {
+          "meanAbsoluteError": 0.5619,
+          "rootMeanSquareError": 1.0916,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 20,
+          "changedPixelRatio": 0.8904
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 7912,
+        "transparentPixelRatio": 0.1093
+      },
+      "searchBox": {
+        "x": 757,
+        "y": 223,
+        "width": 269,
+        "height": 269
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 761,
+        "y0": 227,
+        "x1": 1021,
+        "y1": 486
+      },
+      "cropBox": {
+        "x0": 757,
+        "y0": 223,
+        "x1": 1026,
+        "y1": 492
+      },
+      "validation": {
+        "width": 269,
+        "height": 269,
+        "foregroundPixels": 60232,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 4,
+          "right": 5,
+          "top": 4,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": -0.0019,
+          "y": -0.0037
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "output/builds/build-81d12076-1918-41bd-a27d-9db979e9cff0/workspace/data/assets/raster-annotations/etsy/logo-q3-fy24.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3144,
+        "losslessBytes": 12611,
+        "savingsVsLossless": 0.7507,
+        "metrics": {
+          "meanAbsoluteError": 0.5619,
+          "rootMeanSquareError": 1.0916,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 20,
+          "changedPixelRatio": 0.8904
+        }
+      },
+      "validationSheet": "output/builds/build-81d12076-1918-41bd-a27d-9db979e9cff0/workspace/data/assets/icon-references/etsy/validation-sheets/logo-q3-fy24.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 242271,
+        "losslessBytes": 242271,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "brands-q3-fy24",
+      "output": "output/builds/build-81d12076-1918-41bd-a27d-9db979e9cff0/workspace/data/assets/icon-references/etsy/crops/brands-q3-fy24.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 3787,
+        "losslessBytes": 16734,
+        "savingsVsLossless": 0.7737,
+        "metrics": {
+          "meanAbsoluteError": 0.3794,
+          "rootMeanSquareError": 1.9249,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.195
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 39960,
+        "transparentPixelRatio": 0.8118
+      },
+      "searchBox": {
+        "x": 56,
+        "y": 658,
+        "width": 326,
+        "height": 151
+      },
+      "componentCount": 10,
+      "subjectBox": {
+        "x0": 63,
+        "y0": 663,
+        "x1": 377,
+        "y1": 802
+      },
+      "cropBox": {
+        "x0": 56,
+        "y0": 658,
+        "x1": 382,
+        "y1": 809
+      },
+      "validation": {
+        "width": 326,
+        "height": 151,
+        "foregroundPixels": 8382,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 5,
+          "top": 5,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": 0.0031,
+          "y": -0.0066
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "output/builds/build-81d12076-1918-41bd-a27d-9db979e9cff0/workspace/data/assets/raster-annotations/etsy/brands-q3-fy24.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 3787,
+        "losslessBytes": 16734,
+        "savingsVsLossless": 0.7737,
+        "metrics": {
+          "meanAbsoluteError": 0.3794,
+          "rootMeanSquareError": 1.9249,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.195
+        }
+      },
+      "validationSheet": "output/builds/build-81d12076-1918-41bd-a27d-9db979e9cff0/workspace/data/assets/icon-references/etsy/validation-sheets/brands-q3-fy24.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 243347,
+        "losslessBytes": 243347,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "source": "input/processed/kering-h1-fy22.png",
+  "outputDir": "data/assets/icon-references/kering",
+  "runtimeOutputDir": "data/assets/raster-annotations/kering",
+  "report": "crop-report-h1-fy22.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "crops": [
+    {
+      "key": "gucci",
+      "output": "crops/gucci-h1-fy22.png",
+      "runtimeOutput": "gucci-h1-fy22.png",
+      "searchBox": {
+        "x": 52,
+        "y": 454,
+        "width": 350,
+        "height": 69
+      },
+      "cropBox": {
+        "x": 52,
+        "y": 454,
+        "width": 350,
+        "height": 69
+      },
+      "threshold": 24,
+      "minComponentArea": 4,
+      "padding": 0,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "saint-laurent",
+      "output": "crops/saint-laurent-h1-fy22.png",
+      "runtimeOutput": "saint-laurent-h1-fy22.png",
+      "searchBox": {
+        "x": 21,
+        "y": 690,
+        "width": 404,
+        "height": 63
+      },
+      "cropBox": {
+        "x": 21,
+        "y": 690,
+        "width": 404,
+        "height": 63
+      },
+      "threshold": 24,
+      "minComponentArea": 4,
+      "padding": 0,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "bottega-veneta",
+      "output": "crops/bottega-veneta-h1-fy22.png",
+      "runtimeOutput": "bottega-veneta-h1-fy22.png",
+      "searchBox": {
+        "x": 44,
+        "y": 893,
+        "width": 358,
+        "height": 55
+      },
+      "cropBox": {
+        "x": 44,
+        "y": 893,
+        "width": 358,
+        "height": 55
+      },
+      "threshold": 24,
+      "minComponentArea": 4,
+      "padding": 0,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "company-wordmark",
+      "output": "crops/company-wordmark-h1-fy22.png",
+      "runtimeOutput": "company-wordmark-h1-fy22.png",
+      "searchBox": {
+        "x": 677,
+        "y": 307,
+        "width": 638,
+        "height": 91
+      },
+      "cropBox": {
+        "x": 677,
+        "y": 307,
+        "width": 638,
+        "height": 91
+      },
+      "threshold": 24,
+      "minComponentArea": 4,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "company-emblem",
+      "output": "crops/company-emblem-h1-fy22.png",
+      "runtimeOutput": "company-emblem-h1-fy22.png",
+      "searchBox": {
+        "x": 893,
+        "y": 410,
+        "width": 206,
+        "height": 120
+      },
+      "cropBox": {
+        "x": 893,
+        "y": 410,
+        "width": 206,
+        "height": 120
+      },
+      "threshold": 24,
+      "minComponentArea": 4,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "source": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-060804e4-3fb8-4014-941f-51b2a9721a6e/workspace/input/processing/veeva-q3-fy25.png",
+  "outputDir": "data/assets/icon-references/veeva",
+  "runtimeOutputDir": "data/assets/raster-annotations/veeva",
+  "report": "crop-report-q3-fy25.json",
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "company-logo-q3-fy25",
+      "output": "crops/company-logo-q3-fy25.png",
+      "runtimeOutput": "company-logo-q3-fy25.png",
+      "searchBox": {
+        "x": 846,
+        "y": 277,
+        "width": 559,
+        "height": 141
+      },
+      "cropBox": {
+        "x": 846,
+        "y": 277,
+        "width": 559,
+        "height": 141
+      },
+      "threshold": 8,
+      "minComponentArea": 4,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.35,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Source brand-only crop; excludes all financial text and chart geometry."
+    },
+    {
+      "key": "vault-logo-q3-fy25",
+      "output": "crops/vault-logo-q3-fy25.png",
+      "runtimeOutput": "vault-logo-q3-fy25.png",
+      "searchBox": {
+        "x": 65,
+        "y": 598,
+        "width": 277,
+        "height": 52
+      },
+      "cropBox": {
+        "x": 65,
+        "y": 598,
+        "width": 277,
+        "height": 52
+      },
+      "threshold": 8,
+      "minComponentArea": 4,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.35,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Source brand-only crop; excludes all financial text and chart geometry."
+    },
+    {
+      "key": "crm-logo-q3-fy25",
+      "output": "crops/crm-logo-q3-fy25.png",
+      "runtimeOutput": "crm-logo-q3-fy25.png",
+      "searchBox": {
+        "x": 68,
+        "y": 949,
+        "width": 266,
+        "height": 49
+      },
+      "cropBox": {
+        "x": 68,
+        "y": 949,
+        "width": 266,
+        "height": 49
+      },
+      "threshold": 8,
+      "minComponentArea": 4,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.35,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Source brand-only crop; excludes all financial text and chart geometry."
+    }
+  ]
+}

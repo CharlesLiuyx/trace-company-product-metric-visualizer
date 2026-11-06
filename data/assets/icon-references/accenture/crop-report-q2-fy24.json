@@ -1,0 +1,140 @@
+{
+  "source": "input/processing/accenture-q2-fy24.png",
+  "spec": "input/icon-crop-specs/accenture-q2-fy24.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T15:27:03.020992+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/accenture",
+  "crops": [
+    {
+      "key": "accenture-wordmark-q2-fy24",
+      "output": "data/assets/icon-references/accenture/crops/company-wordmark-q2-fy24.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4340,
+        "losslessBytes": 21838,
+        "savingsVsLossless": 0.8013,
+        "metrics": {
+          "meanAbsoluteError": 0.3162,
+          "rootMeanSquareError": 2.0807,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.0727
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 105649,
+        "transparentPixelRatio": 0.7273
+      },
+      "searchBox": {
+        "x": 738,
+        "y": 246,
+        "width": 730,
+        "height": 199
+      },
+      "componentCount": 10,
+      "subjectBox": {
+        "x0": 749,
+        "y0": 252,
+        "x1": 1456,
+        "y1": 439
+      },
+      "cropBox": {
+        "x0": 738,
+        "y0": 246,
+        "x1": 1468,
+        "y1": 445
+      },
+      "validation": {
+        "width": 730,
+        "height": 199,
+        "foregroundPixels": 38162,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 11,
+          "right": 12,
+          "top": 6,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": -0.0007,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Full Accenture wordmark and greater-than mark, excluding financial labels.",
+      "runtimeOutput": "data/assets/raster-annotations/accenture/company-wordmark-q2-fy24.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4340,
+        "losslessBytes": 21838,
+        "savingsVsLossless": 0.8013,
+        "metrics": {
+          "meanAbsoluteError": 0.3162,
+          "rootMeanSquareError": 2.0807,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 36,
+          "changedPixelRatio": 0.0727
+        }
+      },
+      "validationSheet": "data/assets/icon-references/accenture/validation-sheets/accenture-wordmark-q2-fy24.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 192,
+        "bytes": 90310,
+        "losslessBytes": 255712,
+        "savingsVsLossless": 0.6468,
+        "metrics": {
+          "meanAbsoluteError": 0.2786,
+          "rootMeanSquareError": 2.0372,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 67,
+          "changedPixelRatio": 0.0699
+        }
+      }
+    }
+  ]
+}

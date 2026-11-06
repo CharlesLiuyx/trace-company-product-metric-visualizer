@@ -1,0 +1,84 @@
+{
+  "source": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/input/processing/kering-h1-fy25.png",
+  "outputDir": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-cee55134-1d9b-43ce-9c1d-f6ca20da7de0/workspace/data/assets/icon-references/kering",
+  "runtimeOutputDir": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-cee55134-1d9b-43ce-9c1d-f6ca20da7de0/workspace/data/assets/raster-annotations/kering",
+  "validationSheetDir": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-cee55134-1d9b-43ce-9c1d-f6ca20da7de0/workspace/data/assets/icon-references/kering/validation-sheets-h1-fy25",
+  "report": "crop-report-h1-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "crops": [
+    {
+      "key": "kering-h1-fy25",
+      "output": "crops/kering-h1-fy25.png",
+      "runtimeOutput": "kering-h1-fy25.png",
+      "searchBox": {
+        "x": 680,
+        "y": 310,
+        "width": 620,
+        "height": 90
+      },
+      "threshold": 18,
+      "minComponentArea": 4,
+      "padding": 7
+    },
+    {
+      "key": "kering-owl-h1-fy25",
+      "output": "crops/kering-owl-h1-fy25.png",
+      "runtimeOutput": "kering-owl-h1-fy25.png",
+      "searchBox": {
+        "x": 900,
+        "y": 415,
+        "width": 190,
+        "height": 110
+      },
+      "threshold": 18,
+      "minComponentArea": 4,
+      "padding": 7
+    },
+    {
+      "key": "gucci-h1-fy25",
+      "output": "crops/gucci-h1-fy25.png",
+      "runtimeOutput": "gucci-h1-fy25.png",
+      "searchBox": {
+        "x": 58,
+        "y": 476,
+        "width": 330,
+        "height": 65
+      },
+      "threshold": 18,
+      "minComponentArea": 4,
+      "padding": 7
+    },
+    {
+      "key": "saint-laurent-h1-fy25",
+      "output": "crops/saint-laurent-h1-fy25.png",
+      "runtimeOutput": "saint-laurent-h1-fy25.png",
+      "searchBox": {
+        "x": 28,
+        "y": 715,
+        "width": 390,
+        "height": 48
+      },
+      "threshold": 18,
+      "minComponentArea": 4,
+      "padding": 7
+    },
+    {
+      "key": "bottega-veneta-h1-fy25",
+      "output": "crops/bottega-veneta-h1-fy25.png",
+      "runtimeOutput": "bottega-veneta-h1-fy25.png",
+      "searchBox": {
+        "x": 48,
+        "y": 873,
+        "width": 355,
+        "height": 43
+      },
+      "threshold": 18,
+      "minComponentArea": 4,
+      "padding": 7
+    }
+  ]
+}

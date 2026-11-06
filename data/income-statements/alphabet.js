@@ -8,7 +8,244 @@
     records: [],
   });
 
-  ssot.records.push(
+  ssot.records.push({
+  "key": "alphabet-q3-fy26",
+  "company": "Alphabet",
+  "period": "Q3 FY26",
+  "periodNote": "",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/alphabet-q3-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 127.6,
+    "notes": [
+      "+25% Y/Y",
+      "Printed advertising details sum to 82.1B versus 82.0B due to rounding."
+    ],
+    "items": [
+      {
+        "id": "ad_revenue",
+        "label": "Ad Revenue",
+        "value": 82,
+        "children": [
+          {
+            "id": "search_advertising",
+            "label": "Search advertising",
+            "value": 63.4
+          },
+          {
+            "id": "youtube",
+            "label": "YouTube",
+            "value": 11.2
+          },
+          {
+            "id": "google_admob",
+            "label": "Google AdMob",
+            "value": 7.5
+          }
+        ]
+      },
+      {
+        "id": "google_play_devices",
+        "label": "Google Play",
+        "value": 14.3
+      },
+      {
+        "id": "google_cloud",
+        "label": "Google Cloud",
+        "value": 30.7
+      },
+      {
+        "id": "other_revenue",
+        "label": "Other",
+        "value": 0.6
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": [
+        "Cost of",
+        "revenues"
+      ],
+      "value": 51.4,
+      "items": [
+        {
+          "id": "cost_other",
+          "label": "Other",
+          "value": 35
+        },
+        {
+          "id": "tac",
+          "label": "TAC",
+          "value": 16.4
+        }
+      ]
+    },
+    "operatingExpenses": {
+      "total": 35.6,
+      "notes": [
+        "Printed expense details sum to 35.5B versus 35.6B due to rounding."
+      ],
+      "items": [
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 20.6
+        },
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 8.8
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 6.1
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 5.9
+    }
+  },
+  "otherExpenses": {
+    "total": 8.2,
+    "items": [
+      {
+        "id": "other_expenses",
+        "label": "Other",
+        "value": 8.2
+      }
+    ]
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 76.2
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 40.6
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 26.5
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "periodNote": "",
+      "revenue": {
+        "notes": [
+          "同比 +25%",
+          "来源图广告收入明细因舍入合计为 82.1B，合计印为 82.0B。"
+        ],
+        "items": [
+          {
+            "id": "ad_revenue",
+            "label": "广告收入",
+            "children": [
+              {
+                "id": "search_advertising",
+                "label": "搜索广告"
+              },
+              {
+                "id": "youtube",
+                "label": "YouTube"
+              },
+              {
+                "id": "google_admob",
+                "label": "Google AdMob"
+              }
+            ]
+          },
+          {
+            "id": "google_play_devices",
+            "label": "Google Play"
+          },
+          {
+            "id": "google_cloud",
+            "label": "Google Cloud"
+          },
+          {
+            "id": "other_revenue",
+            "label": "其他"
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本",
+          "items": [
+            {
+              "id": "cost_other",
+              "label": "其他"
+            },
+            {
+              "id": "tac",
+              "label": "流量获取成本"
+            }
+          ]
+        },
+        "operatingExpenses": {
+          "notes": [
+            "来源图运营费用明细因舍入合计为 35.5B，合计印为 35.6B。"
+          ],
+          "items": [
+            {
+              "id": "rnd",
+              "label": "研发"
+            },
+            {
+              "id": "sm",
+              "label": "销售与市场"
+            },
+            {
+              "id": "ga",
+              "label": "管理费用"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other_expenses",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润"
+        },
+        "operating": {
+          "label": "营业利润"
+        },
+        "net": {
+          "label": "净利润"
+        }
+      }
+    }
+  }
+},
     {
       key: 'alphabet-q2-fy24',
       company: 'Alphabet',

@@ -1,0 +1,48 @@
+{
+  "source": "input/processing/accenture-q4-fy24.png",
+  "outputDir": "data/assets/icon-references/accenture",
+  "runtimeOutputDir": "data/assets/raster-annotations/accenture",
+  "report": "crop-report-q4-fy24.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [
+      242,
+      242,
+      242
+    ],
+    "tolerance": 10
+  },
+  "crops": [
+    {
+      "key": "company-wordmark-q4-fy24",
+      "output": "crops/company-wordmark-q4-fy24.png",
+      "runtimeOutput": "company-wordmark-q4-fy24.png",
+      "searchBox": {
+        "x": 735,
+        "y": 245,
+        "width": 730,
+        "height": 195
+      },
+      "cropBox": {
+        "x": 735,
+        "y": 245,
+        "width": 730,
+        "height": 200
+      },
+      "threshold": 18,
+      "minComponentArea": 20,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete Accenture logo above Consulting; excludes financial labels."
+    }
+  ]
+}

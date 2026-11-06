@@ -1,0 +1,90 @@
+{
+  "source": "input/processed/veeva-q3-fy23.png",
+  "outputDir": "data/assets/icon-references/veeva",
+  "runtimeOutputDir": "data/assets/raster-annotations/veeva",
+  "report": "crop-report-q3-fy23.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "veeva-logo-q3-fy23",
+      "output": "crops/logo-q3-fy23.png",
+      "searchBox": {
+        "x": 479,
+        "y": 271,
+        "width": 556,
+        "height": 133
+      },
+      "cropBox": {
+        "x": 479,
+        "y": 271,
+        "width": 556,
+        "height": 133
+      },
+      "threshold": 18,
+      "minComponentArea": 8,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete Source brand asset; excludes financial labels and Sankey faces."
+    },
+    {
+      "key": "veeva-crm-q3-fy23",
+      "output": "crops/crm-q3-fy23.png",
+      "searchBox": {
+        "x": 74,
+        "y": 628,
+        "width": 258,
+        "height": 44
+      },
+      "cropBox": {
+        "x": 74,
+        "y": 628,
+        "width": 258,
+        "height": 44
+      },
+      "threshold": 18,
+      "minComponentArea": 8,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete Source brand asset; excludes financial labels and Sankey faces."
+    },
+    {
+      "key": "veeva-vault-q3-fy23",
+      "output": "crops/vault-q3-fy23.png",
+      "searchBox": {
+        "x": 65,
+        "y": 968,
+        "width": 275,
+        "height": 44
+      },
+      "cropBox": {
+        "x": 65,
+        "y": 968,
+        "width": 275,
+        "height": 44
+      },
+      "threshold": 18,
+      "minComponentArea": 8,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete Source brand asset; excludes financial labels and Sankey faces."
+    }
+  ]
+}

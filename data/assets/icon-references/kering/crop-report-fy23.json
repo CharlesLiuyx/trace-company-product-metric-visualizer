@@ -1,0 +1,382 @@
+{
+  "source": "input/processed/kering-fy23.png",
+  "spec": "input/icon-crop-specs/kering-fy23.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T15:53:01.320625+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/kering",
+  "crops": [
+    {
+      "key": "kering-fy23",
+      "output": "data/assets/icon-references/kering/crops/kering-fy23.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 5029,
+        "losslessBytes": 23676,
+        "savingsVsLossless": 0.7876,
+        "metrics": {
+          "meanAbsoluteError": 0.2213,
+          "rootMeanSquareError": 1.1991,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 20,
+          "changedPixelRatio": 0.0813
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 108905,
+        "transparentPixelRatio": 0.8767
+      },
+      "searchBox": {
+        "x": 677,
+        "y": 309,
+        "width": 618,
+        "height": 201
+      },
+      "componentCount": 11,
+      "subjectBox": {
+        "x0": 694,
+        "y0": 312,
+        "x1": 1293,
+        "y1": 510
+      },
+      "cropBox": {
+        "x0": 677,
+        "y0": 309,
+        "x1": 1295,
+        "y1": 510
+      },
+      "validation": {
+        "width": 618,
+        "height": 201,
+        "foregroundPixels": 11243,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 17,
+          "right": 2,
+          "top": 3,
+          "bottom": 0
+        },
+        "centerOffset": {
+          "x": 0.0121,
+          "y": 0.0075
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/kering/kering-fy23.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 5029,
+        "losslessBytes": 23676,
+        "savingsVsLossless": 0.7876,
+        "metrics": {
+          "meanAbsoluteError": 0.2213,
+          "rootMeanSquareError": 1.1991,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 20,
+          "changedPixelRatio": 0.0813
+        }
+      }
+    },
+    {
+      "key": "gucci-fy23",
+      "output": "data/assets/icon-references/kering/crops/gucci-fy23.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1580,
+        "losslessBytes": 8002,
+        "savingsVsLossless": 0.8025,
+        "metrics": {
+          "meanAbsoluteError": 0.454,
+          "rootMeanSquareError": 2.0018,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 24,
+          "changedPixelRatio": 0.1217
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 14785,
+        "transparentPixelRatio": 0.8025
+      },
+      "searchBox": {
+        "x": 59,
+        "y": 476,
+        "width": 329,
+        "height": 56
+      },
+      "componentCount": 5,
+      "subjectBox": {
+        "x0": 66,
+        "y0": 481,
+        "x1": 381,
+        "y1": 530
+      },
+      "cropBox": {
+        "x0": 59,
+        "y0": 476,
+        "x1": 388,
+        "y1": 532
+      },
+      "validation": {
+        "width": 329,
+        "height": 56,
+        "foregroundPixels": 3397,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 7,
+          "top": 5,
+          "bottom": 2
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0268
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/kering/gucci-fy23.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1580,
+        "losslessBytes": 8002,
+        "savingsVsLossless": 0.8025,
+        "metrics": {
+          "meanAbsoluteError": 0.454,
+          "rootMeanSquareError": 2.0018,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 24,
+          "changedPixelRatio": 0.1217
+        }
+      }
+    },
+    {
+      "key": "saint-fy23",
+      "output": "data/assets/icon-references/kering/crops/saint-fy23.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2002,
+        "losslessBytes": 8543,
+        "savingsVsLossless": 0.7657,
+        "metrics": {
+          "meanAbsoluteError": 0.7292,
+          "rootMeanSquareError": 2.4048,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 24,
+          "changedPixelRatio": 0.2074
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          240,
+          240,
+          240
+        ],
+        "transparentPixels": 10036,
+        "transparentPixelRatio": 0.5225
+      },
+      "searchBox": {
+        "x": 27,
+        "y": 722,
+        "width": 392,
+        "height": 49
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 31,
+        "y0": 727,
+        "x1": 416,
+        "y1": 766
+      },
+      "cropBox": {
+        "x0": 27,
+        "y0": 722,
+        "x1": 419,
+        "y1": 771
+      },
+      "validation": {
+        "width": 392,
+        "height": 49,
+        "foregroundPixels": 8579,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 4,
+          "right": 3,
+          "top": 5,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0013,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/kering/saint-fy23.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2002,
+        "losslessBytes": 8543,
+        "savingsVsLossless": 0.7657,
+        "metrics": {
+          "meanAbsoluteError": 0.7292,
+          "rootMeanSquareError": 2.4048,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 24,
+          "changedPixelRatio": 0.2074
+        }
+      }
+    },
+    {
+      "key": "bottega-fy23",
+      "output": "data/assets/icon-references/kering/crops/bottega-fy23.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2021,
+        "losslessBytes": 9328,
+        "savingsVsLossless": 0.7833,
+        "metrics": {
+          "meanAbsoluteError": 0.7428,
+          "rootMeanSquareError": 2.013,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 16,
+          "changedPixelRatio": 0.3419
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 9720,
+        "transparentPixelRatio": 0.6612
+      },
+      "searchBox": {
+        "x": 49,
+        "y": 918,
+        "width": 350,
+        "height": 42
+      },
+      "componentCount": 13,
+      "subjectBox": {
+        "x0": 53,
+        "y0": 922,
+        "x1": 396,
+        "y1": 953
+      },
+      "cropBox": {
+        "x0": 49,
+        "y0": 918,
+        "x1": 399,
+        "y1": 960
+      },
+      "validation": {
+        "width": 350,
+        "height": 42,
+        "foregroundPixels": 4212,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 4,
+          "right": 3,
+          "top": 4,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": 0.0014,
+          "y": -0.0357
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/kering/bottega-fy23.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2021,
+        "losslessBytes": 9328,
+        "savingsVsLossless": 0.7833,
+        "metrics": {
+          "meanAbsoluteError": 0.7428,
+          "rootMeanSquareError": 2.013,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 16,
+          "changedPixelRatio": 0.3419
+        }
+      }
+    }
+  ]
+}

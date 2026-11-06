@@ -1,0 +1,468 @@
+{
+  "source": "input/processed/kering-h1-fy23.png",
+  "spec": "input/icon-crop-specs/kering-h1-fy23.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T15:56:38.072457+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/kering",
+  "crops": [
+    {
+      "key": "kering-wordmark-h1-fy23",
+      "output": "data/assets/icon-references/kering/crops/kering-wordmark-h1-fy23.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2455,
+        "losslessBytes": 10243,
+        "savingsVsLossless": 0.7603,
+        "metrics": {
+          "meanAbsoluteError": 0.2857,
+          "rootMeanSquareError": 1.4284,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 25,
+          "changedPixelRatio": 0.0949
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 41995,
+        "transparentPixelRatio": 0.8148
+      },
+      "searchBox": {
+        "x": 684,
+        "y": 311,
+        "width": 621,
+        "height": 83
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 694,
+        "y0": 320,
+        "x1": 1293,
+        "y1": 385
+      },
+      "cropBox": {
+        "x0": 684,
+        "y0": 311,
+        "x1": 1305,
+        "y1": 394
+      },
+      "validation": {
+        "width": 621,
+        "height": 83,
+        "foregroundPixels": 8422,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 10,
+          "right": 12,
+          "top": 9,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": -0.0016,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Source brand mark only; excludes neighboring label and Sankey flow.",
+      "runtimeOutput": "data/assets/raster-annotations/kering/kering-wordmark-h1-fy23.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2455,
+        "losslessBytes": 10243,
+        "savingsVsLossless": 0.7603,
+        "metrics": {
+          "meanAbsoluteError": 0.2857,
+          "rootMeanSquareError": 1.4284,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 25,
+          "changedPixelRatio": 0.0949
+        }
+      }
+    },
+    {
+      "key": "kering-owl-h1-fy23",
+      "output": "data/assets/icon-references/kering/crops/kering-owl-h1-fy23.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2447,
+        "losslessBytes": 12838,
+        "savingsVsLossless": 0.8094,
+        "metrics": {
+          "meanAbsoluteError": 0.5414,
+          "rootMeanSquareError": 1.6167,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 13,
+          "changedPixelRatio": 0.2653
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 16017,
+        "transparentPixelRatio": 0.7334
+      },
+      "searchBox": {
+        "x": 899,
+        "y": 414,
+        "width": 195,
+        "height": 112
+      },
+      "componentCount": 5,
+      "subjectBox": {
+        "x0": 905,
+        "y0": 422,
+        "x1": 1086,
+        "y1": 521
+      },
+      "cropBox": {
+        "x0": 899,
+        "y0": 414,
+        "x1": 1094,
+        "y1": 526
+      },
+      "validation": {
+        "width": 195,
+        "height": 112,
+        "foregroundPixels": 2939,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 8,
+          "top": 8,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": -0.0051,
+          "y": 0.0134
+        },
+        "passes": true
+      },
+      "note": "Source brand mark only; excludes neighboring label and Sankey flow.",
+      "runtimeOutput": "data/assets/raster-annotations/kering/kering-owl-h1-fy23.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2447,
+        "losslessBytes": 12838,
+        "savingsVsLossless": 0.8094,
+        "metrics": {
+          "meanAbsoluteError": 0.5414,
+          "rootMeanSquareError": 1.6167,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 13,
+          "changedPixelRatio": 0.2653
+        }
+      }
+    },
+    {
+      "key": "gucci-h1-fy23",
+      "output": "data/assets/icon-references/kering/crops/gucci-h1-fy23.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1606,
+        "losslessBytes": 8083,
+        "savingsVsLossless": 0.8013,
+        "metrics": {
+          "meanAbsoluteError": 0.364,
+          "rootMeanSquareError": 1.7996,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 24,
+          "changedPixelRatio": 0.0953
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 19518,
+        "transparentPixelRatio": 0.8444
+      },
+      "searchBox": {
+        "x": 60,
+        "y": 439,
+        "width": 335,
+        "height": 69
+      },
+      "componentCount": 5,
+      "subjectBox": {
+        "x0": 66,
+        "y0": 450,
+        "x1": 381,
+        "y1": 499
+      },
+      "cropBox": {
+        "x0": 60,
+        "y0": 439,
+        "x1": 395,
+        "y1": 508
+      },
+      "validation": {
+        "width": 335,
+        "height": 69,
+        "foregroundPixels": 3397,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 14,
+          "top": 11,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": -0.0119,
+          "y": 0.0145
+        },
+        "passes": true
+      },
+      "note": "Complete Source brand mark only; excludes amounts, flows and publisher.",
+      "runtimeOutput": "data/assets/raster-annotations/kering/gucci-h1-fy23.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 1606,
+        "losslessBytes": 8083,
+        "savingsVsLossless": 0.8013,
+        "metrics": {
+          "meanAbsoluteError": 0.364,
+          "rootMeanSquareError": 1.7996,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 24,
+          "changedPixelRatio": 0.0953
+        }
+      }
+    },
+    {
+      "key": "saint-laurent-h1-fy23",
+      "output": "data/assets/icon-references/kering/crops/saint-laurent-h1-fy23.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2010,
+        "losslessBytes": 8466,
+        "savingsVsLossless": 0.7626,
+        "metrics": {
+          "meanAbsoluteError": 0.5204,
+          "rootMeanSquareError": 1.7951,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 16,
+          "changedPixelRatio": 0.1722
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 13562,
+        "transparentPixelRatio": 0.5993
+      },
+      "searchBox": {
+        "x": 23,
+        "y": 682,
+        "width": 397,
+        "height": 57
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 31,
+        "y0": 690,
+        "x1": 416,
+        "y1": 730
+      },
+      "cropBox": {
+        "x0": 23,
+        "y0": 682,
+        "x1": 420,
+        "y1": 739
+      },
+      "validation": {
+        "width": 397,
+        "height": 57,
+        "foregroundPixels": 8590,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 8,
+          "right": 4,
+          "top": 8,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": 0.005,
+          "y": -0.0088
+        },
+        "passes": true
+      },
+      "note": "Complete Source brand mark only; excludes amounts, flows and publisher.",
+      "runtimeOutput": "data/assets/raster-annotations/kering/saint-laurent-h1-fy23.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2010,
+        "losslessBytes": 8466,
+        "savingsVsLossless": 0.7626,
+        "metrics": {
+          "meanAbsoluteError": 0.5204,
+          "rootMeanSquareError": 1.7951,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 16,
+          "changedPixelRatio": 0.1722
+        }
+      }
+    },
+    {
+      "key": "bottega-veneta-h1-fy23",
+      "output": "data/assets/icon-references/kering/crops/bottega-veneta-h1-fy23.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2011,
+        "losslessBytes": 9375,
+        "savingsVsLossless": 0.7855,
+        "metrics": {
+          "meanAbsoluteError": 0.7051,
+          "rootMeanSquareError": 1.979,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 16,
+          "changedPixelRatio": 0.321
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 10749,
+        "transparentPixelRatio": 0.6862
+      },
+      "searchBox": {
+        "x": 47,
+        "y": 866,
+        "width": 356,
+        "height": 44
+      },
+      "componentCount": 13,
+      "subjectBox": {
+        "x0": 53,
+        "y0": 872,
+        "x1": 396,
+        "y1": 903
+      },
+      "cropBox": {
+        "x0": 47,
+        "y0": 866,
+        "x1": 403,
+        "y1": 910
+      },
+      "validation": {
+        "width": 356,
+        "height": 44,
+        "foregroundPixels": 4212,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 7,
+          "top": 6,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": -0.0014,
+          "y": -0.0114
+        },
+        "passes": true
+      },
+      "note": "Complete Source brand mark only; excludes amounts, flows and publisher.",
+      "runtimeOutput": "data/assets/raster-annotations/kering/bottega-veneta-h1-fy23.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 2011,
+        "losslessBytes": 9375,
+        "savingsVsLossless": 0.7855,
+        "metrics": {
+          "meanAbsoluteError": 0.7051,
+          "rootMeanSquareError": 1.979,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 16,
+          "changedPixelRatio": 0.321
+        }
+      }
+    }
+  ]
+}

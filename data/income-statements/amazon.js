@@ -1775,6 +1775,353 @@
           },
         },
       },
+    },
+{
+  "key": "amazon-q3-fy26",
+  "company": "Amazon",
+  "period": "Q3 FY26",
+  "periodNote": "Ending Sep. 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/amazon-q3-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 201.9,
+    "notes": [
+      "+12% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "online_stores",
+        "label": "Online Stores",
+        "value": 68.5,
+        "notes": [
+          "+2% Y/Y"
+        ]
+      },
+      {
+        "id": "physical_store",
+        "label": "Physical Stores",
+        "value": 5.7,
+        "notes": [
+          "+2% Y/Y"
+        ]
+      },
+      {
+        "id": "third_party_seller_services",
+        "label": "3rd party seller services",
+        "value": 46.5,
+        "notes": [
+          "+9% Y/Y"
+        ]
+      },
+      {
+        "id": "advertising",
+        "label": "Advertising",
+        "value": 19.6,
+        "notes": [
+          "+11% Y/Y"
+        ]
+      },
+      {
+        "id": "subscription",
+        "label": "Subscription",
+        "value": 14,
+        "notes": [
+          "+11% Y/Y"
+        ]
+      },
+      {
+        "id": "aws",
+        "label": "AWS",
+        "value": 46,
+        "notes": [
+          "+39% Y/Y"
+        ]
+      },
+      {
+        "id": "other_revenue",
+        "label": "Other",
+        "value": 1.6,
+        "notes": [
+          "+16% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_sales",
+      "label": "Cost of sales",
+      "value": 94.6
+    },
+    "operatingExpenses": {
+      "total": 79.3,
+      "items": [
+        {
+          "id": "technology_content",
+          "label": "Technology & infrastructure",
+          "value": 34.8,
+          "notes": [
+            "17% of revenue",
+            "+1pp Y/Y"
+          ]
+        },
+        {
+          "id": "fulfillment",
+          "label": "Fulfillment",
+          "value": 30,
+          "notes": [
+            "15% of revenue",
+            "(1pp) Y/Y"
+          ]
+        },
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 11.6,
+          "notes": [
+            "6% of revenue",
+            "(1pp) Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 2.7,
+          "notes": [
+            "1% of revenue",
+            "(0pp) Y/Y"
+          ]
+        },
+        {
+          "id": "other_opex",
+          "label": "Other opex",
+          "value": 0.1,
+          "notes": [
+            "0% of revenue",
+            "(2pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 6.2
     }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 1.2,
+    "items": [
+      {
+        "id": "other_expenses",
+        "label": "Other",
+        "value": 1.2
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 107.4,
+      "notes": [
+        "53% margin",
+        "+2pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 28.1,
+      "notes": [
+        "14% margin",
+        "+4pp Y/Y"
+      ],
+      "items": [
+        {
+          "id": "aws_operating_profit",
+          "label": "AWS operating profit",
+          "value": 17.8
+        },
+        {
+          "id": "other_operating_profit",
+          "label": "Other operating profit",
+          "value": 10.3
+        }
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 20.7,
+      "notes": [
+        "10% margin",
+        "(2pp) Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "periodNote": "截至 2026 年 9 月",
+      "revenue": {
+        "notes": [
+          "同比 +12%"
+        ],
+        "items": [
+          {
+            "id": "online_stores",
+            "label": "线上商店",
+            "notes": [
+              "同比 +2%"
+            ]
+          },
+          {
+            "id": "physical_store",
+            "label": "实体商店",
+            "notes": [
+              "同比 +2%"
+            ]
+          },
+          {
+            "id": "third_party_seller_services",
+            "label": "第三方卖家服务",
+            "notes": [
+              "同比 +9%"
+            ]
+          },
+          {
+            "id": "advertising",
+            "label": "广告",
+            "notes": [
+              "同比 +11%"
+            ]
+          },
+          {
+            "id": "subscription",
+            "label": "订阅",
+            "notes": [
+              "同比 +11%"
+            ]
+          },
+          {
+            "id": "aws",
+            "label": "AWS",
+            "notes": [
+              "同比 +39%"
+            ]
+          },
+          {
+            "id": "other_revenue",
+            "label": "其他",
+            "notes": [
+              "同比 +16%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "销售成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "technology_content",
+              "label": "技术与基础设施",
+              "notes": [
+                "占收入 17%",
+                "同比 +1 个百分点"
+              ]
+            },
+            {
+              "id": "fulfillment",
+              "label": "履约",
+              "notes": [
+                "占收入 15%",
+                "同比 (1 个百分点)"
+              ]
+            },
+            {
+              "id": "sm",
+              "label": "销售与市场",
+              "notes": [
+                "占收入 6%",
+                "同比 (1 个百分点)"
+              ]
+            },
+            {
+              "id": "ga",
+              "label": "管理费用",
+              "notes": [
+                "占收入 1%",
+                "同比 (0 个百分点)"
+              ]
+            },
+            {
+              "id": "other_opex",
+              "label": "其他运营费用",
+              "notes": [
+                "占收入 0%",
+                "同比 (2 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 53%",
+            "同比 +2 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 14%",
+            "同比 +4 个百分点"
+          ],
+          "items": [
+            {
+              "id": "aws_operating_profit",
+              "label": "AWS 营业利润"
+            },
+            {
+              "id": "other_operating_profit",
+              "label": "其他业务营业利润"
+            }
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 10%",
+            "同比 (2 个百分点)"
+          ]
+        }
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "other_expenses",
+            "label": "其他"
+          }
+        ]
+      }
+    }
+  }
+}
   );
 })(window);

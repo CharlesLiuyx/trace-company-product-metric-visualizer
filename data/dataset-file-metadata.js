@@ -12469,6 +12469,630 @@
       "updatedAt": "2026-11-06T14:15:29.998Z",
       "timeSource": "publication"
     },
+    "accenture-q1-fy23": {
+      "path": "data/datasets/accenture-q1-fy23.js",
+      "updatedAtMs": 1793978746572,
+      "updatedAt": "2026-11-06T15:25:46.572Z",
+      "timeSource": "publication"
+    },
+    "accenture-q1-fy24": {
+      "path": "data/datasets/accenture-q1-fy24.js",
+      "updatedAtMs": 1793978716049,
+      "updatedAt": "2026-11-06T15:25:16.049Z",
+      "timeSource": "publication"
+    },
+    "accenture-q1-fy25": {
+      "path": "data/datasets/accenture-q1-fy25.js",
+      "updatedAtMs": 1793978789706,
+      "updatedAt": "2026-11-06T15:26:29.706Z",
+      "timeSource": "publication"
+    },
+    "accenture-q1-fy26": {
+      "path": "data/datasets/accenture-q1-fy26.js",
+      "updatedAtMs": 1793978863374,
+      "updatedAt": "2026-11-06T15:27:43.374Z",
+      "timeSource": "publication"
+    },
+    "accenture-q2-fy23": {
+      "path": "data/datasets/accenture-q2-fy23.js",
+      "updatedAtMs": 1793979422848,
+      "updatedAt": "2026-11-06T15:37:02.848Z",
+      "timeSource": "publication"
+    },
+    "accenture-q2-fy24": {
+      "path": "data/datasets/accenture-q2-fy24.js",
+      "updatedAtMs": 1793978696378,
+      "updatedAt": "2026-11-06T15:24:56.378Z",
+      "timeSource": "publication"
+    },
+    "accenture-q2-fy25": {
+      "path": "data/datasets/accenture-q2-fy25.js",
+      "updatedAtMs": 1793978940117,
+      "updatedAt": "2026-11-06T15:29:00.117Z",
+      "timeSource": "publication"
+    },
+    "accenture-q3-fy23": {
+      "path": "data/datasets/accenture-q3-fy23.js",
+      "updatedAtMs": 1793978900048,
+      "updatedAt": "2026-11-06T15:28:20.048Z",
+      "timeSource": "publication"
+    },
+    "accenture-q3-fy24": {
+      "path": "data/datasets/accenture-q3-fy24.js",
+      "updatedAtMs": 1793978726916,
+      "updatedAt": "2026-11-06T15:25:26.916Z",
+      "timeSource": "publication"
+    },
+    "accenture-q3-fy25": {
+      "path": "data/datasets/accenture-q3-fy25.js",
+      "updatedAtMs": 1793978779936,
+      "updatedAt": "2026-11-06T15:26:19.936Z",
+      "timeSource": "publication"
+    },
+    "accenture-q4-fy23": {
+      "path": "data/datasets/accenture-q4-fy23.js",
+      "updatedAtMs": 1793980970663,
+      "updatedAt": "2026-11-06T16:02:50.663Z",
+      "timeSource": "publication"
+    },
+    "accenture-q4-fy24": {
+      "path": "data/datasets/accenture-q4-fy24.js",
+      "updatedAtMs": 1793978776294,
+      "updatedAt": "2026-11-06T15:26:16.294Z",
+      "timeSource": "publication"
+    },
+    "accenture-q4-fy25": {
+      "path": "data/datasets/accenture-q4-fy25.js",
+      "updatedAtMs": 1793978805729,
+      "updatedAt": "2026-11-06T15:26:45.729Z",
+      "timeSource": "publication"
+    },
+    "alphabet-q3-fy26": {
+      "path": "data/datasets/alphabet-q3-fy26.js",
+      "updatedAtMs": 1793978732896,
+      "updatedAt": "2026-11-06T15:25:32.896Z",
+      "timeSource": "publication"
+    },
+    "amazon-q3-fy26": {
+      "path": "data/datasets/amazon-q3-fy26.js",
+      "updatedAtMs": 1793978735239,
+      "updatedAt": "2026-11-06T15:25:35.239Z",
+      "timeSource": "publication"
+    },
+    "anthropic-h1-fy26": {
+      "path": "data/datasets/anthropic-h1-fy26.js",
+      "updatedAtMs": 1793978688860,
+      "updatedAt": "2026-11-06T15:24:48.860Z",
+      "timeSource": "publication"
+    },
+    "etsy-q1-fy23": {
+      "path": "data/datasets/etsy-q1-fy23.js",
+      "updatedAtMs": 1793979011495,
+      "updatedAt": "2026-11-06T15:30:11.495Z",
+      "timeSource": "publication"
+    },
+    "etsy-q1-fy24": {
+      "path": "data/datasets/etsy-q1-fy24.js",
+      "updatedAtMs": 1793979105798,
+      "updatedAt": "2026-11-06T15:31:45.798Z",
+      "timeSource": "publication"
+    },
+    "etsy-q1-fy25": {
+      "path": "data/datasets/etsy-q1-fy25.js",
+      "updatedAtMs": 1793979135926,
+      "updatedAt": "2026-11-06T15:32:15.926Z",
+      "timeSource": "publication"
+    },
+    "etsy-q2-fy23": {
+      "path": "data/datasets/etsy-q2-fy23.js",
+      "updatedAtMs": 1793978831300,
+      "updatedAt": "2026-11-06T15:27:11.300Z",
+      "timeSource": "publication"
+    },
+    "etsy-q2-fy24": {
+      "path": "data/datasets/etsy-q2-fy24.js",
+      "updatedAtMs": 1793979342303,
+      "updatedAt": "2026-11-06T15:35:42.303Z",
+      "timeSource": "publication"
+    },
+    "etsy-q2-fy25": {
+      "path": "data/datasets/etsy-q2-fy25.js",
+      "updatedAtMs": 1793979175339,
+      "updatedAt": "2026-11-06T15:32:55.339Z",
+      "timeSource": "publication"
+    },
+    "etsy-q3-fy22": {
+      "path": "data/datasets/etsy-q3-fy22.js",
+      "updatedAtMs": 1793978728071,
+      "updatedAt": "2026-11-06T15:25:28.071Z",
+      "timeSource": "publication"
+    },
+    "etsy-q3-fy23": {
+      "path": "data/datasets/etsy-q3-fy23.js",
+      "updatedAtMs": 1793978922388,
+      "updatedAt": "2026-11-06T15:28:42.388Z",
+      "timeSource": "publication"
+    },
+    "etsy-q3-fy24": {
+      "path": "data/datasets/etsy-q3-fy24.js",
+      "updatedAtMs": 1793979211260,
+      "updatedAt": "2026-11-06T15:33:31.260Z",
+      "timeSource": "publication"
+    },
+    "etsy-q3-fy25": {
+      "path": "data/datasets/etsy-q3-fy25.js",
+      "updatedAtMs": 1793979538680,
+      "updatedAt": "2026-11-06T15:38:58.680Z",
+      "timeSource": "publication"
+    },
+    "etsy-q4-fy22": {
+      "path": "data/datasets/etsy-q4-fy22.js",
+      "updatedAtMs": 1793979200680,
+      "updatedAt": "2026-11-06T15:33:20.680Z",
+      "timeSource": "publication"
+    },
+    "etsy-q4-fy23": {
+      "path": "data/datasets/etsy-q4-fy23.js",
+      "updatedAtMs": 1793979552234,
+      "updatedAt": "2026-11-06T15:39:12.234Z",
+      "timeSource": "publication"
+    },
+    "etsy-q4-fy24": {
+      "path": "data/datasets/etsy-q4-fy24.js",
+      "updatedAtMs": 1793979380845,
+      "updatedAt": "2026-11-06T15:36:20.845Z",
+      "timeSource": "publication"
+    },
+    "ford-q3-fy26": {
+      "path": "data/datasets/ford-q3-fy26.js",
+      "updatedAtMs": 1793978928279,
+      "updatedAt": "2026-11-06T15:28:48.279Z",
+      "timeSource": "publication"
+    },
+    "gm-q3-fy26": {
+      "path": "data/datasets/gm-q3-fy26.js",
+      "updatedAtMs": 1793978934365,
+      "updatedAt": "2026-11-06T15:28:54.365Z",
+      "timeSource": "publication"
+    },
+    "health-equity-q1-fy24": {
+      "path": "data/datasets/health-equity-q1-fy24.js",
+      "updatedAtMs": 1793978992503,
+      "updatedAt": "2026-11-06T15:29:52.503Z",
+      "timeSource": "publication"
+    },
+    "health-equity-q1-fy25": {
+      "path": "data/datasets/health-equity-q1-fy25.js",
+      "updatedAtMs": 1793979000990,
+      "updatedAt": "2026-11-06T15:30:00.990Z",
+      "timeSource": "publication"
+    },
+    "health-equity-q1-fy26": {
+      "path": "data/datasets/health-equity-q1-fy26.js",
+      "updatedAtMs": 1793978877658,
+      "updatedAt": "2026-11-06T15:27:57.658Z",
+      "timeSource": "publication"
+    },
+    "health-equity-q2-fy24": {
+      "path": "data/datasets/health-equity-q2-fy24.js",
+      "updatedAtMs": 1793978905382,
+      "updatedAt": "2026-11-06T15:28:25.382Z",
+      "timeSource": "publication"
+    },
+    "health-equity-q2-fy25": {
+      "path": "data/datasets/health-equity-q2-fy25.js",
+      "updatedAtMs": 1793978850431,
+      "updatedAt": "2026-11-06T15:27:30.431Z",
+      "timeSource": "publication"
+    },
+    "health-equity-q2-fy26": {
+      "path": "data/datasets/health-equity-q2-fy26.js",
+      "updatedAtMs": 1793978916435,
+      "updatedAt": "2026-11-06T15:28:36.435Z",
+      "timeSource": "publication"
+    },
+    "health-equity-q3-fy23": {
+      "path": "data/datasets/health-equity-q3-fy23.js",
+      "updatedAtMs": 1793978737733,
+      "updatedAt": "2026-11-06T15:25:37.733Z",
+      "timeSource": "publication"
+    },
+    "health-equity-q3-fy24": {
+      "path": "data/datasets/health-equity-q3-fy24.js",
+      "updatedAtMs": 1793979021735,
+      "updatedAt": "2026-11-06T15:30:21.735Z",
+      "timeSource": "publication"
+    },
+    "health-equity-q3-fy25": {
+      "path": "data/datasets/health-equity-q3-fy25.js",
+      "updatedAtMs": 1793978893418,
+      "updatedAt": "2026-11-06T15:28:13.418Z",
+      "timeSource": "publication"
+    },
+    "health-equity-q3-fy26": {
+      "path": "data/datasets/health-equity-q3-fy26.js",
+      "updatedAtMs": 1793978978381,
+      "updatedAt": "2026-11-06T15:29:38.381Z",
+      "timeSource": "publication"
+    },
+    "health-equity-q4-fy23": {
+      "path": "data/datasets/health-equity-q4-fy23.js",
+      "updatedAtMs": 1793979036922,
+      "updatedAt": "2026-11-06T15:30:36.922Z",
+      "timeSource": "publication"
+    },
+    "health-equity-q4-fy24": {
+      "path": "data/datasets/health-equity-q4-fy24.js",
+      "updatedAtMs": 1793979433476,
+      "updatedAt": "2026-11-06T15:37:13.476Z",
+      "timeSource": "publication"
+    },
+    "health-equity-q4-fy25": {
+      "path": "data/datasets/health-equity-q4-fy25.js",
+      "updatedAtMs": 1793979043736,
+      "updatedAt": "2026-11-06T15:30:43.736Z",
+      "timeSource": "publication"
+    },
+    "home-depot-fy23": {
+      "path": "data/datasets/home-depot-fy23.js",
+      "updatedAtMs": 1793978882842,
+      "updatedAt": "2026-11-06T15:28:02.842Z",
+      "timeSource": "publication"
+    },
+    "home-depot-q1-fy23": {
+      "path": "data/datasets/home-depot-q1-fy23.js",
+      "updatedAtMs": 1793978783566,
+      "updatedAt": "2026-11-06T15:26:23.566Z",
+      "timeSource": "publication"
+    },
+    "home-depot-q1-fy24": {
+      "path": "data/datasets/home-depot-q1-fy24.js",
+      "updatedAtMs": 1793978747321,
+      "updatedAt": "2026-11-06T15:25:47.321Z",
+      "timeSource": "publication"
+    },
+    "home-depot-q2-fy23": {
+      "path": "data/datasets/home-depot-q2-fy23.js",
+      "updatedAtMs": 1793979441453,
+      "updatedAt": "2026-11-06T15:37:21.453Z",
+      "timeSource": "publication"
+    },
+    "home-depot-q3-fy22": {
+      "path": "data/datasets/home-depot-q3-fy22.js",
+      "updatedAtMs": 1793979406558,
+      "updatedAt": "2026-11-06T15:36:46.558Z",
+      "timeSource": "publication"
+    },
+    "home-depot-q3-fy23": {
+      "path": "data/datasets/home-depot-q3-fy23.js",
+      "updatedAtMs": 1793979308769,
+      "updatedAt": "2026-11-06T15:35:08.769Z",
+      "timeSource": "publication"
+    },
+    "home-depot-q4-fy22": {
+      "path": "data/datasets/home-depot-q4-fy22.js",
+      "updatedAtMs": 1793978761725,
+      "updatedAt": "2026-11-06T15:26:01.725Z",
+      "timeSource": "publication"
+    },
+    "intuitive-q1-fy23": {
+      "path": "data/datasets/intuitive-q1-fy23.js",
+      "updatedAtMs": 1793979086905,
+      "updatedAt": "2026-11-06T15:31:26.905Z",
+      "timeSource": "publication"
+    },
+    "intuitive-q1-fy24": {
+      "path": "data/datasets/intuitive-q1-fy24.js",
+      "updatedAtMs": 1793979095152,
+      "updatedAt": "2026-11-06T15:31:35.152Z",
+      "timeSource": "publication"
+    },
+    "intuitive-q1-fy25": {
+      "path": "data/datasets/intuitive-q1-fy25.js",
+      "updatedAtMs": 1793979297970,
+      "updatedAt": "2026-11-06T15:34:57.970Z",
+      "timeSource": "publication"
+    },
+    "intuitive-q2-fy23": {
+      "path": "data/datasets/intuitive-q2-fy23.js",
+      "updatedAtMs": 1793979258290,
+      "updatedAt": "2026-11-06T15:34:18.290Z",
+      "timeSource": "publication"
+    },
+    "intuitive-q2-fy24": {
+      "path": "data/datasets/intuitive-q2-fy24.js",
+      "updatedAtMs": 1793979507542,
+      "updatedAt": "2026-11-06T15:38:27.542Z",
+      "timeSource": "publication"
+    },
+    "intuitive-q2-fy25": {
+      "path": "data/datasets/intuitive-q2-fy25.js",
+      "updatedAtMs": 1793979234996,
+      "updatedAt": "2026-11-06T15:33:54.996Z",
+      "timeSource": "publication"
+    },
+    "intuitive-q3-fy23": {
+      "path": "data/datasets/intuitive-q3-fy23.js",
+      "updatedAtMs": 1793979416094,
+      "updatedAt": "2026-11-06T15:36:56.094Z",
+      "timeSource": "publication"
+    },
+    "intuitive-q3-fy24": {
+      "path": "data/datasets/intuitive-q3-fy24.js",
+      "updatedAtMs": 1793979115678,
+      "updatedAt": "2026-11-06T15:31:55.678Z",
+      "timeSource": "publication"
+    },
+    "intuitive-q3-fy25": {
+      "path": "data/datasets/intuitive-q3-fy25.js",
+      "updatedAtMs": 1793979401553,
+      "updatedAt": "2026-11-06T15:36:41.553Z",
+      "timeSource": "publication"
+    },
+    "intuitive-q4-fy22": {
+      "path": "data/datasets/intuitive-q4-fy22.js",
+      "updatedAtMs": 1793978911068,
+      "updatedAt": "2026-11-06T15:28:31.068Z",
+      "timeSource": "publication"
+    },
+    "intuitive-q4-fy23": {
+      "path": "data/datasets/intuitive-q4-fy23.js",
+      "updatedAtMs": 1793979282293,
+      "updatedAt": "2026-11-06T15:34:42.293Z",
+      "timeSource": "publication"
+    },
+    "intuitive-q4-fy24": {
+      "path": "data/datasets/intuitive-q4-fy24.js",
+      "updatedAtMs": 1793979030621,
+      "updatedAt": "2026-11-06T15:30:30.621Z",
+      "timeSource": "publication"
+    },
+    "kering-fy22": {
+      "path": "data/datasets/kering-fy22.js",
+      "updatedAtMs": 1793979127942,
+      "updatedAt": "2026-11-06T15:32:07.942Z",
+      "timeSource": "publication"
+    },
+    "kering-fy23": {
+      "path": "data/datasets/kering-fy23.js",
+      "updatedAtMs": 1793978795161,
+      "updatedAt": "2026-11-06T15:26:35.161Z",
+      "timeSource": "publication"
+    },
+    "kering-fy24": {
+      "path": "data/datasets/kering-fy24.js",
+      "updatedAtMs": 1793979567606,
+      "updatedAt": "2026-11-06T15:39:27.606Z",
+      "timeSource": "publication"
+    },
+    "kering-h1-fy22": {
+      "path": "data/datasets/kering-h1-fy22.js",
+      "updatedAtMs": 1793978768593,
+      "updatedAt": "2026-11-06T15:26:08.593Z",
+      "timeSource": "publication"
+    },
+    "kering-h1-fy23": {
+      "path": "data/datasets/kering-h1-fy23.js",
+      "updatedAtMs": 1793979493347,
+      "updatedAt": "2026-11-06T15:38:13.347Z",
+      "timeSource": "publication"
+    },
+    "kering-h1-fy24": {
+      "path": "data/datasets/kering-h1-fy24.js",
+      "updatedAtMs": 1793978742973,
+      "updatedAt": "2026-11-06T15:25:42.973Z",
+      "timeSource": "publication"
+    },
+    "kering-h1-fy25": {
+      "path": "data/datasets/kering-h1-fy25.js",
+      "updatedAtMs": 1793979153294,
+      "updatedAt": "2026-11-06T15:32:33.294Z",
+      "timeSource": "publication"
+    },
+    "mercadolibre-q1-fy23": {
+      "path": "data/datasets/mercadolibre-q1-fy23.js",
+      "updatedAtMs": 1793979370607,
+      "updatedAt": "2026-11-06T15:36:10.607Z",
+      "timeSource": "publication"
+    },
+    "mercadolibre-q1-fy24": {
+      "path": "data/datasets/mercadolibre-q1-fy24.js",
+      "updatedAtMs": 1793979595425,
+      "updatedAt": "2026-11-06T15:39:55.425Z",
+      "timeSource": "publication"
+    },
+    "mercadolibre-q1-fy25": {
+      "path": "data/datasets/mercadolibre-q1-fy25.js",
+      "updatedAtMs": 1793979184446,
+      "updatedAt": "2026-11-06T15:33:04.446Z",
+      "timeSource": "publication"
+    },
+    "mercadolibre-q2-fy23": {
+      "path": "data/datasets/mercadolibre-q2-fy23.js",
+      "updatedAtMs": 1793978870074,
+      "updatedAt": "2026-11-06T15:27:50.074Z",
+      "timeSource": "publication"
+    },
+    "mercadolibre-q2-fy24": {
+      "path": "data/datasets/mercadolibre-q2-fy24.js",
+      "updatedAtMs": 1793979241023,
+      "updatedAt": "2026-11-06T15:34:01.023Z",
+      "timeSource": "publication"
+    },
+    "mercadolibre-q2-fy25": {
+      "path": "data/datasets/mercadolibre-q2-fy25.js",
+      "updatedAtMs": 1793979144678,
+      "updatedAt": "2026-11-06T15:32:24.678Z",
+      "timeSource": "publication"
+    },
+    "mercadolibre-q3-fy22": {
+      "path": "data/datasets/mercadolibre-q3-fy22.js",
+      "updatedAtMs": 1793978936892,
+      "updatedAt": "2026-11-06T15:28:56.892Z",
+      "timeSource": "publication"
+    },
+    "mercadolibre-q3-fy23": {
+      "path": "data/datasets/mercadolibre-q3-fy23.js",
+      "updatedAtMs": 1793979387376,
+      "updatedAt": "2026-11-06T15:36:27.376Z",
+      "timeSource": "publication"
+    },
+    "mercadolibre-q3-fy24": {
+      "path": "data/datasets/mercadolibre-q3-fy24.js",
+      "updatedAtMs": 1793979395040,
+      "updatedAt": "2026-11-06T15:36:35.040Z",
+      "timeSource": "publication"
+    },
+    "mercadolibre-q3-fy25": {
+      "path": "data/datasets/mercadolibre-q3-fy25.js",
+      "updatedAtMs": 1793978890357,
+      "updatedAt": "2026-11-06T15:28:10.357Z",
+      "timeSource": "publication"
+    },
+    "mercadolibre-q4-fy22": {
+      "path": "data/datasets/mercadolibre-q4-fy22.js",
+      "updatedAtMs": 1793979348352,
+      "updatedAt": "2026-11-06T15:35:48.352Z",
+      "timeSource": "publication"
+    },
+    "mercadolibre-q4-fy23": {
+      "path": "data/datasets/mercadolibre-q4-fy23.js",
+      "updatedAtMs": 1793979478221,
+      "updatedAt": "2026-11-06T15:37:58.221Z",
+      "timeSource": "publication"
+    },
+    "mercadolibre-q4-fy24": {
+      "path": "data/datasets/mercadolibre-q4-fy24.js",
+      "updatedAtMs": 1793979161777,
+      "updatedAt": "2026-11-06T15:32:41.777Z",
+      "timeSource": "publication"
+    },
+    "meta-q3-fy26": {
+      "path": "data/datasets/meta-q3-fy26.js",
+      "updatedAtMs": 1793978753167,
+      "updatedAt": "2026-11-06T15:25:53.167Z",
+      "timeSource": "publication"
+    },
+    "microsoft-q1-fy27": {
+      "path": "data/datasets/microsoft-q1-fy27.js",
+      "updatedAtMs": 1793978722698,
+      "updatedAt": "2026-11-06T15:25:22.698Z",
+      "timeSource": "publication"
+    },
+    "netflix-q3-fy26": {
+      "path": "data/datasets/netflix-q3-fy26.js",
+      "updatedAtMs": 1793978803385,
+      "updatedAt": "2026-11-06T15:26:43.385Z",
+      "timeSource": "publication"
+    },
+    "pinterest-q3-fy26": {
+      "path": "data/datasets/pinterest-q3-fy26.js",
+      "updatedAtMs": 1793978817944,
+      "updatedAt": "2026-11-06T15:26:57.944Z",
+      "timeSource": "publication"
+    },
+    "reddit-q3-fy26": {
+      "path": "data/datasets/reddit-q3-fy26.js",
+      "updatedAtMs": 1793978799997,
+      "updatedAt": "2026-11-06T15:26:39.997Z",
+      "timeSource": "publication"
+    },
+    "roblox-q3-fy26": {
+      "path": "data/datasets/roblox-q3-fy26.js",
+      "updatedAtMs": 1793978839884,
+      "updatedAt": "2026-11-06T15:27:19.884Z",
+      "timeSource": "publication"
+    },
+    "spacex-q3-fy26": {
+      "path": "data/datasets/spacex-q3-fy26.js",
+      "updatedAtMs": 1793978847040,
+      "updatedAt": "2026-11-06T15:27:27.040Z",
+      "timeSource": "publication"
+    },
+    "spotify-q3-fy26": {
+      "path": "data/datasets/spotify-q3-fy26.js",
+      "updatedAtMs": 1793978836371,
+      "updatedAt": "2026-11-06T15:27:16.371Z",
+      "timeSource": "publication"
+    },
+    "stellantis-q3-fy26": {
+      "path": "data/datasets/stellantis-q3-fy26.js",
+      "updatedAtMs": 1793979519403,
+      "updatedAt": "2026-11-06T15:38:39.403Z",
+      "timeSource": "publication"
+    },
+    "tesla-q3-fy26": {
+      "path": "data/datasets/tesla-q3-fy26.js",
+      "updatedAtMs": 1793979122315,
+      "updatedAt": "2026-11-06T15:32:02.315Z",
+      "timeSource": "publication"
+    },
+    "veeva-q1-fy24": {
+      "path": "data/datasets/veeva-q1-fy24.js",
+      "updatedAtMs": 1793978828585,
+      "updatedAt": "2026-11-06T15:27:08.585Z",
+      "timeSource": "publication"
+    },
+    "veeva-q1-fy25": {
+      "path": "data/datasets/veeva-q1-fy25.js",
+      "updatedAtMs": 1793978815550,
+      "updatedAt": "2026-11-06T15:26:55.550Z",
+      "timeSource": "publication"
+    },
+    "veeva-q1-fy26": {
+      "path": "data/datasets/veeva-q1-fy26.js",
+      "updatedAtMs": 1793979464153,
+      "updatedAt": "2026-11-06T15:37:44.153Z",
+      "timeSource": "publication"
+    },
+    "veeva-q2-fy24": {
+      "path": "data/datasets/veeva-q2-fy24.js",
+      "updatedAtMs": 1793978758800,
+      "updatedAt": "2026-11-06T15:25:58.800Z",
+      "timeSource": "publication"
+    },
+    "veeva-q2-fy25": {
+      "path": "data/datasets/veeva-q2-fy25.js",
+      "updatedAtMs": 1793978854885,
+      "updatedAt": "2026-11-06T15:27:34.885Z",
+      "timeSource": "publication"
+    },
+    "veeva-q2-fy26": {
+      "path": "data/datasets/veeva-q2-fy26.js",
+      "updatedAtMs": 1793979360155,
+      "updatedAt": "2026-11-06T15:36:00.155Z",
+      "timeSource": "publication"
+    },
+    "veeva-q3-fy23": {
+      "path": "data/datasets/veeva-q3-fy23.js",
+      "updatedAtMs": 1793978692991,
+      "updatedAt": "2026-11-06T15:24:52.991Z",
+      "timeSource": "publication"
+    },
+    "veeva-q3-fy25": {
+      "path": "data/datasets/veeva-q3-fy25.js",
+      "updatedAtMs": 1793978745405,
+      "updatedAt": "2026-11-06T15:25:45.405Z",
+      "timeSource": "publication"
+    },
+    "veeva-q4-fy23": {
+      "path": "data/datasets/veeva-q4-fy23.js",
+      "updatedAtMs": 1793978797499,
+      "updatedAt": "2026-11-06T15:26:37.499Z",
+      "timeSource": "publication"
+    },
+    "veeva-q4-fy24": {
+      "path": "data/datasets/veeva-q4-fy24.js",
+      "updatedAtMs": 1793979457713,
+      "updatedAt": "2026-11-06T15:37:37.713Z",
+      "timeSource": "publication"
+    },
+    "veeva-q4-fy25": {
+      "path": "data/datasets/veeva-q4-fy25.js",
+      "updatedAtMs": 1793978810918,
+      "updatedAt": "2026-11-06T15:26:50.918Z",
+      "timeSource": "publication"
+    },
     "data/revenue-metrics.js": {
       "path": "data/revenue-metrics.js",
       "updatedAtMs": 1783251957000,

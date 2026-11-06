@@ -1,0 +1,36 @@
+{
+  "source": "input/processing/health-equity-q3-fy24.png",
+  "outputDir": "data/assets/icon-references/health-equity/q3-fy24",
+  "runtimeOutputDir": "data/assets/raster-annotations/health-equity",
+  "report": "crop-report.json",
+  "crops": [
+    {
+      "key": "company-q3-fy24",
+      "output": "crops/company-q3-fy24.png",
+      "searchBox": {
+        "x": 593,
+        "y": 273,
+        "width": 579,
+        "height": 104
+      },
+      "cropBox": {
+        "x": 593,
+        "y": 273,
+        "width": 579,
+        "height": 104
+      },
+      "threshold": 18,
+      "minComponentArea": 5,
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10
+      },
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.35,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ]
+}

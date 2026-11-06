@@ -1,0 +1,140 @@
+{
+  "source": "output/builds/build-88561e5d-0e48-41d5-a3d5-aa7fd3d25e8d/workspace/input/processing/health-equity-q4-fy24.png",
+  "spec": "output/builds/build-88561e5d-0e48-41d5-a3d5-aa7fd3d25e8d/workspace/input/icon-crop-specs/health-equity-q4-fy24.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T15:39:58.378928+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "output/builds/build-88561e5d-0e48-41d5-a3d5-aa7fd3d25e8d/workspace/data/assets/raster-annotations/health-equity",
+  "crops": [
+    {
+      "key": "health-equity-logo-q4-fy24",
+      "output": "output/builds/build-88561e5d-0e48-41d5-a3d5-aa7fd3d25e8d/workspace/data/assets/icon-references/health-equity/crops/logo-q4-fy24.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3720,
+        "losslessBytes": 14076,
+        "savingsVsLossless": 0.7357,
+        "metrics": {
+          "meanAbsoluteError": 0.2963,
+          "rootMeanSquareError": 1.1601,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.3299
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 40887,
+        "transparentPixelRatio": 0.6743
+      },
+      "searchBox": {
+        "x": 594,
+        "y": 274,
+        "width": 572,
+        "height": 106
+      },
+      "componentCount": 14,
+      "subjectBox": {
+        "x0": 606,
+        "y0": 279,
+        "x1": 1162,
+        "y1": 371
+      },
+      "cropBox": {
+        "x0": 594,
+        "y0": 274,
+        "x1": 1166,
+        "y1": 380
+      },
+      "validation": {
+        "width": 572,
+        "height": 106,
+        "foregroundPixels": 18262,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 12,
+          "right": 4,
+          "top": 5,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": 0.007,
+          "y": -0.0189
+        },
+        "passes": true
+      },
+      "note": "Full HealthEquity wordmark and registered trademark; excludes financial labels and publisher marks.",
+      "runtimeOutput": "output/builds/build-88561e5d-0e48-41d5-a3d5-aa7fd3d25e8d/workspace/data/assets/raster-annotations/health-equity/logo-q4-fy24.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3720,
+        "losslessBytes": 14076,
+        "savingsVsLossless": 0.7357,
+        "metrics": {
+          "meanAbsoluteError": 0.2963,
+          "rootMeanSquareError": 1.1601,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.3299
+        }
+      },
+      "validationSheet": "output/builds/build-88561e5d-0e48-41d5-a3d5-aa7fd3d25e8d/workspace/data/assets/icon-references/health-equity/validation-sheets/health-equity-logo-q4-fy24.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 128,
+        "bytes": 80961,
+        "losslessBytes": 256128,
+        "savingsVsLossless": 0.6839,
+        "metrics": {
+          "meanAbsoluteError": 0.3644,
+          "rootMeanSquareError": 2.1694,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 68,
+          "changedPixelRatio": 0.0913
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "source": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-88561e5d-0e48-41d5-a3d5-aa7fd3d25e8d/workspace/input/processing/health-equity-q4-fy24.png",
+  "outputDir": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-88561e5d-0e48-41d5-a3d5-aa7fd3d25e8d/workspace/data/assets/icon-references/health-equity",
+  "runtimeOutputDir": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-88561e5d-0e48-41d5-a3d5-aa7fd3d25e8d/workspace/data/assets/raster-annotations/health-equity",
+  "validationSheetDir": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-88561e5d-0e48-41d5-a3d5-aa7fd3d25e8d/workspace/data/assets/icon-references/health-equity/validation-sheets",
+  "report": "crop-report-q4-fy24.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "health-equity-logo-q4-fy24",
+      "output": "crops/logo-q4-fy24.png",
+      "runtimeOutput": "logo-q4-fy24.png",
+      "searchBox": {
+        "x": 594,
+        "y": 274,
+        "width": 572,
+        "height": 106
+      },
+      "cropBox": {
+        "x": 594,
+        "y": 274,
+        "width": 572,
+        "height": 106
+      },
+      "threshold": 24,
+      "minComponentArea": 8,
+      "padding": 0,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Full HealthEquity wordmark and registered trademark; excludes financial labels and publisher marks."
+    }
+  ]
+}

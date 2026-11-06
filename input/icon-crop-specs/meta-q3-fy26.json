@@ -1,0 +1,35 @@
+{
+  "source": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/input/processing/meta-q3-fy26.png",
+  "outputDir": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-33ff3aad-5b72-4daa-95bf-422d1ab56afc/workspace/data/assets/icon-references/meta-q3-fy26",
+  "runtimeOutputDir": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-33ff3aad-5b72-4daa-95bf-422d1ab56afc/workspace/data/assets/raster-annotations/meta",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 7
+  },
+  "crops": [
+    {
+      "key": "reality-devices-q3-fy26",
+      "output": "reality-devices-q3-fy26.png",
+      "searchBox": {
+        "x": 580,
+        "y": 1102,
+        "width": 208,
+        "height": 220
+      },
+      "cropBox": {
+        "x": 567,
+        "y": 1089,
+        "width": 233,
+        "height": 246
+      },
+      "minComponentArea": 30,
+      "threshold": 12
+    }
+  ]
+}

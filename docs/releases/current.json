@@ -1,1764 +1,3239 @@
 {
   "schema": "reviewed-git-release/v1",
-  "id": "transport-ce2495e0-1728-4d37-b34e-594d5d9faffd",
-  "baseHead": "e81258b8bdaf43ffdca354f5fac8d81d03414876",
-  "planDigest": "sha256:38c590aedc91ac12a4abe62c7e7f7249734280a790ee83bd0aaaa5693ab9c9d5",
-  "publishedDigest": "sha256:93b49fc20ffcd19728ea823ceb0157982529a8e48e3ed3bea83fc0f444fd303e",
+  "id": "transport-6dcc202a-9492-44cb-8448-bca71422d796",
+  "baseHead": "721ef27bc1951a21f46b3f9669a72e94b8ab17d8",
+  "planDigest": "sha256:95246712e7dce21dc877d2266f6d3d8f9b38cedbf1aeba7bdcc10eab435f7aac",
+  "publishedDigest": "sha256:1a11b685a16d00105303a974d4144abab8a7cc163815e72c774cd270aad100c0",
   "builds": [
     {
-      "buildId": "build-cd4b5b9f-1418-4d58-b9fd-5027c8ba1d4b",
-      "key": "abbott-q3-fy26",
-      "sealDigest": "sha256:867576c8a768618f6e291ee19c8420a030bff3464d73a927eef1fefe167f93c5"
+      "buildId": "build-a80f75ba-b6a7-4e60-a38c-3732bd65cbd9",
+      "key": "accenture-q1-fy23",
+      "sealDigest": "sha256:302ef1e0edea8e9616e474983a91757c19f98a5fc7c268601a758ffe1d9206a6"
     },
     {
-      "buildId": "build-a9f56072-40d5-4069-9251-23f13800f320",
-      "key": "abbvie-q3-fy26",
-      "sealDigest": "sha256:a3e8a84a9309fca9fb7f23c39fbf504990d06e3f5964dddf0c4e8ed06e094ebe"
+      "buildId": "build-bdc95ea7-f348-454f-989b-a53bfb0259c0",
+      "key": "accenture-q1-fy24",
+      "sealDigest": "sha256:3516cc1cabf41d54f6fbf36ac30af5ecf0a80a87782e3e14dcc721b40c8b6d73"
     },
     {
-      "buildId": "build-e5923b0e-e3fb-4733-aa7a-4530e0138076",
-      "key": "accenture-q4-fy26",
-      "sealDigest": "sha256:d024ffb51315adb12afab41010b727a589370ca02eff40ae427014100a9d5e3b"
+      "buildId": "build-8cd1814c-8d43-49df-bd8b-9e06f4b19eed",
+      "key": "accenture-q1-fy25",
+      "sealDigest": "sha256:67d59e360221f68b64f4fa6fe71f9ea24edabe4f54e4b5257c3e2145a6f5b900"
     },
     {
-      "buildId": "build-e9015dbf-a6d4-4546-99c2-243913a7d315",
-      "key": "airbus-q3-fy26",
-      "sealDigest": "sha256:a86a188066739f932c3fab6a88f6265de9a5899bad1c68e0357b3359c0c9b5ea"
+      "buildId": "build-f16e9b95-8089-4031-8791-2d2a019f2ab4",
+      "key": "accenture-q1-fy26",
+      "sealDigest": "sha256:c100f033e856b1e82c575149cbae2177ea6f060954cc2db90b320814a67afaef"
     },
     {
-      "buildId": "build-97aa6408-f46f-4388-b200-b9781b1fdb36",
-      "key": "align-q3-fy26",
-      "sealDigest": "sha256:1dcd954252ce6c3b3f4662b079f4b52395b630c1cffe0c77ddda90dccd6be469"
+      "buildId": "build-ea26e636-b573-4e5e-8c16-59c4d134657a",
+      "key": "accenture-q2-fy23",
+      "sealDigest": "sha256:b9e67c923eaf93538d042ceb4f4bb9265e4a64c6b0584f55e39dda51686d7d5e"
     },
     {
-      "buildId": "build-a022b433-9d99-49c0-b28f-2e6501b9f4f4",
-      "key": "american-express-q3-fy26",
-      "sealDigest": "sha256:d67d6efd16574fff9942174d99a912230174d5067dae8e96048e79e1a0ee552e"
+      "buildId": "build-16e131c5-3fe4-4591-b809-391c1c57dd52",
+      "key": "accenture-q2-fy24",
+      "sealDigest": "sha256:7dd07468cd0fda184e35f85407f8db85cbdbe8299a2be8af5efb658931400b8d"
     },
     {
-      "buildId": "build-e9f8d0b7-45fb-4852-ad08-5631bb43eb22",
-      "key": "american-q3-fy26",
-      "sealDigest": "sha256:e6b80863e5a0633a75e398e98dd3519931f817a24705705a56adfb5bf2247b27"
+      "buildId": "build-d1d93c6a-bf4c-42bc-9693-33df5c3aeb67",
+      "key": "accenture-q2-fy25",
+      "sealDigest": "sha256:ab47b40dd6fe6c0f53c466f815207ab91cdeb0f6e9a430ad425de469439726f7"
     },
     {
-      "buildId": "build-5cbde3b3-673c-4d1c-b31d-a5b2a790f4b9",
-      "key": "appfolio-q3-fy26",
-      "sealDigest": "sha256:a8a4940aa323c2664e4745da7ced6c042ed770dc2ed3fb4d0430e49d2e9e16c0"
+      "buildId": "build-d8070ca1-d6ef-4546-a62b-a08536bbdf02",
+      "key": "accenture-q3-fy23",
+      "sealDigest": "sha256:dbfc031d91728dc4e871b325a11993bee154ffdad2d5f102e98f2e55f246acf0"
     },
     {
-      "buildId": "build-3be2c761-2e39-411a-8ef6-89aaec902f34",
-      "key": "asml-q3-fy26",
-      "sealDigest": "sha256:c3e179815425b1f4c470687bb59c77e422c63055bfafdbc27abcc5a200f6415b"
+      "buildId": "build-3209b113-923d-4f21-bac4-eff6d11021bf",
+      "key": "accenture-q3-fy24",
+      "sealDigest": "sha256:8272d8074dae0172e0fc9abcfaa278636887ab7186a903c34803407abd14af2b"
     },
     {
-      "buildId": "build-f5926bac-8123-4d29-8780-49a9e9c0e98f",
-      "key": "astrazeneca-q3-fy26",
-      "sealDigest": "sha256:54204e0603ad3498b0aa78783abb75cb407350d4fdd75b43787fb77947fa5292"
+      "buildId": "build-17a68ec2-4530-4f39-987a-c94379a2c430",
+      "key": "accenture-q3-fy25",
+      "sealDigest": "sha256:cb75221b55bfa399667dc8a291fa18da1de59aaa8b490cb05a2940c6132dac6d"
     },
     {
-      "buildId": "build-887026a5-237d-4cc1-8a09-a7c81e78096d",
-      "key": "at-t-q3-fy26",
-      "sealDigest": "sha256:a2c53728e8e6187aba4d120ac26dec3aef619fa3e524fac80fedd9429fb3eee0"
+      "buildId": "build-ba5f71a7-8378-466a-b6f8-9dcd7005e0ba",
+      "key": "accenture-q4-fy23",
+      "sealDigest": "sha256:b4f24b39e1b5725a8cfb9bf77b87e3c19247244fc8ed9e99aaeb56da18213a0f"
     },
     {
-      "buildId": "build-6733a803-6860-4963-a679-49191453b36b",
-      "key": "bank-of-america-q3-fy26",
-      "sealDigest": "sha256:8a2749e2ae28e9686191a603b81df799f8aa4e163df563df34521c264a2ac5df"
+      "buildId": "build-6d9ace4e-6e9a-4c7e-90a0-535b899a6b78",
+      "key": "accenture-q4-fy24",
+      "sealDigest": "sha256:9d46425341fd8beb4d372ac58e8b7cfc630264ce7e3243dbf6cb076ab09ca498"
     },
     {
-      "buildId": "build-8f2a1d7e-744e-4b3f-946c-81e61737d0dc",
-      "key": "blackrock-q3-fy26",
-      "sealDigest": "sha256:93a797569dc356062c9c3662fcf7816bfd34148cdd602463d93842811074ec01"
+      "buildId": "build-eccf0da2-018f-4731-b7cb-84c5393867e8",
+      "key": "accenture-q4-fy25",
+      "sealDigest": "sha256:e35d3e9a11e007277957e2c4b9828d263f0b0255cc7bfd22d62bded38e63ea59"
     },
     {
-      "buildId": "build-c1ac2a58-b197-41e3-a1b9-71fdcf6e916a",
-      "key": "boeing-q3-fy26",
-      "sealDigest": "sha256:4c4dace2f584f706fc8dfed7a8e5af45c56eda125755405760f008c8ec78647a"
+      "buildId": "build-26233fca-6b74-4c85-89cb-a005aa12caee",
+      "key": "alphabet-q3-fy26",
+      "sealDigest": "sha256:4662fadd8694468ab7c70a8c85a3f83f95c80f963d40be3386b3cbac6869611b"
     },
     {
-      "buildId": "build-3c012daf-87fa-4ffa-9e56-45cdae69a399",
-      "key": "braze-q2-fy27",
-      "sealDigest": "sha256:ea13a21eef2752174cd501f1ef7f649a4cb10c3f01a7ca32aa3f903a08eb8857"
+      "buildId": "build-8c7dd18f-a6ea-4484-a557-8647120eb52a",
+      "key": "amazon-q3-fy26",
+      "sealDigest": "sha256:f5a064a2a213ada56bd5b8ea10c28fbcd9ba3d5cbc02e28bb42141aeead71ccc"
     },
     {
-      "buildId": "build-e455a7f2-efa9-4697-b707-d4faf035caad",
-      "key": "cadence-q3-fy26",
-      "sealDigest": "sha256:0ffb1c3e41430b2eb3bbb0ab887896827f14a9463da14ca627726255c8db4b08"
+      "buildId": "build-2f9df3bc-668a-4ec4-b53a-2f7392041d1f",
+      "key": "anthropic-h1-fy26",
+      "sealDigest": "sha256:09a3ecbf53a607ed1133957e1cdaa584aab2c050bb42954289cae60645c07b67"
     },
     {
-      "buildId": "build-6fc76ff8-9ec7-4837-9297-30147328cfb8",
-      "key": "chipotle-q3-fy26",
-      "sealDigest": "sha256:2db80f2005d255eb2ccfca6775c2bc72fb0c80bb987599710e908f91932bd2e3"
+      "buildId": "build-b8d5f9ee-d5ba-4e4b-a318-7c549ee3033e",
+      "key": "etsy-q1-fy23",
+      "sealDigest": "sha256:753a4d76687cd03d10e0c1429673f399610ac9a93119b6a6443f89e972a72a5b"
     },
     {
-      "buildId": "build-27f1f357-545e-4275-afdf-f6605ba76a15",
-      "key": "citigroup-q3-fy26",
-      "sealDigest": "sha256:5d530ce91becfb7ef786502a1aad69bc81dc5c3e8b41c83393151f35835332d9"
+      "buildId": "build-884a96c1-8856-4058-9524-6b786d6adc60",
+      "key": "etsy-q1-fy24",
+      "sealDigest": "sha256:0bb107cd0265a267f3d783783f812b62005680b058f8b49c79462cbac860c292"
     },
     {
-      "buildId": "build-5ccc887a-ba00-4bb7-86e2-8f37db10c6b6",
-      "key": "coca-cola-q3-fy26",
-      "sealDigest": "sha256:b55f6bc09b1ad9f9846c6a366ac0c581e54f72270968601db3bb13ab3a8c61a5"
+      "buildId": "build-67a6720b-eb4f-4839-8591-d6407184863a",
+      "key": "etsy-q1-fy25",
+      "sealDigest": "sha256:8542516e251f58574af244155cb6e67c31351367bcbf7f14e8a396c9b0706182"
     },
     {
-      "buildId": "build-fb7794db-71c1-4b9d-a271-86278f7c8fed",
-      "key": "coinbase-q3-fy26",
-      "sealDigest": "sha256:5f7c8413cc4c25a05110b7aeb9f711775796c9bc0de6b7cbe6070c22df59cb54"
+      "buildId": "build-8888147c-84f8-4444-9973-5a5636c77baf",
+      "key": "etsy-q2-fy23",
+      "sealDigest": "sha256:9fe446bfee6135050aa601c4af7baaa745f1d593607dff1d7e8dc1b79f4c20a4"
     },
     {
-      "buildId": "build-c1706ff7-4946-4cfd-8314-5cede98814e9",
-      "key": "comcast-q3-fy26",
-      "sealDigest": "sha256:e17381f41a51894e25c0db17137fe8535926d669aa92c56503998e446cdefed5"
+      "buildId": "build-abbd0346-0234-4b40-b9c4-a9ad66ab9048",
+      "key": "etsy-q2-fy24",
+      "sealDigest": "sha256:e47384b4cc3d60feed71ff113420bd14a355065478bb522f548237f36f0388ac"
     },
     {
-      "buildId": "build-f11c5159-517a-4579-ad4d-5e009a83ca5d",
-      "key": "delta-q3-fy26",
-      "sealDigest": "sha256:4b3387f9a841cdf1684cbc91d079f74d9e3ba71075e4a5ba02eb2ae168f8032b"
+      "buildId": "build-0467684f-258b-458b-b41e-debe8e4029f4",
+      "key": "etsy-q2-fy25",
+      "sealDigest": "sha256:c18e7acfb67afac5ef96be676ff45cea279e426790df55944110342b70f5736e"
     },
     {
-      "buildId": "build-4db0596e-458f-44fa-a2cf-8ab7ee2b47cf",
-      "key": "domino-s-q3-fy26",
-      "sealDigest": "sha256:d63f30d6b88c7926cabb60f55c6dc017694ae1138284078fb1f66d5a2c7b5af0"
+      "buildId": "build-629081a7-77d0-4833-9b5d-97b04cd18e8d",
+      "key": "etsy-q3-fy22",
+      "sealDigest": "sha256:572a3516ef028baeb6d96e6f56c10734715ccec66fa16e20484dcccfda4507ad"
     },
     {
-      "buildId": "build-18524724-b36f-4c0d-8fbf-bc3812f7957e",
-      "key": "eli-lilly-q3-fy26",
-      "sealDigest": "sha256:babba1065d7d5c93cbe7abf98f48e6963c7f268a723fa6d7d5039c0c9bef5725"
+      "buildId": "build-06ff890f-459b-4743-8dbb-dfcbee379777",
+      "key": "etsy-q3-fy23",
+      "sealDigest": "sha256:0dac718a0225a3872e6399cf28f92d5f55da9d8de0442143e06c5ecdaacadd94"
     },
     {
-      "buildId": "build-e4282eea-a262-475e-bcb5-e95b26294519",
-      "key": "etsy-q3-fy26",
-      "sealDigest": "sha256:c0910205f52ba01486eb8206e7254ecfff0caec515e5fabbab709aebe6a1a2ed"
+      "buildId": "build-81d12076-1918-41bd-a27d-9db979e9cff0",
+      "key": "etsy-q3-fy24",
+      "sealDigest": "sha256:cfbc8dca03b41382a97d7fe5e8cde4fb3dd29e7a8c74e4495886ecb6f3eb7d1a"
     },
     {
-      "buildId": "build-9c72816b-f0a2-41f5-afcd-eeed559247dc",
-      "key": "fedex-q1-fy27",
-      "sealDigest": "sha256:a7ec9f80ab359405504ae6401bd6d14cf5b18b0f563d014cc840b5d7b1722c68"
+      "buildId": "build-c5be1fd2-4fcc-4295-b656-5b38d34fa21f",
+      "key": "etsy-q3-fy25",
+      "sealDigest": "sha256:27021bfa95f0ff9cacc7385acd9ffbf9bbc284ca2e5b744dfad2564d2e04bb80"
     },
     {
-      "buildId": "build-312e8b9e-9679-468a-8feb-38dd0c42a15b",
-      "key": "fortinet-q3-fy26",
-      "sealDigest": "sha256:2c2f4956eef4b94be857b0bd1197fbcff65527545e569bae6ae095f56260a3a0"
+      "buildId": "build-176881cb-a0e4-4746-a619-241dd85f354c",
+      "key": "etsy-q4-fy22",
+      "sealDigest": "sha256:a8adc63d0d5bde5415fed0ef18a6697c52ebefcd97ac104773816440ae9cccce"
     },
     {
-      "buildId": "build-80b0931f-78a2-44ab-8edc-9c08a1306d42",
-      "key": "ge-vernova-q3-fy26",
-      "sealDigest": "sha256:34f498247e65a5a1d68ccb76a4c1dff179331272b0fce19920b6a18a74b96597"
+      "buildId": "build-6d94af1e-e0a4-4391-a1d6-3669faeb8dad",
+      "key": "etsy-q4-fy23",
+      "sealDigest": "sha256:732137bd074f29df985c8e222177f19f3c4edfba60fd9279dc19fee6ea77b658"
     },
     {
-      "buildId": "build-f8c396fe-1398-45bf-987f-d2144bfc8b36",
-      "key": "goldman-sachs-q3-fy26",
-      "sealDigest": "sha256:38df0c02a8db23b6aa62e5c0af6ab35c34f4fc68fcadc410d8ce8be9ed7c144e"
+      "buildId": "build-93956a5e-5ccb-4460-9056-9781e99681c6",
+      "key": "etsy-q4-fy24",
+      "sealDigest": "sha256:484f817ab57ce9dac397258630a02512e1fef61c82d43664e696dac7d8c35ff2"
     },
     {
-      "buildId": "build-f030d7b8-f7e0-4f95-a2db-2290d158a67d",
-      "key": "hershey-q3-fy26",
-      "sealDigest": "sha256:422279c88258cebcd51bb53eb2fc37d9d8e96cd34dc9576c1342f6bd0e2c219e"
+      "buildId": "build-43b3df0f-e5fc-458b-8165-5cda604b8c38",
+      "key": "ford-q3-fy26",
+      "sealDigest": "sha256:063289d9b428bd427013466fdf00652350bbf4cf09ce5a0b99125816ec55d7be"
     },
     {
-      "buildId": "build-283f1e97-be4e-49fd-a088-fedf851df77d",
-      "key": "hilton-q3-fy26",
-      "sealDigest": "sha256:9a40d41ec3faaf811fc10a14e96ccde6cd48e0d1b15c318072593c575f77c89e"
+      "buildId": "build-28d13fe6-659b-4dda-b45a-db06c2bea192",
+      "key": "gm-q3-fy26",
+      "sealDigest": "sha256:83a3363ab0793f249aa8c3e3fe07fb1f5b98fed6d90d2e79f5d2bc9951f8fcc7"
     },
     {
-      "buildId": "build-525bfeec-f683-4e5b-a8a7-4f4acf6a7b56",
-      "key": "ibm-q3-fy26",
-      "sealDigest": "sha256:32d7b2497f8af7c004c78c41f86ca2d37076293c3b71ec6613e9b47e48c436c5"
+      "buildId": "build-4c8c541d-8803-4ed0-9ca4-c732232948a7",
+      "key": "health-equity-q1-fy24",
+      "sealDigest": "sha256:33679e009b3a273852c1a056dc1db9d598351a4135eda9c442ae24d912944dc3"
     },
     {
-      "buildId": "build-410dea63-d7bd-4e46-bf4c-2fdd77d74cc8",
-      "key": "intel-q3-fy26",
-      "sealDigest": "sha256:9ffbeaaf93f7904b380e33ad185800fb0d8a722097cf36849ed99acd40edce0b"
+      "buildId": "build-8b13fb19-3ea4-4969-ab91-a6627a2a8a1d",
+      "key": "health-equity-q1-fy25",
+      "sealDigest": "sha256:90f373b2a974ccdd655a1b59c8502dad0c700670c1d9b8ba43f9ebf06a215624"
     },
     {
-      "buildId": "build-99516c6e-20e2-4012-8a5e-2a2d8ab9c5d4",
-      "key": "intuitive-q3-fy26",
-      "sealDigest": "sha256:88fd533cd559d2398a2d095d644e1975c693b8188bebea835561caca076dc790"
+      "buildId": "build-ce19040c-9ab6-4b86-aff0-f2668ed826b9",
+      "key": "health-equity-q1-fy26",
+      "sealDigest": "sha256:eee60af23729082b202370971758d257fa95f551198fcf5d2811d2aa63e09499"
     },
     {
-      "buildId": "build-6ee5a14b-ab27-4742-9c6f-bc40b2f12bd1",
-      "key": "j-j-q3-fy26",
-      "sealDigest": "sha256:8c9e356a8c19bc73f2edc1582b71e9d756e9d595fc316f0591499b8f0307e951"
+      "buildId": "build-74ad0116-a1a3-4a78-816e-d51dcb6c29a7",
+      "key": "health-equity-q2-fy24",
+      "sealDigest": "sha256:7dda8873771c45e23d845a91a06a1b03723af79770433409a04c076b2b5ff2c7"
     },
     {
-      "buildId": "build-eb9441ce-236a-4bb8-9af3-77685647e2c1",
-      "key": "jpmorganchase-q3-fy26",
-      "sealDigest": "sha256:52633719708252d783c6235948cfbfb5df60530ecb2e05a76504185b2e7672c5"
+      "buildId": "build-4cfe4c84-b1b2-4ccd-8f26-af420f1148b6",
+      "key": "health-equity-q2-fy25",
+      "sealDigest": "sha256:f2a1ee2b70894385481e257fea834f5b43e21c9baab2f1157459e363a085568d"
     },
     {
-      "buildId": "build-cbab43d2-f63a-49a8-8955-38bcdd61177a",
-      "key": "kla-q1-fy27",
-      "sealDigest": "sha256:05dd405550b456c0d808457c0e088ff9db112524cab439f7fd88060ba9ea113b"
+      "buildId": "build-c074bbf4-6619-4d4b-af6c-9d4976137a87",
+      "key": "health-equity-q2-fy26",
+      "sealDigest": "sha256:2359f8f8e6cc79b1b47f92ce5a239757cc21690b2fcf690ca94001e5fdf151c1"
     },
     {
-      "buildId": "build-0a9d1726-4127-4675-a004-c598e78fdd70",
-      "key": "lam-research-q1-fy27",
-      "sealDigest": "sha256:d76a148defd5a8380f7bddf1ed9e7b13045f79125ddf4bd56c5fcac4f0e2d82c"
+      "buildId": "build-2f6698cc-f83b-45bf-b849-2ac0e7304c31",
+      "key": "health-equity-q3-fy23",
+      "sealDigest": "sha256:1af43e304b8616dcd18c6753a95738eb80235318fa7326edfb1fc00fc57569ec"
     },
     {
-      "buildId": "build-95abb505-aa22-4e2c-a4aa-c6e24d1321b9",
-      "key": "lockheed-martin-q3-fy26",
-      "sealDigest": "sha256:13c0d71259e350d8e4ebf2c996d9951393e36bfe36dcb1ae6a6bf3683bf8835c"
+      "buildId": "build-ef6fb8a1-6ced-4a88-8688-a90b02872344",
+      "key": "health-equity-q3-fy24",
+      "sealDigest": "sha256:8dc1a51453ca3e22c070255b284cccf641926c09a6d95ae298a5a7e12f5148fd"
     },
     {
-      "buildId": "build-ba98b95e-8fdc-4144-b990-9d83defd7ac9",
-      "key": "mastercard-q3-fy26",
-      "sealDigest": "sha256:22e1035f2d6b29490b299c708d049f248bb7636deef656d6dfce6fc3b17e183e"
+      "buildId": "build-a745ef72-2eeb-4050-bc96-01117a392e24",
+      "key": "health-equity-q3-fy25",
+      "sealDigest": "sha256:5d7b3d6cc95239a915bf5686141b5dddf672ccee189a262363cf6b830ba765e8"
     },
     {
-      "buildId": "build-0b085314-6fd5-4459-9c01-c35023dcaee9",
-      "key": "merck-q3-fy26",
-      "sealDigest": "sha256:5928d31b8b378355f8c9ef183d87ade3a689897cf02e327342d4af0bf9a4bb58"
+      "buildId": "build-8e18d6be-ab76-4138-a87b-591f07818ad8",
+      "key": "health-equity-q3-fy26",
+      "sealDigest": "sha256:b2d5f9551adcd2c74d6047179184a93749262a43b74ed2fa0ff66c20d0d4bced"
     },
     {
-      "buildId": "build-b58a5f6d-6a87-47a1-a069-6ee5892c3f7d",
-      "key": "mondelez-q3-fy26",
-      "sealDigest": "sha256:2c66ce52a1ba3a891a2ff7c8b3b147f4fc72862957fb380c5e3dc769336092b4"
+      "buildId": "build-67609b45-2ce1-4807-9902-56785233bddb",
+      "key": "health-equity-q4-fy23",
+      "sealDigest": "sha256:3f27fab8d8a10b91c637d4c51cd0044b9de72fded0113a85d0f9cd31f2154d0c"
     },
     {
-      "buildId": "build-79cb1a99-003e-4583-8976-b1ce51d6aec9",
-      "key": "moodys-q3-fy26",
-      "sealDigest": "sha256:f2298cddb99c0440972053deecb7d01ceccc6252014d31f134decc6bc831b5ce"
+      "buildId": "build-88561e5d-0e48-41d5-a3d5-aa7fd3d25e8d",
+      "key": "health-equity-q4-fy24",
+      "sealDigest": "sha256:553b85d481a00ad7c296d99819ca4c5827b99f14ecfa81a51d68c2a1b0437909"
     },
     {
-      "buildId": "build-5ee8fed5-c403-4b5d-99cf-c954a31f0bf8",
-      "key": "morgan-stanley-q3-fy26",
-      "sealDigest": "sha256:55a3a797d35caf20ef6c1ef6cfa05477306c51e8752548a5864f0f5d88e1b1a7"
+      "buildId": "build-febe2cda-676a-45f1-ac70-621cfb835810",
+      "key": "health-equity-q4-fy25",
+      "sealDigest": "sha256:f08af6a4448b5b6aaa40c8192dafb3753acf66fe0b7764c30ac579788522ec42"
     },
     {
-      "buildId": "build-5ae49539-0620-4760-b76c-1138b64061c1",
-      "key": "nike-q1-fy27",
-      "sealDigest": "sha256:7ed28106c76302f0f06f49f993c243bb99243f7db4a4ada9d0121a72d0b09ec8"
+      "buildId": "build-4cee41ef-7083-4d69-aaa8-e442cbeb0be7",
+      "key": "home-depot-fy23",
+      "sealDigest": "sha256:0f57f37b9b8b6f5f74074d2938c98beff9a3fafbadb7e80c9befe4a10d924c3a"
     },
     {
-      "buildId": "build-d0a83bd3-ccd3-428d-bd6d-21d67cd55470",
-      "key": "novartis-q3-fy26",
-      "sealDigest": "sha256:ce2ccfdda5f292a3cd8320e1ba7bc7ebd85b8eb38912807ee68a4b8d03e72bdf"
+      "buildId": "build-66a24e1e-0a60-48ae-a352-7cdb5459e8b2",
+      "key": "home-depot-q1-fy23",
+      "sealDigest": "sha256:92f07d5688bbd7923465407ffdf633998e8ee896e17bdae7a148d324c62fc976"
     },
     {
-      "buildId": "build-0a2f6885-66cb-4128-96e1-ebbc0af863e8",
-      "key": "p-g-q1-fy27",
-      "sealDigest": "sha256:1f37a652461478954724cc699b233dade264a7be8da98ef783c31f5bf7b17395"
+      "buildId": "build-1de49c4b-605b-46f0-9e06-f3aec4e70622",
+      "key": "home-depot-q1-fy24",
+      "sealDigest": "sha256:1676caefd8f53f804df88ab9f500089538b79a6a259b5b0c11fc2f551248caa0"
     },
     {
-      "buildId": "build-6ca1458b-f508-4fcd-989f-d0bd3973b34c",
-      "key": "paypal-q3-fy26",
-      "sealDigest": "sha256:4df70152a2528b271a103c4771c0e2831337aacb2f4d2509621192e2e460ee9e"
+      "buildId": "build-6132170b-bbc7-4ec3-935e-4bdeb2606f2f",
+      "key": "home-depot-q2-fy23",
+      "sealDigest": "sha256:d2cded17451e8de92bc839e5aee96a41216a239bbda12c28b91c5aeba9ee4cdc"
     },
     {
-      "buildId": "build-d31a5115-7903-473d-aec5-80aa860f42b3",
-      "key": "pepsico-q3-fy26",
-      "sealDigest": "sha256:f1453a961260a6eeae497df2bf515e0cbdf0c68ec664fb8d881c5290b555a5bb"
+      "buildId": "build-ae1ccbcf-5901-4929-a926-468da8aade1c",
+      "key": "home-depot-q3-fy22",
+      "sealDigest": "sha256:dd448a2c39a61d44b264c52af582cb5e8dd55e8fcc156c3fc03a327f92b5bedd"
     },
     {
-      "buildId": "build-439ece40-7798-4a9b-9623-fd17201e8e38",
-      "key": "rivian-q3-fy26",
-      "sealDigest": "sha256:23eae1c5e544572334b0a136da8a645aa08b12e88461aa00b42e337606eab8c2"
+      "buildId": "build-dec23e0f-6265-492d-850c-dd7e9404145a",
+      "key": "home-depot-q3-fy23",
+      "sealDigest": "sha256:737c3455c938497e72bd43506938d67ca46c255680eb1305865d96af152c62c9"
     },
     {
-      "buildId": "build-b355459f-73c1-4b7d-a415-ecfa2c8f52cb",
-      "key": "robinhood-q3-fy26",
-      "sealDigest": "sha256:ca07d6e63412ebf8319bb705665f807610a6167ca3c320e30addbb46d48871b5"
+      "buildId": "build-78184ac3-fafa-416e-9d5e-f124e7ca754f",
+      "key": "home-depot-q4-fy22",
+      "sealDigest": "sha256:3aee816b96d64a2da84c54f6c2906ecd91ace17bef4c4d0e264edef05b5507f2"
     },
     {
-      "buildId": "build-935170a0-93e8-46be-9551-b0279ccb945b",
-      "key": "samsung-q3-fy26",
-      "sealDigest": "sha256:f20cb09bc530329f81f5e17465661fac29235569237f5787162e1226ad05d8cb"
+      "buildId": "build-55164e67-6991-4d0b-9de9-873d1722ad04",
+      "key": "intuitive-q1-fy23",
+      "sealDigest": "sha256:440cb8bc579f3d2eb305d3a36c78d74a22b10bb1f9333905815339b88ece483d"
     },
     {
-      "buildId": "build-fca2e5d1-f3e9-48bb-888b-0365af8e5c97",
-      "key": "sandisk-q1-fy27",
-      "sealDigest": "sha256:c273205c933d8dd64d0f0fa0cfd04db5c8a9804509a4c54ed4e5abe9725f8300"
+      "buildId": "build-e06afab1-a497-4b2c-a917-f89d252bb4d4",
+      "key": "intuitive-q1-fy24",
+      "sealDigest": "sha256:2ab14382b171189300d0b336a01fd6f7178d7dd90206bccc21dce642682cd2cf"
     },
     {
-      "buildId": "build-91d35f93-dd47-4cc1-b78c-9313263f03f9",
-      "key": "sap-q3-fy26",
-      "sealDigest": "sha256:1fb904427f4f496ab372b0958d9974abcbcc005be0cc1144d2395c8c2a00ff69"
+      "buildId": "build-061769a5-9d1a-48fa-aeb9-8a961e8a6995",
+      "key": "intuitive-q1-fy25",
+      "sealDigest": "sha256:7c0054fdb998c2237c1cb19a9e81cd69a333596d579fa676ae787097cbd5e0d1"
     },
     {
-      "buildId": "build-3fcda594-64e0-469c-b6e8-1f9534aee831",
-      "key": "schwab-q3-fy26",
-      "sealDigest": "sha256:7366ed8d34926fe3b98d2d6f45c361aed338919d763bfc7306510b04b4ce245f"
+      "buildId": "build-b9755fac-a097-4088-8a7a-ac58fb046184",
+      "key": "intuitive-q2-fy23",
+      "sealDigest": "sha256:9e4dff06089fc5c3f38a29581844fcc2ee84b1c02607fc04f91f16a0ea1edcf8"
     },
     {
-      "buildId": "build-b305f079-113d-474d-9b15-b5075aea8357",
-      "key": "servicenow-q3-fy26",
-      "sealDigest": "sha256:1bb48eaf11fceff904c39ed614976d971d1f78bca81af2a37ad290ee4aab38cc"
+      "buildId": "build-16460d06-8c01-4eb4-afbf-b74dbaea4d58",
+      "key": "intuitive-q2-fy24",
+      "sealDigest": "sha256:2b261c025d1aba1b1bf47213df853831462396b82d6b2ee930bc0e3a8e363208"
     },
     {
-      "buildId": "build-dce46d54-f2b6-442e-9a41-49440cbb0fbb",
-      "key": "sk-hynix-q3-fy26",
-      "sealDigest": "sha256:a11e3b831ce5b8241a4f792883c2d080152de7a071efacfa164fc15758a4dce9"
+      "buildId": "build-21b21433-ae7e-4f5b-9bc4-f89bfe0d6c50",
+      "key": "intuitive-q2-fy25",
+      "sealDigest": "sha256:e2d42c3b73a903ec4134866a56162ea50fd912c497ed9a2eaf348117ddb9d74f"
     },
     {
-      "buildId": "build-88003ec9-5281-4122-81dd-2bf4d11b0933",
-      "key": "sofi-q3-fy26",
-      "sealDigest": "sha256:eb47ce240f760ea37ba198638c59ffd23a896fc479096c947a2fd0f51c7d9e74"
+      "buildId": "build-a3220f60-98fe-491a-a884-0b68b2a2a54b",
+      "key": "intuitive-q3-fy23",
+      "sealDigest": "sha256:8d37b9205a1151d7090a75685dd1da3421b734237a5ea251cc41b4290b3353e3"
     },
     {
-      "buildId": "build-0589ffc5-1d1f-4f53-a682-2ac85253c876",
-      "key": "southwest-q3-fy26",
-      "sealDigest": "sha256:b1d6ea8d8a941881dc497d008b7587de68ac9e51f88506c72f147ce94c0044bc"
+      "buildId": "build-080eba87-49dd-44f9-baa0-46e7ff4a0369",
+      "key": "intuitive-q3-fy24",
+      "sealDigest": "sha256:37491fe738bee63a02b316e82b59ce470e5f1950c9708aaf7eafda79ec7f57fb"
     },
     {
-      "buildId": "build-30ee5d92-bab8-475d-820d-4e2c4a91e1e0",
-      "key": "t-mobile-us-q3-fy26",
-      "sealDigest": "sha256:f01b329507f7dfb6ac46c3978cf7783a09e0c99aef604969d00f94fe293f2db6"
+      "buildId": "build-3f1789cb-6f0f-4b20-86c4-7c237723f0f5",
+      "key": "intuitive-q3-fy25",
+      "sealDigest": "sha256:43d7db24af78ad12f83242c9d660b4b1a606b897f542173c018996152b4b5f70"
     },
     {
-      "buildId": "build-e7d023ab-b32c-472a-9c46-a608912b65d0",
-      "key": "teladoc-q3-fy26",
-      "sealDigest": "sha256:20d42372d03786d6b60c551853cf74b90c70db093225986bfda6226e520fe349"
+      "buildId": "build-783b20c0-7177-4ad3-a5b8-15d63b585523",
+      "key": "intuitive-q4-fy22",
+      "sealDigest": "sha256:58bb193e4d82af0e8e67d7d1bc00cfe30df0344eac0ad6855b16a7d993ef3f6d"
     },
     {
-      "buildId": "build-dfdaa8d9-d1eb-484b-99b1-6ac0a71367e7",
-      "key": "texas-instruments-q3-fy26",
-      "sealDigest": "sha256:39781f89fb0abb9b4da5ad11e343a16d8c97366e2bbd8e2a80187ea2a4cfd201"
+      "buildId": "build-8a9e1d82-f77e-4169-bbfb-5f33c156cbc4",
+      "key": "intuitive-q4-fy23",
+      "sealDigest": "sha256:2b59c115468a7dfaeb0d74888fd454e1030a269198b58ba6c6de0a4db6e4a89b"
     },
     {
-      "buildId": "build-204ba1ab-87dc-41d5-9651-6fdab3254f73",
-      "key": "tilray-q1-fy27",
-      "sealDigest": "sha256:4780b09af009fdfd0137f52f2b465148ba9172ee34ffc177e2b96b394f1fa712"
+      "buildId": "build-f776b975-4691-4d2b-9cb0-584db80b4b33",
+      "key": "intuitive-q4-fy24",
+      "sealDigest": "sha256:5e442e6624e3f828f7761e9770e73e41ecb4ea4b718694ae8c6cdaf5b4307962"
     },
     {
-      "buildId": "build-c06b857d-5bee-4915-afbe-13ae718c4271",
-      "key": "tsmc-q3-fy26",
-      "sealDigest": "sha256:1c294afcec7622f15be073fdd642b5e594707971104579a5411eeebf4af63f3a"
+      "buildId": "build-171d2b27-27ed-43e3-bba2-87c9db81a2aa",
+      "key": "kering-fy22",
+      "sealDigest": "sha256:cdbbcdc6b2f07aeef873dfeabeb8fb2d9333e5c227935436476b0c1eed3ce067"
     },
     {
-      "buildId": "build-91fdc945-4132-46ea-b9db-f2e1bfb03213",
-      "key": "united-q3-fy26",
-      "sealDigest": "sha256:8606489987c6fc059265894ea824d5a940af48b70c72908aaf9d45ffa8672c7b"
+      "buildId": "build-b385434e-d410-47f4-8030-c06bf3252128",
+      "key": "kering-fy23",
+      "sealDigest": "sha256:6979e2191e59df9e7f535f67195750bf47c6a2c35057c1a452c3f31511d2a702"
     },
     {
-      "buildId": "build-e6e21af9-2a43-4968-a28a-8b38f68fa5a1",
-      "key": "unitedhealth-q3-fy26",
-      "sealDigest": "sha256:482c307f7440d23cb8e000f5ab31f33d1e30626b212ef9a2f913c154f206f68f"
+      "buildId": "build-e70e449e-7e82-411d-becb-30817d5cb065",
+      "key": "kering-fy24",
+      "sealDigest": "sha256:8453f3e3db7711bc18d7b3f725e047c047a3f460196c6265cce2240dbfcffab7"
     },
     {
-      "buildId": "build-a85489d5-73b6-4de4-b802-6cf78dfc36e9",
-      "key": "ups-q3-fy26",
-      "sealDigest": "sha256:cd57e2316986d3e70975b406f0bad0804434c2d243e34f6d48d4277dcb7aa443"
+      "buildId": "build-c16b4ca4-02a2-4287-a0c7-88d98a555b33",
+      "key": "kering-h1-fy22",
+      "sealDigest": "sha256:43f2ffe0a9d05e011c0457d6afc81bde69105aa9cb191ab1d0e6fbad29e82243"
     },
     {
-      "buildId": "build-a17d5e07-b7eb-4e0e-8a2b-e1a2a7ea4697",
-      "key": "verizon-q3-fy26",
-      "sealDigest": "sha256:69da29f01ede6bdd635c14c18941a98fb46ad63c0a0f46ffc8b5b14396744463"
+      "buildId": "build-e997cc25-873e-4415-b5ab-54bdc9b17372",
+      "key": "kering-h1-fy23",
+      "sealDigest": "sha256:e90b7bb24e23fc7446250e4df6d455c42f98df4882f8b9f88433fa5449c3736a"
     },
     {
-      "buildId": "build-30883f08-1903-48fa-a0c2-51d0e3b4a940",
-      "key": "visa-q4-fy26",
-      "sealDigest": "sha256:998335f03aaeaa3a251a09fc9b2f7a1cbc43377379956f924e8dc00b2e2f8001"
+      "buildId": "build-a3a2d00c-6300-4b9e-b99c-114e18ab48cb",
+      "key": "kering-h1-fy24",
+      "sealDigest": "sha256:5a720a594b89f2117d804b952a7b65d4b43956301d230e91d4d658520c293819"
     },
     {
-      "buildId": "build-6971fd43-6383-44ac-885d-af7e28cfcf3f",
-      "key": "wells-fargo-q3-fy26",
-      "sealDigest": "sha256:98c605d9cdaed6242b7fbf69d1f129422a52c005c825e023d25d4687e9b1559b"
+      "buildId": "build-cee55134-1d9b-43ce-9c1d-f6ca20da7de0",
+      "key": "kering-h1-fy25",
+      "sealDigest": "sha256:ca2ab2e1cdf2d9450d1e309673c402d8875a588763dbed79fe883a878b6d413e"
+    },
+    {
+      "buildId": "build-72c2015a-5041-429a-98db-0d8cca91a1f4",
+      "key": "mercadolibre-q1-fy23",
+      "sealDigest": "sha256:6ba79675c0b633fc5dc2188ba5b7e6854071017164e7133a2157594ec9d7b69f"
+    },
+    {
+      "buildId": "build-77c78ca8-d94e-475a-aa70-e69e8bba9e14",
+      "key": "mercadolibre-q1-fy24",
+      "sealDigest": "sha256:40e61645d14f21d606bb74786d7b20fa0b58525cafe458dd253ee30021e4ff33"
+    },
+    {
+      "buildId": "build-8be9b8d2-1b13-4204-8268-7d96ea4e04df",
+      "key": "mercadolibre-q1-fy25",
+      "sealDigest": "sha256:5a347dc71d793bf1487a97fb76a6214bce9345675cc8b391139d765fb38ca249"
+    },
+    {
+      "buildId": "build-63903621-3ce2-421b-8348-b63572da130c",
+      "key": "mercadolibre-q2-fy23",
+      "sealDigest": "sha256:da1d8f92074a84ee23a96e5aaa84c218a341bf2b4c84724b69c4c1522ee1991c"
+    },
+    {
+      "buildId": "build-ec4044fe-bcfe-4735-9f39-ea9fdb855d30",
+      "key": "mercadolibre-q2-fy24",
+      "sealDigest": "sha256:eb653da6366968fc2ce586bc0c8cf1d4f6b96a8e6df4272fd8f321dc8e58f92a"
+    },
+    {
+      "buildId": "build-6828aa67-67ca-44b8-8f31-642e31b1018c",
+      "key": "mercadolibre-q2-fy25",
+      "sealDigest": "sha256:f71eea4cd5ab5ed42352590ade3a8a1d4bc42a6159be4a958b4b8ef70c171ba4"
+    },
+    {
+      "buildId": "build-703e0986-3f45-41c3-be9f-6f0e7b39959e",
+      "key": "mercadolibre-q3-fy22",
+      "sealDigest": "sha256:09724db2a494d6ad8aa1a1431e9ae8f64bc4856f9c89f904b81ba72f2c567c8f"
+    },
+    {
+      "buildId": "build-ac68daf9-e5f4-4266-ab22-af19693a9ecc",
+      "key": "mercadolibre-q3-fy23",
+      "sealDigest": "sha256:358e4de59c6611a203c3a4878be7af34040947fc4505255000ab87217b23d98b"
+    },
+    {
+      "buildId": "build-a37bcfcf-1e55-41cc-b4a4-3030b309431d",
+      "key": "mercadolibre-q3-fy24",
+      "sealDigest": "sha256:bb08a190f0ace88c9cfc928fad5beb267c8a03e71589d44e1e022568b5ffdbc9"
+    },
+    {
+      "buildId": "build-578827f9-e07a-4a8e-aec1-e0e84127c27d",
+      "key": "mercadolibre-q3-fy25",
+      "sealDigest": "sha256:91a72b3bfc2cf21289f29980cf5a609db731a49429587be4ef008ad8da4cb5a3"
+    },
+    {
+      "buildId": "build-d492c565-3079-4444-847e-98e46c3e1e23",
+      "key": "mercadolibre-q4-fy22",
+      "sealDigest": "sha256:343bf440b6d34e1cc8266d918f6caadbcb303976775e33f67bcb08121eac6180"
+    },
+    {
+      "buildId": "build-56b4a089-dec6-4b39-8e0e-cdded42a6203",
+      "key": "mercadolibre-q4-fy23",
+      "sealDigest": "sha256:e7a6b68839c010efd039e8dff7dd244c5abd73b5185b49587fd75f0c1e0bea25"
+    },
+    {
+      "buildId": "build-538201d6-ee1f-42bd-954b-b4a397f3fdaa",
+      "key": "mercadolibre-q4-fy24",
+      "sealDigest": "sha256:7cd5e10f0099061631c1e3d195fbd39c38482b04470558e32d25032c04e60652"
+    },
+    {
+      "buildId": "build-33ff3aad-5b72-4daa-95bf-422d1ab56afc",
+      "key": "meta-q3-fy26",
+      "sealDigest": "sha256:3a9a6f89baa311254494bae3009b923e57477ea4bcaccb7c9d9d4c54dc99e7ab"
+    },
+    {
+      "buildId": "build-d8a2e9d2-f411-4057-9463-e397d4fa4130",
+      "key": "microsoft-q1-fy27",
+      "sealDigest": "sha256:98195f8b3212870264f4a45d94b8de11d18aebba2974190813b0f394433dd242"
+    },
+    {
+      "buildId": "build-c2d044b7-916d-4ff5-af4a-eb4d9a8b2bba",
+      "key": "netflix-q3-fy26",
+      "sealDigest": "sha256:174422d17d20ba89ebd522221381ec15eff0649f72c3f98a11ab14f6643cc06b"
+    },
+    {
+      "buildId": "build-92550931-e413-407a-8001-67d94ca7788e",
+      "key": "pinterest-q3-fy26",
+      "sealDigest": "sha256:dbda2c5371a67963253eb47b08fda808d8cf94f9a6b00ce1dface94560be994c"
+    },
+    {
+      "buildId": "build-9e5cf70d-cf4b-4b47-9c49-e83087aae641",
+      "key": "reddit-q3-fy26",
+      "sealDigest": "sha256:5e59f6817e758b2dbdb0cf91eb6c83e078c006c5217e5de41c6ec4685dc39730"
+    },
+    {
+      "buildId": "build-229c795c-3f5b-4596-a08b-5d2ba4f5fb8b",
+      "key": "roblox-q3-fy26",
+      "sealDigest": "sha256:e2e76f263f2f85834a56bb5e11d5b47617c6ac123fd77f882c2eef80f2d7cb9d"
+    },
+    {
+      "buildId": "build-fc77a545-f331-49b0-bcf8-dc93de4d6fe3",
+      "key": "spacex-q3-fy26",
+      "sealDigest": "sha256:7763fe6bf35ea833018c85fd60a1bd20278acdcfc03ecf90c2f00f38bc58471c"
+    },
+    {
+      "buildId": "build-8d7b5f0d-6683-4e20-a229-63004174c836",
+      "key": "spotify-q3-fy26",
+      "sealDigest": "sha256:1f4fbc74eee9593e58e01ba3bff083e5b5f50d0c1cc22a93e93e9c65c8f517f2"
+    },
+    {
+      "buildId": "build-8638a7e5-9ea4-4e37-a501-c045912c04ec",
+      "key": "stellantis-q3-fy26",
+      "sealDigest": "sha256:f9b33dc1a1fa8d0e7d223f5bd851d4fcd21792c5a482dc5dd19844127ae83d76"
+    },
+    {
+      "buildId": "build-3b98df5b-9f6d-4b3b-b9be-5c197d9490b0",
+      "key": "tesla-q3-fy26",
+      "sealDigest": "sha256:dd3cc88312ecfa5e271baa84e3c71626d79fa2639488cf8f4e80a1a14dded065"
+    },
+    {
+      "buildId": "build-7980bd48-d802-4c49-abf8-2b1a6e2dba2d",
+      "key": "veeva-q1-fy24",
+      "sealDigest": "sha256:037d6e5415197da3f2a2d378d0afbdf193fa24c202a083d9f1f1d03e3c315364"
+    },
+    {
+      "buildId": "build-23ee64f0-107e-41cf-89b1-2ac51aa94e6d",
+      "key": "veeva-q1-fy25",
+      "sealDigest": "sha256:2c712e53ee6552673fd507e5dc0c5b723912267c246f71a3da83a01adc215a98"
+    },
+    {
+      "buildId": "build-9891230c-e54c-46d0-ba11-55cdab524361",
+      "key": "veeva-q1-fy26",
+      "sealDigest": "sha256:73ea480507db45116290c8f14b2c57f7a8555ac3a19e3d1c2a24d66e1536a2b2"
+    },
+    {
+      "buildId": "build-a51d5f63-1b03-4fc4-9784-12196e0a0a3d",
+      "key": "veeva-q2-fy24",
+      "sealDigest": "sha256:d7c7a485fcf82ba4d270be8166f0b953ae10e9db30f9153589ff8c30940998de"
+    },
+    {
+      "buildId": "build-b990fc44-3d62-43c2-82d5-d06f96639a00",
+      "key": "veeva-q2-fy25",
+      "sealDigest": "sha256:06c9a2026636a98566a8010b08c7d9156c66116767592033fae306b44d7c609d"
+    },
+    {
+      "buildId": "build-32a581d0-df64-4b65-913b-367171f27ff4",
+      "key": "veeva-q2-fy26",
+      "sealDigest": "sha256:4e9b99971809129c2f224026b8c743d1297f4976795390b5f8c74c702e19f0b1"
+    },
+    {
+      "buildId": "build-5f99bc1b-88f7-4b31-8391-7209b995331f",
+      "key": "veeva-q3-fy23",
+      "sealDigest": "sha256:7f353b9b1fa56ef413ccd61256d2c873db1bddd3e5675556fa5c6c6212548db9"
+    },
+    {
+      "buildId": "build-060804e4-3fb8-4014-941f-51b2a9721a6e",
+      "key": "veeva-q3-fy25",
+      "sealDigest": "sha256:169e40280b2a665263a4311927ed46b95e4f99b353cfb9979e734c55328e90f7"
+    },
+    {
+      "buildId": "build-dadcb70a-8cbc-49e6-bdfe-d0789c13d58c",
+      "key": "veeva-q4-fy23",
+      "sealDigest": "sha256:d96ffda347376487d03e2a134b18ed77c7340663f56103e7e32f0274099ba28e"
+    },
+    {
+      "buildId": "build-96db40a2-5825-4963-b7bc-e76a59aeaf6e",
+      "key": "veeva-q4-fy24",
+      "sealDigest": "sha256:a1edb217113a330df66d1c503dc2f4de2798086d32ec56e27607c90cd2e2c614"
+    },
+    {
+      "buildId": "build-26e343bf-891b-4d0d-93e4-24efc4e1be36",
+      "key": "veeva-q4-fy25",
+      "sealDigest": "sha256:02915aad2d2cadf968bf057bb65bb4dee4849a7f62694cd84f351ec75084d555"
     }
   ],
-  "candidateDigest": "sha256:3e43795dc85137d4bb3f691561d1802086207bc74f2d6c5e8c1d69bcf55afcf1",
+  "candidateDigest": "sha256:9bda6fc9f5fc756de9962bf50727a4ead98b9432defc4b32ec1f5675ac06a291",
   "paths": [
     {
       "path": "data/assets/catalog.json",
-      "digest": "sha256:4b6d97093b96f3434eb6d5e9fa617987995fa9d35ea95abe440e94e417276e52",
-      "before": "sha256:e6cf66513be4a0ebee6ee7926f16c8b51d5e128f7b8d8eb2d96fd0ff14f8f321"
+      "digest": "sha256:ede905d2df71e41fda507e302beae4ef2362584a51e8ab7d80c301b16493f174",
+      "before": "sha256:4b6d97093b96f3434eb6d5e9fa617987995fa9d35ea95abe440e94e417276e52"
     },
     {
-      "path": "data/assets/icon-references/accenture/crop-report-q4-fy26.json",
-      "digest": "sha256:760c881231366c92ce2e9b2a69267ff1fdd3533ce0b7a78195787f5325c7c9f8",
+      "path": "data/assets/icon-references/accenture/crop-report-q1-fy23.json",
+      "digest": "sha256:79c094b86a9370d85bbfbf1b1d020d4d99fb5f3c6d7b28c7d4edf0472a569784",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/accenture/crops/company-logo-q4-fy26.png",
-      "digest": "sha256:5ced9136803926600941950ab56796b2e0352c4069883b1e2be6f12726a2b010",
+      "path": "data/assets/icon-references/accenture/crop-report-q1-fy24.json",
+      "digest": "sha256:35ef32bfd2179bcd4dcaf59e65b890d294d8257cb365a38c4a507cf1cdc2d328",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/accenture/model-validation-q4-fy26.md",
-      "digest": "sha256:fe5feeb095e916b82955eb5d7224644be63cb72be5ba19a7911e291040dcb1d8",
+      "path": "data/assets/icon-references/accenture/crop-report-q2-fy24.json",
+      "digest": "sha256:6f67837b97f6224fbd7a836cf40871d295b676e2b5989fe08781e3f0417808d7",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/astrazeneca/crop-report-q3-fy26.json",
-      "digest": "sha256:a2aa3012aeda82799116cc1f239d4978408dbd979e3327586a6ada7db76a7591",
+      "path": "data/assets/icon-references/accenture/crop-report-q3-fy23.json",
+      "digest": "sha256:b8dd0329bd4fb936db771abebe53304d14dca445aff84af237bb7c229dd20bba",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/astrazeneca/crops/company-logo-q3-fy26.png",
-      "digest": "sha256:b6c71cdf7e2e7a24ee1c07500bd69f367be780249782cb89984a3ef27b1b683d",
+      "path": "data/assets/icon-references/accenture/crop-report-q3-fy24.json",
+      "digest": "sha256:d5e75457eb8f24229361409674d210598449a1fe9b52c400c26f745345f467a8",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/astrazeneca/crops/forxiga-q3-fy26.png",
-      "digest": "sha256:fc73a1db8362b005524626b0286da194db5b234007214efbe34aaa791c7e106b",
+      "path": "data/assets/icon-references/accenture/crop-report-q4-fy23.json",
+      "digest": "sha256:a9f56453ceb9c2f51874fc624074bef9f536c33ed99781dbb15d81f02373abb6",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/astrazeneca/crops/symbicort-q3-fy26.png",
-      "digest": "sha256:f75ab364546771bf87d4af8cb2b1e153c19275e7a97846f285e2a786c4469789",
+      "path": "data/assets/icon-references/accenture/crop-report-q4-fy24.json",
+      "digest": "sha256:430fae524fe2255afeff1a1e39f9caf92b3db4c2e72f30b66e2f53a6fbf056c0",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/astrazeneca/crops/synagis-q3-fy26.png",
-      "digest": "sha256:32f6aad04bae320bd66e0357f646d8e4265b39f9029e1bcbb8cd24ca730a1b45",
+      "path": "data/assets/icon-references/accenture/crop-report-q4-fy25.json",
+      "digest": "sha256:52c1b44f6b3b47df55f6b2690f4f6c25cf3fd3864de84cb5799738ae59610d68",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/astrazeneca/crops/tagrisso-q3-fy26.png",
-      "digest": "sha256:d895b4f01de48a07b255eac460e799f23e26be7ab4a6949f9484e570d96fc0c3",
+      "path": "data/assets/icon-references/accenture/crops-q1-fy26/crop-report.json",
+      "digest": "sha256:38f7306c95eee0b8ede5d8c7c553dcc177ed1abb45ac73f629ecfd591b8e3632",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/bank-of-america/crop-report-q3-fy26.json",
-      "digest": "sha256:46ae9dd7dcff5106411e142412b37b2400d270c53cf31f31fd254b9ed10f13bf",
+      "path": "data/assets/icon-references/accenture/crops-q1-fy26/logo-q1-fy26.png",
+      "digest": "sha256:836e85d5e1a43bccde08c9102e2918283c08c20ab9903b2f60460e4bab76a9f5",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/bank-of-america/crops/logo-q3-fy26.png",
-      "digest": "sha256:e7d54b4ebfa92a3288c892a453a1340a950d79f7493b312f37bf0879bc8cfc94",
+      "path": "data/assets/icon-references/accenture/crops/company-logo-q1-fy23.png",
+      "digest": "sha256:7272957fe2ec3b1a66e29a778cb93c2cce93625e292aeca964c2b1c69a824df1",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/bank-of-america/model-validation-q3-fy26.md",
-      "digest": "sha256:017be55924dde3249627d9aedd16222b95e6652f98c0d380055fa2f4630d226b",
+      "path": "data/assets/icon-references/accenture/crops/company-logo-q3-fy23.png",
+      "digest": "sha256:f282b3a762744a9a1cde4eeb2e9c208208f94094a120026de72e34bc955ca724",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/braze/crop-report-q2-fy27.json",
-      "digest": "sha256:b75aba8aab71ed2b1589657ea28301d91cf3661c735c225ca30f07ea822fc034",
+      "path": "data/assets/icon-references/accenture/crops/company-logo-q4-fy23.png",
+      "digest": "sha256:e0a1e51bd6346e8b1a1b76f78849c0a60e9f033892dfc6876239b0a33a575c1a",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/braze/crops/company-q2-fy27.png",
-      "digest": "sha256:e125c7ca2f293f05b913a9ad2d633686d828040663a35f3b071a607b06671126",
+      "path": "data/assets/icon-references/accenture/crops/company-wordmark-q2-fy24.png",
+      "digest": "sha256:d010d86b7ac6258f07c80a9a157f6edc173a1aea57973703b192a42b2cc6ffc1",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/braze/model-validation-q2-fy27.md",
-      "digest": "sha256:a680321e1cfad9678a0611f2c42866a7d3f0286764685772117d18a3bfd6a603",
+      "path": "data/assets/icon-references/accenture/crops/company-wordmark-q3-fy24.png",
+      "digest": "sha256:68f5b7cef90eba016dc283af3a1183a7994dff1bdcbae24ec669a6aa9b4e6a0b",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/cadence/crop-report-q3-fy26.json",
-      "digest": "sha256:ff6596be894e315124b3b36aeb98df6239e43daa7f0ff83da449eaf97a3d0d6e",
+      "path": "data/assets/icon-references/accenture/crops/company-wordmark-q4-fy24.png",
+      "digest": "sha256:15ae0b4a1b0047b33710bf1159f50a4c285b3aef18bc30fd1fd665b397ac745d",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/cadence/crops/company-logo-q3-fy26.png",
-      "digest": "sha256:12237dcfb76077a5e8a9bc98b835702ae6c347b806ec9de5f2489a853135a647",
+      "path": "data/assets/icon-references/accenture/crops/company-wordmark-q4-fy25.png",
+      "digest": "sha256:5d3c54910e63277b1b3c89bac9277ad18e2d0eb4e52262dd6088056e897de114",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/cadence/model-validation-q3-fy26.md",
-      "digest": "sha256:fdd24aeb71b7967f832713ade0a989c334233bbdc2f11bbb5cfb32d5295dc24c",
+      "path": "data/assets/icon-references/accenture/crops/logo-q1-fy24.png",
+      "digest": "sha256:4271dcc9313cd75ced3107d2f2426d9d1cd0e8294e6896f627feb3327a14eedc",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/citigroup/crop-report-q3-fy26.json",
-      "digest": "sha256:2668c0e70d1ba6b3f538ab8dfcf960adf37f6532db20644eaa58586c5261a5f5",
+      "path": "data/assets/icon-references/accenture/model-validation-q1-fy24.md",
+      "digest": "sha256:d2b5ff7b13db907f3588c0d57468710c68d4159709a4615e91d198b4586b1016",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/citigroup/crops/company-logo-q3-fy26.png",
-      "digest": "sha256:383dcf59a3046e5e90b4504edccb48a789c26770bec0b32231e58f8aea4c1af1",
+      "path": "data/assets/icon-references/accenture/model-validation-q2-fy24.md",
+      "digest": "sha256:f8ff335de395ffac5d766dbb69784f18c7d003f33866abb92e788b3bc234512d",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/citigroup/model-validation-q3-fy26.md",
-      "digest": "sha256:c9427320373f7cf55aeb121979d8b24b789f7a9691825b9bdca64504c926d5d7",
+      "path": "data/assets/icon-references/accenture/model-validation-q3-fy23.md",
+      "digest": "sha256:896acc77b142a16c487ed7ae7912baa731c9140ad18ef775072328a312455c88",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/domino-s/crop-report-q3-fy26.json",
-      "digest": "sha256:21b92f3fbcbad0bba94983ecaffa0389a798f4cdc9e235093f7b730e04bf2f7f",
+      "path": "data/assets/icon-references/accenture/model-validation-q3-fy24.md",
+      "digest": "sha256:c892aac42aafbb3fb61965cc3cfb0f8d53194cb008133d5b373ca1b16350cdb9",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/domino-s/crops/company-logo-q3-fy26.png",
-      "digest": "sha256:5696eec07688c8805bd80433b2916fa37169e95037c66217f1dabc485ed2ba99",
+      "path": "data/assets/icon-references/accenture/model-validation-q4-fy23.md",
+      "digest": "sha256:183c797d3ea7d6d912450e88e2622190a8f8ea86305f0999a7e4fbab079e679f",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/domino-s/model-validation-q3-fy26.md",
-      "digest": "sha256:e3fd05bb2bcc83dc8398c753aee21ba1702f3ecde20fb2d0c52a816dde20faf5",
+      "path": "data/assets/icon-references/accenture/model-validation-q4-fy24.md",
+      "digest": "sha256:a8fd6e76dbad3eb58a0d50920ff7a02381e1b50bbda3b4998ce2eeeff68c8bf9",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/intel/q3-fy26/crop-report-q3-fy26.json",
-      "digest": "sha256:6707ed9237471aadc65d9bba5691705fc991daa7b57ed7fc26019bd17f9b1715",
+      "path": "data/assets/icon-references/accenture/q1-fy25/crops/crop-report.json",
+      "digest": "sha256:ad45da452c1128507cb4df35c1368bd35791f4dda777526ab53d7fc418e0a7b3",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/intel/q3-fy26/crops/company-logo-q3-fy26.png",
-      "digest": "sha256:043340cbe66f57aadd8d565161a569d78c02d092f7e3a08871dfbef1a9ceac90",
+      "path": "data/assets/icon-references/accenture/q1-fy25/crops/logo-q1-fy25.png",
+      "digest": "sha256:4f12485497715926fb89c13512e67b142d756315cc96b45e9afb5fa19d25f588",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/intel/q3-fy26/model-validation-q3-fy26.md",
-      "digest": "sha256:20586aca3da9a3d4185f90105e59c18d8f6d2cebe3966c6a6b90c4e805695ddc",
+      "path": "data/assets/icon-references/accenture/q1-fy25/model-validation.md",
+      "digest": "sha256:eb9acd9c2fa6425b79ecc8479253477dd7e4ea802ff349ff184768062e41bc21",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/kla/crop-report-kla-q1-fy27.json",
-      "digest": "sha256:1e21f40972f7612a8ed6c8ab777bf0da6c6380f53f779ebd3cebab3c6dc9b550",
+      "path": "data/assets/icon-references/accenture/q3-fy25/crop-report.json",
+      "digest": "sha256:9271e4d3e781f2fb07f2064f5c2db365372ea28833b3b389223f88179dcf4509",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/kla/crops/company-logo-kla-q1-fy27.png",
-      "digest": "sha256:7f14227c6745fb7f3c67ef9cdaeacbaf39d9d527ca57fd199d9205e7ecc78582",
+      "path": "data/assets/icon-references/accenture/q3-fy25/logo-q3-fy25.png",
+      "digest": "sha256:6a6393684f12e37108761ce2e4b92eed7665d13f8ade63fa5e4dda4bd32da744",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/kla/model-validation-kla-q1-fy27.md",
-      "digest": "sha256:86e3e6140957eabcb461f56d82f0e9f987ba380424c3def4cf31ef26e8c1d23a",
+      "path": "data/assets/icon-references/accenture/q3-fy25/model-validation.md",
+      "digest": "sha256:180d940955a39fb6b2ad325003d35b1b75596eefff5c7eff3d7f20549e1976c1",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/mastercard/crop-report-q3-fy26.json",
-      "digest": "sha256:14923d73bf87432aa36027599274f49db2f2344b8681a4258114850cce535448",
+      "path": "data/assets/icon-references/anthropic/crop-report-h1-fy26.json",
+      "digest": "sha256:6534e54116abc9fc18ce5faa837ccd7b5f7416215b75097ffb8e2cee9db5615b",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/mastercard/crops/company-logo-q3-fy26.png",
-      "digest": "sha256:779b8c18ba96d4ec8466f336cd9112fab3163deeb442611d0a0c6e785be207e2",
+      "path": "data/assets/icon-references/anthropic/crops/claude-logo-h1-fy26.png",
+      "digest": "sha256:77114735bfbebfcfde96d72fbe53e585cf2b96ac55b7161cb59d3123bbe6b21d",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/mastercard/model-validation-q3-fy26.md",
-      "digest": "sha256:12c8fb399f2753b24471dd41fb0d210a31406de795bea22622614305a25af63a",
+      "path": "data/assets/icon-references/anthropic/model-validation-h1-fy26.md",
+      "digest": "sha256:ee6ca3efb481b0f01d6f6d78939b70845a41adff663afe85f112f6b73c4e1c6b",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/schwab/crop-report-q3-fy26.json",
-      "digest": "sha256:a6955546fd4ae2352deaeb54f8b87cd67c23eac690279767847d108a61edacae",
+      "path": "data/assets/icon-references/etsy/crop-report-q1-fy23.json",
+      "digest": "sha256:1e3f76f51ac5b4496af634f768abbe1d9944ba99819699676e96b2fcdcf09529",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/sk-hynix/q3-fy26/crop-report.json",
-      "digest": "sha256:ba2dbcb029a3a08ac470fa2c3391a1e48598c7b9bf125d66e4d8ad3276e06e22",
+      "path": "data/assets/icon-references/etsy/crop-report-q1-fy24.json",
+      "digest": "sha256:c3372c3956f78cda245af9a746d2f98a89a1b757b3062152907911882d736e2b",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/sk-hynix/q3-fy26/crops/company-logo-q3-fy26.png",
-      "digest": "sha256:704d452d46e1280e4c213e68cecf09265b3e67fd9e56faeee2437d4683606692",
+      "path": "data/assets/icon-references/etsy/crop-report-q1-fy25.json",
+      "digest": "sha256:70170e0f7dcfef02d6c6afa21ca1f986285fe3680a51652e1bdeae0de89ae992",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/sk-hynix/q3-fy26/model-validation.md",
-      "digest": "sha256:d555d64abfb524734dcf4261e64e6e3c7dd23ec10039fbe0e316c7984e5ea2cc",
+      "path": "data/assets/icon-references/etsy/crop-report-q2-fy24.json",
+      "digest": "sha256:b2bf43ee1a8fc0ccb001f05103f7889601720ab819abc5266164fec238161c5a",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/t-mobile-us/crop-report-q3-fy26.json",
-      "digest": "sha256:18c2d6c086fe00ee24b4d42014f1eed27303ebf818db3e18e5c281997f8ede4d",
+      "path": "data/assets/icon-references/etsy/crop-report-q2-fy25.json",
+      "digest": "sha256:37283dee8773361e87e47386942b0dca5115269d9292ba1f76b36f570c8d5950",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/t-mobile-us/crops/logo-q3-fy26.png",
-      "digest": "sha256:b0df5b1b89b3433d014744936040c54b0cd2286804c7d587e19f316316955f9f",
+      "path": "data/assets/icon-references/etsy/crop-report-q3-fy22.json",
+      "digest": "sha256:d1bbd0ab1c2412e781077c68fef1eadc04865108a4edf2ba5cb9f0f84f3e3668",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/teladoc/crop-report-q3-fy26.json",
-      "digest": "sha256:5f25afa51be142bf8865185c86d9ebe89a55aad65613153d2cbd2602678f2c2f",
+      "path": "data/assets/icon-references/etsy/crop-report-q3-fy23.json",
+      "digest": "sha256:ae0ed37dc3d2d7ef9248dd19374fbfbbc25979e2d0de6f84e9ba3e60be6466ea",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/teladoc/crops/betterhelp-q3-fy26.png",
-      "digest": "sha256:3026597ca13f76bd83ff9b9df16f53162e756f3283c3cc589488e88890f5e490",
+      "path": "data/assets/icon-references/etsy/crop-report-q3-fy24.json",
+      "digest": "sha256:b10b719ef08937de1f7ab97d2dc8d077d126eb9cfff99b60c87c7055c20fb579",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/teladoc/crops/company-logo-q3-fy26.png",
-      "digest": "sha256:e317bdc2b78ebba6e8c89847dd867cad074d23f84800acfa07ef1a49fa78dcd1",
+      "path": "data/assets/icon-references/etsy/crop-report-q4-fy22.json",
+      "digest": "sha256:86d43659a9bdc9fec717fa6b07a64abf5e832dc6b3d57e0d6fdddac7da67735f",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/teladoc/crops/integrated-care-q3-fy26.png",
-      "digest": "sha256:6a03ee35ebd61866121f23b60ca148a2b61b0db90a0325bd70db190034aedbb6",
+      "path": "data/assets/icon-references/etsy/crop-report-q4-fy24.json",
+      "digest": "sha256:d487241f7a5d0ae847c2f01dcd909aff92da6c14b83874e86c70df7a7c62ea31",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/teladoc/model-validation-q3-fy26.md",
-      "digest": "sha256:033c3a5e48b12b6c96f941f998cb0e9f04684d625accdd386be55ef1c57ff315",
+      "path": "data/assets/icon-references/etsy/crops/brand-cluster-q3-fy22.png",
+      "digest": "sha256:f74bfeb776de35948aafa9b559cca085edf0c82b58c7ca2bf1467ceac46c19d0",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/tilray/crop-report-q1-fy27.json",
-      "digest": "sha256:1016f726d632ceb46b60eb38806ec9905b0a9bc0797af56e46e99a6621c344ef",
+      "path": "data/assets/icon-references/etsy/crops/brands-q1-fy23.png",
+      "digest": "sha256:f7145676b7d881cabacbf4d2195d9200e383843aa15b4861e36fc799a462a16a",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/tilray/crops/beverage-cans-q1-fy27.png",
-      "digest": "sha256:cc427be387395137a25ee303f84e3c5e2526e628cee114961a4d8bfc0d582987",
+      "path": "data/assets/icon-references/etsy/crops/brands-q1-fy25.png",
+      "digest": "sha256:c04b79a7756c1dea857d3a38df99ca6d71987b4f31c85c3ffb39051d08561d3e",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/tilray/crops/tilray-logo-q1-fy27.png",
-      "digest": "sha256:2e05d1cabda4b938b6828db6cc8f4ec6c6211d72ad39c90ae6bfbddeec940a66",
+      "path": "data/assets/icon-references/etsy/crops/brands-q2-fy23.png",
+      "digest": "sha256:05e5a331678183c3da821ffc4d34f9f76824a6e8c81417ff0a107312d545485b",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/tilray/model-validation-q1-fy27.md",
-      "digest": "sha256:2f6c982cf32f4b0127737f098811dd965c0b31eac1a4e9d5b05600c43ebb1ad5",
+      "path": "data/assets/icon-references/etsy/crops/brands-q2-fy24.png",
+      "digest": "sha256:fed33c2e319c93a8b88d48a38c165a21bab489027aae94d6aa6f17dc915344db",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/unitedhealth/crop-report-q3-fy26.json",
-      "digest": "sha256:959b56939f0055636c6e2158e2b29214db04af33010713ae7256d096118d15fd",
+      "path": "data/assets/icon-references/etsy/crops/brands-q3-fy23.png",
+      "digest": "sha256:25366456193631eca437ed3777f4084de9bd85a973e0cb556b8edb81073e7473",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/unitedhealth/crops/company-wordmark-q3-fy26.png",
-      "digest": "sha256:c22eb405c00a391ed45dacc6268d9178ece846abd2840901b9f7204ab13744df",
+      "path": "data/assets/icon-references/etsy/crops/brands-q3-fy24.png",
+      "digest": "sha256:50569fd318f509fea7af0f66dc6a6664b7b932df0f036fe3cb9fc379467962f3",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/unitedhealth/crops/optum-logo-q3-fy26.png",
-      "digest": "sha256:8e6b4a91566322919c101d163a104a89e8deb6b583bd9e71aadaeb1f4efa1dab",
+      "path": "data/assets/icon-references/etsy/crops/brands-q4-fy24.png",
+      "digest": "sha256:010db59d9d0f8338c46b0b8b9283f3c2c4b44cf1c6cafcb5a7c0699787cad40b",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/unitedhealth/crops/uhc-logo-q3-fy26.png",
-      "digest": "sha256:d1f1a2977790ca922dedbbd3c2c3acf1701681d13d72c13c1c0f1a7ceb4888b1",
+      "path": "data/assets/icon-references/etsy/crops/company-logo-q1-fy23.png",
+      "digest": "sha256:ce8aa6a6fd59de808ec334ace7a6cd5c7288693473892002212768aeb0a3610c",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/unitedhealth/model-validation-q3-fy26.md",
-      "digest": "sha256:2f94cdd9e451fbc68a8d4add1c569835446ca7fbd644f6ee8f005faa4bc9a55a",
+      "path": "data/assets/icon-references/etsy/crops/company-logo-q1-fy24.png",
+      "digest": "sha256:9b897aed75705b3e53139514c6424cb22ff0ae8a7e320272ec96e8617a4e6d64",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/ups/crop-report-q3-fy26.json",
-      "digest": "sha256:13189a4ef809805f6dd570507ab99af9c185d66471d05d7a6fdae6a38255a2de",
+      "path": "data/assets/icon-references/etsy/crops/company-logo-q1-fy25.png",
+      "digest": "sha256:6c7428d7e03514d6146da99e5f52e1ac940107871bbc2090a2717c69ee61d774",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/ups/crops/globe-q3-fy26.png",
-      "digest": "sha256:02b9f398bb5f7135817f77d0894924c4ed4c7b2d9b94e521a9c3ab3e20ca3d4c",
+      "path": "data/assets/icon-references/etsy/crops/company-logo-q2-fy24.png",
+      "digest": "sha256:f0a0f21f041ee8378f9656ede173aea4650103418d7c1b4ba90be8f0713e6586",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/ups/crops/logo-q3-fy26.png",
-      "digest": "sha256:a15ddc36c96b4d6bb2f448c944e1f790c255af7833a0292a10360eb22ad910cf",
+      "path": "data/assets/icon-references/etsy/crops/company-logo-q2-fy25.png",
+      "digest": "sha256:4d1ec2eb865421b0e5deaa1dc2e4ac6258255a3ba294b1f8d9be54fb9647e307",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/ups/crops/package-q3-fy26.png",
-      "digest": "sha256:5473e61b8576c47e10b4f19055694a8ce432d6c01f86d21207b1a8f1169a343f",
+      "path": "data/assets/icon-references/etsy/crops/company-logo-q3-fy22.png",
+      "digest": "sha256:9b897aed75705b3e53139514c6424cb22ff0ae8a7e320272ec96e8617a4e6d64",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/ups/crops/truck-q3-fy26.png",
-      "digest": "sha256:41101b260153f088f65fcaa5214844b00ccdafe191fbd4c23f2ec5a2a15d3720",
+      "path": "data/assets/icon-references/etsy/crops/company-logo-q3-fy23.png",
+      "digest": "sha256:8991bcf84ae50923ac609ff721d70966914127706b61d160117eb8d6ceca35f9",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/ups/model-validation-q3-fy26.md",
-      "digest": "sha256:028d653cf7eae673387d62f1e8e297d603e4ebb864ee7abfd6bc2eb4dc79cf10",
+      "path": "data/assets/icon-references/etsy/crops/company-logo-q4-fy22.png",
+      "digest": "sha256:f29be8838ae3376c152d6960a80f6f91b5d6fadfed38f282fe94107e2e25422a",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/verizon/crop-report-q3-fy26.json",
-      "digest": "sha256:4afd0b2886ee300e7aa083ec2f0fb1371e17e3485b163a3b3e437ae6e37b6480",
+      "path": "data/assets/icon-references/etsy/crops/crop-report-q2-fy23.json",
+      "digest": "sha256:ad5a3e2f66390f2a25d10d9b1b29b4eaabe880e4d9f74a1dcffec47a1d48cdc1",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/verizon/crops/logo-q3-fy26.png",
-      "digest": "sha256:a2312175f27f1b17c4fa159754aac5cd5b7d5a9e47b7e2fde4d5114eb5538d05",
+      "path": "data/assets/icon-references/etsy/crops/logo-q2-fy23.png",
+      "digest": "sha256:5ed32881d890bbb881739eab099c581b4943e8959a5adbd9b57ececf2f702c26",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/verizon/model-validation-q3-fy26.md",
-      "digest": "sha256:f3b86831b1a6198b79e87063675b51efb97ae22cf6d4d349489996405bcf3c41",
+      "path": "data/assets/icon-references/etsy/crops/logo-q3-fy24.png",
+      "digest": "sha256:c26861d897975aea02d8150ea517d9bfa18965c4de4b4454dc42095af87f430f",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/visa/crop-report-q4-fy26.json",
-      "digest": "sha256:41c0826803010c37e1d9f071bc1cf974fe20a9734993c77cfaa1a5f0f8e3ee6f",
+      "path": "data/assets/icon-references/etsy/crops/logo-q4-fy24.png",
+      "digest": "sha256:a71d033b48d1e32b73528b2d7de5223642254e74a63c13923f5873e004a12407",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/visa/crops/logo-q4-fy26.png",
-      "digest": "sha256:4fa7931d8bc7e1b5bb308c334ff7606f4362f523b4861bf66952ba5abf310a90",
+      "path": "data/assets/icon-references/etsy/crops/marketplace-brands-q1-fy24.png",
+      "digest": "sha256:5b23b8277420b5531aed8b32b8844a9b130f5ee8f886e27c2c5b067c0e56e4ae",
       "before": null
     },
     {
-      "path": "data/assets/icon-references/visa/model-validation-q4-fy26.md",
-      "digest": "sha256:bafd96933929331d8447f0e6a8d7b3df2c294ecfcdb8fd61e452801662f814de",
+      "path": "data/assets/icon-references/etsy/crops/marketplace-brands-q2-fy25.png",
+      "digest": "sha256:3d54bb1ece6490ee7c348a74bd798e2d0e7fbbb0acdb3feb49959b72043d5132",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/accenture/company-logo-q4-fy26.png",
-      "digest": "sha256:5ced9136803926600941950ab56796b2e0352c4069883b1e2be6f12726a2b010",
+      "path": "data/assets/icon-references/etsy/crops/marketplace-brands-q4-fy22.png",
+      "digest": "sha256:2cb7d0d4bed6b4c1d22b84f6e527c7c02ef24b6e5f9378c84af1ee205863e06b",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/american-express/logo-q3-fy26.png",
-      "digest": "sha256:f095958721236fb4cb82e7cc9426940f7a59c7b61e36f6db3f8cec6f11c58ce4",
+      "path": "data/assets/icon-references/etsy/model-validation-q1-fy25.md",
+      "digest": "sha256:dad94ea372e4153463a27fcf7d7a280bf6edc5acaebb26794bf2f22ce6a6efb2",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/appfolio/company-wordmark-q3-fy26.png",
-      "digest": "sha256:9d0c6e8eb7ce7455f3ed03725be24a6b52a294873f5a7a905916a07d9b25125f",
+      "path": "data/assets/icon-references/etsy/model-validation-q2-fy23.md",
+      "digest": "sha256:bcb461cdcd94cbe07927a245cb41fac35f8d3bf57ee0e6611e425d21d9a60f38",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/asml/company-wordmark-q3-fy26.png",
-      "digest": "sha256:ed9ee687ed94cb52642c3840b54bd269423d5ba3f3658aeb1ab288370544e9a8",
+      "path": "data/assets/icon-references/etsy/model-validation-q2-fy25.md",
+      "digest": "sha256:1dd1b1bf81e1c54245f02291f32800047fbea42030d568fe5e4120fe6843d8e0",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/astrazeneca/company-logo-q3-fy26.png",
-      "digest": "sha256:b6c71cdf7e2e7a24ee1c07500bd69f367be780249782cb89984a3ef27b1b683d",
+      "path": "data/assets/icon-references/etsy/model-validation-q3-fy22.md",
+      "digest": "sha256:8636b077cb4abf43613ef47a57420020ab6353df49bf71438310e8648d6c7e6f",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/astrazeneca/forxiga-q3-fy26.png",
-      "digest": "sha256:fc73a1db8362b005524626b0286da194db5b234007214efbe34aaa791c7e106b",
+      "path": "data/assets/icon-references/etsy/model-validation-q3-fy23.md",
+      "digest": "sha256:2a83e18709128514131790589bb3dcdc31913dbb1823b16de39037ac2a2f0931",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/astrazeneca/symbicort-q3-fy26.png",
-      "digest": "sha256:f75ab364546771bf87d4af8cb2b1e153c19275e7a97846f285e2a786c4469789",
+      "path": "data/assets/icon-references/etsy/model-validation-q3-fy24.md",
+      "digest": "sha256:2d503acacb0618379ee57753354651932052d88a56553e2ee40033140f011f91",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/astrazeneca/synagis-q3-fy26.png",
-      "digest": "sha256:32f6aad04bae320bd66e0357f646d8e4265b39f9029e1bcbb8cd24ca730a1b45",
+      "path": "data/assets/icon-references/etsy/model-validation-q3-fy25.md",
+      "digest": "sha256:95042bc9d3532ce19958d9b1225fd4e6bfda1a1831e51ae324beb2737e595bc4",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/astrazeneca/tagrisso-q3-fy26.png",
-      "digest": "sha256:d895b4f01de48a07b255eac460e799f23e26be7ab4a6949f9484e570d96fc0c3",
+      "path": "data/assets/icon-references/etsy/model-validation-q4-fy22.md",
+      "digest": "sha256:223f3e2bb672f9a12d90a800318b8c02b445914c8852aa6aede10b0da3d4b12f",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/bank-of-america/logo-q3-fy26.png",
-      "digest": "sha256:e7d54b4ebfa92a3288c892a453a1340a950d79f7493b312f37bf0879bc8cfc94",
+      "path": "data/assets/icon-references/etsy/model-validation-q4-fy24.md",
+      "digest": "sha256:73341d42a1052df1a129bfa9d4a0dbef93237f685a28acc968bb9f169934fb5a",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/blackrock/company-wordmark-q3-fy26.png",
-      "digest": "sha256:e6150f95db59159eea0e9acf33c42a2fb34503349a62287ac6683ee46f3829a4",
+      "path": "data/assets/icon-references/etsy/q3-fy25/crop-report.json",
+      "digest": "sha256:dc1c2e46c765cab17c93f91de35e7a83d3b53b13912c22d7b7dca23e5fea4708",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/boeing/logo-q3-fy26.png",
-      "digest": "sha256:e2dbb5ed1483f9d857872f1e69323d3332437e5fa1dcbb013ebdd7e0ecf5dea9",
+      "path": "data/assets/icon-references/etsy/q3-fy25/etsy-logo-q3-fy25.png",
+      "digest": "sha256:a8d2da988110986ffb5314ed4c3a9f64609200706c689edc22809a84e24d276e",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/braze/company-q2-fy27.png",
-      "digest": "sha256:e125c7ca2f293f05b913a9ad2d633686d828040663a35f3b071a607b06671126",
+      "path": "data/assets/icon-references/etsy/q3-fy25/marketplace-brands-q3-fy25.png",
+      "digest": "sha256:3bb024d7e21e53476f4f384c9e4520776dfeb938fa236ff7397d6ea509a9680d",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/cadence/company-logo-q3-fy26.png",
-      "digest": "sha256:12237dcfb76077a5e8a9bc98b835702ae6c347b806ec9de5f2489a853135a647",
+      "path": "data/assets/icon-references/health-equity/crop-report-q1-fy24.json",
+      "digest": "sha256:8fd152972ffbe8d8b5f64507578dbf86368f6c3ae8c52351bd2824356fee394b",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/citigroup/company-logo-q3-fy26.png",
-      "digest": "sha256:383dcf59a3046e5e90b4504edccb48a789c26770bec0b32231e58f8aea4c1af1",
+      "path": "data/assets/icon-references/health-equity/crop-report-q2-fy24.json",
+      "digest": "sha256:64068978af652a2bf21bca808ab17e6a2af15f0b6ba7ee980dfc3e842f068715",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/domino-s/company-logo-q3-fy26.png",
-      "digest": "sha256:5696eec07688c8805bd80433b2916fa37169e95037c66217f1dabc485ed2ba99",
+      "path": "data/assets/icon-references/health-equity/crop-report-q3-fy23.json",
+      "digest": "sha256:3a99263a28046eb8b121032cbdcc2931630c0bee88a14e7efb557fe552065480",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/etsy/company-logo-q3-fy26.png",
-      "digest": "sha256:2bbf507b9a18877ba348969f5a976c8e8dab0513d8f23bb39b781d6cab6ddeac",
+      "path": "data/assets/icon-references/health-equity/crop-report-q3-fy25.json",
+      "digest": "sha256:723296a8ca5165c0d94d279bd624c4f58f25e9081f78bccb0ac84155774c169c",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/etsy/marketplace-wordmark-q3-fy26.png",
-      "digest": "sha256:304967e7d46b88ba092104a3eb345e88cdaa4842feb0a1cc1890d8c1b2284cc9",
+      "path": "data/assets/icon-references/health-equity/crop-report-q3-fy26.json",
+      "digest": "sha256:04d7dd1be305c8cf74eee52a1b13ae5ad9811bdf8f2b625a704c46fbe1aad927",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/fortinet/logo-q3-fy26.png",
-      "digest": "sha256:4b68fecfd8eb4d4e04d566bd252f7771a15f82f9cea1c7a7bb2f9fbe728f3500",
+      "path": "data/assets/icon-references/health-equity/crop-report-q4-fy23.json",
+      "digest": "sha256:d27c1853a9a0b60953ee6aa79e643a36f8a1a1c96fcfa8183524affa20672f3e",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/hilton/company-logo-q3-fy26.png",
-      "digest": "sha256:2dee509116abb19075397ab0ffa96e7bb85c85d791c19c90f3b50e9e4cd26236",
+      "path": "data/assets/icon-references/health-equity/crop-report-q4-fy24.json",
+      "digest": "sha256:8a386e5f42005995c48687c89d3f129aacc6c25713347b87a458679e9af2a0ac",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/intel/company-logo-q3-fy26.png",
-      "digest": "sha256:043340cbe66f57aadd8d565161a569d78c02d092f7e3a08871dfbef1a9ceac90",
+      "path": "data/assets/icon-references/health-equity/crop-report-q4-fy25.json",
+      "digest": "sha256:47b15dd823bc16b6bcefa03dfddcd3681d55492a60b99b963f2cffcc92d1c1f6",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/jpmorganchase/logo-q3-fy26.png",
-      "digest": "sha256:888c99a311189d6e0c379c9aad85037853cc50d37c67fd2ff673beea68b8f0d9",
+      "path": "data/assets/icon-references/health-equity/crops/company-wordmark-q1-fy24.png",
+      "digest": "sha256:b475882943ece64ec98cc74dc9c3d6bf193720ceeeb98c96d3fa22c0382bfc89",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/kla/company-logo-kla-q1-fy27.png",
-      "digest": "sha256:7f14227c6745fb7f3c67ef9cdaeacbaf39d9d527ca57fd199d9205e7ecc78582",
+      "path": "data/assets/icon-references/health-equity/crops/company-wordmark-q2-fy24.png",
+      "digest": "sha256:0e6c6d27511d026c0cac2340a0182473fc3447fe011d7bf49df5d095a8b36b95",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/lam-research/logo-q1-fy27.png",
-      "digest": "sha256:1636476e325bad7458ce801345d91387005890f74f2a0ec1c7c9bb55db7e5b2f",
+      "path": "data/assets/icon-references/health-equity/crops/company-wordmark-q3-fy26.png",
+      "digest": "sha256:f7eae46b91d10df830d186214dc2b970b25490181708b69dc63e3c175a2cde7a",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/lockheed-martin/logo-q3-fy26.png",
-      "digest": "sha256:791f15f9033541f4f4d6e6f8fc75633417c08df44ed1491a0aba5b3d76289627",
+      "path": "data/assets/icon-references/health-equity/crops/company-wordmark-q4-fy23.png",
+      "digest": "sha256:e5a1749966a1b4d9d670c068fdc484c7685bd886b6dd71c427a7f56f8c245132",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/mastercard/company-logo-q3-fy26.png",
-      "digest": "sha256:779b8c18ba96d4ec8466f336cd9112fab3163deeb442611d0a0c6e785be207e2",
+      "path": "data/assets/icon-references/health-equity/crops/company-wordmark-q4-fy25.png",
+      "digest": "sha256:439bc9d87da9f533226c3b001ba25f06e314baaf5a223f8fb152f35852371b13",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/moodys/wordmark-q3-fy26.png",
-      "digest": "sha256:210b92f7cb31683504fe16779cc1ea2fab9d0e11754f5e4e45d2191f7bbd2c61",
+      "path": "data/assets/icon-references/health-equity/crops/logo-q3-fy23.png",
+      "digest": "sha256:a9b56a0fcd73346698747e4bb244c563eaca4f9c4636ad2e27e94376acb9f393",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/rivian/logo-q3-fy26.png",
-      "digest": "sha256:8630f6734dae25ee53e25daf2b11f139cdb623d1dcf940077af496d26e3e9039",
+      "path": "data/assets/icon-references/health-equity/crops/logo-q3-fy25.png",
+      "digest": "sha256:c64c8415ac0848036bc37985c8a080c514c95934b2a0d2b18802fc64b3dc935f",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/sap/company-logo-q3-fy26.png",
-      "digest": "sha256:f2991d109dce0c09758e6f3c6b4511de88b0e22672fb0cddd8345939744634a5",
+      "path": "data/assets/icon-references/health-equity/crops/logo-q4-fy24.png",
+      "digest": "sha256:81bc178ea4d357b924794ecb6989fd720a42b7ca8aab995072ac0fc26d234d51",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/schwab/logo-q3-fy26.png",
-      "digest": "sha256:fad1b798a59810e1d5e3bd211bb3f5652a989a8beae1d3ad877977d10a94f804",
+      "path": "data/assets/icon-references/health-equity/logo-q1-fy26-crop.json",
+      "digest": "sha256:1340deb1a4731f183d36169b9b3d09065a92ba8405741ab1622436886de2d486",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/servicenow/company-wordmark-q3-fy26.png",
-      "digest": "sha256:58c5abb2ee1889694087697ce5f84806c100a1c6e69ceb554d2168a901a83eeb",
+      "path": "data/assets/icon-references/health-equity/model-validation-q2-fy24.md",
+      "digest": "sha256:a51e9d5b9e72ac7d473944ffabc35cdde69d42a071f90305abb8738c783b5162",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/sk-hynix/company-logo-q3-fy26.png",
-      "digest": "sha256:704d452d46e1280e4c213e68cecf09265b3e67fd9e56faeee2437d4683606692",
+      "path": "data/assets/icon-references/health-equity/model-validation-q3-fy25.md",
+      "digest": "sha256:a291b72acf5567c52e13be0d6a9bd8b1e9ed2d12162395600ef970a3fc8a1df3",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/t-mobile-us/logo-q3-fy26.png",
-      "digest": "sha256:b0df5b1b89b3433d014744936040c54b0cd2286804c7d587e19f316316955f9f",
+      "path": "data/assets/icon-references/health-equity/model-validation-q3-fy26.md",
+      "digest": "sha256:99ec511b4fda67031441822ccb9109c87603dbedfd71ef446d4be8c98fd5d782",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/teladoc/betterhelp-q3-fy26.png",
-      "digest": "sha256:3026597ca13f76bd83ff9b9df16f53162e756f3283c3cc589488e88890f5e490",
+      "path": "data/assets/icon-references/health-equity/model-validation-q4-fy25.md",
+      "digest": "sha256:39584d7239b6a3b0cdf037d9869d62a495c9f92e40b56cd8e344bd2a4e1e3e56",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/teladoc/company-logo-q3-fy26.png",
-      "digest": "sha256:e317bdc2b78ebba6e8c89847dd867cad074d23f84800acfa07ef1a49fa78dcd1",
+      "path": "data/assets/icon-references/health-equity/q2-fy26/crop-report.json",
+      "digest": "sha256:c9f5c72a144b83d821cd2b9ab9d430e12d962dc5dae4a9526e74f88a071548dc",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/teladoc/integrated-care-q3-fy26.png",
-      "digest": "sha256:6a03ee35ebd61866121f23b60ca148a2b61b0db90a0325bd70db190034aedbb6",
+      "path": "data/assets/icon-references/health-equity/q2-fy26/logo-q2-fy26.png",
+      "digest": "sha256:9da6b95940889a636cf35f7e8818adeeca18b551ece7a6a1c3e30e0e5fbd46c8",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/tilray/beverage-cans-q1-fy27.png",
-      "digest": "sha256:cc427be387395137a25ee303f84e3c5e2526e628cee114961a4d8bfc0d582987",
+      "path": "data/assets/icon-references/health-equity/q3-fy24/crop-report.json",
+      "digest": "sha256:d930db6bcb2b207d73d3d1697e2e5c6044c127c09e017f6254a3fe79755697e6",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/tilray/tilray-logo-q1-fy27.png",
-      "digest": "sha256:2e05d1cabda4b938b6828db6cc8f4ec6c6211d72ad39c90ae6bfbddeec940a66",
+      "path": "data/assets/icon-references/health-equity/q3-fy24/crops/company-q3-fy24.png",
+      "digest": "sha256:317af9d625a9c74e920f972e6eee4a77bdb2265b34e610078c327171b658c7d1",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/unitedhealth/company-wordmark-q3-fy26.png",
-      "digest": "sha256:c22eb405c00a391ed45dacc6268d9178ece846abd2840901b9f7204ab13744df",
+      "path": "data/assets/icon-references/health-equity/q3-fy24/model-validation.md",
+      "digest": "sha256:7fdae5317e6e859360a8a2eed76ab9e2d93e4b22540be93f5b790beff848434b",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/unitedhealth/optum-logo-q3-fy26.png",
-      "digest": "sha256:8e6b4a91566322919c101d163a104a89e8deb6b583bd9e71aadaeb1f4efa1dab",
+      "path": "data/assets/icon-references/kering/crop-report-fy23.json",
+      "digest": "sha256:3beaa71733c714b16fa1dc26e698a2c3e92f5599cf28d299cb62648e34ae6ab9",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/unitedhealth/uhc-logo-q3-fy26.png",
-      "digest": "sha256:d1f1a2977790ca922dedbbd3c2c3acf1701681d13d72c13c1c0f1a7ceb4888b1",
+      "path": "data/assets/icon-references/kering/crop-report-fy24.json",
+      "digest": "sha256:0d6c1ebf5d9ddfe2655c7e7b1b2b7f1ce7789fc7670339c3ffead361a1267170",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/ups/globe-q3-fy26.png",
-      "digest": "sha256:02b9f398bb5f7135817f77d0894924c4ed4c7b2d9b94e521a9c3ab3e20ca3d4c",
+      "path": "data/assets/icon-references/kering/crop-report-h1-fy22.json",
+      "digest": "sha256:8deea53df2d7475fcf8b0d27a46c9e13dbaf78b3dd65ae4024cb222fe6153ac8",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/ups/logo-q3-fy26.png",
-      "digest": "sha256:a15ddc36c96b4d6bb2f448c944e1f790c255af7833a0292a10360eb22ad910cf",
+      "path": "data/assets/icon-references/kering/crop-report-h1-fy23.json",
+      "digest": "sha256:e580c0e845b7e7d02fd1aded73b697d861ff4af1c8714b3e48c72ca7b1e2554b",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/ups/package-q3-fy26.png",
-      "digest": "sha256:5473e61b8576c47e10b4f19055694a8ce432d6c01f86d21207b1a8f1169a343f",
+      "path": "data/assets/icon-references/kering/crop-report-h1-fy24.json",
+      "digest": "sha256:3ec695d0b14d42dc3414aff74f7e5f07f2f9edfebf423eb969855006646cdef7",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/ups/truck-q3-fy26.png",
-      "digest": "sha256:41101b260153f088f65fcaa5214844b00ccdafe191fbd4c23f2ec5a2a15d3720",
+      "path": "data/assets/icon-references/kering/crop-report-h1-fy25.json",
+      "digest": "sha256:5d26471b3302a437aeece437637fcb7e5452d3afe10a0caef30b486d8d9a81ad",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/verizon/logo-q3-fy26.png",
-      "digest": "sha256:a2312175f27f1b17c4fa159754aac5cd5b7d5a9e47b7e2fde4d5114eb5538d05",
+      "path": "data/assets/icon-references/kering/crops/bottega-fy23.png",
+      "digest": "sha256:05932320ec064bad8918d37ba827500d1e910fc5bbd7dfc0ea4bee8a7a4e8ccd",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/visa/logo-q4-fy26.png",
-      "digest": "sha256:4fa7931d8bc7e1b5bb308c334ff7606f4362f523b4861bf66952ba5abf310a90",
+      "path": "data/assets/icon-references/kering/crops/bottega-veneta-h1-fy22.png",
+      "digest": "sha256:569b11b052e65b2ecef16f1445e0bd62a98b6aaf272a50bdd721c2ab3277da30",
       "before": null
     },
     {
-      "path": "data/assets/raster-annotations/wells-fargo/logo-q3-fy26.png",
-      "digest": "sha256:4ee4b8c0c7fcf68074c499198edf093a83e32294787af6616bdb706b747effd7",
+      "path": "data/assets/icon-references/kering/crops/bottega-veneta-h1-fy23.png",
+      "digest": "sha256:d84436706cf5cc109d3ecfb8b30d6e6ce653a0862a557ac2ef40c36bc650ec40",
       "before": null
     },
     {
-      "path": "data/company-metadata/braze.js",
-      "digest": "sha256:1011283536d30d2e90eea20987ee57beea3dbdad1213f2c77e235ed50b7738d8",
+      "path": "data/assets/icon-references/kering/crops/bottega-veneta-h1-fy24.png",
+      "digest": "sha256:fac2fd8ef3303524da847f60cc36136182d7090f276610326ec3e3a21d2de731",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/crops/bottega-veneta-h1-fy25.png",
+      "digest": "sha256:d7ab1c67924ae383b3e8f41c58d3c70a5a78cd29c191cd99511bbb7aeaae86a1",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/crops/bottega_veneta-fy24.png",
+      "digest": "sha256:b279582743b1a6ea12bbb07f111c5a9ec4f3bceba406152d1f78e21a5da96f43",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/crops/company-emblem-h1-fy22.png",
+      "digest": "sha256:56b118190e7f1313a14696091f47c1ddc4c3c7bb5efe6934667f056570e806bc",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/crops/company-h1-fy24.png",
+      "digest": "sha256:9f3e71ee3121bacb19ee17924b366c3712988d6c84e7b44bc6c20309c514b68b",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/crops/company-wordmark-h1-fy22.png",
+      "digest": "sha256:6ab23831605e45181c6876f54ae1f2f249308c4e62daa71ae0c53a3823f023b4",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/crops/gucci-fy23.png",
+      "digest": "sha256:3c90be05d2186792916887d125adca10209c7308f99a14f3fb1221878152bdef",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/crops/gucci-fy24.png",
+      "digest": "sha256:e83f71841f541ad5739db0f66f3bb276a0c2325a7e30a22b28200eda8e0bd9b3",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/crops/gucci-h1-fy22.png",
+      "digest": "sha256:39aa653ba9283a6a847aa6fd5a8aa666d4a2b82c49c25bb6beb7c5a8a8cc5cf2",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/crops/gucci-h1-fy23.png",
+      "digest": "sha256:e9c79ef829a999b2e3b86e3cbdb55b1e8d18b247693473866970a03edc484397",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/crops/gucci-h1-fy24.png",
+      "digest": "sha256:33f5b47f73e42442cff6841a3eb0b94117b6dba7840eec204490b923fa8e03cd",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/crops/gucci-h1-fy25.png",
+      "digest": "sha256:5f577b288ef2134b8deb5a2e8cfb6a7708550af1ef19eea33227c8ef3d21e1f2",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/crops/kering-fy23.png",
+      "digest": "sha256:f618629b9943ff204c8d3834fe786cd092e2f0a079e4e09e5f788bb2da287266",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/crops/kering-h1-fy23.png",
+      "digest": "sha256:ffb4a9802df0bada8ebca4242d78d96206e60feaca3abee3229b17bbfc0ea37f",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/crops/kering-h1-fy25.png",
+      "digest": "sha256:62dbd06f10914ebfc7fdad755ef8d68aa4cb3ddb06df9936b57b55827cd2f757",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/crops/kering-owl-fy24.png",
+      "digest": "sha256:fbc9ba07a106314518d62d5ea7b91dcede007f6337fda48df93f54e9e3320980",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/crops/kering-owl-h1-fy23.png",
+      "digest": "sha256:3e11233dcf454bfa29529e78928f3623505ec351510dd65077f207d374bce5ec",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/crops/kering-owl-h1-fy25.png",
+      "digest": "sha256:b0ef0ba194954ed84605aa8b33ee4bafe2bb258d408f5aa46c5172410f495a24",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/crops/kering-wordmark-fy24.png",
+      "digest": "sha256:0f53d5ffce18d078ab5b333736e883b23c8a0585600a208bf0b53c34d49f7dcb",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/crops/kering-wordmark-h1-fy23.png",
+      "digest": "sha256:500d8b254ad2376b371908fdc55886bd7bf43000d995e716de8fe92acb795ac5",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/crops/owl-h1-fy24.png",
+      "digest": "sha256:4ce6b56384425b5a4ca609e145909315a7b7c0ebd5c073084a6f9e386428f64b",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/crops/saint-fy23.png",
+      "digest": "sha256:d1438524c5436cd36679ec467b7fdb4d3311ac8f37cd6b1e52620dcf16b28f48",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/crops/saint-laurent-h1-fy22.png",
+      "digest": "sha256:da23d36b58f39ee961d25fbefbb4b09f49e1ce91f79fcd7aac486d4db6979a46",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/crops/saint-laurent-h1-fy23.png",
+      "digest": "sha256:fcdbc302361c2a366826a09f0656e3a01093bd836c63e156e21ec3536b19fff2",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/crops/saint-laurent-h1-fy24.png",
+      "digest": "sha256:a84747846ebb0ba1495141ab34471974913502669d8db0e489dff1745105b9c9",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/crops/saint-laurent-h1-fy25.png",
+      "digest": "sha256:498cf492f7bf60d529cdf6697c765ae56103ba063ee194f40e3bb8fe19a5ab51",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/crops/saint_laurent-fy24.png",
+      "digest": "sha256:857b063c8943f33060adf405d8b3bff27d4456aef0b61047e395a08876129a2d",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/model-validation-fy24.md",
+      "digest": "sha256:e0400aac4a3ba3da1b04bc88c2f865408880d5761bf8b94dc5cef5e04736a446",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/model-validation-h1-fy22.md",
+      "digest": "sha256:70fd2f1a4ad972d512c6f4a6964b0e0e672438c3442511438df5f54232bb4aaf",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/model-validation-h1-fy24.md",
+      "digest": "sha256:6f672a15e78a1b3ae76cde23dec4413740f4239cf2b7ec550e50ba3b27e638dc",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/model-validation-h1-fy25.md",
+      "digest": "sha256:961e174682619cd10b63682ea5f7a2685aa02e593995f7141d938aa1825d5b51",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/validation-sheets-h1-fy25/bottega-veneta-h1-fy25.png",
+      "digest": "sha256:a9edecbe2332f560e527b5b4c6921af98e10e626379ed2a0644ef848cd763f1e",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/validation-sheets-h1-fy25/gucci-h1-fy25.png",
+      "digest": "sha256:010f410340eb4b3b70cd7d511ebe139ce0da97564443efcb271ef8002adc2e38",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/validation-sheets-h1-fy25/kering-h1-fy25.png",
+      "digest": "sha256:0988eed7758f170492fc40f74003ab2eb97ec5f70afd3d6907f64b2d7a2134e8",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/validation-sheets-h1-fy25/kering-owl-h1-fy25.png",
+      "digest": "sha256:a4680e4d78649953cc790503e9a56f0aed05a2f122df15f713df2d5909112023",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/kering/validation-sheets-h1-fy25/saint-laurent-h1-fy25.png",
+      "digest": "sha256:feb5d6d817579387c416ea3b62e60c46d6904ce0ca35cb79f26f504b6a1775e1",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/mercadolibre/crops/ads-brand-q1-fy23.png",
+      "digest": "sha256:3b0ad930ef4e1c9a0eccda1d5d31eaba99d80568c9fdda654a22d95b532df136",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/mercadolibre/crops/commerce-brand-q1-fy23.png",
+      "digest": "sha256:3a975af070c4f567a88be5336d95ee59e68ce1d184afe64313708e346b04a66e",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/mercadolibre/crops/credito-brand-q1-fy23.png",
+      "digest": "sha256:dbc48f42a1e2ec82351216b3b1949e2c9d21cac5510e4760a91a09bd8c758771",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/mercadolibre/crops/envios-brand-q1-fy23.png",
+      "digest": "sha256:4759b5892904caca69deeeaf0ccde241e4cbcfc4fd3e927eae5c281e55cc00d1",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/mercadolibre/crops/pago-brand-q1-fy23.png",
+      "digest": "sha256:2d28261402dd915b4f6bf319f365cfb0bcbcf621d9f5ca0f13eabc8bd788e356",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/mercadolibre/q1-fy23-crop-report.json",
+      "digest": "sha256:eb77b135be2372bd0360525c14ea05b3cdc96cad9762dbcd1b4b8a7ac35eeeef",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/meta-q3-fy26/crop-report.json",
+      "digest": "sha256:4533535f018318dbda2998065f605142952e4bcc40df26d9b742d6223e2168d1",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/meta-q3-fy26/model-validation.md",
+      "digest": "sha256:e6c9ef227a708b8ef8ccd3cf91761528ae77df2a541a4d1a55eca2374a3fd949",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/meta-q3-fy26/reality-devices-q3-fy26.png",
+      "digest": "sha256:26986faba852bacc689db7216e32b6b71920c9c5cec193e82d98692d83af4e24",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/microsoft/q1-fy27/crop-report.json",
+      "digest": "sha256:ceeca45f5c2da428751b96dfbb1a1bb7e98ab57ea8384b189283bce511e51c7b",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/microsoft/q1-fy27/crops/industry-q1-fy27.png",
+      "digest": "sha256:48787deee695560e74195fe06efb85ed885cf9b874fababed7bc44a8486f2577",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/microsoft/q1-fy27/crops/office-q1-fy27.png",
+      "digest": "sha256:e99d3386a8bd793c53ba041ecbe40de5425d75cc556b58fed4ad997030311a3c",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/roblox/q3-fy26/characters-q3-fy26.png",
+      "digest": "sha256:88fef567b632ebca07608964b46179ce5a0a4149078a063202a634bfbe5acaae",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/roblox/q3-fy26/crop-report.json",
+      "digest": "sha256:162683413b63136a3c5297f888e98f89dfdd4bae05fead37d99349c9a06b0206",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/spotify/crop-report-q3-fy26.json",
+      "digest": "sha256:8f0f773de38b5ea0fae0a2c16d7e89289e8e0f5cfbd4e818ba20d36689bc48a5",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/spotify/crops/advertising-q3-fy26.png",
+      "digest": "sha256:f7ee9cf21a397c739b5bf656bd3fdd333266b178ead247cdb4ca1eb899a6d19e",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/spotify/crops/company-logo-q3-fy26.png",
+      "digest": "sha256:f55dac0fa64ebdf0f5b3a8ae07e8fbf7d478f4b6ab2c2d86ba2ef2e61d347f5b",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/spotify/crops/premium-q3-fy26.png",
+      "digest": "sha256:9dbe97178cd49181e22cd6d05d94a5d49dfa6a6c0ccd0b6069c69db8490991e5",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/spotify/model-validation-q3-fy26.md",
+      "digest": "sha256:f6c5cbaed0fc0820ac6fa3cca3ae60982e75b5ae2272d48c476775cc1b443698",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/stellantis/crop-report.json",
+      "digest": "sha256:c36259b9a159547fbeaa5c4bf271b3a914114805aee1d66f74438984e53405f0",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/stellantis/crops/brands-europe.png",
+      "digest": "sha256:3ee69c03462c7e506e9ff1fbd651ce61ae8fbacf970a01dffd78df869deb57a2",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/stellantis/crops/brands-north-america.png",
+      "digest": "sha256:df280028794a0860507651ae12de0a2a763c3cd13704f20c1128d3336e3d9701",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/stellantis/crops/company-logo.png",
+      "digest": "sha256:3e1f32770bbea2d451fd79c0b17c580fe3fa26c9eeb70cb433578a958f88b0b9",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/stellantis/model-validation.md",
+      "digest": "sha256:6b7372dd53680248ab059cb7dd7511752431bdbcf5d88829ecca3ed4f183ca78",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crop-report-q1-fy26.json",
+      "digest": "sha256:8dfb9257dd12f771beddee7119cd674c3f964f8dfd0134496a53a9134dcfc7ab",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crop-report-q2-fy24.json",
+      "digest": "sha256:8476c8c0f14a18d62a8d16e6f231c979822cd804b7a2a20aa8c74ef88cb76b1d",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crop-report-q2-fy26.json",
+      "digest": "sha256:f8f8599faaa0a728d4eb6ba846ec475d03c73771e36054e4c168e456dee1f6c8",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crop-report-q3-fy23.json",
+      "digest": "sha256:1a92a7e00ab5752b3a4e89ff667691c0580bbb6b98f1d0dac78fe16a0a082edd",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crop-report-q3-fy25.json",
+      "digest": "sha256:3d40d24c503ce700c3da887500906f776a48308d039a44348b8279ddef93c939",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crop-report-q4-fy23.json",
+      "digest": "sha256:ba90dd13696c4c9a5265213c71d0b305bf1621e28f690b7eeb9e282d7cceda2e",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crop-report-q4-fy25.json",
+      "digest": "sha256:aecad674313f9caff47f6dc4c061040961a242a8551667bd2046bdd3e3c0eed3",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crops/company-logo-q2-fy24.png",
+      "digest": "sha256:d53d1f23818226e855b998dd9accf84c371ae13a34a85f4f4f8b280087e3cd17",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crops/company-logo-q3-fy25.png",
+      "digest": "sha256:6ced17f25d24b721f220a0374b450a16a9868db6ed7cb27fc2fc7d1657b34111",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crops/company-logo-q4-fy23.png",
+      "digest": "sha256:251b7a2336550365360cfcdfedb3075f17d1842218b96800d109d27d8b8633b8",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crops/company-logo-q4-fy25.png",
+      "digest": "sha256:4866ca93f8c0d693f5e99817db6d4faa4fdda3afea60f1aded2feeec0404a147",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crops/crm-logo-q3-fy25.png",
+      "digest": "sha256:5efe70ab467ec1ef125ce3b7b4f50e711eeed0f905b64c9da2daf16c27f0aeef",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crops/crm-q1-fy25.png",
+      "digest": "sha256:fbbd74ab9daa06c3a40b87bbeb2fc3259e834a7ce1e42e824ac8f03492758e7c",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crops/crm-q1-fy26.png",
+      "digest": "sha256:d16cb6803a079814f37bacc3cd825672d74e7227d79a18f23e6ca6185e126aaf",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crops/crm-q2-fy24.png",
+      "digest": "sha256:3ec23918cdd3aee3150f47f13b06ef599f36f8a62244846349e028473416a86b",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crops/crm-q2-fy25.png",
+      "digest": "sha256:0dd96ee5ee8bcc8d95856e102fa866eb404bd68b9405b5fb48c99604f14d2d3b",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crops/crm-q2-fy26.png",
+      "digest": "sha256:82fa5c1dc04ea39808919c57ff6afa6517eac50a8c4ef9e90b3abe7297cd29b2",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crops/crm-q3-fy23.png",
+      "digest": "sha256:ecdbac9c25f72b6e01027fb82b3e792d39b6e94d36d4a525ab195963b317333a",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crops/crm-q4-fy23.png",
+      "digest": "sha256:1dba530b4a339874cedaf1851119a8fff6f968c41d86763b56b49295aca7a182",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crops/crm-q4-fy25.png",
+      "digest": "sha256:dd7b7bcea3fece73ce329d00ab39c8dfd4894642ce93d53ad0fb620e0e41262a",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crops/crop-report-q1-fy25.json",
+      "digest": "sha256:34ff8d9f5ac6fd9a8a00d9be09333961332426d6fb111c089485fed427a562d6",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crops/crop-report-q2-fy25.json",
+      "digest": "sha256:9a116402fbdb7b83da9c4fb5ed2c5e27cdd13c5c3eb439fd438134d89bafb821",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crops/logo-q1-fy25.png",
+      "digest": "sha256:fb307bc884a866530a183dd2ea940d0f2df53fd89d91f86d5985260fc77f0a68",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crops/logo-q1-fy26.png",
+      "digest": "sha256:369ff70aacd1176590eb8aa9605799c1939775c0d26a188b7e9e5ff25900ce8e",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crops/logo-q2-fy25.png",
+      "digest": "sha256:a5885936858eeef421a7ae287ee6d5642ea5a19702e0745f88cf53d1c8cd7d73",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crops/logo-q2-fy26.png",
+      "digest": "sha256:f88cda831c1ea4f07e29d35bcb9c97c1a1d9221c274bb6296aa9dde50c9494db",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crops/logo-q3-fy23.png",
+      "digest": "sha256:d923cbb5d3bf403235f12f652c77db06ec5cccca3703664bd0f7e2c29fa8b690",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crops/vault-logo-q3-fy25.png",
+      "digest": "sha256:d751af5bdd622796cdd7520fd4e585d84e4308e2c6fde0015bb8979b8f257b22",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crops/vault-q1-fy25.png",
+      "digest": "sha256:ca88b51011fabd976227a5b065433df1e607cfcc381260d5e0560d8d78f9e731",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crops/vault-q1-fy26.png",
+      "digest": "sha256:8a4b80833308ce481ce13e1fc5ba995c5fc9c82e25e7872938112260291c84a0",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crops/vault-q2-fy24.png",
+      "digest": "sha256:a5529aad88f377c178852dd91fdb1dea54c17454b93fede6f552a86fda27c9d4",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crops/vault-q2-fy25.png",
+      "digest": "sha256:47186f5e303ba5534d7e2826dff4f3a7b2cc369ee2f44685e659fbda862b81ae",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crops/vault-q2-fy26.png",
+      "digest": "sha256:6e41229ac6940a22fdcac389e53ca0e11b5166224263bebaa4fbc18cbd6d0db1",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crops/vault-q3-fy23.png",
+      "digest": "sha256:6beba40c1dd2f86b8ad2e3072073e365d6ebb905d6fb5137a9af7cece5d12ada",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crops/vault-q4-fy23.png",
+      "digest": "sha256:7685bb7df9e8ad8683d0ae9d171540d2086f998a4493c1c296014be4b8305a07",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/crops/vault-q4-fy25.png",
+      "digest": "sha256:a829aba8ad1526df3dcfa8a30ceedccfe06a6ad7fcf5a62abef433217fbf516e",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/model-validation-q1-fy25.md",
+      "digest": "sha256:d66bf7769afe4ea913f2e531df8c437a09836ae9c33f9e4aa7de702164a8fae1",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/model-validation-q1-fy26.md",
+      "digest": "sha256:74a3d644b6093c280aa0179fc2c9a429ebeb4a7d2af0cb7e31794d631c7066f1",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/model-validation-q2-fy24.md",
+      "digest": "sha256:05096944e38801320cde9fd7d2b65f706a84802cacfee8689376d4eedc39445e",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/model-validation-q2-fy25.md",
+      "digest": "sha256:f702ddf39227645dccab8e5976fe3b7524272b3560dbb7b9415cddb6c4a91619",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/model-validation-q2-fy26.md",
+      "digest": "sha256:38c1329a014ea0c92a6d6e391221e96346244925bf88d12eb0e7d2ccce196754",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/model-validation-q3-fy23.md",
+      "digest": "sha256:0046252182144e5c67cc0030c7e8acf6b74b3b1d58924e903471d2577d065162",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/model-validation-q4-fy23.md",
+      "digest": "sha256:282565b5be0f192a3a81176748b5b407393652195e38ad3f8890981f7f497fa8",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/model-validation-q4-fy25.md",
+      "digest": "sha256:33d0c5c241a1fd5a9bbd53cc2b836e110eac7650823c8bc38d38fb018b477acb",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/validation-sheets-q4-fy23/veeva-crm-q4-fy23.png",
+      "digest": "sha256:5133bfdca5e898139ca445e556486581346338a0f28d0fe7cf8a27251bb235ca",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/validation-sheets-q4-fy23/veeva-logo-q4-fy23.png",
+      "digest": "sha256:587636a1c5410636ba0246dff30ac0abe4c6102d1d45e1d865143dd0a7db2ceb",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/validation-sheets-q4-fy23/veeva-vault-q4-fy23.png",
+      "digest": "sha256:2dc5636b52e186e74ab6f5f55a0be4906ad75e0d797f851035f425ffad10838d",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/veeva-q1-fy24/crop-report.json",
+      "digest": "sha256:2a4ceb1876172943ad0fe117dd6f6c7b335a2679335251796f7f1146d36abc81",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/veeva-q1-fy24/crops/crm-q1-fy24.png",
+      "digest": "sha256:4bfeb0b36e328e37cded457d026be0815338ca68ff47f45af2425994f6868932",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/veeva-q1-fy24/crops/logo-q1-fy24.png",
+      "digest": "sha256:a8a9c2d6ffbb75999dc527cd5e741ffc0b491997326d70ebff42f1a0ad5509e5",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/veeva-q1-fy24/crops/vault-q1-fy24.png",
+      "digest": "sha256:f81ae290bc9dafee9bc62ac90327e5aa6444834834d1db9b4de6cc9ad8edea0d",
+      "before": null
+    },
+    {
+      "path": "data/assets/icon-references/veeva/veeva-q1-fy24/model-validation.md",
+      "digest": "sha256:62791b442d46f5f097bb15a93971b61e78c8fc95eae0c6a2f9f6763189e47284",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/accenture/company-logo-q1-fy23.png",
+      "digest": "sha256:7272957fe2ec3b1a66e29a778cb93c2cce93625e292aeca964c2b1c69a824df1",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/accenture/company-logo-q3-fy23.png",
+      "digest": "sha256:f282b3a762744a9a1cde4eeb2e9c208208f94094a120026de72e34bc955ca724",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/accenture/company-logo-q4-fy23.png",
+      "digest": "sha256:e0a1e51bd6346e8b1a1b76f78849c0a60e9f033892dfc6876239b0a33a575c1a",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/accenture/company-wordmark-q2-fy24.png",
+      "digest": "sha256:d010d86b7ac6258f07c80a9a157f6edc173a1aea57973703b192a42b2cc6ffc1",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/accenture/company-wordmark-q3-fy24.png",
+      "digest": "sha256:68f5b7cef90eba016dc283af3a1183a7994dff1bdcbae24ec669a6aa9b4e6a0b",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/accenture/company-wordmark-q4-fy24.png",
+      "digest": "sha256:15ae0b4a1b0047b33710bf1159f50a4c285b3aef18bc30fd1fd665b397ac745d",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/accenture/company-wordmark-q4-fy25.png",
+      "digest": "sha256:5d3c54910e63277b1b3c89bac9277ad18e2d0eb4e52262dd6088056e897de114",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/accenture/logo-q1-fy24.png",
+      "digest": "sha256:4271dcc9313cd75ced3107d2f2426d9d1cd0e8294e6896f627feb3327a14eedc",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/accenture/logo-q1-fy25.png",
+      "digest": "sha256:4f12485497715926fb89c13512e67b142d756315cc96b45e9afb5fa19d25f588",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/accenture/logo-q1-fy26.png",
+      "digest": "sha256:836e85d5e1a43bccde08c9102e2918283c08c20ab9903b2f60460e4bab76a9f5",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/accenture/logo-q3-fy25.png",
+      "digest": "sha256:6a6393684f12e37108761ce2e4b92eed7665d13f8ade63fa5e4dda4bd32da744",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/anthropic/claude-logo-h1-fy26.png",
+      "digest": "sha256:77114735bfbebfcfde96d72fbe53e585cf2b96ac55b7161cb59d3123bbe6b21d",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/brand-cluster-q3-fy22.png",
+      "digest": "sha256:f74bfeb776de35948aafa9b559cca085edf0c82b58c7ca2bf1467ceac46c19d0",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/brands-q1-fy23.png",
+      "digest": "sha256:f7145676b7d881cabacbf4d2195d9200e383843aa15b4861e36fc799a462a16a",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/brands-q1-fy25.png",
+      "digest": "sha256:c04b79a7756c1dea857d3a38df99ca6d71987b4f31c85c3ffb39051d08561d3e",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/brands-q2-fy23.png",
+      "digest": "sha256:05e5a331678183c3da821ffc4d34f9f76824a6e8c81417ff0a107312d545485b",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/brands-q2-fy24.png",
+      "digest": "sha256:fed33c2e319c93a8b88d48a38c165a21bab489027aae94d6aa6f17dc915344db",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/brands-q3-fy23.png",
+      "digest": "sha256:25366456193631eca437ed3777f4084de9bd85a973e0cb556b8edb81073e7473",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/brands-q3-fy24.png",
+      "digest": "sha256:50569fd318f509fea7af0f66dc6a6664b7b932df0f036fe3cb9fc379467962f3",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/brands-q4-fy23.png",
+      "digest": "sha256:2ec058646b5de16f7eade826664f54580b12bcc02468cbaede87314b3bb6a5e3",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/brands-q4-fy24.png",
+      "digest": "sha256:010db59d9d0f8338c46b0b8b9283f3c2c4b44cf1c6cafcb5a7c0699787cad40b",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/company-logo-q1-fy23.png",
+      "digest": "sha256:ce8aa6a6fd59de808ec334ace7a6cd5c7288693473892002212768aeb0a3610c",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/company-logo-q1-fy24.png",
+      "digest": "sha256:9b897aed75705b3e53139514c6424cb22ff0ae8a7e320272ec96e8617a4e6d64",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/company-logo-q1-fy25.png",
+      "digest": "sha256:6c7428d7e03514d6146da99e5f52e1ac940107871bbc2090a2717c69ee61d774",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/company-logo-q2-fy24.png",
+      "digest": "sha256:f0a0f21f041ee8378f9656ede173aea4650103418d7c1b4ba90be8f0713e6586",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/company-logo-q2-fy25.png",
+      "digest": "sha256:4d1ec2eb865421b0e5deaa1dc2e4ac6258255a3ba294b1f8d9be54fb9647e307",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/company-logo-q3-fy22.png",
+      "digest": "sha256:9b897aed75705b3e53139514c6424cb22ff0ae8a7e320272ec96e8617a4e6d64",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/company-logo-q3-fy23.png",
+      "digest": "sha256:8991bcf84ae50923ac609ff721d70966914127706b61d160117eb8d6ceca35f9",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/company-logo-q4-fy22.png",
+      "digest": "sha256:f29be8838ae3376c152d6960a80f6f91b5d6fadfed38f282fe94107e2e25422a",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/etsy-logo-q3-fy25.png",
+      "digest": "sha256:a8d2da988110986ffb5314ed4c3a9f64609200706c689edc22809a84e24d276e",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/logo-q2-fy23.png",
+      "digest": "sha256:5ed32881d890bbb881739eab099c581b4943e8959a5adbd9b57ececf2f702c26",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/logo-q3-fy24.png",
+      "digest": "sha256:c26861d897975aea02d8150ea517d9bfa18965c4de4b4454dc42095af87f430f",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/logo-q4-fy23.png",
+      "digest": "sha256:59ceae8705210d76f7c893ced7e19c5e9378ed1f78b8c7962e34928f9a91c534",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/logo-q4-fy24.png",
+      "digest": "sha256:a71d033b48d1e32b73528b2d7de5223642254e74a63c13923f5873e004a12407",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/marketplace-brands-q1-fy24.png",
+      "digest": "sha256:5b23b8277420b5531aed8b32b8844a9b130f5ee8f886e27c2c5b067c0e56e4ae",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/marketplace-brands-q2-fy25.png",
+      "digest": "sha256:3d54bb1ece6490ee7c348a74bd798e2d0e7fbbb0acdb3feb49959b72043d5132",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/marketplace-brands-q3-fy25.png",
+      "digest": "sha256:3bb024d7e21e53476f4f384c9e4520776dfeb938fa236ff7397d6ea509a9680d",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/marketplace-brands-q4-fy22.png",
+      "digest": "sha256:2cb7d0d4bed6b4c1d22b84f6e527c7c02ef24b6e5f9378c84af1ee205863e06b",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/health-equity/company-q3-fy24.png",
+      "digest": "sha256:317af9d625a9c74e920f972e6eee4a77bdb2265b34e610078c327171b658c7d1",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/health-equity/company-wordmark-q1-fy24.png",
+      "digest": "sha256:b475882943ece64ec98cc74dc9c3d6bf193720ceeeb98c96d3fa22c0382bfc89",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/health-equity/company-wordmark-q2-fy24.png",
+      "digest": "sha256:0e6c6d27511d026c0cac2340a0182473fc3447fe011d7bf49df5d095a8b36b95",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/health-equity/company-wordmark-q3-fy26.png",
+      "digest": "sha256:f7eae46b91d10df830d186214dc2b970b25490181708b69dc63e3c175a2cde7a",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/health-equity/company-wordmark-q4-fy23.png",
+      "digest": "sha256:e5a1749966a1b4d9d670c068fdc484c7685bd886b6dd71c427a7f56f8c245132",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/health-equity/company-wordmark-q4-fy25.png",
+      "digest": "sha256:439bc9d87da9f533226c3b001ba25f06e314baaf5a223f8fb152f35852371b13",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/health-equity/logo-q1-fy25.png",
+      "digest": "sha256:936f39e034797efb4cb636c08480e0c9203fce24ccf36eb171c4c58f37b14852",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/health-equity/logo-q1-fy26.png",
+      "digest": "sha256:299c8af755432754afea40920bd9bb89d8116852d9e0ebbe06edad697f76d511",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/health-equity/logo-q2-fy25.png",
+      "digest": "sha256:bda0473c0365c8edb51fe36235344dcfbef75f3a3dab939a28cf3d91428572a6",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/health-equity/logo-q2-fy26.png",
+      "digest": "sha256:9da6b95940889a636cf35f7e8818adeeca18b551ece7a6a1c3e30e0e5fbd46c8",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/health-equity/logo-q3-fy23.png",
+      "digest": "sha256:a9b56a0fcd73346698747e4bb244c563eaca4f9c4636ad2e27e94376acb9f393",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/health-equity/logo-q3-fy25.png",
+      "digest": "sha256:c64c8415ac0848036bc37985c8a080c514c95934b2a0d2b18802fc64b3dc935f",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/health-equity/logo-q4-fy24.png",
+      "digest": "sha256:81bc178ea4d357b924794ecb6989fd720a42b7ca8aab995072ac0fc26d234d51",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/bottega-fy22.png",
+      "digest": "sha256:2c3c81f9d25b18ee3fa6e40a559fd48ff0d2ddcfcec41798e0cdbfa027f05e8a",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/bottega-fy23.png",
+      "digest": "sha256:05932320ec064bad8918d37ba827500d1e910fc5bbd7dfc0ea4bee8a7a4e8ccd",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/bottega-veneta-h1-fy22.png",
+      "digest": "sha256:569b11b052e65b2ecef16f1445e0bd62a98b6aaf272a50bdd721c2ab3277da30",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/bottega-veneta-h1-fy23.png",
+      "digest": "sha256:d84436706cf5cc109d3ecfb8b30d6e6ce653a0862a557ac2ef40c36bc650ec40",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/bottega-veneta-h1-fy24.png",
+      "digest": "sha256:fac2fd8ef3303524da847f60cc36136182d7090f276610326ec3e3a21d2de731",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/bottega-veneta-h1-fy25.png",
+      "digest": "sha256:d7ab1c67924ae383b3e8f41c58d3c70a5a78cd29c191cd99511bbb7aeaae86a1",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/bottega_veneta-fy24.png",
+      "digest": "sha256:b279582743b1a6ea12bbb07f111c5a9ec4f3bceba406152d1f78e21a5da96f43",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/company-emblem-h1-fy22.png",
+      "digest": "sha256:56b118190e7f1313a14696091f47c1ddc4c3c7bb5efe6934667f056570e806bc",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/company-h1-fy24.png",
+      "digest": "sha256:9f3e71ee3121bacb19ee17924b366c3712988d6c84e7b44bc6c20309c514b68b",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/company-wordmark-h1-fy22.png",
+      "digest": "sha256:6ab23831605e45181c6876f54ae1f2f249308c4e62daa71ae0c53a3823f023b4",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/gucci-fy22.png",
+      "digest": "sha256:6efac3362c9e66db6b5e1fdf13ee996782d5618ad0bd3cf52d14c6bdbdb69aae",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/gucci-fy23.png",
+      "digest": "sha256:3c90be05d2186792916887d125adca10209c7308f99a14f3fb1221878152bdef",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/gucci-fy24.png",
+      "digest": "sha256:e83f71841f541ad5739db0f66f3bb276a0c2325a7e30a22b28200eda8e0bd9b3",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/gucci-h1-fy22.png",
+      "digest": "sha256:39aa653ba9283a6a847aa6fd5a8aa666d4a2b82c49c25bb6beb7c5a8a8cc5cf2",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/gucci-h1-fy23.png",
+      "digest": "sha256:e9c79ef829a999b2e3b86e3cbdb55b1e8d18b247693473866970a03edc484397",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/gucci-h1-fy24.png",
+      "digest": "sha256:33f5b47f73e42442cff6841a3eb0b94117b6dba7840eec204490b923fa8e03cd",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/gucci-h1-fy25.png",
+      "digest": "sha256:5f577b288ef2134b8deb5a2e8cfb6a7708550af1ef19eea33227c8ef3d21e1f2",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/kering-fy22.png",
+      "digest": "sha256:9cd282b6f7bed04d536fd97ef20f42732ab173de1be45fd3bba848ef5f3fdf51",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/kering-fy23.png",
+      "digest": "sha256:f618629b9943ff204c8d3834fe786cd092e2f0a079e4e09e5f788bb2da287266",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/kering-h1-fy23.png",
+      "digest": "sha256:ffb4a9802df0bada8ebca4242d78d96206e60feaca3abee3229b17bbfc0ea37f",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/kering-h1-fy25.png",
+      "digest": "sha256:62dbd06f10914ebfc7fdad755ef8d68aa4cb3ddb06df9936b57b55827cd2f757",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/kering-owl-fy24.png",
+      "digest": "sha256:fbc9ba07a106314518d62d5ea7b91dcede007f6337fda48df93f54e9e3320980",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/kering-owl-h1-fy23.png",
+      "digest": "sha256:3e11233dcf454bfa29529e78928f3623505ec351510dd65077f207d374bce5ec",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/kering-owl-h1-fy25.png",
+      "digest": "sha256:b0ef0ba194954ed84605aa8b33ee4bafe2bb258d408f5aa46c5172410f495a24",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/kering-wordmark-fy24.png",
+      "digest": "sha256:0f53d5ffce18d078ab5b333736e883b23c8a0585600a208bf0b53c34d49f7dcb",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/kering-wordmark-h1-fy23.png",
+      "digest": "sha256:500d8b254ad2376b371908fdc55886bd7bf43000d995e716de8fe92acb795ac5",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/owl-h1-fy24.png",
+      "digest": "sha256:4ce6b56384425b5a4ca609e145909315a7b7c0ebd5c073084a6f9e386428f64b",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/saint-fy23.png",
+      "digest": "sha256:d1438524c5436cd36679ec467b7fdb4d3311ac8f37cd6b1e52620dcf16b28f48",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/saint-laurent-fy22.png",
+      "digest": "sha256:137ad31197fa22e5e5d33695dac579da983f3c063a5417d72930b42ed0aa3619",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/saint-laurent-h1-fy22.png",
+      "digest": "sha256:da23d36b58f39ee961d25fbefbb4b09f49e1ce91f79fcd7aac486d4db6979a46",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/saint-laurent-h1-fy23.png",
+      "digest": "sha256:fcdbc302361c2a366826a09f0656e3a01093bd836c63e156e21ec3536b19fff2",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/saint-laurent-h1-fy24.png",
+      "digest": "sha256:a84747846ebb0ba1495141ab34471974913502669d8db0e489dff1745105b9c9",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/saint-laurent-h1-fy25.png",
+      "digest": "sha256:498cf492f7bf60d529cdf6697c765ae56103ba063ee194f40e3bb8fe19a5ab51",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/saint_laurent-fy24.png",
+      "digest": "sha256:857b063c8943f33060adf405d8b3bff27d4456aef0b61047e395a08876129a2d",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/mercadolibre/ads-brand-q1-fy23.png",
+      "digest": "sha256:3b0ad930ef4e1c9a0eccda1d5d31eaba99d80568c9fdda654a22d95b532df136",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/mercadolibre/commerce-brand-q1-fy23.png",
+      "digest": "sha256:3a975af070c4f567a88be5336d95ee59e68ce1d184afe64313708e346b04a66e",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/mercadolibre/credito-brand-q1-fy23.png",
+      "digest": "sha256:dbc48f42a1e2ec82351216b3b1949e2c9d21cac5510e4760a91a09bd8c758771",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/mercadolibre/envios-brand-q1-fy23.png",
+      "digest": "sha256:4759b5892904caca69deeeaf0ccde241e4cbcfc4fd3e927eae5c281e55cc00d1",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/mercadolibre/pago-brand-q1-fy23.png",
+      "digest": "sha256:2d28261402dd915b4f6bf319f365cfb0bcbcf621d9f5ca0f13eabc8bd788e356",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/meta/reality-devices-q3-fy26.png",
+      "digest": "sha256:26986faba852bacc689db7216e32b6b71920c9c5cec193e82d98692d83af4e24",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/microsoft/industry-q1-fy27.png",
+      "digest": "sha256:48787deee695560e74195fe06efb85ed885cf9b874fababed7bc44a8486f2577",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/microsoft/office-q1-fy27.png",
+      "digest": "sha256:e99d3386a8bd793c53ba041ecbe40de5425d75cc556b58fed4ad997030311a3c",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/roblox/characters-q3-fy26.png",
+      "digest": "sha256:88fef567b632ebca07608964b46179ce5a0a4149078a063202a634bfbe5acaae",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/spotify/advertising-q3-fy26.png",
+      "digest": "sha256:f7ee9cf21a397c739b5bf656bd3fdd333266b178ead247cdb4ca1eb899a6d19e",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/spotify/company-logo-q3-fy26.png",
+      "digest": "sha256:f55dac0fa64ebdf0f5b3a8ae07e8fbf7d478f4b6ab2c2d86ba2ef2e61d347f5b",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/spotify/premium-q3-fy26.png",
+      "digest": "sha256:9dbe97178cd49181e22cd6d05d94a5d49dfa6a6c0ccd0b6069c69db8490991e5",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/stellantis/brands-europe.png",
+      "digest": "sha256:3ee69c03462c7e506e9ff1fbd651ce61ae8fbacf970a01dffd78df869deb57a2",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/stellantis/brands-north-america.png",
+      "digest": "sha256:df280028794a0860507651ae12de0a2a763c3cd13704f20c1128d3336e3d9701",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/stellantis/company-logo.png",
+      "digest": "sha256:3e1f32770bbea2d451fd79c0b17c580fe3fa26c9eeb70cb433578a958f88b0b9",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/company-logo-q2-fy24.png",
+      "digest": "sha256:d53d1f23818226e855b998dd9accf84c371ae13a34a85f4f4f8b280087e3cd17",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/company-logo-q3-fy25.png",
+      "digest": "sha256:6ced17f25d24b721f220a0374b450a16a9868db6ed7cb27fc2fc7d1657b34111",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/company-logo-q4-fy23.png",
+      "digest": "sha256:251b7a2336550365360cfcdfedb3075f17d1842218b96800d109d27d8b8633b8",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/company-logo-q4-fy25.png",
+      "digest": "sha256:4866ca93f8c0d693f5e99817db6d4faa4fdda3afea60f1aded2feeec0404a147",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/crm-logo-q3-fy25.png",
+      "digest": "sha256:5efe70ab467ec1ef125ce3b7b4f50e711eeed0f905b64c9da2daf16c27f0aeef",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/crm-q1-fy24.png",
+      "digest": "sha256:4bfeb0b36e328e37cded457d026be0815338ca68ff47f45af2425994f6868932",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/crm-q1-fy25.png",
+      "digest": "sha256:fbbd74ab9daa06c3a40b87bbeb2fc3259e834a7ce1e42e824ac8f03492758e7c",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/crm-q1-fy26.png",
+      "digest": "sha256:d16cb6803a079814f37bacc3cd825672d74e7227d79a18f23e6ca6185e126aaf",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/crm-q2-fy24.png",
+      "digest": "sha256:3ec23918cdd3aee3150f47f13b06ef599f36f8a62244846349e028473416a86b",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/crm-q2-fy25.png",
+      "digest": "sha256:0dd96ee5ee8bcc8d95856e102fa866eb404bd68b9405b5fb48c99604f14d2d3b",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/crm-q2-fy26.png",
+      "digest": "sha256:82fa5c1dc04ea39808919c57ff6afa6517eac50a8c4ef9e90b3abe7297cd29b2",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/crm-q3-fy23.png",
+      "digest": "sha256:ecdbac9c25f72b6e01027fb82b3e792d39b6e94d36d4a525ab195963b317333a",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/crm-q4-fy23.png",
+      "digest": "sha256:1dba530b4a339874cedaf1851119a8fff6f968c41d86763b56b49295aca7a182",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/crm-q4-fy24.png",
+      "digest": "sha256:283822d7c9d59866788cb7f5979b1a35a184fe0f8bd7b6f9b47a1d9b6628a0c8",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/crm-q4-fy25.png",
+      "digest": "sha256:dd7b7bcea3fece73ce329d00ab39c8dfd4894642ce93d53ad0fb620e0e41262a",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/logo-q1-fy24.png",
+      "digest": "sha256:a8a9c2d6ffbb75999dc527cd5e741ffc0b491997326d70ebff42f1a0ad5509e5",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/logo-q1-fy25.png",
+      "digest": "sha256:fb307bc884a866530a183dd2ea940d0f2df53fd89d91f86d5985260fc77f0a68",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/logo-q1-fy26.png",
+      "digest": "sha256:369ff70aacd1176590eb8aa9605799c1939775c0d26a188b7e9e5ff25900ce8e",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/logo-q2-fy25.png",
+      "digest": "sha256:a5885936858eeef421a7ae287ee6d5642ea5a19702e0745f88cf53d1c8cd7d73",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/logo-q2-fy26.png",
+      "digest": "sha256:f88cda831c1ea4f07e29d35bcb9c97c1a1d9221c274bb6296aa9dde50c9494db",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/logo-q3-fy23.png",
+      "digest": "sha256:d923cbb5d3bf403235f12f652c77db06ec5cccca3703664bd0f7e2c29fa8b690",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/logo-q4-fy24.png",
+      "digest": "sha256:a060db712218971390a8729ddbc6bcd9b33791e266c30133e7c5d4b06a4809d1",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/vault-logo-q3-fy25.png",
+      "digest": "sha256:d751af5bdd622796cdd7520fd4e585d84e4308e2c6fde0015bb8979b8f257b22",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/vault-q1-fy24.png",
+      "digest": "sha256:f81ae290bc9dafee9bc62ac90327e5aa6444834834d1db9b4de6cc9ad8edea0d",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/vault-q1-fy25.png",
+      "digest": "sha256:ca88b51011fabd976227a5b065433df1e607cfcc381260d5e0560d8d78f9e731",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/vault-q1-fy26.png",
+      "digest": "sha256:8a4b80833308ce481ce13e1fc5ba995c5fc9c82e25e7872938112260291c84a0",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/vault-q2-fy24.png",
+      "digest": "sha256:a5529aad88f377c178852dd91fdb1dea54c17454b93fede6f552a86fda27c9d4",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/vault-q2-fy25.png",
+      "digest": "sha256:47186f5e303ba5534d7e2826dff4f3a7b2cc369ee2f44685e659fbda862b81ae",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/vault-q2-fy26.png",
+      "digest": "sha256:6e41229ac6940a22fdcac389e53ca0e11b5166224263bebaa4fbc18cbd6d0db1",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/vault-q3-fy23.png",
+      "digest": "sha256:6beba40c1dd2f86b8ad2e3072073e365d6ebb905d6fb5137a9af7cece5d12ada",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/vault-q4-fy23.png",
+      "digest": "sha256:7685bb7df9e8ad8683d0ae9d171540d2086f998a4493c1c296014be4b8305a07",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/vault-q4-fy24.png",
+      "digest": "sha256:4aa541b01dc0735483595e2a672079ed637a5d19eb7db1a1c1ac3544b3cbde8e",
+      "before": null
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/vault-q4-fy25.png",
+      "digest": "sha256:a829aba8ad1526df3dcfa8a30ceedccfe06a6ad7fcf5a62abef433217fbf516e",
+      "before": null
+    },
+    {
+      "path": "data/company-metadata/stellantis.js",
+      "digest": "sha256:39e7a3726f838d981f209d1479895145ba143a333ef4b85ece668922b6d47598",
       "before": null
     },
     {
       "path": "data/dataset-file-metadata.js",
-      "digest": "sha256:a89a261eff9a9670659a50ec6ed1d85eeb8659312792ce020440bfbf1f0d0ed5",
-      "before": "sha256:d41ad0c645f92dd644a6993e84b303f6142eccfc7176955ead8c194290443760"
+      "digest": "sha256:856036d9e5846b002cb0351bc05a08e5599008cb626855662875a1a149191e0b",
+      "before": "sha256:c4c590fe0f67d69b64d4807a49541ca0419b44c0e54fa8bdf4cfefc9cd88dc1e"
     },
     {
       "path": "data/dataset-manifest.js",
-      "digest": "sha256:9bc21bbdd682229235a29997a5c3eabbe9b5ff25627259b8f98c03f2585cd7c4",
-      "before": "sha256:8a2082d31e9634d0bb3eef326f0df2113b783d094021b543c4e3cda0becd6c4e"
+      "digest": "sha256:bad0628eb3b0889a939b342516173cd00dda44ca84e3be8a7bba201bd457b8a2",
+      "before": "sha256:9bc21bbdd682229235a29997a5c3eabbe9b5ff25627259b8f98c03f2585cd7c4"
     },
     {
-      "path": "data/datasets/abbott-q3-fy26.js",
-      "digest": "sha256:3174d3d6d627b21b3cf328e48849adeb8073e64d6cfe42efb6295b57833bc669",
+      "path": "data/datasets/accenture-q1-fy23.js",
+      "digest": "sha256:192738057605a232000baa3016a3d82419fded975699df5fdafc046233e12335",
       "before": null
     },
     {
-      "path": "data/datasets/abbvie-q3-fy26.js",
-      "digest": "sha256:dcfd6e184cd14075a3163f65470aa27a4d760d2193148fefc9edd51905d58cfd",
+      "path": "data/datasets/accenture-q1-fy24.js",
+      "digest": "sha256:a0155ea78cfaab88b4c3804981e37f66106b5599ab5208221161c3bc350b3bd8",
       "before": null
     },
     {
-      "path": "data/datasets/accenture-q4-fy26.js",
-      "digest": "sha256:b5ce9780d026403953e8c0306b804ea0d2ec54a1da210f1a29cf11097b04a041",
+      "path": "data/datasets/accenture-q1-fy25.js",
+      "digest": "sha256:cf575f82f896a497079fbd468dfb534ebe0ca2e5afb22602339c607335175e0a",
       "before": null
     },
     {
-      "path": "data/datasets/airbus-q3-fy26.js",
-      "digest": "sha256:ed7ed8502ebfddef5eb2f6e2f7e21c9166fd6d9c89c5fcb022c481a8f250cdd8",
+      "path": "data/datasets/accenture-q1-fy26.js",
+      "digest": "sha256:3b42f092d221c5305545bddaaf04fbbd6d39aaa339e342e210b83a1182868405",
       "before": null
     },
     {
-      "path": "data/datasets/align-q3-fy26.js",
-      "digest": "sha256:9b69aebba57def9e1cda11e0e208c263f2c20c12fd66b5be363199e5b14e7806",
+      "path": "data/datasets/accenture-q2-fy23.js",
+      "digest": "sha256:3eaee1912ba2f15d226e3a9223c841878e16ed63968c7ce81d5df715d222adb1",
       "before": null
     },
     {
-      "path": "data/datasets/american-express-q3-fy26.js",
-      "digest": "sha256:aaeed119cb58520abfa28ec772fc61066ea88c5ac3bf48368ebb77394ef900b2",
+      "path": "data/datasets/accenture-q2-fy24.js",
+      "digest": "sha256:b4896e8b4eb0da4dc087569aaa0438222b2ec1b4495f3e5864b7feb9df71c2d7",
       "before": null
     },
     {
-      "path": "data/datasets/american-q3-fy26.js",
-      "digest": "sha256:026501eaa41953b1ec6b8c9ed1f7792f4a360d76bd71d8873c8ca59d3d2308e3",
+      "path": "data/datasets/accenture-q2-fy25.js",
+      "digest": "sha256:dbeb4ecf328287779ec4b06195fc08af8bd7a9d1dc3b07646bd1dd77a9a4ff4c",
       "before": null
     },
     {
-      "path": "data/datasets/appfolio-q3-fy26.js",
-      "digest": "sha256:01f120067e57f4c8525007613ec294c914596c5a4b347b1b4e2593967f75431e",
+      "path": "data/datasets/accenture-q3-fy23.js",
+      "digest": "sha256:42d7d62718bcf51c551733de4a839297a43a7b47cb69a0df1a666bc094a4f718",
       "before": null
     },
     {
-      "path": "data/datasets/asml-q3-fy26.js",
-      "digest": "sha256:3cd52b8f4e74e39d35e1ceb5d00a78f57b7ee68c25ff7e138033d3856b12c9b7",
+      "path": "data/datasets/accenture-q3-fy24.js",
+      "digest": "sha256:66cc3585a9fb618fed119e0d9dca97634ff6a9ac9f6560d048e868913a67c45c",
       "before": null
     },
     {
-      "path": "data/datasets/astrazeneca-q3-fy26.js",
-      "digest": "sha256:f236f027c95a803e4f0955421725c4862cb45d235e62f2ff8a200abf7a30a746",
+      "path": "data/datasets/accenture-q3-fy25.js",
+      "digest": "sha256:fc9b60bb08e03458a9d4b8d2808a6b92f4eefd83922bc83c317330532b0279c8",
       "before": null
     },
     {
-      "path": "data/datasets/at-t-q3-fy26.js",
-      "digest": "sha256:42815cb764b339e4f688354f657872c836b33e2a20763a83764e1278c343ca77",
+      "path": "data/datasets/accenture-q4-fy23.js",
+      "digest": "sha256:3146b88a7b184c34ceee414f9c27305da27fd305b4a65ec8229a8c4ae1222458",
       "before": null
     },
     {
-      "path": "data/datasets/bank-of-america-q3-fy26.js",
-      "digest": "sha256:64ba6fc673ea27e2f7f3eb56530265dd98a6289a5fccdfd53c093a3a0dd30ceb",
+      "path": "data/datasets/accenture-q4-fy24.js",
+      "digest": "sha256:e60e3c13c7b6ff0b5f0e6b33a8a49448724a8b0b4f706ea07c0c15dc4b923363",
       "before": null
     },
     {
-      "path": "data/datasets/blackrock-q3-fy26.js",
-      "digest": "sha256:124ed0dd62b276ef4c0e8aac213c36df447c9efed606d61cad8a572661886fb8",
+      "path": "data/datasets/accenture-q4-fy25.js",
+      "digest": "sha256:0ae474bf35bcaaf8a49d72e94efa4afb933c2fd082961b3e42f471892578ce81",
       "before": null
     },
     {
-      "path": "data/datasets/boeing-q3-fy26.js",
-      "digest": "sha256:02b77e61eade10ec91c41dc0a08d8326e9d35f01151a6bf2dd208ea4a4ae1767",
+      "path": "data/datasets/alphabet-q3-fy26.js",
+      "digest": "sha256:88bf3ad809706eaa53960a02c4964a704b68d846cb3550a99af73345a53883a0",
       "before": null
     },
     {
-      "path": "data/datasets/braze-q2-fy27.js",
-      "digest": "sha256:29cdf5d951ce80860948548b62462648f7c868a51d8b161547b0dfe80eb894c5",
+      "path": "data/datasets/amazon-q3-fy26.js",
+      "digest": "sha256:2d73709c9588b820c017298c2904ae86580e7fb96d3364e8586ddc9f33789892",
       "before": null
     },
     {
-      "path": "data/datasets/cadence-q3-fy26.js",
-      "digest": "sha256:f7312ae011dde6d684e9a9ec9ae8f38233fc6e9e0e1909bc0ee9b60e43e3c973",
+      "path": "data/datasets/anthropic-h1-fy26.js",
+      "digest": "sha256:871d36d2e144e45e6133ccc5625298b5fccaa0190daf0406731d4cc182c82d7d",
       "before": null
     },
     {
-      "path": "data/datasets/chipotle-q3-fy26.js",
-      "digest": "sha256:69d983b64b352e33e74c827378d2d833868e50423076b58ade133135da6e8dd4",
+      "path": "data/datasets/etsy-q1-fy23.js",
+      "digest": "sha256:694193c2e84a2e628bf1d2c5a924e8207f20c2c545775631cc6208139e86b078",
       "before": null
     },
     {
-      "path": "data/datasets/citigroup-q3-fy26.js",
-      "digest": "sha256:3b3b4fb450ba9a3ed1f3d605eb0b774bd33db78d76b7509df93d1cf3ccae4bc8",
+      "path": "data/datasets/etsy-q1-fy24.js",
+      "digest": "sha256:7c14a8d239637085af4c63783717cc7c3a1cde5f8f44cc39d7b9700e20fd5b17",
       "before": null
     },
     {
-      "path": "data/datasets/coca-cola-q3-fy26.js",
-      "digest": "sha256:c2479c84e67e1298991bdcf4dc3d748b8d068b6ffb9a47e476b63a3fd94bb163",
+      "path": "data/datasets/etsy-q1-fy25.js",
+      "digest": "sha256:f2b42110237af338e743e82de0377a334c0f72c66fa2bd1bac8ebe509a77bcfb",
       "before": null
     },
     {
-      "path": "data/datasets/coinbase-q3-fy26.js",
-      "digest": "sha256:5171e0c2a697b0c35fd67d85a4467af54e61ba98fc292c7ee421b35f1640cf29",
+      "path": "data/datasets/etsy-q2-fy23.js",
+      "digest": "sha256:cbdf0793a01a68503adc95ec0234b2615cbb4e949d40820349729e6675757495",
       "before": null
     },
     {
-      "path": "data/datasets/comcast-q3-fy26.js",
-      "digest": "sha256:d0b3f27fe5a4facda238b49c8e1aff1c514424d339c312924bb62ce9cb700d0f",
+      "path": "data/datasets/etsy-q2-fy24.js",
+      "digest": "sha256:addffb5e6dde2fd319a40a317f0781dddb2c07ee8c8accf81e81e72a62219f99",
       "before": null
     },
     {
-      "path": "data/datasets/delta-q3-fy26.js",
-      "digest": "sha256:991818940fef65b5c5ccdd4332f866b5782d6bd60277fb8368d4e8247e4ad202",
+      "path": "data/datasets/etsy-q2-fy25.js",
+      "digest": "sha256:7c006ad20cd9b276982d07073359b45cc88d0583a8f1d3315f35274c4cbfb0c4",
       "before": null
     },
     {
-      "path": "data/datasets/domino-s-q3-fy26.js",
-      "digest": "sha256:586512d5eac3f4fb370c29ff99d9183db1ad59d6d3c05baa1c067e376e3ffed9",
+      "path": "data/datasets/etsy-q3-fy22.js",
+      "digest": "sha256:adc3aae82c31cffa2948afe2247bee100c55de44f9a54a5a80ed7f766fb0ce70",
       "before": null
     },
     {
-      "path": "data/datasets/eli-lilly-q3-fy26.js",
-      "digest": "sha256:e011b756b09a88f0ae78d6b98bdffe4c79bde5371301135b7c51d1ede0cfaa7c",
+      "path": "data/datasets/etsy-q3-fy23.js",
+      "digest": "sha256:bda0153be166ef1fe033598033f837c45773c107e50aa096cd381ec4a57972c0",
       "before": null
     },
     {
-      "path": "data/datasets/etsy-q3-fy26.js",
-      "digest": "sha256:5ddb9b13ca1cd0c888856eb173cfa814e0c396f86ebe41c95ba1b757c39e2f7a",
+      "path": "data/datasets/etsy-q3-fy24.js",
+      "digest": "sha256:a75d7bdafc657f42d6e06f9f036622b9295f40f80e4621c7b4ebd80c33764703",
       "before": null
     },
     {
-      "path": "data/datasets/fedex-q1-fy27.js",
-      "digest": "sha256:2b03dccd837fdfd3355b568c78e7dab1a1163827f5437afa7508bc3b572521f4",
+      "path": "data/datasets/etsy-q3-fy25.js",
+      "digest": "sha256:7c8bf0b943e1f6954693f0578d60efd8495b2dff0d5d9198925aee65e27fa1f1",
       "before": null
     },
     {
-      "path": "data/datasets/fortinet-q3-fy26.js",
-      "digest": "sha256:93df3652f1a4d8a655178991e02fa8b216812e8b2de4253d7d0c951045d83a82",
+      "path": "data/datasets/etsy-q4-fy22.js",
+      "digest": "sha256:25cadce8779f85ebae6b5f6d7675ec9f9b33debdf1f8b38f99f438a3077ebf80",
       "before": null
     },
     {
-      "path": "data/datasets/ge-vernova-q3-fy26.js",
-      "digest": "sha256:23e8977fb7be5db221185023241ea44ad84a51dd25c3aea5083be7cd4fcdcca0",
+      "path": "data/datasets/etsy-q4-fy23.js",
+      "digest": "sha256:8266de08971ef6140672f3387825e4b631bf72fa3cc33664f571d497b9c6da8f",
       "before": null
     },
     {
-      "path": "data/datasets/goldman-sachs-q3-fy26.js",
-      "digest": "sha256:b84c768b9cc88c94f539f2412fd45734c055dd9204a33c1130daaffad92db5ef",
+      "path": "data/datasets/etsy-q4-fy24.js",
+      "digest": "sha256:c065c554e93fe2f765ecd38bbb9c3bf9f32e0aeb58a3c6b99a64401eedbeebcc",
       "before": null
     },
     {
-      "path": "data/datasets/hershey-q3-fy26.js",
-      "digest": "sha256:68beba2c39d41cf1f50d6a374c6ccd4ebcf9367592a45edfee07a4e44ec8c567",
+      "path": "data/datasets/ford-q3-fy26.js",
+      "digest": "sha256:cde41aeabf1ba85167e9b52e4790e6c62822289a9369991ebaa07ce17ce4ada6",
       "before": null
     },
     {
-      "path": "data/datasets/hilton-q3-fy26.js",
-      "digest": "sha256:04bda35764fac10b3eaf0642a8bad9d466e5a51a2bc90867c655bc063d5ef1b2",
+      "path": "data/datasets/gm-q3-fy26.js",
+      "digest": "sha256:a4ced351766d13457e16cc2343a57866596fb6d6c8ad1d607c345e8521a63b02",
       "before": null
     },
     {
-      "path": "data/datasets/ibm-q3-fy26.js",
-      "digest": "sha256:db044ac8224d089371cdbcd421a58a5bb0e984e05659bc17a41cb8c711f40f3b",
+      "path": "data/datasets/health-equity-q1-fy24.js",
+      "digest": "sha256:9641426dc88682d762acf06e978aba7cdb6244eebc3f0f9c920a378321042543",
       "before": null
     },
     {
-      "path": "data/datasets/intel-q3-fy26.js",
-      "digest": "sha256:dce3413df4305f8171a33bb6fc5545007b8b0d8c16108b07187f4f55ee7d5aae",
+      "path": "data/datasets/health-equity-q1-fy25.js",
+      "digest": "sha256:c09e48e236fe4023a5f8e59d170700a339e60cae69f078bc167aadbef8456cd4",
       "before": null
     },
     {
-      "path": "data/datasets/intuitive-q3-fy26.js",
-      "digest": "sha256:d8e32738d69a6558c9d6863fb150bad269d8b59626859fe4fb526598757e08b5",
+      "path": "data/datasets/health-equity-q1-fy26.js",
+      "digest": "sha256:e85f936ad4ac4fd56abed4886e47cef115c71d7b7bcde9869d85b91caf1ca813",
       "before": null
     },
     {
-      "path": "data/datasets/j-j-q3-fy26.js",
-      "digest": "sha256:c3ce05053488a3fdd837b0ae9bca1f2d2e099d384b6dd266ec3eec7dfe10d694",
+      "path": "data/datasets/health-equity-q2-fy24.js",
+      "digest": "sha256:2c3c31ef3f144e08ca3bac79560723944e278dbbd2e3f64ef556cdbfe3678a09",
       "before": null
     },
     {
-      "path": "data/datasets/jpmorganchase-q3-fy26.js",
-      "digest": "sha256:66e03b739d7f95c19e5211b4a60d44ab9473d8eab85733170d9f5e84981767c6",
+      "path": "data/datasets/health-equity-q2-fy25.js",
+      "digest": "sha256:9af67b1cedd35b5e5a9a6499b0fd648d7182abfd40dad87f18a5be20f2cd9ac0",
       "before": null
     },
     {
-      "path": "data/datasets/kla-q1-fy27.js",
-      "digest": "sha256:eb967d1e3f92abffa8dff5c60d6d74ef64d32908c13e95f9ee5deb4ea8d58f05",
+      "path": "data/datasets/health-equity-q2-fy26.js",
+      "digest": "sha256:4a5846fe229ee30c357f1e7c9d81365436ece24921966f53ec2e44935e11100b",
       "before": null
     },
     {
-      "path": "data/datasets/lam-research-q1-fy27.js",
-      "digest": "sha256:8766154be9a532d0d3de9e1f95fafd7392cc5c238df07e03aa26137fdb47cf5c",
+      "path": "data/datasets/health-equity-q3-fy23.js",
+      "digest": "sha256:c31f7c4885c6231ed87129f23032f23cd7d34c21d0f0f48395d246903ea7ee5a",
       "before": null
     },
     {
-      "path": "data/datasets/lockheed-martin-q3-fy26.js",
-      "digest": "sha256:27b4235df13726bc9404fe3061e94418f3a1768cc6173afcad0f28cd20e09421",
+      "path": "data/datasets/health-equity-q3-fy24.js",
+      "digest": "sha256:fb9700742ae6fa0432e342dca65346077518641f959893611511f519c47751f7",
       "before": null
     },
     {
-      "path": "data/datasets/mastercard-q3-fy26.js",
-      "digest": "sha256:f77534e809849c0c66a586a3fd951206c29f8474dbef9e9f6e205628daaf8e8a",
+      "path": "data/datasets/health-equity-q3-fy25.js",
+      "digest": "sha256:f614701e333685e60c8600820fada1d527d423ae517763ba19e4644f80b0a601",
       "before": null
     },
     {
-      "path": "data/datasets/merck-q3-fy26.js",
-      "digest": "sha256:503fd6b2b049687ad4597e236830d6c01b0bacbf9d6dbd81bec421c0f58f8715",
+      "path": "data/datasets/health-equity-q3-fy26.js",
+      "digest": "sha256:06b19f78e148e1acd2a6085b95204b5d408a58bf89c33f4e6beb588efa40daa1",
       "before": null
     },
     {
-      "path": "data/datasets/mondelez-q3-fy26.js",
-      "digest": "sha256:4784430a58a44ed1d6b8708f0fb0b81bee1ec774a785ca38cf7b7244389859ed",
+      "path": "data/datasets/health-equity-q4-fy23.js",
+      "digest": "sha256:ae7e98e5f65ee2f5a6cfa621140bd4b4176a89ede3f70ad9ae7621f3939093c9",
       "before": null
     },
     {
-      "path": "data/datasets/moodys-q3-fy26.js",
-      "digest": "sha256:772dda34c8014d4b9262b152f1c833ef244b53a8673b2bb64d0369cb15da6eaa",
+      "path": "data/datasets/health-equity-q4-fy24.js",
+      "digest": "sha256:e34fa05667cdce6ff5444f9d936f7fa42d56ce31050ef90c5560d04f9eb9dca8",
       "before": null
     },
     {
-      "path": "data/datasets/morgan-stanley-q3-fy26.js",
-      "digest": "sha256:fcbf91ed6d3044f221ee1568ed8b1a97f0d74b5b9bba82f66d7d64efb1c1d544",
+      "path": "data/datasets/health-equity-q4-fy25.js",
+      "digest": "sha256:c3def6c67a5d66367075ba8bd01bbe3a4c935e7c387c121ebe4667f47656d406",
       "before": null
     },
     {
-      "path": "data/datasets/nike-q1-fy27.js",
-      "digest": "sha256:1a696eb1527f3b6bea02c6124c65b2b8579985db5019ed5b41aff693820b5eb2",
+      "path": "data/datasets/home-depot-fy23.js",
+      "digest": "sha256:c651b3c5c89908be4c88b9c0c0f764cf206e71ccc2bceef21946452bf8fe4bc2",
       "before": null
     },
     {
-      "path": "data/datasets/novartis-q3-fy26.js",
-      "digest": "sha256:30cfc3ceec9a8a0945c091d81ecaf1b8d92b08fd4d29874ab09a377b2924c912",
+      "path": "data/datasets/home-depot-q1-fy23.js",
+      "digest": "sha256:8d48ccc4b9800cb59194b8985a8ded71cb8971fdf62dd7c873c7aea8e0b0fe7a",
       "before": null
     },
     {
-      "path": "data/datasets/p-g-q1-fy27.js",
-      "digest": "sha256:b18eae1319a77b419f4cfdeacb19530fe4c0c168d175cdfef2e52b3165a1de67",
+      "path": "data/datasets/home-depot-q1-fy24.js",
+      "digest": "sha256:2f7d916c499e1928132b1ef943056647b3185a91babcec8c864d3e29ae5fc600",
       "before": null
     },
     {
-      "path": "data/datasets/paypal-q3-fy26.js",
-      "digest": "sha256:3d699c2ffdd497de0da37162d4d5c573478c046d1ccb4b4de308af151b486ff1",
+      "path": "data/datasets/home-depot-q2-fy23.js",
+      "digest": "sha256:09ea1a125a3d6fd230704b6c5bcb9e1ae432dbaf8f40ed0c56632f955d87d464",
       "before": null
     },
     {
-      "path": "data/datasets/pepsico-q3-fy26.js",
-      "digest": "sha256:30b333844d1b7fcfa1e209b00bcc8651836a0bec6f595bf263732d5a71070764",
+      "path": "data/datasets/home-depot-q3-fy22.js",
+      "digest": "sha256:44cdc300e1e455661a925db9cfe20381e9313585d85601d0401eaeab586c8ee7",
       "before": null
     },
     {
-      "path": "data/datasets/rivian-q3-fy26.js",
-      "digest": "sha256:3b48b97e8ac8f5d8314ab37f9824bea64563753f9ce8526b65534b2d88d85862",
+      "path": "data/datasets/home-depot-q3-fy23.js",
+      "digest": "sha256:066c7cd3b44fc4bb534b7bb88ad8f8f3b7d6508a7913d95ebee0921164ebd70e",
       "before": null
     },
     {
-      "path": "data/datasets/robinhood-q3-fy26.js",
-      "digest": "sha256:a49cb007221c404217c3c04d24bec1244543d99d74339a2be8d09425ac790ef3",
+      "path": "data/datasets/home-depot-q4-fy22.js",
+      "digest": "sha256:21965a482953b75cd144cc6a17041e193ae5ca37edb4e75f948101ba7d20cbcf",
       "before": null
     },
     {
-      "path": "data/datasets/samsung-q3-fy26.js",
-      "digest": "sha256:028fef6edd76422b4caca7a921fb1c273941e490d30b1500cdab642dd32837b0",
+      "path": "data/datasets/intuitive-q1-fy23.js",
+      "digest": "sha256:b97dc23d9971f5d913dd04c03a8dbfc5c2252b5c57ad4db585ca9e1561daa93f",
       "before": null
     },
     {
-      "path": "data/datasets/sandisk-q1-fy27.js",
-      "digest": "sha256:14bc55f691ed359abb781d429df34c3fe15c6ecccf5100cc4c1cc4693c0fd118",
+      "path": "data/datasets/intuitive-q1-fy24.js",
+      "digest": "sha256:8ccf14ad104730742f4a5ddbd63d5e5c2d3bc266557b8153893c98306d15e4ac",
       "before": null
     },
     {
-      "path": "data/datasets/sap-q3-fy26.js",
-      "digest": "sha256:ee42b2a6bb7ed1312fcf02dfd361c3e2bfe26db274603a9925aeb0fa806a37b5",
+      "path": "data/datasets/intuitive-q1-fy25.js",
+      "digest": "sha256:166775daf3a28c06db527fbd2e60c3ce60ce185e11a1011ac3ee1a30a3935260",
       "before": null
     },
     {
-      "path": "data/datasets/schwab-q3-fy26.js",
-      "digest": "sha256:230a27698ee04eb534a915e19804bff94229d183910159bf9ceb5a4841530615",
+      "path": "data/datasets/intuitive-q2-fy23.js",
+      "digest": "sha256:5fd06ce3c0a04c2629a514f5e295ad0dbf26e39ddf4c8b76c5f65e7a065d9752",
       "before": null
     },
     {
-      "path": "data/datasets/servicenow-q3-fy26.js",
-      "digest": "sha256:92ffa03c208dde52a99533a3c8497c1ffd7799e73a66e8dcb2805f82b9e9ea5a",
+      "path": "data/datasets/intuitive-q2-fy24.js",
+      "digest": "sha256:fc33eeeea7a8802d00a1b3012b984559ec5c3b5ed5b267305b06fb61c5985ca5",
       "before": null
     },
     {
-      "path": "data/datasets/sk-hynix-q3-fy26.js",
-      "digest": "sha256:4570204fb84759f09405a4d0865b942851a7d1e4b2aa0ba59c27b44290ad82ef",
+      "path": "data/datasets/intuitive-q2-fy25.js",
+      "digest": "sha256:de92c846fa73c7c2270ee21ed7ad31ce9a97c7bd3fed589995c05effbf34e7fa",
       "before": null
     },
     {
-      "path": "data/datasets/sofi-q3-fy26.js",
-      "digest": "sha256:d24c957f1aad3cff46c357496c3243bf1d20463a2f1db0dc2a624af8175cb098",
+      "path": "data/datasets/intuitive-q3-fy23.js",
+      "digest": "sha256:6e3a7e906f5e9c9f8d62c42e5b825e8a6cfe73d4e2713b16f6d499ec43a6bd8b",
       "before": null
     },
     {
-      "path": "data/datasets/southwest-q3-fy26.js",
-      "digest": "sha256:54250df5590b34c3dcf6231873d9855e0a2b3af213fc01348d295d948f6a24ad",
+      "path": "data/datasets/intuitive-q3-fy24.js",
+      "digest": "sha256:d8c1fdce60e2b780a6f3826644e08af840eddf30c0b094501a4b14abdd9a3275",
       "before": null
     },
     {
-      "path": "data/datasets/t-mobile-us-q3-fy26.js",
-      "digest": "sha256:4c76fe07c59fd06ee5d7026dae321735e0c97bbf5e9b64dc7296cdcdc735c29a",
+      "path": "data/datasets/intuitive-q3-fy25.js",
+      "digest": "sha256:f99e67182bb5547d5920f5f0db56cea5ae178a9489614657696bdc61c04ba604",
       "before": null
     },
     {
-      "path": "data/datasets/teladoc-q3-fy26.js",
-      "digest": "sha256:b2b2c319b372728d496affbc134502dc16f58b2d6e5fe0a51f68314ca3c9de11",
+      "path": "data/datasets/intuitive-q4-fy22.js",
+      "digest": "sha256:fe69916a18b522a588dca560237f41a95efb53b7307276f12eed51563d8c5721",
       "before": null
     },
     {
-      "path": "data/datasets/texas-instruments-q3-fy26.js",
-      "digest": "sha256:d8384daf8f29f4de418b4c9d09ffd054164a5fc5ba0978073c7ce1d11382c561",
+      "path": "data/datasets/intuitive-q4-fy23.js",
+      "digest": "sha256:d41e353c73d61df68d0ea89514533636cb15ed120cc5741882c29fefb691d129",
       "before": null
     },
     {
-      "path": "data/datasets/tilray-q1-fy27.js",
-      "digest": "sha256:d6df83c5238d5f9ee7d09c7c268430f2a0e63365fe5a5028044b13d7e5c581d3",
+      "path": "data/datasets/intuitive-q4-fy24.js",
+      "digest": "sha256:5dedb872ea2d82645988e14df7627c1664f9ccec1a4461530c6a01c37fd6e8e4",
       "before": null
     },
     {
-      "path": "data/datasets/tsmc-q3-fy26.js",
-      "digest": "sha256:0a61488d8b09cb25f07caa494066bb2e53ab64cccad9a95e662d7aa79bca012f",
+      "path": "data/datasets/kering-fy22.js",
+      "digest": "sha256:7941ed67fd6a51d829f133e20984deca3bb5a978d347d1ca71c90d9cc78f7e04",
       "before": null
     },
     {
-      "path": "data/datasets/united-q3-fy26.js",
-      "digest": "sha256:8f25105aac9ec738738fdae278aab5e4a2d23afc831142a146ab7bcb7aee88f2",
+      "path": "data/datasets/kering-fy23.js",
+      "digest": "sha256:64e30ae53c304d3e1e4cca1f1ab30caa703a2856ab382896c2095fd61a92dca7",
       "before": null
     },
     {
-      "path": "data/datasets/unitedhealth-q3-fy26.js",
-      "digest": "sha256:7118651b7836110b326b49fc2daed72de01b2519a58cff62ca54e7b92e357f08",
+      "path": "data/datasets/kering-fy24.js",
+      "digest": "sha256:01cae0c43532e5c1c9f8637dac246c89ef6837bc817c96b6c3876878834ad389",
       "before": null
     },
     {
-      "path": "data/datasets/ups-q3-fy26.js",
-      "digest": "sha256:a225100df9db42b062d4e11dabd68506f74877f7c3de15f52f67ea7ee98f162d",
+      "path": "data/datasets/kering-h1-fy22.js",
+      "digest": "sha256:e45def85470bcabae456ca10186ab6144f63bb5c77d297253e90a9b4db9ce439",
       "before": null
     },
     {
-      "path": "data/datasets/verizon-q3-fy26.js",
-      "digest": "sha256:f45c3d8ff2a792cf079f83678072c7418320bbc1bdc06fec97ffd002da4ac7fb",
+      "path": "data/datasets/kering-h1-fy23.js",
+      "digest": "sha256:4b68285dd5f7905efb6f9a468b2ab4ed34ea4682be80105293de0ad663d04d07",
       "before": null
     },
     {
-      "path": "data/datasets/visa-q4-fy26.js",
-      "digest": "sha256:52572586a9f41cd52a2fe731ba7772f96e4fec1cf9622d76913de39e29c7d005",
+      "path": "data/datasets/kering-h1-fy24.js",
+      "digest": "sha256:5dff2909a5143f1a6804574d04673928f51b2c7cae0bff9bf8173b36c30b89e3",
       "before": null
     },
     {
-      "path": "data/datasets/wells-fargo-q3-fy26.js",
-      "digest": "sha256:b60ba36f64512019e0bf7039b004f39b45e9e60cf916fb4e3c177d8b66600342",
+      "path": "data/datasets/kering-h1-fy25.js",
+      "digest": "sha256:7226717e15775782078869477712850f8736250b6a099ccf8f13d2b96e8fbfc4",
       "before": null
     },
     {
-      "path": "data/income-statements/abbott.js",
-      "digest": "sha256:49789063c976832c27abb6e0911c1fbad5334ec59f44a2706f15ce1647a180bd",
-      "before": "sha256:75ef7e930333060f3583371b60f254ff99366c3883a4d64837c08c43c81c8fe2"
+      "path": "data/datasets/mercadolibre-q1-fy23.js",
+      "digest": "sha256:94369a7f662247b3e9bcaa8072486801a19f8f95717a2c9b48aeda0c4cecfc9b",
+      "before": null
+    },
+    {
+      "path": "data/datasets/mercadolibre-q1-fy24.js",
+      "digest": "sha256:c6b8c1b4146a4dbc18457f089553260ae750ed9983c7a32f2760c7c1ecabb8fa",
+      "before": null
+    },
+    {
+      "path": "data/datasets/mercadolibre-q1-fy25.js",
+      "digest": "sha256:1fcfbfce459d378a09efe23c7944817b762c2a4c6947a733fd770ffd73470a27",
+      "before": null
+    },
+    {
+      "path": "data/datasets/mercadolibre-q2-fy23.js",
+      "digest": "sha256:969da9e8aaa45a33dec3888a4ee7ecd61c223c925b7e4ae1bcbfef9516295fb7",
+      "before": null
+    },
+    {
+      "path": "data/datasets/mercadolibre-q2-fy24.js",
+      "digest": "sha256:983f46077eb85a0901291ff3acd7284efa1eb4f2deeff12116d1e32ff269bccb",
+      "before": null
+    },
+    {
+      "path": "data/datasets/mercadolibre-q2-fy25.js",
+      "digest": "sha256:d0386ab8b15814c954bd2cbd60ce8aaaa09eb7948a8e8cd281aeaf72e770b1eb",
+      "before": null
+    },
+    {
+      "path": "data/datasets/mercadolibre-q3-fy22.js",
+      "digest": "sha256:88fb4949d2977cc594ed4e3e3fec8544fd1c2980f0597dbecca008bd2bb2b510",
+      "before": null
+    },
+    {
+      "path": "data/datasets/mercadolibre-q3-fy23.js",
+      "digest": "sha256:e624a44f38a5a96eace7e1299d0dcbeb0df44102dc8ee65c3c4a0a734e06ee4f",
+      "before": null
+    },
+    {
+      "path": "data/datasets/mercadolibre-q3-fy24.js",
+      "digest": "sha256:791e8df02853e8c229b9fd6c672bc6297b115f9bf997c06b676d1f9bf9e29fa0",
+      "before": null
+    },
+    {
+      "path": "data/datasets/mercadolibre-q3-fy25.js",
+      "digest": "sha256:0ce0b5e2b1135f69962108371491338d72d6eedaf3835321b46757de0b3f97bc",
+      "before": null
+    },
+    {
+      "path": "data/datasets/mercadolibre-q4-fy22.js",
+      "digest": "sha256:a6226bb75f9442805432c784da5df3c51d92dafd6b0f0eb1d6631480def60037",
+      "before": null
+    },
+    {
+      "path": "data/datasets/mercadolibre-q4-fy23.js",
+      "digest": "sha256:741b74d1ae13a6ec91b1a04743c235bd2c3302c08ef75a26b91fc33bda821168",
+      "before": null
+    },
+    {
+      "path": "data/datasets/mercadolibre-q4-fy24.js",
+      "digest": "sha256:539e9f8999f371c0c6d7a6944424c869adf5a31dfc2bf7eacd3112b8c27bc22c",
+      "before": null
+    },
+    {
+      "path": "data/datasets/meta-q3-fy26.js",
+      "digest": "sha256:dd3e7a94b8fd99d8af902698d02d6c80323f70e1f934fdc127c8fa5f3e48c54f",
+      "before": null
+    },
+    {
+      "path": "data/datasets/microsoft-q1-fy27.js",
+      "digest": "sha256:4a2a97287a859e6c578836702c1167fad36acf4e0dc01777dd91922bfa8de45f",
+      "before": null
+    },
+    {
+      "path": "data/datasets/netflix-q3-fy26.js",
+      "digest": "sha256:493dd0375b1efcef4ecfc95228ed4b038b4ae199de3c41bd270d2d359499be26",
+      "before": null
+    },
+    {
+      "path": "data/datasets/pinterest-q3-fy26.js",
+      "digest": "sha256:2959070abd25cea4ba225d8ceba89ef45531ea39f569a226abe96b0d1c3c30e0",
+      "before": null
     },
     {
-      "path": "data/income-statements/abbvie.js",
-      "digest": "sha256:28b85ed2bdb0e5430bb521a6f8b10e1b3c76dc91a9488bb9d51bb67adcf298aa",
-      "before": "sha256:4fbafd2c1fb036fce5457e2dfed95525943db0c71b078c87fc82434686b1ddd6"
+      "path": "data/datasets/reddit-q3-fy26.js",
+      "digest": "sha256:75451d9212f9a02d996c23952858111b18b6bf56e13016ab73141689a7c30143",
+      "before": null
+    },
+    {
+      "path": "data/datasets/roblox-q3-fy26.js",
+      "digest": "sha256:fe9694c1ef48a1d1dfe3ef82269200f38d4fcf4cc2ba93466717f3bcfdb03310",
+      "before": null
+    },
+    {
+      "path": "data/datasets/spacex-q3-fy26.js",
+      "digest": "sha256:65df88703e164f369d832187fcd8b149772d9dd6ee7783d78ae81235a218e59a",
+      "before": null
+    },
+    {
+      "path": "data/datasets/spotify-q3-fy26.js",
+      "digest": "sha256:3065163b819550d33b6c33b284eb6605a1ce50df218c359273a544a6339706c7",
+      "before": null
+    },
+    {
+      "path": "data/datasets/stellantis-q3-fy26.js",
+      "digest": "sha256:08228a4351efd4e8d8c0bc2ce159ab0ff29323f793d76f410a030bc000f49f87",
+      "before": null
+    },
+    {
+      "path": "data/datasets/tesla-q3-fy26.js",
+      "digest": "sha256:adafdecc84392dd0f21ebe08efce6c17f7219cbea84484a0fc60ec939c03cdd0",
+      "before": null
+    },
+    {
+      "path": "data/datasets/veeva-q1-fy24.js",
+      "digest": "sha256:09fc1a299e9cca0fd1f97d0598398fac9063b3f7640414c5fa6237cc9d531cdc",
+      "before": null
+    },
+    {
+      "path": "data/datasets/veeva-q1-fy25.js",
+      "digest": "sha256:98b51eaa32c605c7c4259ab006f35d93a816ff5162f6c37c64c2224040dfc196",
+      "before": null
+    },
+    {
+      "path": "data/datasets/veeva-q1-fy26.js",
+      "digest": "sha256:b867888b5663d4b5ca396553c24351e4603819852bc9351018093029f0c4a786",
+      "before": null
+    },
+    {
+      "path": "data/datasets/veeva-q2-fy24.js",
+      "digest": "sha256:7aec2bb6e0199be43568fe7d46b1e16872250408d243248192cf729c4e31cde8",
+      "before": null
+    },
+    {
+      "path": "data/datasets/veeva-q2-fy25.js",
+      "digest": "sha256:8e7fbef0930526c010e34e850b4ba9e8b5fedbaf7d84a3d0d3d3481fbc56f28e",
+      "before": null
+    },
+    {
+      "path": "data/datasets/veeva-q2-fy26.js",
+      "digest": "sha256:88596d2577f18ef950ab246aec99f068693cd315e63a0b48091aa4a5bcbcfbc3",
+      "before": null
+    },
+    {
+      "path": "data/datasets/veeva-q3-fy23.js",
+      "digest": "sha256:52aa3211c8d20ccf9ff130e6803de9b7c40c916c6885e02feab07444481acd26",
+      "before": null
+    },
+    {
+      "path": "data/datasets/veeva-q3-fy25.js",
+      "digest": "sha256:b605001fe5d1049bdd79469c155f03a64b807a3d604907215db8ae1d548c0aae",
+      "before": null
+    },
+    {
+      "path": "data/datasets/veeva-q4-fy23.js",
+      "digest": "sha256:3ae28799d40c4938f7319ebc09ec50e800490d1ad78787f5a1d16ee29a27700b",
+      "before": null
+    },
+    {
+      "path": "data/datasets/veeva-q4-fy24.js",
+      "digest": "sha256:2ee7269c61e6f27075029202393ad389fbe86eb082c93d39866cadce17391089",
+      "before": null
+    },
+    {
+      "path": "data/datasets/veeva-q4-fy25.js",
+      "digest": "sha256:5a67da8407e525ce88dc21da10c4f9d70c99d55fadf60c5551852469db78caeb",
+      "before": null
     },
     {
       "path": "data/income-statements/accenture.js",
-      "digest": "sha256:f780389656eab4dec2b6a2b64292115d147fb96f84412afbe85cb0db4cc2d373",
-      "before": "sha256:1dd4bb32239b4469657e42fcfbfd45a9e10aaeabd92014ae0eae4d9cd807c566"
+      "digest": "sha256:f06006aa51ad26e8a268e22191d0978bbc933fe983cfc5d6b8001d29cf8024a5",
+      "before": "sha256:f780389656eab4dec2b6a2b64292115d147fb96f84412afbe85cb0db4cc2d373"
     },
     {
-      "path": "data/income-statements/airbus.js",
-      "digest": "sha256:e3e8e018cfabc20168c0eddb238e690245efe709f7151cf1a8e506796a2eaea4",
-      "before": "sha256:33ce9f46f507a9ce96daed777bfd1a7abb3403cb9418d9eeaa0c3525d1ec7996"
+      "path": "data/income-statements/alphabet.js",
+      "digest": "sha256:c883d6e10bcb1c6977de6fc8c8362c063d3728fc8f292c023729b3b3643e1c3a",
+      "before": "sha256:c23db13ae2f8f9969bc2b189910b8e59c8d1363f8a56837925f3a43924fc8129"
     },
     {
-      "path": "data/income-statements/align.js",
-      "digest": "sha256:7c8cc744833a9eccb4f3c58464459f34bffb9a31378864ee8657deee849bef4c",
-      "before": "sha256:a71f6485a7b86479206a179c00adbb463698a2c7a13c60ec1e6812786d5f7e65"
+      "path": "data/income-statements/amazon.js",
+      "digest": "sha256:000473c49cbec4ce89ffe0bc63eb3f2ad9735c1fc40e7e8cec1325c7e59823ca",
+      "before": "sha256:7bf1bfc9b307d52231ed7d543db84bf5aadabb86fcef66168510637eb2147c0e"
     },
     {
-      "path": "data/income-statements/american-express.js",
-      "digest": "sha256:1ba99dd566e94aa8b985a190585199e1e2e77cd64a0f9e1cde9f3ad3938a449b",
-      "before": "sha256:8ecd06b51baa3feaf0a3d57edb8b5d4f66402eadcb5c4d64b9e0c398b7301161"
-    },
-    {
-      "path": "data/income-statements/american.js",
-      "digest": "sha256:e5fc95346bf68ee60834a7ee034e4c1e55c2570b639fe4c13eee904e09923881",
-      "before": "sha256:ec5a386b0bcd9cd80eeeee754bfbe2a664eab1275ba3a6e7dbe775a0aee7061c"
-    },
-    {
-      "path": "data/income-statements/appfolio.js",
-      "digest": "sha256:3b275783b94441201976c47c62ce1358cddc2e3cf7116c5314f91efa730d30a2",
-      "before": "sha256:6c79d35320ad3140baaf9823f65a17fa030cfdc2ab3b5610f6b7d18943712d99"
-    },
-    {
-      "path": "data/income-statements/asml.js",
-      "digest": "sha256:2472feadee26e9cec25a662f7c15142e6c18847cdb03c52b6bd2472518584cbe",
-      "before": "sha256:7d816f852069b937d07c79299c8461a51cfc55a2c451147124fedde6a4e8dfa4"
-    },
-    {
-      "path": "data/income-statements/astrazeneca.js",
-      "digest": "sha256:15634364b8fec7f907843daf7149fc5ab6aa8e0a935aeabe87b4a3eb4eab762d",
-      "before": "sha256:b7f21c2f989c70f35ca1eae7925a7092a6199e5bdfd85bf20bc35ee4ffbca286"
-    },
-    {
-      "path": "data/income-statements/at-t.js",
-      "digest": "sha256:273974a4307a57d8dd61bf5c94e172ba318491a3b17b2a251527c7bfe635dbcd",
-      "before": "sha256:37ea9d34aa558e2967680bd87ccc5ecd7b9b600867194f3390c2a772aeb31cb8"
-    },
-    {
-      "path": "data/income-statements/bank-of-america.js",
-      "digest": "sha256:0bbb163b4c2b6caa0b7448765f0344d463418e9afe63cb8099cdc36fa314a0c9",
-      "before": "sha256:9708dfa5a3152dcf3a31f7963921f91e876fcc577c73ffc4cec150b446dbee12"
-    },
-    {
-      "path": "data/income-statements/blackrock.js",
-      "digest": "sha256:e75c03e78ad31c75c31a369072aaca530600c690596b3cd3e68d28ef9e7bf2da",
-      "before": "sha256:86d41f5d594f5b36044be2cef11abbf7fbe6ef261b23eaea6961ed16b135ed41"
-    },
-    {
-      "path": "data/income-statements/boeing.js",
-      "digest": "sha256:10c68c86879a3c2de945c105bb8815220913e63a939ce20eccf5449bf9167076",
-      "before": "sha256:15082ae2aff5163a829c966cf77b3b16aaeb05c1563c27f5d828b91f6a06ef1d"
-    },
-    {
-      "path": "data/income-statements/braze.js",
-      "digest": "sha256:4fe09e4881e647c8fd91d0877cd18d648d3be74bdea941c5647da37773b84ef1",
+      "path": "data/income-statements/anthropic.js",
+      "digest": "sha256:ad3ae6a2792bd3686c3bb7466bca42b6e3b38f7e660fe9e4ae0d843feec38b83",
       "before": null
-    },
-    {
-      "path": "data/income-statements/cadence.js",
-      "digest": "sha256:8d5ad9c3e038c4c5cae6acb1c0526c78e67a8da26afa2d4276211b7f0ff7ea24",
-      "before": "sha256:6f1757411d8d53efdeda7e285761373b15fcc5743cb13375136561f35e1eb748"
-    },
-    {
-      "path": "data/income-statements/chipotle.js",
-      "digest": "sha256:e5a184c0c21b6b7fd57aaa1e3e88372558d799c4ddb10db2cf2e54874805ed23",
-      "before": "sha256:9f385b340bf30d058e31f9ff2636cd26d0c84e00b0122a10c47be8154949d183"
-    },
-    {
-      "path": "data/income-statements/citigroup.js",
-      "digest": "sha256:e7f08282759f87b23189bf2913b8e23db5b877903488df4a63ed0e22eba5ff32",
-      "before": "sha256:1e4efbad539033999a1ee8584bf81029f8c516e6afcdfe51e3c7cdc824607cd0"
-    },
-    {
-      "path": "data/income-statements/coca-cola.js",
-      "digest": "sha256:f30b0ff63463780c77b72449d20acd7a72e8930f575cea376510882e1e4fffed",
-      "before": "sha256:bdb1d29be65110d0dd3ae7fbd0ed4c91350cd925638e8048b9c68639925d6bed"
-    },
-    {
-      "path": "data/income-statements/coinbase.js",
-      "digest": "sha256:6703be5f4891624c69de533c2bbe1e08618f41e75f951f64f462e93890e90fe8",
-      "before": "sha256:487835ce085925c63a397d4d41e1e99e29910b8570a2c68ecb4fdf2c72e1fb9e"
-    },
-    {
-      "path": "data/income-statements/comcast.js",
-      "digest": "sha256:f547f5434b3b75dc9c86983d356bdb6c81d21fb537c7c419028f9d85fb67e9f3",
-      "before": "sha256:182c6c5d8a1e816fe366adeebc073cf4a9e3b3bd4e5de99a22ea043da03e481e"
-    },
-    {
-      "path": "data/income-statements/delta.js",
-      "digest": "sha256:b3dc6a56792ae271c1dae0d5ea36e6f6b68f8a1660269f5ebeb03de12fb4fb37",
-      "before": "sha256:2bedf200a1898ddfdd16bfaf839c9e78588cdbdef30abf59887c4cba8900e602"
-    },
-    {
-      "path": "data/income-statements/domino-s.js",
-      "digest": "sha256:50b218da403ec59fb3ec31408ff480551b5474f7b4a2ae6c970839d5830a8687",
-      "before": "sha256:108dcbd8eaa0eee7fc09aba57357e42f0e0ec906ce78304db73a3a74de82b334"
-    },
-    {
-      "path": "data/income-statements/eli-lilly.js",
-      "digest": "sha256:b5cfbdb39dd69f559fc3e3e1c7285fb3c2ec64aefa3659061592da3abef00dc2",
-      "before": "sha256:f6e43a9f14a6b6449f3826609a00c2e27523bc106dbefa6a60c47c7a91cd300f"
     },
     {
       "path": "data/income-statements/etsy.js",
-      "digest": "sha256:8daf4b5b686e2372d01c4b836d6404117ddd6de55e7299f82a831c559a4839b7",
-      "before": "sha256:80b205ec646413d172d10fbe397d439a3c4ace1542e224ce57c2f30dd3b7d8fa"
+      "digest": "sha256:6225c58a22eb78cd7fe89b7c13996e30404d6e06dfd261d2c92f4225347809af",
+      "before": "sha256:8daf4b5b686e2372d01c4b836d6404117ddd6de55e7299f82a831c559a4839b7"
     },
     {
-      "path": "data/income-statements/fedex.js",
-      "digest": "sha256:aa84df3f5f121eb6d8079da5ff25aa53ec0ab29b452615b5669f62c4f5476e42",
-      "before": "sha256:7e2f1e0ef160de4b532a89bc96668fff68c6b44bb9a42cdef0e39ef9754d1a25"
+      "path": "data/income-statements/ford.js",
+      "digest": "sha256:d1b7ce3e4548fbc16a01dd03a215f681f00e205b309fe29814dd7efb4c730637",
+      "before": "sha256:13cfcc08bed20ffbb839a4c14ce2d9a142b90b78f40622f32e902cb745769b93"
     },
     {
-      "path": "data/income-statements/fortinet.js",
-      "digest": "sha256:d56df3450320f9c2c6ff8b798907ac6ec16107dc980c27980d5a3fb47f6698d1",
-      "before": "sha256:d45d4c501ba4bcfed375a888718bc47e2cba92d840709f3ffaa9ad724e999582"
+      "path": "data/income-statements/gm.js",
+      "digest": "sha256:dbc0a91b881cc6bded78953b9537f5c20169f57c3c71fa28264c4099865a0ecf",
+      "before": "sha256:fc1c5d0846e0d991c41ebcfb3f36ebc1ea39319d34a295041f3f007c98716605"
     },
     {
-      "path": "data/income-statements/ge-vernova.js",
-      "digest": "sha256:fb0da9b7e5302edd6d3106e613991eff9f0f281f0f061146744f71c99b3c7dd4",
-      "before": "sha256:da699601792bc3b89f684c3411852fc31c2837081919db7a2863a4715e2c89c2"
+      "path": "data/income-statements/health-equity.js",
+      "digest": "sha256:3a37fcda7fa8f85b38ed62b11064d57d4f9aed7a08b8984574bf9c536ff84bce",
+      "before": "sha256:bba24e10a30be72f9148083b4ae3d4fdf1ddce92b7c7ce740c74ea496c29d930"
     },
     {
-      "path": "data/income-statements/goldman-sachs.js",
-      "digest": "sha256:53093900c78977964da642520c6736b1f2be0e104258e5f71aa5dabcff8fb41e",
-      "before": "sha256:0d5ac380ffd48e76060f6951b997b00cf2d2b66d5596e2f2f48c7808594d4d06"
-    },
-    {
-      "path": "data/income-statements/hershey.js",
-      "digest": "sha256:b8970311aeb08e91014e97ab8aead87a5d21d62e068c20aeb30239aa92f52396",
-      "before": "sha256:e18d4c6c2ec59d31cc3570c71ff1198031801ab57b8ed8a34143c4fd81bc7bf4"
-    },
-    {
-      "path": "data/income-statements/hilton.js",
-      "digest": "sha256:55d28fb0cec6834dfab929b85e4dd003de8936ce2a956b692f5a9953f7ba51ab",
-      "before": "sha256:ee471095a107b7dfd0ba846e138f382d89cba76f4d0fc2b4175e660f319420f4"
-    },
-    {
-      "path": "data/income-statements/ibm.js",
-      "digest": "sha256:cee2bf51b1d294ee836ebe23c4f2a389a77a00dc2e61b58cf299b66837579be6",
-      "before": "sha256:d62e9c6e6b6575750f4da24b7e1fcbd4fab09ef9e0a2fc5696bc592e57423e85"
-    },
-    {
-      "path": "data/income-statements/intel.js",
-      "digest": "sha256:d3b3db48aaa702408050161b086cbb635fa9cc442b59ae1d4c213c7b4c7ac7fd",
-      "before": "sha256:dca0499d19f04a9af1bba1c246c333f475e17d795eb43ae00ffb5858b1ff7e97"
+      "path": "data/income-statements/home-depot.js",
+      "digest": "sha256:d2ecdd60368f58da53868dd3380fb20495febb48af792a519fa8ddc516fa8bc7",
+      "before": "sha256:06c991cebc3fd85f708305efbe0a7e392fd25f9032b5a5d9d8096f82a4978d22"
     },
     {
       "path": "data/income-statements/intuitive.js",
-      "digest": "sha256:9f17b844336c84357ec345c43c9e199a453ed6ede6568638be82028dd427469d",
-      "before": "sha256:269b52c74eff0814f7590cb5ff491ecee8aa8c426eeae263a4c6d7e854198a0d"
+      "digest": "sha256:cc6ee3bcea87ef13e500d27a9cecc606dc4b6ac9d42f2ae150bffdf074b78fc1",
+      "before": "sha256:9f17b844336c84357ec345c43c9e199a453ed6ede6568638be82028dd427469d"
     },
     {
-      "path": "data/income-statements/j-j.js",
-      "digest": "sha256:8a63ad66bebd6b5233684c2d16e1f4e414228eddad4157194f9a46f1f5a3ec10",
-      "before": "sha256:e937c543e3bbe1dfa34d9799f9d13ec0569052f4ef238e5bbf140a5233b5238c"
+      "path": "data/income-statements/kering.js",
+      "digest": "sha256:3d8227675320918ecd2335b7a946c5f44df47e22c111a31cb7c8d619c614771a",
+      "before": "sha256:44fc790db6aff16d99ca103f1fb2bcdd5e5c48cc57a02eae738bbcde4bb9668d"
     },
     {
-      "path": "data/income-statements/jpmorganchase.js",
-      "digest": "sha256:e1631e3ebbe3eee329ca4f817326523874d047187abf65dbf80f744d36a144b3",
-      "before": "sha256:6f71f0f0710bc4337833bcae04e77f22ee763bca49800ce0103a2906b1125c4a"
+      "path": "data/income-statements/mercadolibre.js",
+      "digest": "sha256:2958d40ab836d4c89836e7b7efc04425a95fedc2e1fa4c85902c5915f59f3014",
+      "before": "sha256:6c432067ad3f77f8e0edc385b3904b7315f69c319251d551c9d75e1febbbf2a8"
     },
     {
-      "path": "data/income-statements/kla.js",
-      "digest": "sha256:b58727a316435abb9cac6c953d3dd8432fb95fc5e0b25a9a229bd4393838e08a",
-      "before": "sha256:13588839494cca5890cd68ca5687a16cef20cbfee5f99286a4c09494e3e6b7fe"
+      "path": "data/income-statements/meta.js",
+      "digest": "sha256:2d2d2db4f7e500fbb82bf5498a63796731f2bf328e670377b3290c293a039700",
+      "before": "sha256:1f6236af67490116b034d0a3f567ee7b27c184d3a85daba99428baf9841ccbcf"
     },
     {
-      "path": "data/income-statements/lam-research.js",
-      "digest": "sha256:6b4ffb7abc022f510b2547e697344a6b010288a739c106e529260e12c7ccc97f",
-      "before": "sha256:ffc563649498bd69f41805a450988f800f70eb5ca641c3c822631c95d9cc529c"
+      "path": "data/income-statements/microsoft.js",
+      "digest": "sha256:4c03ac68587911db272f44762c9bf3579c60fd672891f601e9bbefc758271b35",
+      "before": "sha256:a0fb60dd9517a88a2b7c2eb73f1d026adfbb362f9f1440cf3489f3e611dc18ea"
     },
     {
-      "path": "data/income-statements/lockheed-martin.js",
-      "digest": "sha256:e6d40cf12c8292a6bfd2ffcb62f4814c9aca420ccddfe8131311297b13bca8d2",
-      "before": "sha256:31911b2a1e1e03b91b65e1575bd638955bc1a8b70d3b53ffa364fbd82c07aee6"
+      "path": "data/income-statements/netflix.js",
+      "digest": "sha256:5e5c9edb9fed7d0ddc48d967c465433f4d197934b74116a7aad6d3d2b25e2fdb",
+      "before": "sha256:f37f82b4fcd2eea136c350adc7ca165377537a844d9b90c96e51cd68727b1fb8"
     },
     {
-      "path": "data/income-statements/mastercard.js",
-      "digest": "sha256:b0d0f8f295ebfabbd1e90b8f7c6280c6e3a2e73b0d3b8bbcc132d684585972ee",
-      "before": "sha256:5fb8fc11451e375fce2ecab411b4c3726f81676971333f8905517ac5c3537e5c"
+      "path": "data/income-statements/pinterest.js",
+      "digest": "sha256:c79b9e2aae219281f3a1190406bcf955585ad87ec39341dd4e4987e23e3af850",
+      "before": "sha256:1e773f3a805fc16c187c4589656bedd2993a900458fb1ea9d9de58ce69b36170"
     },
     {
-      "path": "data/income-statements/merck.js",
-      "digest": "sha256:22111b0fb8b982d57d82978bdadc83316ba9fee96f2c6468acd3e92e06c8a569",
-      "before": "sha256:8a857289dce337d6b01e36f83a627f04608a454948a6f1728f14910efb920441"
+      "path": "data/income-statements/reddit.js",
+      "digest": "sha256:875eaa1272b71ab5375f623e812e8d8243b868f71885306888e40cd090141ae0",
+      "before": "sha256:ce028f3ad4617eef332c7b95122566d5c834baf887ccb96b38bf6f0f0a56651b"
     },
     {
-      "path": "data/income-statements/mondelez.js",
-      "digest": "sha256:55ed6f81b643742eec1f9241ff55bb7211c5bcd01c31bc891ba01fb103ad45c7",
-      "before": "sha256:1c596a2ce04194f4a5558bb7f72bf2c5c251d57f12bde4899fc0f50ae46fa5b8"
+      "path": "data/income-statements/roblox.js",
+      "digest": "sha256:4cb75808733880c1a653253ed7db072be89cc0c76b1a97bc51640c64bfbbc91e",
+      "before": "sha256:90cc31da62251d5eee82c17b54cc8078cacc0728c370488e696acf15a2e187e2"
     },
     {
-      "path": "data/income-statements/moodys.js",
-      "digest": "sha256:7a64706c9c9acdcb981405c6c1ff855e6da7154514a0c96d0b3567bb471311bf",
-      "before": "sha256:166c02e535356d2167803a69f94ea264d5762abe3fed6ae36723ba4cb99500d9"
+      "path": "data/income-statements/spacex.js",
+      "digest": "sha256:8d2655888093abbc796e764aa47ef23cd55b68fbc713967310d809269e743b55",
+      "before": "sha256:f5624c57e41c20f0f29a67308a8572401a03cc70fdd1235957b31aa75001396f"
     },
     {
-      "path": "data/income-statements/morgan-stanley.js",
-      "digest": "sha256:986483a10adf81b3d46c2b466517b02c02d89917a79b1af42b1d940e37a28f3d",
-      "before": "sha256:45686d33176eed6b2f2ccb85245ca14c2997f81c25db95513390832d90840c1e"
+      "path": "data/income-statements/spotify.js",
+      "digest": "sha256:98398bd910ab2f943ef27b55f00d5fc971b74aa10d00c67b13c686d4c4389ec4",
+      "before": "sha256:94d40e8c75022a8cbff0fd191244b1cd513ea92e0f7e36498adb8e04ab4915c0"
     },
     {
-      "path": "data/income-statements/nike.js",
-      "digest": "sha256:a1916236c9f4d2cd8e4ef25a3e0ae235bb96b255dabf2ce7822489cd6865eee4",
-      "before": "sha256:11cd557ecc68cff9bfaa4bb337c981b872ab62a65659f4ba3b5b1c3ff08f598d"
+      "path": "data/income-statements/stellantis.js",
+      "digest": "sha256:9ee9256b938608e3d691d442c10499241360be9c57d27ff65b1e464d71989e4c",
+      "before": null
     },
     {
-      "path": "data/income-statements/novartis.js",
-      "digest": "sha256:12979c47f2888ad7018dcc38f0071188ae5216e5bc72ff23c9439b20ca0e417f",
-      "before": "sha256:25de8188c07a1263908c99dc85c578e950a5fac39d5de81cc2386fa2bb4ffba7"
+      "path": "data/income-statements/tesla.js",
+      "digest": "sha256:c991ede26f283bb59f58a63302ef975c26666a4fb30ca756acfde85cc64bd42b",
+      "before": "sha256:5431dc6c1eaa569ae5e60003891725f48873d38bbdffef30c9c37f68be691fa9"
     },
     {
-      "path": "data/income-statements/p-g.js",
-      "digest": "sha256:00468b3bce3007719c37122b43edb4936629bf3e95ae7f01a119d2d785645079",
-      "before": "sha256:a9b83da9599991fa16cc578d467fb03da5d6f14235b4d0a484953d2236594a86"
-    },
-    {
-      "path": "data/income-statements/paypal.js",
-      "digest": "sha256:d3435af1e81b8704601a930de58bc450798f71b4d607f029aa7dd869bd7e97e7",
-      "before": "sha256:7b9acabff6a16574d3f137b8038dd93e2c36f5aa570f6b7628c92ebd07535654"
-    },
-    {
-      "path": "data/income-statements/pepsico.js",
-      "digest": "sha256:f2a5d3e65ed41a8fead7beaa420ad3cced9ade98cd47c5edd1fd80a713f9e8b2",
-      "before": "sha256:35b3a177ac37867e14326b4b75e6e4a8a2177e79ade3034c241aaa0727b63a74"
-    },
-    {
-      "path": "data/income-statements/rivian.js",
-      "digest": "sha256:ef869b31721562352f806d14a3b6a48732bc3735418d633aa48960be7edc1353",
-      "before": "sha256:8ca89c5777a60ffb79b3ec5eab2dc6a0abb2837e1a070abb6e3e7c9b5bfa9cbd"
-    },
-    {
-      "path": "data/income-statements/robinhood.js",
-      "digest": "sha256:70b754edd19575f2066ff56011f73fe7803a02587cce22f6595425c59b1f91a7",
-      "before": "sha256:a70df8bde0d6cf78f4625eef590077aa59c03d810aab7e303e0df6eac39bf4c2"
-    },
-    {
-      "path": "data/income-statements/samsung.js",
-      "digest": "sha256:39c627f66e306e477b28fbd6c8e972dbaee7c6aebce44747467cd34b0ddb11c5",
-      "before": "sha256:c8613f051aa8b45e23a973e64f02ab3ee3c2666e629536100f5918b8becc796a"
-    },
-    {
-      "path": "data/income-statements/sandisk.js",
-      "digest": "sha256:576dd60d3cc6fb6fcb594f8612803e2a2045f05a13f2176bb55a9dea5ad4d057",
-      "before": "sha256:1402cc8e497e26c809b8af0f5fc81531d00b446256c9a4fd927c261437f80dac"
-    },
-    {
-      "path": "data/income-statements/sap.js",
-      "digest": "sha256:68d738f870484c05d28c0af2ada4ed44110467b52d683fc75b5c78e09fa6ed18",
-      "before": "sha256:20fb3602a5a9f4c243843497c3036d44ac645c5d69bf43ae20612e59b00aa544"
-    },
-    {
-      "path": "data/income-statements/schwab.js",
-      "digest": "sha256:bdf982b63f5bfdf09e173cf6ce9737f8420e803bd4e68279944fcac867858782",
-      "before": "sha256:44911b66aaee65a73d1afdf3fb42f4ba708735013d8811a7179cbef6ed8ed57a"
-    },
-    {
-      "path": "data/income-statements/servicenow.js",
-      "digest": "sha256:82bdeaeede545d890e3741dd56a195f41dd4a72c326cbb66e6120ede5b25ae49",
-      "before": "sha256:4f93fa801037bb20fc43c0de424ac91e8bb3e405b7c9898e3dc196b3216b5ab3"
-    },
-    {
-      "path": "data/income-statements/sk-hynix.js",
-      "digest": "sha256:a58b13b259228f11c07be6539db070b5606d9cbfcd8d13e14f4fd374c1cb1fe7",
-      "before": "sha256:781208ff13fac1fe316812fb784640d0db9c2f837304ae4ba3ab692adfb97322"
-    },
-    {
-      "path": "data/income-statements/sofi.js",
-      "digest": "sha256:4e91ecee9163350c9d6a3d68c7e11a299d659fe80c05c2a7126966d6477a9e5b",
-      "before": "sha256:1a05f442273ea38246dae044829e739aa8de3c61222902227fa54984aaef244e"
-    },
-    {
-      "path": "data/income-statements/southwest.js",
-      "digest": "sha256:85cd887ee721ae42f546a539cc7b51ef864b5a7814fa45fc672223ad3272d0c7",
-      "before": "sha256:a89613806dd74f90af7249261e258adb18306349d515ef650d7c3f6511359f48"
-    },
-    {
-      "path": "data/income-statements/t-mobile-us.js",
-      "digest": "sha256:11809522080c9b72038473ca543e3268d3563b0edaccd68d2b44569f1ba88fb5",
-      "before": "sha256:2fa8168ee0c3b008206694d00a3dc8e25fad0fadcaf9fe064ebea93196ae9bb6"
-    },
-    {
-      "path": "data/income-statements/teladoc.js",
-      "digest": "sha256:ce87b5da325b1b14105ff99c2aa88ed218096332b4249a8756ab2c8567e36cbc",
-      "before": "sha256:278e7dae8d8b31e5ff5334f43ab0d10aa29b0eef244a577190ab67d97a28f4bf"
-    },
-    {
-      "path": "data/income-statements/texas-instruments.js",
-      "digest": "sha256:f8debac0598433130e3617e20e928424b4728e14f5b04ad25f32389e806d90fc",
-      "before": "sha256:7efcc988d9266415a35cbba35adc21802549a3d04a2d8f4edf713e2067bdcefc"
-    },
-    {
-      "path": "data/income-statements/tilray.js",
-      "digest": "sha256:b0f4d7b119d66bf9911dca39a2305e602c3da4b9ed646c85322a34bd0e914cae",
-      "before": "sha256:e1daeb1bcf9b2c820ea608089b990a9711b16f815364c99b96481c550aaeb80c"
-    },
-    {
-      "path": "data/income-statements/tsmc.js",
-      "digest": "sha256:22f0a881d6f82d558b3e4da46f2ae98ec4a42fdf0d6d86ee0193e54bab68ca4c",
-      "before": "sha256:49ebf74c7a1ca6d641eabfdb948a07d62c789ac11d2377d254696aec441c114d"
-    },
-    {
-      "path": "data/income-statements/united.js",
-      "digest": "sha256:2a396b3b78f53bdae4de716b1139e9855f6371267fab56657791fc554249e8dd",
-      "before": "sha256:cdaa55d831558e7f746d1c65dbc4b3db2d10bb3fe3a5c6e31962765cfe8e2cbf"
-    },
-    {
-      "path": "data/income-statements/unitedhealth.js",
-      "digest": "sha256:2a642f5507eb3a4048fc61c456a343d2f27cd6bad099a2f781468287f4e09e1a",
-      "before": "sha256:eaac48b90bd0fa3e96d1e518188177d97751773dd614f888e7cf818fbec513c6"
-    },
-    {
-      "path": "data/income-statements/ups.js",
-      "digest": "sha256:ef3930f55e8beb08c658c331b1c1d9d15d2714ca47b2dc98fd92fd110beabee4",
-      "before": "sha256:942ff2f43b9011bd6b4bdd504308af7499bc4fbc1f1a610a556250be6d4d4a7f"
-    },
-    {
-      "path": "data/income-statements/verizon.js",
-      "digest": "sha256:6d09d5173b333ca2fbd118eb0693f71f2a472790ad26fd81e305a6c2cefcbb5c",
-      "before": "sha256:16c7ebe80e1a472fbd75e39ed76181489d6ca268e7c82cc63da8aaadd9da5dc5"
-    },
-    {
-      "path": "data/income-statements/visa.js",
-      "digest": "sha256:4aa80ba6c94cccd2156653d6ec0ee8c7352091f0d8ac0ef772ab976f24f9889d",
-      "before": "sha256:0c479f4ee3be63ba640528043e992510a8339ae560349df1ab2a5d8cf278c4a0"
-    },
-    {
-      "path": "data/income-statements/wells-fargo.js",
-      "digest": "sha256:ef1df6c1c9fe47e4f44317ae2b9b214d9f237ae78ef0f3d2420f59ae1921bd68",
-      "before": "sha256:94c95d1b8864bdc4ff8769ec4d05120c3148c94fcb4bfabf77782b3f37109ebf"
+      "path": "data/income-statements/veeva.js",
+      "digest": "sha256:96c4dd460f6cf1cbbca5100d37bc368d6e1201bf2ea6f759ba9ebb97faf13e22",
+      "before": "sha256:e27f45a0e1672fdee12fa6a6b54cb3f082a1a994c372f5a5b1167cd3beee7796"
     },
     {
       "path": "data/render-baselines.json",
-      "digest": "sha256:4eb601a647d03d62b6492c27218479adca4ebabc05049aaf2ee457c4c769f426",
-      "before": "sha256:0dd132406ce4b94376c472f9688c7377fbe920715a7588d19af06f7e2d134b98"
+      "digest": "sha256:d3661e674c4b6f024fc336787feb5d8691c309b00ff15cad4b1245fbcef5814a",
+      "before": "sha256:4eb601a647d03d62b6492c27218479adca4ebabc05049aaf2ee457c4c769f426"
     },
     {
       "path": "data/workflow-timestamps.json",
-      "digest": "sha256:71871b8872e5071991a8e4fb27058ed9decbc2926ba289f993f8b351add4644b",
-      "before": "sha256:67c1b18494a6a036d206867ead78472b2bc9c01ac3f26122954548f41492a531"
+      "digest": "sha256:fb8062b1359f2af6acc0c5c5b0532c3ed89742981ec0ca1d8fc0288e3faea0e3",
+      "before": "sha256:71871b8872e5071991a8e4fb27058ed9decbc2926ba289f993f8b351add4644b"
     },
     {
       "path": "index.html",
-      "digest": "sha256:8c96684eeab8134614ba1c8addc61739dd967c60fcda68125456a2d164ea5a47",
-      "before": "sha256:3ff5419b4a74a656105ce4b5eb446e5de40e41dde838cf48afe5d3b28302c7c4"
+      "digest": "sha256:3bfb957893028eb216d5616f4108c889f05c18cb5d8becd6bde1cdff990410d5",
+      "before": "sha256:8c96684eeab8134614ba1c8addc61739dd967c60fcda68125456a2d164ea5a47"
     },
     {
-      "path": "input/icon-crop-specs/accenture-q4-fy26.json",
-      "digest": "sha256:d58f633c787a39b240253f1be32e6ce186b5ffc9a8e265e2c6f01c80a8b08fb3",
+      "path": "input/icon-crop-specs/accenture-q1-fy23.json",
+      "digest": "sha256:e3e3702d9253fa27ca57b8f1e85d51b20441e9e4f36ee4738c5fe8d3c23d96f1",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/astrazeneca-q3-fy26.json",
-      "digest": "sha256:df1f397e0b3f73f3e747ad5e147f74df56044b856f1c367582b483ef51b3c356",
+      "path": "input/icon-crop-specs/accenture-q1-fy24.json",
+      "digest": "sha256:50e3e20152250e909e85727b8295d9bbc8e71020017bd540d8e6311a4645bf4f",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/bank-of-america-q3-fy26.json",
-      "digest": "sha256:606ac5b9a86ebf4112d1c28fbcb2c4f855ab57630cb49183f027c39a640f2dc2",
+      "path": "input/icon-crop-specs/accenture-q2-fy24.json",
+      "digest": "sha256:46f4857fc4d24f794cc50d9d404a3a06db9a2b5c6c0f10e46dca4175ea1f99b5",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/braze-q2-fy27.json",
-      "digest": "sha256:1e3134a1dd601234d8e2f8bd3e859ffcd8d12cee83130b554b01f33f70ce5706",
+      "path": "input/icon-crop-specs/accenture-q3-fy23.json",
+      "digest": "sha256:7a3610afebc40b534d9d76a8488b4ef951f8a5d505605e196bf0a21dcaf61a20",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/cadence-q3-fy26.json",
-      "digest": "sha256:631708e014152e6a1b2cb347cbbd0a18906be496a26bdd1b62089ca399448934",
+      "path": "input/icon-crop-specs/accenture-q3-fy24.json",
+      "digest": "sha256:8300070a2d48327b4cd07cb50082159fba6baf40f595ebe141dd668bf53be1d1",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/citigroup-q3-fy26.json",
-      "digest": "sha256:dc348bef57235ed245e11ce8f415f1d0df98e8592e7fb5186fe3390958d46533",
+      "path": "input/icon-crop-specs/accenture-q3-fy25.json",
+      "digest": "sha256:9cdaeea9bfa7401a54f2353bff10289bde2d26e51ddc42718eec5484b3e8da03",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/domino-s-q3-fy26.json",
-      "digest": "sha256:13b7e21a73939c8aa3064467db317de03d5ade6280fc65ebf96c689960f6264d",
+      "path": "input/icon-crop-specs/accenture-q4-fy23.json",
+      "digest": "sha256:dc89f6c8c18e7b78e0072956bb93cc0d544d54f8b00514640e875facd2a2d726",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/intel-q3-fy26.json",
-      "digest": "sha256:129a80a0d343634a21edd355a5f9b0a8fc80caa8e95bd3e5b1585b2cbbd87191",
+      "path": "input/icon-crop-specs/accenture-q4-fy24.json",
+      "digest": "sha256:acf4758565382ba29f700c32d9a016a7a7db4ef7abeebf3bdc32ebd5ca0ef7ae",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/kla-q1-fy27.json",
-      "digest": "sha256:8fd498c1db313c058c1b732d41e2c261bac4c131152bacf7ed4fa2c177518245",
+      "path": "input/icon-crop-specs/accenture-q4-fy25.json",
+      "digest": "sha256:ec10af581610116a10c939b464e99dfbfc77f0d7807eaaa40db21b29411b5621",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/mastercard-q3-fy26.json",
-      "digest": "sha256:652f32a02dbc01dbf84b5862d621c8fc37084d8705711aae49a331a79dd922a6",
+      "path": "input/icon-crop-specs/anthropic-h1-fy26.json",
+      "digest": "sha256:86fb2f8182638b9c8c9b1aa324f8137718b810ecafad2caf135e31b3ad77a6c4",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/sk-hynix-q3-fy26.json",
-      "digest": "sha256:c2f008077f178ad3bf5ff5bcc856836de6ae9149cd35af9692592f4fd5e4f7d9",
+      "path": "input/icon-crop-specs/etsy-q1-fy23.json",
+      "digest": "sha256:2580d4c9c9d69ac45fe430b420b77853d888b2e2954b57481e0d6f7b11aa6e75",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/t-mobile-us-q3-fy26.json",
-      "digest": "sha256:78c9b44d33f39d51e73e83625fc990e06bbd29079d7dc9c78f503c4e4356fe71",
+      "path": "input/icon-crop-specs/etsy-q1-fy24.json",
+      "digest": "sha256:32dfa0204a6ba3bfe3637d0582e52333d4d678d52f2b8d80fe37fc6fbb3efe63",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/teladoc-q3-fy26.json",
-      "digest": "sha256:7f8ef51292d32bbbc9e336d1b059152171623714edb2770b8930ac7e3a7120fc",
+      "path": "input/icon-crop-specs/etsy-q1-fy25.json",
+      "digest": "sha256:2ba34909c5374a372a02fd436e0e7accba56e20e6c4b264e621a25fee9d4f1dd",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/tilray-q1-fy27.json",
-      "digest": "sha256:67db9667b8888390679a1ce51e5dca0986f5ee22b76031a3946cd6b3cbc82c1e",
+      "path": "input/icon-crop-specs/etsy-q2-fy23.json",
+      "digest": "sha256:e32ac96e5b2e5ea7242e6587f16ddf208359c7e42569080d83ab55ddf4545d36",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/unitedhealth-q3-fy26.json",
-      "digest": "sha256:d8d00b78896108c33645b5d98a6b0c69852de4568e68e75d6b5de99ab228d170",
+      "path": "input/icon-crop-specs/etsy-q2-fy24.json",
+      "digest": "sha256:87ad07b413b6ef10d2cc70859929379c203aefdcddc25ff258d68a7345bd8224",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/verizon-q3-fy26.json",
-      "digest": "sha256:036a1d7f84bf34556631bbb1d40324e6f501011e367643dd49d70b215ff489a7",
+      "path": "input/icon-crop-specs/etsy-q2-fy25.json",
+      "digest": "sha256:2d602c8b2e89ba2c2aca477a5c0d88eabd747009007d9d832874115429fb1f6d",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/visa-q4-fy26.json",
-      "digest": "sha256:dd978ad6ade6b9396865c44ca3cf9e5473c11273e6bbfa41ac11270bd7052235",
+      "path": "input/icon-crop-specs/etsy-q3-fy22.json",
+      "digest": "sha256:2ab0bdcb71b41a351d9f5cb3047cac5514fa87591c71053a1faa7863418bf130",
       "before": null
     },
     {
-      "path": "input/icon-crop-specs/wells-fargo-q3-fy26.json",
-      "digest": "sha256:c79a1822fa3c289aaf553649833eed7be54a509478e08baf1b147626e92175f7",
+      "path": "input/icon-crop-specs/etsy-q3-fy23.json",
+      "digest": "sha256:70a52cc07bf171a3b9a24748c23d8f09a6d4fc3ca67abd57a91e18ff693c5aec",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/etsy-q3-fy24.json",
+      "digest": "sha256:0b85a98c3f65349329dca0495c42435a5ba1e15b0a606869a0290b5915674cab",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/etsy-q3-fy25.json",
+      "digest": "sha256:84ee80659ecdb18db5ed20722a38d4afdbfbf67b467cd198a7db323125a65da6",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/etsy-q4-fy22.json",
+      "digest": "sha256:7ca8f755cdbffa74e3edee6a8874f2b4e5c67d806216886804202a261cb8de51",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/health-equity-q1-fy24.json",
+      "digest": "sha256:63d7c35778f8e9a0baaa2b34ff4d45a859d7031eff48b09b31b2237cf78071a6",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/health-equity-q2-fy24.json",
+      "digest": "sha256:07259b1e60e0945884cef215524ffa24b02752af7607354986c6e39508943743",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/health-equity-q3-fy23.json",
+      "digest": "sha256:59af1786d434ec3f0bcdb52853939c1b6ec0da939cea21a2c89ef7045449d068",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/health-equity-q3-fy24.json",
+      "digest": "sha256:9dd9cc40239511c1fca832722466c2e7779a5caf246f69ce65be0d30f6694bb7",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/health-equity-q3-fy25.json",
+      "digest": "sha256:5bb078b3be71b57f3f75b7a8ec5027dd1199edb8c28cdeb2eb1b8b3ca89c8e4d",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/health-equity-q3-fy26.json",
+      "digest": "sha256:412824bf5526177d54332271641fa65be3091c9f3147ac886b5d7bbd8734b39b",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/health-equity-q4-fy23.json",
+      "digest": "sha256:75e5059d7b87032d23918bb180a0f3b933934b737cdd99b90554e689f8636cdb",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/health-equity-q4-fy24.json",
+      "digest": "sha256:25b85f9924a16895677d5788cc3c3234570a0443402ad1d02533f090cc8368f7",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/kering-fy23.json",
+      "digest": "sha256:5b434d52da266ba5f1ab9c7a46c6de290ed09cfb5999a4b7cb7c986d05077b52",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/kering-fy24.json",
+      "digest": "sha256:051c5de7767151c31693efa92cfb14fcdd5352cd96612a13343462bb863608ba",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/kering-h1-fy22.json",
+      "digest": "sha256:5bb14ff066775b5c09b35c58a555502224ea573a7aa6da684987b3a26ea9b3fe",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/kering-h1-fy23.json",
+      "digest": "sha256:0e9c705ad398e3384242436f561afe418918abc365a98eb44adc295e6e4cdf16",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/kering-h1-fy24.json",
+      "digest": "sha256:74b0eec2a1f3430e04571d00e8ee4ae4a0e830da3f30b433826d1e791ca3203a",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/kering-h1-fy25.json",
+      "digest": "sha256:7a9c17da8353755557e88e80d1738a8341cc30ed8245a2c4d2551c3e6f1d7f7a",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/meta-q3-fy26.json",
+      "digest": "sha256:699595963b38f762630708d289992e0b1582ea286052e0e26a2ffbd82bca650d",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/microsoft-q1-fy27.json",
+      "digest": "sha256:e94db1a44d286ec2e1206139c0802cc223403d022aa1aed8cb2d160954d2a4c0",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/roblox-q3-fy26.json",
+      "digest": "sha256:e0dee1a864c523675c87999dac293bac95e6aa3991063353a25ea30ea9da6720",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/spotify-q3-fy26.json",
+      "digest": "sha256:f6bee9aee2eee8dea1a0798e1641b4429c5b36c3bad9dd3135bd3e6c7a32a23a",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/stellantis-q3-fy26.json",
+      "digest": "sha256:b3e6d8ed200cf46b21f4693c15821d02574d07ccff763107850f2046582b7aff",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/veeva-q1-fy24.json",
+      "digest": "sha256:fc54b36ec25634a7c78ff2169338430b392aa79872aa8e19da3327db061acf00",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/veeva-q1-fy26.json",
+      "digest": "sha256:43a76f8153bb585315c7666133f6bade22e5224b75f25c0a061d1734a2edef17",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/veeva-q2-fy24.json",
+      "digest": "sha256:8a4016415aec5e91c9c35e6c43bfa6ef3ff4cf4bb48598fd0421d18d94d2de1b",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/veeva-q2-fy25.json",
+      "digest": "sha256:64ff0a7e45df560149ec08dd06328085a31fe840a438c77fd6fee542f850a7a2",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/veeva-q3-fy23.json",
+      "digest": "sha256:f665aa8defdcfd9684d96941f6407bdb26f9c6aa7743831544a4c1c94b54639a",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/veeva-q3-fy25.json",
+      "digest": "sha256:c5a8d76307416f732e7b9046a77367a6a3106db24730a857872d48b7cb2ee168",
+      "before": null
+    },
+    {
+      "path": "input/icon-crop-specs/veeva-q4-fy23.json",
+      "digest": "sha256:6388793c5724fed776f38612102b7df83d8835c76ddc006c35ba17b4dd09ad3b",
       "before": null
     }
   ],
   "release": {
-    "version": "4876bc2f4204aa9345f9d83b5d5ef4b8e7428d8bccd09d94aeef9d1ff47a0bf8",
-    "contentDigest": "sha256:0dfacd4d1f971b40104768c372cf8eafdf23f994fbd084fdf5650de57a283f0c"
+    "version": "4c8e2e1ca024bd6b63636ee5178b488448f1a0efb2080211b9131301eba292a9",
+    "contentDigest": "sha256:4cb8c6fd23da79ce323ce8856898a1c619498fdc20e95815c4cc86399d703b82"
   },
   "approval": {
-    "operator": "YaoXing Liu（2026-11-06：「70 个都人工审阅完成，推送远端合入并发布」）",
+    "operator": "YaoXing Liu",
     "accepted": true,
-    "candidateDigest": "sha256:3e43795dc85137d4bb3f691561d1802086207bc74f2d6c5e8c1d69bcf55afcf1",
+    "candidateDigest": "sha256:9bda6fc9f5fc756de9962bf50727a4ead98b9432defc4b32ec1f5675ac06a291",
     "basis": "inherited-build-acceptance",
-    "planDigest": "sha256:38c590aedc91ac12a4abe62c7e7f7249734280a790ee83bd0aaaa5693ab9c9d5",
-    "recordedAt": "2026-11-06T16:27:50.856Z"
+    "planDigest": "sha256:95246712e7dce21dc877d2266f6d3d8f9b38cedbf1aeba7bdcc10eab435f7aac",
+    "recordedAt": "2026-11-06T17:39:01.968Z"
   }
 }

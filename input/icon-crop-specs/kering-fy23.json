@@ -1,0 +1,105 @@
+{
+  "source": "input/processed/kering-fy23.png",
+  "outputDir": "data/assets/icon-references/kering",
+  "runtimeOutputDir": "data/assets/raster-annotations/kering",
+  "report": "crop-report-fy23.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "crops": [
+    {
+      "key": "kering-fy23",
+      "output": "crops/kering-fy23.png",
+      "searchBox": {
+        "x": 677,
+        "y": 309,
+        "width": 618,
+        "height": 201
+      },
+      "cropBox": {
+        "x": 677,
+        "y": 309,
+        "width": 618,
+        "height": 201
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "gucci-fy23",
+      "output": "crops/gucci-fy23.png",
+      "searchBox": {
+        "x": 59,
+        "y": 476,
+        "width": 329,
+        "height": 56
+      },
+      "cropBox": {
+        "x": 59,
+        "y": 476,
+        "width": 329,
+        "height": 56
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "saint-fy23",
+      "output": "crops/saint-fy23.png",
+      "searchBox": {
+        "x": 27,
+        "y": 722,
+        "width": 392,
+        "height": 49
+      },
+      "cropBox": {
+        "x": 27,
+        "y": 722,
+        "width": 392,
+        "height": 49
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "bottega-fy23",
+      "output": "crops/bottega-fy23.png",
+      "searchBox": {
+        "x": 49,
+        "y": 918,
+        "width": 350,
+        "height": 42
+      },
+      "cropBox": {
+        "x": 49,
+        "y": 918,
+        "width": 350,
+        "height": 42
+      },
+      "threshold": 18,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ]
+}

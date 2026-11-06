@@ -1,0 +1,330 @@
+{
+  "source": "input/processed/veeva-q4-fy23.png",
+  "spec": "input/icon-crop-specs/veeva-q4-fy23.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T15:33:32.803644+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/veeva",
+  "crops": [
+    {
+      "key": "veeva-logo-q4-fy23",
+      "output": "data/assets/icon-references/veeva/crops/company-logo-q4-fy23.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4608,
+        "losslessBytes": 23915,
+        "savingsVsLossless": 0.8073,
+        "metrics": {
+          "meanAbsoluteError": 0.4263,
+          "rootMeanSquareError": 1.7915,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.4334
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 44682,
+        "transparentPixelRatio": 0.5521
+      },
+      "searchBox": {
+        "x": 499,
+        "y": 267,
+        "width": 562,
+        "height": 144
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 507,
+        "y0": 275,
+        "x1": 1050,
+        "y1": 402
+      },
+      "cropBox": {
+        "x0": 499,
+        "y0": 267,
+        "x1": 1061,
+        "y1": 411
+      },
+      "validation": {
+        "width": 562,
+        "height": 144,
+        "foregroundPixels": 29028,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 8,
+          "right": 11,
+          "top": 8,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": -0.0027,
+          "y": -0.0035
+        },
+        "passes": true
+      },
+      "note": "Source-owned complete Veeva brand mark, Q4 FY23; excludes chart labels and flows.",
+      "runtimeOutput": "data/assets/raster-annotations/veeva/company-logo-q4-fy23.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4608,
+        "losslessBytes": 23915,
+        "savingsVsLossless": 0.8073,
+        "metrics": {
+          "meanAbsoluteError": 0.4263,
+          "rootMeanSquareError": 1.7915,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.4334
+        }
+      },
+      "validationSheet": "data/assets/icon-references/veeva/validation-sheets-q4-fy23/veeva-logo-q4-fy23.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 256,
+        "bytes": 89367,
+        "losslessBytes": 240375,
+        "savingsVsLossless": 0.6282,
+        "metrics": {
+          "meanAbsoluteError": 0.1754,
+          "rootMeanSquareError": 1.3394,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 65,
+          "changedPixelRatio": 0.0604
+        }
+      }
+    },
+    {
+      "key": "veeva-crm-q4-fy23",
+      "output": "data/assets/icon-references/veeva/crops/crm-q4-fy23.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2224,
+        "losslessBytes": 10145,
+        "savingsVsLossless": 0.7808,
+        "metrics": {
+          "meanAbsoluteError": 0.6647,
+          "rootMeanSquareError": 2.2393,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.3561
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 9787,
+        "transparentPixelRatio": 0.6615
+      },
+      "searchBox": {
+        "x": 68,
+        "y": 608,
+        "width": 269,
+        "height": 55
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 77,
+        "y0": 618,
+        "x1": 327,
+        "y1": 654
+      },
+      "cropBox": {
+        "x0": 68,
+        "y0": 608,
+        "x1": 337,
+        "y1": 663
+      },
+      "validation": {
+        "width": 269,
+        "height": 55,
+        "foregroundPixels": 4211,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 9,
+          "right": 10,
+          "top": 10,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": -0.0019,
+          "y": 0.0091
+        },
+        "passes": true
+      },
+      "note": "Source-owned complete Veeva brand mark, Q4 FY23; excludes chart labels and flows.",
+      "runtimeOutput": "data/assets/raster-annotations/veeva/crm-q4-fy23.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2224,
+        "losslessBytes": 10145,
+        "savingsVsLossless": 0.7808,
+        "metrics": {
+          "meanAbsoluteError": 0.6647,
+          "rootMeanSquareError": 2.2393,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.3561
+        }
+      },
+      "validationSheet": "data/assets/icon-references/veeva/validation-sheets-q4-fy23/veeva-crm-q4-fy23.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 242714,
+        "losslessBytes": 242714,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "veeva-vault-q4-fy23",
+      "output": "data/assets/icon-references/veeva/crops/vault-q4-fy23.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2899,
+        "losslessBytes": 12315,
+        "savingsVsLossless": 0.7646,
+        "metrics": {
+          "meanAbsoluteError": 0.7793,
+          "rootMeanSquareError": 2.2381,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.3612
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 9618,
+        "transparentPixelRatio": 0.6048
+      },
+      "searchBox": {
+        "x": 61,
+        "y": 1074,
+        "width": 284,
+        "height": 56
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 68,
+        "y0": 1082,
+        "x1": 337,
+        "y1": 1122
+      },
+      "cropBox": {
+        "x0": 61,
+        "y0": 1074,
+        "x1": 345,
+        "y1": 1130
+      },
+      "validation": {
+        "width": 284,
+        "height": 56,
+        "foregroundPixels": 5261,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 8,
+          "top": 8,
+          "bottom": 8
+        },
+        "centerOffset": {
+          "x": -0.0018,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Source-owned complete Veeva brand mark, Q4 FY23; excludes chart labels and flows.",
+      "runtimeOutput": "data/assets/raster-annotations/veeva/vault-q4-fy23.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2899,
+        "losslessBytes": 12315,
+        "savingsVsLossless": 0.7646,
+        "metrics": {
+          "meanAbsoluteError": 0.7793,
+          "rootMeanSquareError": 2.2381,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.3612
+        }
+      },
+      "validationSheet": "data/assets/icon-references/veeva/validation-sheets-q4-fy23/veeva-vault-q4-fy23.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 243068,
+        "losslessBytes": 243068,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

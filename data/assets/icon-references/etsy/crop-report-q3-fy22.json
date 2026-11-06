@@ -1,0 +1,210 @@
+{
+  "source": "input/processed/etsy-q3-fy22.png",
+  "spec": "input/icon-crop-specs/etsy-q3-fy22.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T15:27:22.051849+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/etsy",
+  "crops": [
+    {
+      "key": "etsy-company-logo-q3-fy22",
+      "output": "data/assets/icon-references/etsy/crops/company-logo-q3-fy22.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3140,
+        "losslessBytes": 12591,
+        "savingsVsLossless": 0.7506,
+        "metrics": {
+          "meanAbsoluteError": 0.5747,
+          "rootMeanSquareError": 1.1037,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 20,
+          "changedPixelRatio": 0.9106
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 6300,
+        "transparentPixelRatio": 0.089
+      },
+      "searchBox": {
+        "x": 758,
+        "y": 230,
+        "width": 266,
+        "height": 266
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 761,
+        "y0": 233,
+        "x1": 1021,
+        "y1": 492
+      },
+      "cropBox": {
+        "x0": 758,
+        "y0": 230,
+        "x1": 1024,
+        "y1": 496
+      },
+      "validation": {
+        "width": 266,
+        "height": 266,
+        "foregroundPixels": 64452,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 3,
+          "right": 3,
+          "top": 3,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0019
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/etsy/company-logo-q3-fy22.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3140,
+        "losslessBytes": 12591,
+        "savingsVsLossless": 0.7506,
+        "metrics": {
+          "meanAbsoluteError": 0.5747,
+          "rootMeanSquareError": 1.1037,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 20,
+          "changedPixelRatio": 0.9106
+        }
+      }
+    },
+    {
+      "key": "etsy-brand-cluster-q3-fy22",
+      "output": "data/assets/icon-references/etsy/crops/brand-cluster-q3-fy22.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 4913,
+        "losslessBytes": 23123,
+        "savingsVsLossless": 0.7875,
+        "metrics": {
+          "meanAbsoluteError": 0.5829,
+          "rootMeanSquareError": 2.3763,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.2955
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 39371,
+        "transparentPixelRatio": 0.763
+      },
+      "searchBox": {
+        "x": 23,
+        "y": 494,
+        "width": 344,
+        "height": 150
+      },
+      "componentCount": 14,
+      "subjectBox": {
+        "x0": 29,
+        "y0": 498,
+        "x1": 363,
+        "y1": 639
+      },
+      "cropBox": {
+        "x0": 23,
+        "y0": 494,
+        "x1": 367,
+        "y1": 644
+      },
+      "validation": {
+        "width": 344,
+        "height": 150,
+        "foregroundPixels": 11344,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 4,
+          "top": 4,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": 0.0029,
+          "y": -0.0033
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/etsy/brand-cluster-q3-fy22.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 4913,
+        "losslessBytes": 23123,
+        "savingsVsLossless": 0.7875,
+        "metrics": {
+          "meanAbsoluteError": 0.5829,
+          "rootMeanSquareError": 2.3763,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 39,
+          "changedPixelRatio": 0.2955
+        }
+      }
+    }
+  ]
+}

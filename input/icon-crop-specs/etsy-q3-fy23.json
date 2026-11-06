@@ -1,0 +1,66 @@
+{
+  "source": "input/processing/etsy-q3-fy23.png",
+  "outputDir": "data/assets/icon-references/etsy",
+  "runtimeOutputDir": "data/assets/raster-annotations/etsy",
+  "report": "crop-report-q3-fy23.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 5
+  },
+  "crops": [
+    {
+      "key": "company-logo-q3-fy23",
+      "output": "crops/company-logo-q3-fy23.png",
+      "searchBox": {
+        "x": 761,
+        "y": 224,
+        "width": 260,
+        "height": 260
+      },
+      "cropBox": {
+        "x": 761,
+        "y": 224,
+        "width": 260,
+        "height": 260
+      },
+      "threshold": 8,
+      "minComponentArea": 20,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Source-owned logo cluster, excluding financial text and flows."
+    },
+    {
+      "key": "brands-q3-fy23",
+      "output": "crops/brands-q3-fy23.png",
+      "searchBox": {
+        "x": 59,
+        "y": 627,
+        "width": 318,
+        "height": 144
+      },
+      "cropBox": {
+        "x": 59,
+        "y": 627,
+        "width": 318,
+        "height": 144
+      },
+      "threshold": 8,
+      "minComponentArea": 20,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Source-owned logo cluster, excluding financial text and flows."
+    }
+  ]
+}

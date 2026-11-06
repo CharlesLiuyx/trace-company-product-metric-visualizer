@@ -1,0 +1,182 @@
+{
+  "source": "output/builds/build-abbd0346-0234-4b40-b9c4-a9ad66ab9048/workspace/input/processing/etsy-q2-fy24.png",
+  "spec": "output/builds/build-abbd0346-0234-4b40-b9c4-a9ad66ab9048/workspace/input/icon-crop-specs/etsy-q2-fy24.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T16:00:17.802001+00:00",
+  "compression": {
+    "enabled": false,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 10
+  },
+  "runtimeOutputDir": "output/builds/build-abbd0346-0234-4b40-b9c4-a9ad66ab9048/workspace/data/assets/raster-annotations/etsy",
+  "crops": [
+    {
+      "key": "company-logo-q2-fy24",
+      "output": "output/builds/build-abbd0346-0234-4b40-b9c4-a9ad66ab9048/workspace/data/assets/icon-references/etsy/crops/company-logo-q2-fy24.png",
+      "compression": {
+        "enabled": false,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 12474,
+        "losslessBytes": 12474,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 3168,
+        "transparentPixelRatio": 0.0469
+      },
+      "searchBox": {
+        "x": 761,
+        "y": 244,
+        "width": 260,
+        "height": 260
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 761,
+        "y0": 244,
+        "x1": 1021,
+        "y1": 503
+      },
+      "cropBox": {
+        "x0": 761,
+        "y0": 244,
+        "x1": 1021,
+        "y1": 504
+      },
+      "validation": {
+        "width": 260,
+        "height": 260,
+        "foregroundPixels": 60328,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 1
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0019
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "output/builds/build-abbd0346-0234-4b40-b9c4-a9ad66ab9048/workspace/data/assets/raster-annotations/etsy/company-logo-q2-fy24.png",
+      "runtimeCompression": {
+        "enabled": false,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 12474,
+        "losslessBytes": 12474,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "brands-q2-fy24",
+      "output": "output/builds/build-abbd0346-0234-4b40-b9c4-a9ad66ab9048/workspace/data/assets/icon-references/etsy/crops/brands-q2-fy24.png",
+      "compression": {
+        "enabled": false,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 16884,
+        "losslessBytes": 16884,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 10,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 38376,
+        "transparentPixelRatio": 0.8045
+      },
+      "searchBox": {
+        "x": 60,
+        "y": 622,
+        "width": 318,
+        "height": 150
+      },
+      "componentCount": 10,
+      "subjectBox": {
+        "x0": 63,
+        "y0": 624,
+        "x1": 377,
+        "y1": 763
+      },
+      "cropBox": {
+        "x0": 60,
+        "y0": 622,
+        "x1": 378,
+        "y1": 772
+      },
+      "validation": {
+        "width": 318,
+        "height": 150,
+        "foregroundPixels": 8601,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 3,
+          "right": 1,
+          "top": 2,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": 0.0031,
+          "y": -0.0233
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "output/builds/build-abbd0346-0234-4b40-b9c4-a9ad66ab9048/workspace/data/assets/raster-annotations/etsy/brands-q2-fy24.png",
+      "runtimeCompression": {
+        "enabled": false,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 16884,
+        "losslessBytes": 16884,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

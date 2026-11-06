@@ -1,0 +1,71 @@
+{
+  "source": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-176881cb-a0e4-4746-a619-241dd85f354c/workspace/input/processing/etsy-q4-fy22.png",
+  "outputDir": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-176881cb-a0e4-4746-a619-241dd85f354c/workspace/data/assets/icon-references/etsy",
+  "runtimeOutputDir": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-176881cb-a0e4-4746-a619-241dd85f354c/workspace/data/assets/raster-annotations/etsy",
+  "report": "crop-report-q4-fy22.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [
+      242,
+      242,
+      242
+    ],
+    "tolerance": 10
+  },
+  "crops": [
+    {
+      "key": "company-logo-q4-fy22",
+      "output": "crops/company-logo-q4-fy22.png",
+      "runtimeOutput": "company-logo-q4-fy22.png",
+      "cropBox": {
+        "x": 757,
+        "y": 220,
+        "width": 269,
+        "height": 269
+      },
+      "searchBox": {
+        "x": 757,
+        "y": 220,
+        "width": 269,
+        "height": 269
+      },
+      "threshold": 18,
+      "minComponentArea": 4,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.4,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "marketplace-brands-q4-fy22",
+      "output": "crops/marketplace-brands-q4-fy22.png",
+      "runtimeOutput": "marketplace-brands-q4-fy22.png",
+      "cropBox": {
+        "x": 33,
+        "y": 633,
+        "width": 352,
+        "height": 160
+      },
+      "searchBox": {
+        "x": 33,
+        "y": 633,
+        "width": 352,
+        "height": 160
+      },
+      "threshold": 18,
+      "minComponentArea": 4,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.4,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ]
+}

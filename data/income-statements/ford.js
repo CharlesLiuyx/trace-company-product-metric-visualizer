@@ -2,6 +2,221 @@
 (function (global) {
   const target = global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || { schemaVersion: 1, records: [] };
   target.records.push(...[
+{
+  "key": "ford-q3-fy26",
+  "company": "Ford",
+  "period": "Q3 FY26",
+  "periodNote": "Quarter ended Sep. 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/ford-q3-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 49.5,
+    "notes": [
+      "(2%) Y/Y"
+    ],
+    "items": [
+      {
+        "id": "ford_blue",
+        "label": "Ford Blue",
+        "value": 27.1,
+        "notes": [
+          "(3%) Y/Y"
+        ]
+      },
+      {
+        "id": "model_e",
+        "label": "Ford Model e",
+        "value": 1.2,
+        "notes": [
+          "(31%) Y/Y"
+        ]
+      },
+      {
+        "id": "ford_pro",
+        "label": "Ford Pro",
+        "value": 17.8,
+        "notes": [
+          "+2% Y/Y"
+        ]
+      },
+      {
+        "id": "ford_credit",
+        "label": "Ford Credit",
+        "value": 3.4,
+        "notes": [
+          "+3% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_sales",
+      "label": "Cost of sales",
+      "value": 42.1
+    },
+    "operatingExpenses": {
+      "total": 5.9,
+      "items": [
+        {
+          "id": "sga",
+          "label": "SG&A",
+          "value": 3.1
+        },
+        {
+          "id": "ford_credit_expenses",
+          "label": "Ford Credit expenses",
+          "value": 2.8
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 0.1
+    }
+  },
+  "otherIncome": {
+    "total": 1.1,
+    "items": [
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 1.1
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0.4,
+    "items": [
+      {
+        "id": "interest",
+        "label": "Interest",
+        "value": 0.4
+      }
+    ]
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 7.4,
+      "notes": [
+        "15% margin",
+        "+1pp Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 1.5,
+      "notes": [
+        "3% margin",
+        "(0pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 2.1,
+      "notes": [
+        "4% margin",
+        "(1pp) Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "periodNote": "截至 2026 年 9 月",
+      "revenue": {
+        "notes": [
+          "同比 (2%)"
+        ],
+        "items": [
+          {
+            "id": "ford_blue",
+            "label": "Ford Blue 燃油车业务"
+          },
+          {
+            "id": "model_e",
+            "label": "Ford Model e 电动车业务"
+          },
+          {
+            "id": "ford_pro",
+            "label": "Ford Pro 商用车业务"
+          },
+          {
+            "id": "ford_credit",
+            "label": "福特信贷"
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "销售成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "sga",
+              "label": "销售、一般及管理费用"
+            },
+            {
+              "id": "ford_credit_expenses",
+              "label": "福特信贷费用"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "other",
+            "label": "其他"
+          }
+        ]
+      },
+      "otherExpenses": {
+        "items": [
+          {
+            "id": "interest",
+            "label": "利息"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 15%",
+            "同比 +1 个百分点"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 3%",
+            "同比 (0 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 4%",
+            "同比 (1 个百分点)"
+          ]
+        }
+      }
+    }
+  }
+},
   {
     "key": "ford-q2-fy26",
     "company": "Ford",

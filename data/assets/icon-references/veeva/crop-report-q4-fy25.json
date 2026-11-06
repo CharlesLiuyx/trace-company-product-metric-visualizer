@@ -1,0 +1,323 @@
+{
+  "source": "input/processed/veeva-q4-fy25.png",
+  "spec": "input/veeva-q4-fy25-crops.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T15:28:56.766958+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/veeva",
+  "crops": [
+    {
+      "key": "company-logo-q4-fy25",
+      "output": "data/assets/icon-references/veeva/crops/company-logo-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4404,
+        "losslessBytes": 23749,
+        "savingsVsLossless": 0.8146,
+        "metrics": {
+          "meanAbsoluteError": 0.4482,
+          "rootMeanSquareError": 1.8529,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.4544
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 40682,
+        "transparentPixelRatio": 0.5312
+      },
+      "searchBox": {
+        "x": 846,
+        "y": 266,
+        "width": 559,
+        "height": 137
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 853,
+        "y0": 272,
+        "x1": 1396,
+        "y1": 398
+      },
+      "cropBox": {
+        "x0": 846,
+        "y0": 266,
+        "x1": 1405,
+        "y1": 403
+      },
+      "validation": {
+        "width": 559,
+        "height": 137,
+        "foregroundPixels": 28909,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 9,
+          "top": 6,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": -0.0018,
+          "y": 0.0036
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/veeva/company-logo-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4404,
+        "losslessBytes": 23749,
+        "savingsVsLossless": 0.8146,
+        "metrics": {
+          "meanAbsoluteError": 0.4482,
+          "rootMeanSquareError": 1.8529,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.4544
+        }
+      },
+      "validationSheet": "data/assets/icon-references/veeva/validation-sheets/company-logo-q4-fy25.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 236482,
+        "losslessBytes": 236482,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "vault-q4-fy25",
+      "output": "data/assets/icon-references/veeva/crops/vault-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2865,
+        "losslessBytes": 12377,
+        "savingsVsLossless": 0.7685,
+        "metrics": {
+          "meanAbsoluteError": 0.9234,
+          "rootMeanSquareError": 2.5336,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.4067
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 7989,
+        "transparentPixelRatio": 0.5595
+      },
+      "searchBox": {
+        "x": 63,
+        "y": 617,
+        "width": 280,
+        "height": 51
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 68,
+        "y0": 622,
+        "x1": 337,
+        "y1": 662
+      },
+      "cropBox": {
+        "x0": 63,
+        "y0": 617,
+        "x1": 343,
+        "y1": 668
+      },
+      "validation": {
+        "width": 280,
+        "height": 51,
+        "foregroundPixels": 5350,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 5,
+          "right": 6,
+          "top": 5,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": -0.0018,
+          "y": -0.0098
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/veeva/vault-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2865,
+        "losslessBytes": 12377,
+        "savingsVsLossless": 0.7685,
+        "metrics": {
+          "meanAbsoluteError": 0.9234,
+          "rootMeanSquareError": 2.5336,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.4067
+        }
+      },
+      "validationSheet": "data/assets/icon-references/veeva/validation-sheets/vault-q4-fy25.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 239901,
+        "losslessBytes": 239901,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "crm-q4-fy25",
+      "output": "data/assets/icon-references/veeva/crops/crm-q4-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2200,
+        "losslessBytes": 10083,
+        "savingsVsLossless": 0.7818,
+        "metrics": {
+          "meanAbsoluteError": 0.7955,
+          "rootMeanSquareError": 2.4499,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.4263
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 7353,
+        "transparentPixelRatio": 0.5949
+      },
+      "searchBox": {
+        "x": 68,
+        "y": 969,
+        "width": 263,
+        "height": 47
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 74,
+        "y0": 975,
+        "x1": 324,
+        "y1": 1011
+      },
+      "cropBox": {
+        "x0": 68,
+        "y0": 969,
+        "x1": 331,
+        "y1": 1016
+      },
+      "validation": {
+        "width": 263,
+        "height": 47,
+        "foregroundPixels": 4254,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 7,
+          "top": 6,
+          "bottom": 5
+        },
+        "centerOffset": {
+          "x": -0.0019,
+          "y": 0.0106
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/veeva/crm-q4-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2200,
+        "losslessBytes": 10083,
+        "savingsVsLossless": 0.7818,
+        "metrics": {
+          "meanAbsoluteError": 0.7955,
+          "rootMeanSquareError": 2.4499,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.4263
+        }
+      },
+      "validationSheet": "data/assets/icon-references/veeva/validation-sheets/crm-q4-fy25.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 239784,
+        "losslessBytes": 239784,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

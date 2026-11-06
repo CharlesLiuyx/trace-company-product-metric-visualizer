@@ -1,7 +1,4 @@
-/* Pure INCOME_STATEMENT_SSOT records. Merged by the Publication Module. */
-(function (global) {
-  const target = global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || { schemaVersion: 1, records: [] };
-  target.records.push(...[
+(function(global){const target=global.INCOME_STATEMENT_SSOT=global.INCOME_STATEMENT_SSOT||{schemaVersion:1,records:[]};target.records.push(...[
   {
     "key": "roblox-q1-fy23",
     "company": "Roblox",
@@ -5372,6 +5369,346 @@
         ]
       }
     }
+  },
+  {
+    "key": "roblox-q3-fy26",
+    "company": "Roblox",
+    "period": "Q3 FY26",
+    "currency": "$",
+    "unit": "M",
+    "decimals": 0,
+    "sourceImage": "input/processed/roblox-q3-fy26.png",
+    "roundingTolerance": 1.1,
+    "revenue": {
+      "total": 1572,
+      "notes": [
+        "+16% Y/Y"
+      ],
+      "items": [
+        {
+          "id": "north_america",
+          "label": "North America",
+          "value": 895,
+          "notes": [
+            "+10% Y/Y"
+          ]
+        },
+        {
+          "id": "europe",
+          "label": "Europe",
+          "value": 325,
+          "notes": [
+            "+23% Y/Y"
+          ]
+        },
+        {
+          "id": "apac",
+          "label": "APAC",
+          "value": 191,
+          "notes": [
+            "+25% Y/Y"
+          ]
+        },
+        {
+          "id": "rest_of_world",
+          "label": "Rest of world",
+          "value": 161,
+          "notes": [
+            "+28% Y/Y"
+          ]
+        }
+      ]
+    },
+    "costs": {
+      "costOfRevenue": {
+        "id": "cost_of_revenue",
+        "label": "Cost of revenue",
+        "value": 318
+      },
+      "operatingExpenses": {
+        "total": 1537,
+        "items": [
+          {
+            "id": "developer_fees",
+            "label": "Developer fees",
+            "value": 403,
+            "notes": [
+              "26% of revenue",
+              "(6pp) Y/Y"
+            ]
+          },
+          {
+            "id": "infrastructure",
+            "label": "Infrastructure",
+            "value": 385,
+            "notes": [
+              "24% of revenue",
+              "+1pp Y/Y"
+            ]
+          },
+          {
+            "id": "rnd",
+            "label": "R&D",
+            "value": 435,
+            "notes": [
+              "28% of revenue",
+              "(2pp) Y/Y"
+            ]
+          },
+          {
+            "id": "ga",
+            "label": "G&A",
+            "value": 203,
+            "notes": [
+              "13% of revenue",
+              "+2pp Y/Y"
+            ]
+          },
+          {
+            "id": "sm",
+            "label": "S&M",
+            "value": 111,
+            "notes": [
+              "7% of revenue",
+              "+2pp Y/Y"
+            ]
+          }
+        ]
+      }
+    },
+    "profit": {
+      "gross": {
+        "id": "gross_profit",
+        "label": "Gross profit",
+        "value": 1254,
+        "notes": [
+          "80% margin",
+          "+2pp Y/Y"
+        ]
+      },
+      "operating": {
+        "id": "operating_loss",
+        "label": "Operating loss",
+        "value": -283,
+        "notes": [
+          "(18%) margin",
+          "+4pp Y/Y"
+        ]
+      },
+      "net": {
+        "availability": "not-reported",
+        "value": null,
+        "label": "Net result not reported",
+        "notes": [
+          "Source ends at operating loss."
+        ]
+      }
+    },
+    "i18n": {
+      "zh": {
+        "period": "2026 财年第三季度",
+        "revenue": {
+          "notes": [
+            "同比 +16%"
+          ],
+          "items": [
+            {
+              "id": "north_america",
+              "label": "北美",
+              "notes": [
+                "同比 +10%"
+              ]
+            },
+            {
+              "id": "europe",
+              "label": "欧洲",
+              "notes": [
+                "同比 +23%"
+              ]
+            },
+            {
+              "id": "apac",
+              "label": "亚太",
+              "notes": [
+                "同比 +25%"
+              ]
+            },
+            {
+              "id": "rest_of_world",
+              "label": "世界其他地区",
+              "notes": [
+                "同比 +28%"
+              ]
+            }
+          ]
+        },
+        "costs": {
+          "costOfRevenue": {
+            "label": "收入成本"
+          },
+          "operatingExpenses": {
+            "label": "运营费用",
+            "items": [
+              {
+                "id": "developer_fees",
+                "label": "开发者费用",
+                "notes": [
+                  "占收入 26%",
+                  "同比 (6 个百分点)"
+                ]
+              },
+              {
+                "id": "infrastructure",
+                "label": "基础设施",
+                "notes": [
+                  "占收入 24%",
+                  "同比 +1 个百分点"
+                ]
+              },
+              {
+                "id": "rnd",
+                "label": "研发",
+                "notes": [
+                  "占收入 28%",
+                  "同比 (2 个百分点)"
+                ]
+              },
+              {
+                "id": "ga",
+                "label": "管理费用",
+                "notes": [
+                  "占收入 13%",
+                  "同比 +2 个百分点"
+                ]
+              },
+              {
+                "id": "sm",
+                "label": "销售与市场",
+                "notes": [
+                  "占收入 7%",
+                  "同比 +2 个百分点"
+                ]
+              }
+            ]
+          }
+        },
+        "profit": {
+          "gross": {
+            "label": "毛利润",
+            "notes": [
+              "利润率 80%",
+              "同比 +2 个百分点"
+            ]
+          },
+          "operating": {
+            "label": "营业亏损",
+            "notes": [
+              "利润率 (18%)",
+              "同比 +4 个百分点"
+            ]
+          },
+          "net": {
+            "label": "未披露净利润",
+            "notes": [
+              "原图截至营业亏损。"
+            ]
+          }
+        },
+        "operatingMetrics": [
+          {
+            "id": "dau",
+            "label": "日活用户",
+            "notes": [
+              "同比 (9%)"
+            ]
+          },
+          {
+            "id": "hours_engaged",
+            "label": "参与时长",
+            "notes": [
+              "同比 (15%)"
+            ]
+          },
+          {
+            "id": "bookings",
+            "label": "预订额",
+            "notes": [
+              "同比 (12%)"
+            ]
+          }
+        ]
+      }
+    },
+    "operatingMetrics": [
+      {
+        "id": "dau",
+        "label": "DAU",
+        "value": "138000000",
+        "unit": "count",
+        "currency": null,
+        "literal": "138M",
+        "notes": [
+          "(9%) Y/Y"
+        ],
+        "comparison": "eq",
+        "basis": "unspecified",
+        "quote": "DAU\n138M\n(9%) Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            46,
+            1150,
+            160,
+            159
+          ]
+        }
+      },
+      {
+        "id": "hours_engaged",
+        "label": "Hours Engaged",
+        "value": "34000000000",
+        "unit": "count",
+        "currency": null,
+        "literal": "34B",
+        "notes": [
+          "(15%) Y/Y"
+        ],
+        "comparison": "eq",
+        "basis": "unspecified",
+        "quote": "Hours Engaged\n34B\n(15%) Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            210,
+            1147,
+            352,
+            164
+          ]
+        }
+      },
+      {
+        "id": "bookings",
+        "label": "Bookings",
+        "value": "1697",
+        "unit": "M",
+        "currency": "USD",
+        "literal": "$1,697M",
+        "notes": [
+          "(12%) Y/Y"
+        ],
+        "comparison": "eq",
+        "basis": "unspecified",
+        "quote": "Bookings\n$1,697M\n(12%) Y/Y",
+        "anchor": {
+          "type": "image-box",
+          "box": [
+            569,
+            1147,
+            190,
+            164
+          ]
+        }
+      }
+    ]
   }
-]);
-})(window);
+]);})(window);

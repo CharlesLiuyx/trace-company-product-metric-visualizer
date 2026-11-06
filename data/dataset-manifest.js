@@ -45949,6 +45949,2326 @@
             }
           }
         }
+      },
+      {
+        "key": "accenture-q1-fy23",
+        "src": "data/datasets/accenture-q1-fy23.js",
+        "data": {
+          "name": "Accenture · Q1 FY23",
+          "company": "Accenture",
+          "meta": {
+            "title": "Accenture Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending November 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "埃森哲 · 2023 财年第一季度",
+              "meta": {
+                "title": "埃森哲 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2022 年 11 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "accenture-q1-fy24",
+        "src": "data/datasets/accenture-q1-fy24.js",
+        "data": {
+          "name": "Accenture · Q1 FY24",
+          "company": "Accenture",
+          "meta": {
+            "title": "Accenture Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Nov. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "埃森哲 · 2024 财年第一季度",
+              "meta": {
+                "title": "埃森哲 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2023 年 11 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "accenture-q1-fy25",
+        "src": "data/datasets/accenture-q1-fy25.js",
+        "data": {
+          "name": "Accenture · Q1 FY25",
+          "company": "Accenture",
+          "meta": {
+            "title": "Accenture Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Nov. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "埃森哲 · 2025 财年第一季度",
+              "meta": {
+                "title": "埃森哲 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2024 年 11 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "accenture-q1-fy26",
+        "src": "data/datasets/accenture-q1-fy26.js",
+        "data": {
+          "name": "Accenture · Q1 FY26",
+          "company": "Accenture",
+          "meta": {
+            "title": "Accenture Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Nov. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "埃森哲 · 2026 财年第一季度",
+              "meta": {
+                "title": "埃森哲 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 11 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "accenture-q2-fy23",
+        "src": "data/datasets/accenture-q2-fy23.js",
+        "data": {
+          "name": "Accenture · Q2 FY23",
+          "company": "Accenture",
+          "meta": {
+            "title": "Accenture Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Feb. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "埃森哲 · 2023 财年第二季度",
+              "meta": {
+                "title": "埃森哲 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 2 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "accenture-q2-fy24",
+        "src": "data/datasets/accenture-q2-fy24.js",
+        "data": {
+          "name": "Accenture · Q2 FY24",
+          "company": "Accenture",
+          "meta": {
+            "title": "Accenture Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Feb. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "埃森哲 · 2024 财年第二季度",
+              "meta": {
+                "title": "埃森哲 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 2 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "accenture-q2-fy25",
+        "src": "data/datasets/accenture-q2-fy25.js",
+        "data": {
+          "name": "Accenture · Q2 FY25",
+          "company": "Accenture",
+          "meta": {
+            "title": "Accenture Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Feb. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "埃森哲 · 2025 财年第二季度",
+              "meta": {
+                "title": "埃森哲 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 2 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "accenture-q3-fy23",
+        "src": "data/datasets/accenture-q3-fy23.js",
+        "data": {
+          "name": "Accenture · Q3 FY23",
+          "company": "Accenture",
+          "meta": {
+            "title": "Accenture Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending May 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "埃森哲 · 2023 财年第三季度",
+              "meta": {
+                "title": "埃森哲 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 5 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "accenture-q3-fy24",
+        "src": "data/datasets/accenture-q3-fy24.js",
+        "data": {
+          "name": "Accenture · Q3 FY24",
+          "company": "Accenture",
+          "meta": {
+            "title": "Accenture Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending May 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "埃森哲 · 2024 财年第三季度",
+              "meta": {
+                "title": "埃森哲 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 5 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "accenture-q3-fy25",
+        "src": "data/datasets/accenture-q3-fy25.js",
+        "data": {
+          "name": "Accenture · Q3 FY25",
+          "company": "Accenture",
+          "meta": {
+            "title": "Accenture Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending May 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "埃森哲 · 2025 财年第三季度",
+              "meta": {
+                "title": "埃森哲 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 5 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "accenture-q4-fy23",
+        "src": "data/datasets/accenture-q4-fy23.js",
+        "data": {
+          "name": "Accenture · Q4 FY23",
+          "company": "Accenture",
+          "meta": {
+            "title": "Accenture Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending July 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "埃森哲 · 2023 财年第四季度",
+              "meta": {
+                "title": "埃森哲 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "accenture-q4-fy24",
+        "src": "data/datasets/accenture-q4-fy24.js",
+        "data": {
+          "name": "Accenture · Q4 FY24",
+          "company": "Accenture",
+          "meta": {
+            "title": "Accenture Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Aug. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "埃森哲 · 2024 财年第四季度",
+              "meta": {
+                "title": "埃森哲 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 8 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "accenture-q4-fy25",
+        "src": "data/datasets/accenture-q4-fy25.js",
+        "data": {
+          "name": "Accenture · Q4 FY25",
+          "company": "Accenture",
+          "meta": {
+            "title": "Accenture Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Aug. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "埃森哲 · 2025 财年第四季度",
+              "meta": {
+                "title": "埃森哲 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 8 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "alphabet-q3-fy26",
+        "src": "data/datasets/alphabet-q3-fy26.js",
+        "data": {
+          "name": "Alphabet · Q3 FY26",
+          "company": "Alphabet",
+          "meta": {
+            "title": "Alphabet Q3 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Alphabet · 2026 财年第三季度",
+              "meta": {
+                "title": "Alphabet 2026 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "amazon-q3-fy26",
+        "src": "data/datasets/amazon-q3-fy26.js",
+        "data": {
+          "name": "Amazon · Q3 FY26",
+          "company": "Amazon",
+          "meta": {
+            "title": "Amazon Q3 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Amazon · 2026 财年第三季度",
+              "meta": {
+                "title": "Amazon 2026 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "anthropic-h1-fy26",
+        "src": "data/datasets/anthropic-h1-fy26.js",
+        "data": {
+          "name": "Anthropic · H1 FY26",
+          "company": "Anthropic",
+          "meta": {
+            "title": "How ANTHROPIC Makes Money",
+            "period": "H1 FY26",
+            "periodNote": "Ending June 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Anthropic · 2026 财年上半年",
+              "meta": {
+                "title": "Anthropic 如何赚钱",
+                "period": "2026 财年上半年",
+                "periodNote": "截至 2026 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "etsy-q1-fy23",
+        "src": "data/datasets/etsy-q1-fy23.js",
+        "data": {
+          "name": "Etsy · Q1 FY23",
+          "company": "Etsy",
+          "meta": {
+            "title": "Etsy Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending Mar. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Etsy · 2023 财年第一季度",
+              "meta": {
+                "title": "Etsy 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2023 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "etsy-q1-fy24",
+        "src": "data/datasets/etsy-q1-fy24.js",
+        "data": {
+          "name": "Etsy · Q1 FY24",
+          "company": "Etsy",
+          "meta": {
+            "title": "Etsy Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Etsy · 2024 财年第一季度",
+              "meta": {
+                "title": "Etsy 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "etsy-q1-fy25",
+        "src": "data/datasets/etsy-q1-fy25.js",
+        "data": {
+          "name": "Etsy · Q1 FY25",
+          "company": "Etsy",
+          "meta": {
+            "title": "Etsy Q1 FY25 Income Statement",
+            "period": "Q1 FY25"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Etsy · 2025 财年第一季度",
+              "meta": {
+                "title": "Etsy 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "etsy-q2-fy23",
+        "src": "data/datasets/etsy-q2-fy23.js",
+        "data": {
+          "name": "Etsy · Q2 FY23",
+          "company": "Etsy",
+          "meta": {
+            "title": "Etsy Q2 FY23 Income Statement",
+            "period": "Q2 FY23"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Etsy · 2023 财年第二季度",
+              "meta": {
+                "title": "Etsy 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "etsy-q2-fy24",
+        "src": "data/datasets/etsy-q2-fy24.js",
+        "data": {
+          "name": "Etsy · Q2 FY24",
+          "company": "Etsy",
+          "meta": {
+            "title": "Etsy Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Etsy · 2024 财年第二季度",
+              "meta": {
+                "title": "Etsy 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "etsy-q2-fy25",
+        "src": "data/datasets/etsy-q2-fy25.js",
+        "data": {
+          "name": "Etsy · Q2 FY25",
+          "company": "Etsy",
+          "meta": {
+            "title": "Etsy Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Jun. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Etsy · 2025 财年第二季度",
+              "meta": {
+                "title": "Etsy 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "etsy-q3-fy22",
+        "src": "data/datasets/etsy-q3-fy22.js",
+        "data": {
+          "name": "Etsy · Q3 FY22",
+          "company": "Etsy",
+          "meta": {
+            "title": "Etsy Q3 FY22 Income Statement",
+            "period": "Q3 FY22",
+            "periodNote": "Ending Sep. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Etsy · 2022 财年第三季度",
+              "meta": {
+                "title": "Etsy 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度",
+                "periodNote": "截至 2022 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "etsy-q3-fy23",
+        "src": "data/datasets/etsy-q3-fy23.js",
+        "data": {
+          "name": "Etsy · Q3 FY23",
+          "company": "Etsy",
+          "meta": {
+            "title": "Etsy Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Sep. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Etsy · 2023 财年第三季度",
+              "meta": {
+                "title": "Etsy 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "etsy-q3-fy24",
+        "src": "data/datasets/etsy-q3-fy24.js",
+        "data": {
+          "name": "Etsy · Q3 FY24",
+          "company": "Etsy",
+          "meta": {
+            "title": "Etsy Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Etsy · 2024 财年第三季度",
+              "meta": {
+                "title": "Etsy 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "etsy-q3-fy25",
+        "src": "data/datasets/etsy-q3-fy25.js",
+        "data": {
+          "name": "Etsy · Q3 FY25",
+          "company": "Etsy",
+          "meta": {
+            "title": "Etsy Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Etsy · 2025 财年第三季度",
+              "meta": {
+                "title": "Etsy 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "etsy-q4-fy22",
+        "src": "data/datasets/etsy-q4-fy22.js",
+        "data": {
+          "name": "Etsy · Q4 FY22",
+          "company": "Etsy",
+          "meta": {
+            "title": "Etsy Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Ending Dec. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Etsy · 2022 财年第四季度",
+              "meta": {
+                "title": "Etsy 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2022 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "etsy-q4-fy23",
+        "src": "data/datasets/etsy-q4-fy23.js",
+        "data": {
+          "name": "Etsy · Q4 FY23",
+          "company": "Etsy",
+          "meta": {
+            "title": "Etsy Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Etsy · 2023 财年第四季度",
+              "meta": {
+                "title": "Etsy 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "etsy-q4-fy24",
+        "src": "data/datasets/etsy-q4-fy24.js",
+        "data": {
+          "name": "Etsy · Q4 FY24",
+          "company": "Etsy",
+          "meta": {
+            "title": "Etsy Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Etsy · 2024 财年第四季度",
+              "meta": {
+                "title": "Etsy 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "ford-q3-fy26",
+        "src": "data/datasets/ford-q3-fy26.js",
+        "data": {
+          "name": "Ford · Q3 FY26",
+          "company": "Ford",
+          "meta": {
+            "title": "Ford Q3 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "福特 · 2026 财年第三季度",
+              "meta": {
+                "title": "福特 2026 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "gm-q3-fy26",
+        "src": "data/datasets/gm-q3-fy26.js",
+        "data": {
+          "name": "GM · Q3 FY26",
+          "company": "GM",
+          "meta": {
+            "title": "GM Q3 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "GM · 2026 财年第三季度",
+              "meta": {
+                "title": "GM 2026 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "health-equity-q1-fy24",
+        "src": "data/datasets/health-equity-q1-fy24.js",
+        "data": {
+          "name": "HealthEquity · Q1 FY24",
+          "company": "HealthEquity",
+          "meta": {
+            "title": "HealthEquity Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Apr. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HealthEquity · 2024 财年第一季度",
+              "meta": {
+                "title": "HealthEquity 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2023 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "health-equity-q1-fy25",
+        "src": "data/datasets/health-equity-q1-fy25.js",
+        "data": {
+          "name": "HealthEquity · Q1 FY25",
+          "company": "HealthEquity",
+          "meta": {
+            "title": "HealthEquity Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Apr. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HealthEquity · 2025 财年第一季度",
+              "meta": {
+                "title": "HealthEquity 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2024 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "health-equity-q1-fy26",
+        "src": "data/datasets/health-equity-q1-fy26.js",
+        "data": {
+          "name": "HealthEquity · Q1 FY26",
+          "company": "HealthEquity",
+          "meta": {
+            "title": "HealthEquity Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Apr. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HealthEquity · 2026 财年第一季度",
+              "meta": {
+                "title": "HealthEquity 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2026 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "health-equity-q2-fy24",
+        "src": "data/datasets/health-equity-q2-fy24.js",
+        "data": {
+          "name": "HealthEquity · Q2 FY24",
+          "company": "HealthEquity",
+          "meta": {
+            "title": "HealthEquity Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending July 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HealthEquity · 2024 财年第二季度",
+              "meta": {
+                "title": "HealthEquity 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2023 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "health-equity-q2-fy25",
+        "src": "data/datasets/health-equity-q2-fy25.js",
+        "data": {
+          "name": "HealthEquity · Q2 FY25",
+          "company": "HealthEquity",
+          "meta": {
+            "title": "HealthEquity Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Jul. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HealthEquity · 2025 财年第二季度",
+              "meta": {
+                "title": "HealthEquity 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2024 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "health-equity-q2-fy26",
+        "src": "data/datasets/health-equity-q2-fy26.js",
+        "data": {
+          "name": "HealthEquity · Q2 FY26",
+          "company": "HealthEquity",
+          "meta": {
+            "title": "HealthEquity Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending July 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HealthEquity · 2026 财年第二季度",
+              "meta": {
+                "title": "HealthEquity 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2026 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "health-equity-q3-fy23",
+        "src": "data/datasets/health-equity-q3-fy23.js",
+        "data": {
+          "name": "HealthEquity · Q3 FY23",
+          "company": "HealthEquity",
+          "meta": {
+            "title": "HealthEquity Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending October 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HealthEquity · 2023 财年第三季度",
+              "meta": {
+                "title": "HealthEquity 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2022 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "health-equity-q3-fy24",
+        "src": "data/datasets/health-equity-q3-fy24.js",
+        "data": {
+          "name": "HealthEquity · Q3 FY24",
+          "company": "HealthEquity",
+          "meta": {
+            "title": "HealthEquity Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Sep. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HealthEquity · 2024 财年第三季度",
+              "meta": {
+                "title": "HealthEquity 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "health-equity-q3-fy25",
+        "src": "data/datasets/health-equity-q3-fy25.js",
+        "data": {
+          "name": "HealthEquity · Q3 FY25",
+          "company": "HealthEquity",
+          "meta": {
+            "title": "HealthEquity Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Oct. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HealthEquity · 2025 财年第三季度",
+              "meta": {
+                "title": "HealthEquity 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2024 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "health-equity-q3-fy26",
+        "src": "data/datasets/health-equity-q3-fy26.js",
+        "data": {
+          "name": "HealthEquity · Q3 FY26",
+          "company": "HealthEquity",
+          "meta": {
+            "title": "HealthEquity Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Oct. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HealthEquity · 2026 财年第三季度",
+              "meta": {
+                "title": "HealthEquity 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "health-equity-q4-fy23",
+        "src": "data/datasets/health-equity-q4-fy23.js",
+        "data": {
+          "name": "HealthEquity · Q4 FY23",
+          "company": "HealthEquity",
+          "meta": {
+            "title": "HealthEquity Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Jan. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HealthEquity · 2023 财年第四季度",
+              "meta": {
+                "title": "HealthEquity 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "health-equity-q4-fy24",
+        "src": "data/datasets/health-equity-q4-fy24.js",
+        "data": {
+          "name": "HealthEquity · Q4 FY24",
+          "company": "HealthEquity",
+          "meta": {
+            "title": "HealthEquity Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Jan. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HealthEquity · 2024 财年第四季度",
+              "meta": {
+                "title": "HealthEquity 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "health-equity-q4-fy25",
+        "src": "data/datasets/health-equity-q4-fy25.js",
+        "data": {
+          "name": "HealthEquity · Q4 FY25",
+          "company": "HealthEquity",
+          "meta": {
+            "title": "HealthEquity Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Jan. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "HealthEquity · 2025 财年第四季度",
+              "meta": {
+                "title": "HealthEquity 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "home-depot-fy23",
+        "src": "data/datasets/home-depot-fy23.js",
+        "data": {
+          "name": "Home Depot · FY23",
+          "company": "Home Depot",
+          "meta": {
+            "title": "The Home Depot FY23 Income Statement",
+            "period": "FY23",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "家得宝 · 2023 财年",
+              "meta": {
+                "title": "家得宝 2023 财年利润表",
+                "period": "2023 财年",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "home-depot-q1-fy23",
+        "src": "data/datasets/home-depot-q1-fy23.js",
+        "data": {
+          "name": "Home Depot · Q1 FY23",
+          "company": "Home Depot",
+          "meta": {
+            "title": "The Home Depot Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending Apr. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "家得宝 · 2023 财年第一季度",
+              "meta": {
+                "title": "家得宝 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2023 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "home-depot-q1-fy24",
+        "src": "data/datasets/home-depot-q1-fy24.js",
+        "data": {
+          "name": "Home Depot · Q1 FY24",
+          "company": "Home Depot",
+          "meta": {
+            "title": "The Home Depot Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Q1 FY24"
+          },
+          "i18n": {
+            "zh": {
+              "name": "家得宝 · 2024 财年第一季度",
+              "meta": {
+                "title": "家得宝 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "2024 财年第一季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "home-depot-q2-fy23",
+        "src": "data/datasets/home-depot-q2-fy23.js",
+        "data": {
+          "name": "Home Depot · Q2 FY23",
+          "company": "Home Depot",
+          "meta": {
+            "title": "The Home Depot Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending July 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "家得宝 · 2023 财年第二季度",
+              "meta": {
+                "title": "家得宝 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "home-depot-q3-fy22",
+        "src": "data/datasets/home-depot-q3-fy22.js",
+        "data": {
+          "name": "Home Depot · Q3 FY22",
+          "company": "Home Depot",
+          "meta": {
+            "title": "The Home Depot Q3 FY22 Income Statement",
+            "period": "Q3 FY22",
+            "periodNote": "Ending October 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "家得宝 · 2022 财年第三季度",
+              "meta": {
+                "title": "家得宝 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度",
+                "periodNote": "截至 2022 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "home-depot-q3-fy23",
+        "src": "data/datasets/home-depot-q3-fy23.js",
+        "data": {
+          "name": "Home Depot · Q3 FY23",
+          "company": "Home Depot",
+          "meta": {
+            "title": "The Home Depot Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Oct. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "家得宝 · 2023 财年第三季度",
+              "meta": {
+                "title": "家得宝 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "home-depot-q4-fy22",
+        "src": "data/datasets/home-depot-q4-fy22.js",
+        "data": {
+          "name": "Home Depot · Q4 FY22",
+          "company": "Home Depot",
+          "meta": {
+            "title": "The Home Depot Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Ending Jan. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "家得宝 · 2022 财年第四季度",
+              "meta": {
+                "title": "家得宝 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2023 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intuitive-q1-fy23",
+        "src": "data/datasets/intuitive-q1-fy23.js",
+        "data": {
+          "name": "Intuitive · Q1 FY23",
+          "company": "Intuitive",
+          "meta": {
+            "title": "Intuitive Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending Mar. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "直觉外科 · 2023 财年第一季度",
+              "meta": {
+                "title": "直觉外科 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2023 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intuitive-q1-fy24",
+        "src": "data/datasets/intuitive-q1-fy24.js",
+        "data": {
+          "name": "Intuitive · Q1 FY24",
+          "company": "Intuitive",
+          "meta": {
+            "title": "Intuitive Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Mar. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "直觉外科 · 2024 财年第一季度",
+              "meta": {
+                "title": "直觉外科 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2024 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intuitive-q1-fy25",
+        "src": "data/datasets/intuitive-q1-fy25.js",
+        "data": {
+          "name": "Intuitive · Q1 FY25",
+          "company": "Intuitive",
+          "meta": {
+            "title": "Intuitive Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Mar. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "直觉外科 · 2025 财年第一季度",
+              "meta": {
+                "title": "直觉外科 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intuitive-q2-fy23",
+        "src": "data/datasets/intuitive-q2-fy23.js",
+        "data": {
+          "name": "Intuitive · Q2 FY23",
+          "company": "Intuitive",
+          "meta": {
+            "title": "Intuitive Q2 FY23 Income Statement",
+            "period": "Q2 FY23",
+            "periodNote": "Ending Jun. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "直觉外科 · 2023 财年第二季度",
+              "meta": {
+                "title": "直觉外科 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度",
+                "periodNote": "截至 2023 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intuitive-q2-fy24",
+        "src": "data/datasets/intuitive-q2-fy24.js",
+        "data": {
+          "name": "Intuitive · Q2 FY24",
+          "company": "Intuitive",
+          "meta": {
+            "title": "Intuitive Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending Jun. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "直觉外科 · 2024 财年第二季度",
+              "meta": {
+                "title": "直觉外科 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intuitive-q2-fy25",
+        "src": "data/datasets/intuitive-q2-fy25.js",
+        "data": {
+          "name": "Intuitive · Q2 FY25",
+          "company": "Intuitive",
+          "meta": {
+            "title": "Intuitive Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending Jun. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "直觉外科 · 2025 财年第二季度",
+              "meta": {
+                "title": "直觉外科 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intuitive-q3-fy23",
+        "src": "data/datasets/intuitive-q3-fy23.js",
+        "data": {
+          "name": "Intuitive · Q3 FY23",
+          "company": "Intuitive",
+          "meta": {
+            "title": "Intuitive Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending Sep. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "直觉外科 · 2023 财年第三季度",
+              "meta": {
+                "title": "直觉外科 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2023 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intuitive-q3-fy24",
+        "src": "data/datasets/intuitive-q3-fy24.js",
+        "data": {
+          "name": "Intuitive · Q3 FY24",
+          "company": "Intuitive",
+          "meta": {
+            "title": "Intuitive Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "直觉外科 · 2024 财年第三季度",
+              "meta": {
+                "title": "直觉外科 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intuitive-q3-fy25",
+        "src": "data/datasets/intuitive-q3-fy25.js",
+        "data": {
+          "name": "Intuitive · Q3 FY25",
+          "company": "Intuitive",
+          "meta": {
+            "title": "Intuitive Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Sep. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "直觉外科 · 2025 财年第三季度",
+              "meta": {
+                "title": "直觉外科 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2025 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intuitive-q4-fy22",
+        "src": "data/datasets/intuitive-q4-fy22.js",
+        "data": {
+          "name": "Intuitive · Q4 FY22",
+          "company": "Intuitive",
+          "meta": {
+            "title": "Intuitive Q4 FY22 Income Statement",
+            "period": "Q4 FY22",
+            "periodNote": "Ending Dec. 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "直觉外科 · 2022 财年第四季度",
+              "meta": {
+                "title": "直觉外科 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度",
+                "periodNote": "截至 2022 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intuitive-q4-fy23",
+        "src": "data/datasets/intuitive-q4-fy23.js",
+        "data": {
+          "name": "Intuitive · Q4 FY23",
+          "company": "Intuitive",
+          "meta": {
+            "title": "Intuitive Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "直觉外科 · 2023 财年第四季度",
+              "meta": {
+                "title": "直觉外科 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "intuitive-q4-fy24",
+        "src": "data/datasets/intuitive-q4-fy24.js",
+        "data": {
+          "name": "Intuitive · Q4 FY24",
+          "company": "Intuitive",
+          "meta": {
+            "title": "Intuitive Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "直觉外科 · 2024 财年第四季度",
+              "meta": {
+                "title": "直觉外科 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "kering-fy22",
+        "src": "data/datasets/kering-fy22.js",
+        "data": {
+          "name": "Kering · FY22",
+          "company": "Kering",
+          "meta": {
+            "title": "Kering FY22 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "开云集团 · 2022 财年",
+              "meta": {
+                "title": "开云集团 2022 财年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "kering-fy23",
+        "src": "data/datasets/kering-fy23.js",
+        "data": {
+          "name": "Kering · FY23",
+          "company": "Kering",
+          "meta": {
+            "title": "Kering FY23 Income Statement",
+            "period": "FY23"
+          },
+          "i18n": {
+            "zh": {
+              "name": "开云集团 · 2023 财年",
+              "meta": {
+                "title": "开云集团 2023 财年利润表",
+                "period": "2023 财年"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "kering-fy24",
+        "src": "data/datasets/kering-fy24.js",
+        "data": {
+          "name": "Kering · FY24",
+          "company": "Kering",
+          "meta": {
+            "title": "Kering FY24 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "开云集团 · 2024 财年",
+              "meta": {
+                "title": "开云集团 2024 财年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "kering-h1-fy22",
+        "src": "data/datasets/kering-h1-fy22.js",
+        "data": {
+          "name": "Kering · H1 FY22",
+          "company": "Kering",
+          "meta": {
+            "title": "Kering H1 FY22 Income Statement",
+            "period": "H1 FY22"
+          },
+          "i18n": {
+            "zh": {
+              "name": "开云集团 · 2022 财年上半年",
+              "meta": {
+                "title": "开云集团 2022 财年上半年利润表",
+                "period": "2022 财年上半年"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "kering-h1-fy23",
+        "src": "data/datasets/kering-h1-fy23.js",
+        "data": {
+          "name": "Kering · H1 FY23",
+          "company": "Kering",
+          "meta": {
+            "title": "Kering H1 FY23 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "开云集团 · 2023 财年上半年",
+              "meta": {
+                "title": "开云集团 2023 财年上半年利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "kering-h1-fy24",
+        "src": "data/datasets/kering-h1-fy24.js",
+        "data": {
+          "name": "Kering · H1 FY24",
+          "company": "Kering",
+          "meta": {
+            "title": "Kering H1 FY24 Income Statement",
+            "period": "H1 FY24",
+            "periodNote": "Ending June 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "开云集团 · 2024 财年上半年",
+              "meta": {
+                "title": "开云集团 2024 财年上半年利润表",
+                "period": "2024 财年上半年",
+                "periodNote": "截至 2024 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "kering-h1-fy25",
+        "src": "data/datasets/kering-h1-fy25.js",
+        "data": {
+          "name": "Kering · H1 FY25",
+          "company": "Kering",
+          "meta": {
+            "title": "Kering H1 FY25 Income Statement",
+            "period": "H1 FY25",
+            "periodNote": "Ending June 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "开云集团 · 2025 财年上半年",
+              "meta": {
+                "title": "开云集团 2025 财年上半年利润表",
+                "period": "2025 财年上半年",
+                "periodNote": "截至 2025 年 6 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mercadolibre-q1-fy23",
+        "src": "data/datasets/mercadolibre-q1-fy23.js",
+        "data": {
+          "name": "MercadoLibre · Q1 FY23",
+          "company": "MercadoLibre",
+          "meta": {
+            "title": "MercadoLibre Q1 FY23 Income Statement",
+            "period": "Q1 FY23",
+            "periodNote": "Ending Mar. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美客多 · 2023 财年第一季度",
+              "meta": {
+                "title": "美客多 2023 财年第一季度利润表",
+                "period": "2023 财年第一季度",
+                "periodNote": "截至 2023 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mercadolibre-q1-fy24",
+        "src": "data/datasets/mercadolibre-q1-fy24.js",
+        "data": {
+          "name": "MercadoLibre · Q1 FY24",
+          "company": "MercadoLibre",
+          "meta": {
+            "title": "MercadoLibre Q1 FY24 Income Statement",
+            "period": "Q1 FY24"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美客多 · 2024 财年第一季度",
+              "meta": {
+                "title": "美客多 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mercadolibre-q1-fy25",
+        "src": "data/datasets/mercadolibre-q1-fy25.js",
+        "data": {
+          "name": "MercadoLibre · Q1 FY25",
+          "company": "MercadoLibre",
+          "meta": {
+            "title": "MercadoLibre Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Mar. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美客多 · 2025 财年第一季度",
+              "meta": {
+                "title": "美客多 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2025 年 3 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mercadolibre-q2-fy23",
+        "src": "data/datasets/mercadolibre-q2-fy23.js",
+        "data": {
+          "name": "MercadoLibre · Q2 FY23",
+          "company": "MercadoLibre",
+          "meta": {
+            "title": "MercadoLibre Q2 FY23 Income Statement",
+            "period": "Q2 FY23"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美客多 · 2023 财年第二季度",
+              "meta": {
+                "title": "美客多 2023 财年第二季度利润表",
+                "period": "2023 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mercadolibre-q2-fy24",
+        "src": "data/datasets/mercadolibre-q2-fy24.js",
+        "data": {
+          "name": "MercadoLibre Q2 FY24 Income Statement",
+          "company": "MercadoLibre",
+          "meta": {
+            "title": "MercadoLibre Q2 FY24 Income Statement",
+            "period": "Q2 FY24"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美客多 · 2024 财年第二季度",
+              "meta": {
+                "title": "美客多 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mercadolibre-q2-fy25",
+        "src": "data/datasets/mercadolibre-q2-fy25.js",
+        "data": {
+          "name": "MercadoLibre Q2 FY25 Income Statement",
+          "company": "MercadoLibre",
+          "meta": {
+            "title": "MercadoLibre Q2 FY25 Income Statement",
+            "period": "Q2 FY25"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美客多 · 2025 财年第二季度",
+              "meta": {
+                "title": "美客多 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mercadolibre-q3-fy22",
+        "src": "data/datasets/mercadolibre-q3-fy22.js",
+        "data": {
+          "name": "MercadoLibre · Q3 FY22",
+          "company": "MercadoLibre",
+          "meta": {
+            "title": "MercadoLibre Q3 FY22 Income Statement",
+            "period": "Q3 FY22"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美客多 · 2022 财年第三季度",
+              "meta": {
+                "title": "美客多 2022 财年第三季度利润表",
+                "period": "2022 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mercadolibre-q3-fy23",
+        "src": "data/datasets/mercadolibre-q3-fy23.js",
+        "data": {
+          "name": "MercadoLibre · Q3 FY23",
+          "company": "MercadoLibre",
+          "meta": {
+            "title": "MercadoLibre Q3 FY23 Income Statement",
+            "period": "Q3 FY23"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美客多 · 2023 财年第三季度",
+              "meta": {
+                "title": "美客多 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mercadolibre-q3-fy24",
+        "src": "data/datasets/mercadolibre-q3-fy24.js",
+        "data": {
+          "name": "MercadoLibre · Q3 FY24",
+          "company": "MercadoLibre",
+          "meta": {
+            "title": "MercadoLibre Q3 FY24 Income Statement",
+            "period": "Q3 FY24",
+            "periodNote": "Ending Sep. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美客多 · 2024 财年第三季度",
+              "meta": {
+                "title": "美客多 2024 财年第三季度利润表",
+                "period": "2024 财年第三季度",
+                "periodNote": "截至 2024 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mercadolibre-q3-fy25",
+        "src": "data/datasets/mercadolibre-q3-fy25.js",
+        "data": {
+          "name": "MercadoLibre · Q3 FY25",
+          "company": "MercadoLibre",
+          "meta": {
+            "title": "MercadoLibre Q3 FY25 Income Statement",
+            "period": "Q3 FY25"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美客多 · 2025 财年第三季度",
+              "meta": {
+                "title": "美客多 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mercadolibre-q4-fy22",
+        "src": "data/datasets/mercadolibre-q4-fy22.js",
+        "data": {
+          "name": "MercadoLibre · Q4 FY22",
+          "company": "MercadoLibre",
+          "meta": {
+            "title": "MercadoLibre Q4 FY22 Income Statement",
+            "period": "Q4 FY22"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美客多 · 2022 财年第四季度",
+              "meta": {
+                "title": "美客多 2022 财年第四季度利润表",
+                "period": "2022 财年第四季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mercadolibre-q4-fy23",
+        "src": "data/datasets/mercadolibre-q4-fy23.js",
+        "data": {
+          "name": "MercadoLibre · Q4 FY23",
+          "company": "MercadoLibre",
+          "meta": {
+            "title": "MercadoLibre Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Dec. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美客多 · 2023 财年第四季度",
+              "meta": {
+                "title": "美客多 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "mercadolibre-q4-fy24",
+        "src": "data/datasets/mercadolibre-q4-fy24.js",
+        "data": {
+          "name": "MercadoLibre · Q4 FY24",
+          "company": "MercadoLibre",
+          "meta": {
+            "title": "MercadoLibre Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Dec. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "美客多 · 2024 财年第四季度",
+              "meta": {
+                "title": "美客多 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 12 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "meta-q3-fy26",
+        "src": "data/datasets/meta-q3-fy26.js",
+        "data": {
+          "name": "Meta - Q3 FY26",
+          "company": "Meta",
+          "meta": {
+            "title": "Meta Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Meta · 2026 财年第三季度",
+              "meta": {
+                "title": "Meta 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "microsoft-q1-fy27",
+        "src": "data/datasets/microsoft-q1-fy27.js",
+        "data": {
+          "name": "Microsoft · Q1 FY27",
+          "company": "Microsoft",
+          "meta": {
+            "title": "Microsoft Q1 FY27 Income Statement",
+            "period": "Q1 FY27",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Microsoft · 2027 财年第一季度",
+              "meta": {
+                "title": "Microsoft 2027 财年第一季度利润表",
+                "period": "2027 财年第一季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "netflix-q3-fy26",
+        "src": "data/datasets/netflix-q3-fy26.js",
+        "data": {
+          "name": "Netflix - Q3 FY26",
+          "company": "Netflix",
+          "meta": {
+            "title": "Netflix Q3 FY26 Income Statement",
+            "period": "Q3 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Netflix · 2026 财年第三季度",
+              "meta": {
+                "title": "Netflix 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "pinterest-q3-fy26",
+        "src": "data/datasets/pinterest-q3-fy26.js",
+        "data": {
+          "name": "Pinterest · Q3 FY26",
+          "company": "Pinterest",
+          "meta": {
+            "title": "Pinterest Q3 FY26 Income Statement",
+            "period": "Q3 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Pinterest · 2026 财年第三季度",
+              "meta": {
+                "title": "Pinterest 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "reddit-q3-fy26",
+        "src": "data/datasets/reddit-q3-fy26.js",
+        "data": {
+          "name": "Reddit · Q3 FY26",
+          "company": "Reddit",
+          "meta": {
+            "title": "Reddit Q3 FY26 Income Statement",
+            "period": "Q3 FY26",
+            "periodNote": "Ending Sep. 2026"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Reddit · 2026 财年第三季度",
+              "meta": {
+                "title": "Reddit 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度",
+                "periodNote": "截至 2026 年 9 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "roblox-q3-fy26",
+        "src": "data/datasets/roblox-q3-fy26.js",
+        "data": {
+          "name": "Roblox · Q3 FY26",
+          "company": "Roblox",
+          "meta": {
+            "title": "Roblox Q3 FY26 Income Statement",
+            "period": "Q3 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Roblox · 2026 财年第三季度",
+              "meta": {
+                "title": "Roblox 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "spacex-q3-fy26",
+        "src": "data/datasets/spacex-q3-fy26.js",
+        "data": {
+          "name": "SpaceX · Q3 FY26",
+          "company": "SpaceX",
+          "meta": {
+            "period": "Q3 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "SpaceX · 2026 财年第三季度",
+              "meta": {
+                "period": "2026 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "spotify-q3-fy26",
+        "src": "data/datasets/spotify-q3-fy26.js",
+        "data": {
+          "name": "Spotify · Q3 FY26",
+          "company": "Spotify",
+          "meta": {
+            "title": "Spotify Q3 FY26 Income Statement",
+            "period": "Q3 FY26"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Spotify · 2026 财年第三季度",
+              "meta": {
+                "title": "Spotify 2026 财年第三季度利润表",
+                "period": "2026 财年第三季度"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "stellantis-q3-fy26",
+        "src": "data/datasets/stellantis-q3-fy26.js",
+        "data": {
+          "name": "Stellantis · Q3 FY26",
+          "company": "Stellantis",
+          "meta": {
+            "title": "Stellantis Q3 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Stellantis · 2026 财年第三季度",
+              "meta": {
+                "title": "Stellantis 2026 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "tesla-q3-fy26",
+        "src": "data/datasets/tesla-q3-fy26.js",
+        "data": {
+          "name": "Tesla - Q3 FY26",
+          "company": "Tesla",
+          "meta": {
+            "title": "Tesla Q3 FY26 Income Statement"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Tesla · 2026 财年第三季度",
+              "meta": {
+                "title": "Tesla 2026 财年第三季度利润表"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "veeva-q1-fy24",
+        "src": "data/datasets/veeva-q1-fy24.js",
+        "data": {
+          "name": "Veeva Systems · Q1 FY24",
+          "company": "Veeva Systems",
+          "meta": {
+            "title": "Veeva Q1 FY24 Income Statement",
+            "period": "Q1 FY24",
+            "periodNote": "Ending Apr. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Veeva Systems · 2024 财年第一季度",
+              "meta": {
+                "title": "Veeva 2024 财年第一季度利润表",
+                "period": "2024 财年第一季度",
+                "periodNote": "截至 2023 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "veeva-q1-fy25",
+        "src": "data/datasets/veeva-q1-fy25.js",
+        "data": {
+          "name": "Veeva Systems · Q1 FY25",
+          "company": "Veeva Systems",
+          "meta": {
+            "title": "Veeva Q1 FY25 Income Statement",
+            "period": "Q1 FY25",
+            "periodNote": "Ending Apr. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Veeva Systems · 2025 财年第一季度",
+              "meta": {
+                "title": "Veeva 2025 财年第一季度利润表",
+                "period": "2025 财年第一季度",
+                "periodNote": "截至 2024 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "veeva-q1-fy26",
+        "src": "data/datasets/veeva-q1-fy26.js",
+        "data": {
+          "name": "Veeva Systems · Q1 FY26",
+          "company": "Veeva Systems",
+          "meta": {
+            "title": "Veeva Q1 FY26 Income Statement",
+            "period": "Q1 FY26",
+            "periodNote": "Ending Apr. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Veeva Systems · 2026 财年第一季度",
+              "meta": {
+                "title": "Veeva 2026 财年第一季度利润表",
+                "period": "2026 财年第一季度",
+                "periodNote": "截至 2025 年 4 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "veeva-q2-fy24",
+        "src": "data/datasets/veeva-q2-fy24.js",
+        "data": {
+          "name": "Veeva Systems · Q2 FY24",
+          "company": "Veeva Systems",
+          "meta": {
+            "title": "Veeva Q2 FY24 Income Statement",
+            "period": "Q2 FY24",
+            "periodNote": "Ending July 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Veeva Systems · 2024 财年第二季度",
+              "meta": {
+                "title": "Veeva 2024 财年第二季度利润表",
+                "period": "2024 财年第二季度",
+                "periodNote": "截至 2023 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "veeva-q2-fy25",
+        "src": "data/datasets/veeva-q2-fy25.js",
+        "data": {
+          "name": "Veeva Systems · Q2 FY25",
+          "company": "Veeva Systems",
+          "meta": {
+            "title": "Veeva Q2 FY25 Income Statement",
+            "period": "Q2 FY25",
+            "periodNote": "Ending July 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Veeva Systems · 2025 财年第二季度",
+              "meta": {
+                "title": "Veeva 2025 财年第二季度利润表",
+                "period": "2025 财年第二季度",
+                "periodNote": "截至 2024 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "veeva-q2-fy26",
+        "src": "data/datasets/veeva-q2-fy26.js",
+        "data": {
+          "name": "Veeva Systems · Q2 FY26",
+          "company": "Veeva Systems",
+          "meta": {
+            "title": "Veeva Q2 FY26 Income Statement",
+            "period": "Q2 FY26",
+            "periodNote": "Ending July 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Veeva Systems · 2026 财年第二季度",
+              "meta": {
+                "title": "Veeva 2026 财年第二季度利润表",
+                "period": "2026 财年第二季度",
+                "periodNote": "截至 2025 年 7 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "veeva-q3-fy23",
+        "src": "data/datasets/veeva-q3-fy23.js",
+        "data": {
+          "name": "Veeva Systems · Q3 FY23",
+          "company": "Veeva Systems",
+          "meta": {
+            "title": "Veeva Q3 FY23 Income Statement",
+            "period": "Q3 FY23",
+            "periodNote": "Ending October 2022"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Veeva Systems · 2023 财年第三季度",
+              "meta": {
+                "title": "Veeva 2023 财年第三季度利润表",
+                "period": "2023 财年第三季度",
+                "periodNote": "截至 2022 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "veeva-q3-fy25",
+        "src": "data/datasets/veeva-q3-fy25.js",
+        "data": {
+          "name": "Veeva Systems · Q3 FY25",
+          "company": "Veeva Systems",
+          "meta": {
+            "title": "Veeva Q3 FY25 Income Statement",
+            "period": "Q3 FY25",
+            "periodNote": "Ending Oct. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Veeva Systems · 2025 财年第三季度",
+              "meta": {
+                "title": "Veeva 2025 财年第三季度利润表",
+                "period": "2025 财年第三季度",
+                "periodNote": "截至 2024 年 10 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "veeva-q4-fy23",
+        "src": "data/datasets/veeva-q4-fy23.js",
+        "data": {
+          "name": "Veeva Systems · Q4 FY23",
+          "company": "Veeva Systems",
+          "meta": {
+            "title": "Veeva Q4 FY23 Income Statement",
+            "period": "Q4 FY23",
+            "periodNote": "Ending Jan. 2023"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Veeva Systems · 2023 财年第四季度",
+              "meta": {
+                "title": "Veeva 2023 财年第四季度利润表",
+                "period": "2023 财年第四季度",
+                "periodNote": "截至 2023 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "veeva-q4-fy24",
+        "src": "data/datasets/veeva-q4-fy24.js",
+        "data": {
+          "name": "Veeva Systems · Q4 FY24",
+          "company": "Veeva Systems",
+          "meta": {
+            "title": "Veeva Q4 FY24 Income Statement",
+            "period": "Q4 FY24",
+            "periodNote": "Ending Jan. 2024"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Veeva Systems · 2024 财年第四季度",
+              "meta": {
+                "title": "Veeva 2024 财年第四季度利润表",
+                "period": "2024 财年第四季度",
+                "periodNote": "截至 2024 年 1 月"
+              }
+            }
+          }
+        }
+      },
+      {
+        "key": "veeva-q4-fy25",
+        "src": "data/datasets/veeva-q4-fy25.js",
+        "data": {
+          "name": "Veeva Systems · Q4 FY25",
+          "company": "Veeva Systems",
+          "meta": {
+            "title": "Veeva Q4 FY25 Income Statement",
+            "period": "Q4 FY25",
+            "periodNote": "Ending Jan. 2025"
+          },
+          "i18n": {
+            "zh": {
+              "name": "Veeva Systems · 2025 财年第四季度",
+              "meta": {
+                "title": "Veeva 2025 财年第四季度利润表",
+                "period": "2025 财年第四季度",
+                "periodNote": "截至 2025 年 1 月"
+              }
+            }
+          }
+        }
       }
     ]
   };

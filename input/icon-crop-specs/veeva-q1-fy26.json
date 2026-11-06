@@ -1,0 +1,85 @@
+{
+  "source": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-9891230c-e54c-46d0-ba11-55cdab524361/workspace/input/processing/veeva-q1-fy26.png",
+  "outputDir": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-9891230c-e54c-46d0-ba11-55cdab524361/workspace/data/assets/icon-references/veeva",
+  "runtimeOutputDir": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-9891230c-e54c-46d0-ba11-55cdab524361/workspace/data/assets/raster-annotations/veeva",
+  "report": "crop-report-q1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "crops": [
+    {
+      "key": "logo",
+      "output": "crops/logo-q1-fy26.png",
+      "runtimeOutput": "logo-q1-fy26.png",
+      "searchBox": {
+        "x": 844,
+        "y": 275,
+        "width": 563,
+        "height": 145
+      },
+      "cropBox": {
+        "x": 844,
+        "y": 275,
+        "width": 563,
+        "height": 145
+      },
+      "threshold": 8,
+      "minComponentArea": 8,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "crm",
+      "output": "crops/crm-q1-fy26.png",
+      "runtimeOutput": "crm-q1-fy26.png",
+      "searchBox": {
+        "x": 70,
+        "y": 611,
+        "width": 271,
+        "height": 51
+      },
+      "cropBox": {
+        "x": 70,
+        "y": 611,
+        "width": 271,
+        "height": 51
+      },
+      "threshold": 8,
+      "minComponentArea": 8,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "vault",
+      "output": "crops/vault-q1-fy26.png",
+      "runtimeOutput": "vault-q1-fy26.png",
+      "searchBox": {
+        "x": 63,
+        "y": 978,
+        "width": 284,
+        "height": 56
+      },
+      "cropBox": {
+        "x": 63,
+        "y": 978,
+        "width": 284,
+        "height": 56
+      },
+      "threshold": 8,
+      "minComponentArea": 8,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ]
+}

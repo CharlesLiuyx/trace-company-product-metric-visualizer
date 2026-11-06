@@ -1694,6 +1694,272 @@
           },
         },
       },
+    },
+{
+  "key": "meta-q3-fy26",
+  "company": "Meta",
+  "period": "Q3 FY26",
+  "periodNote": "Ending Sep. 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/meta-q3-fy26.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 64.6,
+    "notes": [
+      "+26% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "family_of_apps",
+        "label": "Family of Apps (FoA)",
+        "value": 64.1,
+        "notes": [
+          "+26% Y/Y",
+          "Operating profit: $17.1B"
+        ],
+        "children": [
+          {
+            "id": "advertising",
+            "label": "Advertising",
+            "value": 63.1,
+            "notes": [
+              "+26% Y/Y"
+            ]
+          },
+          {
+            "id": "other_revenue",
+            "label": "Other",
+            "value": 1.1,
+            "notes": [
+              "+59% Y/Y",
+              "Payments infrastructure"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "reality_labs",
+        "label": "Reality Labs (RL)",
+        "value": 0.4,
+        "notes": [
+          "(6%) Y/Y",
+          "Operating loss: ($4.1B)"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 13.4
+    },
+    "operatingExpenses": {
+      "total": 38.2,
+      "items": [
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 20.1,
+          "notes": [
+            "31% of revenue",
+            "+1pp Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 14.9,
+          "notes": [
+            "23% of revenue",
+            "+16pp Y/Y",
+            "* Includes $10B youth-safety legal charge"
+          ]
+        },
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 3.3,
+          "notes": [
+            "5% of revenue",
+            "(0pp) Y/Y"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 3.1
     }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross Profit",
+      "value": 51.2,
+      "notes": [
+        "79% margin",
+        "(3pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 13,
+      "notes": [
+        "20% margin",
+        "(20pp) Y/Y"
+      ],
+      "items": [
+        {
+          "id": "family_of_apps_operating_profit",
+          "label": "FoA operating profit",
+          "value": 17.1
+        },
+        {
+          "id": "reality_labs_operating_loss",
+          "label": "RL operating loss",
+          "value": -4.1
+        }
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 9.8,
+      "notes": [
+        "15% margin",
+        "(21pp) Y/Y"
+      ]
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "periodNote": "截至 2026 年 9 月",
+      "revenue": {
+        "notes": [
+          "同比 +26%"
+        ],
+        "items": [
+          {
+            "id": "family_of_apps",
+            "label": "应用家族（FoA）",
+            "notes": [
+              "同比 +26%",
+              "营业利润: $17.1B"
+            ],
+            "children": [
+              {
+                "id": "advertising",
+                "label": "广告",
+                "notes": [
+                  "同比 +26%"
+                ]
+              },
+              {
+                "id": "other_revenue",
+                "label": "其他",
+                "notes": [
+                  "同比 +59%",
+                  "支付基础设施"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "reality_labs",
+            "label": "Reality Labs（RL）",
+            "notes": [
+              "同比 (6%)",
+              "营业亏损: ($4.1B)"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 31%",
+                "同比 +1 个百分点"
+              ]
+            },
+            {
+              "id": "ga",
+              "label": "管理费用",
+              "notes": [
+                "占收入 23%",
+                "同比 +16 个百分点",
+                "* 包含 $10B 青少年安全法律费用"
+              ]
+            },
+            {
+              "id": "sm",
+              "label": "销售与市场",
+              "notes": [
+                "占收入 5%",
+                "同比 (0 个百分点)"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 79%",
+            "同比 (3 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 20%",
+            "同比 (20 个百分点)"
+          ],
+          "items": [
+            {
+              "id": "family_of_apps_operating_profit",
+              "label": "FoA 营业利润"
+            },
+            {
+              "id": "reality_labs_operating_loss",
+              "label": "RL 营业亏损"
+            }
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 15%",
+            "同比 (21 个百分点)"
+          ]
+        }
+      }
+    }
+  }
+}
   );
 })(window);

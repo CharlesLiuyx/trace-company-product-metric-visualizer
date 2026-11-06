@@ -1,0 +1,210 @@
+{
+  "source": "input/processed/etsy-q2-fy23.png",
+  "spec": "input/icon-crop-specs/etsy-q2-fy23.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T15:29:14.137928+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/etsy",
+  "crops": [
+    {
+      "key": "logo-q2-fy23",
+      "output": "data/assets/icon-references/etsy/crops/logo-q2-fy23.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 3124,
+        "losslessBytes": 12724,
+        "savingsVsLossless": 0.7545,
+        "metrics": {
+          "meanAbsoluteError": 0.5328,
+          "rootMeanSquareError": 1.2064,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 25,
+          "changedPixelRatio": 0.8102
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 15068,
+        "transparentPixelRatio": 0.1895
+      },
+      "searchBox": {
+        "x": 750,
+        "y": 222,
+        "width": 282,
+        "height": 282
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 761,
+        "y0": 233,
+        "x1": 1021,
+        "y1": 492
+      },
+      "cropBox": {
+        "x0": 750,
+        "y0": 222,
+        "x1": 1032,
+        "y1": 504
+      },
+      "validation": {
+        "width": 282,
+        "height": 282,
+        "foregroundPixels": 60232,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 11,
+          "right": 11,
+          "top": 11,
+          "bottom": 12
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0018
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/etsy/logo-q2-fy23.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 3124,
+        "losslessBytes": 12724,
+        "savingsVsLossless": 0.7545,
+        "metrics": {
+          "meanAbsoluteError": 0.5328,
+          "rootMeanSquareError": 1.2064,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 25,
+          "changedPixelRatio": 0.8102
+        }
+      }
+    },
+    {
+      "key": "brands-q2-fy23",
+      "output": "data/assets/icon-references/etsy/crops/brands-q2-fy23.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3428,
+        "losslessBytes": 16947,
+        "savingsVsLossless": 0.7977,
+        "metrics": {
+          "meanAbsoluteError": 0.4196,
+          "rootMeanSquareError": 2.3401,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.1683
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 48061,
+        "transparentPixelRatio": 0.8372
+      },
+      "searchBox": {
+        "x": 18,
+        "y": 521,
+        "width": 368,
+        "height": 156
+      },
+      "componentCount": 10,
+      "subjectBox": {
+        "x0": 34,
+        "y0": 537,
+        "x1": 374,
+        "y1": 666
+      },
+      "cropBox": {
+        "x0": 18,
+        "y0": 521,
+        "x1": 386,
+        "y1": 677
+      },
+      "validation": {
+        "width": 368,
+        "height": 156,
+        "foregroundPixels": 8421,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 16,
+          "right": 12,
+          "top": 16,
+          "bottom": 11
+        },
+        "centerOffset": {
+          "x": 0.0054,
+          "y": 0.016
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "data/assets/raster-annotations/etsy/brands-q2-fy23.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3428,
+        "losslessBytes": 16947,
+        "savingsVsLossless": 0.7977,
+        "metrics": {
+          "meanAbsoluteError": 0.4196,
+          "rootMeanSquareError": 2.3401,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.1683
+        }
+      }
+    }
+  ]
+}

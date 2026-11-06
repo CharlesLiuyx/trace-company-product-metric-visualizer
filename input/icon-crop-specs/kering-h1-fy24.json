@@ -1,0 +1,143 @@
+{
+  "source": "input/processed/kering-h1-fy24.png",
+  "outputDir": "data/assets/icon-references/kering",
+  "runtimeOutputDir": "data/assets/raster-annotations/kering",
+  "report": "crop-report-h1-fy24.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [
+      242,
+      242,
+      242
+    ]
+  },
+  "crops": [
+    {
+      "key": "company-h1-fy24",
+      "output": "crops/company-h1-fy24.png",
+      "runtimeOutput": "company-h1-fy24.png",
+      "searchBox": {
+        "x": 682,
+        "y": 307,
+        "width": 619,
+        "height": 78
+      },
+      "cropBox": {
+        "x": 682,
+        "y": 307,
+        "width": 619,
+        "height": 78
+      },
+      "threshold": 8,
+      "minComponentArea": 5,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.4,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "gucci-h1-fy24",
+      "output": "crops/gucci-h1-fy24.png",
+      "runtimeOutput": "gucci-h1-fy24.png",
+      "searchBox": {
+        "x": 60,
+        "y": 464,
+        "width": 327,
+        "height": 60
+      },
+      "cropBox": {
+        "x": 60,
+        "y": 464,
+        "width": 327,
+        "height": 60
+      },
+      "threshold": 8,
+      "minComponentArea": 5,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.4,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "saint-laurent-h1-fy24",
+      "output": "crops/saint-laurent-h1-fy24.png",
+      "runtimeOutput": "saint-laurent-h1-fy24.png",
+      "searchBox": {
+        "x": 26,
+        "y": 658,
+        "width": 392,
+        "height": 53
+      },
+      "cropBox": {
+        "x": 26,
+        "y": 658,
+        "width": 392,
+        "height": 53
+      },
+      "threshold": 8,
+      "minComponentArea": 5,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.4,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "bottega-veneta-h1-fy24",
+      "output": "crops/bottega-veneta-h1-fy24.png",
+      "runtimeOutput": "bottega-veneta-h1-fy24.png",
+      "searchBox": {
+        "x": 48,
+        "y": 815,
+        "width": 353,
+        "height": 47
+      },
+      "cropBox": {
+        "x": 48,
+        "y": 815,
+        "width": 353,
+        "height": 47
+      },
+      "threshold": 8,
+      "minComponentArea": 5,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.4,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "owl-h1-fy24",
+      "output": "crops/owl-h1-fy24.png",
+      "runtimeOutput": "owl-h1-fy24.png",
+      "searchBox": {
+        "x": 900,
+        "y": 410,
+        "width": 191,
+        "height": 104
+      },
+      "cropBox": {
+        "x": 900,
+        "y": 410,
+        "width": 191,
+        "height": 104
+      },
+      "threshold": 8,
+      "minComponentArea": 5,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.4,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ]
+}

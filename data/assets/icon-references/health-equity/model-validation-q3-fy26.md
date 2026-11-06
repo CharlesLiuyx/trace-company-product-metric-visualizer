@@ -1,0 +1,1 @@
+Validated the Q3 FY26 source crop visually: complete HealthEquity wordmark and registered mark; centered, no financial labels, connectors or publisher content. Runtime asset company-wordmark-q3-fy26.png is source-derived.

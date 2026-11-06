@@ -1,0 +1,210 @@
+{
+  "source": "output/builds/build-67a6720b-eb4f-4839-8591-d6407184863a/workspace/input/processing/etsy-q1-fy25.png",
+  "spec": "output/builds/build-67a6720b-eb4f-4839-8591-d6407184863a/workspace/crop-spec-q1-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T15:34:25.468060+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "output/builds/build-67a6720b-eb4f-4839-8591-d6407184863a/workspace/data/assets/raster-annotations/etsy",
+  "crops": [
+    {
+      "key": "company-logo-q1-fy25",
+      "output": "output/builds/build-67a6720b-eb4f-4839-8591-d6407184863a/workspace/data/assets/icon-references/etsy/crops/company-logo-q1-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3077,
+        "losslessBytes": 12537,
+        "savingsVsLossless": 0.7546,
+        "metrics": {
+          "meanAbsoluteError": 0.5876,
+          "rootMeanSquareError": 1.1094,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 21,
+          "changedPixelRatio": 0.9203
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 5695,
+        "transparentPixelRatio": 0.0814
+      },
+      "searchBox": {
+        "x": 760,
+        "y": 230,
+        "width": 265,
+        "height": 264
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 763,
+        "y0": 232,
+        "x1": 1022,
+        "y1": 491
+      },
+      "cropBox": {
+        "x0": 760,
+        "y0": 230,
+        "x1": 1025,
+        "y1": 494
+      },
+      "validation": {
+        "width": 265,
+        "height": 264,
+        "foregroundPixels": 60077,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 3,
+          "right": 3,
+          "top": 2,
+          "bottom": 3
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0019
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "output/builds/build-67a6720b-eb4f-4839-8591-d6407184863a/workspace/data/assets/raster-annotations/etsy/company-logo-q1-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3077,
+        "losslessBytes": 12537,
+        "savingsVsLossless": 0.7546,
+        "metrics": {
+          "meanAbsoluteError": 0.5876,
+          "rootMeanSquareError": 1.1094,
+          "p99AbsoluteError": 4.0,
+          "maxChannelDiff": 21,
+          "changedPixelRatio": 0.9203
+        }
+      }
+    },
+    {
+      "key": "brands-q1-fy25",
+      "output": "output/builds/build-67a6720b-eb4f-4839-8591-d6407184863a/workspace/data/assets/icon-references/etsy/crops/brands-q1-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 3812,
+        "losslessBytes": 16983,
+        "savingsVsLossless": 0.7755,
+        "metrics": {
+          "meanAbsoluteError": 0.3962,
+          "rootMeanSquareError": 1.9902,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 38,
+          "changedPixelRatio": 0.2045
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 38122,
+        "transparentPixelRatio": 0.8019
+      },
+      "searchBox": {
+        "x": 29,
+        "y": 583,
+        "width": 347,
+        "height": 137
+      },
+      "componentCount": 10,
+      "subjectBox": {
+        "x0": 34,
+        "y0": 593,
+        "x1": 374,
+        "y1": 720
+      },
+      "cropBox": {
+        "x0": 29,
+        "y0": 583,
+        "x1": 376,
+        "y1": 720
+      },
+      "validation": {
+        "width": 347,
+        "height": 137,
+        "foregroundPixels": 8580,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 5,
+          "right": 2,
+          "top": 10,
+          "bottom": 0
+        },
+        "centerOffset": {
+          "x": 0.0043,
+          "y": 0.0365
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "output/builds/build-67a6720b-eb4f-4839-8591-d6407184863a/workspace/data/assets/raster-annotations/etsy/brands-q1-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 48,
+        "bytes": 3812,
+        "losslessBytes": 16983,
+        "savingsVsLossless": 0.7755,
+        "metrics": {
+          "meanAbsoluteError": 0.3962,
+          "rootMeanSquareError": 1.9902,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 38,
+          "changedPixelRatio": 0.2045
+        }
+      }
+    }
+  ]
+}

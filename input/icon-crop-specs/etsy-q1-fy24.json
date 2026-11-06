@@ -1,0 +1,57 @@
+{
+  "source": "input/processing/etsy-q1-fy24.png",
+  "outputDir": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-884a96c1-8856-4058-9524-6b786d6adc60/workspace/data/assets/icon-references/etsy",
+  "runtimeOutputDir": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-884a96c1-8856-4058-9524-6b786d6adc60/workspace/data/assets/raster-annotations/etsy",
+  "report": "crop-report-q1-fy24.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "crops": [
+    {
+      "key": "company-logo-q1-fy24",
+      "output": "crops/company-logo-q1-fy24.png",
+      "runtimeOutput": "company-logo-q1-fy24.png",
+      "searchBox": {
+        "x": 758,
+        "y": 241,
+        "width": 266,
+        "height": 266
+      },
+      "cropBox": {
+        "x": 758,
+        "y": 241,
+        "width": 266,
+        "height": 266
+      },
+      "minComponentArea": 8,
+      "validation": {
+        "maxCenterOffset": 0.3,
+        "borderBand": 1
+      }
+    },
+    {
+      "key": "marketplace-brands-q1-fy24",
+      "output": "crops/marketplace-brands-q1-fy24.png",
+      "runtimeOutput": "marketplace-brands-q1-fy24.png",
+      "searchBox": {
+        "x": 55,
+        "y": 646,
+        "width": 326,
+        "height": 148
+      },
+      "cropBox": {
+        "x": 55,
+        "y": 646,
+        "width": 326,
+        "height": 148
+      },
+      "minComponentArea": 8,
+      "validation": {
+        "maxCenterOffset": 0.3,
+        "borderBand": 1
+      }
+    }
+  ]
+}

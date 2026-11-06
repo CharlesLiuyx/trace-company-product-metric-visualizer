@@ -1,0 +1,296 @@
+{
+  "source": "input/processing/veeva-q3-fy25.png",
+  "spec": "input/icon-crop-specs/veeva-q3-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T15:26:58.492667+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/veeva",
+  "crops": [
+    {
+      "key": "company-logo-q3-fy25",
+      "output": "data/assets/icon-references/veeva/crops/company-logo-q3-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4402,
+        "losslessBytes": 23792,
+        "savingsVsLossless": 0.815,
+        "metrics": {
+          "meanAbsoluteError": 0.4381,
+          "rootMeanSquareError": 1.8339,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.4415
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 42994,
+        "transparentPixelRatio": 0.5455
+      },
+      "searchBox": {
+        "x": 846,
+        "y": 277,
+        "width": 559,
+        "height": 141
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 852,
+        "y0": 285,
+        "x1": 1395,
+        "y1": 411
+      },
+      "cropBox": {
+        "x0": 846,
+        "y0": 277,
+        "x1": 1405,
+        "y1": 418
+      },
+      "validation": {
+        "width": 559,
+        "height": 141,
+        "foregroundPixels": 29411,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 10,
+          "top": 8,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": -0.0036,
+          "y": 0.0035
+        },
+        "passes": true
+      },
+      "note": "Source brand-only crop; excludes all financial text and chart geometry.",
+      "runtimeOutput": "data/assets/raster-annotations/veeva/company-logo-q3-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4402,
+        "losslessBytes": 23792,
+        "savingsVsLossless": 0.815,
+        "metrics": {
+          "meanAbsoluteError": 0.4381,
+          "rootMeanSquareError": 1.8339,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 43,
+          "changedPixelRatio": 0.4415
+        }
+      }
+    },
+    {
+      "key": "vault-logo-q3-fy25",
+      "output": "data/assets/icon-references/veeva/crops/vault-logo-q3-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2867,
+        "losslessBytes": 12380,
+        "savingsVsLossless": 0.7684,
+        "metrics": {
+          "meanAbsoluteError": 0.9264,
+          "rootMeanSquareError": 2.5448,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.4033
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 8173,
+        "transparentPixelRatio": 0.5674
+      },
+      "searchBox": {
+        "x": 65,
+        "y": 598,
+        "width": 277,
+        "height": 52
+      },
+      "componentCount": 5,
+      "subjectBox": {
+        "x0": 68,
+        "y0": 604,
+        "x1": 337,
+        "y1": 644
+      },
+      "cropBox": {
+        "x0": 65,
+        "y0": 598,
+        "x1": 342,
+        "y1": 650
+      },
+      "validation": {
+        "width": 277,
+        "height": 52,
+        "foregroundPixels": 5815,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 3,
+          "right": 5,
+          "top": 6,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": -0.0036,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "Source brand-only crop; excludes all financial text and chart geometry.",
+      "runtimeOutput": "data/assets/raster-annotations/veeva/vault-logo-q3-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2867,
+        "losslessBytes": 12380,
+        "savingsVsLossless": 0.7684,
+        "metrics": {
+          "meanAbsoluteError": 0.9264,
+          "rootMeanSquareError": 2.5448,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 40,
+          "changedPixelRatio": 0.4033
+        }
+      }
+    },
+    {
+      "key": "crm-logo-q3-fy25",
+      "output": "data/assets/icon-references/veeva/crops/crm-logo-q3-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2190,
+        "losslessBytes": 10100,
+        "savingsVsLossless": 0.7832,
+        "metrics": {
+          "meanAbsoluteError": 0.7675,
+          "rootMeanSquareError": 2.4147,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.4045
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 8085,
+        "transparentPixelRatio": 0.6203
+      },
+      "searchBox": {
+        "x": 68,
+        "y": 949,
+        "width": 266,
+        "height": 49
+      },
+      "componentCount": 8,
+      "subjectBox": {
+        "x0": 74,
+        "y0": 956,
+        "x1": 324,
+        "y1": 992
+      },
+      "cropBox": {
+        "x0": 68,
+        "y0": 949,
+        "x1": 334,
+        "y1": 998
+      },
+      "validation": {
+        "width": 266,
+        "height": 49,
+        "foregroundPixels": 4507,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 6,
+          "right": 10,
+          "top": 7,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": -0.0075,
+          "y": 0.0102
+        },
+        "passes": true
+      },
+      "note": "Source brand-only crop; excludes all financial text and chart geometry.",
+      "runtimeOutput": "data/assets/raster-annotations/veeva/crm-logo-q3-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 32,
+        "bytes": 2190,
+        "losslessBytes": 10100,
+        "savingsVsLossless": 0.7832,
+        "metrics": {
+          "meanAbsoluteError": 0.7675,
+          "rootMeanSquareError": 2.4147,
+          "p99AbsoluteError": 11.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.4045
+        }
+      }
+    }
+  ]
+}

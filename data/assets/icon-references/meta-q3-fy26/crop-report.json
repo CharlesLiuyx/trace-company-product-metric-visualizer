@@ -1,0 +1,110 @@
+{
+  "source": "input/processing/meta-q3-fy26.png",
+  "spec": "output/builds/build-33ff3aad-5b72-4daa-95bf-422d1ab56afc/workspace/input/icon-crop-specs/meta-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T15:28:55.020386+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 7
+  },
+  "runtimeOutputDir": "output/builds/build-33ff3aad-5b72-4daa-95bf-422d1ab56afc/workspace/data/assets/raster-annotations/meta",
+  "crops": [
+    {
+      "key": "reality-devices-q3-fy26",
+      "output": "output/builds/build-33ff3aad-5b72-4daa-95bf-422d1ab56afc/workspace/data/assets/icon-references/meta-q3-fy26/reality-devices-q3-fy26.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 35853,
+        "losslessBytes": 35853,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 7,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 32631,
+        "transparentPixelRatio": 0.5693
+      },
+      "searchBox": {
+        "x": 580,
+        "y": 1102,
+        "width": 208,
+        "height": 220
+      },
+      "componentCount": 4,
+      "subjectBox": {
+        "x0": 581,
+        "y0": 1102,
+        "x1": 786,
+        "y1": 1319
+      },
+      "cropBox": {
+        "x0": 567,
+        "y0": 1089,
+        "x1": 800,
+        "y1": 1335
+      },
+      "validation": {
+        "width": 233,
+        "height": 246,
+        "foregroundPixels": 20529,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 14,
+          "right": 14,
+          "top": 13,
+          "bottom": 16
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": -0.0061
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "output/builds/build-33ff3aad-5b72-4daa-95bf-422d1ab56afc/workspace/data/assets/raster-annotations/meta/reality-devices-q3-fy26.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 35853,
+        "losslessBytes": 35853,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

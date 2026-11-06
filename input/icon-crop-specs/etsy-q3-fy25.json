@@ -1,0 +1,48 @@
+{
+  "source": "input/processed/etsy-q3-fy25.png",
+  "outputDir": "data/assets/icon-references/etsy/q3-fy25",
+  "runtimeOutputDir": "data/assets/raster-annotations/etsy",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "crops": [
+    {
+      "key": "etsy-logo-q3-fy25",
+      "output": "etsy-logo-q3-fy25.png",
+      "searchBox": {
+        "x": 759,
+        "y": 205,
+        "width": 256,
+        "height": 256
+      },
+      "cropBox": {
+        "x": 759,
+        "y": 205,
+        "width": 256,
+        "height": 256
+      },
+      "padding": 0,
+      "minComponentArea": 10
+    },
+    {
+      "key": "marketplace-brands-q3-fy25",
+      "output": "marketplace-brands-q3-fy25.png",
+      "searchBox": {
+        "x": 113,
+        "y": 590,
+        "width": 188,
+        "height": 142
+      },
+      "cropBox": {
+        "x": 113,
+        "y": 590,
+        "width": 188,
+        "height": 142
+      },
+      "padding": 0,
+      "minComponentArea": 10
+    }
+  ]
+}

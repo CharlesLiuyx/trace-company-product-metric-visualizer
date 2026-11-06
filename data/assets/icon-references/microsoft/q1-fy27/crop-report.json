@@ -1,0 +1,196 @@
+{
+  "source": "input/processing/microsoft-q1-fy27.png",
+  "spec": "output/builds/build-d8a2e9d2-f411-4057-9463-e397d4fa4130/workspace/input/icon-crop-specs/microsoft-q1-fy27.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T15:26:28.297635+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "output/builds/build-d8a2e9d2-f411-4057-9463-e397d4fa4130/workspace/data/assets/raster-annotations/microsoft",
+  "crops": [
+    {
+      "key": "office",
+      "output": "output/builds/build-d8a2e9d2-f411-4057-9463-e397d4fa4130/workspace/data/assets/icon-references/microsoft/q1-fy27/crops/office-q1-fy27.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 1312,
+        "losslessBytes": 4615,
+        "savingsVsLossless": 0.7157,
+        "metrics": {
+          "meanAbsoluteError": 0.9817,
+          "rootMeanSquareError": 2.7109,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.3924
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 4937,
+        "transparentPixelRatio": 0.4732
+      },
+      "searchBox": {
+        "x": 335,
+        "y": 695,
+        "width": 94,
+        "height": 111
+      },
+      "componentCount": 1,
+      "subjectBox": {
+        "x0": 340,
+        "y0": 699,
+        "x1": 423,
+        "y1": 802
+      },
+      "cropBox": {
+        "x0": 335,
+        "y0": 695,
+        "x1": 429,
+        "y1": 806
+      },
+      "validation": {
+        "width": 94,
+        "height": 111,
+        "foregroundPixels": 5415,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 5,
+          "right": 6,
+          "top": 4,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": -0.0053,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "output/builds/build-d8a2e9d2-f411-4057-9463-e397d4fa4130/workspace/data/assets/raster-annotations/microsoft/office-q1-fy27.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 1312,
+        "losslessBytes": 4615,
+        "savingsVsLossless": 0.7157,
+        "metrics": {
+          "meanAbsoluteError": 0.9817,
+          "rootMeanSquareError": 2.7109,
+          "p99AbsoluteError": 12.0,
+          "maxChannelDiff": 42,
+          "changedPixelRatio": 0.3924
+        }
+      }
+    },
+    {
+      "key": "industry",
+      "output": "output/builds/build-d8a2e9d2-f411-4057-9463-e397d4fa4130/workspace/data/assets/icon-references/microsoft/q1-fy27/crops/industry-q1-fy27.png",
+      "compression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 6231,
+        "losslessBytes": 6231,
+        "savingsVsLossless": 0.0
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          86,
+          113,
+          227
+        ],
+        "transparentPixels": 0,
+        "transparentPixelRatio": 0.0
+      },
+      "searchBox": {
+        "x": 276,
+        "y": 1062,
+        "width": 169,
+        "height": 99
+      },
+      "componentCount": 2,
+      "subjectBox": {
+        "x0": 281,
+        "y0": 1069,
+        "x1": 440,
+        "y1": 1157
+      },
+      "cropBox": {
+        "x0": 276,
+        "y0": 1062,
+        "x1": 445,
+        "y1": 1161
+      },
+      "validation": {
+        "width": 169,
+        "height": 99,
+        "foregroundPixels": 9288,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 5,
+          "right": 5,
+          "top": 7,
+          "bottom": 4
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0152
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "output/builds/build-d8a2e9d2-f411-4057-9463-e397d4fa4130/workspace/data/assets/raster-annotations/microsoft/industry-q1-fy27.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "rgba-lossless",
+        "colors": null,
+        "bytes": 6231,
+        "losslessBytes": 6231,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

@@ -2274,4 +2274,221 @@
       },
     }
   );
+ssot.records.push({
+  "key": "microsoft-q1-fy27",
+  "company": "Microsoft",
+  "period": "Q1 FY27",
+  "periodNote": "Ending Sep. 2026",
+  "currency": "$",
+  "unit": "B",
+  "decimals": 1,
+  "sourceImage": "input/processed/microsoft-q1-fy27.png",
+  "roundingTolerance": 0.15,
+  "revenue": {
+    "total": 92.3,
+    "notes": [
+      "+19% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "azure",
+        "label": "Azure",
+        "value": 33.2,
+        "notes": [
+          "+48% Y/Y"
+        ]
+      },
+      {
+        "id": "microsoft_365_cloud",
+        "label": "Microsoft 365 Cloud",
+        "value": 27.8,
+        "notes": [
+          "+17% Y/Y"
+        ]
+      },
+      {
+        "id": "productivity_server_licensing",
+        "label": "Productivity & Server licensing",
+        "value": 8.4,
+        "notes": [
+          "(3%) Y/Y"
+        ]
+      },
+      {
+        "id": "search",
+        "label": "Search & Advertising",
+        "value": 6.6,
+        "notes": [
+          "+10% Y/Y"
+        ]
+      },
+      {
+        "id": "gaming",
+        "label": "XBOX",
+        "value": 5.4,
+        "notes": [
+          "(2%) Y/Y"
+        ]
+      },
+      {
+        "id": "industry_solutions",
+        "label": "Industry Solutions",
+        "value": 5.3,
+        "notes": [
+          "+9% Y/Y"
+        ]
+      },
+      {
+        "id": "windows_devices",
+        "label": "Windows OEM & Devices",
+        "value": 3.6,
+        "notes": [
+          "(22%) Y/Y"
+        ]
+      },
+      {
+        "id": "frontier_support",
+        "label": "Frontier & Support",
+        "value": 2.1,
+        "notes": [
+          "+4% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 29.7
+    },
+    "operatingExpenses": {
+      "total": 16.6,
+      "items": [
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 9
+        },
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 5.7
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 1.9
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 9.3
+    }
+  },
+  "otherIncome": {
+    "total": 0,
+    "items": []
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 62.6
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 45.9
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 36.6
+    }
+  },
+  "i18n": {
+    "zh": {
+      "period": "2027 财年第一季度",
+      "periodNote": "截至 2026 年 9 月",
+      "revenue": {
+        "items": [
+          {
+            "id": "azure",
+            "label": "Azure 云服务"
+          },
+          {
+            "id": "microsoft_365_cloud",
+            "label": "Microsoft 365 云服务"
+          },
+          {
+            "id": "productivity_server_licensing",
+            "label": "生产力与服务器许可"
+          },
+          {
+            "id": "search",
+            "label": "搜索与广告"
+          },
+          {
+            "id": "gaming",
+            "label": "XBOX"
+          },
+          {
+            "id": "industry_solutions",
+            "label": "行业解决方案"
+          },
+          {
+            "id": "windows_devices",
+            "label": "Windows OEM 与设备"
+          },
+          {
+            "id": "frontier_support",
+            "label": "前沿业务与支持"
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "rnd",
+              "label": "研发"
+            },
+            {
+              "id": "sm",
+              "label": "销售与市场"
+            },
+            {
+              "id": "ga",
+              "label": "管理费用"
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润"
+        },
+        "operating": {
+          "label": "营业利润"
+        },
+        "net": {
+          "label": "净利润"
+        }
+      }
+    }
+  }
+});
 })(window);

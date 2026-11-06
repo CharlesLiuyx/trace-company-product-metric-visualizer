@@ -310,6 +310,45 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/accenture/company-logo-q1-fy23.png",
+      "digest": "sha256:7272957fe2ec3b1a66e29a778cb93c2cce93625e292aeca964c2b1c69a824df1",
+      "provenance": [],
+      "directConsumers": [
+        "accenture-q1-fy23"
+      ],
+      "consumers": [
+        "accenture-q1-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/accenture/company-logo-q3-fy23.png",
+      "digest": "sha256:f282b3a762744a9a1cde4eeb2e9c208208f94094a120026de72e34bc955ca724",
+      "provenance": [],
+      "directConsumers": [
+        "accenture-q3-fy23"
+      ],
+      "consumers": [
+        "accenture-q3-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/accenture/company-logo-q4-fy23.png",
+      "digest": "sha256:e0a1e51bd6346e8b1a1b76f78849c0a60e9f033892dfc6876239b0a33a575c1a",
+      "provenance": [],
+      "directConsumers": [
+        "accenture-q4-fy23"
+      ],
+      "consumers": [
+        "accenture-q4-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/accenture/company-logo-q4-fy26.png",
       "digest": "sha256:5ced9136803926600941950ab56796b2e0352c4069883b1e2be6f12726a2b010",
       "provenance": [
@@ -325,6 +364,145 @@
       ],
       "consumers": [
         "accenture-q4-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/accenture/company-wordmark-q2-fy24.png",
+      "digest": "sha256:d010d86b7ac6258f07c80a9a157f6edc173a1aea57973703b192a42b2cc6ffc1",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/accenture-q2-fy24.json",
+          "recipeDigest": "sha256:46f4857fc4d24f794cc50d9d404a3a06db9a2b5c6c0f10e46dca4175ea1f99b5",
+          "source": "input/processing/accenture-q2-fy24.png",
+          "cropKey": "accenture-wordmark-q2-fy24"
+        }
+      ],
+      "directConsumers": [
+        "accenture-q2-fy24"
+      ],
+      "consumers": [
+        "accenture-q2-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/accenture/company-wordmark-q3-fy24.png",
+      "digest": "sha256:68f5b7cef90eba016dc283af3a1183a7994dff1bdcbae24ec669a6aa9b4e6a0b",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/accenture-q3-fy24.json",
+          "recipeDigest": "sha256:8300070a2d48327b4cd07cb50082159fba6baf40f595ebe141dd668bf53be1d1",
+          "source": "input/processed/accenture-q3-fy24.png",
+          "cropKey": "accenture-logo-q3-fy24"
+        }
+      ],
+      "directConsumers": [
+        "accenture-q3-fy24"
+      ],
+      "consumers": [
+        "accenture-q3-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/accenture/company-wordmark-q4-fy24.png",
+      "digest": "sha256:15ae0b4a1b0047b33710bf1159f50a4c285b3aef18bc30fd1fd665b397ac745d",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/accenture-q4-fy24.json",
+          "recipeDigest": "sha256:acf4758565382ba29f700c32d9a016a7a7db4ef7abeebf3bdc32ebd5ca0ef7ae",
+          "source": "input/processing/accenture-q4-fy24.png",
+          "cropKey": "company-wordmark-q4-fy24"
+        }
+      ],
+      "directConsumers": [
+        "accenture-q4-fy24"
+      ],
+      "consumers": [
+        "accenture-q4-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/accenture/company-wordmark-q4-fy25.png",
+      "digest": "sha256:5d3c54910e63277b1b3c89bac9277ad18e2d0eb4e52262dd6088056e897de114",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/accenture-q4-fy25.json",
+          "recipeDigest": "sha256:ec10af581610116a10c939b464e99dfbfc77f0d7807eaaa40db21b29411b5621",
+          "source": "input/processing/accenture-q4-fy25.png",
+          "cropKey": "accenture-company-wordmark-q4-fy25"
+        }
+      ],
+      "directConsumers": [
+        "accenture-q4-fy25"
+      ],
+      "consumers": [
+        "accenture-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/accenture/logo-q1-fy24.png",
+      "digest": "sha256:4271dcc9313cd75ced3107d2f2426d9d1cd0e8294e6896f627feb3327a14eedc",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/accenture-q1-fy24.json",
+          "recipeDigest": "sha256:50e3e20152250e909e85727b8295d9bbc8e71020017bd540d8e6311a4645bf4f",
+          "source": "input/processing/accenture-q1-fy24.png",
+          "cropKey": "accenture-logo-q1-fy24"
+        }
+      ],
+      "directConsumers": [
+        "accenture-q1-fy24"
+      ],
+      "consumers": [
+        "accenture-q1-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/accenture/logo-q1-fy25.png",
+      "digest": "sha256:4f12485497715926fb89c13512e67b142d756315cc96b45e9afb5fa19d25f588",
+      "provenance": [],
+      "directConsumers": [
+        "accenture-q1-fy25"
+      ],
+      "consumers": [
+        "accenture-q1-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/accenture/logo-q1-fy26.png",
+      "digest": "sha256:836e85d5e1a43bccde08c9102e2918283c08c20ab9903b2f60460e4bab76a9f5",
+      "provenance": [],
+      "directConsumers": [
+        "accenture-q1-fy26"
+      ],
+      "consumers": [
+        "accenture-q1-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/accenture/logo-q3-fy25.png",
+      "digest": "sha256:6a6393684f12e37108761ce2e4b92eed7665d13f8ade63fa5e4dda4bd32da744",
+      "provenance": [],
+      "directConsumers": [
+        "accenture-q3-fy25"
+      ],
+      "consumers": [
+        "accenture-q3-fy25"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -1529,6 +1707,19 @@
         "amgen-q2-fy26",
         "amgen-q3-fy25",
         "amgen-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/anthropic/claude-logo-h1-fy26.png",
+      "digest": "sha256:77114735bfbebfcfde96d72fbe53e585cf2b96ac55b7161cb59d3123bbe6b21d",
+      "provenance": [],
+      "directConsumers": [
+        "anthropic-h1-fy26"
+      ],
+      "consumers": [
+        "anthropic-h1-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -5311,6 +5502,228 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/etsy/brand-cluster-q3-fy22.png",
+      "digest": "sha256:f74bfeb776de35948aafa9b559cca085edf0c82b58c7ca2bf1467ceac46c19d0",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/etsy-q3-fy22.json",
+          "recipeDigest": "sha256:2ab0bdcb71b41a351d9f5cb3047cac5514fa87591c71053a1faa7863418bf130",
+          "source": "input/processed/etsy-q3-fy22.png",
+          "cropKey": "etsy-brand-cluster-q3-fy22"
+        }
+      ],
+      "directConsumers": [
+        "etsy-q3-fy22"
+      ],
+      "consumers": [
+        "etsy-q3-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/brands-q1-fy23.png",
+      "digest": "sha256:f7145676b7d881cabacbf4d2195d9200e383843aa15b4861e36fc799a462a16a",
+      "provenance": [],
+      "directConsumers": [
+        "etsy-q1-fy23"
+      ],
+      "consumers": [
+        "etsy-q1-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/brands-q1-fy25.png",
+      "digest": "sha256:c04b79a7756c1dea857d3a38df99ca6d71987b4f31c85c3ffb39051d08561d3e",
+      "provenance": [],
+      "directConsumers": [
+        "etsy-q1-fy25"
+      ],
+      "consumers": [
+        "etsy-q1-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/brands-q2-fy23.png",
+      "digest": "sha256:05e5a331678183c3da821ffc4d34f9f76824a6e8c81417ff0a107312d545485b",
+      "provenance": [],
+      "directConsumers": [
+        "etsy-q2-fy23"
+      ],
+      "consumers": [
+        "etsy-q2-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/brands-q2-fy24.png",
+      "digest": "sha256:fed33c2e319c93a8b88d48a38c165a21bab489027aae94d6aa6f17dc915344db",
+      "provenance": [],
+      "directConsumers": [
+        "etsy-q2-fy24"
+      ],
+      "consumers": [
+        "etsy-q2-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/brands-q3-fy23.png",
+      "digest": "sha256:25366456193631eca437ed3777f4084de9bd85a973e0cb556b8edb81073e7473",
+      "provenance": [],
+      "directConsumers": [
+        "etsy-q3-fy23"
+      ],
+      "consumers": [
+        "etsy-q3-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/brands-q3-fy24.png",
+      "digest": "sha256:50569fd318f509fea7af0f66dc6a6664b7b932df0f036fe3cb9fc379467962f3",
+      "provenance": [],
+      "directConsumers": [
+        "etsy-q3-fy24"
+      ],
+      "consumers": [
+        "etsy-q3-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/brands-q4-fy23.png",
+      "digest": "sha256:2ec058646b5de16f7eade826664f54580b12bcc02468cbaede87314b3bb6a5e3",
+      "provenance": [],
+      "directConsumers": [
+        "etsy-q4-fy23"
+      ],
+      "consumers": [
+        "etsy-q4-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/brands-q4-fy24.png",
+      "digest": "sha256:010db59d9d0f8338c46b0b8b9283f3c2c4b44cf1c6cafcb5a7c0699787cad40b",
+      "provenance": [],
+      "directConsumers": [
+        "etsy-q4-fy24"
+      ],
+      "consumers": [
+        "etsy-q4-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/company-logo-q1-fy23.png",
+      "digest": "sha256:ce8aa6a6fd59de808ec334ace7a6cd5c7288693473892002212768aeb0a3610c",
+      "provenance": [],
+      "directConsumers": [
+        "etsy-q1-fy23"
+      ],
+      "consumers": [
+        "etsy-q1-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/company-logo-q1-fy24.png",
+      "digest": "sha256:9b897aed75705b3e53139514c6424cb22ff0ae8a7e320272ec96e8617a4e6d64",
+      "provenance": [],
+      "directConsumers": [
+        "etsy-q1-fy24"
+      ],
+      "consumers": [
+        "etsy-q1-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/company-logo-q1-fy25.png",
+      "digest": "sha256:6c7428d7e03514d6146da99e5f52e1ac940107871bbc2090a2717c69ee61d774",
+      "provenance": [],
+      "directConsumers": [
+        "etsy-q1-fy25"
+      ],
+      "consumers": [
+        "etsy-q1-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/company-logo-q2-fy24.png",
+      "digest": "sha256:f0a0f21f041ee8378f9656ede173aea4650103418d7c1b4ba90be8f0713e6586",
+      "provenance": [],
+      "directConsumers": [
+        "etsy-q2-fy24"
+      ],
+      "consumers": [
+        "etsy-q2-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/company-logo-q2-fy25.png",
+      "digest": "sha256:4d1ec2eb865421b0e5deaa1dc2e4ac6258255a3ba294b1f8d9be54fb9647e307",
+      "provenance": [],
+      "directConsumers": [
+        "etsy-q2-fy25"
+      ],
+      "consumers": [
+        "etsy-q2-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/company-logo-q3-fy22.png",
+      "digest": "sha256:9b897aed75705b3e53139514c6424cb22ff0ae8a7e320272ec96e8617a4e6d64",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/etsy-q3-fy22.json",
+          "recipeDigest": "sha256:2ab0bdcb71b41a351d9f5cb3047cac5514fa87591c71053a1faa7863418bf130",
+          "source": "input/processed/etsy-q3-fy22.png",
+          "cropKey": "etsy-company-logo-q3-fy22"
+        }
+      ],
+      "directConsumers": [
+        "etsy-q3-fy22"
+      ],
+      "consumers": [
+        "etsy-q3-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/company-logo-q3-fy23.png",
+      "digest": "sha256:8991bcf84ae50923ac609ff721d70966914127706b61d160117eb8d6ceca35f9",
+      "provenance": [],
+      "directConsumers": [
+        "etsy-q3-fy23"
+      ],
+      "consumers": [
+        "etsy-q3-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/etsy/company-logo-q3-fy26.png",
       "digest": "sha256:2bbf507b9a18877ba348969f5a976c8e8dab0513d8f23bb39b781d6cab6ddeac",
       "provenance": [],
@@ -5319,6 +5732,136 @@
       ],
       "consumers": [
         "etsy-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/company-logo-q4-fy22.png",
+      "digest": "sha256:f29be8838ae3376c152d6960a80f6f91b5d6fadfed38f282fe94107e2e25422a",
+      "provenance": [],
+      "directConsumers": [
+        "etsy-q4-fy22"
+      ],
+      "consumers": [
+        "etsy-q4-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/etsy-logo-q3-fy25.png",
+      "digest": "sha256:a8d2da988110986ffb5314ed4c3a9f64609200706c689edc22809a84e24d276e",
+      "provenance": [],
+      "directConsumers": [
+        "etsy-q3-fy25"
+      ],
+      "consumers": [
+        "etsy-q3-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/logo-q2-fy23.png",
+      "digest": "sha256:5ed32881d890bbb881739eab099c581b4943e8959a5adbd9b57ececf2f702c26",
+      "provenance": [],
+      "directConsumers": [
+        "etsy-q2-fy23"
+      ],
+      "consumers": [
+        "etsy-q2-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/logo-q3-fy24.png",
+      "digest": "sha256:c26861d897975aea02d8150ea517d9bfa18965c4de4b4454dc42095af87f430f",
+      "provenance": [],
+      "directConsumers": [
+        "etsy-q3-fy24"
+      ],
+      "consumers": [
+        "etsy-q3-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/logo-q4-fy23.png",
+      "digest": "sha256:59ceae8705210d76f7c893ced7e19c5e9378ed1f78b8c7962e34928f9a91c534",
+      "provenance": [],
+      "directConsumers": [
+        "etsy-q4-fy23"
+      ],
+      "consumers": [
+        "etsy-q4-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/logo-q4-fy24.png",
+      "digest": "sha256:a71d033b48d1e32b73528b2d7de5223642254e74a63c13923f5873e004a12407",
+      "provenance": [],
+      "directConsumers": [
+        "etsy-q4-fy24"
+      ],
+      "consumers": [
+        "etsy-q4-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/marketplace-brands-q1-fy24.png",
+      "digest": "sha256:5b23b8277420b5531aed8b32b8844a9b130f5ee8f886e27c2c5b067c0e56e4ae",
+      "provenance": [],
+      "directConsumers": [
+        "etsy-q1-fy24"
+      ],
+      "consumers": [
+        "etsy-q1-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/marketplace-brands-q2-fy25.png",
+      "digest": "sha256:3d54bb1ece6490ee7c348a74bd798e2d0e7fbbb0acdb3feb49959b72043d5132",
+      "provenance": [],
+      "directConsumers": [
+        "etsy-q2-fy25"
+      ],
+      "consumers": [
+        "etsy-q2-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/marketplace-brands-q3-fy25.png",
+      "digest": "sha256:3bb024d7e21e53476f4f384c9e4520776dfeb938fa236ff7397d6ea509a9680d",
+      "provenance": [],
+      "directConsumers": [
+        "etsy-q3-fy25"
+      ],
+      "consumers": [
+        "etsy-q3-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/etsy/marketplace-brands-q4-fy22.png",
+      "digest": "sha256:2cb7d0d4bed6b4c1d22b84f6e527c7c02ef24b6e5f9378c84af1ee205863e06b",
+      "provenance": [],
+      "directConsumers": [
+        "etsy-q4-fy22"
+      ],
+      "consumers": [
+        "etsy-q4-fy22"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -5664,7 +6207,8 @@
         "ford-q2-fy24",
         "ford-q2-fy25",
         "ford-q3-fy24",
-        "ford-q3-fy25"
+        "ford-q3-fy25",
+        "ford-q3-fy26"
       ],
       "consumers": [
         "ford-fy24",
@@ -5672,7 +6216,8 @@
         "ford-q2-fy24",
         "ford-q2-fy25",
         "ford-q3-fy24",
-        "ford-q3-fy25"
+        "ford-q3-fy25",
+        "ford-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -5687,7 +6232,8 @@
         "ford-q2-fy24",
         "ford-q2-fy25",
         "ford-q3-fy24",
-        "ford-q3-fy25"
+        "ford-q3-fy25",
+        "ford-q3-fy26"
       ],
       "consumers": [
         "ford-fy24",
@@ -5695,7 +6241,8 @@
         "ford-q2-fy24",
         "ford-q2-fy25",
         "ford-q3-fy24",
-        "ford-q3-fy25"
+        "ford-q3-fy25",
+        "ford-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -5710,7 +6257,8 @@
         "ford-q2-fy24",
         "ford-q2-fy25",
         "ford-q3-fy24",
-        "ford-q3-fy25"
+        "ford-q3-fy25",
+        "ford-q3-fy26"
       ],
       "consumers": [
         "ford-fy24",
@@ -5718,7 +6266,8 @@
         "ford-q2-fy24",
         "ford-q2-fy25",
         "ford-q3-fy24",
-        "ford-q3-fy25"
+        "ford-q3-fy25",
+        "ford-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -5733,7 +6282,8 @@
         "ford-q2-fy24",
         "ford-q2-fy25",
         "ford-q3-fy24",
-        "ford-q3-fy25"
+        "ford-q3-fy25",
+        "ford-q3-fy26"
       ],
       "consumers": [
         "ford-fy24",
@@ -5741,7 +6291,8 @@
         "ford-q2-fy24",
         "ford-q2-fy25",
         "ford-q3-fy24",
-        "ford-q3-fy25"
+        "ford-q3-fy25",
+        "ford-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -5756,7 +6307,8 @@
         "ford-q2-fy24",
         "ford-q2-fy25",
         "ford-q3-fy24",
-        "ford-q3-fy25"
+        "ford-q3-fy25",
+        "ford-q3-fy26"
       ],
       "consumers": [
         "ford-fy24",
@@ -5764,7 +6316,8 @@
         "ford-q2-fy24",
         "ford-q2-fy25",
         "ford-q3-fy24",
-        "ford-q3-fy25"
+        "ford-q3-fy25",
+        "ford-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -6345,6 +6898,7 @@
         "gm-q3-fy23",
         "gm-q3-fy24",
         "gm-q3-fy25",
+        "gm-q3-fy26",
         "gm-q4-fy22",
         "gm-q4-fy23",
         "gm-q4-fy24"
@@ -6361,6 +6915,7 @@
         "gm-q3-fy23",
         "gm-q3-fy24",
         "gm-q3-fy25",
+        "gm-q3-fy26",
         "gm-q4-fy22",
         "gm-q4-fy23",
         "gm-q4-fy24"
@@ -6391,6 +6946,7 @@
         "gm-q3-fy23",
         "gm-q3-fy24",
         "gm-q3-fy25",
+        "gm-q3-fy26",
         "gm-q4-fy22",
         "gm-q4-fy23",
         "gm-q4-fy24"
@@ -6407,6 +6963,7 @@
         "gm-q3-fy23",
         "gm-q3-fy24",
         "gm-q3-fy25",
+        "gm-q3-fy26",
         "gm-q4-fy22",
         "gm-q4-fy23",
         "gm-q4-fy24"
@@ -6490,6 +7047,203 @@
       ],
       "consumers": [
         "grab-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/health-equity/company-q3-fy24.png",
+      "digest": "sha256:317af9d625a9c74e920f972e6eee4a77bdb2265b34e610078c327171b658c7d1",
+      "provenance": [],
+      "directConsumers": [
+        "health-equity-q3-fy24"
+      ],
+      "consumers": [
+        "health-equity-q3-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/health-equity/company-wordmark-q1-fy24.png",
+      "digest": "sha256:b475882943ece64ec98cc74dc9c3d6bf193720ceeeb98c96d3fa22c0382bfc89",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/health-equity-q1-fy24.json",
+          "recipeDigest": "sha256:63d7c35778f8e9a0baaa2b34ff4d45a859d7031eff48b09b31b2237cf78071a6",
+          "source": "input/processing/health-equity-q1-fy24.png",
+          "cropKey": "company-wordmark-q1-fy24"
+        }
+      ],
+      "directConsumers": [
+        "health-equity-q1-fy24"
+      ],
+      "consumers": [
+        "health-equity-q1-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/health-equity/company-wordmark-q2-fy24.png",
+      "digest": "sha256:0e6c6d27511d026c0cac2340a0182473fc3447fe011d7bf49df5d095a8b36b95",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/health-equity-q2-fy24.json",
+          "recipeDigest": "sha256:07259b1e60e0945884cef215524ffa24b02752af7607354986c6e39508943743",
+          "source": "input/processed/health-equity-q2-fy24.png",
+          "cropKey": "company-wordmark-q2-fy24"
+        }
+      ],
+      "directConsumers": [
+        "health-equity-q2-fy24"
+      ],
+      "consumers": [
+        "health-equity-q2-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/health-equity/company-wordmark-q3-fy26.png",
+      "digest": "sha256:f7eae46b91d10df830d186214dc2b970b25490181708b69dc63e3c175a2cde7a",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/health-equity-q3-fy26.json",
+          "recipeDigest": "sha256:412824bf5526177d54332271641fa65be3091c9f3147ac886b5d7bbd8734b39b",
+          "source": "input/processing/health-equity-q3-fy26.png",
+          "cropKey": "health-equity-company-wordmark-q3-fy26"
+        }
+      ],
+      "directConsumers": [
+        "health-equity-q3-fy26"
+      ],
+      "consumers": [
+        "health-equity-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/health-equity/company-wordmark-q4-fy23.png",
+      "digest": "sha256:e5a1749966a1b4d9d670c068fdc484c7685bd886b6dd71c427a7f56f8c245132",
+      "provenance": [],
+      "directConsumers": [
+        "health-equity-q4-fy23"
+      ],
+      "consumers": [
+        "health-equity-q4-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/health-equity/company-wordmark-q4-fy25.png",
+      "digest": "sha256:439bc9d87da9f533226c3b001ba25f06e314baaf5a223f8fb152f35852371b13",
+      "provenance": [],
+      "directConsumers": [
+        "health-equity-q4-fy25"
+      ],
+      "consumers": [
+        "health-equity-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/health-equity/logo-q1-fy25.png",
+      "digest": "sha256:936f39e034797efb4cb636c08480e0c9203fce24ccf36eb171c4c58f37b14852",
+      "provenance": [],
+      "directConsumers": [
+        "health-equity-q1-fy25"
+      ],
+      "consumers": [
+        "health-equity-q1-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/health-equity/logo-q1-fy26.png",
+      "digest": "sha256:299c8af755432754afea40920bd9bb89d8116852d9e0ebbe06edad697f76d511",
+      "provenance": [],
+      "directConsumers": [
+        "health-equity-q1-fy26"
+      ],
+      "consumers": [
+        "health-equity-q1-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/health-equity/logo-q2-fy25.png",
+      "digest": "sha256:bda0473c0365c8edb51fe36235344dcfbef75f3a3dab939a28cf3d91428572a6",
+      "provenance": [],
+      "directConsumers": [
+        "health-equity-q2-fy25"
+      ],
+      "consumers": [
+        "health-equity-q2-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/health-equity/logo-q2-fy26.png",
+      "digest": "sha256:9da6b95940889a636cf35f7e8818adeeca18b551ece7a6a1c3e30e0e5fbd46c8",
+      "provenance": [],
+      "directConsumers": [
+        "health-equity-q2-fy26"
+      ],
+      "consumers": [
+        "health-equity-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/health-equity/logo-q3-fy23.png",
+      "digest": "sha256:a9b56a0fcd73346698747e4bb244c563eaca4f9c4636ad2e27e94376acb9f393",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/health-equity-q3-fy23.json",
+          "recipeDigest": "sha256:59af1786d434ec3f0bcdb52853939c1b6ec0da939cea21a2c89ef7045449d068",
+          "source": "input/processed/health-equity-q3-fy23.png",
+          "cropKey": "logo-q3-fy23"
+        }
+      ],
+      "directConsumers": [
+        "health-equity-q3-fy23"
+      ],
+      "consumers": [
+        "health-equity-q3-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/health-equity/logo-q3-fy25.png",
+      "digest": "sha256:c64c8415ac0848036bc37985c8a080c514c95934b2a0d2b18802fc64b3dc935f",
+      "provenance": [],
+      "directConsumers": [
+        "health-equity-q3-fy25"
+      ],
+      "consumers": [
+        "health-equity-q3-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/health-equity/logo-q4-fy24.png",
+      "digest": "sha256:81bc178ea4d357b924794ecb6989fd720a42b7ca8aab995072ac0fc26d234d51",
+      "provenance": [],
+      "directConsumers": [
+        "health-equity-q4-fy24"
+      ],
+      "consumers": [
+        "health-equity-q4-fy24"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -6862,15 +7616,29 @@
         }
       ],
       "directConsumers": [
+        "home-depot-fy23",
+        "home-depot-q1-fy23",
+        "home-depot-q1-fy24",
         "home-depot-q1-fy26",
+        "home-depot-q2-fy23",
         "home-depot-q2-fy26",
+        "home-depot-q3-fy22",
+        "home-depot-q3-fy23",
         "home-depot-q3-fy25",
+        "home-depot-q4-fy22",
         "home-depot-q4-fy25"
       ],
       "consumers": [
+        "home-depot-fy23",
+        "home-depot-q1-fy23",
+        "home-depot-q1-fy24",
         "home-depot-q1-fy26",
+        "home-depot-q2-fy23",
         "home-depot-q2-fy26",
+        "home-depot-q3-fy22",
+        "home-depot-q3-fy23",
         "home-depot-q3-fy25",
+        "home-depot-q4-fy22",
         "home-depot-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -6888,11 +7656,17 @@
         }
       ],
       "directConsumers": [
+        "home-depot-q1-fy23",
+        "home-depot-q1-fy24",
         "home-depot-q1-fy26",
+        "home-depot-q2-fy23",
         "home-depot-q2-fy26"
       ],
       "consumers": [
+        "home-depot-q1-fy23",
+        "home-depot-q1-fy24",
         "home-depot-q1-fy26",
+        "home-depot-q2-fy23",
         "home-depot-q2-fy26"
       ],
       "acceptedVersions": [],
@@ -6910,11 +7684,19 @@
         }
       ],
       "directConsumers": [
+        "home-depot-fy23",
+        "home-depot-q3-fy22",
+        "home-depot-q3-fy23",
         "home-depot-q3-fy25",
+        "home-depot-q4-fy22",
         "home-depot-q4-fy25"
       ],
       "consumers": [
+        "home-depot-fy23",
+        "home-depot-q3-fy22",
+        "home-depot-q3-fy23",
         "home-depot-q3-fy25",
+        "home-depot-q4-fy22",
         "home-depot-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -6932,15 +7714,29 @@
         }
       ],
       "directConsumers": [
+        "home-depot-fy23",
+        "home-depot-q1-fy23",
+        "home-depot-q1-fy24",
         "home-depot-q1-fy26",
+        "home-depot-q2-fy23",
         "home-depot-q2-fy26",
+        "home-depot-q3-fy22",
+        "home-depot-q3-fy23",
         "home-depot-q3-fy25",
+        "home-depot-q4-fy22",
         "home-depot-q4-fy25"
       ],
       "consumers": [
+        "home-depot-fy23",
+        "home-depot-q1-fy23",
+        "home-depot-q1-fy24",
         "home-depot-q1-fy26",
+        "home-depot-q2-fy23",
         "home-depot-q2-fy26",
+        "home-depot-q3-fy22",
+        "home-depot-q3-fy23",
         "home-depot-q3-fy25",
+        "home-depot-q4-fy22",
         "home-depot-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -6958,15 +7754,29 @@
         }
       ],
       "directConsumers": [
+        "home-depot-fy23",
+        "home-depot-q1-fy23",
+        "home-depot-q1-fy24",
         "home-depot-q1-fy26",
+        "home-depot-q2-fy23",
         "home-depot-q2-fy26",
+        "home-depot-q3-fy22",
+        "home-depot-q3-fy23",
         "home-depot-q3-fy25",
+        "home-depot-q4-fy22",
         "home-depot-q4-fy25"
       ],
       "consumers": [
+        "home-depot-fy23",
+        "home-depot-q1-fy23",
+        "home-depot-q1-fy24",
         "home-depot-q1-fy26",
+        "home-depot-q2-fy23",
         "home-depot-q2-fy26",
+        "home-depot-q3-fy22",
+        "home-depot-q3-fy23",
         "home-depot-q3-fy25",
+        "home-depot-q4-fy22",
         "home-depot-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -7186,15 +7996,39 @@
         }
       ],
       "directConsumers": [
+        "intuitive-q1-fy23",
+        "intuitive-q1-fy24",
+        "intuitive-q1-fy25",
         "intuitive-q1-fy26",
+        "intuitive-q2-fy23",
+        "intuitive-q2-fy24",
+        "intuitive-q2-fy25",
         "intuitive-q2-fy26",
+        "intuitive-q3-fy23",
+        "intuitive-q3-fy24",
+        "intuitive-q3-fy25",
         "intuitive-q3-fy26",
+        "intuitive-q4-fy22",
+        "intuitive-q4-fy23",
+        "intuitive-q4-fy24",
         "intuitive-q4-fy25"
       ],
       "consumers": [
+        "intuitive-q1-fy23",
+        "intuitive-q1-fy24",
+        "intuitive-q1-fy25",
         "intuitive-q1-fy26",
+        "intuitive-q2-fy23",
+        "intuitive-q2-fy24",
+        "intuitive-q2-fy25",
         "intuitive-q2-fy26",
+        "intuitive-q3-fy23",
+        "intuitive-q3-fy24",
+        "intuitive-q3-fy25",
         "intuitive-q3-fy26",
+        "intuitive-q4-fy22",
+        "intuitive-q4-fy23",
+        "intuitive-q4-fy24",
         "intuitive-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -7212,15 +8046,39 @@
         }
       ],
       "directConsumers": [
+        "intuitive-q1-fy23",
+        "intuitive-q1-fy24",
+        "intuitive-q1-fy25",
         "intuitive-q1-fy26",
+        "intuitive-q2-fy23",
+        "intuitive-q2-fy24",
+        "intuitive-q2-fy25",
         "intuitive-q2-fy26",
+        "intuitive-q3-fy23",
+        "intuitive-q3-fy24",
+        "intuitive-q3-fy25",
         "intuitive-q3-fy26",
+        "intuitive-q4-fy22",
+        "intuitive-q4-fy23",
+        "intuitive-q4-fy24",
         "intuitive-q4-fy25"
       ],
       "consumers": [
+        "intuitive-q1-fy23",
+        "intuitive-q1-fy24",
+        "intuitive-q1-fy25",
         "intuitive-q1-fy26",
+        "intuitive-q2-fy23",
+        "intuitive-q2-fy24",
+        "intuitive-q2-fy25",
         "intuitive-q2-fy26",
+        "intuitive-q3-fy23",
+        "intuitive-q3-fy24",
+        "intuitive-q3-fy25",
         "intuitive-q3-fy26",
+        "intuitive-q4-fy22",
+        "intuitive-q4-fy23",
+        "intuitive-q4-fy24",
         "intuitive-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -7238,15 +8096,39 @@
         }
       ],
       "directConsumers": [
+        "intuitive-q1-fy23",
+        "intuitive-q1-fy24",
+        "intuitive-q1-fy25",
         "intuitive-q1-fy26",
+        "intuitive-q2-fy23",
+        "intuitive-q2-fy24",
+        "intuitive-q2-fy25",
         "intuitive-q2-fy26",
+        "intuitive-q3-fy23",
+        "intuitive-q3-fy24",
+        "intuitive-q3-fy25",
         "intuitive-q3-fy26",
+        "intuitive-q4-fy22",
+        "intuitive-q4-fy23",
+        "intuitive-q4-fy24",
         "intuitive-q4-fy25"
       ],
       "consumers": [
+        "intuitive-q1-fy23",
+        "intuitive-q1-fy24",
+        "intuitive-q1-fy25",
         "intuitive-q1-fy26",
+        "intuitive-q2-fy23",
+        "intuitive-q2-fy24",
+        "intuitive-q2-fy25",
         "intuitive-q2-fy26",
+        "intuitive-q3-fy23",
+        "intuitive-q3-fy24",
+        "intuitive-q3-fy25",
         "intuitive-q3-fy26",
+        "intuitive-q4-fy22",
+        "intuitive-q4-fy23",
+        "intuitive-q4-fy24",
         "intuitive-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -7698,6 +8580,549 @@
       ],
       "consumers": [
         "jpmorganchase-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/bottega-fy22.png",
+      "digest": "sha256:2c3c81f9d25b18ee3fa6e40a559fd48ff0d2ddcfcec41798e0cdbfa027f05e8a",
+      "provenance": [],
+      "directConsumers": [
+        "kering-fy22"
+      ],
+      "consumers": [
+        "kering-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/bottega-fy23.png",
+      "digest": "sha256:05932320ec064bad8918d37ba827500d1e910fc5bbd7dfc0ea4bee8a7a4e8ccd",
+      "provenance": [],
+      "directConsumers": [
+        "kering-fy23"
+      ],
+      "consumers": [
+        "kering-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/bottega-veneta-h1-fy22.png",
+      "digest": "sha256:569b11b052e65b2ecef16f1445e0bd62a98b6aaf272a50bdd721c2ab3277da30",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/kering-h1-fy22.json",
+          "recipeDigest": "sha256:5bb14ff066775b5c09b35c58a555502224ea573a7aa6da684987b3a26ea9b3fe",
+          "source": "input/processed/kering-h1-fy22.png",
+          "cropKey": "bottega-veneta"
+        }
+      ],
+      "directConsumers": [
+        "kering-h1-fy22"
+      ],
+      "consumers": [
+        "kering-h1-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/bottega-veneta-h1-fy23.png",
+      "digest": "sha256:d84436706cf5cc109d3ecfb8b30d6e6ce653a0862a557ac2ef40c36bc650ec40",
+      "provenance": [],
+      "directConsumers": [
+        "kering-h1-fy23"
+      ],
+      "consumers": [
+        "kering-h1-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/bottega-veneta-h1-fy24.png",
+      "digest": "sha256:fac2fd8ef3303524da847f60cc36136182d7090f276610326ec3e3a21d2de731",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/kering-h1-fy24.json",
+          "recipeDigest": "sha256:74b0eec2a1f3430e04571d00e8ee4ae4a0e830da3f30b433826d1e791ca3203a",
+          "source": "input/processed/kering-h1-fy24.png",
+          "cropKey": "bottega-veneta-h1-fy24"
+        }
+      ],
+      "directConsumers": [
+        "kering-h1-fy24"
+      ],
+      "consumers": [
+        "kering-h1-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/bottega-veneta-h1-fy25.png",
+      "digest": "sha256:d7ab1c67924ae383b3e8f41c58d3c70a5a78cd29c191cd99511bbb7aeaae86a1",
+      "provenance": [],
+      "directConsumers": [
+        "kering-h1-fy25"
+      ],
+      "consumers": [
+        "kering-h1-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/bottega_veneta-fy24.png",
+      "digest": "sha256:b279582743b1a6ea12bbb07f111c5a9ec4f3bceba406152d1f78e21a5da96f43",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/kering-fy24.json",
+          "recipeDigest": "sha256:051c5de7767151c31693efa92cfb14fcdd5352cd96612a13343462bb863608ba",
+          "source": "input/processed/kering-fy24.png",
+          "cropKey": "bottega_veneta-fy24"
+        }
+      ],
+      "directConsumers": [
+        "kering-fy24"
+      ],
+      "consumers": [
+        "kering-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/company-emblem-h1-fy22.png",
+      "digest": "sha256:56b118190e7f1313a14696091f47c1ddc4c3c7bb5efe6934667f056570e806bc",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/kering-h1-fy22.json",
+          "recipeDigest": "sha256:5bb14ff066775b5c09b35c58a555502224ea573a7aa6da684987b3a26ea9b3fe",
+          "source": "input/processed/kering-h1-fy22.png",
+          "cropKey": "company-emblem"
+        }
+      ],
+      "directConsumers": [
+        "kering-h1-fy22"
+      ],
+      "consumers": [
+        "kering-h1-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/company-h1-fy24.png",
+      "digest": "sha256:9f3e71ee3121bacb19ee17924b366c3712988d6c84e7b44bc6c20309c514b68b",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/kering-h1-fy24.json",
+          "recipeDigest": "sha256:74b0eec2a1f3430e04571d00e8ee4ae4a0e830da3f30b433826d1e791ca3203a",
+          "source": "input/processed/kering-h1-fy24.png",
+          "cropKey": "company-h1-fy24"
+        }
+      ],
+      "directConsumers": [
+        "kering-h1-fy24"
+      ],
+      "consumers": [
+        "kering-h1-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/company-wordmark-h1-fy22.png",
+      "digest": "sha256:6ab23831605e45181c6876f54ae1f2f249308c4e62daa71ae0c53a3823f023b4",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/kering-h1-fy22.json",
+          "recipeDigest": "sha256:5bb14ff066775b5c09b35c58a555502224ea573a7aa6da684987b3a26ea9b3fe",
+          "source": "input/processed/kering-h1-fy22.png",
+          "cropKey": "company-wordmark"
+        }
+      ],
+      "directConsumers": [
+        "kering-h1-fy22"
+      ],
+      "consumers": [
+        "kering-h1-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/gucci-fy22.png",
+      "digest": "sha256:6efac3362c9e66db6b5e1fdf13ee996782d5618ad0bd3cf52d14c6bdbdb69aae",
+      "provenance": [],
+      "directConsumers": [
+        "kering-fy22"
+      ],
+      "consumers": [
+        "kering-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/gucci-fy23.png",
+      "digest": "sha256:3c90be05d2186792916887d125adca10209c7308f99a14f3fb1221878152bdef",
+      "provenance": [],
+      "directConsumers": [
+        "kering-fy23"
+      ],
+      "consumers": [
+        "kering-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/gucci-fy24.png",
+      "digest": "sha256:e83f71841f541ad5739db0f66f3bb276a0c2325a7e30a22b28200eda8e0bd9b3",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/kering-fy24.json",
+          "recipeDigest": "sha256:051c5de7767151c31693efa92cfb14fcdd5352cd96612a13343462bb863608ba",
+          "source": "input/processed/kering-fy24.png",
+          "cropKey": "gucci-fy24"
+        }
+      ],
+      "directConsumers": [
+        "kering-fy24"
+      ],
+      "consumers": [
+        "kering-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/gucci-h1-fy22.png",
+      "digest": "sha256:39aa653ba9283a6a847aa6fd5a8aa666d4a2b82c49c25bb6beb7c5a8a8cc5cf2",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/kering-h1-fy22.json",
+          "recipeDigest": "sha256:5bb14ff066775b5c09b35c58a555502224ea573a7aa6da684987b3a26ea9b3fe",
+          "source": "input/processed/kering-h1-fy22.png",
+          "cropKey": "gucci"
+        }
+      ],
+      "directConsumers": [
+        "kering-h1-fy22"
+      ],
+      "consumers": [
+        "kering-h1-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/gucci-h1-fy23.png",
+      "digest": "sha256:e9c79ef829a999b2e3b86e3cbdb55b1e8d18b247693473866970a03edc484397",
+      "provenance": [],
+      "directConsumers": [
+        "kering-h1-fy23"
+      ],
+      "consumers": [
+        "kering-h1-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/gucci-h1-fy24.png",
+      "digest": "sha256:33f5b47f73e42442cff6841a3eb0b94117b6dba7840eec204490b923fa8e03cd",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/kering-h1-fy24.json",
+          "recipeDigest": "sha256:74b0eec2a1f3430e04571d00e8ee4ae4a0e830da3f30b433826d1e791ca3203a",
+          "source": "input/processed/kering-h1-fy24.png",
+          "cropKey": "gucci-h1-fy24"
+        }
+      ],
+      "directConsumers": [
+        "kering-h1-fy24"
+      ],
+      "consumers": [
+        "kering-h1-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/gucci-h1-fy25.png",
+      "digest": "sha256:5f577b288ef2134b8deb5a2e8cfb6a7708550af1ef19eea33227c8ef3d21e1f2",
+      "provenance": [],
+      "directConsumers": [
+        "kering-h1-fy25"
+      ],
+      "consumers": [
+        "kering-h1-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/kering-fy22.png",
+      "digest": "sha256:9cd282b6f7bed04d536fd97ef20f42732ab173de1be45fd3bba848ef5f3fdf51",
+      "provenance": [],
+      "directConsumers": [
+        "kering-fy22"
+      ],
+      "consumers": [
+        "kering-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/kering-fy23.png",
+      "digest": "sha256:f618629b9943ff204c8d3834fe786cd092e2f0a079e4e09e5f788bb2da287266",
+      "provenance": [],
+      "directConsumers": [
+        "kering-fy23"
+      ],
+      "consumers": [
+        "kering-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/kering-h1-fy23.png",
+      "digest": "sha256:ffb4a9802df0bada8ebca4242d78d96206e60feaca3abee3229b17bbfc0ea37f",
+      "provenance": [],
+      "directConsumers": [],
+      "consumers": [],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/kering-h1-fy25.png",
+      "digest": "sha256:62dbd06f10914ebfc7fdad755ef8d68aa4cb3ddb06df9936b57b55827cd2f757",
+      "provenance": [],
+      "directConsumers": [
+        "kering-h1-fy25"
+      ],
+      "consumers": [
+        "kering-h1-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/kering-owl-fy24.png",
+      "digest": "sha256:fbc9ba07a106314518d62d5ea7b91dcede007f6337fda48df93f54e9e3320980",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/kering-fy24.json",
+          "recipeDigest": "sha256:051c5de7767151c31693efa92cfb14fcdd5352cd96612a13343462bb863608ba",
+          "source": "input/processed/kering-fy24.png",
+          "cropKey": "kering-owl-fy24"
+        }
+      ],
+      "directConsumers": [
+        "kering-fy24"
+      ],
+      "consumers": [
+        "kering-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/kering-owl-h1-fy23.png",
+      "digest": "sha256:3e11233dcf454bfa29529e78928f3623505ec351510dd65077f207d374bce5ec",
+      "provenance": [],
+      "directConsumers": [
+        "kering-h1-fy23"
+      ],
+      "consumers": [
+        "kering-h1-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/kering-owl-h1-fy25.png",
+      "digest": "sha256:b0ef0ba194954ed84605aa8b33ee4bafe2bb258d408f5aa46c5172410f495a24",
+      "provenance": [],
+      "directConsumers": [
+        "kering-h1-fy25"
+      ],
+      "consumers": [
+        "kering-h1-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/kering-wordmark-fy24.png",
+      "digest": "sha256:0f53d5ffce18d078ab5b333736e883b23c8a0585600a208bf0b53c34d49f7dcb",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/kering-fy24.json",
+          "recipeDigest": "sha256:051c5de7767151c31693efa92cfb14fcdd5352cd96612a13343462bb863608ba",
+          "source": "input/processed/kering-fy24.png",
+          "cropKey": "kering-wordmark-fy24"
+        }
+      ],
+      "directConsumers": [
+        "kering-fy24"
+      ],
+      "consumers": [
+        "kering-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/kering-wordmark-h1-fy23.png",
+      "digest": "sha256:500d8b254ad2376b371908fdc55886bd7bf43000d995e716de8fe92acb795ac5",
+      "provenance": [],
+      "directConsumers": [
+        "kering-h1-fy23"
+      ],
+      "consumers": [
+        "kering-h1-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/owl-h1-fy24.png",
+      "digest": "sha256:4ce6b56384425b5a4ca609e145909315a7b7c0ebd5c073084a6f9e386428f64b",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/kering-h1-fy24.json",
+          "recipeDigest": "sha256:74b0eec2a1f3430e04571d00e8ee4ae4a0e830da3f30b433826d1e791ca3203a",
+          "source": "input/processed/kering-h1-fy24.png",
+          "cropKey": "owl-h1-fy24"
+        }
+      ],
+      "directConsumers": [
+        "kering-h1-fy24"
+      ],
+      "consumers": [
+        "kering-h1-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/saint-fy23.png",
+      "digest": "sha256:d1438524c5436cd36679ec467b7fdb4d3311ac8f37cd6b1e52620dcf16b28f48",
+      "provenance": [],
+      "directConsumers": [
+        "kering-fy23"
+      ],
+      "consumers": [
+        "kering-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/saint-laurent-fy22.png",
+      "digest": "sha256:137ad31197fa22e5e5d33695dac579da983f3c063a5417d72930b42ed0aa3619",
+      "provenance": [],
+      "directConsumers": [
+        "kering-fy22"
+      ],
+      "consumers": [
+        "kering-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/saint-laurent-h1-fy22.png",
+      "digest": "sha256:da23d36b58f39ee961d25fbefbb4b09f49e1ce91f79fcd7aac486d4db6979a46",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/kering-h1-fy22.json",
+          "recipeDigest": "sha256:5bb14ff066775b5c09b35c58a555502224ea573a7aa6da684987b3a26ea9b3fe",
+          "source": "input/processed/kering-h1-fy22.png",
+          "cropKey": "saint-laurent"
+        }
+      ],
+      "directConsumers": [
+        "kering-h1-fy22"
+      ],
+      "consumers": [
+        "kering-h1-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/saint-laurent-h1-fy23.png",
+      "digest": "sha256:fcdbc302361c2a366826a09f0656e3a01093bd836c63e156e21ec3536b19fff2",
+      "provenance": [],
+      "directConsumers": [
+        "kering-h1-fy23"
+      ],
+      "consumers": [
+        "kering-h1-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/saint-laurent-h1-fy24.png",
+      "digest": "sha256:a84747846ebb0ba1495141ab34471974913502669d8db0e489dff1745105b9c9",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/kering-h1-fy24.json",
+          "recipeDigest": "sha256:74b0eec2a1f3430e04571d00e8ee4ae4a0e830da3f30b433826d1e791ca3203a",
+          "source": "input/processed/kering-h1-fy24.png",
+          "cropKey": "saint-laurent-h1-fy24"
+        }
+      ],
+      "directConsumers": [
+        "kering-h1-fy24"
+      ],
+      "consumers": [
+        "kering-h1-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/saint-laurent-h1-fy25.png",
+      "digest": "sha256:498cf492f7bf60d529cdf6697c765ae56103ba063ee194f40e3bb8fe19a5ab51",
+      "provenance": [],
+      "directConsumers": [
+        "kering-h1-fy25"
+      ],
+      "consumers": [
+        "kering-h1-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/kering/saint_laurent-fy24.png",
+      "digest": "sha256:857b063c8943f33060adf405d8b3bff27d4456aef0b61047e395a08876129a2d",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/kering-fy24.json",
+          "recipeDigest": "sha256:051c5de7767151c31693efa92cfb14fcdd5352cd96612a13343462bb863608ba",
+          "source": "input/processed/kering-fy24.png",
+          "cropKey": "saint_laurent-fy24"
+        }
+      ],
+      "directConsumers": [
+        "kering-fy24"
+      ],
+      "consumers": [
+        "kering-fy24"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -9161,14 +10586,60 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/mercadolibre/ads-brand-q1-fy23.png",
+      "digest": "sha256:3b0ad930ef4e1c9a0eccda1d5d31eaba99d80568c9fdda654a22d95b532df136",
+      "provenance": [],
+      "directConsumers": [
+        "mercadolibre-q1-fy23"
+      ],
+      "consumers": [
+        "mercadolibre-q1-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/mercadolibre/ads-brand.png",
       "digest": "sha256:12464bee25718df75050c4f6f74d9b7930048ec3ddebe046001037d59d03d958",
       "provenance": [],
       "directConsumers": [
+        "mercadolibre-q1-fy24",
+        "mercadolibre-q1-fy25",
+        "mercadolibre-q2-fy23",
+        "mercadolibre-q3-fy22",
+        "mercadolibre-q3-fy23",
+        "mercadolibre-q3-fy24",
+        "mercadolibre-q3-fy25",
+        "mercadolibre-q4-fy22",
+        "mercadolibre-q4-fy23",
+        "mercadolibre-q4-fy24",
         "mercadolibre-q4-fy25"
       ],
       "consumers": [
+        "mercadolibre-q1-fy24",
+        "mercadolibre-q1-fy25",
+        "mercadolibre-q2-fy23",
+        "mercadolibre-q3-fy22",
+        "mercadolibre-q3-fy23",
+        "mercadolibre-q3-fy24",
+        "mercadolibre-q3-fy25",
+        "mercadolibre-q4-fy22",
+        "mercadolibre-q4-fy23",
+        "mercadolibre-q4-fy24",
         "mercadolibre-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/mercadolibre/commerce-brand-q1-fy23.png",
+      "digest": "sha256:3a975af070c4f567a88be5336d95ee59e68ce1d184afe64313708e346b04a66e",
+      "provenance": [],
+      "directConsumers": [
+        "mercadolibre-q1-fy23"
+      ],
+      "consumers": [
+        "mercadolibre-q1-fy23"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -9178,9 +10649,29 @@
       "digest": "sha256:1f9622b220a77b447bdc5bf3a1d5de50ffc4390b6867146012c24d0f11895950",
       "provenance": [],
       "directConsumers": [
+        "mercadolibre-q1-fy24",
+        "mercadolibre-q1-fy25",
+        "mercadolibre-q2-fy23",
+        "mercadolibre-q3-fy22",
+        "mercadolibre-q3-fy23",
+        "mercadolibre-q3-fy24",
+        "mercadolibre-q3-fy25",
+        "mercadolibre-q4-fy22",
+        "mercadolibre-q4-fy23",
+        "mercadolibre-q4-fy24",
         "mercadolibre-q4-fy25"
       ],
       "consumers": [
+        "mercadolibre-q1-fy24",
+        "mercadolibre-q1-fy25",
+        "mercadolibre-q2-fy23",
+        "mercadolibre-q3-fy22",
+        "mercadolibre-q3-fy23",
+        "mercadolibre-q3-fy24",
+        "mercadolibre-q3-fy25",
+        "mercadolibre-q4-fy22",
+        "mercadolibre-q4-fy23",
+        "mercadolibre-q4-fy24",
         "mercadolibre-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -9191,10 +10682,29 @@
       "digest": "sha256:2af4846bc3533b87caca1f4d46288d26e96c8f63acada6b0f0b61f89f2ba1487",
       "provenance": [],
       "directConsumers": [
+        "mercadolibre-q1-fy25",
+        "mercadolibre-q3-fy25",
+        "mercadolibre-q4-fy24",
         "mercadolibre-q4-fy25"
       ],
       "consumers": [
+        "mercadolibre-q1-fy25",
+        "mercadolibre-q3-fy25",
+        "mercadolibre-q4-fy24",
         "mercadolibre-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/mercadolibre/credito-brand-q1-fy23.png",
+      "digest": "sha256:dbc48f42a1e2ec82351216b3b1949e2c9d21cac5510e4760a91a09bd8c758771",
+      "provenance": [],
+      "directConsumers": [
+        "mercadolibre-q1-fy23"
+      ],
+      "consumers": [
+        "mercadolibre-q1-fy23"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -9204,10 +10714,43 @@
       "digest": "sha256:7a569bdc602eb0c17e516f0bdf1c7f81e9d6bbbc9a7b8801f1f7284332e4f90a",
       "provenance": [],
       "directConsumers": [
+        "mercadolibre-q1-fy24",
+        "mercadolibre-q1-fy25",
+        "mercadolibre-q2-fy23",
+        "mercadolibre-q3-fy22",
+        "mercadolibre-q3-fy23",
+        "mercadolibre-q3-fy24",
+        "mercadolibre-q3-fy25",
+        "mercadolibre-q4-fy22",
+        "mercadolibre-q4-fy23",
+        "mercadolibre-q4-fy24",
         "mercadolibre-q4-fy25"
       ],
       "consumers": [
+        "mercadolibre-q1-fy24",
+        "mercadolibre-q1-fy25",
+        "mercadolibre-q2-fy23",
+        "mercadolibre-q3-fy22",
+        "mercadolibre-q3-fy23",
+        "mercadolibre-q3-fy24",
+        "mercadolibre-q3-fy25",
+        "mercadolibre-q4-fy22",
+        "mercadolibre-q4-fy23",
+        "mercadolibre-q4-fy24",
         "mercadolibre-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/mercadolibre/envios-brand-q1-fy23.png",
+      "digest": "sha256:4759b5892904caca69deeeaf0ccde241e4cbcfc4fd3e927eae5c281e55cc00d1",
+      "provenance": [],
+      "directConsumers": [
+        "mercadolibre-q1-fy23"
+      ],
+      "consumers": [
+        "mercadolibre-q1-fy23"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -9217,10 +10760,43 @@
       "digest": "sha256:def95f748ca4b2e538db36fcf771ed5ec34ea567f8d389880534fa90c27af6b2",
       "provenance": [],
       "directConsumers": [
+        "mercadolibre-q1-fy24",
+        "mercadolibre-q1-fy25",
+        "mercadolibre-q2-fy23",
+        "mercadolibre-q3-fy22",
+        "mercadolibre-q3-fy23",
+        "mercadolibre-q3-fy24",
+        "mercadolibre-q3-fy25",
+        "mercadolibre-q4-fy22",
+        "mercadolibre-q4-fy23",
+        "mercadolibre-q4-fy24",
         "mercadolibre-q4-fy25"
       ],
       "consumers": [
+        "mercadolibre-q1-fy24",
+        "mercadolibre-q1-fy25",
+        "mercadolibre-q2-fy23",
+        "mercadolibre-q3-fy22",
+        "mercadolibre-q3-fy23",
+        "mercadolibre-q3-fy24",
+        "mercadolibre-q3-fy25",
+        "mercadolibre-q4-fy22",
+        "mercadolibre-q4-fy23",
+        "mercadolibre-q4-fy24",
         "mercadolibre-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/mercadolibre/pago-brand-q1-fy23.png",
+      "digest": "sha256:2d28261402dd915b4f6bf319f365cfb0bcbcf621d9f5ca0f13eabc8bd788e356",
+      "provenance": [],
+      "directConsumers": [
+        "mercadolibre-q1-fy23"
+      ],
+      "consumers": [
+        "mercadolibre-q1-fy23"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -9230,9 +10806,29 @@
       "digest": "sha256:1c6bebbd069496a2918ac38e7a5b3606771e5fe9365b42204d67ce82194bcffc",
       "provenance": [],
       "directConsumers": [
+        "mercadolibre-q1-fy24",
+        "mercadolibre-q1-fy25",
+        "mercadolibre-q2-fy23",
+        "mercadolibre-q3-fy22",
+        "mercadolibre-q3-fy23",
+        "mercadolibre-q3-fy24",
+        "mercadolibre-q3-fy25",
+        "mercadolibre-q4-fy22",
+        "mercadolibre-q4-fy23",
+        "mercadolibre-q4-fy24",
         "mercadolibre-q4-fy25"
       ],
       "consumers": [
+        "mercadolibre-q1-fy24",
+        "mercadolibre-q1-fy25",
+        "mercadolibre-q2-fy23",
+        "mercadolibre-q3-fy22",
+        "mercadolibre-q3-fy23",
+        "mercadolibre-q3-fy24",
+        "mercadolibre-q3-fy25",
+        "mercadolibre-q4-fy22",
+        "mercadolibre-q4-fy23",
+        "mercadolibre-q4-fy24",
         "mercadolibre-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -9321,9 +10917,13 @@
       "digest": "sha256:06248a5541b10ba9fc936ff0d46dabb2398136638c1e6b810b9c191c52cf8835",
       "provenance": [],
       "directConsumers": [
+        "mercadolibre-q2-fy24",
+        "mercadolibre-q2-fy25",
         "mercadolibre-q2-fy26"
       ],
       "consumers": [
+        "mercadolibre-q2-fy24",
+        "mercadolibre-q2-fy25",
         "mercadolibre-q2-fy26"
       ],
       "acceptedVersions": [],
@@ -9334,9 +10934,13 @@
       "digest": "sha256:8a7bd9a1815f37ffd6772e465023b2066ddce5b7a75c07e761ba86336fa156ba",
       "provenance": [],
       "directConsumers": [
+        "mercadolibre-q2-fy24",
+        "mercadolibre-q2-fy25",
         "mercadolibre-q2-fy26"
       ],
       "consumers": [
+        "mercadolibre-q2-fy24",
+        "mercadolibre-q2-fy25",
         "mercadolibre-q2-fy26"
       ],
       "acceptedVersions": [],
@@ -9347,9 +10951,11 @@
       "digest": "sha256:eaff8b360ba89a894cb136bbaa9996a6ee68a8a1cd3787769905cb1bc17ec8c5",
       "provenance": [],
       "directConsumers": [
+        "mercadolibre-q2-fy25",
         "mercadolibre-q2-fy26"
       ],
       "consumers": [
+        "mercadolibre-q2-fy25",
         "mercadolibre-q2-fy26"
       ],
       "acceptedVersions": [],
@@ -9360,9 +10966,13 @@
       "digest": "sha256:16835c026be4c68f52875741e03d9df9c777129c460e859e46e3c5cc53fab1f6",
       "provenance": [],
       "directConsumers": [
+        "mercadolibre-q2-fy24",
+        "mercadolibre-q2-fy25",
         "mercadolibre-q2-fy26"
       ],
       "consumers": [
+        "mercadolibre-q2-fy24",
+        "mercadolibre-q2-fy25",
         "mercadolibre-q2-fy26"
       ],
       "acceptedVersions": [],
@@ -9373,9 +10983,13 @@
       "digest": "sha256:5b1a261b831c6f311b1355ee3a1f320a7fc487886af046b759fb30d1f440d656",
       "provenance": [],
       "directConsumers": [
+        "mercadolibre-q2-fy24",
+        "mercadolibre-q2-fy25",
         "mercadolibre-q2-fy26"
       ],
       "consumers": [
+        "mercadolibre-q2-fy24",
+        "mercadolibre-q2-fy25",
         "mercadolibre-q2-fy26"
       ],
       "acceptedVersions": [],
@@ -9386,9 +11000,13 @@
       "digest": "sha256:a9f4420f5a16ac28d0984a817aa5698ee70e5f85aaca6368e5b3a60fa333e0db",
       "provenance": [],
       "directConsumers": [
+        "mercadolibre-q2-fy24",
+        "mercadolibre-q2-fy25",
         "mercadolibre-q2-fy26"
       ],
       "consumers": [
+        "mercadolibre-q2-fy24",
+        "mercadolibre-q2-fy25",
         "mercadolibre-q2-fy26"
       ],
       "acceptedVersions": [],
@@ -9520,6 +11138,45 @@
         "merck-q2-fy26",
         "merck-q3-fy26",
         "merck-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/meta/reality-devices-q3-fy26.png",
+      "digest": "sha256:26986faba852bacc689db7216e32b6b71920c9c5cec193e82d98692d83af4e24",
+      "provenance": [],
+      "directConsumers": [
+        "meta-q3-fy26"
+      ],
+      "consumers": [
+        "meta-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/microsoft/industry-q1-fy27.png",
+      "digest": "sha256:48787deee695560e74195fe06efb85ed885cf9b874fababed7bc44a8486f2577",
+      "provenance": [],
+      "directConsumers": [
+        "microsoft-q1-fy27"
+      ],
+      "consumers": [
+        "microsoft-q1-fy27"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/microsoft/office-q1-fy27.png",
+      "digest": "sha256:e99d3386a8bd793c53ba041ecbe40de5425d75cc556b58fed4ad997030311a3c",
+      "provenance": [],
+      "directConsumers": [
+        "microsoft-q1-fy27"
+      ],
+      "consumers": [
+        "microsoft-q1-fy27"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -14218,10 +15875,12 @@
       ],
       "directConsumers": [
         "reddit-q2-fy26",
+        "reddit-q3-fy26",
         "reddit-q4-fy25"
       ],
       "consumers": [
         "reddit-q2-fy26",
+        "reddit-q3-fy26",
         "reddit-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -14240,10 +15899,12 @@
       ],
       "directConsumers": [
         "reddit-q2-fy26",
+        "reddit-q3-fy26",
         "reddit-q4-fy25"
       ],
       "consumers": [
         "reddit-q2-fy26",
+        "reddit-q3-fy26",
         "reddit-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -14262,10 +15923,12 @@
       ],
       "directConsumers": [
         "reddit-q2-fy26",
+        "reddit-q3-fy26",
         "reddit-q4-fy25"
       ],
       "consumers": [
         "reddit-q2-fy26",
+        "reddit-q3-fy26",
         "reddit-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -14284,10 +15947,12 @@
       ],
       "directConsumers": [
         "reddit-q2-fy26",
+        "reddit-q3-fy26",
         "reddit-q4-fy25"
       ],
       "consumers": [
         "reddit-q2-fy26",
+        "reddit-q3-fy26",
         "reddit-q4-fy25"
       ],
       "acceptedVersions": [],
@@ -14357,10 +16022,12 @@
       "digest": "sha256:2365c276446b01ce9405573874cc6c4f727cec16de5edcb16ba076a2ab8df593",
       "provenance": [],
       "directConsumers": [
-        "roblox-q2-fy24"
+        "roblox-q2-fy24",
+        "roblox-q3-fy26"
       ],
       "consumers": [
-        "roblox-q2-fy24"
+        "roblox-q2-fy24",
+        "roblox-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -14396,6 +16063,19 @@
       ],
       "consumers": [
         "roblox-q3-fy22"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/roblox/characters-q3-fy26.png",
+      "digest": "sha256:88fef567b632ebca07608964b46179ce5a0a4149078a063202a634bfbe5acaae",
+      "provenance": [],
+      "directConsumers": [
+        "roblox-q3-fy26"
+      ],
+      "consumers": [
+        "roblox-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -17672,10 +19352,12 @@
       "digest": "sha256:ec964f2e88c5b31027d3202857304a7f42f0cdcf3221aaf3b6ba5a2c0508aebf",
       "provenance": [],
       "directConsumers": [
-        "spacex-q2-fy26"
+        "spacex-q2-fy26",
+        "spacex-q3-fy26"
       ],
       "consumers": [
-        "spacex-q2-fy26"
+        "spacex-q2-fy26",
+        "spacex-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -17685,10 +19367,12 @@
       "digest": "sha256:399b081ff09a9bc589d5e3b88c626c2916eee78d9f3cae3362489f34f240c3a4",
       "provenance": [],
       "directConsumers": [
-        "spacex-q2-fy26"
+        "spacex-q2-fy26",
+        "spacex-q3-fy26"
       ],
       "consumers": [
-        "spacex-q2-fy26"
+        "spacex-q2-fy26",
+        "spacex-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -17698,10 +19382,12 @@
       "digest": "sha256:85731194dcd2b7315303b2161a22cb6cc8a054545eded37bc4f695a3c8fc86e1",
       "provenance": [],
       "directConsumers": [
-        "spacex-q2-fy26"
+        "spacex-q2-fy26",
+        "spacex-q3-fy26"
       ],
       "consumers": [
-        "spacex-q2-fy26"
+        "spacex-q2-fy26",
+        "spacex-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -17711,10 +19397,12 @@
       "digest": "sha256:c85d78bb107bb70c2efde64747ac6abe13823cb0c97038ac9603f33db8e1593a",
       "provenance": [],
       "directConsumers": [
-        "spacex-q2-fy26"
+        "spacex-q2-fy26",
+        "spacex-q3-fy26"
       ],
       "consumers": [
-        "spacex-q2-fy26"
+        "spacex-q2-fy26",
+        "spacex-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -17724,10 +19412,12 @@
       "digest": "sha256:eb296eed5c40cf2be72698202de2e01fb4eca117de874341de10ae01830cd5c5",
       "provenance": [],
       "directConsumers": [
-        "spacex-q2-fy26"
+        "spacex-q2-fy26",
+        "spacex-q3-fy26"
       ],
       "consumers": [
-        "spacex-q2-fy26"
+        "spacex-q2-fy26",
+        "spacex-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -17738,6 +19428,45 @@
       "provenance": [],
       "directConsumers": [],
       "consumers": [],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/spotify/advertising-q3-fy26.png",
+      "digest": "sha256:f7ee9cf21a397c739b5bf656bd3fdd333266b178ead247cdb4ca1eb899a6d19e",
+      "provenance": [],
+      "directConsumers": [
+        "spotify-q3-fy26"
+      ],
+      "consumers": [
+        "spotify-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/spotify/company-logo-q3-fy26.png",
+      "digest": "sha256:f55dac0fa64ebdf0f5b3a8ae07e8fbf7d478f4b6ab2c2d86ba2ef2e61d347f5b",
+      "provenance": [],
+      "directConsumers": [
+        "spotify-q3-fy26"
+      ],
+      "consumers": [
+        "spotify-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/spotify/premium-q3-fy26.png",
+      "digest": "sha256:9dbe97178cd49181e22cd6d05d94a5d49dfa6a6c0ccd0b6069c69db8490991e5",
+      "provenance": [],
+      "directConsumers": [
+        "spotify-q3-fy26"
+      ],
+      "consumers": [
+        "spotify-q3-fy26"
+      ],
       "acceptedVersions": [],
       "reusable": false
     },
@@ -17913,6 +19642,45 @@
         "starbucks-q3-fy25",
         "starbucks-q4-fy22",
         "starbucks-q4-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/stellantis/brands-europe.png",
+      "digest": "sha256:3ee69c03462c7e506e9ff1fbd651ce61ae8fbacf970a01dffd78df869deb57a2",
+      "provenance": [],
+      "directConsumers": [
+        "stellantis-q3-fy26"
+      ],
+      "consumers": [
+        "stellantis-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/stellantis/brands-north-america.png",
+      "digest": "sha256:df280028794a0860507651ae12de0a2a763c3cd13704f20c1128d3336e3d9701",
+      "provenance": [],
+      "directConsumers": [
+        "stellantis-q3-fy26"
+      ],
+      "consumers": [
+        "stellantis-q3-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/stellantis/company-logo.png",
+      "digest": "sha256:3e1f32770bbea2d451fd79c0b17c580fe3fa26c9eeb70cb433578a958f88b0b9",
+      "provenance": [],
+      "directConsumers": [
+        "stellantis-q3-fy26"
+      ],
+      "consumers": [
+        "stellantis-q3-fy26"
       ],
       "acceptedVersions": [],
       "reusable": false
@@ -19274,6 +21042,498 @@
       "reusable": false
     },
     {
+      "path": "data/assets/raster-annotations/veeva/company-logo-q2-fy24.png",
+      "digest": "sha256:d53d1f23818226e855b998dd9accf84c371ae13a34a85f4f4f8b280087e3cd17",
+      "provenance": [],
+      "directConsumers": [
+        "veeva-q2-fy24"
+      ],
+      "consumers": [
+        "veeva-q2-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/company-logo-q3-fy25.png",
+      "digest": "sha256:6ced17f25d24b721f220a0374b450a16a9868db6ed7cb27fc2fc7d1657b34111",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/veeva-q3-fy25.json",
+          "recipeDigest": "sha256:c5a8d76307416f732e7b9046a77367a6a3106db24730a857872d48b7cb2ee168",
+          "source": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-060804e4-3fb8-4014-941f-51b2a9721a6e/workspace/input/processing/veeva-q3-fy25.png",
+          "cropKey": "company-logo-q3-fy25"
+        }
+      ],
+      "directConsumers": [
+        "veeva-q3-fy25"
+      ],
+      "consumers": [
+        "veeva-q3-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/company-logo-q4-fy23.png",
+      "digest": "sha256:251b7a2336550365360cfcdfedb3075f17d1842218b96800d109d27d8b8633b8",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/veeva-q4-fy23.json",
+          "recipeDigest": "sha256:6388793c5724fed776f38612102b7df83d8835c76ddc006c35ba17b4dd09ad3b",
+          "source": "input/processed/veeva-q4-fy23.png",
+          "cropKey": "veeva-logo-q4-fy23"
+        }
+      ],
+      "directConsumers": [
+        "veeva-q4-fy23"
+      ],
+      "consumers": [
+        "veeva-q4-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/company-logo-q4-fy25.png",
+      "digest": "sha256:4866ca93f8c0d693f5e99817db6d4faa4fdda3afea60f1aded2feeec0404a147",
+      "provenance": [],
+      "directConsumers": [
+        "veeva-q4-fy25"
+      ],
+      "consumers": [
+        "veeva-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/crm-logo-q3-fy25.png",
+      "digest": "sha256:5efe70ab467ec1ef125ce3b7b4f50e711eeed0f905b64c9da2daf16c27f0aeef",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/veeva-q3-fy25.json",
+          "recipeDigest": "sha256:c5a8d76307416f732e7b9046a77367a6a3106db24730a857872d48b7cb2ee168",
+          "source": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-060804e4-3fb8-4014-941f-51b2a9721a6e/workspace/input/processing/veeva-q3-fy25.png",
+          "cropKey": "crm-logo-q3-fy25"
+        }
+      ],
+      "directConsumers": [
+        "veeva-q3-fy25"
+      ],
+      "consumers": [
+        "veeva-q3-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/crm-q1-fy24.png",
+      "digest": "sha256:4bfeb0b36e328e37cded457d026be0815338ca68ff47f45af2425994f6868932",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/veeva-q1-fy24.json",
+          "recipeDigest": "sha256:fc54b36ec25634a7c78ff2169338430b392aa79872aa8e19da3327db061acf00",
+          "source": "input/processing/veeva-q1-fy24.png",
+          "cropKey": "crm"
+        }
+      ],
+      "directConsumers": [
+        "veeva-q1-fy24"
+      ],
+      "consumers": [
+        "veeva-q1-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/crm-q1-fy25.png",
+      "digest": "sha256:fbbd74ab9daa06c3a40b87bbeb2fc3259e834a7ce1e42e824ac8f03492758e7c",
+      "provenance": [],
+      "directConsumers": [
+        "veeva-q1-fy25"
+      ],
+      "consumers": [
+        "veeva-q1-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/crm-q1-fy26.png",
+      "digest": "sha256:d16cb6803a079814f37bacc3cd825672d74e7227d79a18f23e6ca6185e126aaf",
+      "provenance": [],
+      "directConsumers": [
+        "veeva-q1-fy26"
+      ],
+      "consumers": [
+        "veeva-q1-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/crm-q2-fy24.png",
+      "digest": "sha256:3ec23918cdd3aee3150f47f13b06ef599f36f8a62244846349e028473416a86b",
+      "provenance": [],
+      "directConsumers": [
+        "veeva-q2-fy24"
+      ],
+      "consumers": [
+        "veeva-q2-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/crm-q2-fy25.png",
+      "digest": "sha256:0dd96ee5ee8bcc8d95856e102fa866eb404bd68b9405b5fb48c99604f14d2d3b",
+      "provenance": [],
+      "directConsumers": [
+        "veeva-q2-fy25"
+      ],
+      "consumers": [
+        "veeva-q2-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/crm-q2-fy26.png",
+      "digest": "sha256:82fa5c1dc04ea39808919c57ff6afa6517eac50a8c4ef9e90b3abe7297cd29b2",
+      "provenance": [],
+      "directConsumers": [
+        "veeva-q2-fy26"
+      ],
+      "consumers": [
+        "veeva-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/crm-q3-fy23.png",
+      "digest": "sha256:ecdbac9c25f72b6e01027fb82b3e792d39b6e94d36d4a525ab195963b317333a",
+      "provenance": [],
+      "directConsumers": [
+        "veeva-q3-fy23"
+      ],
+      "consumers": [
+        "veeva-q3-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/crm-q4-fy23.png",
+      "digest": "sha256:1dba530b4a339874cedaf1851119a8fff6f968c41d86763b56b49295aca7a182",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/veeva-q4-fy23.json",
+          "recipeDigest": "sha256:6388793c5724fed776f38612102b7df83d8835c76ddc006c35ba17b4dd09ad3b",
+          "source": "input/processed/veeva-q4-fy23.png",
+          "cropKey": "veeva-crm-q4-fy23"
+        }
+      ],
+      "directConsumers": [
+        "veeva-q4-fy23"
+      ],
+      "consumers": [
+        "veeva-q4-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/crm-q4-fy24.png",
+      "digest": "sha256:283822d7c9d59866788cb7f5979b1a35a184fe0f8bd7b6f9b47a1d9b6628a0c8",
+      "provenance": [],
+      "directConsumers": [
+        "veeva-q4-fy24"
+      ],
+      "consumers": [
+        "veeva-q4-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/crm-q4-fy25.png",
+      "digest": "sha256:dd7b7bcea3fece73ce329d00ab39c8dfd4894642ce93d53ad0fb620e0e41262a",
+      "provenance": [],
+      "directConsumers": [
+        "veeva-q4-fy25"
+      ],
+      "consumers": [
+        "veeva-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/logo-q1-fy24.png",
+      "digest": "sha256:a8a9c2d6ffbb75999dc527cd5e741ffc0b491997326d70ebff42f1a0ad5509e5",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/veeva-q1-fy24.json",
+          "recipeDigest": "sha256:fc54b36ec25634a7c78ff2169338430b392aa79872aa8e19da3327db061acf00",
+          "source": "input/processing/veeva-q1-fy24.png",
+          "cropKey": "logo"
+        }
+      ],
+      "directConsumers": [
+        "veeva-q1-fy24"
+      ],
+      "consumers": [
+        "veeva-q1-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/logo-q1-fy25.png",
+      "digest": "sha256:fb307bc884a866530a183dd2ea940d0f2df53fd89d91f86d5985260fc77f0a68",
+      "provenance": [],
+      "directConsumers": [
+        "veeva-q1-fy25"
+      ],
+      "consumers": [
+        "veeva-q1-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/logo-q1-fy26.png",
+      "digest": "sha256:369ff70aacd1176590eb8aa9605799c1939775c0d26a188b7e9e5ff25900ce8e",
+      "provenance": [],
+      "directConsumers": [
+        "veeva-q1-fy26"
+      ],
+      "consumers": [
+        "veeva-q1-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/logo-q2-fy25.png",
+      "digest": "sha256:a5885936858eeef421a7ae287ee6d5642ea5a19702e0745f88cf53d1c8cd7d73",
+      "provenance": [],
+      "directConsumers": [
+        "veeva-q2-fy25"
+      ],
+      "consumers": [
+        "veeva-q2-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/logo-q2-fy26.png",
+      "digest": "sha256:f88cda831c1ea4f07e29d35bcb9c97c1a1d9221c274bb6296aa9dde50c9494db",
+      "provenance": [],
+      "directConsumers": [
+        "veeva-q2-fy26"
+      ],
+      "consumers": [
+        "veeva-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/logo-q3-fy23.png",
+      "digest": "sha256:d923cbb5d3bf403235f12f652c77db06ec5cccca3703664bd0f7e2c29fa8b690",
+      "provenance": [],
+      "directConsumers": [
+        "veeva-q3-fy23"
+      ],
+      "consumers": [
+        "veeva-q3-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/logo-q4-fy24.png",
+      "digest": "sha256:a060db712218971390a8729ddbc6bcd9b33791e266c30133e7c5d4b06a4809d1",
+      "provenance": [],
+      "directConsumers": [
+        "veeva-q4-fy24"
+      ],
+      "consumers": [
+        "veeva-q4-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/vault-logo-q3-fy25.png",
+      "digest": "sha256:d751af5bdd622796cdd7520fd4e585d84e4308e2c6fde0015bb8979b8f257b22",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/veeva-q3-fy25.json",
+          "recipeDigest": "sha256:c5a8d76307416f732e7b9046a77367a6a3106db24730a857872d48b7cb2ee168",
+          "source": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-060804e4-3fb8-4014-941f-51b2a9721a6e/workspace/input/processing/veeva-q3-fy25.png",
+          "cropKey": "vault-logo-q3-fy25"
+        }
+      ],
+      "directConsumers": [
+        "veeva-q3-fy25"
+      ],
+      "consumers": [
+        "veeva-q3-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/vault-q1-fy24.png",
+      "digest": "sha256:f81ae290bc9dafee9bc62ac90327e5aa6444834834d1db9b4de6cc9ad8edea0d",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/veeva-q1-fy24.json",
+          "recipeDigest": "sha256:fc54b36ec25634a7c78ff2169338430b392aa79872aa8e19da3327db061acf00",
+          "source": "input/processing/veeva-q1-fy24.png",
+          "cropKey": "vault"
+        }
+      ],
+      "directConsumers": [
+        "veeva-q1-fy24"
+      ],
+      "consumers": [
+        "veeva-q1-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/vault-q1-fy25.png",
+      "digest": "sha256:ca88b51011fabd976227a5b065433df1e607cfcc381260d5e0560d8d78f9e731",
+      "provenance": [],
+      "directConsumers": [
+        "veeva-q1-fy25"
+      ],
+      "consumers": [
+        "veeva-q1-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/vault-q1-fy26.png",
+      "digest": "sha256:8a4b80833308ce481ce13e1fc5ba995c5fc9c82e25e7872938112260291c84a0",
+      "provenance": [],
+      "directConsumers": [
+        "veeva-q1-fy26"
+      ],
+      "consumers": [
+        "veeva-q1-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/vault-q2-fy24.png",
+      "digest": "sha256:a5529aad88f377c178852dd91fdb1dea54c17454b93fede6f552a86fda27c9d4",
+      "provenance": [],
+      "directConsumers": [
+        "veeva-q2-fy24"
+      ],
+      "consumers": [
+        "veeva-q2-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/vault-q2-fy25.png",
+      "digest": "sha256:47186f5e303ba5534d7e2826dff4f3a7b2cc369ee2f44685e659fbda862b81ae",
+      "provenance": [],
+      "directConsumers": [
+        "veeva-q2-fy25"
+      ],
+      "consumers": [
+        "veeva-q2-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/vault-q2-fy26.png",
+      "digest": "sha256:6e41229ac6940a22fdcac389e53ca0e11b5166224263bebaa4fbc18cbd6d0db1",
+      "provenance": [],
+      "directConsumers": [
+        "veeva-q2-fy26"
+      ],
+      "consumers": [
+        "veeva-q2-fy26"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/vault-q3-fy23.png",
+      "digest": "sha256:6beba40c1dd2f86b8ad2e3072073e365d6ebb905d6fb5137a9af7cece5d12ada",
+      "provenance": [],
+      "directConsumers": [
+        "veeva-q3-fy23"
+      ],
+      "consumers": [
+        "veeva-q3-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/vault-q4-fy23.png",
+      "digest": "sha256:7685bb7df9e8ad8683d0ae9d171540d2086f998a4493c1c296014be4b8305a07",
+      "provenance": [
+        {
+          "recipe": "input/icon-crop-specs/veeva-q4-fy23.json",
+          "recipeDigest": "sha256:6388793c5724fed776f38612102b7df83d8835c76ddc006c35ba17b4dd09ad3b",
+          "source": "input/processed/veeva-q4-fy23.png",
+          "cropKey": "veeva-vault-q4-fy23"
+        }
+      ],
+      "directConsumers": [
+        "veeva-q4-fy23"
+      ],
+      "consumers": [
+        "veeva-q4-fy23"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/vault-q4-fy24.png",
+      "digest": "sha256:4aa541b01dc0735483595e2a672079ed637a5d19eb7db1a1c1ac3544b3cbde8e",
+      "provenance": [],
+      "directConsumers": [
+        "veeva-q4-fy24"
+      ],
+      "consumers": [
+        "veeva-q4-fy24"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
+      "path": "data/assets/raster-annotations/veeva/vault-q4-fy25.png",
+      "digest": "sha256:a829aba8ad1526df3dcfa8a30ceedccfe06a6ad7fcf5a62abef433217fbf516e",
+      "provenance": [],
+      "directConsumers": [
+        "veeva-q4-fy25"
+      ],
+      "consumers": [
+        "veeva-q4-fy25"
+      ],
+      "acceptedVersions": [],
+      "reusable": false
+    },
+    {
       "path": "data/assets/raster-annotations/verizon/logo-q3-fy26.png",
       "digest": "sha256:a2312175f27f1b17c4fa159754aac5cd5b7d5a9e47b7e2fde4d5114eb5538d05",
       "provenance": [
@@ -20060,6 +22320,51 @@
       "source": "input/processed/abbvie-q4-fy25.png"
     },
     {
+      "path": "input/icon-crop-specs/accenture-q1-fy23.json",
+      "digest": "sha256:e3e3702d9253fa27ca57b8f1e85d51b20441e9e4f36ee4738c5fe8d3c23d96f1",
+      "source": "input/processed/accenture-q1-fy23.png"
+    },
+    {
+      "path": "input/icon-crop-specs/accenture-q1-fy24.json",
+      "digest": "sha256:50e3e20152250e909e85727b8295d9bbc8e71020017bd540d8e6311a4645bf4f",
+      "source": "input/processing/accenture-q1-fy24.png"
+    },
+    {
+      "path": "input/icon-crop-specs/accenture-q2-fy24.json",
+      "digest": "sha256:46f4857fc4d24f794cc50d9d404a3a06db9a2b5c6c0f10e46dca4175ea1f99b5",
+      "source": "input/processing/accenture-q2-fy24.png"
+    },
+    {
+      "path": "input/icon-crop-specs/accenture-q3-fy23.json",
+      "digest": "sha256:7a3610afebc40b534d9d76a8488b4ef951f8a5d505605e196bf0a21dcaf61a20",
+      "source": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/input/processing/accenture-q3-fy23.png"
+    },
+    {
+      "path": "input/icon-crop-specs/accenture-q3-fy24.json",
+      "digest": "sha256:8300070a2d48327b4cd07cb50082159fba6baf40f595ebe141dd668bf53be1d1",
+      "source": "input/processed/accenture-q3-fy24.png"
+    },
+    {
+      "path": "input/icon-crop-specs/accenture-q3-fy25.json",
+      "digest": "sha256:9cdaeea9bfa7401a54f2353bff10289bde2d26e51ddc42718eec5484b3e8da03",
+      "source": "input/processing/accenture-q3-fy25.png"
+    },
+    {
+      "path": "input/icon-crop-specs/accenture-q4-fy23.json",
+      "digest": "sha256:dc89f6c8c18e7b78e0072956bb93cc0d544d54f8b00514640e875facd2a2d726",
+      "source": "input/processing/accenture-q4-fy23.png"
+    },
+    {
+      "path": "input/icon-crop-specs/accenture-q4-fy24.json",
+      "digest": "sha256:acf4758565382ba29f700c32d9a016a7a7db4ef7abeebf3bdc32ebd5ca0ef7ae",
+      "source": "input/processing/accenture-q4-fy24.png"
+    },
+    {
+      "path": "input/icon-crop-specs/accenture-q4-fy25.json",
+      "digest": "sha256:ec10af581610116a10c939b464e99dfbfc77f0d7807eaaa40db21b29411b5621",
+      "source": "input/processing/accenture-q4-fy25.png"
+    },
+    {
       "path": "input/icon-crop-specs/accenture-q4-fy26.json",
       "digest": "sha256:d58f633c787a39b240253f1be32e6ce186b5ffc9a8e265e2c6f01c80a8b08fb3",
       "source": "input/processed/accenture-q4-fy26.png"
@@ -20173,6 +22478,11 @@
       "path": "input/icon-crop-specs/amgen-q4-fy25.json",
       "digest": "sha256:1f4f11ce8d82585730ea7af86642db5919ddb6ad969765dd43cef3276d02b7d9",
       "source": "input/processed/amgen-q4-fy25.png"
+    },
+    {
+      "path": "input/icon-crop-specs/anthropic-h1-fy26.json",
+      "digest": "sha256:86fb2f8182638b9c8c9b1aa324f8137718b810ecafad2caf135e31b3ad77a6c4",
+      "source": "input/processed/anthropic-h1-fy26.png"
     },
     {
       "path": "input/icon-crop-specs/appfolio-q1-fy26.json",
@@ -20610,6 +22920,61 @@
       "source": "input/processed/eli-lilly-q4-fy25.png"
     },
     {
+      "path": "input/icon-crop-specs/etsy-q1-fy23.json",
+      "digest": "sha256:2580d4c9c9d69ac45fe430b420b77853d888b2e2954b57481e0d6f7b11aa6e75",
+      "source": "input/processed/etsy-q1-fy23.png"
+    },
+    {
+      "path": "input/icon-crop-specs/etsy-q1-fy24.json",
+      "digest": "sha256:32dfa0204a6ba3bfe3637d0582e52333d4d678d52f2b8d80fe37fc6fbb3efe63",
+      "source": "input/processing/etsy-q1-fy24.png"
+    },
+    {
+      "path": "input/icon-crop-specs/etsy-q1-fy25.json",
+      "digest": "sha256:2ba34909c5374a372a02fd436e0e7accba56e20e6c4b264e621a25fee9d4f1dd",
+      "source": "input/processed/etsy-q1-fy25.png"
+    },
+    {
+      "path": "input/icon-crop-specs/etsy-q2-fy23.json",
+      "digest": "sha256:e32ac96e5b2e5ea7242e6587f16ddf208359c7e42569080d83ab55ddf4545d36",
+      "source": "input/processed/etsy-q2-fy23.png"
+    },
+    {
+      "path": "input/icon-crop-specs/etsy-q2-fy24.json",
+      "digest": "sha256:87ad07b413b6ef10d2cc70859929379c203aefdcddc25ff258d68a7345bd8224",
+      "source": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-abbd0346-0234-4b40-b9c4-a9ad66ab9048/workspace/input/processing/etsy-q2-fy24.png"
+    },
+    {
+      "path": "input/icon-crop-specs/etsy-q2-fy25.json",
+      "digest": "sha256:2d602c8b2e89ba2c2aca477a5c0d88eabd747009007d9d832874115429fb1f6d",
+      "source": "input/processed/etsy-q2-fy25.png"
+    },
+    {
+      "path": "input/icon-crop-specs/etsy-q3-fy22.json",
+      "digest": "sha256:2ab0bdcb71b41a351d9f5cb3047cac5514fa87591c71053a1faa7863418bf130",
+      "source": "input/processed/etsy-q3-fy22.png"
+    },
+    {
+      "path": "input/icon-crop-specs/etsy-q3-fy23.json",
+      "digest": "sha256:70a52cc07bf171a3b9a24748c23d8f09a6d4fc3ca67abd57a91e18ff693c5aec",
+      "source": "input/processing/etsy-q3-fy23.png"
+    },
+    {
+      "path": "input/icon-crop-specs/etsy-q3-fy24.json",
+      "digest": "sha256:0b85a98c3f65349329dca0495c42435a5ba1e15b0a606869a0290b5915674cab",
+      "source": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/input/processing/etsy-q3-fy24.png"
+    },
+    {
+      "path": "input/icon-crop-specs/etsy-q3-fy25.json",
+      "digest": "sha256:84ee80659ecdb18db5ed20722a38d4afdbfbf67b467cd198a7db323125a65da6",
+      "source": "input/processed/etsy-q3-fy25.png"
+    },
+    {
+      "path": "input/icon-crop-specs/etsy-q4-fy22.json",
+      "digest": "sha256:7ca8f755cdbffa74e3edee6a8874f2b4e5c67d806216886804202a261cb8de51",
+      "source": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-176881cb-a0e4-4746-a619-241dd85f354c/workspace/input/processing/etsy-q4-fy22.png"
+    },
+    {
       "path": "input/icon-crop-specs/expedia-q1-fy26.json",
       "digest": "sha256:14a5a8eef1b5de978d1d0f7ce9b7d2566c72728cfc0dc9199dbc69df8fbfad66",
       "source": "input/processed/expedia-q1-fy26.png"
@@ -20700,6 +23065,46 @@
       "source": "input/processed/grab-q2-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/health-equity-q1-fy24.json",
+      "digest": "sha256:63d7c35778f8e9a0baaa2b34ff4d45a859d7031eff48b09b31b2237cf78071a6",
+      "source": "input/processing/health-equity-q1-fy24.png"
+    },
+    {
+      "path": "input/icon-crop-specs/health-equity-q2-fy24.json",
+      "digest": "sha256:07259b1e60e0945884cef215524ffa24b02752af7607354986c6e39508943743",
+      "source": "input/processed/health-equity-q2-fy24.png"
+    },
+    {
+      "path": "input/icon-crop-specs/health-equity-q3-fy23.json",
+      "digest": "sha256:59af1786d434ec3f0bcdb52853939c1b6ec0da939cea21a2c89ef7045449d068",
+      "source": "input/processed/health-equity-q3-fy23.png"
+    },
+    {
+      "path": "input/icon-crop-specs/health-equity-q3-fy24.json",
+      "digest": "sha256:9dd9cc40239511c1fca832722466c2e7779a5caf246f69ce65be0d30f6694bb7",
+      "source": "input/processing/health-equity-q3-fy24.png"
+    },
+    {
+      "path": "input/icon-crop-specs/health-equity-q3-fy25.json",
+      "digest": "sha256:5bb078b3be71b57f3f75b7a8ec5027dd1199edb8c28cdeb2eb1b8b3ca89c8e4d",
+      "source": "input/processed/health-equity-q3-fy25.png"
+    },
+    {
+      "path": "input/icon-crop-specs/health-equity-q3-fy26.json",
+      "digest": "sha256:412824bf5526177d54332271641fa65be3091c9f3147ac886b5d7bbd8734b39b",
+      "source": "input/processing/health-equity-q3-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/health-equity-q4-fy23.json",
+      "digest": "sha256:75e5059d7b87032d23918bb180a0f3b933934b737cdd99b90554e689f8636cdb",
+      "source": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-67609b45-2ce1-4807-9902-56785233bddb/workspace/input/processing/health-equity-q4-fy23.png"
+    },
+    {
+      "path": "input/icon-crop-specs/health-equity-q4-fy24.json",
+      "digest": "sha256:25b85f9924a16895677d5788cc3c3234570a0443402ad1d02533f090cc8368f7",
+      "source": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-88561e5d-0e48-41d5-a3d5-aa7fd3d25e8d/workspace/input/processing/health-equity-q4-fy24.png"
+    },
+    {
       "path": "input/icon-crop-specs/hermes-fy25.json",
       "digest": "sha256:2c7ba08d947fb2e8e44fecd9658333369dd38e08cc492c59ef1d8a2e78ed2ed3",
       "source": "input/processed/hermes-fy25.png"
@@ -20788,6 +23193,36 @@
       "path": "input/icon-crop-specs/jd-com-q1-fy26.json",
       "digest": "sha256:914617360fb0b27f19e48396d40b33113ce7bce6ef31c9db60819bd88193ccc5",
       "source": "input/processed/jd-com-q1-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/kering-fy23.json",
+      "digest": "sha256:5b434d52da266ba5f1ab9c7a46c6de290ed09cfb5999a4b7cb7c986d05077b52",
+      "source": "input/processed/kering-fy23.png"
+    },
+    {
+      "path": "input/icon-crop-specs/kering-fy24.json",
+      "digest": "sha256:051c5de7767151c31693efa92cfb14fcdd5352cd96612a13343462bb863608ba",
+      "source": "input/processed/kering-fy24.png"
+    },
+    {
+      "path": "input/icon-crop-specs/kering-h1-fy22.json",
+      "digest": "sha256:5bb14ff066775b5c09b35c58a555502224ea573a7aa6da684987b3a26ea9b3fe",
+      "source": "input/processed/kering-h1-fy22.png"
+    },
+    {
+      "path": "input/icon-crop-specs/kering-h1-fy23.json",
+      "digest": "sha256:0e9c705ad398e3384242436f561afe418918abc365a98eb44adc295e6e4cdf16",
+      "source": "input/processed/kering-h1-fy23.png"
+    },
+    {
+      "path": "input/icon-crop-specs/kering-h1-fy24.json",
+      "digest": "sha256:74b0eec2a1f3430e04571d00e8ee4ae4a0e830da3f30b433826d1e791ca3203a",
+      "source": "input/processed/kering-h1-fy24.png"
+    },
+    {
+      "path": "input/icon-crop-specs/kering-h1-fy25.json",
+      "digest": "sha256:7a9c17da8353755557e88e80d1738a8341cc30ed8245a2c4d2551c3e6f1d7f7a",
+      "source": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/input/processing/kering-h1-fy25.png"
     },
     {
       "path": "input/icon-crop-specs/kla-q1-fy27.json",
@@ -20940,9 +23375,19 @@
       "source": "input/processed/meta-q1-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/meta-q3-fy26.json",
+      "digest": "sha256:699595963b38f762630708d289992e0b1582ea286052e0e26a2ffbd82bca650d",
+      "source": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/input/processing/meta-q3-fy26.png"
+    },
+    {
       "path": "input/icon-crop-specs/micron-q3-fy26.json",
       "digest": "sha256:5fd29473cd6734010c4ca6aa0509074063cc20d60624afbf47dba6883c06d906",
       "source": "input/processed/micron-q3-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/microsoft-q1-fy27.json",
+      "digest": "sha256:e94db1a44d286ec2e1206139c0802cc223403d022aa1aed8cb2d160954d2a4c0",
+      "source": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/input/processing/microsoft-q1-fy27.png"
     },
     {
       "path": "input/icon-crop-specs/microsoft-q3-fy26-by-bu.json",
@@ -21310,6 +23755,11 @@
       "source": "input/processed/roblox-q3-fy22.png"
     },
     {
+      "path": "input/icon-crop-specs/roblox-q3-fy26.json",
+      "digest": "sha256:e0dee1a864c523675c87999dac293bac95e6aa3991063353a25ea30ea9da6720",
+      "source": "input/processed/roblox-q3-fy26.png"
+    },
+    {
       "path": "input/icon-crop-specs/roku-q4-fy25.json",
       "digest": "sha256:1947cf33f765162aeaa83a4f02d68788a9c13c0197947e6f9e4d6d28a31004df",
       "source": "input/processed/roku-q4-fy25.png"
@@ -21510,6 +23960,11 @@
       "source": "input/processing/spacex-q2-fy26.png"
     },
     {
+      "path": "input/icon-crop-specs/spotify-q3-fy26.json",
+      "digest": "sha256:f6bee9aee2eee8dea1a0798e1641b4429c5b36c3bad9dd3135bd3e6c7a32a23a",
+      "source": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-8d7b5f0d-6683-4e20-a229-63004174c836/workspace/input/processing/spotify-q3-fy26.png"
+    },
+    {
       "path": "input/icon-crop-specs/starbucks-q1-fy26.json",
       "digest": "sha256:c5c19c441675fbab0e610b3952850d6abca1e6675d7e1d1f252ee3367d6e8afa",
       "source": "input/processed/starbucks-q1-fy26.png"
@@ -21518,6 +23973,11 @@
       "path": "input/icon-crop-specs/starbucks-q2-fy26.json",
       "digest": "sha256:74e6fe613137b5c7b89e73046fce223bb27a87c669c096096e82fe1702908ffa",
       "source": "input/processed/starbucks-q2-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/stellantis-q3-fy26.json",
+      "digest": "sha256:b3e6d8ed200cf46b21f4693c15821d02574d07ccff763107850f2046582b7aff",
+      "source": "input/processed/stellantis-q3-fy26.png"
     },
     {
       "path": "input/icon-crop-specs/synopsys-q2-fy26.json",
@@ -21618,6 +24078,41 @@
       "path": "input/icon-crop-specs/vail-resorts-q3-fy26.json",
       "digest": "sha256:5f48921c8ea5bb6500a9ae8ac399a5dbad122967724c536ee86b4e072d39bc0a",
       "source": "input/processed/vail-resorts-q3-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/veeva-q1-fy24.json",
+      "digest": "sha256:fc54b36ec25634a7c78ff2169338430b392aa79872aa8e19da3327db061acf00",
+      "source": "input/processing/veeva-q1-fy24.png"
+    },
+    {
+      "path": "input/icon-crop-specs/veeva-q1-fy26.json",
+      "digest": "sha256:43a76f8153bb585315c7666133f6bade22e5224b75f25c0a061d1734a2edef17",
+      "source": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-9891230c-e54c-46d0-ba11-55cdab524361/workspace/input/processing/veeva-q1-fy26.png"
+    },
+    {
+      "path": "input/icon-crop-specs/veeva-q2-fy24.json",
+      "digest": "sha256:8a4016415aec5e91c9c35e6c43bfa6ef3ff4cf4bb48598fd0421d18d94d2de1b",
+      "source": "input/processed/veeva-q2-fy24.png"
+    },
+    {
+      "path": "input/icon-crop-specs/veeva-q2-fy25.json",
+      "digest": "sha256:64ff0a7e45df560149ec08dd06328085a31fe840a438c77fd6fee542f850a7a2",
+      "source": "input/processed/veeva-q2-fy25.png"
+    },
+    {
+      "path": "input/icon-crop-specs/veeva-q3-fy23.json",
+      "digest": "sha256:f665aa8defdcfd9684d96941f6407bdb26f9c6aa7743831544a4c1c94b54639a",
+      "source": "input/processed/veeva-q3-fy23.png"
+    },
+    {
+      "path": "input/icon-crop-specs/veeva-q3-fy25.json",
+      "digest": "sha256:c5a8d76307416f732e7b9046a77367a6a3106db24730a857872d48b7cb2ee168",
+      "source": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-060804e4-3fb8-4014-941f-51b2a9721a6e/workspace/input/processing/veeva-q3-fy25.png"
+    },
+    {
+      "path": "input/icon-crop-specs/veeva-q4-fy23.json",
+      "digest": "sha256:6388793c5724fed776f38612102b7df83d8835c76ddc006c35ba17b4dd09ad3b",
+      "source": "input/processed/veeva-q4-fy23.png"
     },
     {
       "path": "input/icon-crop-specs/verizon-q3-fy26.json",

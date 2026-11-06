@@ -1,0 +1,143 @@
+{
+  "source": "input/processed/kering-fy24.png",
+  "outputDir": "data/assets/icon-references/kering",
+  "runtimeOutputDir": "data/assets/raster-annotations/kering",
+  "report": "crop-report-fy24.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [
+      242,
+      242,
+      242
+    ],
+    "tolerance": 10
+  },
+  "crops": [
+    {
+      "key": "gucci-fy24",
+      "output": "crops/gucci-fy24.png",
+      "runtimeOutput": "gucci-fy24.png",
+      "searchBox": {
+        "x": 54,
+        "y": 460,
+        "width": 340,
+        "height": 77
+      },
+      "cropBox": {
+        "x": 54,
+        "y": 460,
+        "width": 340,
+        "height": 77
+      },
+      "threshold": 18,
+      "minComponentArea": 8,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "saint_laurent-fy24",
+      "output": "crops/saint_laurent-fy24.png",
+      "runtimeOutput": "saint_laurent-fy24.png",
+      "searchBox": {
+        "x": 23,
+        "y": 700,
+        "width": 400,
+        "height": 58
+      },
+      "cropBox": {
+        "x": 23,
+        "y": 700,
+        "width": 400,
+        "height": 58
+      },
+      "threshold": 18,
+      "minComponentArea": 8,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "bottega_veneta-fy24",
+      "output": "crops/bottega_veneta-fy24.png",
+      "runtimeOutput": "bottega_veneta-fy24.png",
+      "searchBox": {
+        "x": 46,
+        "y": 852,
+        "width": 358,
+        "height": 55
+      },
+      "cropBox": {
+        "x": 46,
+        "y": 852,
+        "width": 358,
+        "height": 55
+      },
+      "threshold": 18,
+      "minComponentArea": 8,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "kering-wordmark-fy24",
+      "output": "crops/kering-wordmark-fy24.png",
+      "runtimeOutput": "kering-wordmark-fy24.png",
+      "searchBox": {
+        "x": 675,
+        "y": 310,
+        "width": 630,
+        "height": 85
+      },
+      "cropBox": {
+        "x": 675,
+        "y": 310,
+        "width": 630,
+        "height": 85
+      },
+      "threshold": 18,
+      "minComponentArea": 8,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      }
+    },
+    {
+      "key": "kering-owl-fy24",
+      "output": "crops/kering-owl-fy24.png",
+      "runtimeOutput": "kering-owl-fy24.png",
+      "searchBox": {
+        "x": 897,
+        "y": 413,
+        "width": 198,
+        "height": 116
+      },
+      "cropBox": {
+        "x": 897,
+        "y": 413,
+        "width": 198,
+        "height": 116
+      },
+      "threshold": 18,
+      "minComponentArea": 8,
+      "validation": {
+        "borderBand": 2,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+Veeva Q4 FY25: company-logo-q4-fy25.png, vault-q4-fy25.png and crm-q4-fy25.png inspected at native crop resolution. Complete original logo lockups; no adjacent labels, chart marks or publisher residue. Crop report passes all three. Source: input/processed/veeva-q4-fy25.png.

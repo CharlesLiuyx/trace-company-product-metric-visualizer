@@ -1,0 +1,513 @@
+{
+  "source": "input/processing/kering-h1-fy25.png",
+  "spec": "output/builds/build-cee55134-1d9b-43ce-9c1d-f6ca20da7de0/workspace/input/icon-crop-specs/kering-h1-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T15:36:32.675781+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "output/builds/build-cee55134-1d9b-43ce-9c1d-f6ca20da7de0/workspace/data/assets/raster-annotations/kering",
+  "crops": [
+    {
+      "key": "kering-h1-fy25",
+      "output": "output/builds/build-cee55134-1d9b-43ce-9c1d-f6ca20da7de0/workspace/data/assets/icon-references/kering/crops/kering-h1-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2455,
+        "losslessBytes": 10205,
+        "savingsVsLossless": 0.7594,
+        "metrics": {
+          "meanAbsoluteError": 0.2684,
+          "rootMeanSquareError": 1.2129,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.0984
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 38814,
+        "transparentPixelRatio": 0.8015
+      },
+      "searchBox": {
+        "x": 680,
+        "y": 310,
+        "width": 620,
+        "height": 90
+      },
+      "componentCount": 6,
+      "subjectBox": {
+        "x0": 694,
+        "y0": 320,
+        "x1": 1293,
+        "y1": 385
+      },
+      "cropBox": {
+        "x0": 687,
+        "y0": 313,
+        "x1": 1300,
+        "y1": 392
+      },
+      "validation": {
+        "width": 613,
+        "height": 79,
+        "foregroundPixels": 8422,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 7,
+          "top": 7,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "output/builds/build-cee55134-1d9b-43ce-9c1d-f6ca20da7de0/workspace/data/assets/raster-annotations/kering/kering-h1-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2455,
+        "losslessBytes": 10205,
+        "savingsVsLossless": 0.7594,
+        "metrics": {
+          "meanAbsoluteError": 0.2684,
+          "rootMeanSquareError": 1.2129,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.0984
+        }
+      },
+      "validationSheet": "output/builds/build-cee55134-1d9b-43ce-9c1d-f6ca20da7de0/workspace/data/assets/icon-references/kering/validation-sheets-h1-fy25/kering-h1-fy25.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 223908,
+        "losslessBytes": 223908,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "kering-owl-h1-fy25",
+      "output": "output/builds/build-cee55134-1d9b-43ce-9c1d-f6ca20da7de0/workspace/data/assets/icon-references/kering/crops/kering-owl-h1-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2432,
+        "losslessBytes": 12900,
+        "savingsVsLossless": 0.8115,
+        "metrics": {
+          "meanAbsoluteError": 0.5326,
+          "rootMeanSquareError": 1.5958,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 13,
+          "changedPixelRatio": 0.263
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 16184,
+        "transparentPixelRatio": 0.7345
+      },
+      "searchBox": {
+        "x": 900,
+        "y": 415,
+        "width": 190,
+        "height": 110
+      },
+      "componentCount": 5,
+      "subjectBox": {
+        "x0": 905,
+        "y0": 422,
+        "x1": 1086,
+        "y1": 521
+      },
+      "cropBox": {
+        "x0": 898,
+        "y0": 415,
+        "x1": 1093,
+        "y1": 528
+      },
+      "validation": {
+        "width": 195,
+        "height": 113,
+        "foregroundPixels": 2939,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 7,
+          "top": 7,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "output/builds/build-cee55134-1d9b-43ce-9c1d-f6ca20da7de0/workspace/data/assets/raster-annotations/kering/kering-owl-h1-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2432,
+        "losslessBytes": 12900,
+        "savingsVsLossless": 0.8115,
+        "metrics": {
+          "meanAbsoluteError": 0.5326,
+          "rootMeanSquareError": 1.5958,
+          "p99AbsoluteError": 7.0,
+          "maxChannelDiff": 13,
+          "changedPixelRatio": 0.263
+        }
+      },
+      "validationSheet": "output/builds/build-cee55134-1d9b-43ce-9c1d-f6ca20da7de0/workspace/data/assets/icon-references/kering/validation-sheets-h1-fy25/kering-owl-h1-fy25.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 260480,
+        "losslessBytes": 260480,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "gucci-h1-fy25",
+      "output": "output/builds/build-cee55134-1d9b-43ce-9c1d-f6ca20da7de0/workspace/data/assets/icon-references/kering/crops/gucci-h1-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1815,
+        "losslessBytes": 8055,
+        "savingsVsLossless": 0.7747,
+        "metrics": {
+          "meanAbsoluteError": 0.2763,
+          "rootMeanSquareError": 1.18,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 13,
+          "changedPixelRatio": 0.1051
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 17407,
+        "transparentPixelRatio": 0.8267
+      },
+      "searchBox": {
+        "x": 58,
+        "y": 476,
+        "width": 330,
+        "height": 65
+      },
+      "componentCount": 5,
+      "subjectBox": {
+        "x0": 66,
+        "y0": 481,
+        "x1": 381,
+        "y1": 531
+      },
+      "cropBox": {
+        "x0": 59,
+        "y0": 474,
+        "x1": 388,
+        "y1": 538
+      },
+      "validation": {
+        "width": 329,
+        "height": 64,
+        "foregroundPixels": 3448,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 7,
+          "top": 7,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "output/builds/build-cee55134-1d9b-43ce-9c1d-f6ca20da7de0/workspace/data/assets/raster-annotations/kering/gucci-h1-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1815,
+        "losslessBytes": 8055,
+        "savingsVsLossless": 0.7747,
+        "metrics": {
+          "meanAbsoluteError": 0.2763,
+          "rootMeanSquareError": 1.18,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 13,
+          "changedPixelRatio": 0.1051
+        }
+      },
+      "validationSheet": "output/builds/build-cee55134-1d9b-43ce-9c1d-f6ca20da7de0/workspace/data/assets/icon-references/kering/validation-sheets-h1-fy25/gucci-h1-fy25.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 231513,
+        "losslessBytes": 231513,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "saint-laurent-h1-fy25",
+      "output": "output/builds/build-cee55134-1d9b-43ce-9c1d-f6ca20da7de0/workspace/data/assets/icon-references/kering/crops/saint-laurent-h1-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2045,
+        "losslessBytes": 8583,
+        "savingsVsLossless": 0.7617,
+        "metrics": {
+          "meanAbsoluteError": 0.569,
+          "rootMeanSquareError": 1.7996,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.1955
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 11888,
+        "transparentPixelRatio": 0.5622
+      },
+      "searchBox": {
+        "x": 28,
+        "y": 715,
+        "width": 390,
+        "height": 48
+      },
+      "componentCount": 9,
+      "subjectBox": {
+        "x0": 31,
+        "y0": 720,
+        "x1": 416,
+        "y1": 759
+      },
+      "cropBox": {
+        "x0": 24,
+        "y0": 713,
+        "x1": 423,
+        "y1": 766
+      },
+      "validation": {
+        "width": 399,
+        "height": 53,
+        "foregroundPixels": 8579,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 7,
+          "top": 7,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "output/builds/build-cee55134-1d9b-43ce-9c1d-f6ca20da7de0/workspace/data/assets/raster-annotations/kering/saint-laurent-h1-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 2045,
+        "losslessBytes": 8583,
+        "savingsVsLossless": 0.7617,
+        "metrics": {
+          "meanAbsoluteError": 0.569,
+          "rootMeanSquareError": 1.7996,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 15,
+          "changedPixelRatio": 0.1955
+        }
+      },
+      "validationSheet": "output/builds/build-cee55134-1d9b-43ce-9c1d-f6ca20da7de0/workspace/data/assets/icon-references/kering/validation-sheets-h1-fy25/saint-laurent-h1-fy25.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 228521,
+        "losslessBytes": 228521,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "bottega-veneta-h1-fy25",
+      "output": "output/builds/build-cee55134-1d9b-43ce-9c1d-f6ca20da7de0/workspace/data/assets/icon-references/kering/crops/bottega-veneta-h1-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1987,
+        "losslessBytes": 9151,
+        "savingsVsLossless": 0.7829,
+        "metrics": {
+          "meanAbsoluteError": 0.6113,
+          "rootMeanSquareError": 1.7072,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 14,
+          "changedPixelRatio": 0.3022
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 11611,
+        "transparentPixelRatio": 0.707
+      },
+      "searchBox": {
+        "x": 48,
+        "y": 873,
+        "width": 355,
+        "height": 43
+      },
+      "componentCount": 13,
+      "subjectBox": {
+        "x0": 53,
+        "y0": 877,
+        "x1": 396,
+        "y1": 909
+      },
+      "cropBox": {
+        "x0": 46,
+        "y0": 870,
+        "x1": 403,
+        "y1": 916
+      },
+      "validation": {
+        "width": 357,
+        "height": 46,
+        "foregroundPixels": 4097,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 7,
+          "top": 7,
+          "bottom": 7
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "output/builds/build-cee55134-1d9b-43ce-9c1d-f6ca20da7de0/workspace/data/assets/raster-annotations/kering/bottega-veneta-h1-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 1987,
+        "losslessBytes": 9151,
+        "savingsVsLossless": 0.7829,
+        "metrics": {
+          "meanAbsoluteError": 0.6113,
+          "rootMeanSquareError": 1.7072,
+          "p99AbsoluteError": 8.0,
+          "maxChannelDiff": 14,
+          "changedPixelRatio": 0.3022
+        }
+      },
+      "validationSheet": "output/builds/build-cee55134-1d9b-43ce-9c1d-f6ca20da7de0/workspace/data/assets/icon-references/kering/validation-sheets-h1-fy25/bottega-veneta-h1-fy25.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 231686,
+        "losslessBytes": 231686,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

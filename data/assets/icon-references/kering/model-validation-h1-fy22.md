@@ -1,0 +1,1 @@
+H1 FY22: inspected all five compressed transparent crops. Complete Kering wordmark and emblem, Gucci, Saint Laurent and Bottega Veneta marks; no financial labels, connectors or publisher residue. Crop validation passed.

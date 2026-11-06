@@ -1,0 +1,124 @@
+{
+  "source": "input/processing/health-equity-q3-fy25.png",
+  "spec": "output/builds/build-a745ef72-2eeb-4050-bc96-01117a392e24/workspace/input/icon-crop-specs/health-equity-q3-fy25.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T15:30:22.979580+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 6
+  },
+  "runtimeOutputDir": "output/builds/build-a745ef72-2eeb-4050-bc96-01117a392e24/workspace/data/assets/raster-annotations/health-equity",
+  "crops": [
+    {
+      "key": "logo-q3-fy25",
+      "output": "output/builds/build-a745ef72-2eeb-4050-bc96-01117a392e24/workspace/data/assets/icon-references/health-equity/crops/logo-q3-fy25.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3695,
+        "losslessBytes": 13953,
+        "savingsVsLossless": 0.7352,
+        "metrics": {
+          "meanAbsoluteError": 0.3368,
+          "rootMeanSquareError": 1.2242,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.3762
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 6,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 33350,
+        "transparentPixelRatio": 0.6268
+      },
+      "searchBox": {
+        "x": 599,
+        "y": 322,
+        "width": 566,
+        "height": 94
+      },
+      "componentCount": 14,
+      "subjectBox": {
+        "x0": 606,
+        "y0": 324,
+        "x1": 1162,
+        "y1": 416
+      },
+      "cropBox": {
+        "x0": 599,
+        "y0": 322,
+        "x1": 1165,
+        "y1": 416
+      },
+      "validation": {
+        "width": 566,
+        "height": 94,
+        "foregroundPixels": 18391,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 7,
+          "right": 3,
+          "top": 2,
+          "bottom": 0
+        },
+        "centerOffset": {
+          "x": 0.0035,
+          "y": 0.0106
+        },
+        "passes": true
+      },
+      "note": "",
+      "runtimeOutput": "output/builds/build-a745ef72-2eeb-4050-bc96-01117a392e24/workspace/data/assets/raster-annotations/health-equity/logo-q3-fy25.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 24,
+        "bytes": 3695,
+        "losslessBytes": 13953,
+        "savingsVsLossless": 0.7352,
+        "metrics": {
+          "meanAbsoluteError": 0.3368,
+          "rootMeanSquareError": 1.2242,
+          "p99AbsoluteError": 6.0,
+          "maxChannelDiff": 33,
+          "changedPixelRatio": 0.3762
+        }
+      }
+    }
+  ]
+}

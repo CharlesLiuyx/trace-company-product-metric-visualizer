@@ -1,0 +1,47 @@
+{
+  "source": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-67609b45-2ce1-4807-9902-56785233bddb/workspace/input/processing/health-equity-q4-fy23.png",
+  "outputDir": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-67609b45-2ce1-4807-9902-56785233bddb/workspace/data/assets/icon-references/health-equity",
+  "runtimeOutputDir": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-67609b45-2ce1-4807-9902-56785233bddb/workspace/data/assets/raster-annotations/health-equity",
+  "report": "crop-report-q4-fy23.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8,
+    "color": [
+      242,
+      242,
+      242
+    ]
+  },
+  "crops": [
+    {
+      "key": "company-wordmark-q4-fy23",
+      "output": "crops/company-wordmark-q4-fy23.png",
+      "runtimeOutput": "company-wordmark-q4-fy23.png",
+      "searchBox": {
+        "x": 594,
+        "y": 273,
+        "width": 576,
+        "height": 90
+      },
+      "cropBox": {
+        "x": 594,
+        "y": 273,
+        "width": 576,
+        "height": 90
+      },
+      "threshold": 8,
+      "minComponentArea": 10,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      }
+    }
+  ]
+}

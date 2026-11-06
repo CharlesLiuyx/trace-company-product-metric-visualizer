@@ -1,0 +1,196 @@
+{
+  "source": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-8d7b5f0d-6683-4e20-a229-63004174c836/workspace/input/processing/spotify-q3-fy26.png",
+  "outputDir": "data/assets/icon-references/spotify",
+  "runtimeOutputDir": "data/assets/raster-annotations/spotify",
+  "report": "crop-report-q3-fy26.json",
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "company-logo-q3-fy26",
+      "output": "crops/company-logo-q3-fy26.png",
+      "searchBox": {
+        "x": 807,
+        "y": 247,
+        "width": 236,
+        "height": 234
+      },
+      "cropBox": {
+        "x": 807,
+        "y": 247,
+        "width": 236,
+        "height": 234
+      },
+      "threshold": 10,
+      "minComponentArea": 3,
+      "padding": 3,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Source company or product branding only.",
+      "foreground": {
+        "any": [
+          {
+            "channels": {
+              "r": [
+                0,
+                150
+              ],
+              "g": [
+                0,
+                150
+              ],
+              "b": [
+                0,
+                150
+              ]
+            }
+          },
+          {
+            "channels": {
+              "r": [
+                0,
+                100
+              ],
+              "g": [
+                130,
+                255
+              ],
+              "b": [
+                0,
+                180
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": "premium-q3-fy26",
+      "output": "crops/premium-q3-fy26.png",
+      "searchBox": {
+        "x": 70,
+        "y": 652,
+        "width": 306,
+        "height": 96
+      },
+      "cropBox": {
+        "x": 70,
+        "y": 652,
+        "width": 306,
+        "height": 96
+      },
+      "threshold": 10,
+      "minComponentArea": 3,
+      "padding": 3,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Source company or product branding only.",
+      "foreground": {
+        "any": [
+          {
+            "channels": {
+              "r": [
+                0,
+                150
+              ],
+              "g": [
+                0,
+                150
+              ],
+              "b": [
+                0,
+                150
+              ]
+            }
+          },
+          {
+            "channels": {
+              "r": [
+                0,
+                100
+              ],
+              "g": [
+                130,
+                255
+              ],
+              "b": [
+                0,
+                180
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "key": "advertising-q3-fy26",
+      "output": "crops/advertising-q3-fy26.png",
+      "searchBox": {
+        "x": 44,
+        "y": 1012,
+        "width": 337,
+        "height": 56
+      },
+      "cropBox": {
+        "x": 44,
+        "y": 1012,
+        "width": 337,
+        "height": 56
+      },
+      "threshold": 10,
+      "minComponentArea": 3,
+      "padding": 3,
+      "validation": {
+        "borderBand": 1,
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Source company or product branding only.",
+      "foreground": {
+        "any": [
+          {
+            "channels": {
+              "r": [
+                0,
+                150
+              ],
+              "g": [
+                0,
+                150
+              ],
+              "b": [
+                0,
+                150
+              ]
+            }
+          },
+          {
+            "channels": {
+              "r": [
+                0,
+                100
+              ],
+              "g": [
+                130,
+                255
+              ],
+              "b": [
+                0,
+                180
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

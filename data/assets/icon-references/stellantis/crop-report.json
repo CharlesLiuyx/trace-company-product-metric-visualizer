@@ -1,0 +1,323 @@
+{
+  "source": "input/processing/stellantis-q3-fy26.png",
+  "spec": "input/icon-crop-specs/stellantis-q3-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "generatedAt": "2026-11-06T15:42:48.571684+00:00",
+  "compression": {
+    "enabled": true,
+    "paletteColors": [
+      256,
+      192,
+      128,
+      96,
+      64,
+      48,
+      32,
+      24,
+      16
+    ],
+    "limits": {
+      "maxMeanAbsoluteError": 1.2,
+      "maxRootMeanSquareError": 3.0,
+      "maxP99AbsoluteError": 12.0,
+      "maxMaxChannelDiff": 72
+    }
+  },
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "tolerance": 8
+  },
+  "runtimeOutputDir": "data/assets/raster-annotations/stellantis",
+  "crops": [
+    {
+      "key": "company-logo",
+      "output": "data/assets/icon-references/stellantis/crops/company-logo.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4029,
+        "losslessBytes": 18702,
+        "savingsVsLossless": 0.7846,
+        "metrics": {
+          "meanAbsoluteError": 0.1623,
+          "rootMeanSquareError": 1.1348,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 46,
+          "changedPixelRatio": 0.053
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 111707,
+        "transparentPixelRatio": 0.8932
+      },
+      "searchBox": {
+        "x": 669,
+        "y": 260,
+        "width": 740,
+        "height": 169
+      },
+      "componentCount": 71,
+      "subjectBox": {
+        "x0": 677,
+        "y0": 269,
+        "x1": 1401,
+        "y1": 423
+      },
+      "cropBox": {
+        "x0": 669,
+        "y0": 260,
+        "x1": 1409,
+        "y1": 429
+      },
+      "validation": {
+        "width": 740,
+        "height": 169,
+        "foregroundPixels": 12796,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 8,
+          "right": 8,
+          "top": 9,
+          "bottom": 6
+        },
+        "centerOffset": {
+          "x": 0.0,
+          "y": 0.0089
+        },
+        "passes": true
+      },
+      "note": "Source brand cluster only; excludes financial text, nodes and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/stellantis/company-logo.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 16,
+        "bytes": 4029,
+        "losslessBytes": 18702,
+        "savingsVsLossless": 0.7846,
+        "metrics": {
+          "meanAbsoluteError": 0.1623,
+          "rootMeanSquareError": 1.1348,
+          "p99AbsoluteError": 5.0,
+          "maxChannelDiff": 46,
+          "changedPixelRatio": 0.053
+        }
+      },
+      "validationSheet": "data/assets/icon-references/stellantis/validation-sheets/company-logo.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 230402,
+        "losslessBytes": 230402,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "brands-north-america",
+      "output": "data/assets/icon-references/stellantis/crops/brands-north-america.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 6138,
+        "losslessBytes": 28461,
+        "savingsVsLossless": 0.7843,
+        "metrics": {
+          "meanAbsoluteError": 0.6318,
+          "rootMeanSquareError": 1.9319,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 24,
+          "changedPixelRatio": 0.2655
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 43452,
+        "transparentPixelRatio": 0.7369
+      },
+      "searchBox": {
+        "x": 29,
+        "y": 253,
+        "width": 216,
+        "height": 273
+      },
+      "componentCount": 22,
+      "subjectBox": {
+        "x0": 34,
+        "y0": 262,
+        "x1": 241,
+        "y1": 523
+      },
+      "cropBox": {
+        "x0": 29,
+        "y0": 253,
+        "x1": 245,
+        "y1": 526
+      },
+      "validation": {
+        "width": 216,
+        "height": 273,
+        "foregroundPixels": 14314,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 5,
+          "right": 4,
+          "top": 9,
+          "bottom": 3
+        },
+        "centerOffset": {
+          "x": 0.0023,
+          "y": 0.011
+        },
+        "passes": true
+      },
+      "note": "Source brand cluster only; excludes financial text, nodes and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/stellantis/brands-north-america.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 64,
+        "bytes": 6138,
+        "losslessBytes": 28461,
+        "savingsVsLossless": 0.7843,
+        "metrics": {
+          "meanAbsoluteError": 0.6318,
+          "rootMeanSquareError": 1.9319,
+          "p99AbsoluteError": 9.0,
+          "maxChannelDiff": 24,
+          "changedPixelRatio": 0.2655
+        }
+      },
+      "validationSheet": "data/assets/icon-references/stellantis/validation-sheets/brands-north-america.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 283538,
+        "losslessBytes": 283538,
+        "savingsVsLossless": 0.0
+      }
+    },
+    {
+      "key": "brands-europe",
+      "output": "data/assets/icon-references/stellantis/crops/brands-europe.png",
+      "compression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 11158,
+        "losslessBytes": 51677,
+        "savingsVsLossless": 0.7841,
+        "metrics": {
+          "meanAbsoluteError": 1.0263,
+          "rootMeanSquareError": 2.5657,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.3863
+        }
+      },
+      "backgroundRemoval": {
+        "enabled": true,
+        "mode": "edge-connected",
+        "tolerance": 8,
+        "background": [
+          242,
+          242,
+          242
+        ],
+        "transparentPixels": 37576,
+        "transparentPixelRatio": 0.6396
+      },
+      "searchBox": {
+        "x": 20,
+        "y": 547,
+        "width": 216,
+        "height": 272
+      },
+      "componentCount": 10,
+      "subjectBox": {
+        "x0": 25,
+        "y0": 553,
+        "x1": 229,
+        "y1": 810
+      },
+      "cropBox": {
+        "x0": 20,
+        "y0": 547,
+        "x1": 236,
+        "y1": 819
+      },
+      "validation": {
+        "width": 216,
+        "height": 272,
+        "foregroundPixels": 17195,
+        "edgeForegroundPixels": 0,
+        "forbiddenForegroundPixels": 0,
+        "sourceIsolationBands": [],
+        "margins": {
+          "left": 5,
+          "right": 7,
+          "top": 6,
+          "bottom": 9
+        },
+        "centerOffset": {
+          "x": -0.0046,
+          "y": -0.0055
+        },
+        "passes": true
+      },
+      "note": "Source brand cluster only; excludes financial text, nodes and publisher marks.",
+      "runtimeOutput": "data/assets/raster-annotations/stellantis/brands-europe.png",
+      "runtimeCompression": {
+        "enabled": true,
+        "mode": "palette",
+        "colors": 96,
+        "bytes": 11158,
+        "losslessBytes": 51677,
+        "savingsVsLossless": 0.7841,
+        "metrics": {
+          "meanAbsoluteError": 1.0263,
+          "rootMeanSquareError": 2.5657,
+          "p99AbsoluteError": 10.0,
+          "maxChannelDiff": 41,
+          "changedPixelRatio": 0.3863
+        }
+      },
+      "validationSheet": "data/assets/icon-references/stellantis/validation-sheets/brands-europe.png",
+      "validationSheetCompression": {
+        "enabled": true,
+        "mode": "rgb-lossless",
+        "colors": null,
+        "bytes": 326126,
+        "losslessBytes": 326126,
+        "savingsVsLossless": 0.0
+      }
+    }
+  ]
+}

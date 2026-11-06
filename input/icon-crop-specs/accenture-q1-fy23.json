@@ -1,0 +1,37 @@
+{
+  "source": "input/processed/accenture-q1-fy23.png",
+  "outputDir": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-a80f75ba-b6a7-4e60-a38c-3732bd65cbd9/workspace/data/assets/icon-references/accenture",
+  "runtimeOutputDir": "/Users/charlesliu/Dev/Data/trace-company-product-metric-visualizer/output/builds/build-a80f75ba-b6a7-4e60-a38c-3732bd65cbd9/workspace/data/assets/raster-annotations/accenture",
+  "report": "crop-report-q1-fy23.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "crops": [
+    {
+      "key": "company-logo-q1-fy23",
+      "output": "crops/company-logo-q1-fy23.png",
+      "searchBox": {
+        "x": 745,
+        "y": 273,
+        "width": 716,
+        "height": 193
+      },
+      "cropBox": {
+        "x": 745,
+        "y": 273,
+        "width": 716,
+        "height": 193
+      },
+      "threshold": 18,
+      "minComponentArea": 15,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.3,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete Accenture wordmark and purple greater-than mark; excludes chart text and flows."
+    }
+  ]
+}

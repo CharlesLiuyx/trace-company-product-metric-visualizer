@@ -1,0 +1,143 @@
+{
+  "source": "input/processed/kering-h1-fy23.png",
+  "outputDir": "data/assets/icon-references/kering",
+  "runtimeOutputDir": "data/assets/raster-annotations/kering",
+  "report": "crop-report-h1-fy23.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [
+      242,
+      242,
+      242
+    ],
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "kering-wordmark-h1-fy23",
+      "output": "crops/kering-wordmark-h1-fy23.png",
+      "searchBox": {
+        "x": 684,
+        "y": 311,
+        "width": 621,
+        "height": 83
+      },
+      "cropBox": {
+        "x": 684,
+        "y": 311,
+        "width": 621,
+        "height": 83
+      },
+      "threshold": 18,
+      "minComponentArea": 8,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Source brand mark only; excludes neighboring label and Sankey flow."
+    },
+    {
+      "key": "kering-owl-h1-fy23",
+      "output": "crops/kering-owl-h1-fy23.png",
+      "searchBox": {
+        "x": 899,
+        "y": 414,
+        "width": 195,
+        "height": 112
+      },
+      "cropBox": {
+        "x": 899,
+        "y": 414,
+        "width": 195,
+        "height": 112
+      },
+      "threshold": 18,
+      "minComponentArea": 8,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Source brand mark only; excludes neighboring label and Sankey flow."
+    },
+    {
+      "key": "gucci-h1-fy23",
+      "output": "crops/gucci-h1-fy23.png",
+      "searchBox": {
+        "x": 60,
+        "y": 439,
+        "width": 335,
+        "height": 69
+      },
+      "cropBox": {
+        "x": 60,
+        "y": 439,
+        "width": 335,
+        "height": 69
+      },
+      "threshold": 18,
+      "minComponentArea": 8,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete Source brand mark only; excludes amounts, flows and publisher."
+    },
+    {
+      "key": "saint-laurent-h1-fy23",
+      "output": "crops/saint-laurent-h1-fy23.png",
+      "searchBox": {
+        "x": 23,
+        "y": 682,
+        "width": 397,
+        "height": 57
+      },
+      "cropBox": {
+        "x": 23,
+        "y": 682,
+        "width": 397,
+        "height": 57
+      },
+      "threshold": 18,
+      "minComponentArea": 8,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete Source brand mark only; excludes amounts, flows and publisher."
+    },
+    {
+      "key": "bottega-veneta-h1-fy23",
+      "output": "crops/bottega-veneta-h1-fy23.png",
+      "searchBox": {
+        "x": 47,
+        "y": 866,
+        "width": 356,
+        "height": 44
+      },
+      "cropBox": {
+        "x": 47,
+        "y": 866,
+        "width": 356,
+        "height": 44
+      },
+      "threshold": 18,
+      "minComponentArea": 8,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.5,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Complete Source brand mark only; excludes amounts, flows and publisher."
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "source": "input/processed/anthropic-h1-fy26.png",
+  "outputDir": "data/assets/icon-references/anthropic",
+  "runtimeOutputDir": "data/assets/raster-annotations/anthropic",
+  "validationSheetDir": "data/assets/icon-references/anthropic/validation-sheets",
+  "report": "crop-report-h1-fy26.json",
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "backgroundRemoval": {
+    "enabled": true,
+    "mode": "edge-connected",
+    "color": [
+      242,
+      242,
+      242
+    ],
+    "tolerance": 8
+  },
+  "crops": [
+    {
+      "key": "claude-logo-h1-fy26",
+      "output": "crops/claude-logo-h1-fy26.png",
+      "searchBox": {
+        "x": 939,
+        "y": 219,
+        "width": 216,
+        "height": 210
+      },
+      "cropBox": {
+        "x": 939,
+        "y": 219,
+        "width": 216,
+        "height": 210
+      },
+      "threshold": 18,
+      "minComponentArea": 15,
+      "validation": {
+        "borderBand": 0,
+        "maxCenterOffset": 0.2,
+        "maxForbiddenForegroundPixels": 0
+      },
+      "note": "Claude star above revenue; no chart text."
+    }
+  ]
+}

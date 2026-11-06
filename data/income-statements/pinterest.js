@@ -2,6 +2,407 @@
 (function (global) {
   const target = global.INCOME_STATEMENT_SSOT = global.INCOME_STATEMENT_SSOT || { schemaVersion: 1, records: [] };
   target.records.push(...[
+{
+  "key": "pinterest-q3-fy26",
+  "company": "Pinterest",
+  "period": "Q3 FY26",
+  "periodNote": "",
+  "currency": "$",
+  "unit": "M",
+  "decimals": 0,
+  "sourceImage": "input/processed/pinterest-q3-fy26.png",
+  "roundingTolerance": 1.1,
+  "revenue": {
+    "total": 1174,
+    "notes": [
+      "+12% Y/Y"
+    ],
+    "items": [
+      {
+        "id": "us_canada",
+        "label": "US & Canada",
+        "value": 894,
+        "notes": [
+          "+14% Y/Y"
+        ]
+      },
+      {
+        "id": "europe",
+        "label": "Europe",
+        "value": 193,
+        "notes": [
+          "Flat Y/Y"
+        ]
+      },
+      {
+        "id": "rest_of_world",
+        "label": "Rest of the world",
+        "value": 87,
+        "notes": [
+          "+24% Y/Y"
+        ]
+      }
+    ]
+  },
+  "costs": {
+    "costOfRevenue": {
+      "id": "cost_of_revenue",
+      "label": "Cost of revenue",
+      "value": 262
+    },
+    "operatingExpenses": {
+      "total": 882,
+      "items": [
+        {
+          "id": "rnd",
+          "label": "R&D",
+          "value": 428,
+          "notes": [
+            "36% of revenue",
+            "+1pp Y/Y"
+          ]
+        },
+        {
+          "id": "sm",
+          "label": "S&M",
+          "value": 337,
+          "notes": [
+            "29% of revenue",
+            "+0pp Y/Y"
+          ]
+        },
+        {
+          "id": "ga",
+          "label": "G&A",
+          "value": 113,
+          "notes": [
+            "10% of revenue",
+            "(1pp) Y/Y"
+          ]
+        },
+        {
+          "id": "restructuring",
+          "label": "Restructuring",
+          "value": 4,
+          "notes": [
+            "0% of revenue"
+          ]
+        }
+      ]
+    },
+    "tax": {
+      "id": "tax",
+      "label": "Tax",
+      "value": 14
+    }
+  },
+  "otherIncome": {
+    "total": 5,
+    "items": [
+      {
+        "id": "other",
+        "label": "Other",
+        "value": 5
+      }
+    ]
+  },
+  "otherExpenses": {
+    "total": 0,
+    "items": []
+  },
+  "profit": {
+    "gross": {
+      "id": "gross_profit",
+      "label": "Gross profit",
+      "value": 912,
+      "notes": [
+        "78% margin",
+        "(2pp) Y/Y"
+      ]
+    },
+    "operating": {
+      "id": "operating_profit",
+      "label": "Operating profit",
+      "value": 30,
+      "notes": [
+        "3% margin",
+        "(3pp) Y/Y"
+      ]
+    },
+    "net": {
+      "id": "net_profit",
+      "label": "Net profit",
+      "value": 22,
+      "notes": [
+        "2% margin",
+        "(7%) Y/Y",
+        "Printed rounded values give 30 + 5 - 14 = 21M versus net 22M. SEC actuals: 30.338 + 4.790 - 13.613 = 21.515M. Source (7%) Y/Y differs from SEC (77%); source retained. https://www.sec.gov/Archives/edgar/data/1506293/000150629326000151/q3-26xpressrelease.htm"
+      ]
+    }
+  },
+  "operatingMetrics": [
+    {
+      "id": "mau",
+      "label": "MAU",
+      "value": "661000000",
+      "unit": "count",
+      "currency": null,
+      "literal": "661M",
+      "comparison": "eq",
+      "basis": "unspecified",
+      "notes": [
+        "+10% Y/Y"
+      ],
+      "quote": "MAU\n661M\n+10% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          34,
+          226,
+          187,
+          168
+        ]
+      }
+    },
+    {
+      "id": "mau_us_canada",
+      "label": "US & Canada MAU",
+      "value": "107000000",
+      "unit": "count",
+      "currency": null,
+      "literal": "107M",
+      "comparison": "eq",
+      "basis": "unspecified",
+      "notes": [
+        "+4% Y/Y"
+      ],
+      "quote": "US & Canada MAU\n107M\n+4% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          60,
+          550,
+          132,
+          80
+        ]
+      }
+    },
+    {
+      "id": "mau_europe",
+      "label": "Europe MAU",
+      "value": "161000000",
+      "unit": "count",
+      "currency": null,
+      "literal": "161M",
+      "comparison": "eq",
+      "basis": "unspecified",
+      "notes": [
+        "+7% Y/Y"
+      ],
+      "quote": "Europe MAU\n161M\n+7% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          60,
+          840,
+          132,
+          80
+        ]
+      }
+    },
+    {
+      "id": "mau_rest_of_world",
+      "label": "Rest of the world MAU",
+      "value": "394000000",
+      "unit": "count",
+      "currency": null,
+      "literal": "394M",
+      "comparison": "eq",
+      "basis": "unspecified",
+      "notes": [
+        "+13% Y/Y"
+      ],
+      "quote": "Rest of the world MAU\n394M\n+13% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          60,
+          1000,
+          132,
+          80
+        ]
+      }
+    },
+    {
+      "id": "arpu",
+      "label": "ARPU",
+      "value": "0.00180",
+      "unit": "K",
+      "currency": "USD",
+      "literal": "$1.80",
+      "comparison": "eq",
+      "basis": "unspecified",
+      "notes": [
+        "+1% Y/Y"
+      ],
+      "quote": "ARPU\n$1.80\n+1% Y/Y",
+      "anchor": {
+        "type": "image-box",
+        "box": [
+          321,
+          1128,
+          209,
+          151
+        ]
+      }
+    }
+  ],
+  "i18n": {
+    "zh": {
+      "period": "2026 财年第三季度",
+      "revenue": {
+        "notes": [
+          "同比 +12%"
+        ],
+        "items": [
+          {
+            "id": "us_canada",
+            "label": "美国和加拿大",
+            "notes": [
+              "同比 +14%"
+            ]
+          },
+          {
+            "id": "europe",
+            "label": "欧洲",
+            "notes": [
+              "同比持平"
+            ]
+          },
+          {
+            "id": "rest_of_world",
+            "label": "世界其他地区",
+            "notes": [
+              "同比 +24%"
+            ]
+          }
+        ]
+      },
+      "costs": {
+        "costOfRevenue": {
+          "label": "收入成本"
+        },
+        "operatingExpenses": {
+          "items": [
+            {
+              "id": "rnd",
+              "label": "研发",
+              "notes": [
+                "占收入 36%",
+                "同比 +1 个百分点"
+              ]
+            },
+            {
+              "id": "sm",
+              "label": "销售与营销",
+              "notes": [
+                "占收入 29%",
+                "同比 +0 个百分点"
+              ]
+            },
+            {
+              "id": "ga",
+              "label": "管理费用",
+              "notes": [
+                "占收入 10%",
+                "同比 (1 个百分点)"
+              ]
+            },
+            {
+              "id": "restructuring",
+              "label": "重组",
+              "notes": [
+                "占收入 0%"
+              ]
+            }
+          ]
+        },
+        "tax": {
+          "label": "税费"
+        }
+      },
+      "otherIncome": {
+        "items": [
+          {
+            "id": "other",
+            "label": "其他"
+          }
+        ]
+      },
+      "profit": {
+        "gross": {
+          "label": "毛利润",
+          "notes": [
+            "利润率 78%",
+            "同比 (2 个百分点)"
+          ]
+        },
+        "operating": {
+          "label": "营业利润",
+          "notes": [
+            "利润率 3%",
+            "同比 (3 个百分点)"
+          ]
+        },
+        "net": {
+          "label": "净利润",
+          "notes": [
+            "利润率 2%",
+            "同比 (7%)",
+            "Printed rounded values give 30 + 5 - 14 = 21M versus net 22M. SEC actuals: 30.338 + 4.790 - 13.613 = 21.515M. Source 同比 (7%) differs from SEC (77%); source retained. https://www.sec.gov/Archives/edgar/data/1506293/000150629326000151/q3-26xpressrelease.htm"
+          ]
+        }
+      },
+      "operatingMetrics": [
+        {
+          "id": "mau",
+          "label": "月活跃用户",
+          "notes": [
+            "同比 +10%"
+          ]
+        },
+        {
+          "id": "mau_us_canada",
+          "label": "美国和加拿大月活跃用户",
+          "notes": [
+            "同比 +4%"
+          ]
+        },
+        {
+          "id": "mau_europe",
+          "label": "欧洲月活跃用户",
+          "notes": [
+            "同比 +7%"
+          ]
+        },
+        {
+          "id": "mau_rest_of_world",
+          "label": "世界其他地区月活跃用户",
+          "notes": [
+            "同比 +13%"
+          ]
+        },
+        {
+          "id": "arpu",
+          "label": "每用户平均收入",
+          "notes": [
+            "同比 +1%"
+          ]
+        }
+      ]
+    }
+  }
+},
   {
     "key": "pinterest-q1-fy23",
     "company": "Pinterest",

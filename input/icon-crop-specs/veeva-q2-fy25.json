@@ -1,0 +1,67 @@
+{
+  "source": "input/processed/veeva-q2-fy25.png",
+  "outputDir": "output/builds/build-b990fc44-3d62-43c2-82d5-d06f96639a00/workspace/data/assets/icon-references/veeva/crops",
+  "runtimeOutputDir": "output/builds/build-b990fc44-3d62-43c2-82d5-d06f96639a00/workspace/data/assets/raster-annotations/veeva",
+  "crops": [
+    {
+      "key": "logo-q2-fy25",
+      "searchBox": {
+        "x": 844,
+        "y": 278,
+        "width": 560,
+        "height": 141
+      },
+      "cropBox": {
+        "x": 844,
+        "y": 278,
+        "width": 560,
+        "height": 141
+      },
+      "output": "logo-q2-fy25.png",
+      "padding": 0,
+      "minComponentArea": 2
+    },
+    {
+      "key": "crm-q2-fy25",
+      "searchBox": {
+        "x": 70,
+        "y": 587,
+        "width": 266,
+        "height": 50
+      },
+      "cropBox": {
+        "x": 70,
+        "y": 587,
+        "width": 266,
+        "height": 50
+      },
+      "output": "crm-q2-fy25.png",
+      "padding": 0,
+      "minComponentArea": 2
+    },
+    {
+      "key": "vault-q2-fy25",
+      "searchBox": {
+        "x": 62,
+        "y": 956,
+        "width": 283,
+        "height": 55
+      },
+      "cropBox": {
+        "x": 62,
+        "y": 956,
+        "width": 283,
+        "height": 55
+      },
+      "output": "vault-q2-fy25.png",
+      "padding": 0,
+      "minComponentArea": 2
+    }
+  ],
+  "background": [
+    242,
+    242,
+    242
+  ],
+  "report": "crop-report-q2-fy25.json"
+}
