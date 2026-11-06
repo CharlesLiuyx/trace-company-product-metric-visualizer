@@ -598,6 +598,27 @@ test('annotation text may show a bare less-than and word-hyphen ranges stay unsi
   );
 });
 
+test('parenthesized calendar dates stay unsigned across locales', () => {
+  const note = (text) => `<g><text x="10" y="20">${text}</text></g>`;
+  const dataset = (source, localized) => ({
+    key: 'dated-note',
+    name: 'Test',
+    meta: { title: 'Test' },
+    nodes: [],
+    links: [],
+    annotationsSvg: note(source),
+    i18n: { zh: { annotationsSvg: note(localized) } },
+  });
+  assert.doesNotThrow(() => SANKEY_I18N.localizeDataset(dataset(
+    'H1 FY26 Financials and latest customer metrics (September 2026)',
+    '2026 财年上半年财务数据及最新客户指标（2026 年 9 月）'
+  ), 'zh'));
+  assert.throws(
+    () => SANKEY_I18N.localizeDataset(dataset('Metrics (September 2026)', '指标（2026 年 10 月）'), 'zh'),
+    /visibleAmountBinding.*not display-only/
+  );
+});
+
 test('annotation projection preserves every direct/tspan text slot and only typed text layout', () => {
   const source = [
     '<g transform="translate(10 20)">',

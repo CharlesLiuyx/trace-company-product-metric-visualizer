@@ -1974,7 +1974,9 @@
       const basis = ['percent', 'pp', 'bps', 'zero-rate'].includes(kind)
         ? rateBasis(contextBefore, semanticAfter)
         : '';
-      const polarity = number === 0 || isoMonth || isoDay
+      // Calendar dates carry no sign: "(September 2026)" and "（2026 年 9 月）"
+      // use parentheses for grouping, and named months never take polarity.
+      const polarity = number === 0 || isoMonth || isoDay || ['year', 'month', 'day'].includes(kind)
         ? '+'
         : numericPolarity(raw, contextBefore, semanticAfter, parenthesized, currencySign);
       tokens.push([
