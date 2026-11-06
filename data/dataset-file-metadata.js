@@ -4,7 +4,7 @@
  */
 (function () {
   window.DATASET_FILE_METADATA = {
-  "generatedAt": "2026-11-06T14:19:27.266Z",
+  "generatedAt": "2026-11-06T16:34:00.000Z",
   "source": "git author times of dataset view and metric source files (fs mtime until first commit)",
   "files": {
     "alphabet-q1-fy26": {
@@ -12081,9 +12081,9 @@
     },
     "american-express-q3-fy26": {
       "path": "data/datasets/american-express-q3-fy26.js",
-      "updatedAtMs": 1793974606446,
-      "updatedAt": "2026-11-06T14:16:46.446Z",
-      "timeSource": "publication"
+      "updatedAtMs": 1793982840000,
+      "updatedAt": "2026-11-06T16:34:00.000Z",
+      "timeSource": "git"
     },
     "american-q3-fy26": {
       "path": "data/datasets/american-q3-fy26.js",

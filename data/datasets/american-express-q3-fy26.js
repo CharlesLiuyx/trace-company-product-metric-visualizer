@@ -67,8 +67,7 @@
     other_general_operating: { blocks: [block(2483, 1201, [line(zh ? '其他一般' : 'Other general', 34, 800), line(zh ? '运营（$1.3B）' : 'operating ($1.3B)', 34, 800)], 'middle', 12)] },
   });
 
-  window.DATASETS = window.DATASETS || [];
-  window.DATASETS.push({
+  const d = {
     key: 'american-express-q3-fy26',
     name: 'American Express · Q3 FY26',
     company: 'American Express',
@@ -208,8 +207,7 @@
         layout: { labels: labels(true) },
       },
     },
-  });
-  const d=window.DATASETS[window.DATASETS.length-1];
+  };
   const values={"us_consumer_services":9.8,"commercial_services":4.6,"international_card_services":3.7,"global_merchant_network":2.1,"all_other":-0.1,"revenue":20.1,"pretax_income":4.5,"operating_expenses":14.5,"provision_for_credit_losses":1,"net_income":3.7,"tax":0.8,"card_members_rewards":5.1,"business_development":1.8,"card_member_services":2,"marketing":1.8,"sales_employee_benefits":2.6,"other_general_operating":1.3};
   for(const n of d.nodes){if(n.id in values)n.value=values[n.id];} d.nodes.find(n=>n.id==='amex_hub').value=20.2;d.nodes.find(n=>n.id==='tax').valueText='($0.8B)';d.nodes.find(n=>n.id==='card_member_services').valueText='($2.0B)';
   const notes=[["+11% Y/Y","23% pretax margin"],["+6% Y/Y","23% pretax margin"],["+10% Y/Y","12% pretax margin"],["+6% Y/Y","52% pretax margin"]];d.nodes.slice(0,4).forEach((n,i)=>n.notes=notes[i]);d.nodes.find(n=>n.id==='revenue').notes=['+9% Y/Y'];d.nodes.find(n=>n.id==='net_income').notes=['+28% Y/Y'];
@@ -225,4 +223,6 @@
   d.i18n.zh.nodes.us_consumer_services.notes=['同比 +11%','税前利润率 23%'];d.i18n.zh.nodes.commercial_services.notes=['同比 +6%','税前利润率 23%'];d.i18n.zh.nodes.international_card_services.notes=['同比 +10%','税前利润率 12%'];d.i18n.zh.nodes.global_merchant_network.notes=['同比 +6%','税前利润率 52%'];d.i18n.zh.nodes.revenue.notes=['同比 +9%'];d.i18n.zh.nodes.net_income.notes=['同比 +28%'];
   for(const labels of [d.layout.labels,d.i18n.zh.layout.labels])for(const b of labels.all_other.blocks)b.x=1378;
   for(const labels of [d.layout.labels,d.i18n.zh.layout.labels])for(const id of ['marketing','sales_employee_benefits','other_general_operating'])for(const b of labels[id].blocks){b.x=2370;b.anchor='start';}
+  window.DATASETS = window.DATASETS || [];
+  window.DATASETS.push(d);
 })();
