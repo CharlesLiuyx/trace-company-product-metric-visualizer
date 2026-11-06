@@ -27,7 +27,8 @@ covering whole quantities and Source-stated ratios such as transactions per
 account (`value: '59.4', unit: 'count', currency: null, literal: '59.4'`). A
 count literal may keep a Source `K/M/B/T` suffix (`value: '112000000', unit:
 'count', currency: null, literal: '112M'`); exact decimal arithmetic reconciles
-the scaled literal, and a currency prefix or a negative count fails. Money
+the scaled literal, an explicit leading plus on net additions (`literal:
+'+379K'`) is kept, and a currency prefix or a negative count fails. Money
 literals may omit a scale suffix when the Source reports base-currency amounts
 (`value: '0.301', unit: 'K', currency: 'USD', literal: '$301'`); the original
 literal stays unchanged in SVG, Table and CSV.

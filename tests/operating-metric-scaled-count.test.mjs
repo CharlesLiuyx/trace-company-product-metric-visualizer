@@ -34,6 +34,9 @@ test('a trailing plus is a Source-printed lower bound', () => {
   for (const update of [{ comparison: 'eq' }, { comparison: 'gt' }, { value: '265' }, { literal: '>=265K+' }, { literal: '+' }]) {
     assert.throws(() => normalizeOperatingObservation({ literal: '265K+', value: '265000', unit: 'count', currency: null, comparison: 'gte', ...update }));
   }
+  const netAdds = { literal: '+379K', value: '379000', unit: 'count', currency: null, comparison: 'eq' };
+  assert.deepEqual(normalizeOperatingObservation(netAdds), netAdds);
+  assert.throws(() => normalizeOperatingObservation({ ...netAdds, literal: '++379K' }), /Count literal/);
   const growth = { literal: '+5%', value: '5', unit: '%', currency: null, comparison: 'eq' };
   assert.deepEqual(normalizeOperatingObservation(growth), growth);
 });

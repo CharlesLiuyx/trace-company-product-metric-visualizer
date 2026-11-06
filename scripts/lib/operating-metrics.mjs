@@ -68,7 +68,8 @@ function reconcileLiteral(raw, value, text) {
     // A count is a nonnegative exact decimal: whole quantities (112M) and
     // Source-stated ratios such as transactions per account (59.4) alike.
     requireThat(!value.startsWith('-'), 'Counts must be nonnegative');
-    const match = literal.match(/^(\d+)(?:\.(\d+))?([KMBT])?$/);
+    // Net-addition cards print an explicit plus ("+379K"); keep the literal.
+    const match = literal.replace(/^\+/, '').match(/^(\d+)(?:\.(\d+))?([KMBT])?$/);
     requireThat(match, 'Count literal must be a nonnegative number with an optional K/M/B/T scale');
     const fraction = match[2] || '';
     const power = { K: 3, M: 6, B: 9, T: 12 }[match[3]] || 0;
