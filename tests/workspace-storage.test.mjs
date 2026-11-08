@@ -4,7 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { mkdtemp, mkdir, writeFile, readFile, rm, readdir, symlink } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
-import { atomicJson, readJson, fileManifest, cloneFiles, freezeSnapshot } from '../scripts/lib/workflow-files.mjs';
+import { atomicJson, readJson, fileManifest, cloneFiles, freezeSnapshot, digestReadPath, bytesDigest } from '../scripts/lib/workflow-files.mjs';
 import { compactWorkspace, materializeWorkspace, readInside } from '../scripts/lib/workspace-storage.mjs';
 import { encodeRecord, decodeRecord } from '../scripts/lib/record-storage.mjs';
 import { createPreviewManifest } from '../scripts/lib/workbench-manifest.mjs';
@@ -108,4 +108,19 @@ test('capacity reporting works with a running service and locks; deletion remain
   assert.equal(result.blockers.length, 2);
   assert.ok(result.groups['output/builds'].logicalBytes > 0);
   await assert.rejects(cleanupArtifacts(root, { completed: true }), /Finish\/recover/);
+});
+
+test('immutable base files hash once per process and rehash when their stamp changes', async (t) => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'trace-base-digest-'));
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const tree = path.join(root, 'output/publications/trees', 'a'.repeat(64));
+  await mkdir(tree, { recursive: true });
+  const file = path.join(tree, 'base.js'), local = path.join(root, 'local.js');
+  await writeFile(file, 'one'); await writeFile(local, 'one');
+  assert.equal(await digestReadPath(file), bytesDigest('one'));
+  const sameSizeBytes = 'two';
+  await writeFile(file, sameSizeBytes);
+  assert.equal(await digestReadPath(file), bytesDigest(sameSizeBytes), 'a rewritten base file must not reuse its old digest');
+  await writeFile(local, 'two');
+  assert.equal(await digestReadPath(local), bytesDigest('two'));
 });

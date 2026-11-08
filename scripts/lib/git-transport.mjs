@@ -217,15 +217,15 @@ async function prepareCandidate(publishedDigest, root, options, baseHead, direct
   // checkout. Drop them so the reviewed digest is the one CI recomputes and
   // the commit never stages an ignored path.
   for (const file of ignoredPaths(root, await filesUnder(candidate, runtimeRoots))) await rm(inside(candidate, file), { force: true });
-  // Standard validation is the fast aggregate gate plus the Pages build whose
-  // identity the commit binds. Browser checks (render regression, verify:site)
-  // run once in CI on the pushed commit; `full` repeats them locally.
+  // Standard validation is only the Pages build whose identity the commit binds:
+  // reviewed content ships and is fixed forward (operator policy, 2026-11-08).
+  // `full` adds the aggregate gate and browser checks locally.
   const validation = options.full ? 'full' : 'standard';
   const validate = options.validate || (async () => {
     await updateMetricCatalog(candidate); await updateAssetCatalog(candidate);
     runWorkspace(candidate, 'sync-index-datasets.mjs'); runWorkspace(candidate, 'update-dataset-file-metadata.mjs');
-    runWorkspace(candidate, 'check.mjs');
     if (validation === 'full') {
+      runWorkspace(candidate, 'check.mjs');
       const renderKeys = [...new Set(lineage.flatMap(({ plan }) => plan.builds.map((item) => item.key)))].filter((key) => existsSync(inside(candidate, `data/datasets/${key}.js`)));
       if (renderKeys.length) runWorkspace(candidate, 'verify-render-regression.mjs', renderKeys);
     }

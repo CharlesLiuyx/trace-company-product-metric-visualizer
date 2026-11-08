@@ -140,9 +140,7 @@ export async function planAssetPublication(buildIds, root = rootDir, options = {
       return keys.map((key) => ({ key, outputDigest }));
     });
     checks.push(...await verifier({ candidate: temporary, contexts }));
-    // Recheck all Build seals after projection and validation, closing the
-    // workspace mutation window while the combined candidate was prepared.
-    await mapLimit(contexts, 8, async (context) => { if (!(await inspectDatasetBuild(context.build.buildId, context)).fresh) throw new Error('Build changed while publication was planned'); });
+    // publish commit re-inspects every Build seal, which also covers planning.
     const projected = await fileManifest(temporary);
     if ((await applicationManifest(temporary)).digest !== application.digest) throw new Error('Application changed while the publication candidate was prepared');
     const value = { protocol: PUBLICATION_PROTOCOL, kind: 'publication-batch', state: 'PLANNED', baseCanonicalDigest: snapshot.digest, applicationDigest: application.digest, builds: preliminary.builds, contributions: [...owned.values()].sort((a, b) => a.path.localeCompare(b.path)), projectedTreeDigest: projected.digest, projectedEntries: projected.entries, checks };

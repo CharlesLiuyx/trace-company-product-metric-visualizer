@@ -1,7 +1,7 @@
 import { adapterRequiresRender } from './adapters/index.mjs';
 import { resolveWorkspaceRead } from './workspace-storage.mjs';
 import { encodeRecord, decodeRecord } from './record-storage.mjs';
-import { withFileLock } from './workflow-files.mjs';
+import { digestReadPath, withFileLock } from './workflow-files.mjs';
 import { assertBuildSession } from './workflow-session.mjs';
 import { realpath } from 'node:fs/promises';
 import { createHash, randomUUID } from 'node:crypto';
@@ -303,7 +303,7 @@ export async function readAuthoredObject(buildId, entry, options = {}) {
 }
 
 async function digestFile(filePath) {
-  return `sha256:${createHash('sha256').update(await readFile(resolveWorkspaceRead(filePath))).digest('hex')}`;
+  return digestReadPath(resolveWorkspaceRead(filePath));
 }
 
 function latestReceipt(build, state) {

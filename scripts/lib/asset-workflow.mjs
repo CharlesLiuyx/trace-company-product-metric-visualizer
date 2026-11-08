@@ -335,8 +335,9 @@ export async function reviewAsset(buildId, input, root = rootDir) {
 export async function acceptAsset(buildId, input, root = rootDir, options = {}) {
   return applyAcceptance(buildId, input, root, { ...options, seal: true });
 }
-// Each Build commits independently; retries preserve successful seals. The
-// session identity is common, generations are member-specific and never put
+// Each Build commits independently; retries preserve successful seals. One
+// process verifies each displayed preview once. Generations (and, for Builds
+// owned by different Sessions, the owner) are member-specific and never put
 // into process.env while concurrent operations run.
 export async function acceptAssets(input, root = rootDir, { concurrency = 2, ...credentials } = {}) {
   const { builds, ...review } = input || {};
@@ -345,15 +346,15 @@ export async function acceptAssets(input, root = rootDir, { concurrency = 2, ...
   const seen = new Set();
   for (const entry of builds) {
     if (!entry || !/^build-[a-z0-9-]+$/i.test(entry.buildId || '') || !entry.reviewToken || seen.has(entry.buildId)) throw new Error('Each acceptance needs a unique buildId and exact reviewToken');
-    if (Object.keys(entry).some((key) => !['buildId', 'reviewToken', 'generation', 'previewId'].includes(key))) throw new Error('Acceptance member supports buildId, reviewToken, generation and previewId only');
+    if (Object.keys(entry).some((key) => !['buildId', 'reviewToken', 'generation', 'previewId', 'session'].includes(key))) throw new Error('Acceptance member supports buildId, reviewToken, generation, previewId and session only');
     seen.add(entry.buildId);
   }
   const started = Date.now(), results = new Array(builds.length), verifiedPreviews = new Map();
   let cursor = 0;
   await Promise.all(Array.from({ length: Math.min(concurrency, builds.length) }, async () => {
     while (cursor < builds.length) {
-      const index = cursor++, { buildId, generation, ...binding } = builds[index];
-      try { results[index] = await acceptAsset(buildId, { ...review, ...binding }, root, { ...credentials, generation: generation ?? credentials.generation, verifiedPreviews }); }
+      const index = cursor++, { buildId, generation, session, ...binding } = builds[index];
+      try { results[index] = await acceptAsset(buildId, { ...review, ...binding }, root, { ...credentials, session: session ?? credentials.session, generation: generation ?? credentials.generation, verifiedPreviews }); }
       catch (error) { results[index] = { buildId, status: 'failed', code: error.code || 'ACCEPT_FAILED', error: error.message }; }
     }
   }));

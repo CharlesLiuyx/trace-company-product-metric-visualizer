@@ -118,6 +118,32 @@ test('batch accept isolates failure, reuses exact seals on retry, and survives u
   await assert.rejects(acceptAsset(a.buildId, { ...reviewFor(ca), note: 'different acceptance' }, root), /does not match this acceptance/);
   await assert.rejects(acceptAssets({ ...input, builds: [input.builds[0], input.builds[0]] }, root), /unique buildId/);
 });
+test('one accept batch seals Builds owned by different Sessions and fences each owner', async (t) => {
+  const root = await fixture(t);
+  const a = await intake(root, 'owner-a');
+  const secondText = literal + ' ';
+  await writeFile(path.join(root, 'input/pending/owner-b.txt'), secondText);
+  const b = await startAsset({ source: 'input/pending/owner-b.txt', key: 'owner-b', facts: facts(secondText, 'owner-b') }, root);
+  const [ca, cb] = [await continueAsset(a.buildId, root), await continueAsset(b.buildId, root)];
+  const [la, lb] = [await acquireBuildSession(root, a.buildId, 'owner-a'), await acquireBuildSession(root, b.buildId, 'owner-b')];
+  const previewId = randomUUID(), version = 'a'.repeat(64);
+  const directory = path.join(root, 'output/workbench/previews/review', previewId), site = path.join(directory, 'site');
+  await mkdir(path.join(site, 'releases', version), { recursive: true });
+  await writeFile(path.join(site, 'index.html'), '<h1>Synthetic reviewed candidate</h1>');
+  const contentDigest = await siteContentDigest(site, version);
+  await atomicJson(path.join(site, 'site-release.json'), { schema: 'trace-site-release/v1', version, contentDigest });
+  await atomicJson(path.join(directory, 'candidate.json'), { id: previewId, source: 'review', version, contentDigest, toolDigest: (await fileManifest(root, ['scripts', 'package.json', 'pnpm-lock.yaml'])).digest,
+    members: [{ buildId: a.buildId, reviewToken: ca.reviewToken, sourceDigest: (await fileManifest(a.workspace)).digest }, { buildId: b.buildId, reviewToken: cb.reviewToken, sourceDigest: (await fileManifest(b.workspace)).digest }] });
+  const member = (build, current, lease, session = lease.owner) => ({ buildId: build.buildId, reviewToken: current.reviewToken, generation: lease.generation, session });
+  const input = { reviewer: 'synthetic-test-reviewer', decision: 'accepted', note: 'Synthetic fixture; not a real dataset acceptance', previewId };
+  const wrong = await acceptAssets({ ...input, builds: [member(a, ca, la, 'owner-b')] }, root);
+  assert.equal(wrong.status, 'partial-failure');
+  assert.equal((await showAsset(a.buildId, root)).state, 'AUTHORED');
+  const result = await acceptAssets({ ...input, builds: [member(a, ca, la), member(b, cb, lb)] }, root);
+  assert.equal(result.status, 'sealed', JSON.stringify(result.results));
+  assert.deepEqual(result.results.map((item) => item.state), ['SEALED', 'SEALED']);
+});
+
 test('accept binds the displayed immutable preview and fences changed bytes and stale owners', async (t) => {
   const root = await fixture(t), started = await intake(root, 'pinned-review');
   const current = await continueAsset(started.buildId, root);

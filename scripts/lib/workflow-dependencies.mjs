@@ -5,7 +5,7 @@ import path from 'node:path';
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import vm from 'node:vm';
-import { bytesDigest, filesUnder, inside } from './workflow-files.mjs';
+import { bytesDigest, digestReadPath, filesUnder, inside } from './workflow-files.mjs';
 import { digestValue } from './dataset-build.mjs';
 import { PROJECT_FONT_FAMILIES, fontPackageRelativePath } from './local-fonts.mjs';
 
@@ -58,7 +58,7 @@ export async function deriveArtifactManifest(build, root, { writeProjection = tr
   const artifacts = [];
   const add = async (file, role) => {
     if (!existsSync(readInside(root, file))) throw new Error(`Required dependency missing: ${file}`);
-    if (!artifacts.some((item) => item.path === file)) artifacts.push({ path: file, role, digest: knownDigests.get(file) || bytesDigest(await readFile(readInside(root, file))) });
+    if (!artifacts.some((item) => item.path === file)) artifacts.push({ path: file, role, digest: knownDigests.get(file) || await digestReadPath(readInside(root, file)) });
   };
   const loaded = await loadWorkspaceData(root);
   const contribution = await readSemanticContribution(build, root, loaded);

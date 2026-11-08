@@ -1,7 +1,7 @@
 import { workspaceOverlay, readInside, resolveWorkspaceRead } from './workspace-storage.mjs';
 import { encodeRecord, decodeRecord } from './record-storage.mjs';
 import { createHash, randomUUID } from 'node:crypto';
-import { mkdir, readdir, readFile, writeFile, rename, rm, copyFile, lstat, open } from 'node:fs/promises';
+import { mkdir, readdir, readFile, writeFile, rename, rm, copyFile, lstat, open, stat } from 'node:fs/promises';
 import { existsSync, constants } from 'node:fs';
 import path from 'node:path';
 import { execFile } from 'node:child_process';
@@ -18,6 +18,21 @@ export function inside(root, relative) {
   return result;
 }
 export const bytesDigest = (bytes) => `sha256:${createHash('sha256').update(bytes).digest('hex')}`;
+// Compacted workspaces share one immutable, digest-named base tree, so a batch
+// reads the same bytes once per Build. Each unchanged base file is hashed once
+// per process; the stamp re-hashes any change and Build-local files never enter.
+const IMMUTABLE_BASE_FILE = /\/output\/(?:workflow-bases|publications\/trees)\/[a-f0-9]{64}\//;
+const baseFileDigests = new Map();
+export async function digestReadPath(file) {
+  if (!IMMUTABLE_BASE_FILE.test(file)) return bytesDigest(await readFile(file));
+  const info = await stat(file, { bigint: true });
+  const stamp = `${info.ino}:${info.size}:${info.mtimeNs}:${info.ctimeNs}`;
+  const known = baseFileDigests.get(file);
+  if (known?.stamp === stamp) return known.digest;
+  const digest = bytesDigest(await readFile(file));
+  baseFileDigests.set(file, { stamp, digest });
+  return digest;
+}
 // These host-generated files never travel with Git and are not authored inputs.
 // Keep ordinary and cached preview manifests on the same exclusion policy.
 export const isSnapshotCachePath = (relative) => relative.split('/').some((name) =>
@@ -65,7 +80,7 @@ export async function mapLimit(items, limit, work) {
 }
 export async function fileManifest(root, roots = CANONICAL_ROOTS) {
   const files = await filesUnder(root, roots);
-  const entries = await mapLimit(files, 16, async (file) => ({ path: file, digest: bytesDigest(await readFile(readInside(root, file))) }));
+  const entries = await mapLimit(files, 16, async (file) => ({ path: file, digest: await digestReadPath(readInside(root, file)) }));
   return { entries, digest: digestValue(entries) };
 }
 const copyCounts = { clonedFiles: 0, fallbackFiles: 0 };

@@ -85,10 +85,11 @@ export async function main(args = process.argv.slice(2)) {
     if (!input.input) throw new Error('accept requires --input');
     const acceptance = await readJson(path.resolve(input.input));
     // Batch members keep member-specific generations; omitted ones follow the same session.json default.
-    if (!input.buildId && Array.isArray(acceptance?.builds) && input.session && !input.generation && !process.env.TRACE_SESSION_GENERATION) {
+    if (!input.buildId && Array.isArray(acceptance?.builds) && !input.generation && !process.env.TRACE_SESSION_GENERATION) {
       for (const member of acceptance.builds) {
-        const generation = member && member.generation == null ? await defaultSessionGeneration(rootDir, member.buildId, input.session) : null;
-        if (generation) { member.generation = generation; console.error(`record:workflow: --generation omitted; using ${generation} from output/builds/${member.buildId}/session.json (owner ${input.session})`); }
+        const owner = member?.session || input.session;
+        const generation = owner && member.generation == null ? await defaultSessionGeneration(rootDir, member.buildId, owner) : null;
+        if (generation) { member.generation = generation; console.error(`record:workflow: --generation omitted; using ${generation} from output/builds/${member.buildId}/session.json (owner ${owner})`); }
       }
     }
     result = input.buildId ? await acceptAsset(input.buildId, acceptance) : await acceptAssets(acceptance, rootDir, { concurrency: Number(input.concurrency || 2), session: input.session, generation: input.generation });

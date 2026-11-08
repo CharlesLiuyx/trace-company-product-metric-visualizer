@@ -114,7 +114,7 @@ Build workspace；根目录后续工具、文档更新不会要求整批刷新�
 ```
 
 运行 `record:workflow accept --input <acceptances.json> --session <owner> --concurrency 2`
-（成员可单独指定 `previewId`；清单不能代替转交或恢复授权）。每个成员独立接受并 seal；
+（成员可单独指定 `previewId` 与 `session`；Build 分属多个 Session 时在每个成员写其 owner，仍用这一条命令，不要逐 Build 起进程，否则每个进程都重新校验整份预览站点。清单不能代替转交或恢复授权）。每个成员独立接受并 seal；
 部分失败时命令返回非零并列出原因，修复后重试同一清单，已封存的成员直接复用。
 `accept` 是现行入口；`seal --fresh-checks/--fresh-render` 仅用于诊断。
 
@@ -125,14 +125,15 @@ Build workspace；根目录后续工具、文档更新不会要求整批刷新�
 ## 6. 上线（仅在操作员要求推送后）
 
 1. `pnpm release:git -- prepare <published-digest>` 在私有候选中合并已发布贡献与 HEAD，
-   跑 `check` 与 `build:site`。
+   只跑 `build:site`（`--full` 才加 `check` 与浏览器检查）。
 2. 结果中 `acceptance.inheritsBuildAcceptance` 为 `true`，说明候选使用与审阅时相同的
    应用代码。此时推送指令已覆盖该候选，记录
    `{ "operator": "...", "accepted": true, "candidateDigest": "...", "basis": "inherited-build-acceptance" }`
    即可。为 `false` 时，向操作员说明应用变化并等待确认，再用 `basis: "displayed-candidate"` 记录。
    记录命令：`pnpm record:transport-review -- <transport-id> --input <review.json>`。
 3. `pnpm release:git -- commit <transport-id>`，然后 `pnpm release:git -- push <transport-id>`。
-4. 推送后先报告「已推送，CI 进行中」，再用 `gh run watch` 等待 CI；失败先修复，再只跑失败的最小检查。
+4. 推送后先报告「已推送，CI 进行中」，再用 `gh run watch` 等待 CI。人工审阅过的交接只构建站点、核对字节就部署；
+   线上有问题往前修复，不回滚（操作员策略，2026-11-08）。代码提交的 CI 失败先修复，再只跑失败的最小检查。
 5. `pnpm verify:release -- --online --key <key> [--key ...]` 核对线上版本来自该提交，
    且每个新 key 已部署。`verify:release` 的默认模式是 CI 专用门禁，本机不单独运行。
 
