@@ -1560,30 +1560,32 @@
     dkk: 'DKK',
   });
 
+  // Compiled once: these alternations are large and every visible label passes here.
+  const WORD_MONEY_SCALES = Object.keys(WORD_SCALE_SUFFIX).join('|');
+  const WORD_MONEY_CURRENCIES = Object.keys(WORD_CURRENCY_PREFIX)
+    .sort((a, b) => b.length - a.length)
+    .map((word) => word.replace(/\s+/g, '\\s+'))
+    .join('|');
+  const WORD_MONEY_SUFFIX_PATTERN = new RegExp(
+    `([+-]?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s+` +
+      `(${WORD_MONEY_SCALES})\\s+(${WORD_MONEY_CURRENCIES})\\b`,
+    'gi'
+  );
+  const WORD_MONEY_PREFIX_PATTERN = new RegExp(
+    `\\b(${WORD_MONEY_CURRENCIES})\\s+` +
+      `([+-]?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s+(${WORD_MONEY_SCALES})\\b`,
+    'gi'
+  );
+
   function normalizeWordMoneyPhrases(text) {
-    const scaleWords = Object.keys(WORD_SCALE_SUFFIX).join('|');
-    const currencyWords = Object.keys(WORD_CURRENCY_PREFIX)
-      .sort((a, b) => b.length - a.length)
-      .map((word) => word.replace(/\s+/g, '\\s+'))
-      .join('|');
-    const suffixPattern = new RegExp(
-      `([+-]?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s+` +
-        `(${scaleWords})\\s+(${currencyWords})\\b`,
-      'gi'
-    );
     const suffixNormalized = String(text || '').replace(
-      suffixPattern,
+      WORD_MONEY_SUFFIX_PATTERN,
       (_match, number, scale, currency) => (
       `${WORD_CURRENCY_PREFIX[currency.toLowerCase().replace(/\s+/g, ' ')]} ` +
       `${number}${WORD_SCALE_SUFFIX[scale.toLowerCase()]}`
       )
     );
-    const prefixPattern = new RegExp(
-      `\\b(${currencyWords})\\s+` +
-        `([+-]?(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d+)?)\\s+(${scaleWords})\\b`,
-      'gi'
-    );
-    return suffixNormalized.replace(prefixPattern, (_match, currency, number, scale) => (
+    return suffixNormalized.replace(WORD_MONEY_PREFIX_PATTERN, (_match, currency, number, scale) => (
       `${WORD_CURRENCY_PREFIX[currency.toLowerCase().replace(/\s+/g, ' ')]} ` +
       `${number}${WORD_SCALE_SUFFIX[scale.toLowerCase()]}`
     ));

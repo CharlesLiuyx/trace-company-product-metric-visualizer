@@ -44,12 +44,18 @@ export async function projectAssetCatalog(root = rootDir) {
   const adapters = [];
   for (const file of await filesUnder(root, ['data/datasets'])) if (file.endsWith('.js')) adapters.push({ path: file, key: path.basename(file, '.js'), code: await readFile(readInside(root, file), 'utf8') });
   const consumersOf = assetConsumerIndex(adapters);
+  // Indexed once per Adapter instead of substring-scanning every Adapter for every asset.
+  const directConsumers = new Map();
+  for (const { key, code } of adapters) for (const [mention] of code.matchAll(/data\/assets\/raster-annotations\/[^'"`\s)]+/g)) {
+    if (!directConsumers.has(mention)) directConsumers.set(mention, new Set());
+    directConsumers.get(mention).add(key);
+  }
   const entries = [];
   for (const file of await filesUnder(root, ['data/assets/raster-annotations'])) {
     if (!/\.(png|jpe?g|webp|svg)$/i.test(file)) continue;
     const digest = bytesDigest(await readFile(readInside(root, file)));
     const provenance = recipes.flatMap((recipe) => recipe.crops.filter((crop) => recipe.runtimeOutputDir && crop.runtimeOutput && path.posix.join(recipe.runtimeOutputDir, crop.runtimeOutput) === file).map((crop) => ({ recipe: recipe.path, recipeDigest: recipe.digest, source: recipe.source, cropKey: crop.key })));
-    const direct = adapters.filter((adapter) => adapter.code.includes(file)).map((adapter) => adapter.key);
+    const direct = [...(directConsumers.get(file) || [])];
     const consumers = consumersOf(direct);
     const acceptedVersions = versions.filter((version) => {
       const { versionDigest, ...value } = version;
