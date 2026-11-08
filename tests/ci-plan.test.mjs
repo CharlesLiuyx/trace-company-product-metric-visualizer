@@ -5,6 +5,8 @@ import { diffPlanOptions } from '../scripts/plan-ci.mjs';
 import { rootDir } from '../scripts/lib/project.mjs';
 import {
   createFullCiPlan,
+  isReviewedTransportMessage,
+  reviewedTransportPlan,
   incomeStatementKeysFromSource,
   parseNameStatusZ,
   planCiChecks,
@@ -282,4 +284,18 @@ test('failed main pushes remain uncovered until a successful ancestor is found; 
   await assert.rejects(lastSuccessfulMain({ repository: 'owner/repo', token: 'test', head,
     fetchRun: async () => ({ ok: true, json: async () => ({ workflow_runs: [] }) }), isAncestor: async () => true,
   }), /No successful/);
+});
+
+test('a reviewed transport only builds and proves the site', () => {
+  const plan = reviewedTransportPlan(createFullCiPlan());
+  assert.equal(plan.reviewedTransport, true);
+  assert.equal(plan.buildSite, true);
+  assert.equal(plan.siteProjection, true);
+  assert.equal(plan.needsBrowser, false);
+  assert.equal(plan.verifySite, false);
+  assert.equal(plan.verifyApp, false);
+  assert.equal(plan.renderScope, 'none');
+  assert.equal(plan.verifyStandalone, false);
+  assert.equal(isReviewedTransportMessage('data(publication): transport\n\nTrace-Transport: transport-6dcc202a-9492'), true);
+  assert.equal(isReviewedTransportMessage('fix(i18n): mention Trace-Transport: transport-1 in prose'), false);
 });

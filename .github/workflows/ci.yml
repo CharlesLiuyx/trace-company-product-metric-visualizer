@@ -10,14 +10,15 @@ permissions:
   contents: read
   actions: read
 
-concurrency:
-  group: ci-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
-
 jobs:
   check:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    # A newer push replaces an unfinished check. Its ChangeImpact base is the
+    # last successful ancestor, so the replaced commit stays inside its scope.
+    concurrency:
+      group: ci-check-${{ github.event.pull_request.number || github.ref }}
+      cancel-in-progress: true
     outputs:
       site_projection: ${{ steps.plan.outputs.site_projection }}
     steps:
@@ -32,12 +33,6 @@ jobs:
         with:
           node-version-file: .node-version
           cache: pnpm
-      - uses: actions/setup-python@v6
-        with:
-          python-version: '3.12'
-          cache: pip
-          cache-dependency-path: scripts/requirements.txt
-
       - name: Install JavaScript dependencies
         run: pnpm install --frozen-lockfile
 
@@ -54,13 +49,23 @@ jobs:
             pnpm plan:ci -- --base "$BASE_SHA" --head "$HEAD_SHA" --github-output "$GITHUB_OUTPUT"
           fi
 
+      - uses: actions/setup-python@v6
+        if: steps.plan.outputs.reviewed_transport != 'true'
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: scripts/requirements.txt
+
       - name: Install icon crop dependencies
+        if: steps.plan.outputs.reviewed_transport != 'true'
         run: python -m pip install -r scripts/requirements.txt
 
-      # Always run the deterministic gate. It owns syntax, unit tests, pending
-      # collisions, architecture/app-global contracts, generated projections,
-      # SSOT/i18n parity, render-baseline structure, and metadata freshness.
+      # The deterministic gate owns syntax, unit tests, pending collisions,
+      # architecture/app-global contracts, generated projections, SSOT/i18n
+      # parity, render-baseline structure, and metadata freshness. Operator
+      # policy: human-reviewed Dataset transports ship without it and fix forward.
       - name: Fast deterministic checks
+        if: steps.plan.outputs.reviewed_transport != 'true'
         run: pnpm check
 
       - name: Restore Chromium downloads
@@ -68,7 +73,7 @@ jobs:
         if: >-
           steps.plan.outputs.needs_browser == 'true' ||
           (github.event_name != 'pull_request' && github.ref == 'refs/heads/main' &&
-          steps.plan.outputs.site_projection == 'true')
+          steps.plan.outputs.site_projection == 'true' && steps.plan.outputs.reviewed_transport != 'true')
         uses: actions/cache/restore@v5
         with:
           path: ~/.cache/ms-playwright
@@ -79,8 +84,22 @@ jobs:
         if: >-
           steps.plan.outputs.needs_browser == 'true' ||
           (github.event_name != 'pull_request' && github.ref == 'refs/heads/main' &&
-          steps.plan.outputs.site_projection == 'true')
+          steps.plan.outputs.site_projection == 'true' && steps.plan.outputs.reviewed_transport != 'true')
         run: pnpm exec playwright install --with-deps chromium
+
+      # Standalone only reads the checkout and opens its own file:// page, so
+      # it overlaps the browser checks below; its verdict is collected after them.
+      - name: Start standalone build and verification
+        if: steps.plan.outputs.build_standalone == 'true'
+        env:
+          VERIFY_STANDALONE: ${{ steps.plan.outputs.verify_standalone }}
+        run: |
+          (
+            result=0
+            pnpm build:standalone || result=$?
+            if [ "$result" = 0 ] && [ "$VERIFY_STANDALONE" = true ]; then pnpm verify:standalone || result=$?; fi
+            echo "$result" > "$RUNNER_TEMP/standalone.status"
+          ) > "$RUNNER_TEMP/standalone.log" 2>&1 &
 
       - name: Verify viewer interactions
         if: steps.plan.outputs.verify_app == 'true'
@@ -112,7 +131,7 @@ jobs:
         if: >-
           steps.plan.outputs.verify_site == 'true' ||
           (github.event_name != 'pull_request' && github.ref == 'refs/heads/main' &&
-          steps.plan.outputs.site_projection == 'true')
+          steps.plan.outputs.site_projection == 'true' && steps.plan.outputs.reviewed_transport != 'true')
         run: pnpm verify:site
 
       # Processed reference images are machine-local. CI render regression
@@ -126,13 +145,12 @@ jobs:
         if: steps.plan.outputs.render_scope == 'changed'
         run: pnpm verify:render-regression -- ${{ steps.plan.outputs.render_keys }}
 
-      - name: Build standalone projection
+      - name: Collect standalone verification
         if: steps.plan.outputs.build_standalone == 'true'
-        run: pnpm build:standalone
-
-      - name: Verify standalone is self-contained
-        if: steps.plan.outputs.verify_standalone == 'true'
-        run: pnpm verify:standalone
+        run: |
+          timeout 300 bash -c 'until [ -f "$RUNNER_TEMP/standalone.status" ]; do sleep 1; done' || echo 124 > "$RUNNER_TEMP/standalone.status"
+          cat "$RUNNER_TEMP/standalone.log"
+          exit "$(cat "$RUNNER_TEMP/standalone.status")"
 
       # The exact Pages artifact verified above is the one deployed below;
       # the old second checkout/install/build workflow was intentionally removed.
@@ -169,6 +187,10 @@ jobs:
       needs.check.result == 'success' && needs.check.outputs.site_projection == 'true' &&
       github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    # Deploys queue here, not in the check job; a newer check starts at once.
+    concurrency:
+      group: pages-deploy
+      cancel-in-progress: false
     permissions:
       pages: write
       id-token: write

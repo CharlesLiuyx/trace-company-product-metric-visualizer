@@ -5,6 +5,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   createFullCiPlan,
+  isReviewedTransportMessage,
+  reviewedTransportPlan,
   incomeStatementKeysFromSource,
   parseNameStatusZ,
   planCiChecks,
@@ -118,9 +120,17 @@ function contentFacts(entries, base, head) {
   return facts;
 }
 
+function onlyReviewedTransports(base, head) {
+  const log = spawnSync('git', ['log', '--format=%B%x00', `${base}..${head}`], { cwd: rootDir, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+  if (log.status !== 0) return false;
+  const messages = log.stdout.split('\0').map((message) => message.trim()).filter(Boolean);
+  return messages.length > 0 && messages.every(isReviewedTransportMessage);
+}
+
 function outputValues(plan) {
   const bool = (value) => String(Boolean(value));
   return {
+    reviewed_transport: bool(plan.reviewedTransport),
     needs_browser: bool(plan.needsBrowser),
     verify_app: bool(plan.verifyApp),
     build_site: bool(plan.buildSite),
@@ -163,6 +173,7 @@ async function main() {
     plan = entries == null
       ? createFullCiPlan('missing or zero Git comparison SHA; strict fallback')
       : planCiChecks(entries, diffPlanOptions(entries, options.base, options.head));
+    if (entries != null && options.lastSuccessfulMain && onlyReviewedTransports(options.base, options.head)) plan = reviewedTransportPlan(plan);
   } catch (error) {
     console.warn(`CI planner could not classify the diff: ${error.message}`);
     plan = createFullCiPlan('diff classification failed; strict fallback');

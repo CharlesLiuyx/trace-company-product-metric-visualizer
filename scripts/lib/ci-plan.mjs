@@ -280,6 +280,27 @@ function classifyPath(plan, file, status, options) {
   addReason(plan, `fast checks cover non-runtime file: ${file}`);
 }
 
+// Operator policy (2026-11-08): content the operator reviewed locally ships and
+// is fixed forward if needed. A main range made only of Git transports therefore
+// builds the site and proves it is the reviewed bytes (verify:release), nothing more.
+export const isReviewedTransportMessage = (message) => /^Trace-Transport: transport-[a-f0-9-]+$/m.test(message);
+export function reviewedTransportPlan(plan) {
+  return {
+    ...plan,
+    reviewedTransport: true,
+    needsBrowser: false,
+    verifyApp: false,
+    buildSite: true,
+    verifySite: false,
+    siteProjection: true,
+    renderScope: 'none',
+    renderKeys: [],
+    buildStandalone: false,
+    verifyStandalone: false,
+    reasons: [...plan.reasons, 'every commit since the last successful main is a human-reviewed transport'],
+  };
+}
+
 export function createFullCiPlan(reason = 'diff unavailable; strict fallback') {
   const plan = {
     changedFiles: [],

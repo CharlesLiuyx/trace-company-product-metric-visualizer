@@ -6,6 +6,11 @@
 2. **少误报**：检查失败必须对应一个可解释、可复现的问题。
 3. **快**：只运行与本次 ChangeImpact 有关的浏览器检查；无法分类时回退全量。
 
+**审阅后发布策略（操作员确认，2026-11-08）**：本地人工审阅过的内容上线 99% 没有问题，即使有问题影响面也可控，
+走完管线、往前修复。`main` 上自上次成功以来**全部**提交都带 `Trace-Transport` 时，`plan:ci` 输出
+`reviewed_transport=true`：只构建站点、跑 `verify:release` 核对确实是审阅过的字节，然后部署，其余检查全部跳过。
+范围内混有任何普通提交（代码、文档）就照常走下面的流程。这条策略只有操作员能改。
+
 `scripts/lib/ci-plan.mjs` 是检查选择 Module（路径分类、受影响 key、严格回退和 Actions 输出），
 `scripts/plan-ci.mjs` 是 Git diff Adapter。本地/PR 调用方提供两个 Git SHA；main push 以此工作流
 最近成功且为当前提交祖先的 main push 为 base，历史查询失败或没有有效祖先时全量回退。
@@ -19,20 +24,24 @@ Git diff
   ↓
 ChangeImpact 计划（只决定“要跑什么”，不决定“检查是否通过”）
   ↓
-pip 安装图标裁剪依赖 → pnpm check（始终运行）
+pip 安装图标裁剪依赖 → pnpm check（已审阅交接跳过）
   ↓
 需要浏览器吗？──否──→ 完成
   │是
   ├─ 恢复 Chromium 下载缓存 → 安装 Chromium 与系统库
+  ├─ standalone 构建/自包含检查转入后台（按影响，与下列检查重叠）
   ├─ viewer app + 本地审阅工作台检查（按影响）
   ├─ 恢复旧 Pages runtime → Pages 构建 → verify:release → 加载检查（按影响）
   ├─ 全量或受影响 key 的 render regression
-  └─ standalone 构建/自包含检查（按影响）
+  └─ 收取 standalone 结果
   ↓
 main 且站点内容变化：上传刚验证过的 _site → 保存 runtime/Chromium 缓存 → Deploy Pages
 ```
 
-PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中断正在部署的 Pages。
+`check` Job 按分支并发一组：同一 PR 或 `main` 有新提交时，未跑完的旧 `check` 被取消（Actions 显示
+cancelled），新运行立刻开始。`main` 的 ChangeImpact base 是上一次**成功**的祖先，被取消的提交仍落在
+新运行的检查范围内。`deploy` Job 单独排队（`pages-deploy`，不取消），不会中断正在部署的 Pages；较旧
+提交的 `check` 已被取消就不会进入部署，所以线上不会被旧版本覆盖。
 
 ## 每一个 CI 项在检查什么
 
@@ -58,7 +67,7 @@ PR 有新提交时，旧 CI 会取消；`main` 上的运行不取消，避免中
 
 ### 4. Fast deterministic checks (`pnpm check`)
 
-这一项永远执行，不依赖 ChangeImpact。子项以 `scripts/check.mjs` 的 `steps` 为准（下表按其顺序）。
+除已审阅交接外都执行，不依赖 ChangeImpact。子项以 `scripts/check.mjs` 的 `steps` 为准（下表按其顺序）。
 内部按可用核数并发执行独立项（至少 2、上限 4 个子进程，汇总行打印实际数），每项完成立即输出耗时，全部跑完后统一报失败和总墙钟耗时。
 失败不会跳过其余检查；没有引入跨版本结果缓存。这些检查从项目文件重新推导结果，不需要本机 Build 记录，不替人完成审阅。
 
@@ -166,6 +175,8 @@ hook 只是反馈加速层，CI 仍在完整历史的 fresh checkout 中执行�
   并复用独立 oracle 验证 Apple 全期间统一金额比例尺。
 - **触发**：Dataset Adapter、viewer/runtime、asset 或 standalone 构建工具变化。
 - **不对纯 metadata/revenue 数据重复跑**：其结构由 SSOT 检查负责，standalone 比例尺场景只覆盖 Apple 收入表。
+- **与其他浏览器检查重叠运行**：`Start standalone build and verification` 在 Chromium 安装后转入后台，
+  `Collect standalone verification` 在 render regression 之后输出完整日志并返回它的退出码（5 分钟未结束按失败）。
 
 ### 11. Upload and Deploy Pages
 
@@ -180,6 +191,7 @@ hook 只是反馈加速层，CI 仍在完整历史的 fresh checkout 中执行�
 | 改动 | `pnpm check` | Chromium | Render | App | Site | Standalone |
 | --- | --- | --- | --- | --- | --- | --- |
 | `input/pending/*.png` / `input/processing/*.png` 共享队列变更 | 必跑 | 不装 | 不跑 | 不跑 | 不跑 | 不跑 |
+| `main` 上全部为 `Trace-Transport` 提交 | 不跑 | 不装 | 不跑 | 不跑 | 构建 + `verify:release` | 不跑 |
 | 文档 / 测试 | 必跑 | 通常不装 | 不跑 | 不跑 | 不跑 | 不跑 |
 | Revenue Metric / company metadata | 必跑 | PR 不装 | 不跑 | 不跑 | 构建；main 部署前浏览器验证 | 不跑 |
 | 单个或多个 Dataset Adapter | 必跑 | 安装 | 只跑受影响 key | 不跑 | 构建；main 部署前浏览器验证 | 构建 + 浏览器验证 |
